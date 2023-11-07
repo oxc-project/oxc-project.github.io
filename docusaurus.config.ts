@@ -3,8 +3,9 @@ import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
-  title: 'Oxc',
-  tagline: 'The JavaScript Oxidation Compiler',
+  title: 'The JavaScript Oxidation Compiler',
+  tagline:
+    'A suite of high-performance tools for JavaScript / TypeScript written in Rust.',
   favicon:
     'https://raw.githubusercontent.com/oxc-project/oxc-assets/main/logo-round.png',
   url: 'https://oxc-project.github.io',
