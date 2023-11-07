@@ -11,50 +11,62 @@ const FeatureList: FeatureItem[] = [
   {
     title: 'Parser',
     description: (
-      <>
-      </>
+      <ul>
+        <li>2x faster than swc</li>
+        <li>Passes all of test262</li>
+      </ul>
     ),
   },
   {
     title: 'Linter',
     description: (
-      <>
-      </>
+      <ul>
+        <li>50 - 100x faster than ESLint</li>
+        <li>No configuration is required</li>
+      </ul>
     ),
   },
   {
     title: 'Resolver',
     description: (
-      <>
-      </>
+      <ul>
+        <li>x faster than enhanced-resolve</li>
+        <li>Feature complete</li>
+      </ul>
     ),
   },
   {
     title: 'Transpiler',
     description: (
-      <>
-      </>
+      <ul>
+        <li>Babel compatible</li>
+        <li>Work in Progress</li>
+      </ul>
     ),
   },
   {
     title: 'Minifier',
     description: (
-      <>
-      </>
+      <ul>
+        <li></li>
+        <li>Prototype</li>
+      </ul>
     ),
   },
   {
     title: 'Formatter',
     description: (
-      <>
-      </>
+      <ul>
+        <li>TBD</li>
+      </ul>
     ),
   },
   {
     title: 'Ezno Type Checker',
     description: (
-      <>
-      </>
+      <ul>
+        <li>A novel type checker using the TypeScript syntax</li>
+      </ul>
     ),
   },
 ];
