@@ -50,7 +50,7 @@ const config: Config = {
           type: 'docSidebar',
           position: 'left',
           sidebarId: 'docs',
-          label: 'Docs',
+          label: 'Get Started',
         },
         {
           type: 'docSidebar',
@@ -66,53 +66,32 @@ const config: Config = {
         },
         { to: '/blog', label: 'Blog', position: 'left' },
         {
-          href: 'https://github.com/web-infra-dev/oxc',
+          position: "right",
+          href: "https://x.com/boshen_c",
+          className: "header-twitter-link",
+          'aria-label': 'Twitter',
+          target: "_blank",
+        },
+        {
           position: 'right',
+          href: 'https://discord.gg/9uXCAwqQZW',
+          className: 'header-discord-link',
+          'aria-label': 'Discord',
+          target: '_blank',
+        },
+        {
+          position: 'right',
+          href: 'https://github.com/web-infra-dev/oxc',
           className: 'header-github-link',
+          'aria-label': 'GitHub repository',
+          target: '_blank',
         },
       ],
     },
-    footer: {
-      style: 'dark',
-      links: [
-        {
-          title: 'Docs',
-          items: [
-            {
-              label: 'Tutorial',
-              to: '/docs/intro',
-            },
-          ],
-        },
-        {
-          title: 'Community',
-          items: [
-            {
-              label: 'Discord',
-              href: 'https://discord.gg/9uXCAwqQZW',
-            },
-            {
-              label: 'Twitter',
-              href: 'https://twitter.com/boshen_c',
-            },
-          ],
-        },
-        {
-          title: 'More',
-          items: [
-            {
-              label: 'Blog',
-              to: '/blog',
-            },
-            {
-              label: 'GitHub',
-              href: 'https://github.com/web-infra-dev/oxc',
-            },
-          ],
-        },
-      ],
-      copyright: `Copyright © ${new Date().getFullYear()} Oxc. Built with Docusaurus.`,
-    },
+    // footer: {
+      // style: 'dark',
+      // copyright: `Copyright © ${new Date().getFullYear()} Oxc. Built with Docusaurus.`,
+    // },
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
