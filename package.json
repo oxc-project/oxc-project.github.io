@@ -13,7 +13,8 @@
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
     "typecheck": "tsc",
-    "prettier": "prettier"
+    "prettier": "prettier",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@docusaurus/core": "3.0.0",
