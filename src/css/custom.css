@@ -34,6 +34,7 @@
   width: 24px;
   height: 24px;
   display: flex;
+  filter: invert(100%);
 }
 
 .header-icon:hover {
@@ -41,6 +42,7 @@
 }
 
 [data-theme='dark'] .header-icon::before {
+  filter: invert(0%);
 }
 
 .header-github-link::before {
