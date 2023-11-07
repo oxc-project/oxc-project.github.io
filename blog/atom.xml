@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://oxc-project.github.io/blog</id>
-    <title>Oxc Blog</title>
+    <title>The JavaScript Oxidation Compiler Blog</title>
     <updated>2023-11-07T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://oxc-project.github.io/blog"/>
-    <subtitle>Oxc Blog</subtitle>
+    <subtitle>The JavaScript Oxidation Compiler Blog</subtitle>
     <icon>https://oxc-project.github.io/https://raw.githubusercontent.com/oxc-project/oxc-assets/main/logo-round.png</icon>
     <entry>
         <title type="html"><![CDATA[Announcing Oxc]]></title>

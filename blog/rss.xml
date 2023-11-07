@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0">
     <channel>
-        <title>Oxc Blog</title>
+        <title>The JavaScript Oxidation Compiler Blog</title>
         <link>https://oxc-project.github.io/blog</link>
-        <description>Oxc Blog</description>
+        <description>The JavaScript Oxidation Compiler Blog</description>
         <lastBuildDate>Tue, 07 Nov 2023 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
