@@ -40,7 +40,7 @@ const config: Config = {
   themeConfig: {
     image: 'https://raw.githubusercontent.com/oxc-project/oxc-assets/main/preview-dark-transparent.png',
     navbar: {
-      title: 'Home',
+      title: 'Oxc',
       logo: {
         alt: 'Oxc Logo',
         src: 'https://raw.githubusercontent.com/oxc-project/oxc-assets/main/logo-round.png',
@@ -48,15 +48,27 @@ const config: Config = {
       items: [
         {
           type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
           position: 'left',
-          label: 'Tutorial',
+          sidebarId: 'docs',
+          label: 'Docs',
+        },
+        {
+          type: 'docSidebar',
+          position: 'left',
+          sidebarId: 'contribute',
+          label: 'Contribute',
+        },
+        {
+          type: 'docSidebar',
+          position: 'left',
+          sidebarId: 'docs',
+          label: 'Architecture',
         },
         { to: '/blog', label: 'Blog', position: 'left' },
         {
           href: 'https://github.com/web-infra-dev/oxc',
-          label: 'GitHub',
           position: 'right',
+          className: 'header-github-link',
         },
       ],
     },
@@ -99,7 +111,7 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Oxc`,
+      copyright: `Copyright © ${new Date().getFullYear()} Oxc. Built with Docusaurus.`,
     },
     prism: {
       theme: prismThemes.github,
