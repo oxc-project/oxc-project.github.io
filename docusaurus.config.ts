@@ -5,7 +5,8 @@ import type * as Preset from '@docusaurus/preset-classic';
 const config: Config = {
   title: 'Oxc',
   tagline: 'The JavaScript Oxidation Compiler',
-  favicon: 'https://raw.githubusercontent.com/oxc-project/oxc-assets/main/logo-round.png',
+  favicon:
+    'https://raw.githubusercontent.com/oxc-project/oxc-assets/main/logo-round.png',
   url: 'https://oxc-project.github.io',
   baseUrl: '/',
   organizationName: 'oxc-project',
@@ -26,6 +27,7 @@ const config: Config = {
             'https://github.com/oxc-project/oxc-project.github.io/tree/main',
         },
         blog: {
+          path: 'blog',
           showReadingTime: true,
           editUrl:
             'https://github.com/oxc-project/oxc-project.github.io/tree/main',
@@ -38,7 +40,8 @@ const config: Config = {
   ],
   themes: ['@vegaprotocol/docusaurus-theme-github-codeblock'],
   themeConfig: {
-    image: 'https://raw.githubusercontent.com/oxc-project/oxc-assets/main/preview-dark-transparent.png',
+    image:
+      'https://raw.githubusercontent.com/oxc-project/oxc-assets/main/preview-dark-transparent.png',
     navbar: {
       title: 'Oxc',
       logo: {
@@ -49,7 +52,7 @@ const config: Config = {
         {
           type: 'docSidebar',
           position: 'left',
-          sidebarId: 'docs',
+          sidebarId: 'usage',
           label: 'Get Started',
         },
         {
@@ -61,16 +64,16 @@ const config: Config = {
         {
           type: 'docSidebar',
           position: 'left',
-          sidebarId: 'docs',
+          sidebarId: 'architecture',
           label: 'Architecture',
         },
-        { to: '/blog', label: 'Blog', position: 'left' },
+        { to: 'blog', label: 'Blog', position: 'left' },
         {
-          position: "right",
-          href: "https://x.com/boshen_c",
-          className: "header-twitter-link",
+          position: 'right',
+          href: 'https://x.com/boshen_c',
+          className: 'header-twitter-link',
           'aria-label': 'Twitter',
-          target: "_blank",
+          target: '_blank',
         },
         {
           position: 'right',
@@ -89,8 +92,8 @@ const config: Config = {
       ],
     },
     // footer: {
-      // style: 'dark',
-      // copyright: `Copyright © ${new Date().getFullYear()} Oxc. Built with Docusaurus.`,
+    // style: 'dark',
+    // copyright: `Copyright © ${new Date().getFullYear()} Oxc. Built with Docusaurus.`,
     // },
     prism: {
       theme: prismThemes.github,
