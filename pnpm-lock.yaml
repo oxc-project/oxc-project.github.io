@@ -14,6 +14,9 @@ dependencies:
   '@mdx-js/react':
     specifier: ^3.0.0
     version: 3.0.0(@types/react@18.2.35)(react@18.2.0)
+  '@vegaprotocol/docusaurus-theme-github-codeblock':
+    specifier: ^0.1.8
+    version: 0.1.8
   clsx:
     specifier: ^1.2.1
     version: 1.2.1
@@ -2952,6 +2955,10 @@ packages:
 
   /@ungap/structured-clone@1.2.0:
     resolution: {integrity: sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==}
+    dev: false
+
+  /@vegaprotocol/docusaurus-theme-github-codeblock@0.1.8:
+    resolution: {integrity: sha512-12v5O5PsdZ8lmdeuT/TpJZSnZXkbhndb+2U1ElxqMKkygPxurXGae5ERoR8bhPlwSXuzSktrwUSOuRN/+NNZAw==}
     dev: false
 
   /@webassemblyjs/ast@1.11.6:
