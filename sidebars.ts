@@ -9,6 +9,7 @@ const sidebars: SidebarsConfig = {
     'contribute/resolver',
     'contribute/transformer',
     'contribute/formatter',
+    'contribute/codegen',
     'contribute/minifier',
   ],
   learn: [
