@@ -25,6 +25,13 @@ const sidebars: SidebarsConfig = {
         'learn/architecture/minifier',
       ],
     },
+    {
+      type: 'category',
+      label: 'ECMAScript',
+      items: ['learn/ecmascript/ecma_spec', 'learn/ecmascript/grammar'],
+    },
+    'learn/swc',
+    'learn/biome',
   ],
 };
 
