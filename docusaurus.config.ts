@@ -14,10 +14,10 @@ const config: Config = {
   projectName: 'oxc-project.github.io',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'throw',
-  i18n: {
-    defaultLocale: 'en',
-    locales: ['en', 'ja', 'zh-CN'],
-  },
+  // i18n: {
+  // defaultLocale: 'en',
+  // locales: ['en', 'ja', 'zh-CN'],
+  // },
   presets: [
     [
       'classic',
