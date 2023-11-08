@@ -30,9 +30,10 @@ const sidebars: SidebarsConfig = {
       label: 'ECMAScript',
       items: ['learn/ecmascript/ecma_spec', 'learn/ecmascript/grammar'],
     },
-    'learn/learn_performance',
+    'learn/performance',
     'learn/swc',
     'learn/biome',
+    'learn/references',
   ],
 };
 

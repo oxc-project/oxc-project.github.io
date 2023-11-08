@@ -1,5 +1,5 @@
 ---
-id: learn_performance
+id: performance
 title: Pursuit of Performance
 ---
 
