@@ -11,14 +11,20 @@ const sidebars: SidebarsConfig = {
     'contribute/formatter',
     'contribute/minifier',
   ],
-  architecture: [
-    'architecture/intro',
-    'architecture/parser',
-    'architecture/linter',
-    'architecture/resolver',
-    'architecture/transformer',
-    'architecture/formatter',
-    'architecture/minifier',
+  learn: [
+    {
+      type: 'category',
+      label: 'Architecture',
+      items: [
+        'learn/architecture/intro',
+        'learn/architecture/parser',
+        'learn/architecture/linter',
+        'learn/architecture/resolver',
+        'learn/architecture/transformer',
+        'learn/architecture/formatter',
+        'learn/architecture/minifier',
+      ],
+    },
   ],
 };
 
