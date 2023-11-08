@@ -16,7 +16,7 @@ const config: Config = {
   onBrokenMarkdownLinks: 'throw',
   i18n: {
     defaultLocale: 'en',
-    locales: ['en'],
+    locales: ['en', 'ja', 'zh-CN'],
   },
   presets: [
     [
@@ -75,6 +75,20 @@ const config: Config = {
           href: 'https://web-infra-dev.github.io/oxc/playground',
           target: '_blank',
         },
+        // {
+        // type: 'localeDropdown',
+        // position: 'right',
+        // dropdownItemsAfter: [
+        // {
+        // type: 'html',
+        // value: '<hr style="margin: 0.3rem 0;">',
+        // },
+        // {
+        // href: '',
+        // label: 'Help Us Translate',
+        // },
+        // ],
+        // },
         {
           position: 'right',
           href: 'https://x.com/boshen_c',
