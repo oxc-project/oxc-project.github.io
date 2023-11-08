@@ -13,7 +13,7 @@ const FeatureList: FeatureItem[] = [
     description: (
       <ul>
         <li>2x faster than swc</li>
-        <li>Passes all of test262</li>
+        <li>Passes 99% of Test262</li>
       </ul>
     ),
   },
@@ -22,7 +22,7 @@ const FeatureList: FeatureItem[] = [
     description: (
       <ul>
         <li>50 - 100x faster than ESLint</li>
-        <li>No configuration is required</li>
+        <li>Zero config</li>
       </ul>
     ),
   },
@@ -36,10 +36,10 @@ const FeatureList: FeatureItem[] = [
     ),
   },
   {
-    title: 'Transpiler',
+    title: 'Transformer',
     description: (
       <ul>
-        <li>Babel compatible</li>
+        <li>Babel Compatible</li>
         <li>Work in Progress</li>
       </ul>
     ),
@@ -48,7 +48,8 @@ const FeatureList: FeatureItem[] = [
     title: 'Minifier',
     description: (
       <ul>
-        <li></li>
+        <li>Speed of ESBuild</li>
+        <li>Optimization of Google Closure Compiler</li>
         <li>Prototype</li>
       </ul>
     ),
@@ -57,6 +58,7 @@ const FeatureList: FeatureItem[] = [
     title: 'Formatter',
     description: (
       <ul>
+        <li>Prettier-like</li>
         <li>TBD</li>
       </ul>
     ),
@@ -65,7 +67,25 @@ const FeatureList: FeatureItem[] = [
     title: 'Ezno Type Checker',
     description: (
       <ul>
-        <li>A novel type checker using the TypeScript syntax</li>
+        <li>A novel type checker with TypeScript syntax</li>
+      </ul>
+    ),
+  },
+  {
+    title: 'Rspack Bundler',
+    description: (
+      <ul>
+        <li>Rust port of Webpack</li>
+        <li>Partnership</li>
+      </ul>
+    ),
+  },
+  {
+    title: 'Rolldown Bundler',
+    description: (
+      <ul>
+        <li>Rust port of Rollup</li>
+        <li>Partnership</li>
       </ul>
     ),
   },
