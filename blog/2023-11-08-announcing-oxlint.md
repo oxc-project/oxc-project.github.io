@@ -1,5 +1,5 @@
 ---
-title: Oxlint General Available
+title: Oxlint General Availability
 slug: announcing-oxlint
 authors:
   - boshen
