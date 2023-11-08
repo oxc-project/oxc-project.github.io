@@ -65,8 +65,8 @@ const config: Config = {
         {
           type: 'docSidebar',
           position: 'left',
-          sidebarId: 'architecture',
-          label: 'Architecture',
+          sidebarId: 'learn',
+          label: 'Learn',
         },
         { to: 'blog', label: 'Blog', position: 'left' },
         {
