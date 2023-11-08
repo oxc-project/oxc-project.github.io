@@ -27,4 +27,24 @@
             <uri>https://github.com/boshen</uri>
         </author>
     </entry>
+    <entry>
+        <title type="html"><![CDATA[A research on JavaScript linters]]></title>
+        <id>https://oxc-project.github.io/blog/linter-research</id>
+        <link href="https://oxc-project.github.io/blog/linter-research"/>
+        <updated>2022-08-08T00:00:00.000Z</updated>
+        <author>
+            <name>Boshen</name>
+            <uri>https://github.com/boshen</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[High Performance JavaScript Toolchain]]></title>
+        <id>https://oxc-project.github.io/blog/high-performance-javascript-toolchain</id>
+        <link href="https://oxc-project.github.io/blog/high-performance-javascript-toolchain"/>
+        <updated>2022-02-10T00:00:00.000Z</updated>
+        <author>
+            <name>Boshen</name>
+            <uri>https://github.com/boshen</uri>
+        </author>
+    </entry>
 </feed>
