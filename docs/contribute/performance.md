@@ -5,7 +5,19 @@ title: Performance
 
 # Performance Tuning
 
-## Mac Xcode Instruments
+## Compile Time
+
+While Rust has gained a reputation for its comparatively slower compilation speed,
+we have dedicated significant effort to fine-tune the Rust compilation speed.
+Our aim is to minimize any impact on your development workflow,
+ensuring that developing your own Oxc based tools remains a smooth and efficient experience.
+
+This is demonstrated by our [CI runs](https://github.com/web-infra-dev/oxc/actions/workflows/ci.yml?query=branch%3Amain),
+where warm runs complete in 5 minutes.
+
+## Profile
+
+### Mac Xcode Instruments
 
 Mac Xcode instruments can be used to produce a CPU profile.
 
