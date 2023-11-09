@@ -1,7 +1,7 @@
 import type { SidebarsConfig } from '@docusaurus/plugin-content-docs';
 
 const sidebars: SidebarsConfig = {
-  usage: ['usage/linter', 'usage/resolver'],
+  usage: ['usage/linter', 'usage/parser', 'usage/resolver'],
   contribute: [
     'contribute/intro',
     'contribute/rules',

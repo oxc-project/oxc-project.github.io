@@ -7,17 +7,26 @@ title: Linter
 
 ## Features
 
-- Runs 50 -100 times faster than ESLint ([Benchmark](https://github.com/oxc-project/bench-javascript-linter)).
+- Runs 50 -100 times faster than ESLint, , and scales with the number of CPU cores ([Benchmark](https://github.com/oxc-project/bench-javascript-linter)).
 - No configuration is required for default usage
 - Reports errors and useless code by default
+- Convention over configuration
+
+## Adoptions
+
+![npm](https://img.shields.io/npm/dw/oxlint)
+
+- A 5M LOC typescript codebase previously running ESLint parallelized across 48 workers in CI taking 75 mins (12m wall time), it is now 8 seconds on a single worker. ([Source](https://twitter.com/boshen_c/status/1714827365136929029))
 
 ## Usage
+
+Install [oxlint](https://www.npmjs.com/package/oxlint) or via `npx`:
 
 ```bash
 npx oxlint@latest
 ```
 
-You may also use `yarn dlx`, `pnpm dlx`, `bunx` or `deno run` because `oxlint` is published to [npm](https://www.npmjs.com/package/oxlint).
+You may also use `yarn dlx`, `pnpm dlx`, `bunx` or `deno run` because `oxlint` is published to npm.
 
 ### Commands
 

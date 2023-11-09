@@ -4,7 +4,8 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
   title: 'The JavaScript Oxidation Compiler',
-  tagline: 'A collection of JavaScript tooling written in Rust',
+  tagline:
+    'A collection of high-performance JavaScript tooling written in Rust',
   favicon:
     'https://raw.githubusercontent.com/oxc-project/oxc-assets/main/logo-round.png',
   url: 'https://oxc-project.github.io',

@@ -3,9 +3,12 @@ id: references
 title: References
 ---
 
----
+## 📚 Learning Resources
 
-## title: References
+- My small tutorial on [how to write a JavaScript Parser in Rust](https://oxc-project.github.io/javascript-parser-in-rust)
+- My small article [Pursuit of Performance on Building a JavaScript Compiler](https://rustmagazine.org/issue-3/javascript-compiler/)
+- [Crafting Interpreters](https://craftinginterpreters.com)
+- [Andrew Kelley - Practical DOD](https://vimeo.com/649009599)
 
 ## Parsers (in active development)
 
