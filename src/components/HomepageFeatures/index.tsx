@@ -90,11 +90,13 @@ const FeatureList: FeatureItem[] = [
   },
 ];
 
-function Feature({title, description}: FeatureItem) {
+function Feature({ title, description }: FeatureItem) {
   return (
-    <div className='col col--4 padding-bottom--lg padding-left--xl'>
+    <div className="col col--4 padding-bottom--lg padding-left--xl">
       <div>
-        <Heading as="h3" className="margin-bottom--sm">{title}</Heading>
+        <Heading as="h3" className="margin-bottom--sm">
+          {title}
+        </Heading>
         <p>{description}</p>
       </div>
     </div>
