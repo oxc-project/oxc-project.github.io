@@ -1,6 +1,6 @@
 ---
 id: performance
-title: Pursuit of Performance
+title: Performance
 ---
 
 # Pursuit of Performance on Building a JavaScript Compiler
