@@ -5,6 +5,9 @@ title: Linter
 
 # Oxlint
 
+![npm](https://img.shields.io/npm/dw/oxlint)
+![GitHub Repo stars](https://img.shields.io/github/stars/web-infra-dev/oxc)
+
 ## Features
 
 - Runs 50 -100 times faster than ESLint, , and scales with the number of CPU cores ([Benchmark](https://github.com/oxc-project/bench-javascript-linter)).
@@ -15,8 +18,6 @@ title: Linter
 - Supports [ESLint comment disabling](https://eslint.org/docs/latest/use/configure/rules#disabling-rules)
 
 ## Adoptions
-
-![npm](https://img.shields.io/npm/dw/oxlint)
 
 - A 5M LOC typescript codebase previously running ESLint parallelized across 48 workers in CI taking 75 mins (12m wall time), it is now 8 seconds on a single worker. ([Source](https://twitter.com/boshen_c/status/1714827365136929029))
 
