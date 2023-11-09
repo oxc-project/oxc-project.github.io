@@ -5,26 +5,29 @@ title: Parser
 
 # Parser
 
-# Conformance Tests
+## Conformance Tests
 
-This details the three GitHub repositories for testing our parser against JavaScript and TypeScript grammar.
+```bash
+just c
+```
 
-## Test262
+Aliased to `just coverage`, runs the following conformance test suites by using the conformance runner found in [tasks/coverage](https://github.com/web-infra-dev/oxc/tree/main/tasks/coverage).
+
+### Test262
 
 JavaScript has the [ECMAScript Test Suite](https://github.com/tc39/test262) called Test262.
 The goal of Test262 is to provide test material that covers every observable behavior specified in the specification.
+Parser conformance uses the [parse phase tests](https://github.com/tc39/test262/blob/main/INTERPRETING.md#negative).
 
-For testing conformance, please checkout its [parse phase tests](https://github.com/tc39/test262/blob/main/INTERPRETING.md#negative).
+### Babel
 
-## Babel
+When new language features are added to JavaScript, it is required to have them implemented by Babel,
+this means Babel has another set of [parser tests](https://github.com/babel/babel/tree/main/packages/babel-parser/test).
 
-When new language features are added to JavaScript, it is required to have them get parsed by Babel.
-So Babel has another set of [parser tests](https://github.com/babel/babel/tree/main/packages/babel-parser/test).
-
-## TypeScript
+### TypeScript
 
 The TypeScript conformance tests can be found [here](https://github.com/microsoft/TypeScript/tree/main/tests/cases/conformance).
 
 ## Test Runner
 
-Rome has implemented a test runner for the above test suites, they can be found [here](https://github.com/rome/tools/tree/main/xtask/coverage).
+Rome has implemented a test runner for the above test suites, they can be found .

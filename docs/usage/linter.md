@@ -5,6 +5,8 @@ title: Linter
 
 # Oxlint
 
+## Features
+
 - Runs 50 -100 times faster than ESLint ([Benchmark](https://github.com/oxc-project/bench-javascript-linter)).
 - No configuration is required for default usage
 - Reports errors and useless code by default
@@ -98,5 +100,5 @@ You may download the binaries from the [latest GitHub releases](https://github.c
 - darwin-x64
 - linux-arm64
 - linux-x64
-- win32-arm64.exe
-- win32-x64.exe
+- win32-arm64
+- win32-x64
