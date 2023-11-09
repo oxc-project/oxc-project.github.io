@@ -36,7 +36,7 @@
     "typescript": "~5.2.2"
   },
   "lint-staged": {
-    "*.{js,ts,css,md,json}": "prettier --write"
+    "*.{js,jsx,tsx,ts,css,md,json}": "prettier --write"
   },
   "browserslist": {
     "production": [
