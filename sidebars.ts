@@ -4,6 +4,7 @@ const sidebars: SidebarsConfig = {
   usage: ['usage/linter', 'usage/resolver'],
   contribute: [
     'contribute/intro',
+    'contribute/rules',
     'contribute/parser',
     'contribute/linter',
     'contribute/resolver',
@@ -11,6 +12,8 @@ const sidebars: SidebarsConfig = {
     'contribute/formatter',
     'contribute/codegen',
     'contribute/minifier',
+    'contribute/vscode',
+    'contribute/performance',
     'contribute/showcase',
   ],
   learn: [
