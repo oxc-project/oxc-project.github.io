@@ -15,7 +15,7 @@ title: Linter
 npx oxlint@latest
 ```
 
-You may also use `yarn dlx`, `pnpm dlx`, `bunx` or `deno run` because oxlint is published to [npm](https://www.npmjs.com/package/oxlint).
+You may also use `yarn dlx`, `pnpm dlx`, `bunx` or `deno run` because `oxlint` is published to [npm](https://www.npmjs.com/package/oxlint).
 
 ### Commands
 
@@ -83,17 +83,12 @@ oxlint:
   runs-on: ubuntu-latest
   steps:
     - uses: actions/checkout@v3
-    - name: oxlint
-      run: npx --yes oxlint@latest
+    - run: npx --yes oxlint@latest
 ```
 
 ## Without Node.js
 
-You may download from the latest GitHub releases:
-
-`https://github.com/web-infra-dev/oxc/releases/latest/download/oxlint-{system}`,
-
-For example: https://github.com/web-infra-dev/oxc/releases/latest/download/oxlint-darwin-arm64
+You may download the binaries from the [latest GitHub releases](https://github.com/web-infra-dev/oxc/releases/latest).
 
 ## System Requirements
 
