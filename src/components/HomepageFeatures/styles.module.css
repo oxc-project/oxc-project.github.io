@@ -9,3 +9,11 @@
   height: 200px;
   width: 200px;
 }
+
+.features ul {
+  padding: 0;
+}
+
+.features li {
+  list-style: none;
+}
