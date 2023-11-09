@@ -54,7 +54,7 @@ const config: Config = {
           type: 'docSidebar',
           position: 'left',
           sidebarId: 'usage',
-          label: 'Get Started',
+          label: 'Getting Started',
         },
         {
           type: 'docSidebar',

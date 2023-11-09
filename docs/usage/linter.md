@@ -8,9 +8,11 @@ title: Linter
 ## Features
 
 - Runs 50 -100 times faster than ESLint, , and scales with the number of CPU cores ([Benchmark](https://github.com/oxc-project/bench-javascript-linter)).
-- No configuration is required for default usage
+- No configuration is required
+- Convention over configuration,
 - Reports errors and useless code by default
-- Convention over configuration
+- Supports [.eslintignore](https://eslint.org/docs/latest/use/configure/ignore#the-eslintignore-file)
+- Supports [ESLint comment disabling](https://eslint.org/docs/latest/use/configure/rules#disabling-rules)
 
 ## Adoptions
 

@@ -17,6 +17,8 @@ const sidebars: SidebarsConfig = {
     'contribute/showcase',
   ],
   learn: [
+    'learn/ecosystem',
+    'learn/partnership',
     {
       type: 'category',
       label: 'Architecture',
@@ -36,8 +38,6 @@ const sidebars: SidebarsConfig = {
       items: ['learn/ecmascript/ecma_spec', 'learn/ecmascript/grammar'],
     },
     'learn/performance',
-    'learn/swc',
-    'learn/biome',
     'learn/references',
   ],
 };
