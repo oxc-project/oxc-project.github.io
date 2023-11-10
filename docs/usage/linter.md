@@ -6,7 +6,7 @@ title: Linter
 # Oxlint
 
 ![npm](https://img.shields.io/npm/dw/oxlint)
-![GitHub Repo stars](https://img.shields.io/github/stars/web-infra-dev/oxc)
+![GitHub Repo stars](https://img.shields.io/github/stars/oxc-project/oxc)
 
 ## Features
 
@@ -83,7 +83,7 @@ Available options:
 
 ## Without Node.js
 
-You may download the binaries from the [latest GitHub releases](https://github.com/web-infra-dev/oxc/releases/latest).
+You may download the binaries from the [latest GitHub releases](https://github.com/oxc-project/oxc/releases/latest).
 
 ## System Requirements
 
