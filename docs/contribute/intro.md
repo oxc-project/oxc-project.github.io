@@ -6,7 +6,7 @@ title: Installation
 ## Clone Repo
 
 ```bash
-git clone --recurse-submodules git@github.com:web-infra-dev/oxc.git
+git clone --recurse-submodules git@github.com:oxc-project/oxc.git
 cd oxc
 ```
 

@@ -3,7 +3,7 @@ id: rules
 title: Rules
 ---
 
-- Check out some of the [good first issues](https://github.com/web-infra-dev/oxc/contribute) or ask us on [Discord][discord-url].
+- Check out some of the [good first issues](https://github.com/oxc-project/oxc/contribute) or ask us on [Discord][discord-url].
 - We welcome any form of contributions
 - We prefer smaller PRs to get things merged quickly
 - We recommend submitting stacked PRs via https://graphite.dev

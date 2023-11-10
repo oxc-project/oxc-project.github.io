@@ -72,7 +72,7 @@ const config: Config = {
         {
           position: 'right',
           label: 'Playground',
-          href: 'https://web-infra-dev.github.io/oxc/playground',
+          href: 'https://oxc-project.github.io/oxc/playground',
           target: '_blank',
         },
         // {
@@ -105,7 +105,7 @@ const config: Config = {
         },
         {
           position: 'right',
-          href: 'https://github.com/web-infra-dev/oxc',
+          href: 'https://github.com/oxc-project/oxc',
           className: 'header-icon header-github-link',
           'aria-label': 'GitHub repository',
           target: '_blank',

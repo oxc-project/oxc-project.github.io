@@ -13,7 +13,7 @@ We aim to be the fastest Rust-based ready-for-production parser.
 just c
 ```
 
-Aliased to `just coverage`, runs the following conformance test suites by using the conformance runner found in [tasks/coverage](https://github.com/web-infra-dev/oxc/tree/main/tasks/coverage).
+Aliased to `just coverage`, runs the following conformance test suites by using the conformance runner found in [tasks/coverage](https://github.com/oxc-project/oxc/tree/main/tasks/coverage).
 
 ### Test262
 

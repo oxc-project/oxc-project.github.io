@@ -25,7 +25,7 @@ function HomepageHeader() {
           </Link>
           <Link
             className="button button--secondary"
-            to="https://github.com/web-infra-dev/oxc"
+            to="https://github.com/oxc-project/oxc"
           >
             View on Github
           </Link>

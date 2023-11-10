@@ -12,7 +12,7 @@ we have dedicated significant effort to fine-tune the Rust compilation speed.
 Our aim is to minimize any impact on your development workflow,
 ensuring that developing your own Oxc based tools remains a smooth and efficient experience.
 
-This is demonstrated by our [CI runs](https://github.com/web-infra-dev/oxc/actions/workflows/ci.yml?query=branch%3Amain),
+This is demonstrated by our [CI runs](https://github.com/oxc-project/oxc/actions/workflows/ci.yml?query=branch%3Amain),
 where warm runs complete in 5 minutes.
 
 ## Profile
