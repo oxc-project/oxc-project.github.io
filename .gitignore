@@ -5,8 +5,7 @@
 /build
 
 # Generated files
-.docusaurus
-.cache-loader
+/.vitepress/cache
 
 # Misc
 .DS_Store
