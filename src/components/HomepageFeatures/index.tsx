@@ -1,5 +1,5 @@
-import Heading from '@theme/Heading';
-import styles from './styles.module.css';
+import Heading from "@theme/Heading";
+import styles from "./styles.module.css";
 
 type FeatureItem = {
   title: string;
@@ -8,7 +8,7 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Parser',
+    title: "Parser",
     description: (
       <ul>
         <li>2x faster than swc</li>
@@ -17,7 +17,7 @@ const FeatureList: FeatureItem[] = [
     ),
   },
   {
-    title: 'Linter',
+    title: "Linter",
     description: (
       <ul>
         <li>50 - 100x faster than ESLint</li>
@@ -26,16 +26,16 @@ const FeatureList: FeatureItem[] = [
     ),
   },
   {
-    title: 'Resolver',
+    title: "Resolver",
     description: (
       <ul>
-        <li>x faster than enhanced-resolve</li>
+        <li>28 faster than enhanced-resolve</li>
         <li>Feature complete</li>
       </ul>
     ),
   },
   {
-    title: 'Transformer',
+    title: "Transformer",
     description: (
       <ul>
         <li>Babel Compatible</li>
@@ -44,7 +44,7 @@ const FeatureList: FeatureItem[] = [
     ),
   },
   {
-    title: 'Minifier',
+    title: "Minifier",
     description: (
       <ul>
         <li>Speed of ESBuild</li>
@@ -54,16 +54,16 @@ const FeatureList: FeatureItem[] = [
     ),
   },
   {
-    title: 'Formatter',
+    title: "Formatter",
     description: (
       <ul>
         <li>Prettier-like</li>
-        <li>TBD</li>
+        <li>To be worked on</li>
       </ul>
     ),
   },
   {
-    title: 'Ezno Type Checker',
+    title: "Ezno Type Checker",
     description: (
       <ul>
         <li>A novel type checker with TypeScript syntax</li>
@@ -71,7 +71,7 @@ const FeatureList: FeatureItem[] = [
     ),
   },
   {
-    title: 'Rspack Bundler',
+    title: "Rspack Bundler",
     description: (
       <ul>
         <li>Rust port of Webpack</li>
@@ -80,7 +80,7 @@ const FeatureList: FeatureItem[] = [
     ),
   },
   {
-    title: 'Rolldown Bundler',
+    title: "Rolldown Bundler",
     description: (
       <ul>
         <li>Rust port of Rollup</li>
