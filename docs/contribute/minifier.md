@@ -1,8 +1,3 @@
----
-id: minifier
-title: Minifier
----
-
 # Minifier
 
 JavaScript minification plays a crucial role in optimizing website performance as it reduces the amount of data sent to users,

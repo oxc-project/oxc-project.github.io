@@ -1,13 +1,8 @@
----
-id: parser
-title: Parser
----
-
 # Parser
 
 ## Features
 
-- 2x faster then swc parser
+- 2x faster then swc
 - by far the fastest and most conformant JavaScript and TypeScript (including JSX and TSX) parser written in Rust
 
 [Benchmark](https://github.com/oxc-project/bench-javascript-parser-written-in-rust)

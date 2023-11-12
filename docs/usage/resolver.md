@@ -1,8 +1,3 @@
----
-id: resolver
-title: Resolver
----
-
 # Resolver
 
 Node.js Module Resolution.

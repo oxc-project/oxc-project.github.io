@@ -1,8 +1,3 @@
----
-id: linter
-title: Linter
----
-
 # Oxlint
 
 ![npm](https://img.shields.io/npm/dw/oxlint)

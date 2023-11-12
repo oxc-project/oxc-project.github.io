@@ -1,8 +1,3 @@
----
-id: linter
-title: Linter
----
-
 # Linter
 
 ## Development

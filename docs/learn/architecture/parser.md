@@ -1,8 +1,3 @@
----
-id: parser
-title: Parser
----
-
 # Parser
 
 Oxc maintains its own AST and parser, which is by far the fastest and most conformant JavaScript and TypeScript (including JSX and TSX) parser written in Rust.

@@ -1,8 +1,3 @@
----
-id: performance
-title: Performance
----
-
 # Pursuit of Performance on Building a JavaScript Compiler
 
 Originally posted on https://rustmagazine.org/issue-3/javascript-compiler/

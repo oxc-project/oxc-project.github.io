@@ -1,8 +1,3 @@
----
-id: resolver
-title: Resolver
----
-
 # Resolver
 
 Module resolution plays a crucial role in JavaScript tooling, especially for tasks like multi-file analysis or bundling. However, it can often become a performance bottleneck.

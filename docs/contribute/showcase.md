@@ -1,8 +1,3 @@
----
-id: showcase
-title: Showcase
----
-
 # Showcase
 
 Example PRs adding `oxlint`:

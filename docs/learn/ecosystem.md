@@ -1,8 +1,3 @@
----
-id: ecosystem
-title: Ecosystem
----
-
 # Ecosystem
 
 Contributing to oxc will benefit the whole frontend development community.

@@ -1,8 +1,3 @@
----
-id: vscode
-title: VSCode Extension
----
-
 # VSCode Extension
 
 ## Development

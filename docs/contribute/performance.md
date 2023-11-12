@@ -1,8 +1,3 @@
----
-id: performance
-title: Performance
----
-
 # Performance Tuning
 
 ## Compile Time

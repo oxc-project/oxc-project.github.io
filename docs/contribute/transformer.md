@@ -1,8 +1,3 @@
----
-id: transformer
-title: Transformer
----
-
 # Transformer
 
 A transformer is responsible for turning higher versions of ECMAScript to a lower version that can be used in older browsers.

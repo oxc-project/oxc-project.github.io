@@ -1,8 +1,3 @@
----
-id: parser
-title: Parser
----
-
 # Parser
 
 We aim to be the fastest Rust-based ready-for-production parser.

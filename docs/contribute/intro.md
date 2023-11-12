@@ -1,8 +1,3 @@
----
-id: intro
-title: Installation
----
-
 # Installation
 
 ## Clone Repo

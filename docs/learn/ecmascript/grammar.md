@@ -1,8 +1,3 @@
----
-id: grammar
-title: Grammar
----
-
 # Grammar
 
 JavaScript has one of the most challenging grammar to parse,

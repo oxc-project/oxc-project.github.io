@@ -1,8 +1,3 @@
----
-id: references
-title: References
----
-
 # References
 
 ## 📚 Learning Resources

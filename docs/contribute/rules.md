@@ -1,8 +1,3 @@
----
-id: rules
-title: Rules
----
-
 # Rules
 
 - Check out some of the [good first issues](https://github.com/oxc-project/oxc/contribute) or ask us on [Discord][discord-url].
