@@ -3,6 +3,8 @@ id: grammar
 title: Grammar
 ---
 
+# Grammar
+
 JavaScript has one of the most challenging grammar to parse,
 this tutorial details all the sweat and tears I had while learning it.
 
@@ -230,7 +232,7 @@ The following syntax is correct, it returns a labelled statement (not object lit
 ```javascript
 <Foo
   bar={() => {
-    baz: 'quaz';
+    baz: "quaz";
   }}
 />
 //   ^^^^^^^^^^^ `LabelledStatement`

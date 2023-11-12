@@ -1,0 +1,14 @@
+[
+  "intro",
+  "rules",
+  "parser",
+  "linter",
+  "resolver",
+  "transformer",
+  "formatter",
+  "codegen",
+  "minifier",
+  "vscode",
+  "performance",
+  "showcase"
+]

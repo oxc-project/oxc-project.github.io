@@ -1,0 +1,31 @@
+[
+  {
+    "text": "Getting Started",
+    "link": "/usage/linter",
+    "activeMatch": "^/usage/",
+    "position": "left"
+  },
+  {
+    "text": "Contribute",
+    "link": "/contribute/intro",
+    "activeMatch": "^/contribute/",
+    "position": "left"
+  },
+  {
+    "text": "Learn",
+    "link": "/learn/ecosystem",
+    "activeMatch": "^/learn/",
+    "position": "left"
+  },
+  {
+    "text": "Blog",
+    "link": "/blog/2023-11-09-biome",
+    "activeMatch": "^/blog/",
+    "position": "left"
+  },
+  {
+    "text": "Playground",
+    "link": "https://oxc-project.github.io/oxc/playground/",
+    "position": "right"
+  }
+]

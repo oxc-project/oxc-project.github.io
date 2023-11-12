@@ -6,6 +6,7 @@ title: Linter
 # Oxlint
 
 ![npm](https://img.shields.io/npm/dw/oxlint)
+
 ![GitHub Repo stars](https://img.shields.io/github/stars/oxc-project/oxc)
 
 ## Features

@@ -1,0 +1,20 @@
+[
+  "ecosystem",
+  "partnership",
+  {
+    "type": "dir",
+    "label": "Architecture",
+    "name": "architecture"
+  },
+  {
+    "type": "dir",
+    "label": "ECMAScript",
+    "name": "ecmascript"
+  },
+  {
+    "type": "file",
+    "label": "Performance",
+    "name": "performance"
+  },
+  "references"
+]

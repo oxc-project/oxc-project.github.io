@@ -3,6 +3,8 @@ id: references
 title: References
 ---
 
+# References
+
 ## 📚 Learning Resources
 
 - My small tutorial on [how to write a JavaScript Parser in Rust](https://oxc-project.github.io/javascript-parser-in-rust)
