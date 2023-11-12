@@ -3,8 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "rspress start",
+    "start": "rspress dev",
     "build": "rspress build",
+    "preview": "rspress preview",
     "typecheck": "tsc",
     "prettier": "prettier",
     "prepare": "husky install"
@@ -16,7 +17,7 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "rspress": "1.5.1",
+    "rspress": "1.6.1",
     "husky": "^8.0.3",
     "lint-staged": "15.0.2",
     "prettier": "^3.0.3",

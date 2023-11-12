@@ -3,8 +3,6 @@ id: ecma_spec
 title: Specification
 ---
 
-ß
-
 # Specification
 
 [The ECMAScript® 2023 Language Specification](https://tc39.es/ecma262/) details everything about the JavaScript language, so anyone can implement their own JavaScript engine.
