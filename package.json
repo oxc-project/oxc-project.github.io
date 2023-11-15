@@ -21,7 +21,7 @@
     "typescript": "~5.2.2"
   },
   "lint-staged": {
-    "*.{js,jsx,tsx,ts,css,md,json}": "prettier --write"
+    "*.{js,jsx,tsx,ts,css,md,json,mts}": "prettier --write"
   },
   "engines": {
     "node": ">=18.0"
