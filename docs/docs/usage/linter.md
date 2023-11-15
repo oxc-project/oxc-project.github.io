@@ -25,7 +25,7 @@ badges:
 
 - A 5M LOC typescript codebase previously running ESLint parallelized across 48 workers in CI taking 75 mins (12m wall time), it is now 8 seconds on a single worker. ([Source](https://twitter.com/boshen_c/status/1714827365136929029))
 
-## Usage
+## Installation
 
 Install [oxlint](https://www.npmjs.com/package/oxlint) or via `npx`:
 
@@ -35,16 +35,16 @@ npx oxlint@latest
 
 You may also use `yarn dlx`, `pnpm dlx`, `bunx` or `deno run` because `oxlint` is published to npm.
 
-## VSCode Extension
+### VSCode Extension
 
 https://marketplace.visualstudio.com/items?itemName=oxc.oxc-vscode
 
-## Continuous Integration
+### Continuous Integration
 
 We recommend running `oxlint` before `eslint` in your CI for faster feedback loops,
 since `oxlint` only takes a few seconds to run.
 
-### GitHub Actions
+#### GitHub Actions
 
 ```yaml
 jobs:
@@ -83,7 +83,7 @@ Add to `coc-settings.json`:
 
 https://github.com/NixOS/nixpkgs/blob/master/pkgs/development/tools/oxlint/default.nix
 
-### Commands
+## Commands
 
 Run `npx oxlint@latest --rules` for the list of rules.
 
