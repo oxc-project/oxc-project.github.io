@@ -30,7 +30,7 @@ export default defineConfig({
     socialLinks: [
       { icon: 'twitter', link: 'https://x.com/boshen_c' },
       { icon: 'discord', link: 'https://discord.gg/9uXCAwqQZW' },
-      { icon: 'github', link: 'https://github.com/vuejs/vitepress' },
+      { icon: 'github', link: 'https://github.com/oxc-project' },
     ],
     editLink: {
       pattern: 'https://github.com/oxc-project/oxc/edit/main/src/:path',
