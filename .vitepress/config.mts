@@ -48,8 +48,13 @@ export default defineConfig({
             { text: 'Linter', link: '/docs/usage/linter' },
             { text: 'Parser', link: '/docs/usage/parser' },
             { text: 'Resolver', link: '/docs/usage/resolver' },
-            { text: 'Philosophy', link: '/docs/usage/philosophy' },
           ],
+        },
+        {
+          items: [
+            { text: 'Philosophy', link: '/docs/usage/philosophy' },
+            { text: 'Benchmarks', link: '/docs/usage/benchmarks' },
+          ]
         }
       ],
       '/docs/contribute/': [
@@ -92,10 +97,10 @@ export default defineConfig({
         { text: 'References', link: '/docs/learn/references' },
       ],
       '/blog/': [
-        { text: 'High Performance JavaScript Toolchain', link: '/blog/2022-02-10-js-tooling-research' },
-        { text: 'A research on JavaScript linters', link: '/blog/2022-08-08-linter-research' },
-        { text: 'Announcing Oxc', link: '/blog/2023-11-07-announcing-oxc' },
         { text: 'Oxlint General Availability', link: '/blog/2023-11-08-announcing-oxlint' },
+        { text: 'Announcing Oxc', link: '/blog/2023-11-07-announcing-oxc' },
+        { text: 'A research on JavaScript linters', link: '/blog/2022-08-08-linter-research' },
+        { text: 'High Performance JavaScript Toolchain', link: '/blog/2022-02-10-js-tooling-research' },
       ]
     },
   },

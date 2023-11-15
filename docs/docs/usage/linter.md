@@ -4,7 +4,7 @@ outline: deep
 badges:
   - src: https://img.shields.io/npm/dw/oxlint
     alt: npm
-  - src: https://img.shields.io/github/stars/oxc-project/oxc"
+  - src: https://img.shields.io/github/stars/oxc-project/oxc
     alt: GitHub Repo stars
 ---
 

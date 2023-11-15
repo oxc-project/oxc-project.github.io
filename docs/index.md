@@ -2,9 +2,9 @@
 # https://vitepress.dev/reference/default-theme-home-page
 layout: home
 hero:
-  name: "The JavaScript Oxidation Compiler"
-  text: ""
-  tagline: A collection of high-performance JavaScript tools written in Rust
+  name: 'The JavaScript Oxidation Compiler'
+  text: ''
+  tagline: A collection of JavaScript tools written in Rust
   image:
     src: https://raw.githubusercontent.com/oxc-project/oxc-assets/main/logo-round.png
     alt: The JavaScript Oxidation Compiler
@@ -16,21 +16,21 @@ hero:
       text: View on GitHub
       link: https://github.com/oxc-project/oxc
 features:
-  - title: Parser
+  - title: <a href="/usage/parser">Parser ✅</a>
     details: 2x faster than swc<br>Passes 99% of Test262
-  - title: Linter
+  - title: <a href="/usage/linter">Linter ✅</a>
     details: 50 - 100x faster than ESLint<br>Zero config
-  - title: Resolver
-    details: 28 faster than enhanced-resolve<br>Feature complete
+  - title: <a href="/usage/resolver">Resolver ✅</a>
+    details: 28x faster than enhanced-resolve<br>Feature complete
+  - title: Formatter 🚧
+    details: Prettier compatible<br>Work in progress
   - title: Transformer
-    details: Babel Compatible<br>Work in Progress
+    details: Babel compatible<br>Prototype
   - title: Minifier
-    details: Speed of ESBuild<br>Optimization of Google Closure Compiler<br>Prototype
-  - title: Formatter
-    details: Prettier-like<br>To be worked on
-  - title: Ezno Type Checker
-    details: A novel type checker with TypeScript syntax
-  - title: Rspack Bundler
+    details: Optimization of Google Closure Compiler<br>Prototype
+  - title: <a href="https://github.com/kaleidawave/ezno">Ezno Type Checker</a>
+    details: A novel TypeScript type checker
+  - title: <a href="https://rspack.dev">Rspack Bundler ✅</a>
     details: Rust port of Webpack<br>Partnership
   - title: Rolldown Bundler
     details: Rust port of Rollup<br>Partnership
