@@ -15,7 +15,7 @@ outline: deep
 
 ### Bias towards action
 
-(Taken from [Astral's values](https://astral-sh.notion.site/Astral-s-Values-0ed6a642bcc84e91af6836b2373572f5):)
+(Taken from [Astral's values](https://astral-sh.notion.site/Astral-s-Values-0ed6a642bcc84e91af6836b2373572f5))
 
 We bias towards action, even in the face of uncertainty. We favor **pragmatic doing** over **prolonged debating**; we favor asking for **forgiveness** over **permission**. We value **decisiveness** — especially when a decision isn’t clear cut, and **especially** when a decision is reversible.
 
