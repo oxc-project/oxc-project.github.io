@@ -12,16 +12,16 @@ outline: deep
 
 [Benchmark](https://github.com/oxc-project/bench-javascript-parser-written-in-rust)
 
-## Usage in Rust
+## Rust Usage
 
 - The umbrella crate [oxc][docs-oxc-url] exports all public crates from this repository.
 - The AST and parser crates [oxc_ast][docs-ast-url] and [oxc_parser][docs-parser-url] are production ready.
 
-## Usage in Node
+## Node.js Usage
 
-- Via napi: [@oxidation-compiler/napi][npm-napi]
+- Via napi: [oxc-parser][npm-napi]
 
 [docs-oxc-url]: https://docs.rs/oxc
 [docs-ast-url]: https://docs.rs/oxc_ast
 [docs-parser-url]: https://docs.rs/oxc_parser
-[npm-napi]: https://www.npmjs.com/package/@oxidation-compiler/napi
+[npm-napi]: https://www.npmjs.com/package/oxc-parser

@@ -15,6 +15,10 @@ Node.js Module Resolution.
 - https://docs.rs/oxc_resolver
 - https://crates.io/oxc_resolver
 
+## Node.js Usage
+
+- Via napi: [oxc-resolver][https://www.npmjs.com/package/oxc-resolver]
+
 ## Example
 
 ```rust
