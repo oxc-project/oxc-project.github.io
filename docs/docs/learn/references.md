@@ -3,9 +3,9 @@ title: References
 outline: deep
 ---
 
-## Projects Using Oxc
+# References
 
-- [tyvm](https://github.com/zackradisic/tyvm)(An experimental bytecode interpreter for type-level Typescript)
+## Projects Using Oxc
 
 ## 📚 Learning Resources
 
