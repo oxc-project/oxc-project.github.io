@@ -3,13 +3,15 @@ title: Rules
 outline: deep
 ---
 
-- We welcome any form of contributions
+# Rules
+
+- We welcome any form of contributions.
 - APIs should be simple and well-documented.
 - All performance issues (runtime and compilation speed) are considered as bugs in this project.
 - Third-party dependencies should be minimal.
 - Monitor code coverage for unused code. Aim for 99% code coverage.
 - Embrace data-oriented design.
-- We prefer smaller PRs to get things merged quickly. Try stacked PRs with https://graphite.dev if repo write permission is given to you.
+- We prefer smaller PRs to get things merged quickly. Try stacked PRs with [graphite](https://graphite.dev) if repo write permission is given to you.
 
 ---
 
