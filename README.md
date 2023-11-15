@@ -1,23 +1,12 @@
 # Oxc Website
 
-### Installation
+### Contributing
 
+This site is built with [VitePress](https://github.com/vuejs/vitepress) and requires [Node.js](https://nodejs.org/en/) to be v18.0.0 or higher.
+
+For local development, [pnpm](https://pnpm.io/) is preferred as package manager:
+
+```sh
+pnpm i
+pnpm run dev
 ```
-pnpm install
-```
-
-### Local Development
-
-```
-pnpm start
-```
-
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
-
-### Build
-
-```
-pnpm build
-```
-
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
