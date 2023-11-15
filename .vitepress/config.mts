@@ -88,8 +88,6 @@ export default defineConfig({
         { text: 'Showcase', link: '/docs/contribute/showcase' },
       ],
       '/docs/learn/': [
-        { text: 'Ecosystem', link: '/docs/learn/ecosystem' },
-        { text: 'Partnership', link: '/docs/learn/partnership' },
         {
           text: 'Architecture',
           items: [
@@ -113,6 +111,7 @@ export default defineConfig({
           ],
         },
         { text: 'Performance', link: '/docs/learn/performance' },
+        { text: 'Ecosystem', link: '/docs/learn/ecosystem' },
         { text: 'References', link: '/docs/learn/references' },
       ],
       '/blog/': [
