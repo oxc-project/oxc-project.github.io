@@ -3,6 +3,10 @@ title: References
 outline: deep
 ---
 
+## Projects Using Oxc
+
+- [tyvm](https://github.com/zackradisic/tyvm)(An experimental bytecode interpreter for type-level Typescript)
+
 ## 📚 Learning Resources
 
 - My small tutorial on [how to write a JavaScript Parser in Rust](https://oxc-project.github.io/javascript-parser-in-rust)

@@ -56,6 +56,33 @@ jobs:
       - run: npx --yes oxlint@latest
 ```
 
+### Without Node.js
+
+You may download the binaries from the [latest GitHub releases](https://github.com/oxc-project/oxc/releases/latest).
+
+### Vim / Nvim (coc)
+
+Add to `coc-settings.json`:
+
+```javascript
+  "languageserver": {
+    "oxc": {
+      "command": "oxc_vscode",
+      "filetypes": [
+        "typescript",
+        "javascript"
+      ],
+      "rootPatterns": [
+        ".git"
+      ]
+    }
+  },
+```
+
+### Nix
+
+https://github.com/NixOS/nixpkgs/blob/master/pkgs/development/tools/oxlint/default.nix
+
 ### Commands
 
 Run `npx oxlint@latest --rules` for the list of rules.
@@ -84,10 +111,6 @@ Available positional items:
 Available options:
     -h, --help                Prints help information
 ```
-
-## Without Node.js
-
-You may download the binaries from the [latest GitHub releases](https://github.com/oxc-project/oxc/releases/latest).
 
 ## System Requirements
 
