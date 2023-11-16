@@ -10,11 +10,11 @@ Check out some of the [good first issues](https://github.com/oxc-project/oxc/con
 ## Clone Repo
 
 ```bash
-git clone --recurse-submodules git@github.com:oxc-project/oxc.git
+git clone --recurse-submodules --shallow-submodules git@github.com:oxc-project/oxc.git
 cd oxc
 ```
 
-The `--recurse-submodules` flag will also clone some submodules ([test262](https://github.com/tc39/test262), [babel](https://github.com/babel/babel), [typescript](https://github.com/microsoft/TypeScript)).
+The `--recurse-submodules --shallow-submodules` flag will also initialize git submodules that are needed to run conformance tests.
 
 ## New to Rust
 
