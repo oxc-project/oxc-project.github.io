@@ -17,7 +17,74 @@ export default defineConfig({
         href: "https://raw.githubusercontent.com/oxc-project/oxc-assets/main/logo-round.png",
       },
     ],
+    [
+      "meta",
+      {
+        property: "description",
+        content: "OXC: The JavaScript Oxidation Compiler",
+      },
+    ],
+
+    // og
+    [
+      "meta",
+      {
+        property: "og:title",
+        content: "OXC: The JavaScript Oxidation Compiler",
+      },
+    ],
+    [
+      "meta",
+      {
+        property: "og:description",
+        content:
+          "A collection of high-performance JavaScript tools written in Rust",
+      },
+    ],
+    ["meta", { property: "og:site_name", content: "OXC" }],
+    [
+      "meta",
+      {
+        property: "og:url",
+        content: "https://github.com/oxc-project",
+      },
+    ],
+    [
+      "meta",
+      {
+        property: "og:image",
+        content:
+          "https://github.com/oxc-project/oxc-assets/blob/main/preview-white.png?raw=true",
+      },
+    ],
+    // Twitter (X)
+    ["meta", { name: "twitter:card", content: "summary_large_image" }],
+    [
+      "meta",
+      {
+        name: "twitter:image",
+        content:
+          "https://github.com/oxc-project/oxc-assets/blob/main/preview-white.png?raw=true",
+      },
+    ],
+    ["meta", { name: "twitter:image:alt", content: "OXC" }],
+    [
+      "meta",
+      {
+        name: "twitter:title",
+        content: "OXC: The JavaScript Oxidation Compiler",
+      },
+    ],
+    [
+      "meta",
+      {
+        name: "twitter:description",
+        content:
+          "A collection of high-performance JavaScript tools written in Rust",
+      },
+    ],
   ],
+
   lastUpdated: true,
   themeConfig: {
     siteTitle: "OXC",
@@ -80,7 +147,10 @@ export default defineConfig({
             { text: "Linter", link: "/docs/contribute/linter" },
             { text: "Prettier", link: "/docs/contribute/prettier" },
             { text: "Resolver", link: "/docs/contribute/resolver" },
-            { text: "Transformer", link: "/docs/contribute/transformer" },
+            {
+              text: "Transformer",
+              link: "/docs/contribute/transformer",
+            },
             { text: "Formatter", link: "/docs/contribute/formatter" },
             { text: "Codegen", link: "/docs/contribute/codegen" },
             { text: "Minifier", link: "/docs/contribute/minifier" },
@@ -95,22 +165,40 @@ export default defineConfig({
           text: "Architecture",
           items: [
             { text: "Intro", link: "/docs/learn/architecture/intro" },
-            { text: "Parser", link: "/docs/learn/architecture/parser" },
-            { text: "Linter", link: "/docs/learn/architecture/linter" },
-            { text: "Resolver", link: "/docs/learn/architecture/resolver" },
+            {
+              text: "Parser",
+              link: "/docs/learn/architecture/parser",
+            },
+            {
+              text: "Linter",
+              link: "/docs/learn/architecture/linter",
+            },
+            {
+              text: "Resolver",
+              link: "/docs/learn/architecture/resolver",
+            },
             {
               text: "Transformer",
               link: "/docs/learn/architecture/transformer",
             },
-            { text: "Formatter", link: "/docs/learn/architecture/formatter" },
-            { text: "Minifier", link: "/docs/learn/architecture/minifier" },
+            {
+              text: "Formatter",
+              link: "/docs/learn/architecture/formatter",
+            },
+            {
+              text: "Minifier",
+              link: "/docs/learn/architecture/minifier",
+            },
           ],
         },
         {
           text: "ECMAScript",
           items: [
             { text: "Spec", link: "/docs/learn/ecmascript/spec" },
-            { text: "Grammar", link: "/docs/learn/ecmascript/grammar" },
+            {
+              text: "Grammar",
+              link: "/docs/learn/ecmascript/grammar",
+            },
           ],
         },
         { text: "Performance", link: "/docs/learn/performance" },
@@ -122,7 +210,10 @@ export default defineConfig({
           text: "Oxlint General Availability",
           link: "/blog/2023-11-08-announcing-oxlint",
         },
-        { text: "Announcing Oxc", link: "/blog/2023-11-07-announcing-oxc" },
+        {
+          text: "Announcing Oxc",
+          link: "/blog/2023-11-07-announcing-oxc",
+        },
         {
           text: "A research on JavaScript linters",
           link: "/blog/2022-08-08-linter-research",
