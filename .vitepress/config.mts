@@ -67,22 +67,6 @@ export default defineConfig({
           "https://github.com/oxc-project/oxc-assets/blob/main/preview-white.png?raw=true",
       },
     ],
-    ["meta", { name: "twitter:image:alt", content: "OXC" }],
-    [
-      "meta",
-      {
-        name: "twitter:title",
-        content: "OXC: The JavaScript Oxidation Compiler",
-      },
-    ],
-    [
-      "meta",
-      {
-        name: "twitter:description",
-        content:
-          "A collection of high-performance JavaScript tools written in Rust",
-      },
-    ],
   ],
 
   lastUpdated: true,
