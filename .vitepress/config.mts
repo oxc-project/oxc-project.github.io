@@ -78,8 +78,7 @@ export default defineConfig({
       provider: "local",
     },
     nav: [
-      { text: "Home", link: "/" },
-      { text: "Getting Started", link: "/docs/usage/linter" },
+      { text: "Getting Started", link: "/docs/guide/introduction" },
       { text: "Contribute", link: "/docs/contribute/intro" },
       { text: "Learn", link: "/docs/learn/ecosystem" },
       { text: "Blog", link: "/blog/2022-02-10-js-tooling-research" },
@@ -106,19 +105,20 @@ export default defineConfig({
       copyright: "© 2023 OXC Project",
     },
     sidebar: {
-      "/docs/usage/": [
+      "/docs/guide/": [
         {
-          text: "Usage",
+          text: "Getting Started",
           items: [
-            { text: "Linter", link: "/docs/usage/linter" },
-            { text: "Parser", link: "/docs/usage/parser" },
-            { text: "Resolver", link: "/docs/usage/resolver" },
+            { text: "Introduction", link: "/docs/guide/introduction" },
+            { text: "Benchmarks", link: "/docs/guide/benchmarks" },
           ],
         },
         {
+          text: "Usage",
           items: [
-            { text: "Philosophy", link: "/docs/usage/philosophy" },
-            { text: "Benchmarks", link: "/docs/usage/benchmarks" },
+            { text: "Linter", link: "/docs/guide/usage/linter" },
+            { text: "Parser", link: "/docs/guide/usage/parser" },
+            { text: "Resolver", link: "/docs/guide/usage/resolver" },
           ],
         },
       ],
