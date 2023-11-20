@@ -59,28 +59,6 @@ export const TEAM_MEMBERS: TeamMember[] = [
       { icon: "twitter", link: "https://twitter.com/mysteryven" },
     ],
   },
-  {
-    id: "nozomu_ikuta",
-    type: "community",
-    name: "Nozomu Ikuta",
-    title: "Contributor",
-    avatar: "https://www.github.com/NozomuIkuta.png",
-    links: [
-      { icon: "github", link: "https://github.com/NozomuIkuta" },
-      { icon: "twitter", link: "https://twitter.com/NozomuIkuta" },
-    ],
-  },
-  {
-    id: "ubugeeei",
-    type: "community",
-    name: "Ubugeeei",
-    title: "Contributor",
-    avatar: "https://www.github.com/Ubugeeei.png",
-    links: [
-      { icon: "github", link: "https://github.com/Ubugeeei" },
-      { icon: "twitter", link: "https://twitter.com/ubugeeei" },
-    ],
-  },
 ];
 
 export const CORE_TEAM_MEMBERS = TEAM_MEMBERS.filter(
