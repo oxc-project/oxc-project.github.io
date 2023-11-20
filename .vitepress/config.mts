@@ -110,7 +110,6 @@ export default defineConfig({
           text: "Getting Started",
           items: [
             { text: "Introduction", link: "/docs/guide/introduction" },
-            { text: "Philosophy", link: "/docs/guide/philosophy" },
             { text: "Benchmarks", link: "/docs/guide/benchmarks" },
           ],
         },
