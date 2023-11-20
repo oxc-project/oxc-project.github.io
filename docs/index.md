@@ -9,7 +9,7 @@ hero:
   actions:
     - theme: brand
       text: Get Started
-      link: /docs/usage/linter
+      link: /docs/guide/introduction
     - theme: alt
       text: View on GitHub
       link: https://github.com/oxc-project/oxc
