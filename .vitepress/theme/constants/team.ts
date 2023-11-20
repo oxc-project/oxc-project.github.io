@@ -60,17 +60,6 @@ export const TEAM_MEMBERS: TeamMember[] = [
     ],
   },
   {
-    id: "zoolsher",
-    type: "core",
-    name: "zoolsher",
-    title: "Member",
-    avatar: "https://www.github.com/zoolsher.png",
-    links: [
-      { icon: "github", link: "https://github.com/zoolsher" },
-      { icon: "twitter", link: "https://twitter.com/zoolsher" },
-    ],
-  },
-  {
     id: "nozomu_ikuta",
     type: "community",
     name: "Nozomu Ikuta",
