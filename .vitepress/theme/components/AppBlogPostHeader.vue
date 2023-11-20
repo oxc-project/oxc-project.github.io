@@ -1,14 +1,23 @@
 <script setup lang="ts">
 import { computed, onMounted, ref, watchEffect } from 'vue'
 import { useData } from 'vitepress'
-import { AUTHORS } from '../../authors'
-import type { Author } from '../../authors'
+import { TEAM_MEMBERS_MAP } from '../constants/team'
+import type { TeamMember } from '../constants/team'
 
-            const vitePressData = useData()
-const title =           computed<string>(() => vitePressData.frontmatter.value.title)
-const authors = computed<Author[]>(() => {
-  return vitePressData.frontmatter.value.authors.map((author) => AUTHORS[author]).filter(Boolean)
-})
+const vitePressData = useData()
+const title = computed<string>(() => vitePressData.frontmatter.value.title)
+const authors = computed(() => (vitePressData.frontmatter.value.authors as TeamMember['id'][]).flatMap((id) => {
+  const member = TEAM_MEMBERS_MAP[id]
+
+  if (member) {
+    const { avatar, links, name, title } = member
+    const { link = '' } = links?.find((link) => link.link.startsWith('https://github.com/')) ?? {}
+
+    return [{ avatar, link, name, title }]
+  }
+
+  return []
+}))
 const date = computed(() => {
   const filePath = vitePressData.page.value.filePath
   const result = filePath.match(/^blog\/(?<date>\d{4}-\d{2}-\d{2})-.*$/)
@@ -40,11 +49,12 @@ onMounted(() => {
       <time :datetime="isoDatetime">{{ datetime }}</time>
     </p>
     <ul class="authors">
-      <li v-for="author in authors" :key="author.name" class="author">
-        <img :src="author.avatar" :alt="author.name" class="author-avatar">
+      <li v-for="{ avatar, link, name, title } in authors" :key="name" class="author">
+        <img :src="avatar" :alt="name" class="author-avatar">
         <p class="author-text">
-          <a :href="author.link" target="_blank" class="author-name">{{ author.name }}</a>
-          <span class="author-title">{{ author.title }}</span>
+          <a v-if="link" :href="link" target="_blank" class="author-name">{{ name }}</a>
+          <span v-else class="author-name">{{ name }}</span>
+          <span class="author-title">{{ title }}</span>
         </p>
       </li>
     </ul>
