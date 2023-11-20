@@ -1,7 +1,7 @@
 ---
 layout: home
 hero:
-  name: "The JavaScript Oxidation Compiler"
+  name: 'The JavaScript Oxidation Compiler'
   tagline: A collection of JavaScript tools written in Rust
   image:
     src: https://raw.githubusercontent.com/oxc-project/oxc-assets/main/logo-round.png
@@ -15,31 +15,31 @@ hero:
       link: https://github.com/oxc-project/oxc
 features:
   - title: Parser ✅
-    details: 2x faster than swc<br>Passes 99% of Test262
+    details: 2x faster than swc
     link: /docs/usage/parser
     linkText: Learn more
   - title: Linter ✅
-    details: 50 - 100x faster than ESLint<br>Zero config
+    details: 50 - 100x faster than ESLint
     link: /docs/usage/linter
     linkText: Learn more
   - title: Resolver ✅
-    details: 28x faster than enhanced-resolve<br>Feature complete
+    details: 28x faster than enhanced-resolve
     link: /docs/usage/resolver
     linkText: Learn more
   - title: Formatter 🚧
-    details: Prettier compatible<br>Work in progress
-  - title: Transformer
-    details: Babel compatible<br>Prototype
-  - title: Minifier
-    details: Optimization of Google Closure Compiler<br>Prototype
+    details: Prettier compatible
+  - title: Transformer 🚧
+    details: Babel compatible
+  - title: Minifier 🚧
+    details: Faster and better at compression
+  - title: Rspack Bundler ✅
+    details: Webpack Compatible
+    link: https://rspack.dev
+    external: true
+  - title: Rolldown Bundler
+    details: Rust port of Rollup
   - title: Ezno Type Checker
     details: A novel TypeScript type checker
     link: https://github.com/kaleidawave/ezno
     external: true
-  - title: Rspack Bundler ✅
-    details: Rust port of Webpack<br>Partnership
-    link: https://rspack.dev
-    external: true
-  - title: Rolldown Bundler
-    details: Rust port of Rollup<br>Partnership
 ---
