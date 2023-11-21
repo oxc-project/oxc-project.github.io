@@ -1,7 +1,7 @@
 ---
 layout: home
 hero:
-  name: 'The JavaScript Oxidation Compiler'
+  name: "The JavaScript Oxidation Compiler"
   tagline: A collection of JavaScript tools written in Rust
   image:
     src: https://raw.githubusercontent.com/oxc-project/oxc-assets/main/logo-round.png
@@ -16,15 +16,15 @@ hero:
 features:
   - title: Parser ✅
     details: 2x faster than swc
-    link: /docs/usage/parser
+    link: /docs/guide/usage/parser
     linkText: Learn more
   - title: Linter ✅
     details: 50 - 100x faster than ESLint
-    link: /docs/usage/linter
+    link: /docs/guide/usage/linter
     linkText: Learn more
   - title: Resolver ✅
     details: 28x faster than enhanced-resolve
-    link: /docs/usage/resolver
+    link: /docs/guide/usage/resolver
     linkText: Learn more
   - title: Formatter 🚧
     details: Prettier compatible
