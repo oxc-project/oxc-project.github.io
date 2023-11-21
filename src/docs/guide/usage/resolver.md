@@ -1,7 +1,12 @@
 ---
 title: Resolver
 outline: deep
+badges:
+  - src: https://img.shields.io/npm/dw/oxc-resolver
+    alt: npm
 ---
+
+<AppBadgeList />
 
 # Resolver
 
@@ -10,14 +15,41 @@ Node.js Module Resolution.
 - Feature complete
 - All configuration options are aligned with enhanced-resolve
 
-## Rust Usage
+## Installation
 
-- https://docs.rs/oxc_resolver
-- https://crates.io/oxc_resolver
+### Rust
 
-## Node.js Usage
+Install [oxc_resolver][url-oxc-resolver-crate] crate:
 
-- Via napi: [oxc-resolver][https://www.npmjs.com/package/oxc-resolver]
+```sh
+$ cargo install oxc_resolver
+```
+
+You should also check [documentation][url-oxc-resolver-docs].
+
+### Node.js
+
+Install [oxc-resolver][url-oxc-resolver-npm]:
+
+::: code-group
+
+```sh [npm]
+$ npm add -D oxc-parser
+```
+
+```sh [pnpm]
+$ pnpm add -D oxc-parser
+```
+
+```sh [yarn]
+$ yarn add -D oxc-parser
+```
+
+```sh [bun]
+$ bun add -D oxc-parser
+```
+
+:::
 
 ## Example
 
@@ -40,3 +72,9 @@ fn main() {
     }
 }
 ```
+
+<!-- Links -->
+
+[url-oxc-resolver-crate]: https://crates.io/oxc_resolver
+[url-oxc-resolver-docs]: https://docs.rs/oxc_resolver
+[url-oxc-resolver-npm]: https://www.npmjs.com/package/oxc-resolver
