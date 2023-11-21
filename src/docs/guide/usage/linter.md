@@ -8,15 +8,15 @@ badges:
     alt: GitHub Repo stars
 ---
 
-# Oxlint
-
 <AppBadgeList />
+
+# oxlint
 
 ## Features
 
-- Runs 50 -100 times faster than ESLint, , and scales with the number of CPU cores ([Benchmark](https://github.com/oxc-project/bench-javascript-linter)).
-- No configuration is required
-- Convention over configuration,
+- Runs 50-100x faster than ESLint, and scales with the number of CPU cores ([Benchmark](https://github.com/oxc-project/bench-javascript-linter))
+- No configuration required
+- Convention over configuration
 - Reports errors and useless code by default
 - Supports [.eslintignore](https://eslint.org/docs/latest/use/configure/ignore#the-eslintignore-file)
 - Supports [ESLint comment disabling](https://eslint.org/docs/latest/use/configure/rules#disabling-rules)
@@ -27,21 +27,88 @@ badges:
 
 ## Installation
 
-Install [oxlint](https://www.npmjs.com/package/oxlint) or via `npx`:
+Install [oxlint](https://www.npmjs.com/package/oxlint):
 
-```bash
-npx oxlint@latest
+::: code-group
+
+```sh [npm]
+$ npm add -D oxlint
 ```
 
-You may also use `yarn dlx`, `pnpm dlx`, `bunx` or `deno run` because `oxlint` is published to npm.
+```sh [pnpm]
+$ pnpm add -D oxlint
+```
 
-### VSCode Extension
+```sh [yarn]
+$ yarn add -D oxlint
+```
 
-https://marketplace.visualstudio.com/items?itemName=oxc.oxc-vscode
+```sh [bun]
+$ bun add -D oxlint
+```
+
+:::
+
+You can also run oxlint directly:
+
+::: code-group
+
+```sh [npm]
+$ npx oxlint@latest
+```
+
+```sh [pnpm]
+$ pnpm dlx oxlint@latest
+```
+
+```sh [yarn]
+$ yarn dlx oxlint@latest
+```
+
+```sh [bun]
+$ bunx oxlint@latest
+```
+
+```sh [deno]
+$ deno run oxlint@latest
+```
+
+:::
+
+You can download the binary files from [the latest GitHub releases](https://github.com/oxc-project/oxc/releases/latest).
+
+## Integration
+
+### IDEs
+
+#### VSCode Extension
+
+You can download [the official VSCode extension](https://marketplace.visualstudio.com/items?itemName=oxc.oxc-vscode).
+
+#### Vim / Nvim (coc)
+
+Add the following config to `coc-settings.json`:
+
+```javascript
+{
+  "languageserver": {
+    "oxc": {
+      "command": "oxc_vscode",
+      "filetypes": [
+        "typescript",
+        "javascript"
+      ],
+      "rootPatterns": [
+        ".git"
+      ]
+    }
+  }
+}
+```
 
 ### Continuous Integration
 
-We recommend running `oxlint` before `eslint` in your CI for faster feedback loops,
+It is recommended to run `oxlint` before `eslint` for faster feedback loops,
 since `oxlint` only takes a few seconds to run.
 
 #### GitHub Actions
@@ -56,61 +123,37 @@ jobs:
       - run: npx --yes oxlint@latest
 ```
 
-### Without Node.js
-
-You may download the binaries from the [latest GitHub releases](https://github.com/oxc-project/oxc/releases/latest).
-
-### Vim / Nvim (coc)
-
-Add to `coc-settings.json`:
-
-```javascript
-  "languageserver": {
-    "oxc": {
-      "command": "oxc_vscode",
-      "filetypes": [
-        "typescript",
-        "javascript"
-      ],
-      "rootPatterns": [
-        ".git"
-      ]
-    }
-  },
-```
-
 ### Nix
 
-https://github.com/NixOS/nixpkgs/blob/master/pkgs/development/tools/oxlint/default.nix
+Check [nixpkgs repository](https://github.com/NixOS/nixpkgs/blob/master/pkgs/development/tools/oxlint/default.nix) for more detail.
 
 ## Commands
 
-Run `npx oxlint@latest --rules` for the list of rules.
+- `npx oxlint@latest --rules` shows the list of rules
+- `npx oxlint@latest --help` shows usage instructions
 
-Run `npx oxlint@latest --help` for usage instructions:
+  ```
+  Usage: oxlint [-A=NAME | -D=NAME]... [--fix] [PATH]...
 
-```
-Usage: oxlint [-A=NAME | -D=NAME]... [--fix] [PATH]...
+  Allowing / Denying Multiple Lints
+    For example `-D correctness -A no-debugger` or `-A all -D no-debugger`.
+    The default category is "-D correctness".
+    Use "--rules" for rule names.
+    Use "--help --help" for rule categories.
+      -A, --allow=NAME          Allow the rule or category (suppress the lint)
+      -D, --deny=NAME           Deny the rule or category (emit an error)
 
-Allowing / Denying Multiple Lints
-  For example `-D correctness -A no-debugger` or `-A all -D no-debugger`.
-  The default category is "-D correctness".
-  Use "--rules" for rule names.
-  Use "--help --help" for rule categories.
-    -A, --allow=NAME          Allow the rule or category (suppress the lint)
-    -D, --deny=NAME           Deny the rule or category (emit an error)
+  Enable Plugins
+          --import-plugin       Enable the experimental import plugin and detect ESM problems
+          --jest-plugin         Enable the Jest plugin and detect test problems
+          --jsx-a11y-plugin     Enable the JSX-a11y plugin and detect accessibility problems
 
-Enable Plugins
-        --import-plugin       Enable the experimental import plugin and detect ESM problems
-        --jest-plugin         Enable the Jest plugin and detect test problems
-        --jsx-a11y-plugin     Enable the JSX-a11y plugin and detect accessibility problems
+  Available positional items:
+      PATH                      Single file, single path or list of paths
 
-Available positional items:
-    PATH                      Single file, single path or list of paths
-
-Available options:
-    -h, --help                Prints help information
-```
+  Available options:
+      -h, --help                Prints help information
+  ```
 
 ## System Requirements
 
