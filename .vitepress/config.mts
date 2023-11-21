@@ -58,6 +58,22 @@ export default defineConfig({
       },
     ],
     // Twitter (X)
+    ["meta", { name: "twitter:site", content: "OXC" }],
+    [
+      "meta",
+      {
+        name: "twitter:title",
+        content: "OXC: The JavaScript Oxidation Compiler",
+      },
+    ],
+    [
+      "meta",
+      {
+        name: "twitter:description",
+        content:
+          "A collection of high-performance JavaScript tools written in Rust",
+      },
+    ],
     ["meta", { name: "twitter:card", content: "summary_large_image" }],
     [
       "meta",
@@ -65,6 +81,13 @@ export default defineConfig({
         name: "twitter:image",
         content:
           "https://github.com/oxc-project/oxc-assets/blob/main/preview-white.png?raw=true",
+      },
+    ],
+    [
+      "meta",
+      {
+        name: "twitter:image:alt",
+        content: "OXC: The JavaScript Oxidation Compiler",
       },
     ],
   ],
