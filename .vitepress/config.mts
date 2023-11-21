@@ -1,7 +1,7 @@
 import { defineConfig } from "vitepress";
 
 export default defineConfig({
-  srcDir: "docs",
+  srcDir: "src",
   srcExclude: [],
   outDir: "build",
   base: "/",
