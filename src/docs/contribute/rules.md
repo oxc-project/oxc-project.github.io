@@ -5,13 +5,27 @@ outline: deep
 
 # Rules
 
-- We welcome any form of contributions.
-- APIs should be simple and well-documented.
+- We welcome and appreciate any form of contributions.
+- Please create an issue or discussion if you are making an architectural change.
+
+## PR related
+
+- [Prefer smaller PRs](https://graphite.dev/blog/how-large-prs-slow-down-development), they will get merged quickly.
+- Try stacked PRs with [graphite](https://graphite.dev) if repo write permission is given to you.
+
+## Architecture
+
 - All performance issues (runtime and compilation speed) are considered as bugs in this project.
-- Third-party dependencies should be minimal.
-- Monitor code coverage for unused code. Aim for 99% code coverage.
 - Embrace data-oriented design.
-- We prefer smaller PRs to get things merged quickly. Try stacked PRs with [graphite](https://graphite.dev) if repo write permission is given to you.
+- APIs should be simple and well-documented.
+- Third-party dependencies should be minimal.
+- Avoid the `regex` crate when possible. Regexes are slow, most of them can be rewritten in a performant way by using Rust iterator and string methods.
+- Avoid macros, traits or any Rust techniques that would penalize compilation speed.
+
+## Maintenance
+
+- Monitor code coverage for unused code. Aim for 99% code coverage.
+- CI time should be actively monitored and reduced to speed up merging of PRs. The current CI time on GitHub actions is around 3 minutes.
 
 ---
 
