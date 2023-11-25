@@ -1,4 +1,5 @@
 import { defineConfig } from "vitepress";
+import blogSidebar from "./sidebar.blog.json";
 
 export default defineConfig({
   srcDir: "src",
@@ -212,24 +213,7 @@ export default defineConfig({
         { text: "Ecosystem", link: "/docs/learn/ecosystem" },
         { text: "References", link: "/docs/learn/references" },
       ],
-      "/blog/": [
-        {
-          text: "Oxlint General Availability",
-          link: "/blog/2023-11-08-announcing-oxlint",
-        },
-        {
-          text: "Announcing Oxc",
-          link: "/blog/2023-11-07-announcing-oxc",
-        },
-        {
-          text: "A research on JavaScript linters",
-          link: "/blog/2022-08-08-linter-research",
-        },
-        {
-          text: "High Performance JavaScript Toolchain",
-          link: "/blog/2022-02-10-js-tooling-research",
-        },
-      ],
+      "/blog/": blogSidebar,
     },
   },
 });
