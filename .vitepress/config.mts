@@ -25,8 +25,7 @@ export default defineConfig({
         content: "OXC: The JavaScript Oxidation Compiler",
       },
     ],
-
-    // og
+    // Open Graph
     [
       "meta",
       {
@@ -43,13 +42,7 @@ export default defineConfig({
       },
     ],
     ["meta", { property: "og:site_name", content: "OXC" }],
-    [
-      "meta",
-      {
-        property: "og:url",
-        content: "https://github.com/oxc-project",
-      },
-    ],
+    ["meta", { property: "og:url", content: "https://github.com/oxc-project" }],
     [
       "meta",
       {
@@ -92,7 +85,6 @@ export default defineConfig({
       },
     ],
   ],
-
   lastUpdated: true,
   themeConfig: {
     siteTitle: "OXC",
@@ -102,8 +94,8 @@ export default defineConfig({
       provider: "local",
     },
     nav: [
-      { text: "Getting Started", link: "/docs/guide/introduction" },
-      { text: "Learn", link: "/docs/learn/ecosystem" },
+      { text: "Guide", link: "/docs/guide/introduction" },
+      { text: "Learn", link: "/docs/learn/architecture/introduction" },
       { text: "Contribute", link: "/docs/contribute/introduction" },
       { text: "Blog", link: "/blog/2022-02-10-js-tooling-research" },
       {
@@ -150,7 +142,10 @@ export default defineConfig({
         {
           text: "Architecture",
           items: [
-            { text: "Intro", link: "/docs/learn/architecture/intro" },
+            {
+              text: "Introduction",
+              link: "/docs/learn/architecture/introduction",
+            },
             {
               text: "Parser",
               link: "/docs/learn/architecture/parser",
