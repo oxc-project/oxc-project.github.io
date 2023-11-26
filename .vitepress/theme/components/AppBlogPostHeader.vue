@@ -6,6 +6,7 @@ import type { TeamMember } from '../constants/team'
 
 const vitePressData = useData()
 const title = computed<string>(() => vitePressData.frontmatter.value.title)
+const lang = computed<string>(() => vitePressData.lang.value)
 const authors = computed(() => (vitePressData.frontmatter.value.authors as TeamMember['id'][]).flatMap((id) => {
   const member = TEAM_MEMBERS_MAP[id]
 
@@ -20,7 +21,7 @@ const authors = computed(() => (vitePressData.frontmatter.value.authors as TeamM
 }))
 const date = computed(() => {
   const filePath = vitePressData.page.value.filePath
-  const result = filePath.match(/^blog\/(?<date>\d{4}-\d{2}-\d{2})-.*$/)
+  const result = filePath.match(/blog\/(?<date>\d{4}-\d{2}-\d{2})-.*$/)
   const { date } = result?.groups ?? {}
 
   if (date) {
@@ -36,7 +37,7 @@ const datetime = ref('')
 onMounted(() => {
   watchEffect(() => {
     if (date.value) {
-      datetime.value = new Intl.DateTimeFormat(vitePressData.lang.value, { dateStyle: 'long' }).format(date.value)
+      datetime.value = new Intl.DateTimeFormat(lang.value, { dateStyle: 'long' }).format(date.value)
     }
   })
 })
