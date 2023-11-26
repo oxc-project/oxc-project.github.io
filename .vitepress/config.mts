@@ -103,8 +103,8 @@ export default defineConfig({
     },
     nav: [
       { text: "Getting Started", link: "/docs/guide/introduction" },
-      { text: "Contribute", link: "/docs/contribute/intro" },
       { text: "Learn", link: "/docs/learn/ecosystem" },
+      { text: "Contribute", link: "/docs/contribute/introduction" },
       { text: "Blog", link: "/blog/2022-02-10-js-tooling-research" },
       {
         text: "Playground",
@@ -145,28 +145,6 @@ export default defineConfig({
             { text: "Resolver", link: "/docs/guide/usage/resolver" },
           ],
         },
-      ],
-      "/docs/contribute/": [
-        { text: "Intro", link: "/docs/contribute/intro" },
-        { text: "Rules", link: "/docs/contribute/rules" },
-        {
-          items: [
-            { text: "Parser", link: "/docs/contribute/parser" },
-            { text: "Linter", link: "/docs/contribute/linter" },
-            { text: "Prettier", link: "/docs/contribute/prettier" },
-            { text: "Resolver", link: "/docs/contribute/resolver" },
-            {
-              text: "Transformer",
-              link: "/docs/contribute/transformer",
-            },
-            { text: "Formatter", link: "/docs/contribute/formatter" },
-            { text: "Codegen", link: "/docs/contribute/codegen" },
-            { text: "Minifier", link: "/docs/contribute/minifier" },
-            { text: "VSCode", link: "/docs/contribute/vscode" },
-          ],
-        },
-        { text: "Performance", link: "/docs/contribute/performance" },
-        { text: "Showcase", link: "/docs/contribute/showcase" },
       ],
       "/docs/learn/": [
         {
@@ -212,6 +190,34 @@ export default defineConfig({
         { text: "Performance", link: "/docs/learn/performance" },
         { text: "Ecosystem", link: "/docs/learn/ecosystem" },
         { text: "References", link: "/docs/learn/references" },
+      ],
+      "/docs/contribute/": [
+        {
+          text: "Contributing Guide",
+          items: [
+            { text: "Introduction", link: "/docs/contribute/introduction" },
+            { text: "Development", link: "/docs/contribute/development" },
+          ],
+        },
+        {
+          text: "Domain",
+          items: [
+            { text: "Parser", link: "/docs/contribute/parser" },
+            { text: "Linter", link: "/docs/contribute/linter" },
+            { text: "Prettier", link: "/docs/contribute/prettier" },
+            { text: "Resolver", link: "/docs/contribute/resolver" },
+            {
+              text: "Transformer",
+              link: "/docs/contribute/transformer",
+            },
+            { text: "Formatter", link: "/docs/contribute/formatter" },
+            { text: "Codegen", link: "/docs/contribute/codegen" },
+            { text: "Minifier", link: "/docs/contribute/minifier" },
+            { text: "VSCode", link: "/docs/contribute/vscode" },
+          ],
+        },
+        { text: "Performance", link: "/docs/contribute/performance" },
+        { text: "Showcase", link: "/docs/contribute/showcase" },
       ],
       "/blog/": blogSidebar,
     },
