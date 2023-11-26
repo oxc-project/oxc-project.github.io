@@ -26,6 +26,7 @@ const badges = computed<Badge[]>(() => vitePressData.frontmatter.value.badges)
   flex-wrap: wrap;
   align-items: flex-start;
   gap: 4px;
+  min-height: 20px;
   padding: 0;
   list-style: none;
 }
