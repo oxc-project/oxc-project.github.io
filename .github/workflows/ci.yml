@@ -4,12 +4,12 @@ on:
   pull_request:
     types: [opened, synchronize]
     paths-ignore:
-      - 'README.md'
+      - "README.md"
   push:
     branches:
       - main
     paths-ignore:
-      - 'README.md'
+      - "README.md"
 
 jobs:
   ci:
@@ -26,8 +26,8 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: '18'
-          cache: 'pnpm'
+          node-version: "18"
+          cache: "pnpm"
 
       - run: pnpm install --frozen-lockfile
 

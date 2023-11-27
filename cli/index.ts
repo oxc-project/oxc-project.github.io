@@ -9,8 +9,7 @@ const main = defineCommand({
     description: "CLI for OXC Documentation",
   },
   subCommands: {
-    "create-blog-post": () =>
-      import("./commands/create-blog-post.js").then(_rDefault),
+    "create-blog-post": () => import("./commands/create-blog-post.js").then(_rDefault),
   },
 });
 
