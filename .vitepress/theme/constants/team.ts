@@ -59,6 +59,14 @@ export const TEAM_MEMBERS: TeamMember[] = [
       { icon: "twitter", link: "https://twitter.com/mysteryven" },
     ],
   },
+  {
+    id: "cameron",
+    type: "core",
+    name: "Cameron",
+    title: "Member",
+    avatar: "https://www.github.com/camc314.png",
+    links: [{ icon: "github", link: "https://github.com/camc314" }],
+  },
 ];
 
 export const CORE_TEAM_MEMBERS = TEAM_MEMBERS.filter(
