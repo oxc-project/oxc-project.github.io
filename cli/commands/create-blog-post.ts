@@ -31,10 +31,7 @@ export default defineCommand({
   },
   async run({ args }) {
     const { date, title, slug, author } = args;
-    const isValidDate =
-      /^(?:20\d{2})\-(?:0?[1-9]|1[012])\-(?:0?[1-9]|1\d|2\d|3[0-1])$/.test(
-        date,
-      );
+    const isValidDate = /^(?:20\d{2})\-(?:0?[1-9]|1[012])\-(?:0?[1-9]|1\d|2\d|3[0-1])$/.test(date);
 
     if (!isValidDate) {
       consola.error(`date is invalid: ${date}`);
@@ -77,21 +74,10 @@ authors:
   await fs.writeFile(filePath, content);
 }
 
-async function writeSidebarFile({
-  date,
-  title,
-  slug,
-}: {
-  date: string;
-  title: string;
-  slug: string;
-}) {
+async function writeSidebarFile({ date, title, slug }: { date: string; title: string; slug: string }) {
   const filePath = `${process.cwd()}/.vitepress/sidebar.blog.json`;
   const currentSidebar = await fs.readFile(filePath, "utf8");
-  const sidebar = JSON.parse(currentSidebar) as Record<
-    "text" | "link",
-    string
-  >[];
+  const sidebar = JSON.parse(currentSidebar) as Record<"text" | "link", string>[];
 
   sidebar.unshift({
     text: `${date}<br>${title}`,
@@ -101,16 +87,6 @@ async function writeSidebarFile({
   await fs.writeFile(filePath, JSON.stringify(sidebar, null, 2));
 }
 
-function getBlogPostUrl({
-  date,
-  title,
-  slug,
-}: {
-  date: string;
-  title: string;
-  slug: string;
-}) {
-  return `/blog/${date}-${(slug || title)
-    .toLocaleLowerCase()
-    .replace(/\s+/g, "-")}`;
+function getBlogPostUrl({ date, title, slug }: { date: string; title: string; slug: string }) {
+  return `/blog/${date}-${(slug || title).toLocaleLowerCase().replace(/\s+/g, "-")}`;
 }
