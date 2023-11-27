@@ -1,8 +1,8 @@
 import { dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { defineConfig } from "vitepress";
-import { EN_LOCALE_CONFIG } from "./config.en.mjs";
-import { JA_LOCALE_CONFIG } from "./config.ja.mjs";
+import { EN_LOCALE_CONFIG } from "./config.en.js";
+import { JA_LOCALE_CONFIG } from "./config.ja.js";
 
 export default defineConfig({
   srcDir: "src",
@@ -11,8 +11,7 @@ export default defineConfig({
   base: "/",
   title: "The JavaScript Oxidation Compiler",
   titleTemplate: ":title | The JavaScript Oxidation Compiler",
-  description:
-    "A collection of high-performance JavaScript tools written in Rust",
+  description: "A collection of high-performance JavaScript tools written in Rust",
   head: [
     [
       "link",
@@ -40,8 +39,7 @@ export default defineConfig({
       "meta",
       {
         property: "og:description",
-        content:
-          "A collection of high-performance JavaScript tools written in Rust",
+        content: "A collection of high-performance JavaScript tools written in Rust",
       },
     ],
     ["meta", { property: "og:site_name", content: "OXC" }],
@@ -50,8 +48,7 @@ export default defineConfig({
       "meta",
       {
         property: "og:image",
-        content:
-          "https://github.com/oxc-project/oxc-assets/blob/main/preview-white.png?raw=true",
+        content: "https://github.com/oxc-project/oxc-assets/blob/main/preview-white.png?raw=true",
       },
     ],
     // Twitter (X)
@@ -67,8 +64,7 @@ export default defineConfig({
       "meta",
       {
         name: "twitter:description",
-        content:
-          "A collection of high-performance JavaScript tools written in Rust",
+        content: "A collection of high-performance JavaScript tools written in Rust",
       },
     ],
     ["meta", { name: "twitter:card", content: "summary_large_image" }],
@@ -76,8 +72,7 @@ export default defineConfig({
       "meta",
       {
         name: "twitter:image",
-        content:
-          "https://github.com/oxc-project/oxc-assets/blob/main/preview-white.png?raw=true",
+        content: "https://github.com/oxc-project/oxc-assets/blob/main/preview-white.png?raw=true",
       },
     ],
     [
@@ -113,12 +108,8 @@ export default defineConfig({
   vite: {
     resolve: {
       alias: {
-        "@components": `${dirname(
-          fileURLToPath(import.meta.url),
-        )}/theme/components`,
-        "@constants": `${dirname(
-          fileURLToPath(import.meta.url),
-        )}/theme/constants`,
+        "@components": `${dirname(fileURLToPath(import.meta.url))}/theme/components`,
+        "@constants": `${dirname(fileURLToPath(import.meta.url))}/theme/constants`,
       },
     },
   },

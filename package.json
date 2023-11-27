@@ -1,15 +1,16 @@
 {
   "name": "website",
   "version": "0.0.0",
+  "type": "module",
   "private": true,
   "scripts": {
     "prepare": "husky install",
     "dev": "vitepress dev",
     "build": "vitepress build",
     "preview": "vitepress preview",
-    "create-blog-post": "tsx ./cli/index.mts create-blog-post",
+    "fmt": "prettier",
     "typecheck": "tsc",
-    "prettier": "prettier"
+    "create-blog-post": "tsx ./cli/index.ts create-blog-post"
   },
   "dependencies": {
     "vitepress": "1.0.0-rc.25",
@@ -26,7 +27,7 @@
     "typescript": "~5.2.2"
   },
   "lint-staged": {
-    "*.{js,jsx,tsx,ts,css,md,json,mts}": "prettier --write"
+    "*.{js,jsx,tsx,ts,css,md,json,mts}": "pnpm run fmt --write"
   },
   "engines": {
     "node": ">=18.0"

@@ -1,21 +1,21 @@
 <script setup lang="ts">
-import { computed } from 'vue'
-import { useData } from 'vitepress'
+import { computed } from "vue";
+import { useData } from "vitepress";
 
 interface Badge {
-  src: string
-  alt: string
+  src: string;
+  alt: string;
 }
 
-const vitePressData = useData()
+const vitePressData = useData();
 
-const badges = computed<Badge[]>(() => vitePressData.frontmatter.value.badges)
+const badges = computed<Badge[]>(() => vitePressData.frontmatter.value.badges);
 </script>
 
 <template>
   <ul class="AppBadgeList">
     <li v-for="badge in badges" :key="badge.src" class="badge">
-      <img :src="badge.src" :alt="badge.alt">
+      <img :src="badge.src" :alt="badge.alt" />
     </li>
   </ul>
 </template>
