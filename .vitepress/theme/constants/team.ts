@@ -1,31 +1,10 @@
+import type { DefaultTheme } from "vitepress";
+
 export type TeamMember = CoreTeamMember | CommunityTeamMember;
 
-interface TeamMemberBase /* extends VitePress' `TeamMember` type, which is not exporeted */ {
+interface TeamMemberBase extends DefaultTheme.TeamMember {
   id: string;
   type: "core" | "community";
-  avatar: string;
-  name: string;
-  title?: string;
-  org?: string;
-  orgLink?: string;
-  desc?: string;
-  links?: {
-    icon:
-      | "discord"
-      | "facebook"
-      | "github"
-      | "instagram"
-      | "linkedin"
-      | "mastodon"
-      | "slack"
-      | "twitter"
-      | "x"
-      | "youtube"
-      | { svg: string };
-    link: string;
-    ariaLabel?: string;
-  }[];
-  sponsor?: string;
 }
 
 export interface CoreTeamMember extends TeamMemberBase {
