@@ -1,8 +1,8 @@
 import { dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { defineConfig } from "vitepress";
-import { EN_LOCALE_CONFIG } from "./config.en.mjs";
-import { JA_LOCALE_CONFIG } from "./config.ja.mjs";
+import { EN_LOCALE_CONFIG } from "./config.en.js";
+import { JA_LOCALE_CONFIG } from "./config.ja.js";
 
 export default defineConfig({
   srcDir: "src",

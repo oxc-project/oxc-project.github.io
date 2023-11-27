@@ -10,7 +10,7 @@ const main = defineCommand({
   },
   subCommands: {
     "create-blog-post": () =>
-      import("./commands/create-blog-post.mjs").then(_rDefault),
+      import("./commands/create-blog-post.js").then(_rDefault),
   },
 });
 
