@@ -2,7 +2,7 @@
 layout: home
 hero:
   name: "The JavaScript Oxidation Compiler"
-  tagline: Rust製JavaScriptツール群
+  tagline: Rust製JavaScriptツールコレクション
   image:
     src: https://raw.githubusercontent.com/oxc-project/oxc-assets/main/logo-round.png
     alt: The JavaScript Oxidation Compiler
@@ -14,23 +14,23 @@ hero:
       text: GitHubで見る
       link: https://github.com/oxc-project/oxc
 features:
-  - title: パーサ ✅
+  - title: Parser ✅
     details: SWCの2倍速
     link: /ja/docs/guide/usage/parser
     linkText: さらに学ぶ
-  - title: リンタ ✅
+  - title: Linter ✅
     details: ESLintの50~100倍速
     link: /ja/docs/guide/usage/linter
     linkText: さらに学ぶ
-  - title: リザルバ ✅
+  - title: Resolver ✅
     details: enhanced-resolveの28倍速
     link: /ja/docs/guide/usage/resolver
     linkText: さらに学ぶ
-  - title: フォーマッタ 🚧
+  - title: Formatter 🚧
     details: Prettier互換
-  - title: トランスフォーマ 🚧
+  - title: Transformer 🚧
     details: Babel互換
-  - title: ミニファイア 🚧
+  - title: Minifier 🚧
     details: より早く効率的な圧縮
   - title: Rspack ✅
     details: Webpack互換

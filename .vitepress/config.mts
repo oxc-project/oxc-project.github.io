@@ -280,9 +280,9 @@ export default defineConfig({
             {
               text: "使いかた",
               items: [
-                { text: "リンタ", link: "/ja/docs/guide/usage/linter" },
-                { text: "パーサ", link: "/ja/docs/guide/usage/parser" },
-                { text: "リザルバ", link: "/ja/docs/guide/usage/resolver" },
+                { text: "Linter", link: "/ja/docs/guide/usage/linter" },
+                { text: "Parser", link: "/ja/docs/guide/usage/parser" },
+                { text: "Resolver", link: "/ja/docs/guide/usage/resolver" },
               ],
             },
           ],
@@ -295,27 +295,27 @@ export default defineConfig({
                   link: "/ja/docs/learn/architecture/introduction",
                 },
                 {
-                  text: "パーサ",
+                  text: "Parser",
                   link: "/ja/docs/learn/architecture/parser",
                 },
                 {
-                  text: "リンタ",
+                  text: "Linter",
                   link: "/ja/docs/learn/architecture/linter",
                 },
                 {
-                  text: "リザルバ",
+                  text: "Resolver",
                   link: "/ja/docs/learn/architecture/resolver",
                 },
                 {
-                  text: "トランスフォーマ",
+                  text: "Transformer",
                   link: "/ja/docs/learn/architecture/transformer",
                 },
                 {
-                  text: "フォーマッタ",
+                  text: "Formatter",
                   link: "/ja/docs/learn/architecture/formatter",
                 },
                 {
-                  text: "モディファイア",
+                  text: "Modifier",
                   link: "/ja/docs/learn/architecture/minifier",
                 },
               ],
