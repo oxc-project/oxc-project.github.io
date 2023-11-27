@@ -1,5 +1,8 @@
+import { dirname } from "node:path";
+import { fileURLToPath } from "node:url";
 import { defineConfig } from "vitepress";
-import blogSidebar from "./sidebar.blog.json";
+import { EN_LOCALE_CONFIG } from "./config.en.mjs";
+import { JA_LOCALE_CONFIG } from "./config.ja.mjs";
 
 export default defineConfig({
   srcDir: "src",
@@ -89,132 +92,34 @@ export default defineConfig({
   themeConfig: {
     siteTitle: "OXC",
     logo: "https://raw.githubusercontent.com/oxc-project/oxc-assets/main/logo-round.png",
-    logoLink: "/",
     search: {
       provider: "local",
     },
-    nav: [
-      { text: "Guide", link: "/docs/guide/introduction" },
-      { text: "Learn", link: "/docs/learn/architecture/introduction" },
-      { text: "Contribute", link: "/docs/contribute/introduction" },
-      { text: "Blog", link: "/blog/2022-02-10-js-tooling-research" },
-      {
-        text: "Playground",
-        target: "_blank",
-        link: "https://oxc-project.github.io/oxc/playground/",
-      },
-    ],
     socialLinks: [
       { icon: "twitter", link: "https://x.com/boshen_c" },
       { icon: "discord", link: "https://discord.gg/9uXCAwqQZW" },
       { icon: "github", link: "https://github.com/oxc-project" },
     ],
-    editLink: {
-      pattern: "https://github.com/oxc-project/oxc/edit/main/src/:path",
-    },
     lastUpdated: {
       formatOptions: {
         dateStyle: "full",
       },
     },
-    footer: {
-      copyright: "© 2023 OXC Project",
-    },
-    sidebar: {
-      "/docs/guide/": [
-        {
-          text: "Getting Started",
-          items: [
-            { text: "Introduction", link: "/docs/guide/introduction" },
-            { text: "Benchmarks", link: "/docs/guide/benchmarks" },
-          ],
-        },
-        {
-          text: "Usage",
-          items: [
-            { text: "Linter", link: "/docs/guide/usage/linter" },
-            { text: "Parser", link: "/docs/guide/usage/parser" },
-            { text: "Resolver", link: "/docs/guide/usage/resolver" },
-          ],
-        },
-      ],
-      "/docs/learn/": [
-        {
-          text: "Architecture",
-          items: [
-            {
-              text: "Introduction",
-              link: "/docs/learn/architecture/introduction",
-            },
-            {
-              text: "Parser",
-              link: "/docs/learn/architecture/parser",
-            },
-            {
-              text: "Linter",
-              link: "/docs/learn/architecture/linter",
-            },
-            {
-              text: "Resolver",
-              link: "/docs/learn/architecture/resolver",
-            },
-            {
-              text: "Transformer",
-              link: "/docs/learn/architecture/transformer",
-            },
-            {
-              text: "Formatter",
-              link: "/docs/learn/architecture/formatter",
-            },
-            {
-              text: "Minifier",
-              link: "/docs/learn/architecture/minifier",
-            },
-          ],
-        },
-        {
-          text: "ECMAScript",
-          items: [
-            { text: "Spec", link: "/docs/learn/ecmascript/spec" },
-            {
-              text: "Grammar",
-              link: "/docs/learn/ecmascript/grammar",
-            },
-          ],
-        },
-        { text: "Performance", link: "/docs/learn/performance" },
-        { text: "Ecosystem", link: "/docs/learn/ecosystem" },
-        { text: "References", link: "/docs/learn/references" },
-      ],
-      "/docs/contribute/": [
-        {
-          text: "Contributing Guide",
-          items: [
-            { text: "Introduction", link: "/docs/contribute/introduction" },
-            { text: "Development", link: "/docs/contribute/development" },
-          ],
-        },
-        {
-          text: "Domain",
-          items: [
-            { text: "Parser", link: "/docs/contribute/parser" },
-            { text: "Linter", link: "/docs/contribute/linter" },
-            { text: "Prettier", link: "/docs/contribute/prettier" },
-            { text: "Resolver", link: "/docs/contribute/resolver" },
-            {
-              text: "Transformer",
-              link: "/docs/contribute/transformer",
-            },
-            { text: "Formatter", link: "/docs/contribute/formatter" },
-            { text: "Codegen", link: "/docs/contribute/codegen" },
-            { text: "Minifier", link: "/docs/contribute/minifier" },
-            { text: "VSCode", link: "/docs/contribute/vscode" },
-          ],
-        },
-        { text: "Performance", link: "/docs/contribute/performance" },
-        { text: "Showcase", link: "/docs/contribute/showcase" },
-      ],
-      "/blog/": blogSidebar,
+  },
+  locales: {
+    ...EN_LOCALE_CONFIG,
+    ...JA_LOCALE_CONFIG,
+  },
+  vite: {
+    resolve: {
+      alias: {
+        "@components": `${dirname(
+          fileURLToPath(import.meta.url),
+        )}/theme/components`,
+        "@constants": `${dirname(
+          fileURLToPath(import.meta.url),
+        )}/theme/constants`,
+      },
     },
   },
 });
