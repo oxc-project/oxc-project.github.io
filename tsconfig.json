@@ -17,5 +17,5 @@
     }
   },
   "include": ["src/**/*", ".vitepress/**/*"],
-  "exclude": ["node_modules", "build"]
+  "exclude": ["node_modules", "build", ".vitepress/cache"]
 }
