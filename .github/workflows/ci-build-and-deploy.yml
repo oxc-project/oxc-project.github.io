@@ -1,8 +1,10 @@
-name: CI
+name: CI (Build and Deploy)
 
 on:
   pull_request:
-    types: [opened, synchronize]
+    types:
+      - opened
+      - synchronize
     paths-ignore:
       - "README.md"
   push:
@@ -12,11 +14,9 @@ on:
       - "README.md"
 
 jobs:
-  ci:
-    name: CI
+  build:
+    name: Build
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
     steps:
@@ -32,10 +32,17 @@ jobs:
       - run: pnpm install --frozen-lockfile
 
       - run: pnpm run build
-
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        if: github.ref == 'refs/heads/main'
+  deploy:
+    name: Deploy
+    needs: build
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+    steps:
+      - uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./build

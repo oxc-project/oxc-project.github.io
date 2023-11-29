@@ -1,0 +1,14 @@
+core:
+  - all:
+    - '**'
+    - '!src/**'
+
+lang:en:
+  - all:
+    - 'src/**/*.md'
+    - '!src/ja/**/*.md'
+
+lang:ja:
+  - all:
+    - '!src/**/*.md'
+    - 'src/ja/**/*.md'
