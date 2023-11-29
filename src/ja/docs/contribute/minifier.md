@@ -18,3 +18,8 @@ by porting all test cases from well-known minifiers such as [google-closure-comp
 
 Preliminary results indicate that we are on track to achieve our objectives.
 With the Oxc minifier, you can expect faster minification times without sacrificing compression quality.
+
+[google-closure-compiler]: https://github.com/google/closure-compiler
+[terser]: https://github.com/terser/terser
+[esbuild]: https://github.com/evanw/esbuild
+[tdewolff-minify]: https://github.com/tdewolff/minify
