@@ -14,8 +14,8 @@ on:
       - "README.md"
 
 jobs:
-  build:
-    name: Build
+  main:
+    name: Build and Deploy
     runs-on: ubuntu-latest
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
@@ -32,17 +32,9 @@ jobs:
       - run: pnpm install --frozen-lockfile
 
       - run: pnpm run build
-  deploy:
-    name: Deploy
-    needs: build
-    if: github.ref == 'refs/heads/main'
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    concurrency:
-      group: ${{ github.workflow }}-${{ github.ref }}
-    steps:
+
       - uses: peaceiris/actions-gh-pages@v3
+        if: github.ref == 'refs/heads/main'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./build
