@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { computed, onMounted, ref, watchEffect } from "vue";
 import { useData } from "vitepress";
-import { TEAM_MEMBERS_MAP } from "../constants/team";
-import type { TeamMember } from "../constants/team";
+import { TEAM_MEMBERS_MAP } from "@constants/team";
+import type { TeamMember } from "@constants/team";
 
 const vitePressData = useData();
 const title = computed<string>(() => vitePressData.frontmatter.value.title);

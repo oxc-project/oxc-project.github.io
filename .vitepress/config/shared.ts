@@ -1,4 +1,4 @@
-import { dirname } from "node:path";
+import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { defineConfig } from "vitepress";
 
@@ -57,8 +57,8 @@ export const sharedConfig = defineConfig({
   vite: {
     resolve: {
       alias: {
-        "@components": `${dirname(fileURLToPath(import.meta.url))}/theme/components`,
-        "@constants": `${dirname(fileURLToPath(import.meta.url))}/theme/constants`,
+        "@components": resolve(dirname(fileURLToPath(import.meta.url)), "../theme/components"),
+        "@constants": resolve(dirname(fileURLToPath(import.meta.url)), "../theme/constants"),
       },
     },
   },
