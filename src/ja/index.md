@@ -1,4 +1,5 @@
 ---
+titleTemplate: "The JavaScript Oxidation Compiler"
 layout: home
 hero:
   name: "The JavaScript Oxidation Compiler"

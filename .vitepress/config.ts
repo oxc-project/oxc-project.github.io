@@ -1,17 +1,14 @@
 import { dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { defineConfig } from "vitepress";
-import { EN_LOCALE_CONFIG } from "./config.en.js";
-import { JA_LOCALE_CONFIG } from "./config.ja.js";
+import { LOCALE_EN_CONFIG } from "./locales/config.en.js";
+import { LOCALE_JA_CONFIG } from "./locales/config.ja.js";
 
 export default defineConfig({
   srcDir: "src",
   srcExclude: [],
   outDir: "build",
   base: "/",
-  title: "The JavaScript Oxidation Compiler",
-  titleTemplate: ":title | The JavaScript Oxidation Compiler",
-  description: "A collection of high-performance JavaScript tools written in Rust",
   head: [
     [
       "link",
@@ -20,28 +17,7 @@ export default defineConfig({
         href: "https://raw.githubusercontent.com/oxc-project/oxc-assets/main/logo-round.png",
       },
     ],
-    [
-      "meta",
-      {
-        property: "description",
-        content: "OXC: The JavaScript Oxidation Compiler",
-      },
-    ],
     // Open Graph
-    [
-      "meta",
-      {
-        property: "og:title",
-        content: "OXC: The JavaScript Oxidation Compiler",
-      },
-    ],
-    [
-      "meta",
-      {
-        property: "og:description",
-        content: "A collection of high-performance JavaScript tools written in Rust",
-      },
-    ],
     ["meta", { property: "og:site_name", content: "OXC" }],
     ["meta", { property: "og:url", content: "https://github.com/oxc-project" }],
     [
@@ -53,33 +29,12 @@ export default defineConfig({
     ],
     // Twitter (X)
     ["meta", { name: "twitter:site", content: "OXC" }],
-    [
-      "meta",
-      {
-        name: "twitter:title",
-        content: "OXC: The JavaScript Oxidation Compiler",
-      },
-    ],
-    [
-      "meta",
-      {
-        name: "twitter:description",
-        content: "A collection of high-performance JavaScript tools written in Rust",
-      },
-    ],
     ["meta", { name: "twitter:card", content: "summary_large_image" }],
     [
       "meta",
       {
         name: "twitter:image",
         content: "https://github.com/oxc-project/oxc-assets/blob/main/preview-white.png?raw=true",
-      },
-    ],
-    [
-      "meta",
-      {
-        name: "twitter:image:alt",
-        content: "OXC: The JavaScript Oxidation Compiler",
       },
     ],
   ],
@@ -102,8 +57,8 @@ export default defineConfig({
     },
   },
   locales: {
-    ...EN_LOCALE_CONFIG,
-    ...JA_LOCALE_CONFIG,
+    ...LOCALE_EN_CONFIG,
+    ...LOCALE_JA_CONFIG,
   },
   vite: {
     resolve: {
