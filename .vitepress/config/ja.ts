@@ -1,10 +1,10 @@
-import { defineLocaleConfig } from ".";
+import { defineLocaleConfig } from "./utils";
 import BLOG_SIDEBAR from "../sidebar.blog.json";
 
 const TITLE = "The JavaScript Oxidation Compiler";
 const DESCRIPTION = "Rust製JavaScriptツールコレクション";
 
-export const LOCALE_JA_CONFIG = defineLocaleConfig("ja", {
+export const jaConfig = defineLocaleConfig("ja", {
   label: "日本語",
   lang: "ja",
   title: TITLE,
