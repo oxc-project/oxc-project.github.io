@@ -1,10 +1,8 @@
-import { dirname } from "node:path";
+import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { defineConfig } from "vitepress";
-import { LOCALE_EN_CONFIG } from "./locales/config.en.js";
-import { LOCALE_JA_CONFIG } from "./locales/config.ja.js";
 
-export default defineConfig({
+export const sharedConfig = defineConfig({
   srcDir: "src",
   srcExclude: [],
   outDir: "build",
@@ -56,15 +54,11 @@ export default defineConfig({
       },
     },
   },
-  locales: {
-    ...LOCALE_EN_CONFIG,
-    ...LOCALE_JA_CONFIG,
-  },
   vite: {
     resolve: {
       alias: {
-        "@components": `${dirname(fileURLToPath(import.meta.url))}/theme/components`,
-        "@constants": `${dirname(fileURLToPath(import.meta.url))}/theme/constants`,
+        "@components": resolve(dirname(fileURLToPath(import.meta.url)), "../theme/components"),
+        "@constants": resolve(dirname(fileURLToPath(import.meta.url)), "../theme/constants"),
       },
     },
   },

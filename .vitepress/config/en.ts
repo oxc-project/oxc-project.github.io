@@ -1,10 +1,10 @@
-import { defineLocaleConfig } from ".";
+import { defineLocaleConfig } from "./utils";
 import BLOG_SIDEBAR from "../sidebar.blog.json";
 
 const TITLE = "The JavaScript Oxidation Compiler";
 const DESCRIPTION = "A collection of high-performance JavaScript tools written in Rust";
 
-export const LOCALE_EN_CONFIG = defineLocaleConfig("root", {
+export const enConfig = defineLocaleConfig("root", {
   label: "English",
   lang: "en",
   title: TITLE,
