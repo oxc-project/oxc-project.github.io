@@ -1,10 +1,8 @@
 import { dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { defineConfig } from "vitepress";
-import { LOCALE_EN_CONFIG } from "./locales/config.en.js";
-import { LOCALE_JA_CONFIG } from "./locales/config.ja.js";
 
-export default defineConfig({
+export const sharedConfig = defineConfig({
   srcDir: "src",
   srcExclude: [],
   outDir: "build",
@@ -55,10 +53,6 @@ export default defineConfig({
         dateStyle: "full",
       },
     },
-  },
-  locales: {
-    ...LOCALE_EN_CONFIG,
-    ...LOCALE_JA_CONFIG,
   },
   vite: {
     resolve: {
