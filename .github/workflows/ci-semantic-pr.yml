@@ -9,7 +9,6 @@ on:
 
 jobs:
   main:
-    name: Validate PR Title
     runs-on: ubuntu-latest
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
