@@ -178,7 +178,7 @@ Parenthesized expressions are supposed to not have any semantic meanings?
 For instance the AST for `((x))` can just be a single `IdentifierReference`, not `ParenthesizedExpression` -> `ParenthesizedExpression` -> `IdentifierReference`.
 And this is the case for JavaScript grammar.
 
-But ... who would have thought it can have run-time meanings.
+But ... who would have thought it can have runtime meanings.
 Found in [this estree issue](https://github.com/estree/estree/issues/194), it shows that
 
 ```javascript

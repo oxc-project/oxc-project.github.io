@@ -21,7 +21,7 @@ where warm runs complete in 5 minutes.
 
 Mac Xcode instruments can be used to produce a CPU profile.
 
-To install Xcode Instruments, install the Command Line Tools:
+To install Xcode Instruments, install the command-line Tools:
 
 ```bash
 xcode-select --install

@@ -90,10 +90,10 @@ there is a huge distinction between script code and module code.
 And there is a `use strict` mode that makes the grammar saner by disallowing old JavaScript behaviors.
 
 **Script Code** is not strict, `use strict` need to be inserted at the top of the file to make script code strict.
-In html we write `<script src="javascript.js"></script>`.
+In HTML we write `<script src="javascript.js"></script>`.
 
 **Module Code** is automatically strict.
-In html we write `<script type="module" src="main.mjs"></script>`.
+In HTML we write `<script type="module" src="main.mjs"></script>`.
 
 ## ECMAScript Language: Lexical Grammar
 
