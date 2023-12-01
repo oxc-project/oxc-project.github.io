@@ -6,6 +6,8 @@ on:
       - opened
       - edited
       - synchronize
+    branches-ignore:
+      - l10n_main
 
 jobs:
   main:
