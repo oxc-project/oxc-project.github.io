@@ -22,12 +22,12 @@
     "consola": "^3.2.3",
     "husky": "^8.0.3",
     "lint-staged": "15.0.2",
-    "prettier": "^3.0.3",
+    "prettier": "4.0.0-alpha.3",
     "tsx": "^4.5.0",
     "typescript": "~5.2.2"
   },
   "lint-staged": {
-    "*.{js,jsx,tsx,ts,css,md,json,mts}": "pnpm run fmt --write"
+    "*.{js,jsx,tsx,ts,mts,css,md,json,yml}": "pnpm run fmt --write"
   },
   "engines": {
     "node": ">=18.0"
