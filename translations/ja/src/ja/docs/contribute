@@ -1,11 +1,9 @@
 ---
-title: Showcase
+title: Transformer
 outline: deep
 ---
 
-# Showcase
+# Transformer
 
-Example PRs adding `oxlint`:
-
-- [Affine](https://github.com/toeverything/AFFiNE/pull/4867)
-- [Rspack](https://github.com/oxc-project/rspack/pull/3999)
+A transformer is responsible for turning higher versions of ECMAScript to a lower version that can be used in older browsers.
+We are currently focusing on an esnext to es2015 transpiler. See the [umbrella issue](https://github.com/oxc-project/oxc/issues/974) for details.
