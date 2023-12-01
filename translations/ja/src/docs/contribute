@@ -1,28 +1,35 @@
 ---
-title: Minifier
+title: Parser
 outline: deep
 ---
 
-# Minifier
+# Parser
 
-JavaScript minification plays a crucial role in optimizing website performance as it reduces the amount of data sent to users,
-resulting in faster page loads.
-This holds tremendous economic value, particularly for e-commerce websites, where every second can equate to millions of dollars.
+We aim to be the fastest Rust-based ready-for-production parser.
 
-However, existing minifiers typically require a trade-off between compression quality and speed.
-You have to choose between the slowest for the best compression or the fastest for less compression.
-But what if we could develop a faster minifier without compromising on compression?
+## Conformance Tests
 
-We are actively working on a prototype that aims to achieve this goal,
-by porting all test cases from well-known minifiers such as [google-closure-compiler], [terser], [esbuild], and [tdewolff-minify].
+```bash
+just c
+```
 
-Preliminary results indicate that we are on track to achieve our objectives.
-With the Oxc minifier, you can expect faster minification times without sacrificing compression quality.
+Aliased to `just coverage`, runs the following conformance test suites by using the conformance runner found in [tasks/coverage](https://github.com/oxc-project/oxc/tree/main/tasks/coverage).
 
-[google-closure-compiler]: https://github.com/google/closure-compiler
+### Test262
 
-[terser]: https://github.com/terser/terser
+JavaScript has the [ECMAScript Test Suite](https://github.com/tc39/test262) called Test262.
+The goal of Test262 is to provide test material that covers every observable behavior specified in the specification.
+Parser conformance uses the [parse phase tests](https://github.com/tc39/test262/blob/main/INTERPRETING.md#negative).
 
-[esbuild]: https://github.com/evanw/esbuild
+### Babel
 
-[tdewolff-minify]: https://github.com/tdewolff/minify
+When new language features are added to JavaScript, it is required to have them implemented by Babel,
+this means Babel has another set of [parser tests](https://github.com/babel/babel/tree/main/packages/babel-parser/test).
+
+### TypeScript
+
+The TypeScript conformance tests can be found [here](https://github.com/microsoft/TypeScript/tree/main/tests/cases/conformance).
+
+## Test Runner
+
+Rome has implemented a test runner for the above test suites, they can be found .
