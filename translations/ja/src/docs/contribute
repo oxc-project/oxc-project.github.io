@@ -1,37 +1,28 @@
 ---
-title: Linter
+title: Minifier
 outline: deep
 ---
 
-# Linter
+# Minifier
 
-## Development
+JavaScript minification plays a crucial role in optimizing website performance as it reduces the amount of data sent to users,
+resulting in faster page loads.
+This holds tremendous economic value, particularly for e-commerce websites, where every second can equate to millions of dollars.
 
-Create a `./test.ts` and then
+However, existing minifiers typically require a trade-off between compression quality and speed.
+You have to choose between the slowest for the best compression or the fastest for less compression.
+But what if we could develop a faster minifier without compromising on compression?
 
-```bash
-just watch "run -p oxc_cli --bin oxlint -- test.ts"
-```
+We are actively working on a prototype that aims to achieve this goal,
+by porting all test cases from well-known minifiers such as [google-closure-compiler], [terser], [esbuild], and [tdewolff-minify].
 
-## Rule generation
+Preliminary results indicate that we are on track to achieve our objectives.
+With the Oxc minifier, you can expect faster minification times without sacrificing compression quality.
 
-Create a new lint rule by providing the ESLint name
+[google-closure-compiler]: https://github.com/google/closure-compiler
 
-```bash
-just new-rule name
-```
+[terser]: https://github.com/terser/terser
 
-Then add the rule to `crates/oxc_linter/src/rules.rs`:
+[esbuild]: https://github.com/evanw/esbuild
 
-1. Add to `mod`
-2. Add to `oxc_macros::declare_all_lint_rules` at the bottom of the file
-
-For other plugins, there are also:
-
-```bash
-just new-jest-rule name
-just new-ts-rule name
-just new-unicorn-rule name
-just new-react-rule name
-just new-jsx-a11y-rule name
-```
+[tdewolff-minify]: https://github.com/tdewolff/minify
