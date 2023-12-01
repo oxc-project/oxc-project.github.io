@@ -11,7 +11,7 @@ This tutorial summarizes them in learning order for better understanding.
 - The decision was made after talking to the author of [rslint](https://github.com/rslint/rslint) and [rust-analyzer](https://github.com/rust-lang/rust-analyzer)
 - rust-analyzer proved that IDE-centric tools built around concrete syntax tree are possible
 - rslint proved that it is possible to write a JavaScript parser in Rust, with the same base libraries as rust-analyzer
-- Rome ported the rslint codebase to their own repo with permission from rslint's author
+- Rome ported the rslint codebase to their own repository with permission from rslint's author
 
 ## Concrete Syntax Tree
 
@@ -64,5 +64,5 @@ https://github.com/rome/tools/blob/9815467c66688773bc1bb6ef9a5b2d86ca7b3682/crat
 
 :::info
 The JavaScript / TypeScript parser is 99% complete, the best way to help is to test Rome in your own codebases
-or take a look at the [issues on Github](https://github.com/rome/tools/issues).
+or take a look at the [issues on GitHub](https://github.com/rome/tools/issues).
 :::

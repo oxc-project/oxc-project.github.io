@@ -22,4 +22,4 @@ A JavaScript compiler and TypeScript checker written in Rust with a focus on sta
 
 ## [Tyvm](https://github.com/zackradisic/tyvm)
 
-An experimental bytecode interpreter for type-level Typescript.
+An experimental bytecode interpreter for type-level TypeScript.
