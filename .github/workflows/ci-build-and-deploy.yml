@@ -13,14 +13,29 @@ on:
     paths-ignore:
       - "README.md"
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.sha }}
+  cancel-in-progress: ${{ github.ref_name != 'main' }}
+
 jobs:
+  text:
+    name: Textlint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v2
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+          cache: "pnpm"
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm run textlint:check
+
   main:
     name: Build and Deploy
     runs-on: ubuntu-latest
     permissions:
       contents: write
-    concurrency:
-      group: ${{ github.workflow }}-${{ github.ref }}
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v2

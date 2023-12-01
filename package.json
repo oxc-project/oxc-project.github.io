@@ -9,7 +9,8 @@
     "build": "vitepress build",
     "preview": "vitepress preview",
     "fmt": "prettier",
-    "textlint-fix": "textlint --fix '**/*.md'",
+    "textlint:fix": "textlint --fix '**/*.md'",
+    "textlint:check": "textlint '**/*.md'",
     "typecheck": "tsc",
     "create-blog-post": "tsx ./cli/index.ts create-blog-post"
   },
