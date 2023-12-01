@@ -1,35 +1,71 @@
 ---
-title: Parser
+title: Performance
 outline: deep
 ---
 
-# Parser
+# Performance Tuning
 
-We aim to be the fastest Rust-based ready-for-production parser.
+## Compile Time
 
-## Conformance Tests
+While Rust has gained a reputation for its comparatively slower compilation speed,
+we have dedicated significant effort to fine-tune the Rust compilation speed.
+Our aim is to minimize any impact on your development workflow,
+ensuring that developing your own Oxc based tools remains a smooth and efficient experience.
+
+This is demonstrated by our [CI runs](https://github.com/oxc-project/oxc/actions/workflows/ci.yml?query=branch%3Amain),
+where warm runs complete in 5 minutes.
+
+## Profile
+
+### Mac Xcode Instruments
+
+Mac Xcode instruments can be used to produce a CPU profile.
+
+To install Xcode Instruments, install the command-line Tools:
 
 ```bash
-just c
+xcode-select --install
 ```
 
-Aliased to `just coverage`, runs the following conformance test suites by using the conformance runner found in [tasks/coverage](https://github.com/oxc-project/oxc/tree/main/tasks/coverage).
+For normal Rust builds, [`cargo instruments`](https://github.com/cmyr/cargo-instruments) can be used as the glue
+for profiling and creating the trace file.
 
-### Test262
+First, change the profile for showing debug symbols.
 
-JavaScript has the [ECMAScript Test Suite](https://github.com/tc39/test262) called Test262.
-The goal of Test262 is to provide test material that covers every observable behavior specified in the specification.
-Parser conformance uses the [parse phase tests](https://github.com/tc39/test262/blob/main/INTERPRETING.md#negative).
+```toml
+[profile.release]
+debug = 1 # debug info with line tables only
+strip = false # do not strip symbols
+```
 
-### Babel
+Then build the project
 
-When new language features are added to JavaScript, it is required to have them implemented by Babel,
-this means Babel has another set of [parser tests](https://github.com/babel/babel/tree/main/packages/babel-parser/test).
+```bash
+cargo build --release -p oxc_cli --bin oxlint
+```
 
-### TypeScript
+The binary is located at `./target/release/oxlint` once the project is built.
 
-The TypeScript conformance tests can be found [here](https://github.com/microsoft/TypeScript/tree/main/tests/cases/conformance).
+Under the hood, `cargo instruments` invokes the `xcrun` command, equivalent to
 
-## Test Runner
+```bash
+xcrun xctrace record --template 'Time Profile' --output . --launch -- /path/to/oxc/target/release/oxlint --quiet
+```
 
-Rome has implemented a test runner for the above test suites, they can be found .
+Running the command above produces the following output
+
+```
+Starting recording with the Time Profiler template. Launching process: oxlint.
+Ctrl-C to stop the recording
+Target app exited, ending recording...
+Recording completed. Saving output file...
+Output file saved as: Launch_oxlint_2023-09-03_4.41.45 PM_EB179B85.trace
+```
+
+Open the trace file `open Launch_oxlint_2023-09-03_4.41.45\ PM_EB179B85.trace`.
+
+To see a top down trace:
+
+1. On the top panel, click CPUs
+2. On the left input box, click `x` then select `Time Profiler`
+3. At the bottom panel, click "Call Tree", turn on "Invert Call Tree" and turn off separate by thread.
