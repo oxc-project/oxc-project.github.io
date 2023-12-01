@@ -9,6 +9,8 @@
     "build": "vitepress build",
     "preview": "vitepress preview",
     "fmt": "prettier",
+    "textlint:fix": "textlint --fix '**/*.md'",
+    "textlint:check": "textlint '**/*.md'",
     "typecheck": "tsc",
     "create-blog-post": "tsx ./cli/index.ts create-blog-post"
   },
@@ -23,11 +25,14 @@
     "husky": "^8.0.3",
     "lint-staged": "15.0.2",
     "prettier": "4.0.0-alpha.3",
+    "textlint": "^13.4.1",
+    "textlint-rule-terminology": "^4.0.1",
     "tsx": "^4.5.0",
     "typescript": "~5.2.2"
   },
   "lint-staged": {
-    "*.{js,jsx,tsx,ts,mts,css,md,json,yml}": "pnpm run fmt --write"
+    "*.{js,jsx,tsx,ts,mts,css,md,json,yml}": "pnpm run fmt --write",
+    "*.md": "textlint"
   },
   "engines": {
     "node": ">=18.0"
