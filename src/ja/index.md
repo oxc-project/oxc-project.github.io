@@ -1,8 +1,8 @@
 ---
-titleTemplate: "The JavaScript Oxidation Compiler"
+titleTemplate: The JavaScript Oxidation Compiler
 layout: home
 hero:
-  name: "The JavaScript Oxidation Compiler"
+  name: The JavaScript Oxidation Compiler
   tagline: Rust製JavaScriptツールコレクション
   image:
     src: https://raw.githubusercontent.com/oxc-project/oxc-assets/main/logo-round.png
