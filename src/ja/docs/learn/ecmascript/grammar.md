@@ -34,7 +34,7 @@ They haven't updated it much in the past two years and they sent a strong messag
 
 :::
 
----
+***
 
 The only practical way to parse JavaScript is to write a recursive descent parser by hand because of the nature of its grammar,
 so let's learn all the quirks in the grammar before we shoot ourselves in the foot.
@@ -87,7 +87,7 @@ pub struct IdentifierReference {
 }
 ```
 
----
+***
 
 ## Class and Strict Mode
 
@@ -101,7 +101,7 @@ we need to keep an extra state just for parsing classes.
 https://github.com/swc-project/swc/blob/f9c4eff94a133fa497778328fa0734aa22d5697c/crates/swc_ecma_parser/src/parser/class_and_fn.rs#L85
 ```
 
----
+***
 
 ## Legacy Octal and Use Strict
 
@@ -126,7 +126,7 @@ https://github.com/tc39/test262/blob/747bed2e8aaafe8fdf2c65e8a10dd7ae64f66c47/te
 `use strict` is declared after the escaped legacy octal, yet the syntax error needs to be thrown.
 Fortunately, no real code uses directives with legacy octals ... unless you want to pass the test262 case from above.
 
----
+***
 
 ## Non-simple Parameter and Strict Mode
 
@@ -170,7 +170,7 @@ function foo(a, b) {
 
 :::
 
----
+***
 
 ## Parenthesized Expression
 
@@ -193,7 +193,7 @@ Found in [this estree issue](https://github.com/estree/estree/issues/194), it sh
 
 So eventually acorn and babel added the `preserveParens` option for compatibility.
 
----
+***
 
 ## Function Declaration in If Statement
 
@@ -217,7 +217,7 @@ if (x) function foo() {}
 else function bar() {}
 ```
 
----
+***
 
 ## Label statement is legit
 
@@ -234,7 +234,7 @@ The following syntax is correct, it returns a labelled statement (not object lit
 //   ^^^^^^^^^^^ `LabelledStatement`
 ```
 
----
+***
 
 ## `let` is not a keyword
 
@@ -250,9 +250,9 @@ while (true) let;
 a = let[0];
 ```
 
----
+***
 
-## For-in / For-of and the [In] context
+## For-in / For-of and the \[In] context
 
 If we look at the grammar for `for-in` and `for-of` in `#prod-ForInOfStatement`,
 it is immediately confusing to understand how to parse these.
@@ -264,7 +264,7 @@ If we have parsed to `for (let`, we need to check the peeking token is:
 - not `in` to disallow `for (let in)`
 - is `{`, `[` or an identifier to allow `for (let {} = foo)`, `for (let [] = foo)` and `for (let bar = foo)`
 
-Once reached the `of` or `in` keyword, the right-hand side expression needs to be passed with the correct [+In] context to disallow
+Once reached the `of` or `in` keyword, the right-hand side expression needs to be passed with the correct \[+In] context to disallow
 the two `in` expressions in `#prod-RelationalExpression`:
 
 ```
@@ -280,7 +280,7 @@ And this is the only application for the `[In]` context in the entire specificat
 Also to note, the grammar `[lookahead ∉ { let, async of }]` forbids `for (async of ...)`,
 and it needs to be explicitly guarded against.
 
----
+***
 
 ## Block-Level Function Declarations
 
@@ -313,7 +313,7 @@ function foo() {
 }
 ```
 
----
+***
 
 ## Grammar Context
 
@@ -455,7 +455,7 @@ we need to define an `AssignmentPattern` node and a `BindingPattern` node instea
   the grammar for `AssignmentPattern` is in the 5th subsection of the main section "13.15 Assignment Operators" with the subtitle "Supplemental Syntax" 🤯 -
   this is really out of place because all grammar is defined in the main section, not like this one defined after the "Runtime Semantics" section
 
----
+***
 
 :::caution
 The following cases are really difficult to grasp. Here be dragons.
@@ -549,7 +549,7 @@ the specification states "The InputElementRegExp goal symbol is used in all synt
 As an exercise, try and follow the grammar for `/=/ / /=/`.
 :::
 
----
+***
 
 ## Cover Grammar
 
@@ -601,7 +601,7 @@ This is stated in its [architecture document](https://github.com/evanw/esbuild/b
 
 > This is mostly pretty straightforward except for a few places where the parser has pushed a scope and is in the middle of parsing a declaration only to discover that it's not a declaration after all. This happens in TypeScript when a function is forward-declared without a body, and in JavaScript when it's ambiguous whether a parenthesized expression is an arrow function or not until we reach the => token afterwards. This would be solved by doing three passes instead of two so we finish parsing before starting to set up scopes and declare symbols, but we're trying to do this in just two passes. So instead we call popAndDiscardScope() or popAndFlattenScope() instead of popScope() to modify the scope tree later if our assumptions turn out to be incorrect.
 
----
+***
 
 #### CoverCallExpressionAndAsyncArrowHead
 
@@ -642,7 +642,7 @@ async (a, b, c) => {} // AsyncArrowFunction
 
 This looks strange because `async` is not a keyword. The first `async` is a function name.
 
----
+***
 
 #### CoverInitializedName
 
