@@ -19,7 +19,7 @@ Node.js Module Resolution.
 
 ### Rust
 
-Install [oxc_resolver][url-oxc-resolver-crate] crate:
+Install [oxc\_resolver][url-oxc-resolver-crate] crate:
 
 ```sh
 $ cargo install oxc_resolver
@@ -76,5 +76,7 @@ fn main() {
 <!-- Links -->
 
 [url-oxc-resolver-crate]: https://crates.io/oxc_resolver
+
 [url-oxc-resolver-docs]: https://docs.rs/oxc_resolver
+
 [url-oxc-resolver-npm]: https://www.npmjs.com/package/oxc-resolver
