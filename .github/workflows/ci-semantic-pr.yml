@@ -2,12 +2,12 @@ name: CI (Semantic PR)
 
 on:
   pull_request:
+    branches-ignore:
+      - "l10n_main"
     types:
       - opened
       - edited
       - synchronize
-    branches-ignore:
-      - l10n_main
 
 jobs:
   main:
