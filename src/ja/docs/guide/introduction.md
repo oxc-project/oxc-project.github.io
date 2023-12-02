@@ -28,4 +28,5 @@ This project shares the same philosophies as [Biome][biome] and [Ruff][ruff].
 <VPTeamMembers size="medium" :members="CORE_TEAM_MEMBERS" />
 
 [biome]: https://biomejs.dev
+
 [ruff]: https://beta.ruff.rs
