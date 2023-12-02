@@ -36,7 +36,7 @@ $ cargo install oxc_parser
 ```
 
 - The umbrella crate [oxc][url-oxc-crate] exports all public crates from this repository
-- The AST and parser crates [oxc_ast][url-oxc-ast-crate] and [oxc_parser][url-oxc-parser-crate] are production ready
+- The AST and parser crates [oxc\_ast][url-oxc-ast-crate] and [oxc\_parser][url-oxc-parser-crate] are production ready
 
 ### Node.js
 
@@ -65,8 +65,13 @@ $ bun add -D oxc-parser
 <!-- Links -->
 
 [url-swc]: https://swc.rs
+
 [url-benchmark]: https://github.com/oxc-project/bench-javascript-parser-written-in-rust
+
 [url-oxc-crate]: https://docs.rs/oxc
+
 [url-oxc-ast-crate]: https://docs.rs/oxc_ast
+
 [url-oxc-parser-crate]: https://docs.rs/oxc_parser
+
 [url-oxc-parser-npm]: https://www.npmjs.com/package/oxc-parser
