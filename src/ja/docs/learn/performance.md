@@ -5,7 +5,7 @@ outline: deep
 
 # Pursuit of Performance on Building a JavaScript Compiler
 
-Originally posted on https://rustmagazine.org/issue-3/javascript-compiler/
+Originally posted on https\://rustmagazine.org/issue-3/javascript-compiler/
 
 ## On Performance
 
@@ -332,9 +332,9 @@ fn test_size() {
 Many crates in the Rust community aim to optimize memory usage. This is yet another battlefield within the community.
 The most popular ones are
 
-- [smol_str](https://crates.io/crates/smol_str)
+- [smol\_str](https://crates.io/crates/smol_str)
 - [smartstring](https://crates.io/crates/smartstring)
-- [compact_str](https://crates.io/crates/compact_str)
+- [compact\_str](https://crates.io/crates/compact_str)
 - [flexstr](https://crates.io/crates/flexstr)
 
 Each of these crates have unique characteristics and approaches to achieving memory optimization, leading to a variety of trade-offs and considerations when choosing which one to use.
