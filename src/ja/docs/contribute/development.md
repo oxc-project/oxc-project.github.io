@@ -61,7 +61,7 @@ You can see the list of available commands by running `just`.
 
 You can run `just ready` (or, `just r` in short) to make sure the whole project builds and runs correctly.
 
----
+***
 
 Now you are ready to develop OXC!
 You can check out [good first issues](https://github.com/oxc-project/oxc/contribute) or ask us on [Discord](https://discord.gg/9uXCAwqQZW).
