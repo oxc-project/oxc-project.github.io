@@ -4,5 +4,5 @@ append_commit_message: false
 files:
   - source: /src/**/*.md
     ignore:
-      - /src/%two_letters_code%/%original_path%/%original_file_name%
-    translation: /src/%two_letters_code%/%original_path%/%original_file_name%
+      - /src/%two_letters_code%/**/%original_file_name%%file_extension%
+    translation: /src/%two_letters_code%/**/%original_file_name%%file_extension%
