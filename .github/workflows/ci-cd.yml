@@ -1,4 +1,4 @@
-name: CI (Build and Deploy)
+name: CI/CD
 
 on:
   pull_request:
@@ -6,20 +6,20 @@ on:
       - opened
       - synchronize
     paths-ignore:
-      - "README.md"
+      - README.md
   push:
     branches:
       - main
     paths-ignore:
-      - "README.md"
+      - README.md
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.sha }}
   cancel-in-progress: ${{ github.ref_name != 'main' }}
 
 jobs:
-  typos:
-    name: Typos
+  check-typos:
+    name: Check typos
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -27,21 +27,23 @@ jobs:
         with:
           files: .
 
-  text:
+  textlint:
     name: Textlint
+    needs: check-typos
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v2
       - uses: actions/setup-node@v3
         with:
-          node-version: "18"
-          cache: "pnpm"
+          node-version: 18
+          cache: pnpm
       - run: pnpm install --frozen-lockfile
       - run: pnpm run textlint:check
 
-  main:
+  build-and-deploy:
     name: Build and Deploy
+    needs: textlint
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -50,8 +52,8 @@ jobs:
       - uses: pnpm/action-setup@v2
       - uses: actions/setup-node@v3
         with:
-          node-version: "18"
-          cache: "pnpm"
+          node-version: 18
+          cache: pnpm
       - run: pnpm install --frozen-lockfile
 
       - run: pnpm run build
