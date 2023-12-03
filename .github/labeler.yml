@@ -4,11 +4,15 @@ core:
       - "!src/**"
 
 lang:en:
-  - all:
-      - "src/**/*.md"
-      - "!src/ja/**/*.md"
+  - any:
+      - "src/*.md"
+      - "src/docs/**/*.md"
+      - "src/blog/**/*.md"
 
 lang:ja:
-  - all:
-      - "!src/**/*.md"
+  - any:
       - "src/ja/**/*.md"
+
+lang:zh:
+  - any:
+      - "src/zh/**/*.md"
