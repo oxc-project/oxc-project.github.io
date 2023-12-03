@@ -18,6 +18,15 @@ concurrency:
   cancel-in-progress: ${{ github.ref_name != 'main' }}
 
 jobs:
+  typos:
+    name: Typos
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: crate-ci/typos@master
+        with:
+          files: .
+
   text:
     name: Textlint
     runs-on: ubuntu-latest

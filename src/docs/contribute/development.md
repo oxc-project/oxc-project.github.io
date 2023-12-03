@@ -33,7 +33,7 @@ rustup show
 
 #### `cargo-binstall`
 
-Some Cargo tools are required to develop OXC, and it is recommended to use [cargo binstall](https://github.com/cargo-bins/cargo-binstall), which provides a low-complexity mechanism to install rust binaries and is fater way than building them from source by running `cargo install`.
+Some Cargo tools are required to develop OXC, and it is recommended to use [cargo binstall](https://github.com/cargo-bins/cargo-binstall), which provides a low-complexity mechanism to install rust binaries and is faster way than building them from source by running `cargo install`.
 
 ```bash
 cargo install cargo-binstall
