@@ -1,13 +1,15 @@
-name: CI (Semantic PR)
+name: CI (PR Title)
 
 on:
   pull_request:
-    branches-ignore:
-      - "l10n_main"
     types:
       - opened
       - edited
       - synchronize
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.sha }}
+  cancel-in-progress: true
 
 jobs:
   main:
@@ -22,11 +24,10 @@ jobs:
         with:
           types: |
             docs
+            chore
             feat
             fix
-            chore
           scopes: |
             core
-            en
-            ja
+            l10n
           requireScope: true
