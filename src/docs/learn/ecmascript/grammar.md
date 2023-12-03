@@ -449,11 +449,8 @@ I was in a super confusing state for a whole week until I finally reached enligh
 we need to define an `AssignmentPattern` node and a `BindingPattern` node instead of a single `Pattern` node.
 
 - `estree` must be correct because people have been using it for years so it cannot be wrong?
-- how are we going to cleanly distinguish the `Identifier`s inside the patterns without defining two separate nodes?
-  I just cannot find where the grammar is?
-- After a whole day of navigating the specification ...
-  the grammar for `AssignmentPattern` is in the 5th subsection of the main section "13.15 Assignment Operators" with the subtitle "Supplemental Syntax" 🤯 -
-  this is really out of place because all grammar is defined in the main section, not like this one defined after the "Runtime Semantics" section
+- how are we going to cleanly distinguish the `Identifier`s inside the patterns without defining two separate nodes? I just cannot find where the grammar is?
+- After a whole day of navigating the specification ... the grammar for `AssignmentPattern` is in the 5th subsection of the main section "13.15 Assignment Operators" with the subtitle "Supplemental Syntax" 🤯 - this is really out of place because all grammar is defined in the main section, not like this one defined after the "Runtime Semantics" section
 
 ---
 
