@@ -33,7 +33,7 @@ rustup show
 
 #### `cargo-binstall`
 
-Some Cargo tools are required to develop OXC, and it is recommended to use [cargo binstall](https://github.com/cargo-bins/cargo-binstall), which provides a low-complexity mechanism to install rust binaries and is fater way than building them from source by running `cargo install`.
+Some Cargo tools are required to develop OXC, and it is recommended to use [cargo binstall](https://github.com/cargo-bins/cargo-binstall), which provides a low-complexity mechanism to install rust binaries and is faster way than building them from source by running `cargo install`.
 
 ```bash
 cargo install cargo-binstall
@@ -61,7 +61,7 @@ You can see the list of available commands by running `just`.
 
 You can run `just ready` (or, `just r` in short) to make sure the whole project builds and runs correctly.
 
-***
+---
 
 Now you are ready to develop OXC!
 You can check out [good first issues](https://github.com/oxc-project/oxc/contribute) or ask us on [Discord](https://discord.gg/9uXCAwqQZW).
