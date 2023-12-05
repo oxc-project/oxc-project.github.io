@@ -1,20 +1,20 @@
 ---
-title: リファレンス
+title: References
 outline: deep
 ---
 
-# リファレンス
+# References
 
-## OXCを利用しているプロジェクト
+## Projects Using Oxc
 
-## 学習コンテンツ
+## 📚 Learning Resources
 
-- [how to write a JavaScript Parser in Rust](https://oxc-project.github.io/javascript-parser-in-rust)
-- [Pursuit of Performance on Building a JavaScript Compiler](https://rustmagazine.org/issue-3/javascript-compiler/)
-- [Crafting Interpreters](https://craftinginterpreters.com/)
+- My small tutorial on [how to write a JavaScript Parser in Rust](https://oxc-project.github.io/javascript-parser-in-rust)
+- My small article [Pursuit of Performance on Building a JavaScript Compiler](https://rustmagazine.org/issue-3/javascript-compiler/)
+- [Crafting Interpreters](https://craftinginterpreters.com)
 - [Andrew Kelley - Practical DOD](https://vimeo.com/649009599)
 
-## Parsers (開発中)
+## Parsers (in active development)
 
 - Rust
   - [swc](https://swc.rs)
@@ -41,7 +41,7 @@ outline: deep
 
 - [The Rust Performance Book](https://nnethercote.github.io/perf-book/introduction.html)
 
-## ブログ記事
+## Blog Posts
 
 - [Blazingly fast parsing, part 1: optimizing the scanner](https://v8.dev/blog/scanner)
 - [Blazingly fast parsing, part 2: lazy parsing](https://v8.dev/blog/preparser)
