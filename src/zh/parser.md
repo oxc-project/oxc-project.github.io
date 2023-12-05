@@ -1,35 +1,77 @@
 ---
 title: Parser
 outline: deep
+badges:
+  - src: https://img.shields.io/npm/dw/oxc-parser
+    alt: npm
 ---
+
+<AppBadgeList />
 
 # Parser
 
-We aim to be the fastest Rust-based ready-for-production parser.
+## Features
 
-## Conformance Tests
+- 2x faster then [SWC][url-swc] parser
+- By far the fastest and most conformant JavaScript and TypeScript (including JSX and TSX) parser written in Rust
 
-```bash
-just c
+You can check [benchmark][url-benchmark] for more detail.
+
+## Installation
+
+### Rust
+
+Install crates:
+
+```sh
+$ cargo install oxc
 ```
 
-Aliased to `just coverage`, runs the following conformance test suites by using the conformance runner found in [tasks/coverage](https://github.com/oxc-project/oxc/tree/main/tasks/coverage).
+```sh
+$ cargo install oxc_ast
+```
 
-### Test262
+```sh
+$ cargo install oxc_parser
+```
 
-JavaScript has the [ECMAScript Test Suite](https://github.com/tc39/test262) called Test262.
-The goal of Test262 is to provide test material that covers every observable behavior specified in the specification.
-Parser conformance uses the [parse phase tests](https://github.com/tc39/test262/blob/main/INTERPRETING.md#negative).
+- The umbrella crate [oxc][url-oxc-crate] exports all public crates from this repository
+- The AST and parser crates [oxc\_ast][url-oxc-ast-crate] and [oxc\_parser][url-oxc-parser-crate] are production ready
 
-### Babel
+### Node.js
 
-When new language features are added to JavaScript, it is required to have them implemented by Babel,
-this means Babel has another set of [parser tests](https://github.com/babel/babel/tree/main/packages/babel-parser/test).
+Install [oxc-parser][url-oxc-parser-npm]:
 
-### TypeScript
+::: code-group
 
-The TypeScript conformance tests can be found [here](https://github.com/microsoft/TypeScript/tree/main/tests/cases/conformance).
+```sh [npm]
+$ npm add -D oxc-parser
+```
 
-## Test Runner
+```sh [pnpm]
+$ pnpm add -D oxc-parser
+```
 
-Rome has implemented a test runner for the above test suites, they can be found .
+```sh [yarn]
+$ yarn add -D oxc-parser
+```
+
+```sh [bun]
+$ bun add -D oxc-parser
+```
+
+:::
+
+<!-- Links -->
+
+[url-swc]: https://swc.rs
+
+[url-benchmark]: https://github.com/oxc-project/bench-javascript-parser-written-in-rust
+
+[url-oxc-crate]: https://docs.rs/oxc
+
+[url-oxc-ast-crate]: https://docs.rs/oxc_ast
+
+[url-oxc-parser-crate]: https://docs.rs/oxc_parser
+
+[url-oxc-parser-npm]: https://www.npmjs.com/package/oxc-parser
