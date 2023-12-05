@@ -53,6 +53,11 @@ export const sharedConfig = defineConfig({
         dateStyle: "full",
       },
     },
+    editLinks: true,
+    editLinkText: 'Edit this page',
+    repo: 'oxc-project/oxc-project.github.io',
+    docsDir: 'src/docs',
+    docsBranch: 'main',
   },
   vite: {
     resolve: {
