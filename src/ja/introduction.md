@@ -3,39 +3,30 @@ title: Introduction
 outline: deep
 ---
 
-# Introduction
+<script setup>
+import { VPTeamMembers } from 'vitepress/theme'
+import { COMMUNITY_TEAM_MEMBERS, CORE_TEAM_MEMBERS } from '@constants/team'
+</script>
 
-Thank you for getting interested in contributing to OXC project!
-Before starting, please make sure to read the following rules and policy.
+# What is OXC?
 
-## General Rules
+The Oxidation Compiler is a collection of high-performance tools for the JavaScript and TypeScript language.
 
-- We welcome and appreciate any form of contributions.
-- Please create an issue or discussion if you want to make an architectural change.
+We are building a parser, linter, formatter, transpiler, minifier, resolver ... all written in Rust.
 
-## PR Rules
+Our goal is to create and empower the fastest and most user friendly tools for [The Third Age of JavaScript](https://www.swyx.io/js-third-age).
 
-- We [prefer smaller PRs](https://graphite.dev/blog/how-large-prs-slow-down-development) for faster development.
-- Try stacked PRs with [graphite](https://graphite.dev) if you are given access permission to the repository.
+## Philosophy
 
-## Action Policy
+This project shares the same philosophies as [Biome][biome] and [Ruff][ruff].
 
-Taken from [Astral's values](https://astral-sh.notion.site/Astral-s-Values-0ed6a642bcc84e91af6836b2373572f5):
+1. JavaScript tooling could be rewritten in a more performant language.
+2. An integrated toolchain can tap into efficiencies that are not available to a disparate set of tools.
 
-> We bias towards action, even in the face of uncertainty. We favor _pragmatic doing_ over **prolonged debating**; we favor asking for _forgiveness_ over _permission_. We value **decisiveness — especially** when a decision isn’t clear cut, and **especially** when a decision is reversible.
->
-> A bias towards action is _not_ the same as recklessness. Rather, it’s a bias towards making _responsible_ decisions and acting on them with _urgency_, even if we’re left with lingering ambiguity or known unknowns.
+## Core Team
 
-## Development Policy
+<VPTeamMembers size="medium" :members="CORE_TEAM_MEMBERS" />
 
-- All performance issues (runtime and compilation speed) are considered as bugs in this project.
-- Embrace data-oriented design.
-- APIs should be simple and well-documented.
-- Third-party dependencies should be minimal.
-- Avoid the `regex` crate when possible. Regexes are slow, most of them can be rewritten in a performant way by using Rust iterator and string methods.
-- Avoid macros, traits or any Rust techniques that would penalize compilation speed.
+[biome]: https://biomejs.dev
 
-## Maintenance Policy
-
-- Monitor code coverage for unused code. Aim for 99% code coverage.
-- CI time should be actively monitored and reduced to speed up merging of PRs. The current CI time on GitHub actions is around 3 minutes.
+[ruff]: https://beta.ruff.rs
