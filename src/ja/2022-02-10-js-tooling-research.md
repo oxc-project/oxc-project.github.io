@@ -1,5 +1,5 @@
 ---
-title: High Performance JavaScript Toolchain
+title: 高性能 JavaScript 工具链
 outline: deep
 authors:
   - boshen
