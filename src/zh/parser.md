@@ -1,77 +1,29 @@
 ---
 title: Parser
 outline: deep
-badges:
-  - src: https://img.shields.io/npm/dw/oxc-parser
-    alt: npm
 ---
-
-<AppBadgeList />
 
 # Parser
 
-## Features
+Oxc maintains its own AST and parser, which is by far the fastest and most conformant JavaScript and TypeScript (including JSX and TSX) parser written in Rust.
 
-- 2x faster then [SWC][url-swc] parser
-- By far the fastest and most conformant JavaScript and TypeScript (including JSX and TSX) parser written in Rust
+As the parser often represents a key performance bottleneck in JavaScript tooling,
+any minor improvements can have a cascading effect on our downstream tools.
+By developing our parser, we have the opportunity to explore and implement well-researched performance techniques.
 
-You can check [benchmark][url-benchmark] for more detail.
+While many existing JavaScript tools rely on \[estree] as their AST specification,
+a notable drawback is its abundance of ambiguous nodes.
+This ambiguity often leads to confusion during development with \[estree].
 
-## Installation
+The Oxc AST differs slightly from the \[estree] AST by removing ambiguous nodes and introducing distinct types.
+For example, instead of using a generic \[estree] `Identifier`,
+the Oxc AST provides specific types such as `BindingIdentifier`, `IdentifierReference`, and `IdentifierName`.
 
-### Rust
+This clear distinction greatly enhances the development experience by aligning more closely with the ECMAScript specification.
 
-Install crates:
+## How is it so fast
 
-```sh
-$ cargo install oxc
-```
-
-```sh
-$ cargo install oxc_ast
-```
-
-```sh
-$ cargo install oxc_parser
-```
-
-- The umbrella crate [oxc][url-oxc-crate] exports all public crates from this repository
-- The AST and parser crates [oxc\_ast][url-oxc-ast-crate] and [oxc\_parser][url-oxc-parser-crate] are production ready
-
-### Node.js
-
-Install [oxc-parser][url-oxc-parser-npm]:
-
-::: code-group
-
-```sh [npm]
-$ npm add -D oxc-parser
-```
-
-```sh [pnpm]
-$ pnpm add -D oxc-parser
-```
-
-```sh [yarn]
-$ yarn add -D oxc-parser
-```
-
-```sh [bun]
-$ bun add -D oxc-parser
-```
-
-:::
-
-<!-- Links -->
-
-[url-swc]: https://swc.rs
-
-[url-benchmark]: https://github.com/oxc-project/bench-javascript-parser-written-in-rust
-
-[url-oxc-crate]: https://docs.rs/oxc
-
-[url-oxc-ast-crate]: https://docs.rs/oxc_ast
-
-[url-oxc-parser-crate]: https://docs.rs/oxc_parser
-
-[url-oxc-parser-npm]: https://www.npmjs.com/package/oxc-parser
+- AST is allocated in a [memory arena](https://crates.io/crates/bumpalo) for fast AST memory allocation and deallocation
+- Short strings are inlined by [CompactString](https://crates.io/crates/compact_str)
+- No other heap allocations are done except the above two
+- Scope binding, symbol resolution and some syntax errors are not done in the parser, they are delegated to the semantic analyzer
