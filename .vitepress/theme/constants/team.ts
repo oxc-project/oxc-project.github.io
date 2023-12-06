@@ -20,7 +20,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     id: "boshen",
     type: "core",
     name: "Boshen",
-    title: "Creator",
+    title: "Project Lead",
     avatar: "https://www.github.com/Boshen.png",
     links: [
       { icon: "github", link: "https://github.com/Boshen" },
@@ -28,9 +28,9 @@ export const TEAM_MEMBERS: TeamMember[] = [
     ],
   },
   {
-    id: "wenzhe_wang",
+    id: "mysteryven",
     type: "core",
-    name: "Wenzhe Wang",
+    name: "Mysteryven",
     title: "Member",
     avatar: "https://www.github.com/mysteryven.png",
     links: [
