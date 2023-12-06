@@ -34,11 +34,11 @@ features:
   - title: Minifier 🚧
     details: Faster and better at compression
   - title: Rspack Bundler ✅
-    details: Webpack Compatible
+    details: Webpack compatible
     link: https://rspack.dev
     external: true
   - title: Rolldown Bundler
-    details: Rust port of Rollup
+    details: Rollup compatible
   - title: Ezno Type Checker
     details: A novel TypeScript type checker
     link: https://github.com/kaleidawave/ezno
