@@ -1,8 +1,9 @@
-pull_request_title: "docs(l10n): update translations"
-commit_message: "docs(l10n): update %original_file_name% (%language%)"
-append_commit_message: false
+pull_request_title: 'docs(l10n): update translations'
+commit_message: 'docs(l10n): update %original_file_name% (%language%)'
+append_commit_message: 
 files:
   - source: /src/**/*.md
     ignore:
-      - /src/%two_letters_code%/%original_file_name%
-    translation: /src/%two_letters_code%/%original_file_name%
+      - /src/ja
+      - /src/zh
+    translation: /src/%two_letters_code%/**/%original_file_name%
