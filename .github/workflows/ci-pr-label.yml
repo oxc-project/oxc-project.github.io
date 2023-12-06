@@ -1,7 +1,14 @@
 name: CI (PR Label)
 
+# This workflow needs to be run on listen `pull_request_target` event
+# instead of `pull_request`, so that actions/labeler@v4 is granted
+# write permission even when the PR comes from a folk repository.
+# Do not trust any code in this workflow for security reasons.
+#
+# Ref: https://github.com/actions/labeler#permissions
+# Ref: https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#pull_request_target
 on:
-  pull_request:
+  pull_request_target:
     types:
       - opened
       - edited
