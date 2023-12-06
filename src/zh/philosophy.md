@@ -4,5 +4,3 @@ outline: deep
 ---
 
 # Philosophy
-
-TBD
