@@ -16,7 +16,7 @@ export const sharedConfig = defineConfig({
       },
     ],
     // Open Graph
-    ["meta", { property: "og:site_name", content: "OXC" }],
+    ["meta", { property: "og:site_name", content: "Oxc" }],
     ["meta", { property: "og:url", content: "https://github.com/oxc-project" }],
     [
       "meta",
@@ -26,7 +26,7 @@ export const sharedConfig = defineConfig({
       },
     ],
     // Twitter (X)
-    ["meta", { name: "twitter:site", content: "OXC" }],
+    ["meta", { name: "twitter:site", content: "Oxc" }],
     ["meta", { name: "twitter:card", content: "summary_large_image" }],
     [
       "meta",
@@ -38,7 +38,7 @@ export const sharedConfig = defineConfig({
   ],
   lastUpdated: true,
   themeConfig: {
-    siteTitle: "OXC",
+    siteTitle: "Oxc",
     logo: "https://raw.githubusercontent.com/oxc-project/oxc-assets/main/logo-round.png",
     search: {
       provider: "local",

@@ -159,7 +159,7 @@ export const jaConfig = defineLocaleConfig("ja", {
       text: "このページを編集する",
     },
     footer: {
-      copyright: "© 2023 OXC プロジェクト",
+      copyright: "© 2023 Oxc プロジェクト",
     },
   },
 });
