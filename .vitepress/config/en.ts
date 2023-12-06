@@ -123,7 +123,7 @@ export const enConfig = defineLocaleConfig("root", {
       text: "Edit this page",
     },
     footer: {
-      copyright: "© 2023 OXC Project",
+      copyright: "© 2023 Oxc Project",
     },
   },
 });
