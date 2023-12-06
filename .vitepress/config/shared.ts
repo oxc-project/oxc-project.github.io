@@ -46,7 +46,7 @@ export const sharedConfig = defineConfig({
     socialLinks: [
       { icon: "twitter", link: "https://x.com/boshen_c" },
       { icon: "discord", link: "https://discord.gg/9uXCAwqQZW" },
-      { icon: "github", link: "https://github.com/oxc-project" },
+      { icon: "github", link: "https://github.com/oxc-project/oxc" },
     ],
     lastUpdated: {
       formatOptions: {
