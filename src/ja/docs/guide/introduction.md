@@ -28,8 +28,8 @@ This project shares the same philosophies as [Biome][biome] and [Ruff][ruff].
 
 #### [Joe Savona](https://x.com/en_JS/status/1676467920334094336), React team member:
 
-For…reasons I am experimenting w various Rust-based JS compilers. I don’t agree w every design decision but overall oxc is really well done.
+> For…reasons I am experimenting w various Rust-based JS compilers. I don’t agree w every design decision but overall oxc is really well done.
 
 #### [Sathya Gunasekaran](https://x.com/_gsathya/status/1676453430263701506), React team member:
 
-oxc is kinda neat
+> oxc is kinda neat
