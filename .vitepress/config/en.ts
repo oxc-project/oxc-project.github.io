@@ -15,11 +15,21 @@ export const enConfig = defineLocaleConfig("root", {
       { text: "Guide", link: "/docs/guide/introduction" },
       { text: "Learn", link: "/docs/learn/architecture/introduction" },
       { text: "Contribute", link: "/docs/contribute/introduction" },
-      { text: "Blog", link: "/blog/2022-02-10-js-tooling-research" },
       {
-        text: "Playground",
-        target: "_blank",
-        link: "https://oxc-project.github.io/oxc/playground/",
+        text: "Resources",
+        items: [
+          { text: "Blog", link: "/blog/2023-11-08-announcing-oxlint.html" },
+          { text: "Team", link: "/team" },
+          {
+            items: [
+              {
+                text: "Playground",
+                target: "_blank",
+                link: "https://oxc-project.github.io/oxc/playground/",
+              },
+            ],
+          },
+        ],
       },
     ],
     sidebar: {
