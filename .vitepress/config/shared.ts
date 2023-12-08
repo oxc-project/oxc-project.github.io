@@ -12,7 +12,7 @@ export const sharedConfig = defineConfig({
       "link",
       {
         rel: "icon",
-        href: "https://raw.githubusercontent.com/oxc-project/oxc-assets/main/logo-round.png",
+        href: "https://raw.githubusercontent.com/oxc-project/oxc-assets/main/logo-round-min.png",
       },
     ],
     // Open Graph
@@ -22,7 +22,7 @@ export const sharedConfig = defineConfig({
       "meta",
       {
         property: "og:image",
-        content: "https://github.com/oxc-project/oxc-assets/blob/main/preview-white.png?raw=true",
+        content: "https://github.com/oxc-project/oxc-assets/blob/main/preview-white-min.png?raw=true",
       },
     ],
     // Twitter (X)
@@ -32,14 +32,14 @@ export const sharedConfig = defineConfig({
       "meta",
       {
         name: "twitter:image",
-        content: "https://github.com/oxc-project/oxc-assets/blob/main/preview-white.png?raw=true",
+        content: "https://github.com/oxc-project/oxc-assets/blob/main/preview-white-min.png?raw=true",
       },
     ],
   ],
   lastUpdated: true,
   themeConfig: {
     siteTitle: "Oxc",
-    logo: "https://raw.githubusercontent.com/oxc-project/oxc-assets/main/logo-round.png",
+    logo: "https://raw.githubusercontent.com/oxc-project/oxc-assets/main/logo-round-min.png",
     search: {
       provider: "local",
     },
