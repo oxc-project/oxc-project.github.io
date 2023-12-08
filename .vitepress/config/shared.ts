@@ -36,7 +36,7 @@ export const sharedConfig = defineConfig({
       },
     ],
   ],
-  lastUpdated: true,
+  lastUpdated: false,
   themeConfig: {
     siteTitle: "Oxc",
     logo: "https://raw.githubusercontent.com/oxc-project/oxc-assets/main/logo-round-min.png",
