@@ -1,18 +1,6 @@
 [
   {
-    "text": "2023-11-08<br>Oxlint General Availability",
+    "text": "Oxlint General Availability",
     "link": "/blog/2023-11-08-announcing-oxlint"
-  },
-  {
-    "text": "2023-11-07<br>Announcing Oxc",
-    "link": "/blog/2023-11-07-announcing-oxc"
-  },
-  {
-    "text": "2022-08-08<br>A research on JavaScript linters",
-    "link": "/blog/2022-08-08-linter-research"
-  },
-  {
-    "text": "2022-02-10<br>High Performance JavaScript Toolchain",
-    "link": "/blog/2022-02-10-js-tooling-research"
   }
 ]
