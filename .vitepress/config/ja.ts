@@ -49,17 +49,16 @@ export const jaConfig = defineLocaleConfig("ja", {
     sidebar: {
       "/ja/docs/guide/": [
         {
-          text: "はじめる",
+          text: "Guide",
           items: [
             {
               text: "イントロダクション",
               link: "/ja/docs/guide/introduction",
             },
-            { text: "ベンチマーク", link: "/ja/docs/guide/benchmarks" },
           ],
         },
         {
-          text: "使いかた",
+          text: "Tools",
           items: [
             { text: "Linter", link: "/ja/docs/guide/usage/linter" },
             { text: "Parser", link: "/ja/docs/guide/usage/parser" },

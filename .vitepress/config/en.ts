@@ -35,14 +35,11 @@ export const enConfig = defineLocaleConfig("root", {
     sidebar: {
       "/docs/guide/": [
         {
-          text: "Getting Started",
-          items: [
-            { text: "Introduction", link: "/docs/guide/introduction" },
-            { text: "Benchmarks", link: "/docs/guide/benchmarks" },
-          ],
+          text: "Guide",
+          items: [{ text: "Getting Started", link: "/docs/guide/introduction" }],
         },
         {
-          text: "Usage",
+          text: "Tools",
           items: [
             { text: "Linter", link: "/docs/guide/usage/linter" },
             { text: "Parser", link: "/docs/guide/usage/parser" },
