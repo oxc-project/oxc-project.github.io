@@ -14,8 +14,8 @@ The Rust crate `oxc_parser` is production ready.
 
 ## Features
 
-- 2x faster than swc parser ([benchmark][url-benchmark])
-- parses `.js(x)` and `.ts(x)`
+- 2x faster than swc parser ([benchmark][url-benchmark]).
+- parses `.js(x)` and `.ts(x)`.
 - passes all parser tests from Test262 and almost all from Babel and TypeScript.
 
 ## Installation
@@ -27,6 +27,10 @@ Use the umbrella crate [oxc][url-oxc-crate] or individual [oxc_ast][url-oxc-ast-
 ### Node.js
 
 The node binding [oxc-parser][url-oxc-parser-npm] is available for experimental use.
+
+## Rust Usage
+
+Check out [this example](https://github.com/oxc-project/oxc/blob/main/crates/oxc_parser/examples/parser.rs).
 
 <!-- Links -->
 
