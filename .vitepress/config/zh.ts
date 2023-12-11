@@ -20,6 +20,7 @@ export const zhConfig = defineLocaleConfig("zh", {
         items: [
           { text: "Blog", link: "/blog/2023-11-08-announcing-oxlint.html" },
           { text: "Team", link: "/team" },
+          { text: "Ecosystem", link: "/ecosystem" },
           {
             items: [
               {
