@@ -39,11 +39,22 @@ export const jaConfig = defineLocaleConfig("ja", {
       { text: "ガイド", link: "/ja/docs/guide/introduction" },
       { text: "学ぶ", link: "/ja/docs/learn/architecture/introduction" },
       { text: "貢献", link: "/ja/docs/contribute/introduction" },
-      { text: "ブログ", link: "/ja/blog/2022-02-10-js-tooling-research" },
       {
-        text: "プレイグラウンド",
-        target: "_blank",
-        link: "https://oxc-project.github.io/oxc/playground/",
+        text: "Resources",
+        items: [
+          { text: "ブログ", link: "/ja/blog/2023-11-08-announcing-oxlint.html" },
+          { text: "Team", link: "/ja/team" },
+          { text: "Ecosystem", link: "/ja/ecosystem" },
+          {
+            items: [
+              {
+                text: "プレイグラウンド",
+                target: "_blank",
+                link: "https://oxc-project.github.io/oxc/playground/",
+              },
+            ],
+          },
+        ],
       },
     ],
     sidebar: {
