@@ -158,8 +158,5 @@ export const jaConfig = defineLocaleConfig("ja", {
       pattern: "https://github.com/oxc-project/oxc-project.github.io/edit/main/src/:path",
       text: "このページを編集する",
     },
-    footer: {
-      copyright: "© 2023 Oxc プロジェクト",
-    },
   },
 });

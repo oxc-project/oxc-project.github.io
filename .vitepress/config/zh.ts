@@ -143,8 +143,5 @@ export const zhConfig = defineLocaleConfig("zh", {
       pattern: "https://github.com/oxc-project/oxc-project.github.io/edit/main/src/:path",
       text: "Edit this page",
     },
-    footer: {
-      copyright: "© 2023 Oxc Project",
-    },
   },
 });
