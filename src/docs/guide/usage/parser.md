@@ -2,65 +2,31 @@
 title: Parser
 outline: deep
 badges:
-  - src: https://img.shields.io/npm/dw/oxc-parser
-    alt: npm
+  - src: https://img.shields.io/crates/d/oxc_parser
+    alt: total downloads from crates.io
 ---
-
-<AppBadgeList />
 
 # Parser
 
+<AppBadgeList />
+
+The Rust crate `oxc_parser` is production ready.
+
 ## Features
 
-- 2x faster then [SWC][url-swc] parser
-- By far the fastest and most conformant JavaScript and TypeScript (including JSX and TSX) parser written in Rust
-
-You can check [benchmark][url-benchmark] for more detail.
+- 2x faster than swc parser ([benchmark][url-benchmark])
+- parses `.js(x)` and `.ts(x)`
+- passes all parser tests from Test262 and almost all from Babel and TypeScript.
 
 ## Installation
 
 ### Rust
 
-Install crates:
-
-```sh
-$ cargo install oxc
-```
-
-```sh
-$ cargo install oxc_ast
-```
-
-```sh
-$ cargo install oxc_parser
-```
-
-- The umbrella crate [oxc][url-oxc-crate] exports all public crates from this repository
-- The AST and parser crates [oxc_ast][url-oxc-ast-crate] and [oxc_parser][url-oxc-parser-crate] are production ready
+Use the umbrella crate [oxc][url-oxc-crate] or individual [oxc_ast][url-oxc-ast-crate] and [oxc_parser][url-oxc-parser-crate] crates.
 
 ### Node.js
 
-Install [oxc-parser][url-oxc-parser-npm]:
-
-::: code-group
-
-```sh [npm]
-$ npm add -D oxc-parser
-```
-
-```sh [pnpm]
-$ pnpm add -D oxc-parser
-```
-
-```sh [yarn]
-$ yarn add -D oxc-parser
-```
-
-```sh [bun]
-$ bun add -D oxc-parser
-```
-
-:::
+The node binding [oxc-parser][url-oxc-parser-npm] is available for experimental use.
 
 <!-- Links -->
 
