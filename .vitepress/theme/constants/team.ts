@@ -46,6 +46,17 @@ export const TEAM_MEMBERS: TeamMember[] = [
     avatar: "https://www.github.com/camc314.png",
     links: [{ icon: "github", link: "https://github.com/camc314" }],
   },
+  {
+    id: "Dunqing",
+    type: "core",
+    name: "Dunqing",
+    title: "Member",
+    avatar: "https://www.github.com/dunqing.png",
+    links: [
+      { icon: "github", link: "https://github.com/dunqing" },
+      { icon: "twitter", link: "https://twitter.com/Dunqingg" },
+    ],
+  },
 ];
 
 export const CORE_TEAM_MEMBERS = TEAM_MEMBERS.filter(({ type }) => type === "core") as CoreTeamMember[];
