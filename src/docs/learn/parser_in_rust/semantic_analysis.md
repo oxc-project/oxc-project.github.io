@@ -43,7 +43,7 @@ AsyncGeneratorBody :
   FunctionBody[+Yield, +Await]
 ```
 
-An example in Rome checking for the `yield` keyword:
+An example in Biome checking for the `yield` keyword:
 
 ```rust reference
 https://github.com/rome/tools/blob/5a059c0413baf1d54436ac0c149a829f0dfd1f4d/crates/rome_js_parser/src/syntax/expr.rs#L1368-L1377
