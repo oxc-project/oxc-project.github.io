@@ -2,76 +2,34 @@
 title: Resolver
 outline: deep
 badges:
-  - src: https://img.shields.io/npm/dw/oxc-resolver
-    alt: npm
+  - src: https://img.shields.io/crates/d/oxc_resolver
+    alt: total downloads from crates.io
 ---
-
-<AppBadgeList />
 
 # Resolver
 
-Node.js Module Resolution.
+<AppBadgeList />
 
-- Feature complete
-- All configuration options are aligned with enhanced-resolve
+Node.js cjs and esm path resolution.
+
+## Features
+
+- All configurations are aligned with [webpack/enhanced-resolve][url-enhanced-resolve].
+- 28x faster than [webpack/enhanced-resolve][url-enhanced-resolve] ([benchmark](https://github.com/oxc-project/bench-nodejs-resolver)).
 
 ## Installation
 
 ### Rust
 
-Install [oxc\_resolver][url-oxc-resolver-crate] crate:
-
-```sh
-$ cargo install oxc_resolver
-```
-
-You should also check [documentation][url-oxc-resolver-docs].
+The [oxc\_resolver][url-oxc-resolver-crate] crate and its [documentation][url-oxc-resolver-docs] are both available.
 
 ### Node.js
 
-Install [oxc-resolver][url-oxc-resolver-npm]:
+The node binding [oxc-resolver][url-oxc-resolver-npm] is currently work in progress.
 
-::: code-group
+## Rust Usage
 
-```sh [npm]
-$ npm add -D oxc-parser
-```
-
-```sh [pnpm]
-$ pnpm add -D oxc-parser
-```
-
-```sh [yarn]
-$ yarn add -D oxc-parser
-```
-
-```sh [bun]
-$ bun add -D oxc-parser
-```
-
-:::
-
-## Example
-
-```rust
-use std::{env, path::PathBuf};
-
-use oxc_resolver::{ResolveOptions, Resolver};
-
-fn main() {
-    let path = env::args().nth(1).expect("require path");
-    let request = env::args().nth(2).expect("require request");
-    let path = PathBuf::from(path).canonicalize().unwrap();
-
-    println!("path: {path:?}");
-    println!("request: {request}");
-
-    match Resolver::new(ResolveOptions::default()).resolve(path, &request) {
-        Err(error) => println!("Error: {error}"),
-        Ok(resolution) => println!("Resolved: {}", resolution.full_path().to_string_lossy()),
-    }
-}
-```
+Check out [this example](https://github.com/oxc-project/oxc_resolver/blob/main/examples/resolver.rs).
 
 <!-- Links -->
 
@@ -80,3 +38,5 @@ fn main() {
 [url-oxc-resolver-docs]: https://docs.rs/oxc_resolver
 
 [url-oxc-resolver-npm]: https://www.npmjs.com/package/oxc-resolver
+
+[url-enhanced-resolve]: https://github.com/webpack/enhanced-resolve
