@@ -53,6 +53,10 @@ export const sharedConfig = defineConfig({
         dateStyle: "full",
       },
     },
+    footer: {
+      message: `Released under the MIT License.`,
+      copyright: "Copyright © 2023-present Boshen & Oxc Contributors",
+    },
   },
   vite: {
     resolve: {
