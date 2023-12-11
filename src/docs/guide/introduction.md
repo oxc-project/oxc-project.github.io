@@ -25,6 +25,10 @@ This project shares the same philosophies as [Biome][biome] and [Ruff][ruff].
 [biome]: https://biomejs.dev
 [ruff]: https://beta.ruff.rs
 
+## Adoptions
+
+- A 5M LOC TypeScript codebase previously running ESLint parallelized across 48 workers in CI taking 75 mins (12m wall time), it is now 8 seconds on a single worker. ([Source](https://twitter.com/boshen_c/status/1714827365136929029))
+
 ## Endorsements
 
 #### [Joe Savona](https://x.com/en_JS/status/1676467920334094336), React team member:
