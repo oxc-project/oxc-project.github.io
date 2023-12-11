@@ -1,15 +1,17 @@
 ---
-title: Introduction
+title: Getting Started
 outline: deep
 ---
 
-# What is the Oxc Project?
+# Getting Started
 
-The JavaScript Oxidation Compiler Project is a collection of high-performance tools for the JavaScript language written in Rust.
+## Overview
 
-We are building JavaScript compiler tools such as parser, linter, formatter, transpiler, minifier and resolver.
+The JavaScript Oxidation Compiler (Oxc) is a collection of high-performance tools for the JavaScript language written in Rust.
 
-We are also supporting new JavaScript tools such as Rspack, Rolldown and Ezno.
+Our focus lies in constructing essential compiler tools for JavaScript: parser, linter, formatter, transpiler, minifier and resolver.
+
+Additionally, we provide support for emerging JavaScript tools like Rspack, Rolldown, and Ezno.
 
 Our goal is to create and empower tooling for [The Third Age of JavaScript](https://www.swyx.io/js-third-age).
 
@@ -23,6 +25,10 @@ This project shares the same philosophies as [Biome][biome] and [Ruff][ruff].
 [biome]: https://biomejs.dev
 
 [ruff]: https://beta.ruff.rs
+
+## Adoptions
+
+- A 5M LOC TypeScript codebase previously running ESLint parallelized across 48 workers in CI taking 75 mins (12m wall time), it is now 8 seconds on a single worker. ([Source](https://twitter.com/boshen_c/status/1714827365136929029))
 
 ## Endorsements
 
