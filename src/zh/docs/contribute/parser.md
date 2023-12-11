@@ -29,7 +29,3 @@ this means Babel has another set of [parser tests](https://github.com/babel/babe
 ### TypeScript
 
 The TypeScript conformance tests can be found [here](https://github.com/microsoft/TypeScript/tree/main/tests/cases/conformance).
-
-## Test Runner
-
-Rome has implemented a test runner for the above test suites, they can be found .
