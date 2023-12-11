@@ -109,7 +109,7 @@ export const zhConfig = defineLocaleConfig("zh", {
       ],
       "/docs/contribute/": [
         {
-          text: "Contributing Guide",
+          text: "Contribute",
           items: [
             { text: "Introduction", link: "/docs/contribute/introduction" },
             { text: "Development", link: "/docs/contribute/development" },
