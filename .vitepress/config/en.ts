@@ -111,7 +111,7 @@ export const enConfig = defineLocaleConfig("root", {
           text: "Contribute",
           items: [
             { text: "Introduction", link: "/docs/contribute/introduction" },
-            { text: "Development", link: "/docs/contribute/development" },
+            { text: "Getting Started", link: "/docs/contribute/development" },
           ],
         },
         {
@@ -119,20 +119,19 @@ export const enConfig = defineLocaleConfig("root", {
           items: [
             { text: "Parser", link: "/docs/contribute/parser" },
             { text: "Linter", link: "/docs/contribute/linter" },
-            { text: "Prettier", link: "/docs/contribute/prettier" },
+            { text: "Formatter", link: "/docs/contribute/formatter" },
             { text: "Resolver", link: "/docs/contribute/resolver" },
             {
               text: "Transformer",
               link: "/docs/contribute/transformer",
             },
-            { text: "Formatter", link: "/docs/contribute/formatter" },
             { text: "Codegen", link: "/docs/contribute/codegen" },
             { text: "Minifier", link: "/docs/contribute/minifier" },
             { text: "VSCode", link: "/docs/contribute/vscode" },
           ],
         },
         { text: "Performance", link: "/docs/contribute/performance" },
-        { text: "Showcase", link: "/docs/contribute/showcase" },
+        { text: "Rules and Policy", link: "/docs/contribute/rules" },
       ],
       "/blog/": BLOG_SIDEBAR,
     },

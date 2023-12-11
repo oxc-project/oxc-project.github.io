@@ -134,7 +134,7 @@ export const jaConfig = defineLocaleConfig("ja", {
               link: "/ja/docs/contribute/introduction",
             },
             {
-              text: "Development",
+              text: "Getting Started",
               link: "/ja/docs/contribute/development",
             },
           ],
@@ -144,20 +144,19 @@ export const jaConfig = defineLocaleConfig("ja", {
           items: [
             { text: "Parser", link: "/ja/docs/contribute/parser" },
             { text: "Linter", link: "/ja/docs/contribute/linter" },
-            { text: "Prettier", link: "/ja/docs/contribute/prettier" },
+            { text: "Formatter", link: "/ja/docs/contribute/formatter" },
             { text: "Resolver", link: "/ja/docs/contribute/resolver" },
             {
               text: "Transformer",
               link: "/ja/docs/contribute/transformer",
             },
-            { text: "Formatter", link: "/ja/docs/contribute/formatter" },
             { text: "Codegen", link: "/ja/docs/contribute/codegen" },
             { text: "Minifier", link: "/ja/docs/contribute/minifier" },
             { text: "VSCode", link: "/ja/docs/contribute/vscode" },
           ],
         },
         { text: "Performance", link: "/ja/docs/contribute/performance" },
-        { text: "Showcase", link: "/ja/docs/contribute/showcase" },
+        { text: "Rules and Policy", link: "/ja/docs/contribute/rules" },
       ],
       "/ja/blog/": BLOG_SIDEBAR.map(({ text, link }) => ({
         text,
