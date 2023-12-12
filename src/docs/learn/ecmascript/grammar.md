@@ -3,6 +3,8 @@ title: Grammar
 outline: deep
 ---
 
+# Grammar
+
 JavaScript has one of the most challenging grammar to parse,
 this tutorial details all the sweat and tears I had while learning it.
 

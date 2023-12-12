@@ -18,9 +18,7 @@ so you don't have to take the same journey as I had.
 There are only a handful of developers on the Rust side, and I would like to see you here and join us,
 so we can build better and faster tools for everyone to enjoy.
 
----
-
-# Overview
+## Overview
 
 For this guide, the standard compiler frontend phases will be applied:
 
