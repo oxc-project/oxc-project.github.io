@@ -19,7 +19,7 @@ The `--recurse-submodules` and `--shallow-submodules` flags are needed to initia
 
 If you have not yet installed Rust, follow [the official instruction](https://www.rust-lang.org/tools/install) and install Rust.
 
-After installing Rust, run the following command at the project root:
+After installing Rust, run the following command on the project root:
 
 ```bash
 rustup show
@@ -27,9 +27,7 @@ rustup show
 
 `rustup show` reads the `./rust-toolchain.toml` file and installs the correct Rust toolchain and components for this project.
 
-### Install Project Tools
-
-#### `cargo-binstall`
+### `cargo binstall`
 
 Some Cargo tools are required to develop OXC, and it is recommended to use [cargo binstall](https://github.com/cargo-bins/cargo-binstall), which provides a low-complexity mechanism to install rust binaries and is faster way than building them from source by running `cargo install`.
 
@@ -39,7 +37,7 @@ cargo install cargo-binstall
 
 You can also download [the pre-compiled binary](https://github.com/cargo-bins/cargo-binstall#installation) and save it in `~/.cargo/bin`.
 
-#### `just`
+### `just`
 
 OXC utilizes [`just`](https://github.com/casey/just), which is a handy way to save and run project-specific commands:
 
