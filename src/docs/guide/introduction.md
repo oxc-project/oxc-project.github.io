@@ -25,16 +25,22 @@ This project shares the same philosophies as [Biome][biome] and [Ruff][ruff].
 [biome]: https://biomejs.dev
 [ruff]: https://beta.ruff.rs
 
-## Adoptions
-
-- A 5M LOC TypeScript codebase previously running ESLint parallelized across 48 workers in CI taking 75 mins (12m wall time), it is now 8 seconds on a single worker. ([Source](https://twitter.com/boshen_c/status/1714827365136929029))
-
 ## Endorsements
 
-#### [Joe Savona](https://x.com/en_JS/status/1676467920334094336), React team member:
+#### [Jason Miller](https://github.com/developit), creator of [Preact](https://preactjs.com):
+
+> oxlint has been a massive win for us at Shopify. Our previous linting setup took 75 minutes to run, so we were fanning it out across 40+ workers in CI.
+> By comparison, oxlint takes around 10 seconds to lint the same codebase on a single worker, and the output is easier to interpret.
+> We even caught a few bugs that were hidden or skipped by our old setup when we migrated!
+
+#### [Yagiz Nizipli](https://github.com/sponsors/anonrig), founder of [Node.js performance team](https://github.com/nodejs/performance):
+
+> I'm impressed by how oxc is actively encouraging JavaScript tools to improve their performance.
+
+#### [Joe Savona](https://x.com/en_JS/status/1676467920334094336), [React](https://react.dev) team member:
 
 > For…reasons I am experimenting w various Rust-based JS compilers. I don’t agree w every design decision but overall oxc is really well done.
 
-#### [Sathya Gunasekaran](https://x.com/_gsathya/status/1676453430263701506), React team member:
+#### [Sathya Gunasekaran](https://x.com/_gsathya/status/1676453430263701506), [React](https://react.dev) team member:
 
 > oxc is kinda neat
