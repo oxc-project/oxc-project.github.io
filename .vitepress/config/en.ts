@@ -13,7 +13,7 @@ export const enConfig = defineLocaleConfig("root", {
   themeConfig: {
     nav: [
       { text: "Guide", link: "/docs/guide/introduction" },
-      { text: "Learn", link: "/docs/parser_in_rust/intro" },
+      { text: "Learn", link: "/docs/learn/parser_in_rust/intro" },
       { text: "Contribute", link: "/docs/contribute/introduction" },
       {
         text: "Resources",
