@@ -273,7 +273,7 @@ pub struct YieldExpression<'a> {
 }
 ```
 
-:::caution
+:::note
 Please be cautious if we are not comfortable dealing with lifetimes at this stage.
 Our program will work fine without a memory arena.
 
