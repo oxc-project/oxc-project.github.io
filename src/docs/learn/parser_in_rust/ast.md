@@ -165,7 +165,7 @@ enum Name {
 }
 ```
 
-:::note
+:::info
 This example is taken from [this blog post](https://adeschamps.github.io/enum-size)
 :::
 
@@ -273,7 +273,7 @@ pub struct YieldExpression<'a> {
 }
 ```
 
-:::note
+:::info
 Please be cautious if we are not comfortable dealing with lifetimes at this stage.
 Our program will work fine without a memory arena.
 
