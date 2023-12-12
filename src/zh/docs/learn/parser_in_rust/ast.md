@@ -165,7 +165,7 @@ enum Name {
 }
 ```
 
-:::note
+:::info
 This example is taken from [this blog post](https://adeschamps.github.io/enum-size)
 :::
 
