@@ -15,7 +15,7 @@ Oxlint is designed to catch erroneous or useless code without requiring any conf
 ## Features
 
 - 50 - 100 times faster than ESLint, and scales with the number of CPU cores ([benchmark](https://github.com/oxc-project/bench-javascript-linter)).
-- Over 200 builtin- rules with a growing list from `eslint`, `typescript`, `eslint-plugin-react`, `eslint-plugin-jest`, `eslint-plugin-unicorn` and `eslint-plugin-jsx-a11y`.
+- Over 200 rules with a growing list from `eslint`, `typescript`, `eslint-plugin-react`, `eslint-plugin-jest`, `eslint-plugin-unicorn` and `eslint-plugin-jsx-a11y`.
 - Supports [.eslintignore](https://eslint.org/docs/latest/use/configure/ignore#the-eslintignore-file).
 - Supports [ESLint comment disabling](https://eslint.org/docs/latest/use/configure/rules#disabling-rules).
 
