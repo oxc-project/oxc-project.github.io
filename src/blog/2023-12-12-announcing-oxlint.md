@@ -96,4 +96,6 @@ aiming to eliminate the need for reading lengthy rule documentation, which can b
 
 ---
 
+Happy linting and have a joyful holiday season!
+
 To get started, follow the [installation guide](/docs/guide/usage/linter).

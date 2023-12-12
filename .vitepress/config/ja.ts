@@ -42,7 +42,7 @@ export const jaConfig = defineLocaleConfig("ja", {
       {
         text: "Resources",
         items: [
-          { text: "ブログ", link: "/ja/blog/2023-11-08-announcing-oxlint.html" },
+          { text: "ブログ", link: "/ja/blog/2023-12-12-announcing-oxlint.html" },
           { text: "Team", link: "/ja/team" },
           { text: "Ecosystem", link: "/ja/ecosystem" },
           {
