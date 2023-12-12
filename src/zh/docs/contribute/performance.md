@@ -3,21 +3,29 @@ title: Performance
 outline: deep
 ---
 
-# Performance Tuning
+# Performance
+
+- All performance issues (runtime and compilation speed) are considered as bugs in this project.
+- Follow guidance from the [Rust performance book](https://nnethercote.github.io/perf-book/introduction.html).
 
 ## Compile Time
 
 While Rust has gained a reputation for its comparatively slower compilation speed,
 we have dedicated significant effort to fine-tune the Rust compilation speed.
-Our aim is to minimize any impact on your development workflow,
-ensuring that developing your own Oxc based tools remains a smooth and efficient experience.
 
-This is demonstrated by our [CI runs](https://github.com/oxc-project/oxc/actions/workflows/ci.yml?query=branch%3Amain),
-where warm runs complete in 5 minutes.
+Our goal is to minimize any impact on development workflow,
+ensuring that Oxc based tools remain fast to compile.
+
+Our [CI runs](https://github.com/oxc-project/oxc/actions/workflows/ci.yml?query=branch%3Amain) complete in 3 minutes,
+any regressions need to be fixed.
 
 ## Profile
 
-### Mac Xcode Instruments
+### Heap Allocation
+
+Try [dhat](https://docs.rs/dhat/latest/dhat).
+
+### CPU - Mac Xcode Instruments
 
 Mac Xcode instruments can be used to produce a CPU profile.
 
@@ -34,7 +42,7 @@ First, change the profile for showing debug symbols.
 
 ```toml
 [profile.release]
-debug = 1 # debug info with line tables only
+debug = true # debug info with line tables only
 strip = false # do not strip symbols
 ```
 

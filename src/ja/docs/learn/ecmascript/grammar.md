@@ -3,6 +3,8 @@ title: Grammar
 outline: deep
 ---
 
+# Grammar
+
 JavaScript has one of the most challenging grammar to parse,
 this tutorial details all the sweat and tears I had while learning it.
 
@@ -320,7 +322,7 @@ function foo() {
 The syntactic grammar has 5 context parameters for allowing and disallowing certain constructs,
 namely `[In]`, `[Return]`, `[Yield]`, `[Await]` and `[Default]`.
 
-It is best to keep a context during parsing, for example in Rome:
+It is best to keep a context during parsing, for example in Biome:
 
 ```rust reference
 https://github.com/rome/tools/blob/5a059c0413baf1d54436ac0c149a829f0dfd1f4d/crates/rome_js_parser/src/state.rs#L404-L425

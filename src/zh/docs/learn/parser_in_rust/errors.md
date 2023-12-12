@@ -21,7 +21,7 @@ and the only punctuation it can have are round brackets, so we can still return 
 Most JavaScript parsers out there are partially recoverable, so we'll do the same and build a partially recoverable parser.
 
 :::info
-The [Rome](https://github.com/rome/tools) parser is a fully recoverable parser.
+The Biome parser is a fully recoverable parser.
 :::
 
 Rust has the `Result` type for returning and propagating errors.
