@@ -33,7 +33,7 @@ Check out [this example](https://github.com/oxc-project/oxc_resolver/blob/main/e
 
 <!-- Links -->
 
-[url-oxc-resolver-crate]: https://crates.io/oxc_resolver
+[url-oxc-resolver-crate]: https://crates.io/crates/oxc_resolver
 
 [url-oxc-resolver-docs]: https://docs.rs/oxc_resolver
 
