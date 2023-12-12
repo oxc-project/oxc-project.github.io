@@ -98,7 +98,7 @@ export const enConfig = defineLocaleConfig("root", {
         {
           text: "ECMAScript",
           items: [
-            { text: "Spec", link: "/docs/learn/ecmascript/spec" },
+            { text: "Specification", link: "/docs/learn/ecmascript/spec" },
             {
               text: "Grammar",
               link: "/docs/learn/ecmascript/grammar",
