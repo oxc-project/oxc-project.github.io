@@ -13,7 +13,7 @@ export const enConfig = defineLocaleConfig("root", {
   themeConfig: {
     nav: [
       { text: "Guide", link: "/docs/guide/introduction" },
-      { text: "Learn", link: "/docs/learn/architecture/introduction" },
+      { text: "Learn", link: "/docs/parser_in_rust/intro" },
       { text: "Contribute", link: "/docs/contribute/introduction" },
       {
         text: "Resources",
@@ -49,6 +49,7 @@ export const enConfig = defineLocaleConfig("root", {
         },
       ],
       "/docs/learn/": [
+        /*
         {
           text: "Architecture",
           items: [
@@ -82,6 +83,18 @@ export const enConfig = defineLocaleConfig("root", {
             },
           ],
         },
+          */
+        {
+          text: "JavaScript Parser in Rust",
+          items: [
+            { text: "Introduction", link: "/docs/learn/parser_in_rust/intro" },
+            { text: "Lexer", link: "/docs/learn/parser_in_rust/lexer" },
+            { text: "AST", link: "/docs/learn/parser_in_rust/ast" },
+            { text: "Parser", link: "/docs/learn/parser_in_rust/parser" },
+            { text: "Errors", link: "/docs/learn/parser_in_rust/errors" },
+            { text: "Semantic Analysis", link: "/docs/learn/parser_in_rust/semantic_analysis" },
+          ],
+        },
         {
           text: "ECMAScript",
           items: [
@@ -90,17 +103,6 @@ export const enConfig = defineLocaleConfig("root", {
               text: "Grammar",
               link: "/docs/learn/ecmascript/grammar",
             },
-          ],
-        },
-        {
-          text: "JavaScript Parser in Rust",
-          items: [
-            { text: "Intro", link: "/docs/learn/parser_in_rust/intro" },
-            { text: "Lexer", link: "/docs/learn/parser_in_rust/lexer" },
-            { text: "AST", link: "/docs/learn/parser_in_rust/ast" },
-            { text: "Parser", link: "/docs/learn/parser_in_rust/parser" },
-            { text: "Errors", link: "/docs/learn/parser_in_rust/errors" },
-            { text: "Semantic Analysis", link: "/docs/learn/parser_in_rust/semantic_analysis" },
           ],
         },
         { text: "Performance", link: "/docs/learn/performance" },

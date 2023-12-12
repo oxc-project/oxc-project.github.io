@@ -13,7 +13,7 @@ export const zhConfig = defineLocaleConfig("zh", {
   themeConfig: {
     nav: [
       { text: "Guide", link: "/docs/guide/introduction" },
-      { text: "Learn", link: "/docs/learn/architecture/introduction" },
+      { text: "Learn", link: "/docs/parser_in_rust/intro" },
       { text: "Contribute", link: "/docs/contribute/introduction" },
       {
         text: "Resources",
@@ -49,6 +49,7 @@ export const zhConfig = defineLocaleConfig("zh", {
         },
       ],
       "/docs/learn/": [
+        /*
         {
           text: "Architecture",
           items: [
@@ -82,16 +83,7 @@ export const zhConfig = defineLocaleConfig("zh", {
             },
           ],
         },
-        {
-          text: "ECMAScript",
-          items: [
-            { text: "Spec", link: "/docs/learn/ecmascript/spec" },
-            {
-              text: "Grammar",
-              link: "/docs/learn/ecmascript/grammar",
-            },
-          ],
-        },
+        */
         {
           text: "JavaScript Parser in Rust",
           items: [
@@ -101,6 +93,16 @@ export const zhConfig = defineLocaleConfig("zh", {
             { text: "Parser", link: "/docs/learn/parser_in_rust/parser" },
             { text: "Errors", link: "/docs/learn/parser_in_rust/errors" },
             { text: "Semantic Analysis", link: "/docs/learn/parser_in_rust/semantic_analysis" },
+          ],
+        },
+        {
+          text: "ECMAScript",
+          items: [
+            { text: "Spec", link: "/docs/learn/ecmascript/spec" },
+            {
+              text: "Grammar",
+              link: "/docs/learn/ecmascript/grammar",
+            },
           ],
         },
         { text: "Performance", link: "/docs/learn/performance" },
