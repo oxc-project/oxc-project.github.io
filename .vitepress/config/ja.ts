@@ -37,7 +37,7 @@ export const jaConfig = defineLocaleConfig("ja", {
     },
     nav: [
       { text: "ガイド", link: "/ja/docs/guide/introduction" },
-      { text: "学ぶ", link: "/ja/docs/learn/architecture/introduction" },
+      { text: "学ぶ", link: "/ja/docs/learn/parser_in_rust/intro" },
       { text: "貢献", link: "/ja/docs/contribute/introduction" },
       {
         text: "Resources",
@@ -78,6 +78,7 @@ export const jaConfig = defineLocaleConfig("ja", {
         },
       ],
       "/ja/docs/learn/": [
+        /*
         {
           text: "アーキテクチャ",
           items: [
@@ -111,6 +112,18 @@ export const jaConfig = defineLocaleConfig("ja", {
             },
           ],
         },
+        */
+        {
+          text: "JavaScript Parser in Rust",
+          items: [
+            { text: "Introduction", link: "/ja/docs/learn/parser_in_rust/intro" },
+            { text: "Lexer", link: "/ja/docs/learn/parser_in_rust/lexer" },
+            { text: "AST", link: "/ja/docs/learn/parser_in_rust/ast" },
+            { text: "Parser", link: "/ja/docs/learn/parser_in_rust/parser" },
+            { text: "Errors", link: "/ja/docs/learn/parser_in_rust/errors" },
+            { text: "Semantic Analysis", link: "/ja/docs/learn/parser_in_rust/semantic_analysis" },
+          ],
+        },
         {
           text: "ECMAScript",
           items: [
@@ -122,7 +135,6 @@ export const jaConfig = defineLocaleConfig("ja", {
           ],
         },
         { text: "パフォーマンス", link: "/ja/docs/learn/performance" },
-        { text: "エコシステム", link: "/ja/docs/learn/ecosystem" },
         { text: "参考文献", link: "/ja/docs/learn/references" },
       ],
       "/ja/docs/contribute/": [
