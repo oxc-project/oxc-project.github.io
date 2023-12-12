@@ -152,7 +152,7 @@ export const jaConfig = defineLocaleConfig("ja", {
           ],
         },
         {
-          text: "Domain",
+          text: "Tools",
           items: [
             { text: "Parser", link: "/ja/docs/contribute/parser" },
             { text: "Linter", link: "/ja/docs/contribute/linter" },

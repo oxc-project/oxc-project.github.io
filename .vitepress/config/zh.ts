@@ -118,7 +118,7 @@ export const zhConfig = defineLocaleConfig("zh", {
           ],
         },
         {
-          text: "Domain",
+          text: "Tools",
           items: [
             { text: "Parser", link: "/docs/contribute/parser" },
             { text: "Linter", link: "/docs/contribute/linter" },
