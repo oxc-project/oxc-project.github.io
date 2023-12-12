@@ -28,10 +28,18 @@ This project shares the same philosophies as [Biome][biome] and [Ruff][ruff].
 
 ## Endorsements
 
+#### [Evan You](https://twitter.com/youyuxi/status/1734439543280128030), creator of [Vue.js](https://vuejs.org) and [Vite](https://vitejs.dev):
+
+> Ran oxlint on the Vue 3 codebase, \~200 rules + \~590 files finished in 50ms 🤯 (30ms re-runs)
+>
+> The performance is absolutely nuts
+
 #### [Jason Miller](https://github.com/developit), creator of [Preact](https://preactjs.com):
 
 > oxlint has been a massive win for us at Shopify. Our previous linting setup took 75 minutes to run, so we were fanning it out across 40+ workers in CI.
+>
 > By comparison, oxlint takes around 10 seconds to lint the same codebase on a single worker, and the output is easier to interpret.
+>
 > We even caught a few bugs that were hidden or skipped by our old setup when we migrated!
 
 #### [Yagiz Nizipli](https://github.com/sponsors/anonrig), founder of [Node.js performance team](https://github.com/nodejs/performance):
