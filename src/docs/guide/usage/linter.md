@@ -12,6 +12,12 @@ badges:
 
 Oxlint is designed to catch erroneous or useless code without requiring any configurations by default.
 
+:::info
+At the current stage, oxlint is **not intended to fully replace ESLint**; it serves as an enhancement when ESLint's slowness becomes a bottleneck in your workflow.
+
+We recommend running oxlint before ESLint in your lint-staged or CI setup for a quicker feedback loop, considering it only takes a few seconds to run on large codebases.
+:::
+
 ## Features
 
 - 50 - 100 times faster than ESLint, and scales with the number of CPU cores ([benchmark](https://github.com/oxc-project/bench-javascript-linter)).
