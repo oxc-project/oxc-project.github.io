@@ -22,9 +22,6 @@ This project shares the same philosophies as [Biome][biome] and [Ruff][ruff].
 1. JavaScript tooling could be rewritten in a more performant language.
 2. An integrated toolchain can tap into efficiencies that are not available to a disparate set of tools.
 
-[biome]: https://biomejs.dev
-[ruff]: https://beta.ruff.rs
-
 ## Endorsements
 
 #### [Evan You](https://twitter.com/youyuxi/status/1734439543280128030), creator of [Vue.js](https://vuejs.org) and [Vite](https://vitejs.dev):
@@ -52,3 +49,10 @@ This project shares the same philosophies as [Biome][biome] and [Ruff][ruff].
 #### [Sathya Gunasekaran](https://x.com/_gsathya/status/1676453430263701506), [React](https://react.dev) team member:
 
 > oxc is kinda neat
+
+## Special Thanks
+
+This project would not exist without the help, inspiration and encouragements from [Biome][biome] and [Ruff][ruff], who are the pioneers in the field of Rust-based unified toolchain.
+
+[biome]: https://biomejs.dev
+[ruff]: https://beta.ruff.rs
