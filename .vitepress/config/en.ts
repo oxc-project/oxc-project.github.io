@@ -127,7 +127,7 @@ export const enConfig = defineLocaleConfig("root", {
               text: "Transformer",
               link: "/docs/contribute/transformer",
             },
-            { text: "Codegen", link: "/docs/contribute/codegen" },
+            // { text: "Codegen", link: "/docs/contribute/codegen" },
             { text: "Minifier", link: "/docs/contribute/minifier" },
             { text: "VSCode", link: "/docs/contribute/vscode" },
           ],

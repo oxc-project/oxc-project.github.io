@@ -56,7 +56,7 @@ This project shares the same philosophies as [Biome][biome] and [Ruff][ruff].
 
 ## Special Thanks
 
-This project would not exist without the help, inspiration and encouragements from [Biome][biome] and [Ruff][ruff], who are the pioneers in the field of Rust-based unified toolchain.
+This project would not exist without the help, inspiration, and encouragement from [Biome][biome] and [Ruff][ruff], who are pioneers in the field of Rust-based unified toolchains.
 
 [biome]: https://biomejs.dev
 [ruff]: https://beta.ruff.rs
