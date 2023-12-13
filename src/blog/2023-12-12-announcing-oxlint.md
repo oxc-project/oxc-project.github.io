@@ -76,9 +76,9 @@ Most adjustments can be made through the command-line, and reading from ESLint c
 
 ### Plugins
 
-Oxlint has consolidated rules from popular plugins like TypeScript, React, Jest, Unicorn, and JSX-a11y but doesn't provide a plugin system yet.
+Oxlint does not provide a plugin system yet, but we are actively consolidating rules from popular plugins like TypeScript, React, Jest, Unicorn, JSX-a11y and Import.
 
-We recognize the importance of plugins in the JavaScript ecosystem and are actively investigating a DSL-based plugin system.
+We recognize the importance of plugins in the JavaScript ecosystem and are also investigating a DSL-based plugin system.
 
 However, you might appreciate a standalone linter — no need to manage a list of plugin dependencies,
 navigate through compatibility issues,
