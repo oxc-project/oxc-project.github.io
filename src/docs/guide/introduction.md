@@ -42,6 +42,10 @@ This project shares the same philosophies as [Biome][biome] and [Ruff][ruff].
 
 > I'm impressed by how oxc is actively encouraging JavaScript tools to improve their performance.
 
+#### [Miles Johnson](https://x.com/mileswjohnson/status/1734698340791800283), creator of [Moonrepo](https://moonrepo.dev):
+
+> It's crazy how good oxlint (and oxc tools) is. Not just in performance, but ease of use. Banking on Rust was a good choice!
+
 #### [Joe Savona](https://x.com/en_JS/status/1676467920334094336), [React](https://react.dev) team member:
 
 > For…reasons I am experimenting w various Rust-based JS compilers. I don’t agree w every design decision but overall oxc is really well done.
