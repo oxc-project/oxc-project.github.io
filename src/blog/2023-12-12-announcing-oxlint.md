@@ -79,6 +79,8 @@ Most adjustments can be made through the command-line, and reading from ESLint c
 Understanding linter messages can be challenging.
 Oxlint aims to simplify this by pinpointing root causes and providing helpful messages — eliminating the need for lengthy rule documentation reading, saving valuable time.
 
+Running `oxlint -D perf` in the [vscode repository](https://github.com/microsoft/vscode):
+
 <img width="100%" src="https://github.com/oxc-project/oxc/assets/1430279/094a3b24-0433-42ae-aad2-48a7dec2b985" >
 
 ### Consolidated Rules
