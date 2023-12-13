@@ -16,7 +16,7 @@ hero:
       link: https://github.com/oxc-project/oxc
 features:
   - title: Parser ✅
-    details: SWCの2倍速
+    details: 2x faster than swc
     link: /ja/docs/guide/usage/parser
     linkText: さらに学ぶ
   - title: Linter ✅
