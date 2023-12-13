@@ -27,29 +27,7 @@ We recommend running oxlint before ESLint in your lint-staged or CI setup for a 
 
 ## Installation
 
-Install [oxlint](https://www.npmjs.com/package/oxlint):
-
-::: code-group
-
-```sh [npm]
-$ npm add -D oxlint
-```
-
-```sh [pnpm]
-$ pnpm add -D oxlint
-```
-
-```sh [yarn]
-$ yarn add -D oxlint
-```
-
-```sh [bun]
-$ bun add -D oxlint
-```
-
-:::
-
-You can also run oxlint directly:
+Run oxlint directly at the root of your repository:
 
 ::: code-group
 
@@ -71,6 +49,28 @@ $ bunx oxlint@latest
 
 ```sh [deno]
 $ deno run oxlint@latest
+```
+
+:::
+
+Or save it to your package.json:
+
+::: code-group
+
+```sh [npm]
+$ npm add -D oxlint
+```
+
+```sh [pnpm]
+$ pnpm add -D oxlint
+```
+
+```sh [yarn]
+$ yarn add -D oxlint
+```
+
+```sh [bun]
+$ bun add -D oxlint
 ```
 
 :::
