@@ -62,7 +62,7 @@ From Jason Miller, Shopify DX and creator of Preact:
 
 The majority of the performance gains stem from Oxlint being purposefully designed for performance, utilizing Rust and parallel processing as key factors.
 
-### Lint for correctness
+### Lint for Correctness
 
 Oxlint defaults to identifying erroneous, redundant, or confusing code — prioritizing correctness over unnecessary nitpicking rules (categorized as `perf`, `suspicious`, `pedantic`, or `style`), which are disabled by default.
 
@@ -74,7 +74,14 @@ There's a high likelihood of encountering compatibility issues among your tools,
 That's why we designed oxlint to be zero-config out of the box; even Node.js is not a requirement.
 Most adjustments can be made through the command-line, and reading from ESLint configuration file is currently work in progress.
 
-### Plugins
+### Enhanced Diagnostics
+
+Understanding linter messages can be challenging.
+Oxlint aims to simplify this by pinpointing root causes and providing helpful messages — eliminating the need for lengthy rule documentation reading, saving valuable time.
+
+<img width="100%" src="https://github.com/oxc-project/oxc/assets/1430279/094a3b24-0433-42ae-aad2-48a7dec2b985" >
+
+### Consolidated Rules
 
 Oxlint does not provide a plugin system yet, but we are actively consolidating rules from popular plugins like TypeScript, React, Jest, Unicorn, JSX-a11y and Import.
 
@@ -83,13 +90,6 @@ We recognize the importance of plugins in the JavaScript ecosystem and are also 
 However, you might appreciate a standalone linter — no need to manage a list of plugin dependencies,
 navigate through compatibility issues,
 or [resort to forked plugins due to version constraints](https://github.com/import-js/eslint-plugin-import/pull/2504#issuecomment-1191057877).
-
-### Enhanced Diagnostics
-
-Understanding linter messages can be challenging.
-Oxlint aims to simplify this by pinpointing root causes and providing helpful messages — eliminating the need for lengthy rule documentation reading, saving valuable time.
-
-<img width="100%" src="https://github.com/oxc-project/oxc/assets/1430279/094a3b24-0433-42ae-aad2-48a7dec2b985" >
 
 ***
 
