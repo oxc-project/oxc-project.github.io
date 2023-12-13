@@ -12,13 +12,13 @@ This milestone signifies our team's ability to promptly address and triage issue
 
 Oxlint is a JavaScript linter designed to catch erroneous or useless code without requiring any configurations by default.
 
-## Recommended Usage
+## How to Use
 
-At the current stage, oxlint is **not intended to fully replace ESLint**; it serves as an enhancement when ESLint's slowness becomes a bottleneck in your workflow.
+At this stage, oxlint is **not intended to fully replace ESLint**; it serves as an enhancement when ESLint's slowness becomes a bottleneck in your workflow.
 
-We recommend running oxlint before ESLint in your lint-staged or CI setup for a quicker feedback loop, considering it only takes a few seconds to run on large codebases.
+For faster feedback loops, we recommend running oxlint before ESLint in your lint-staged or CI setup, considering it only takes a few seconds to run on large codebases.
 
-To test oxlint in your JavaScript/TypeScript codebase, simply execute the following command in the root directory of your repository:
+To test oxlint in your JavaScript / TypeScript codebase, simply execute the following command at the root directory of your repository:
 
 ::: code-group
 
@@ -44,13 +44,13 @@ $ deno run oxlint@latest
 
 :::
 
-Or follow the [installation guide](/docs/guide/usage/linter).
+Alternatively, refer to the [installation guide](/docs/guide/usage/linter) for detailed instructions.
 
 ## Design
 
-### 50 - 100 times faster than ESLint
+### 50-100 Times Faster than ESLint
 
-To put this into perspective, Shopify has reported that their 75-minutes ESLint run is now only 10 seconds.
+In real-world scenarios, Shopify reported that their 75 CI minutes ESLint run is now only 10 seconds.
 
 From Jason Miller, Shopify DX and creator of Preact:
 
@@ -64,17 +64,15 @@ The majority of the performance gains stem from Oxlint being purposefully design
 
 ### Lint for correctness
 
-Oxlint defaults to linting for correctness. "Correctness" refers to code that's erroneous, useless, mistaken, or introduces confusion to the codebase.
+Oxlint defaults to identifying erroneous, redundant, or confusing code — prioritizing correctness over unnecessary nitpicking rules (categorized as `perf`, `suspicious`, `pedantic`, or `style`), which are disabled by default.
 
-Other nitpicking rules, categorized as `perf`, `suspicious`, `pedantic`, or `style`, don't facilitate maintaining work-flow; hence, they are turned off by default.
-
-### Convention over configuration
+### Ease of Use
 
 Setting up new JavaScript / TypeScript codebases is becoming increasingly complex.
 There's a high likelihood of encountering compatibility issues among your tools, potentially resulting in hours of wasted time.
 
 That's why we designed oxlint to be zero-config out of the box; even Node.js is not a requirement.
-Most adjustments can be made through the command-line, and for complex rule changes, a configuration file is available.
+Most adjustments can be made through the command-line, and reading from ESLint configuration file is currently work in progress.
 
 ### Plugins
 
@@ -83,14 +81,13 @@ Oxlint has consolidated rules from popular plugins like TypeScript, React, Jest,
 We recognize the importance of plugins in the JavaScript ecosystem and are actively investigating a DSL-based plugin system.
 
 However, you might appreciate a standalone linter — no need to manage a list of plugin dependencies,
-navigate through [compatibility issues](https://stackoverflow.com/questions/tagged/eslint),
+navigate through compatibility issues,
 or [resort to forked plugins due to version constraints](https://github.com/import-js/eslint-plugin-import/pull/2504#issuecomment-1191057877).
 
-### Diagnostics
+### Enhanced Diagnostics
 
-Deciphering linter messages can be challenging.
-Oxlint will strive to pinpoint the root cause and provide helpful messages,
-aiming to eliminate the need for reading lengthy rule documentation, which can be time-consuming.
+Understanding linter messages can be challenging.
+Oxlint aims to simplify this by pinpointing root causes and providing helpful messages — eliminating the need for lengthy rule documentation reading, saving valuable time.
 
 <img width="100%" src="https://github.com/oxc-project/oxc/assets/1430279/094a3b24-0433-42ae-aad2-48a7dec2b985" >
 
