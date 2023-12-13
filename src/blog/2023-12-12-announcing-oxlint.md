@@ -90,7 +90,7 @@ Oxlint does not provide a plugin system yet, but we are actively consolidating r
 We recognize the importance of plugins in the JavaScript ecosystem and are also investigating a DSL-based plugin system.
 
 However, you might appreciate a standalone linter — no need to manage a list of plugin dependencies,
-navigate through compatibility issues,
+navigate through [compatibility issues](https://github.com/antfu/eslint-ts-patch),
 or [resort to forked plugins due to version constraints](https://github.com/import-js/eslint-plugin-import/pull/2504#issuecomment-1191057877).
 
 ---
