@@ -97,4 +97,4 @@ or [resort to forked plugins due to version constraints](https://github.com/impo
 
 Happy linting and have a joyful holiday season!
 
-To get started, follow the [installation guide](/docs/guide/usage/linter).
+To get started, follow the [installation guide](/docs/guide/usage/linter), or [learn more about the oxc project](/docs/guide/introduction.html).
