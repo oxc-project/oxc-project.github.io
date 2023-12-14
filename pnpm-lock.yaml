@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@vueuse/core':
+    specifier: ^10.7.0
+    version: 10.7.0(vue@3.3.11)
   vitepress:
     specifier: 1.0.0-rc.25
     version: 1.0.0-rc.25(@algolia/client-search@4.21.1)(@types/node@20.10.4)(search-insights@2.13.0)(typescript@5.2.2)
