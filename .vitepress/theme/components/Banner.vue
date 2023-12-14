@@ -41,10 +41,7 @@ onMounted(() => {
 <template>
   <div ref="el" class="banner">
     <div class="text">
-      <a :href="slug">
-        Announcing Oxlint General Available
-      </a>
-      🎉
+      Announcing <a href="/blog/2023-12-12-announcing-oxlint.html" @click="hide">Oxlint General Availability</a> 🎉
     </div>
 
     <button type="button" @click="hide">
