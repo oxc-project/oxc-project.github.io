@@ -22,10 +22,7 @@ const dismiss = () => {
 <template>
   <div ref="el" class="banner">
     <div class="text">
-      <a href="/blog/2023-12-12-announcing-oxlint.html">
-        Announcing Oxlint General Available
-      </a>
-      🎉
+      <a href="/blog/2023-12-12-announcing-oxlint.html">Announcing Oxlint Generally Available 🎉</a>
     </div>
 
     <button type="button" @click="dismiss">
