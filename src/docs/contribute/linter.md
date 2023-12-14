@@ -35,3 +35,9 @@ just new-unicorn-rule name
 just new-react-rule name
 just new-jsx-a11y-rule name
 ```
+
+## General Advice
+
+### Pin point the error message to the shortest code span
+
+We want the user to focus on the problematic code rather than deciphering the error message to identify which part of the code is erroneous.
