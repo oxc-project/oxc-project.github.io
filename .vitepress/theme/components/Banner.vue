@@ -22,7 +22,7 @@ const dismiss = () => {
 <template>
   <div ref="el" class="banner">
     <div class="text">
-      <a href="/blog/2023-12-12-announcing-oxlint.html">Announcing Oxlint Generally Available 🎉</a>
+      Announcing <a href="/blog/2023-12-12-announcing-oxlint.html">Oxlint General Availability</a> 🎉
     </div>
 
     <button type="button" @click="dismiss">
@@ -66,12 +66,12 @@ html {
   right: 0;
   left: 0;
   z-index: var(--vp-z-index-layout-top);
-  padding: 12px;
+  padding: 8px;
   text-align: center;
   background: linear-gradient(to right, #bd34fe, #47caff);
   color: #fff;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 18px;
   font-family: monospace;
   display: flex;
   justify-content: space-between;
