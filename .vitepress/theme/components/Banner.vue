@@ -1,9 +1,6 @@
 <script setup lang="ts">
-import { useElementSize } from '@vueuse/core';
-import { ref, watchEffect } from 'vue';
-defineProps<{
-  version: string;
-}>();
+import { useElementSize, useLocalStorage } from '@vueuse/core';
+import { ref, watchEffect, watch, onMounted } from 'vue';
 const el = ref<HTMLElement>();
 const { height } = useElementSize(el);
 watchEffect(() => {
@@ -14,15 +11,42 @@ watchEffect(() => {
     );
   }
 });
-const dismiss = () => {
+
+const show = () => {
+  document.documentElement.classList.remove('banner-dismissed');
+};
+const hide = () => {
   document.documentElement.classList.add('banner-dismissed');
 };
+
+const slug = '/blog/2023-12-12-announcing-oxlint.html'
+
+const bannerDismissed = useLocalStorage<boolean>(`oxc-banner-dismissed-${slug}`, false);
+
+watch(bannerDismissed, () => {
+  if (bannerDismissed.value) {
+    hide()
+  }
+}, { immediate: true })
+
+onMounted(() => {
+  if (location.pathname.includes(slug)) {
+    hide()
+  } else if (!bannerDismissed.value) {
+    show()
+  }
+})
+
+const dismiss = () => {
+  bannerDismissed.value = true
+}
+
 </script>
 
 <template>
   <div ref="el" class="banner">
     <div class="text">
-      Announcing <a href="/blog/2023-12-12-announcing-oxlint.html">Oxlint General Availability</a> 🎉
+      Announcing <a :href="slug">Oxlint General Availability</a> 🎉
     </div>
 
     <button type="button" @click="dismiss">
