@@ -1,9 +1,6 @@
 <script setup lang="ts">
-import { useElementSize } from '@vueuse/core';
-import { ref, watchEffect } from 'vue';
-defineProps<{
-  version: string;
-}>();
+import { useElementSize, useLocalStorage } from '@vueuse/core';
+import { ref, watchEffect, watch, onMounted } from 'vue';
 const el = ref<HTMLElement>();
 const { height } = useElementSize(el);
 watchEffect(() => {
@@ -14,18 +11,43 @@ watchEffect(() => {
     );
   }
 });
-const dismiss = () => {
+
+const show = () => {
+  document.documentElement.classList.remove('banner-dismissed');
+};
+const hide = () => {
   document.documentElement.classList.add('banner-dismissed');
 };
+
+const slug = '/blog/2023-12-12-announcing-oxlint.html'
+
+const bannerDismissed = useLocalStorage<boolean>(`oxc-banner-dismissed-${slug}`, false);
+
+watch(bannerDismissed, () => {
+  if (bannerDismissed.value) {
+    hide()
+  }
+}, { immediate: true })
+
+onMounted(() => {
+  if (location.pathname.includes(slug)) {
+    hide()
+  } else if (!bannerDismissed.value) {
+    show()
+  }
+})
 </script>
 
 <template>
   <div ref="el" class="banner">
     <div class="text">
-      Announcing <a href="/blog/2023-12-12-announcing-oxlint.html">Oxlint General Availability</a> 🎉
+      <a :href="slug">
+        Announcing Oxlint General Available
+      </a>
+      🎉
     </div>
 
-    <button type="button" @click="dismiss">
+    <button type="button" @click="hide">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
         <path
           d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z" />
