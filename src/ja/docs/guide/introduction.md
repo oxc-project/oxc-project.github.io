@@ -56,8 +56,13 @@ This project shares the same philosophies as [Biome][biome] and [Ruff][ruff].
 
 ## Special Thanks
 
-This project would not exist without the help, inspiration, and encouragement from [Biome][biome] and [Ruff][ruff], who are pioneers in the field of Rust-based unified toolchains.
+- [Biome][biome] and [Ruff][ruff]: This project would not exist without the help, inspiration, and encouragement from these two projects, who are pioneers in the field of Rust-based unified toolchains.
+- [quick-lint-js][quick-lint-js] and [elm-review][elm-review]: For educating how static analysis could be improved in both performance and usability.
 
 [biome]: https://biomejs.dev
 
 [ruff]: https://beta.ruff.rs
+
+[quick-lint-js]: https://quick-lint-js.com/
+
+[elm-review]: https://package.elm-lang.org/packages/jfmengels/elm-review/latest/
