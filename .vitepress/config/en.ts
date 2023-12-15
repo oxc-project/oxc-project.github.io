@@ -16,20 +16,16 @@ export const enConfig = defineLocaleConfig("root", {
       { text: "Learn", link: "/docs/learn/parser_in_rust/intro" },
       { text: "Contribute", link: "/docs/contribute/introduction" },
       {
+        text: "Playground",
+        target: "_blank",
+        link: "https://oxc-project.github.io/oxc/playground/",
+      },
+      {
         text: "Resources",
         items: [
           { text: "Blog", link: "/blog/2023-12-12-announcing-oxlint.html" },
           { text: "Team", link: "/team" },
           { text: "Ecosystem", link: "/ecosystem" },
-          {
-            items: [
-              {
-                text: "Playground",
-                target: "_blank",
-                link: "https://oxc-project.github.io/oxc/playground/",
-              },
-            ],
-          },
         ],
       },
     ],
