@@ -40,20 +40,16 @@ export const jaConfig = defineLocaleConfig("ja", {
       { text: "学ぶ", link: "/ja/docs/learn/parser_in_rust/intro" },
       { text: "貢献", link: "/ja/docs/contribute/introduction" },
       {
+        text: "プレイグラウンド",
+        target: "_blank",
+        link: "https://oxc-project.github.io/oxc/playground/",
+      },
+      {
         text: "Resources",
         items: [
           { text: "ブログ", link: "/ja/blog/2023-12-12-announcing-oxlint.html" },
           { text: "Team", link: "/ja/team" },
           { text: "Ecosystem", link: "/ja/ecosystem" },
-          {
-            items: [
-              {
-                text: "プレイグラウンド",
-                target: "_blank",
-                link: "https://oxc-project.github.io/oxc/playground/",
-              },
-            ],
-          },
         ],
       },
     ],
