@@ -70,7 +70,7 @@ $ bunx oxlint@latest
 ```
 
 ```sh [deno]
-$ deno run oxlint@latest
+$ deno run npm:oxlint@latest
 ```
 
 :::
