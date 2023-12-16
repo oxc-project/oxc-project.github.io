@@ -39,7 +39,7 @@ $ bunx oxlint@latest
 ```
 
 ```sh [deno]
-$ deno run oxlint@latest
+$ deno run npm:oxlint@latest
 ```
 
 :::
@@ -97,4 +97,6 @@ or [resort to forked plugins due to version constraints](https://github.com/impo
 
 Happy linting and have a joyful holiday season!
 
-To get started, follow the [installation guide](/docs/guide/usage/linter), or [learn more about the oxc project](/docs/guide/introduction.html).
+To get started, follow the [installation guide](/docs/guide/usage/linter),
+learn more about the [oxc project](/docs/guide/introduction.html),
+or discuss on [Hacker News](https://news.ycombinator.com/item?id=38652887).
