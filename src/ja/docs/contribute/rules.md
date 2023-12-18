@@ -18,7 +18,8 @@ outline: deep
 - APIs should be simple and well-documented.
 - Third-party dependencies should be minimal.
 - Avoid the `regex` crate when possible. Regex is slow, most of them can be rewritten in a performant way by using Rust iterator and string methods.
-- Avoid macros, traits or any Rust techniques that would penalize compilation speed.
+- Avoid heavy macros or generics or any Rust techniques that would penalize compilation speed.
+- Always reference the source if the implementation comes from elsewhere.
 
 ## Maintenance Policy
 
