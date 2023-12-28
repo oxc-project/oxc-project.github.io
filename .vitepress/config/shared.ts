@@ -1,5 +1,6 @@
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
+import { githubCodeImport } from "rollup-plugin-github-code-import";
 import { defineConfig } from "vitepress";
 
 export const sharedConfig = defineConfig({
@@ -65,5 +66,6 @@ export const sharedConfig = defineConfig({
         "@constants": resolve(dirname(fileURLToPath(import.meta.url)), "../theme/constants"),
       },
     },
+    plugins: [githubCodeImport],
   },
 });

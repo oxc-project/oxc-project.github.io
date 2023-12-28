@@ -1,0 +1,26 @@
+.vp-doc .imported-github-code {
+  display: flow-root;
+  margin: 16px 0;
+}
+
+.vp-doc .imported-github-code > div[class*="language-"] {
+  margin-top: 0;
+  margin-bottom: 4px;
+}
+
+.vp-doc .imported-github-code > .github-code-link {
+  float: right;
+  font-size: 0.875rem;
+}
+
+.vp-doc .imported-github-code > .github-code-link > a::after {
+  content: "";
+}
+
+.vp-doc .custom-block .imported-github-code {
+  margin: 8px 0;
+}
+
+.vp-doc .custom-block .imported-github-code > div[class*="language-"] {
+  margin-top: 0;
+}
