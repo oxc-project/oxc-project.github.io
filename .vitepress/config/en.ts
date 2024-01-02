@@ -128,6 +128,7 @@ export const enConfig = defineLocaleConfig("root", {
             { text: "VSCode", link: "/docs/contribute/vscode" },
           ],
         },
+        { text: "Debugging", link: "/docs/contribute/debugging" },
         { text: "Performance", link: "/docs/contribute/performance" },
         { text: "Rules and Policy", link: "/docs/contribute/rules" },
       ],
