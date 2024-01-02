@@ -3,6 +3,7 @@ import type { Theme } from "vitepress";
 import DefaultTheme from "vitepress/theme";
 import AppBadgeList from "./components/AppBadgeList.vue";
 import AppBlogPostHeader from "./components/AppBlogPostHeader.vue";
+import "./custom.css";
 
 export default {
   extends: DefaultTheme,

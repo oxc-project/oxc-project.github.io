@@ -27,6 +27,7 @@
     "husky": "^8.0.3",
     "lint-staged": "15.0.2",
     "prettier": "4.0.0-alpha.3",
+    "rollup-plugin-github-code-import": "^0.2.0",
     "textlint": "^13.4.1",
     "textlint-rule-doubled-spaces": "^1.0.2",
     "textlint-rule-preset-ja-spacing": "^2.3.0",
