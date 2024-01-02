@@ -16,12 +16,12 @@
     "create-blog-post": "tsx ./cli/index.ts create-blog-post"
   },
   "dependencies": {
-    "@vueuse/core": "^10.7.0",
+    "@vueuse/core": "^10.7.1",
     "vitepress": "1.0.0-rc.25",
-    "vue": "^3.3.11"
+    "vue": "^3.4.3"
   },
   "devDependencies": {
-    "@types/node": "^20.10.4",
+    "@types/node": "^20.10.6",
     "citty": "^0.1.5",
     "consola": "^3.2.3",
     "husky": "^8.0.3",
@@ -31,7 +31,7 @@
     "textlint-rule-doubled-spaces": "^1.0.2",
     "textlint-rule-preset-ja-spacing": "^2.3.0",
     "textlint-rule-terminology": "^4.0.1",
-    "tsx": "^4.6.2",
+    "tsx": "^4.7.0",
     "typescript": "~5.2.2"
   },
   "lint-staged": {
