@@ -144,6 +144,16 @@ Available options:
 
 ## Integration
 
+### lint-staged
+
+```json
+{
+  "lint-staged": {
+    "**/*.{js,mjs,cjs,jsx,ts,mts,cts,tsx,vue,astro}": "oxlint"
+  }
+}
+```
+
 ### VSCode Extension
 
 Download the official [VSCode extension](https://marketplace.visualstudio.com/items?itemName=oxc.oxc-vscode).
