@@ -24,6 +24,7 @@ We recommend running oxlint before ESLint in your lint-staged or CI setup for a 
 - Over 200 rules with a growing list from `eslint`, `typescript`, `eslint-plugin-react`, `eslint-plugin-jest`, `eslint-plugin-unicorn` and `eslint-plugin-jsx-a11y`.
 - Supports [.eslintignore](https://eslint.org/docs/latest/use/configure/ignore#the-eslintignore-file).
 - Supports [ESLint comment disabling](https://eslint.org/docs/latest/use/configure/rules#disabling-rules).
+- Lint `<script>` content of `.vue`, `.astro`, `.svelte` files by default.
 
 ## Installation
 
@@ -149,7 +150,7 @@ Available options:
 ```json
 {
   "lint-staged": {
-    "**/*.{js,mjs,cjs,jsx,ts,mts,cts,tsx,vue,astro}": "oxlint"
+    "**/*.{js,mjs,cjs,jsx,ts,mts,cts,tsx,vue,astro,svelte}": "oxlint"
   }
 }
 ```
