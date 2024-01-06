@@ -36,6 +36,14 @@ just new-react-rule name
 just new-jsx-a11y-rule name
 ```
 
+### Snapshot Testing
+
+[`cargo insta`](https://insta.rs/docs) is used for snapshot testing.
+
+After running `cargo test -p oxc_linter` and the line `Tester::new(RULE::NAME, pass, fail).test_and_snapshot()` is called, a new `rule.snap.new` file will be generated.
+
+Use `cargo insta accept` to accept all snapshot changes.
+
 ## General Advice
 
 ### Pin point the error message to the shortest code span
