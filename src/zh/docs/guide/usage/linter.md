@@ -77,10 +77,17 @@ $ bun add -D oxlint
 
 `oxlint` does not require Node.js, the binaries can be downloaded from the [latest GitHub releases](https://github.com/oxc-project/oxc/releases/latest).
 
-## Commands
+## Usages
 
 - `npx oxlint@latest --rules` for the list of rules.
 - `npx oxlint@latest --help` for configuration instructions.
+
+### Useful Options
+
+- `--deny-warnings` turn warnings into errors, useful for failing CI with exit code 1.
+- `-D all` deny (turn on) all rules.
+- `-D correctness -D perf -A debugger -A eqeqeq` deny (turn on) `correctness` and `perf` rules and allow (turn off) the `debugger` and `eqeqeq` rule.
+- `-c ./eslintrc.json` use the `rules` field to configure the rules, as documented in [ESLint](https://eslint.org/docs/latest/use/configure/rules#using-configuration-files). Only `json` format is supported.
 
 :::details Help details
 
@@ -137,6 +144,16 @@ Available options:
 
 ## Integration
 
+### lint-staged
+
+```json
+{
+  "lint-staged": {
+    "**/*.{js,mjs,cjs,jsx,ts,mts,cts,tsx,vue,astro}": "oxlint"
+  }
+}
+```
+
 ### VSCode Extension
 
 Download the official [VSCode extension](https://marketplace.visualstudio.com/items?itemName=oxc.oxc-vscode).
@@ -154,8 +171,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: npx --yes oxlint@0.0.0 # change to the latest release
+      - run: npx --yes oxlint@0.0.0 --deny-warnings # change to the latest release
 ```
+
+It is advised to pin the version, otherwise CI may fail after a new release.
 
 ## System Requirements
 
