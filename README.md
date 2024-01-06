@@ -2,6 +2,8 @@
 
 [![Crowdin](https://badges.crowdin.net/oxc/localized.svg)](https://crowdin.com/project/oxc)
 
+Link: [oxc-project.github.io](https://oxc-project.github.io)
+
 ### Contributing
 
 This site is built with [VitePress](https://github.com/vuejs/vitepress) and requires [Node.js](https://nodejs.org/en/) to be v18.0.0 or higher.
