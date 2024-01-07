@@ -456,7 +456,7 @@ we need to define an `AssignmentPattern` node and a `BindingPattern` node instea
 
 ---
 
-:::caution
+:::tip
 The following cases are really difficult to grasp. Here be dragons.
 :::
 

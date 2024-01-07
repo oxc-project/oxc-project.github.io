@@ -183,7 +183,7 @@ The real fun begins when we start lexing for JavaScript.
 
 Let's open up the [ECMAScript Language Specification](https://tc39.es/ecma262/) and re-learn JavaScript.
 
-:::caution
+:::tip
 I still remember the first time I opened up the specification and went into a little corner
 and cried in agony because it feels like reading foreign text with jargons everywhere.
 So head over to my [guide on reading the specification](/docs/learn/ecmascript/spec.html) if things don't make sense.
@@ -242,7 +242,7 @@ pub enum Kind {
 }
 ```
 
-:::caution
+:::tip
 `undefined` is not a keyword, it is unnecessary to add it here.
 :::
 
