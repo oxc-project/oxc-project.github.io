@@ -34,4 +34,7 @@ just new-ts-rule name
 just new-unicorn-rule name
 just new-react-rule name
 just new-jsx-a11y-rule name
+just new-oxc-rule name
+just new-deepscan-rule name
+just new-nextjs-rule name
 ```
