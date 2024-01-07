@@ -145,6 +145,10 @@ Available options:
 
 ## Integration
 
+### ESLint
+
+If you are looking for a way to use oxlint in projects that still need ESLint, You can use [eslint-plugin-oxc](https://github.com/oxc-project/eslint-plugin-oxlint) to turn off ESLint rules that are already supported by oxlint. So you can enjoy the speed of oxlint while still using ESLint.
+
 ### lint-staged
 
 ```json
