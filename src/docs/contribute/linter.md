@@ -13,6 +13,20 @@ Create a `./test.ts` and then
 just watch "run -p oxc_cli --bin oxlint -- test.ts"
 ```
 
+Or test and filter against the rule:
+
+```bash
+just watch "test -p oxc_linter -- rule-name"
+```
+
+### Snapshot Testing
+
+[`cargo insta`](https://insta.rs/docs) is used for snapshot testing.
+
+After running `cargo test -p oxc_linter` and the line `Tester::new(RULE::NAME, pass, fail).test_and_snapshot()` is called, a new `rule.snap.new` file will be generated.
+
+Use `cargo insta accept` to accept all snapshot changes.
+
 ## Rule generation
 
 Create a new lint rule by providing the ESLint name
@@ -38,14 +52,6 @@ just new-oxc-rule name
 just new-deepscan-rule name
 just new-nextjs-rule name
 ```
-
-### Snapshot Testing
-
-[`cargo insta`](https://insta.rs/docs) is used for snapshot testing.
-
-After running `cargo test -p oxc_linter` and the line `Tester::new(RULE::NAME, pass, fail).test_and_snapshot()` is called, a new `rule.snap.new` file will be generated.
-
-Use `cargo insta accept` to accept all snapshot changes.
 
 ## General Advice
 
