@@ -4,9 +4,15 @@ title: Meet the Team
 
 <script setup>
 import { VPTeamMembers } from 'vitepress/theme'
-import { COMMUNITY_TEAM_MEMBERS, CORE_TEAM_MEMBERS } from '@constants/team'
+import { CORE_TEAM_MEMBERS, CONSULTANTS } from '@constants/team'
 </script>
 
-# Core Team
+# Meet the Team
 
-<VPTeamMembers size="medium" :members="CORE_TEAM_MEMBERS" />
+## Core Team
+
+<VPTeamMembers size="small" :members="CORE_TEAM_MEMBERS" />
+
+## Consultants
+
+<VPTeamMembers size="small" :members="CONSULTANTS" />
