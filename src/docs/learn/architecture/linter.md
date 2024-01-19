@@ -41,7 +41,7 @@ Starting with the `LintService`:
 ### `Runtime`: `process_path()`
 
 - Infers extension and content from the path
-- Supports `.m?c?[j|t]s` or `.j|t)sx` extensions
+- Supports `.[m|c]?[j|t]s` or `.[j|t]sx` extensions
 - Exceptions for `.vue`, `.astro`, and `.svelte` with partial support for `script` blocks
 - Processes JavaScript and TypeScript sources
 - Executes linting and sends results to `DiagnosticService`
