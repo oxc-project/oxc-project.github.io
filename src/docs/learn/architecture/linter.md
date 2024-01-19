@@ -5,7 +5,7 @@ outline: deep
 
 # Linter Architecture
 
-This article is originally posted on [leaysgur.github.io](https://leaysgur.github.io/posts/2024/01/15/160838) by [@leaysgur](https://github.com/leaysgur).
+This article is originally posted on [leaysgur.github.io/posts](https://leaysgur.github.io/posts/2024/01/15/160838) by [@leaysgur](https://github.com/leaysgur).
 
 ## crates/oxc_cli
 
