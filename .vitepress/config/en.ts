@@ -45,41 +45,39 @@ export const enConfig = defineLocaleConfig("root", {
         },
       ],
       "/docs/learn/": [
-        /*
         {
           text: "Architecture",
           items: [
-            {
-              text: "Introduction",
-              link: "/docs/learn/architecture/introduction",
-            },
-            {
-              text: "Parser",
-              link: "/docs/learn/architecture/parser",
-            },
+            // {
+            // text: "Introduction",
+            // link: "/docs/learn/architecture/introduction",
+            // },
+            // {
+            // text: "Parser",
+            // link: "/docs/learn/architecture/parser",
+            // },
             {
               text: "Linter",
               link: "/docs/learn/architecture/linter",
             },
-            {
-              text: "Resolver",
-              link: "/docs/learn/architecture/resolver",
-            },
-            {
-              text: "Transformer",
-              link: "/docs/learn/architecture/transformer",
-            },
-            {
-              text: "Formatter",
-              link: "/docs/learn/architecture/formatter",
-            },
-            {
-              text: "Minifier",
-              link: "/docs/learn/architecture/minifier",
-            },
+            // {
+            // text: "Resolver",
+            // link: "/docs/learn/architecture/resolver",
+            // },
+            // {
+            // text: "Transformer",
+            // link: "/docs/learn/architecture/transformer",
+            // },
+            // {
+            // text: "Formatter",
+            // link: "/docs/learn/architecture/formatter",
+            // },
+            // {
+            // text: "Minifier",
+            // link: "/docs/learn/architecture/minifier",
+            // },
           ],
         },
-          */
         {
           text: "JavaScript Parser in Rust",
           items: [
