@@ -9,6 +9,7 @@ outline: deep
 
 - [The Rust Performance Book](https://nnethercote.github.io/perf-book/introduction.html)
 - [Andrew Kelley - Practical DOD](https://vimeo.com/649009599)
+- [MIT Open Course Ware - Performance Engineering Of Software Systems](https://ocw.mit.edu/courses/6-172-performance-engineering-of-software-systems-fall-2018/video_galleries/lecture-videos)
 
 ## JavaScript Parsers
 
@@ -26,4 +27,3 @@ outline: deep
 - [Simple but Powerful Pratt Parsing](https://matklad.github.io/2020/04/13/simple-but-powerful-pratt-parsing.html)
 - [JS syntactic quirks](https://github.com/mozilla-spidermonkey/jsparagus/blob/master/js-quirks.md)
 - [Crafting Interpreters](https://craftinginterpreters.com)
-- [MIT Open Course Ware - Performance Engineering Of Software Systems](https://ocw.mit.edu/courses/6-172-performance-engineering-of-software-systems-fall-2018/video_galleries/lecture-videos)
