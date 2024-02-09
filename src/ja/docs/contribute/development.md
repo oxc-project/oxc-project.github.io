@@ -8,10 +8,8 @@ outline: deep
 ## Clone Repository
 
 ```bash
-git clone --recurse-submodules --shallow-submodules git@github.com:oxc-project/oxc.git
+git clone git@github.com:oxc-project/oxc.git
 ```
-
-The `--recurse-submodules` and `--shallow-submodules` flags are needed to initialize git submodules that are needed to run conformance tests.
 
 ## Set Up Project
 
