@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "@vueuse/core": "^10.7.2",
-    "vitepress": "1.0.0-rc.25",
+    "vitepress": "1.0.0-rc.43",
     "vue": "^3.4.14"
   },
   "devDependencies": {
