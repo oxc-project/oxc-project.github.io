@@ -32,8 +32,8 @@ devDependencies:
     specifier: 15.0.2
     version: 15.0.2
   prettier:
-    specifier: 4.0.0-alpha.3
-    version: 4.0.0-alpha.3
+    specifier: 4.0.0-alpha.8
+    version: 4.0.0-alpha.8
   textlint:
     specifier: ^13.4.1
     version: 13.4.1
@@ -679,23 +679,32 @@ packages:
     dev: true
     optional: true
 
+  /@iarna/toml@2.2.5:
+    resolution: {integrity: sha512-trnsAYxU3xnS1gPHPyU961coFyLkh4gAD/0zQ5mymY4yOZ+CYvsPqUbOFSw0aDM4y0tV7tiFxL/1XfXPNC6IPg==}
+    dev: true
+
   /@jridgewell/sourcemap-codec@1.4.15:
     resolution: {integrity: sha512-eF2rxCRulEKXHTRiDrDy6erMYWqNw4LPdQ8UQA4huuxaQsVeRPFl2oM8oDGxMFhJUWZf9McpLtJasDDZb/Bpeg==}
     dev: false
 
-  /@prettier/cli@0.1.5(prettier@4.0.0-alpha.3):
-    resolution: {integrity: sha512-oROlnMsTedet/cIsmRNrMHsGFcIAr4Frt0N+/bqRAfuRcUpHDN+G/qxqbtbCpOb6TzhG9n3yAa+jt7L51nQuNw==}
+  /@prettier/cli@0.3.0(prettier@4.0.0-alpha.8):
+    resolution: {integrity: sha512-8qq527QT5n8paE9eoHeulmGw7a3MroVk5+8ITf+xoWJn1gcVaZiOP6vb9OlwZv49hhdRZ1WX+0MyisSSXL/4fA==}
     hasBin: true
     peerDependencies:
       prettier: ^3.1.0 || ^4.0.0
     dependencies:
+      '@iarna/toml': 2.2.5
       atomically: 2.0.2
-      ignore: 5.3.0
+      fast-ignore: 1.1.1
+      find-up-json: 2.0.2
+      import-meta-resolve: 4.0.0
       is-binary-path: 2.1.0
       js-yaml: 4.1.0
       json-sorted-stringify: 1.0.0
+      json5: 2.2.3
+      kasi: 1.1.0
       pioppo: 1.1.0
-      prettier: 4.0.0-alpha.3
+      prettier: 4.0.0-alpha.8
       specialist: 1.4.0
       tiny-editorconfig: 1.0.0
       tiny-jsonc: 1.0.1
@@ -1465,6 +1474,12 @@ packages:
     resolution: {integrity: sha512-G3BSX9cfKttjr+2o1O22tYMLq0DPluZnYtq1rXumE1SpL/F/SLIfHx08WYQoWSIpeMYf8sRbJ8++71+v6Pnxfg==}
     dev: true
 
+  /fast-ignore@1.1.1:
+    resolution: {integrity: sha512-Gnvido88waUVtlDv/6VBeXv0TAlQK5lheknMwzHx9948B7uOFjyyLXsYBXixDScEXJB5fMjy4G1OOTH59VKvUA==}
+    dependencies:
+      grammex: 3.1.2
+    dev: true
+
   /fast-levenshtein@2.0.6:
     resolution: {integrity: sha512-DCXu6Ifhqcks7TZKY3Hxp3y6qphY5SJZmrWMDrKcERSOXWQdMhU9Ig/PYrzyw/ul9jOIyh0N4M0tbC5hodg8dw==}
     dev: true
@@ -1642,9 +1657,8 @@ packages:
     hasBin: true
     dev: true
 
-  /ignore@5.3.0:
-    resolution: {integrity: sha512-g7dmpshy+gD7mh88OC9NwSGTKoc3kyLAZQRU1mt53Aw/vnvfXnbC+F/7F7QoYVKbV+KNvJx8wArewKy1vXMtlg==}
-    engines: {node: '>= 4'}
+  /import-meta-resolve@4.0.0:
+    resolution: {integrity: sha512-okYUR7ZQPH+efeuMJGlq4f8ubUgO50kByRPyt/Cy1Io4PSRsPjxME+YlVaCOx+NIToW7hCsZNFJyTPFFKepRSA==}
     dev: true
 
   /inflight@1.0.6:
@@ -1784,6 +1798,10 @@ packages:
   /jsonc-parser@3.2.0:
     resolution: {integrity: sha512-gfFQZrcTc8CnKXp6Y4/CBT3fTc0OVuDofpre4aEeEpSBPV5X5v4+Vmx+8snU7RLPrNHPKSgLxGo9YuQzz20o+w==}
     dev: false
+
+  /kasi@1.1.0:
+    resolution: {integrity: sha512-SvmC8+vhkDariSTz2182qyQ+mhwZ4W8TWaIHJcz358bYBeccQ8WBYj7uTtzHoCmpPHaoCm3PaOhzRg7Z8F4Lww==}
+    dev: true
 
   /levn@0.4.1:
     resolution: {integrity: sha512-+bT2uH4E5LGE7h/n3evcS/sQlJXCpIp6ym8OWJ5eV6+67Dsql/LaaT7qJBAt2rzfoa/5QBGBhxDix1dMt2kQKQ==}
@@ -2348,12 +2366,12 @@ packages:
     engines: {node: '>= 0.8.0'}
     dev: true
 
-  /prettier@4.0.0-alpha.3:
-    resolution: {integrity: sha512-RsN0kg8rG+NJYl9NHZrWfQS6zmShwOLHqu3O5FDDZzaihAcYq0uRHI7QqX+EBWNBpGvmwQCs1rpNwWFXurvQHQ==}
+  /prettier@4.0.0-alpha.8:
+    resolution: {integrity: sha512-7FFBkQb0Eg0wJRYzA7ucc31nqTjWgoSpmS0ey9OATHU6WiV0z53Uzo5hA3tZs/pbhhIG7YvOIBNmkRQ7Dr/k5A==}
     engines: {node: '>=14'}
     hasBin: true
     dependencies:
-      '@prettier/cli': 0.1.5(prettier@4.0.0-alpha.3)
+      '@prettier/cli': 0.3.0(prettier@4.0.0-alpha.8)
     dev: true
 
   /promise-make-naked@2.1.1:
