@@ -161,7 +161,10 @@ If you are looking for a way to use oxlint in projects that still need ESLint, Y
 
 ### VSCode Extension
 
-Download the official [VSCode extension](https://marketplace.visualstudio.com/items?itemName=oxc.oxc-vscode).
+Download the official VSCode extension from the
+
+- [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=oxc.oxc-vscode)
+- [Open VSX Registry](https://open-vsx.org/extension/oxc/oxc-vscode)
 
 ### Continuous Integration
 
