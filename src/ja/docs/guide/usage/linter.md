@@ -184,6 +184,19 @@ jobs:
 
 It is advised to pin the version, otherwise CI may fail after a new release.
 
+### pre-commit
+
+.pre-commit-hooks.yaml
+
+```yaml
+repos:
+  - repo: https://github.com/oxc-project/mirrors-oxlint
+    rev: v0.0.0 # change to the latest version
+    hooks:
+      - id: oxlint
+        verbose: true
+```
+
 ## System Requirements
 
 `oxlint` is built for darwin-arm64, darwin-x64, linux-arm64, linux-x64, win32-arm64 and win32-x64.
