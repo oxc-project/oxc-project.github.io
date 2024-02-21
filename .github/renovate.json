@@ -2,16 +2,15 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "timezone": "Asia/Shanghai",
   "schedule": ["before 8am on monday"],
+  "assignees": ["@Boshen"],
   "packageRules": [
     {
       "groupName": "github-actions",
-      "matchManagers": ["github-actions"],
-      "assignees": ["@Boshen"]
+      "matchManagers": ["github-actions"]
     },
     {
       "groupName": "npm packages",
-      "matchManagers": ["npm"],
-      "assignees": ["@Boshen"]
+      "matchManagers": ["npm"]
     }
   ]
 }
