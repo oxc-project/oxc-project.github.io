@@ -12,7 +12,7 @@ badges:
 
 ## Features
 
-- 2x faster than [swc][url-swc] parser
+- 3x faster than [swc][url-swc] parser
 - By far the fastest and most conformant JavaScript and TypeScript (including JSX and TSX) parser written in Rust
 
 You can check [benchmark][url-benchmark] for more detail.
