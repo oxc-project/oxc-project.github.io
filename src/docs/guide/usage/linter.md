@@ -83,10 +83,11 @@ $ bun add -D oxlint
 - `npx oxlint@latest --rules` for the list of rules.
 - `npx oxlint@latest --help` for configuration instructions.
 
-### Useful Options
+### Useful Options and Examples
 
 - `--deny-warnings` turn warnings into errors, useful for failing CI with exit code 1.
 - `-D all` deny (turn on) all rules.
+- `-A all -D eqeqeq` run a single rule.
 - `-D correctness -D perf -A debugger -A eqeqeq` deny (turn on) `correctness` and `perf` rules and allow (turn off) the `debugger` and `eqeqeq` rule.
 - `-c ./eslintrc.json` use the `rules` field to configure the rules, as documented in [ESLint](https://eslint.org/docs/latest/use/configure/rules#using-configuration-files). Only `json` format is supported.
 
