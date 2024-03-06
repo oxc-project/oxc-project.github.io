@@ -198,6 +198,10 @@ repos:
         verbose: true
 ```
 
+### Vite plugin
+
+https://github.com/52-entertainment/vite-plugin-oxlint
+
 ## System Requirements
 
 `oxlint` is built for darwin-arm64, darwin-x64, linux-arm64, linux-x64, win32-arm64 and win32-x64.
