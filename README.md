@@ -14,3 +14,7 @@ For local development, [pnpm](https://pnpm.io/) is preferred as package manager:
 pnpm i
 pnpm run dev
 ```
+
+### Source code for the playground
+
+https://github.com/oxc-project/oxc/tree/main/website/playground
