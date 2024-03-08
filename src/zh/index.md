@@ -16,7 +16,7 @@ hero:
       link: https://github.com/oxc-project/oxc
 features:
   - title: Parser ✅
-    details: 2x faster than swc
+    details: 3x faster than swc
     link: /docs/guide/usage/parser
     linkText: Learn more
   - title: Linter ✅
@@ -27,20 +27,18 @@ features:
     details: 28x faster than enhanced-resolve
     link: /docs/guide/usage/resolver
     linkText: Learn more
-  - title: Formatter 🚧
+  - title: Formatter
     details: Prettier compatible
   - title: Transformer 🚧
     details: Babel compatible
-  - title: Minifier 🚧
+  - title: Minifier
     details: Faster and better at compression
   - title: Rspack Bundler ✅
     details: Webpack compatible
     link: https://rspack.dev
     external: true
-  - title: Rolldown Bundler
+  - title: Rolldown Bundler 🚧
     details: Rollup compatible
-  - title: Ezno Type Checker
-    details: A novel TypeScript type checker
-    link: https://github.com/kaleidawave/ezno
+    link: https://rolldown.rs
     external: true
 ---
