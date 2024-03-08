@@ -27,17 +27,17 @@ features:
     details: 28x faster than enhanced-resolve
     link: /docs/guide/usage/resolver
     linkText: Learn more
-  - title: Formatter 🚧
+  - title: Formatter
     details: Prettier compatible
   - title: Transformer 🚧
     details: Babel compatible
-  - title: Minifier 🚧
+  - title: Minifier
     details: Faster and better at compression
   - title: Rspack Bundler ✅
     details: Webpack compatible
     link: https://rspack.dev
     external: true
-  - title: Rolldown Bundler
+  - title: Rolldown Bundler 🚧
     details: Rollup compatible
     link: https://rolldown.rs
     external: true
