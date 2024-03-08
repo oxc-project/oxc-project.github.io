@@ -16,7 +16,7 @@ hero:
       link: https://github.com/oxc-project/oxc
 features:
   - title: Parser ✅
-    details: 2x faster than swc
+    details: 3x faster than swc
     link: /ja/docs/guide/usage/parser
     linkText: さらに学ぶ
   - title: Linter ✅
@@ -27,20 +27,18 @@ features:
     details: enhanced-resolveの28倍速
     link: /ja/docs/guide/usage/resolver
     linkText: さらに学ぶ
-  - title: Formatter 🚧
+  - title: Formatter
     details: Prettier互換
   - title: Transformer 🚧
     details: Babel互換
-  - title: Minifier 🚧
+  - title: Minifier
     details: より早く効率的な圧縮
   - title: Rspack ✅
     details: Webpack互換
     link: https://rspack.dev
     external: true
-  - title: Rolldown
+  - title: Rolldown Bundler 🚧
     details: Rust製Rollup
-  - title: Ezno Type Checker
-    details: 新しいTypeScript型チェッカー
-    link: https://github.com/kaleidawave/ezno
+    link: https://rolldown.rs
     external: true
 ---
