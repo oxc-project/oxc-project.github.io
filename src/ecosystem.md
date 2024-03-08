@@ -7,11 +7,11 @@ outline: deep
 
 ## [Rspack](https://www.rspack.dev)
 
-A fast Rust-based web bundler.
+A fast Rust-based web bundler with webpack-compatible API.
 
-## Rolldown
+## [Rolldown](https://rolldown.rs)
 
-To be announced.
+Fast Rust bundler for JavaScript with Rollup-compatible API.
 
 ## [Ezno Type Checker](https://github.com/kaleidawave/ezno)
 

@@ -39,6 +39,8 @@ features:
     external: true
   - title: Rolldown Bundler
     details: Rollup compatible
+    link: https://rolldown.rs
+    external: true
   - title: Ezno Type Checker
     details: A novel TypeScript type checker
     link: https://github.com/kaleidawave/ezno
