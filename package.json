@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "@vueuse/core": "^10.7.2",
-    "vitepress": "1.0.0-rc.44",
+    "vitepress": "1.0.0-rc.45",
     "vue": "^3.4.14"
   },
   "devDependencies": {
@@ -32,7 +32,7 @@
     "textlint-rule-preset-ja-spacing": "^2.3.0",
     "textlint-rule-terminology": "^4.0.1",
     "tsx": "^4.7.0",
-    "typescript": "~5.3.0"
+    "typescript": "~5.4.0"
   },
   "lint-staged": {
     "*.{js,jsx,tsx,ts,mts,css,md,json,yml}": "pnpm run fmt --write",
