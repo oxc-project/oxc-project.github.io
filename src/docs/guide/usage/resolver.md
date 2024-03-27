@@ -21,15 +21,11 @@ Node.js cjs and esm path resolution.
 
 ### Rust
 
-The [oxc_resolver][url-oxc-resolver-crate] crate and its [documentation][url-oxc-resolver-docs] are both available.
+See [https://crates.io/crates/oxc_resolver][url-oxc-resolver-crate] and its documentation [https://docs.rs/oxc_resolver][url-oxc-resolver-docs].
 
 ### Node.js
 
 The node binding [oxc-resolver][url-oxc-resolver-npm] is currently work in progress.
-
-## Rust Usage
-
-Check out [this example](https://github.com/oxc-project/oxc_resolver/blob/main/examples/resolver.rs).
 
 <!-- Links -->
 
