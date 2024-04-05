@@ -94,7 +94,7 @@ $ bun add -D oxlint
 :::details Help details
 
 ```
-Usage: oxlint [-A=NAME | -D=NAME]... [--fix] [PATH]...
+Usage: oxlint [-A=NAME | -D=NAME]... [--fix] [-f] [-c=PATH] [--tsconfig=PATH] [PATH]...
 
 Allowing / Denying Multiple Lints
   For example `-D correctness -A no-debugger` or `-A all -D no-debugger`.
@@ -108,6 +108,9 @@ Enable Plugins
         --import-plugin       Enable the experimental import plugin and detect ESM problems
         --jest-plugin         Enable the Jest plugin and detect test problems
         --jsx-a11y-plugin     Enable the JSX-a11y plugin and detect accessibility problems
+        --nextjs-plugin       Enable the Next.js plugin and detect Next.js problems
+        --react-perf-plugin   Enable the React performance plugin and detect rendering performance
+                              problems
 
 Fix Problems
         --fix                 Fix as many issues as possible. Only unfixed issues are reported in the
@@ -125,21 +128,22 @@ Handle Warnings
         --max-warnings=INT    Specify a warning threshold, which can be used to force exit with an error
                               status if there are too many warning-level rule violations in your project
 
-Miscellaneous
-        --timing              Display the execution time of each lint rule
-                              [env:TIMING: not set]
-        --rules               list all the rules that are currently registered
-        --threads=INT         Number of threads to use. Set to 1 for using only 1 CPU core
+Output
+        -f, --format          Use a specific output format (default, json)
 
-Codeowners
-        --codeowners-file=PATH  Path to CODEOWNERS file
-        --codeowners=NAME     Code owner names, e.g. @Boshen
+Miscellaneous
+        --threads=INT         Number of threads to use. Set to 1 for using only 1 CPU core
 
 Available positional items:
     PATH                      Single file, single path or list of paths
 
 Available options:
+        --rules               list all the rules that are currently registered
+    -c, --config=PATH         ESLint configuration file (experimental)
+        --tsconfig=PATH       TypeScript `tsconfig.json` path for reading path alias and project
+                              references for import plugin
     -h, --help                Prints help information
+    -V, --version             Prints version information
 ```
 
 :::
@@ -200,7 +204,7 @@ repos:
 
 ### Vite plugin
 
-https\://github.com/52-entertainment/vite-plugin-oxlint
+https://github.com/52-entertainment/vite-plugin-oxlint
 
 ## System Requirements
 
