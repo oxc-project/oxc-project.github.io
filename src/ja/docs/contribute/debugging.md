@@ -21,7 +21,7 @@ panic = "unwind"
 Build the binary:
 
 ```bash
-cargo build --release -p oxc_cli --bin oxlint
+cargo build --release -p oxc_cli --bin oxlint --features allocator
 ```
 
 Run the binary:
