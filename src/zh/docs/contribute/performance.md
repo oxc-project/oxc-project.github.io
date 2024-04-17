@@ -41,7 +41,7 @@ strip = false # do not strip symbols
 Then build the project
 
 ```bash
-cargo build --release -p oxc_cli --bin oxlint
+cargo build --release -p oxc_cli --bin oxlint --features allocator
 ```
 
 The binary is located at `./target/release/oxlint` once the project is built.
