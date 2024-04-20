@@ -42,7 +42,7 @@ This project shares the same philosophies as [Biome][biome] and [Ruff][ruff].
 
 > I'm impressed by how oxc is actively encouraging JavaScript tools to improve their performance.
 
-### [Eric Simons](https://twitter.com/ericsimons40/status/1766525300584947999), CEO of [StackBlitz](https://stackblitz.com/):
+#### [Eric Simons](https://twitter.com/ericsimons40/status/1766525300584947999), CEO of [StackBlitz](https://stackblitz.com/):
 
 > Oxc is slept on rn
 >
