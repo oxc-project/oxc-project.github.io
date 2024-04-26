@@ -26,6 +26,7 @@ export const enConfig = defineLocaleConfig("root", {
           { text: "Blog", link: "/blog/2023-12-12-announcing-oxlint.html" },
           { text: "Team", link: "/team" },
           { text: "Ecosystem", link: "/ecosystem" },
+          { text: "Branding", link: "/branding" },
         ],
       },
     ],
