@@ -5,17 +5,13 @@ outline: deep
 
 # Ecosystem
 
-## [Rspack](https://www.rspack.dev)
-
-A fast Rust-based web bundler with webpack-compatible API.
-
 ## [Rolldown](https://rolldown.rs)
 
 Fast Rust bundler for JavaScript with Rollup-compatible API.
 
-## [Ezno Type Checker](https://github.com/kaleidawave/ezno)
+## [Rspack](https://www.rspack.dev)
 
-A JavaScript compiler and TypeScript checker written in Rust with a focus on static analysis and runtime performance.
+A fast Rust-based web bundler with webpack-compatible API.
 
 ## [Tyvm](https://github.com/zackradisic/tyvm)
 
