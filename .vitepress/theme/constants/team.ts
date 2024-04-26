@@ -62,6 +62,17 @@ export const TEAM_MEMBERS: TeamMember[] = [
     ],
   },
   {
+    id: "overlookmotel",
+    type: "core",
+    name: "overlookmotel",
+    title: "Member",
+    avatar: "https://www.github.com/overlookmotel.png",
+    links: [
+      { icon: "github", link: "https://github.com/overlookmotel" },
+      { icon: "twitter", link: "https://twitter.com/overlook_motel" },
+    ],
+  },
+  {
     id: "ematipico",
     type: "consultant",
     name: "Emanuele",
