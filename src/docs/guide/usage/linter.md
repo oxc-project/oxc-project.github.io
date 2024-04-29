@@ -129,7 +129,7 @@ Handle Warnings
                               status if there are too many warning-level rule violations in your project
 
 Output
-        -f, --format          Use a specific output format (default, json)
+        -f, --format          Use a specific output format (default, json, checkstyle, unix)
 
 Miscellaneous
         --threads=INT         Number of threads to use. Set to 1 for using only 1 CPU core
