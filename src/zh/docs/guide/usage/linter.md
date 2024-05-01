@@ -202,9 +202,13 @@ repos:
         verbose: true
 ```
 
+### Unplugin
+
+https://www.npmjs.com/package/unplugin-oxlint
+
 ### Vite plugin
 
-https://github.com/52-entertainment/vite-plugin-oxlint
+https://www.npmjs.com/package/vite-plugin-oxlint
 
 ## System Requirements
 
