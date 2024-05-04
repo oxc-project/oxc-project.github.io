@@ -42,3 +42,18 @@ features:
     link: https://rolldown.rs
     external: true
 ---
+
+<div style="display: flex;flex-direction: column;justify-content: center;align-items: center;">
+  <h2>Sponsored by</h2>
+  <a href="https://github.com/sponsors/Boshen" target="_blank" rel="noopener noreferrer">
+    <img
+      crossorigin="anonymous"
+      inline-block
+      width="768" height="1464"
+      class="resizable-img"
+      loading="lazy"
+      src="https://cdn.jsdelivr.net/gh/boshen/sponsors/sponsors.svg"
+      alt="Sponsors"
+    >
+  </a>
+</div>
