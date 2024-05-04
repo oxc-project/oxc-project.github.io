@@ -40,7 +40,16 @@ export const enConfig = defineLocaleConfig("root", {
         {
           text: "Tools",
           items: [
-            { text: "Linter", link: "/docs/guide/usage/linter" },
+            {
+              text: "Linter",
+              link: "/docs/guide/usage/linter",
+              items: [
+                {
+                  text: "Rules",
+                  link: "/docs/guide/usage/linter-rules",
+                },
+              ],
+            },
             { text: "Parser", link: "/docs/guide/usage/parser" },
             { text: "Resolver", link: "/docs/guide/usage/resolver" },
           ],
