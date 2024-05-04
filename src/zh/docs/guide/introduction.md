@@ -15,18 +15,11 @@ Additionally, we provide support for emerging JavaScript tools like Rspack, Roll
 
 Our goal is to create and empower tooling for [The Third Age of JavaScript](https://www.swyx.io/js-third-age).
 
-## Philosophy
-
-This project shares the same philosophies as [Biome][biome] and [Ruff][ruff].
-
-1. JavaScript tooling could be rewritten in a more performant language.
-2. An integrated toolchain can tap into efficiencies that are not available to a disparate set of tools.
-
 ## Endorsements
 
 #### [Evan You](https://twitter.com/youyuxi/status/1734439543280128030), creator of [Vue.js](https://vuejs.org) and [Vite](https://vitejs.dev):
 
-> Ran oxlint on the Vue 3 codebase, \~200 rules + \~590 files finished in 50ms 🤯 (30ms re-runs)
+> Ran oxlint on the Vue 3 codebase, ~200 rules + ~590 files finished in 50ms 🤯 (30ms re-runs)
 >
 > The performance is absolutely nuts
 
@@ -42,7 +35,7 @@ This project shares the same philosophies as [Biome][biome] and [Ruff][ruff].
 
 > I'm impressed by how oxc is actively encouraging JavaScript tools to improve their performance.
 
-### [Eric Simons](https://twitter.com/ericsimons40/status/1766525300584947999), CEO of [StackBlitz](https://stackblitz.com/):
+#### [Eric Simons](https://twitter.com/ericsimons40/status/1766525300584947999), CEO of [StackBlitz](https://stackblitz.com/):
 
 > Oxc is slept on rn
 >
@@ -66,9 +59,6 @@ This project shares the same philosophies as [Biome][biome] and [Ruff][ruff].
 - [quick-lint-js][quick-lint-js] and [elm-review][elm-review]: For educating how static analysis could be improved in both performance and usability.
 
 [biome]: https://biomejs.dev
-
 [ruff]: https://beta.ruff.rs
-
 [quick-lint-js]: https://quick-lint-js.com/
-
 [elm-review]: https://package.elm-lang.org/packages/jfmengels/elm-review/latest/
