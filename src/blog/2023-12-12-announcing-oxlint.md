@@ -7,7 +7,7 @@ authors:
 
 <AppBlogPostHeader />
 
-We're thrilled to announce that oxlint is now generally available!
+We are thrilled to announce that oxlint is now generally available!
 This milestone signifies our team's ability to promptly address and triage issues.
 
 Oxlint is a JavaScript linter designed to catch erroneous or useless code without requiring any configurations by default.
