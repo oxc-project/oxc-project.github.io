@@ -1,7 +1,9 @@
 # Rules
 
-Total: 333
-Turned on by default: 93
+The progress of all rule implementations is tracked [here](https://github.com/oxc-project/oxc/issues/481).
+
+- Total number of rules: 333
+- Rules turned on by default: 93
 
 ## Correctness (159):
 
