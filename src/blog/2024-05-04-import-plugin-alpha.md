@@ -13,9 +13,9 @@ This port aims to resolve all known issues associated with `eslint-plugin-import
 
 - Performance - execution time exceeding one minute when certain rules are enabled
 - Dependency size - 188 dependencies totaling 30M
-- Backwards compatibility - the necessity to support Node.js v4.0.0
+- Backwards compatibility - the necessity to [support Node.js v4.0.0](https://github.com/import-js/eslint-plugin-import/pull/2447#issuecomment-1117384140)
 - Dependency compatibility - the need to replace it with [`eslint-plugin-import-x`](https://github.com/un-ts/eslint-plugin-import-x)
-- Upgrading to ESLint v9
+- [Upgrading to ESLint v9](https://github.com/import-js/eslint-plugin-import/issues/2948)
 
 ## What's in the release?
 
@@ -62,7 +62,7 @@ There are also improvements to these rules; for example, the diagnostics for the
 ```
 
 This isn't a long list of features,
-but because of the complexity of the current state of the ecosystem,
+but due to the complexity of the current state of the ecosystem,
 it requires a lot of effort to implement these rules and ensure they work correctly.
 
 Over the past six months, we have worked in our spare time and successfully completed all the prerequisites for the `--import-plugin` to work:
@@ -76,7 +76,7 @@ Over the past six months, we have worked in our spare time and successfully comp
 If you are a project maintainer (a.k.a. configuration engineer) and lack the time or energy to keep ESLint and all its plugins updated,
 you may follow [@brooooooklyn](https://github.com/brooooooklyn)'s lead and [replace ESLint with oxlint in all his projects](https://github.com/napi-rs/napi-rs/pull/2032).
 
-If you are an open-source enthusiast and are willing to help out, come talk to us on [discord](https://discord.gg/9uXCAwqQZW), or check out the [linter product plan and progress issue](https://github.com/oxc-project/oxc/issues/481).
+If you are an open-source enthusiast and are willing to help out, come talk to us on [discord](https://discord.gg/9uXCAwqQZW), check out the [linter product plan and progress issue](https://github.com/oxc-project/oxc/issues/481), or help by [proposing new rules](https://github.com/oxc-project/oxc/issues/3161) that were deferred.
 
 If you are an engineering manager, or are willing to migrate your project to oxlint (with 330 rules and growing) to keep your infrastructure costs down,
 you may consider [sponsoring](https://github.com/sponsors/Boshen) so we can prioritize your project.
