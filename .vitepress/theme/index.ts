@@ -1,4 +1,4 @@
-// import { defineAsyncComponent, h } from "vue";
+import { defineAsyncComponent, h } from "vue";
 import { h } from "vue";
 import type { Theme } from "vitepress";
 import DefaultTheme from "vitepress/theme";
@@ -13,7 +13,7 @@ export default {
   },
   Layout() {
     return h(DefaultTheme.Layout, null, {
-      // "layout-top": () => h(defineAsyncComponent(() => import("./components/Banner.vue"))),
+      "layout-top": () => h(defineAsyncComponent(() => import("./components/Banner.vue"))),
     });
   },
 } satisfies Theme;
