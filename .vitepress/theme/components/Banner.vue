@@ -19,7 +19,7 @@ const hide = () => {
   document.documentElement.classList.add('banner-dismissed');
 };
 
-const slug = '/blog/2023-12-12-announcing-oxlint.html'
+const slug = '/blog/2024-05-04-import-plugin-alpha.html'
 
 const bannerDismissed = useLocalStorage<boolean>(`oxc-banner-dismissed-${slug}`, false);
 
@@ -46,7 +46,7 @@ const dismiss = () => {
 <template>
   <div ref="el" class="banner">
     <div class="text">
-      Announcing <a :href="slug">Oxlint General Availability</a> 🎉
+      <a :href="slug">Oxlint Import Plugin Alpha Release</a> 🎉
     </div>
 
     <button type="button" @click="dismiss">
