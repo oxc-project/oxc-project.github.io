@@ -53,6 +53,16 @@ just new-deepscan-rule name
 just new-nextjs-rule name
 ```
 
+## Rule Category
+
+- correctness - code that is outright wrong or useless
+- suspicious - code that is most likely wrong or useless
+- pedantic - lints which are rather strict or have occasional false positives
+- perf - code that can be written to run faster
+- style - code that should be written in a more idiomatic way
+- restriction - lints should be considered on a case-by-case basis before enabling.
+- nursery - new lints that are still under development
+
 ## General Advice
 
 ### Pin point the error message to the shortest code span
