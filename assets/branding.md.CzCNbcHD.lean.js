@@ -1,0 +1,1 @@
+import{_ as t,c as e,o as s,a4 as r}from"./chunks/framework.CMYu0lkk.js";const u=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"branding.md","filePath":"branding.md"}'),o={name:"branding.md"},n=r("",7),c=[n];function a(i,p,_,m,d,g){return s(),e("div",null,c)}const l=t(o,[["render",a]]);export{u as __pageData,l as default};
