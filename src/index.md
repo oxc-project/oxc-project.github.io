@@ -57,3 +57,17 @@ features:
     >
   </a>
 </div>
+
+<script setup>
+import { onMounted } from 'vue'
+
+onMounted(() => {
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.get('uwu') != null) {
+    const img = document.querySelector('.VPHero .VPImage.image-src');
+    img.src = 'https://raw.githubusercontent.com/oxc-project/oxc-assets/main/uwu.png';
+    img.alt = 'Oxc Kawaii Logo by @icarusgkx';
+    img.style = "max-width:90%";
+  }
+})
+</script>
