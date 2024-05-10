@@ -5,7 +5,7 @@ hero:
   name: "The JavaScript Oxidation Compiler"
   tagline: A collection of JavaScript tools written in Rust
   image:
-    src: https://raw.githubusercontent.com/oxc-project/oxc-assets/main/logo-round-min.png
+    src: https://cdn.jsdelivr.net/gh/oxc-project/oxc-assets/uwu.png
     alt: The JavaScript Oxidation Compiler
   actions:
     - theme: brand
@@ -58,16 +58,8 @@ features:
   </a>
 </div>
 
-<script setup>
-import { onMounted } from 'vue'
-
-onMounted(() => {
-  const urlParams = new URLSearchParams(window.location.search);
-  if (urlParams.get('uwu') != null) {
-    const img = document.querySelector('.VPHero .VPImage.image-src');
-    img.src = 'https://raw.githubusercontent.com/oxc-project/oxc-assets/main/uwu.png';
-    img.alt = 'Oxc Kawaii Logo by @icarusgkx';
-    img.style = "max-width:90%";
-  }
-})
-</script>
+<style>
+.VPHero .VPImage.image-src {
+  max-width: 90%;
+}
+</style>
