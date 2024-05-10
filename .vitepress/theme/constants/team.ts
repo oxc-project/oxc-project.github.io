@@ -32,25 +32,6 @@ export const TEAM_MEMBERS: TeamMember[] = [
     ],
   },
   {
-    id: "mysteryven",
-    type: "core",
-    name: "Mysteryven",
-    title: "Member",
-    avatar: "https://www.github.com/mysteryven.png",
-    links: [
-      { icon: "github", link: "https://github.com/mysteryven" },
-      { icon: "twitter", link: "https://twitter.com/mysteryven" },
-    ],
-  },
-  {
-    id: "cameron",
-    type: "core",
-    name: "Cameron",
-    title: "Member",
-    avatar: "https://www.github.com/camc314.png",
-    links: [{ icon: "github", link: "https://github.com/camc314" }],
-  },
-  {
     id: "Dunqing",
     type: "core",
     name: "Dunqing",
@@ -71,6 +52,36 @@ export const TEAM_MEMBERS: TeamMember[] = [
       { icon: "github", link: "https://github.com/overlookmotel" },
       { icon: "twitter", link: "https://twitter.com/overlook_motel" },
     ],
+  },
+  {
+    id: "mysteryven",
+    type: "core",
+    name: "Mysteryven",
+    title: "Member",
+    avatar: "https://www.github.com/mysteryven.png",
+    links: [
+      { icon: "github", link: "https://github.com/mysteryven" },
+      { icon: "twitter", link: "https://twitter.com/mysteryven" },
+    ],
+  },
+  {
+    id: "rzvxa",
+    type: "core",
+    name: "rzvxa",
+    title: "Member",
+    avatar: "https://www.github.com/rzvxa.png",
+    links: [
+      { icon: "github", link: "https://github.com/rzvxa" },
+      { icon: "twitter", link: "https://twitter.com/rzvxa" },
+    ],
+  },
+  {
+    id: "cameron",
+    type: "core",
+    name: "Cameron",
+    title: "Member",
+    avatar: "https://www.github.com/camc314.png",
+    links: [{ icon: "github", link: "https://github.com/camc314" }],
   },
   {
     id: "ematipico",
