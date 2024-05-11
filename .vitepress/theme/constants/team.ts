@@ -19,7 +19,7 @@ export interface Consultant extends TeamMemberBase {
   type: "consultant";
 }
 
-export const TEAM_MEMBERS: TeamMember[] = [
+export const CORE_MEMBERS: TeamMember[] = [
   {
     id: "boshen",
     type: "core",
@@ -90,18 +90,31 @@ export const TEAM_MEMBERS: TeamMember[] = [
     title: "Lead",
     avatar: "https://www.github.com/ematipico.png",
     org: "Biome",
-    orgLink: "https://github.com/biomejs/biome",
+    orgLink: "https://github.com/biomejs",
     links: [
       { icon: "github", link: "https://github.com/ematipico" },
       { icon: "twitter", link: "https://twitter.com/ematipico" },
     ],
   },
+  {
+    id: "anonrig",
+    type: "consultant",
+    name: "Yagiz",
+    title: "Performance Engineer",
+    avatar: "https://www.github.com/anonrig.png",
+    org: "Sentry",
+    orgLink: "https://github.com/getsentry",
+    links: [
+      { icon: "github", link: "https://github.com/anonrig" },
+      { icon: "twitter", link: "https://twitter.com/yagiznizipli" },
+    ],
+  },
 ];
 
-export const CORE_TEAM_MEMBERS = TEAM_MEMBERS.filter(({ type }) => type === "core") as CoreTeamMember[];
+export const CORE_TEAM_MEMBERS = CORE_MEMBERS.filter(({ type }) => type === "core") as CoreTeamMember[];
 
 export const TEAM_MEMBERS_MAP: Record<TeamMember["id"], TeamMember> = Object.fromEntries(
-  TEAM_MEMBERS.map(({ id, ...rest }) => [id, { id, ...rest }]),
+  CORE_MEMBERS.map(({ id, ...rest }) => [id, { id, ...rest }]),
 );
 
-export const CONSULTANTS = TEAM_MEMBERS.filter(({ type }) => type === "consultant") as Consultant[];
+export const CONSULTANTS = CORE_MEMBERS.filter(({ type }) => type === "consultant") as Consultant[];
