@@ -3,6 +3,10 @@
   "timezone": "Asia/Shanghai",
   "schedule": ["before 8am on monday"],
   "assignees": ["@Boshen"],
+  "automerge": true,
+  "lockFileMaintenance": {
+    "enabled": true
+  },
   "packageRules": [
     {
       "groupName": "github-actions",
