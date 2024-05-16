@@ -115,6 +115,7 @@ export const enConfig = defineLocaleConfig("root", {
           ],
         },
         { text: "Performance", link: "/docs/learn/performance" },
+        { text: "Terminology", link: "/docs/learn/terminology" },
         { text: "References", link: "/docs/learn/references" },
       ],
       "/docs/contribute/": [
