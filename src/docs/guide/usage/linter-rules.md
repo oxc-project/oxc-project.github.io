@@ -2,10 +2,10 @@
 
 The progress of all rule implementations is tracked [here](https://github.com/oxc-project/oxc/issues/481).
 
-- Total number of rules: 333
-- Rules turned on by default: 93
+- Total number of rules: 338
+- Rules turned on by default: 90
 
-## Correctness (159):
+## Correctness (158):
 
 | Rule name                                     | Source     | Default |
 | --------------------------------------------- | ---------- | ------- |
@@ -42,10 +42,8 @@ The progress of all rule implementations is tracked [here](https://github.com/ox
 | no-extra-boolean-cast                         | ESLint     | ✅      |
 | no-func-assign                                | ESLint     | ✅      |
 | no-global-assign                              | ESLint     | ✅      |
-| no-inner-declarations                         | ESLint     | ✅      |
 | no-irregular-whitespace                       | ESLint     | ✅      |
 | no-loss-of-precision                          | ESLint     | ✅      |
-| no-new-symbol                                 | ESLint     | ✅      |
 | no-nonoctal-decimal-escape                    | ESLint     | ✅      |
 | no-obj-calls                                  | ESLint     | ✅      |
 | no-self-assign                                | ESLint     | ✅      |
@@ -63,6 +61,7 @@ The progress of all rule implementations is tracked [here](https://github.com/ox
 | require-yield                                 | ESLint     | ✅      |
 | use-isnan                                     | ESLint     | ✅      |
 | valid-typeof                                  | ESLint     | ✅      |
+| no-new-native-nonconstructor                  | ESLint     | ✅      |
 | no-extra-non-null-assertion                   | TypeScript | ✅      |
 | no-misused-new                                | TypeScript | ✅      |
 | no-namespace                                  | TypeScript | ✅      |
@@ -71,7 +70,6 @@ The progress of all rule implementations is tracked [here](https://github.com/ox
 | no-unsafe-declaration-merging                 | TypeScript | ✅      |
 | prefer-as-const                               | TypeScript | ✅      |
 | triple-slash-reference                        | TypeScript | ✅      |
-| prefer-literal-enum-member                    | TypeScript | ✅      |
 | expect-expect                                 | jest       |         |
 | no-conditional-expect                         | jest       |         |
 | no-disabled-tests                             | jest       |         |
@@ -98,7 +96,6 @@ The progress of all rule implementations is tracked [here](https://github.com/ox
 | jsx-no-target-blank                           | react      | ✅      |
 | jsx-key                                       | react      | ✅      |
 | jsx-no-duplicate-props                        | react      | ✅      |
-| jsx-no-useless-fragment                       | react      | ✅      |
 | jsx-no-undef                                  | react      | ✅      |
 | no-children-prop                              | react      | ✅      |
 | no-direct-mutation-state                      | react      | ✅      |
@@ -108,10 +105,9 @@ The progress of all rule implementations is tracked [here](https://github.com/ox
 | no-is-mounted                                 | react      | ✅      |
 | require-render-return                         | react      | ✅      |
 | void-dom-elements-no-children                 | react      | ✅      |
-| jsx-no-jsx-as-prop                            | react_perf |         |
-| jsx-no-new-array-as-prop                      | react_perf |         |
-| jsx-no-new-function-as-prop                   | react_perf |         |
-| jsx-no-new-object-as-prop                     | react_perf |         |
+| default                                       | import     |         |
+| named                                         | import     |         |
+| namespace                                     | import     |         |
 | alt-text                                      | jsx_a11y   |         |
 | anchor-has-content                            | jsx_a11y   |         |
 | anchor-is-valid                               | jsx_a11y   |         |
@@ -151,6 +147,7 @@ The progress of all rule implementations is tracked [here](https://github.com/ox
 | no-CSS-tags                                   | nextjs     |         |
 | no-head-element                               | nextjs     |         |
 | no-head-import-in-document                    | nextjs     |         |
+| no-duplicate-head                             | nextjs     |         |
 | no-img-element                                | nextjs     |         |
 | no-script-component-in-head                   | nextjs     |         |
 | no-sync-scripts                               | nextjs     |         |
@@ -159,6 +156,8 @@ The progress of all rule implementations is tracked [here](https://github.com/ox
 | no-document-import-in-page                    | nextjs     |         |
 | no-unwanted-polyfillio                        | nextjs     |         |
 | no-before-interactive-script-outside-document | nextjs     |         |
+| no-page-custom-font                           | nextjs     |         |
+| no-styled-jsx-in-document                     | nextjs     |         |
 | check-property-names                          | JSDoc      |         |
 | check-tag-names                               | JSDoc      |         |
 | implements-on-classes                         | JSDoc      |         |
@@ -169,7 +168,7 @@ The progress of all rule implementations is tracked [here](https://github.com/ox
 | require-property-description                  | JSDoc      |         |
 | require-yields                                | JSDoc      |         |
 
-## Restriction (26):
+## Restriction (35):
 
 | Rule name                   | Source     | Default |
 | --------------------------- | ---------- | ------- |
@@ -177,6 +176,7 @@ The progress of all rule implementations is tracked [here](https://github.com/ox
 | no-bitwise                  | ESLint     |         |
 | no-console                  | ESLint     |         |
 | no-empty                    | ESLint     |         |
+| no-empty-function           | ESLint     |         |
 | no-eval                     | ESLint     |         |
 | no-eq-null                  | ESLint     |         |
 | no-iterator                 | ESLint     |         |
@@ -185,36 +185,45 @@ The progress of all rule implementations is tracked [here](https://github.com/ox
 | no-unsafe-optional-chaining | ESLint     |         |
 | no-var                      | ESLint     |         |
 | no-void                     | ESLint     |         |
+| unicode-bom                 | ESLint     |         |
 | no-explicit-any             | TypeScript |         |
 | no-var-requires             | TypeScript |         |
+| prefer-literal-enum-member  | TypeScript |         |
 | no-abusive-eslint-disable   | unicorn    |         |
+| no-anonymous-default-export | unicorn    |         |
 | no-array-for-each           | unicorn    |         |
 | no-array-reduce             | unicorn    |         |
 | no-nested-ternary           | unicorn    |         |
 | no-process-exit             | unicorn    |         |
+| prefer-node-protocol        | unicorn    |         |
 | prefer-modern-math-apis     | unicorn    |         |
 | prefer-number-properties    | unicorn    |         |
 | button-has-type             | react      |         |
 | no-danger                   | react      |         |
 | no-unknown-property         | react      |         |
+| no-amd                      | import     |         |
+| no-cycle                    | import     |         |
+| no-default-export           | import     |         |
+| no-barrel-file              | oxc        |         |
 | check-access                | JSDoc      |         |
 | empty-tags                  | JSDoc      |         |
 
-## Pedantic (51):
+## Pedantic (53):
 
 | Rule name                               | Source     | Default |
 | --------------------------------------- | ---------- | ------- |
 | array-callback-return                   | ESLint     |         |
 | eqeqeq                                  | ESLint     |         |
+| max-classes-per-file                    | ESLint     |         |
 | max-lines                               | ESLint     |         |
 | no-array-constructor                    | ESLint     |         |
 | no-case-declarations                    | ESLint     |         |
-| no-mixed-operators                      | ESLint     |         |
+| no-inner-declarations                   | ESLint     |         |
 | no-new-wrappers                         | ESLint     |         |
 | no-prototype-builtins                   | ESLint     |         |
 | no-redeclare                            | ESLint     |         |
-| no-return-await                         | ESLint     |         |
 | no-self-compare                         | ESLint     |         |
+| radix                                   | ESLint     |         |
 | ban-ts-comment                          | TypeScript |         |
 | prefer-enum-initializers                | TypeScript |         |
 | ban-types                               | TypeScript |         |
@@ -254,9 +263,10 @@ The progress of all rule implementations is tracked [here](https://github.com/ox
 | prefer-type-error                       | unicorn    |         |
 | require-number-to-fixed-digits-argument | unicorn    |         |
 | checked-requires-onchange-or-readonly   | react      |         |
+| jsx-no-useless-fragment                 | react      |         |
 | no-unescaped-entities                   | react      |         |
 
-## Style (68):
+## Style (67):
 
 | Rule name                            | Source     | Default |
 | ------------------------------------ | ---------- | ------- |
@@ -315,7 +325,6 @@ The progress of all rule implementations is tracked [here](https://github.com/ox
 | number-literal-case                  | unicorn    |         |
 | numeric-separators-style             | unicorn    |         |
 | prefer-array-flat-map                | unicorn    |         |
-| prefer-node-protocol                 | unicorn    |         |
 | prefer-dom-node-text-content         | unicorn    |         |
 | prefer-includes                      | unicorn    |         |
 | prefer-logical-operator-over-ternary | unicorn    |         |
@@ -329,7 +338,7 @@ The progress of all rule implementations is tracked [here](https://github.com/ox
 | text-encoding-identifier-case        | unicorn    |         |
 | throw-new-error                      | unicorn    |         |
 
-## Suspicious (7):
+## Suspicious (11):
 
 | Rule name                      | Source     | Default |
 | ------------------------------ | ---------- | ------- |
@@ -338,10 +347,14 @@ The progress of all rule implementations is tracked [here](https://github.com/ox
 | prefer-add-event-listener      | unicorn    |         |
 | jsx-no-comment-textnodes       | react      |         |
 | react-in-jsx-scope             | react      |         |
+| no-named-as-default            | import     |         |
+| no-named-as-default-member     | import     |         |
+| no-self-import                 | import     |         |
+| no-duplicates                  | import     |         |
 | approx-constant                | oxc        |         |
 | misrefactored-assign-op        | oxc        |         |
 
-## Nursery (20):
+## Nursery (8):
 
 | Rule name                         | Source       | Default |
 | --------------------------------- | ------------ | ------- |
@@ -350,25 +363,17 @@ The progress of all rule implementations is tracked [here](https://github.com/ox
 | no-fallthrough                    | ESLint       |         |
 | no-import-assign                  | ESLint       |         |
 | no-undef                          | ESLint       |         |
-| default                           | import       |         |
+| rules-of-hooks                    | react        |         |
 | export                            | import       |         |
-| named                             | import       |         |
-| namespace                         | import       |         |
-| no-amd                            | import       |         |
-| no-cycle                          | import       |         |
-| no-deprecated                     | import       |         |
-| no-named-as-default               | import       |         |
-| no-named-as-default-member        | import       |         |
-| no-self-import                    | import       |         |
-| no-unused-modules                 | import       |         |
-| no-duplicates                     | import       |         |
-| no-default-export                 | import       |         |
-| no-barrel-file                    | oxc          |         |
 | no-side-effects-in-initialization | tree_shaking |         |
 
-## Perf (2):
+## Perf (6):
 
-| Rule name              | Source | Default |
-| ---------------------- | ------ | ------- |
-| no-await-in-loop       | ESLint |         |
-| no-accumulating-spread | oxc    |         |
+| Rule name                   | Source     | Default |
+| --------------------------- | ---------- | ------- |
+| no-await-in-loop            | ESLint     |         |
+| jsx-no-jsx-as-prop          | react_perf |         |
+| jsx-no-new-array-as-prop    | react_perf |         |
+| jsx-no-new-function-as-prop | react_perf |         |
+| jsx-no-new-object-as-prop   | react_perf |         |
+| no-accumulating-spread      | oxc        |         |
