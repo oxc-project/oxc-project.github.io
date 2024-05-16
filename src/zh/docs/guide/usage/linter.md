@@ -78,75 +78,9 @@ $ bun add -D oxlint
 
 `oxlint` does not require Node.js, the binaries can be downloaded from the [latest GitHub releases](https://github.com/oxc-project/oxc/releases/latest).
 
-## Usages
+## Command-line Interface
 
-- `npx oxlint@latest --rules` for the list of rules.
-- `npx oxlint@latest --help` for configuration instructions.
-
-### Useful Options and Examples
-
-- `--deny-warnings` turn warnings into errors, useful for failing CI with exit code 1.
-- `-D all` deny (turn on) all rules.
-- `-A all -D eqeqeq` run a single rule.
-- `-D correctness -D perf -A debugger -A eqeqeq` deny (turn on) `correctness` and `perf` rules and allow (turn off) the `debugger` and `eqeqeq` rule.
-- `-c ./eslintrc.json` use the `rules` field to configure the rules, as documented in [ESLint](https://eslint.org/docs/latest/use/configure/rules#using-configuration-files). Only `json` format is supported.
-
-:::details Help details
-
-```
-Usage: oxlint [-A=NAME | -D=NAME]... [--fix] [-f] [-c=PATH] [--tsconfig=PATH] [PATH]...
-
-Allowing / Denying Multiple Lints
-  For example `-D correctness -A no-debugger` or `-A all -D no-debugger`.
-  The default category is "-D correctness".
-  Use "--rules" for rule names.
-  Use "--help --help" for rule categories.
-    -A, --allow=NAME          Allow the rule or category (suppress the lint)
-    -D, --deny=NAME           Deny the rule or category (emit an error)
-
-Enable Plugins
-        --import-plugin       Enable the experimental import plugin and detect ESM problems
-        --jest-plugin         Enable the Jest plugin and detect test problems
-        --jsx-a11y-plugin     Enable the JSX-a11y plugin and detect accessibility problems
-        --nextjs-plugin       Enable the Next.js plugin and detect Next.js problems
-        --react-perf-plugin   Enable the React performance plugin and detect rendering performance
-                              problems
-
-Fix Problems
-        --fix                 Fix as many issues as possible. Only unfixed issues are reported in the
-                              output
-
-Ignore Files
-        --ignore-path=PATH    Specify the file to use as your .eslintignore
-        --ignore-pattern=PAT  Specify patterns of files to ignore (in addition to those in .eslintignore)
-        --no-ignore           Disables excluding of files from .eslintignore files, --ignore-path flags
-                              and --ignore-pattern flags
-
-Handle Warnings
-        --quiet               Disable reporting on warnings, only errors are reported
-        --deny-warnings       Ensure warnings produce a non-zero exit code
-        --max-warnings=INT    Specify a warning threshold, which can be used to force exit with an error
-                              status if there are too many warning-level rule violations in your project
-
-Output
-        -f, --format          Use a specific output format (default, json, checkstyle, unix)
-
-Miscellaneous
-        --threads=INT         Number of threads to use. Set to 1 for using only 1 CPU core
-
-Available positional items:
-    PATH                      Single file, single path or list of paths
-
-Available options:
-        --rules               list all the rules that are currently registered
-    -c, --config=PATH         ESLint configuration file (experimental)
-        --tsconfig=PATH       TypeScript `tsconfig.json` path for reading path alias and project
-                              references for import plugin
-    -h, --help                Prints help information
-    -V, --version             Prints version information
-```
-
-:::
+See [Command-line Interface](/docs/guide/usage/linter-cli)
 
 ## Integration
 
