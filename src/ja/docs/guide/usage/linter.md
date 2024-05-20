@@ -117,7 +117,7 @@ jobs:
     name: Lint JS
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - run: npx --yes oxlint@0.0.0 --deny-warnings # change to the latest release
 ```
 
