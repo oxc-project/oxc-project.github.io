@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@vueuse/core": "^10.7.2",
+    "feed": "^4.2.2",
     "vitepress": "1.1.4",
     "vue": "^3.4.14"
   },
