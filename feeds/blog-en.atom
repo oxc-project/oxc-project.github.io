@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://oxc-project.github.io</id>
+    <title>The Oxidation Compiler Blog</title>
+    <updated>2024-05-21T05:37:53.751Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://oxc-project.github.io"/>
+    <icon>https://cdn.jsdelivr.net/gh/oxc-project/oxc-assets/logo-round-min.png</icon>
+    <rights>Copyright © 2023-present Boshen &amp; Oxc Contributors</rights>
+    <entry>
+        <title type="html"><![CDATA[Oxlint General Availability]]></title>
+        <id>https://oxc-project.github.io/blog/2023-12-12-announcing-oxlint</id>
+        <link href="https://oxc-project.github.io/blog/2023-12-12-announcing-oxlint"/>
+        <updated>2023-12-12T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[<AppBlogPostHeader /><p>We are thrilled to announce that oxlint is now generally available!
+This milestone signifies our team's ability to promptly address and triage issues.</p>
+<p>Oxlint is a JavaScript linter designed to catch erroneous or useless code without requiring any configurations by default.</p>
+<h2 id="how-to-use" tabindex="-1">How to Use <a class="header-anchor" href="#how-to-use" aria-label="Permalink to &quot;How to Use&quot;">&ZeroWidthSpace;</a></h2>
+<p>At this stage, oxlint is <strong>not intended to fully replace ESLint</strong>; it serves as an enhancement when ESLint's slowness becomes a bottleneck in your workflow.</p>
+<p>For faster feedback loops, we recommend running oxlint before ESLint in your lint-staged or CI setup, considering it only takes a few seconds to run on large codebases.</p>
+<p>To test oxlint in your JavaScript / TypeScript codebase, simply execute the following command at the root directory of your repository:</p>
+<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-qVEEh" id="tab-Jw3bfRY" checked="checked"><label for="tab-Jw3bfRY">npm</label><input type="radio" name="group-qVEEh" id="tab-c31DB0k" ><label for="tab-c31DB0k">pnpm</label><input type="radio" name="group-qVEEh" id="tab-R0N0gh8" ><label for="tab-R0N0gh8">yarn</label><input type="radio" name="group-qVEEh" id="tab-eSfrhHm" ><label for="tab-eSfrhHm">bun</label><input type="radio" name="group-qVEEh" id="tab-83FXHno" ><label for="tab-83FXHno">deno</label></div><div class="blocks">
+<div class="language-sh vp-adaptive-theme active"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">$</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> npx</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> oxlint@latest</span></span></code></pre>
+</div><div class="language-sh vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">$</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> pnpm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> dlx</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> oxlint@latest</span></span></code></pre>
+</div><div class="language-sh vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">$</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> yarn</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> dlx</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> oxlint@latest</span></span></code></pre>
+</div><div class="language-sh vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">$</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> bunx</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> oxlint@latest</span></span></code></pre>
+</div><div class="language-sh vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">$</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> deno</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> run</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> npm:oxlint@latest</span></span></code></pre>
+</div></div></div>
+<p>Alternatively, refer to the <a href="/docs/guide/usage/linter.html">installation guide</a> for detailed instructions.</p>
+<h2 id="design" tabindex="-1">Design <a class="header-anchor" href="#design" aria-label="Permalink to &quot;Design&quot;">&ZeroWidthSpace;</a></h2>
+<h3 id="_50-100-times-faster-than-eslint" tabindex="-1">50-100 Times Faster than ESLint <a class="header-anchor" href="#_50-100-times-faster-than-eslint" aria-label="Permalink to &quot;50-100 Times Faster than ESLint&quot;">&ZeroWidthSpace;</a></h3>
+<p>In real-world scenarios, Shopify reported that their 75 CI minutes ESLint run is now only 10 seconds.</p>
+<p>From Jason Miller, Shopify DX and creator of Preact:</p>
+<blockquote>
+<p>oxlint has been a massive win for us at Shopify. Our previous linting setup took 75 minutes to run, so we were fanning it out across 40+ workers in CI.</p>
+<p>By comparison, oxlint takes around 10 seconds to lint the same codebase on a single worker, and the output is easier to interpret.</p>
+<p>We even caught a few bugs that were hidden or skipped by our old setup when we migrated!</p>
+</blockquote>
+<p>The majority of the performance gains stem from Oxlint being purposefully designed for performance, utilizing Rust and parallel processing as key factors.</p>
+<h3 id="lint-for-correctness" tabindex="-1">Lint for Correctness <a class="header-anchor" href="#lint-for-correctness" aria-label="Permalink to &quot;Lint for Correctness&quot;">&ZeroWidthSpace;</a></h3>
+<p>Oxlint defaults to identifying erroneous, redundant, or confusing code — prioritizing correctness over unnecessary nitpicking rules (categorized as <code>perf</code>, <code>suspicious</code>, <code>pedantic</code>, or <code>style</code>), which are disabled by default.</p>
+<h3 id="ease-of-use" tabindex="-1">Ease of Use <a class="header-anchor" href="#ease-of-use" aria-label="Permalink to &quot;Ease of Use&quot;">&ZeroWidthSpace;</a></h3>
+<p>Setting up new JavaScript / TypeScript codebases is becoming increasingly complex.
+There's a high likelihood of encountering compatibility issues among your tools, potentially resulting in hours of wasted time.</p>
+<p>That's why we designed oxlint to be zero-config out of the box; even Node.js is not a requirement.
+Most adjustments can be made through the command-line, and reading from ESLint configuration file is currently work in progress.</p>
+<h3 id="enhanced-diagnostics" tabindex="-1">Enhanced Diagnostics <a class="header-anchor" href="#enhanced-diagnostics" aria-label="Permalink to &quot;Enhanced Diagnostics&quot;">&ZeroWidthSpace;</a></h3>
+<p>Understanding linter messages can be challenging.
+Oxlint aims to simplify this by pinpointing root causes and providing helpful messages — eliminating the need for lengthy rule documentation reading, saving valuable time.</p>
+<p>Running <code>oxlint -D perf</code> in the <a href="https://github.com/microsoft/vscode" target="_blank" rel="noreferrer">vscode repository</a>:</p>
+<img width="100%" src="https://github.com/oxc-project/oxc/assets/1430279/094a3b24-0433-42ae-aad2-48a7dec2b985" >
+<h3 id="consolidated-rules" tabindex="-1">Consolidated Rules <a class="header-anchor" href="#consolidated-rules" aria-label="Permalink to &quot;Consolidated Rules&quot;">&ZeroWidthSpace;</a></h3>
+<p>Oxlint does not provide a plugin system yet, but we are actively consolidating rules from popular plugins like TypeScript, React, Jest, Unicorn, JSX-a11y and Import.</p>
+<p>We recognize the importance of plugins in the JavaScript ecosystem and are also investigating a DSL-based plugin system.</p>
+<p>However, you might appreciate a standalone linter — no need to manage a list of plugin dependencies,
+navigate through <a href="https://github.com/antfu/eslint-ts-patch" target="_blank" rel="noreferrer">compatibility issues</a>,
+or <a href="https://github.com/import-js/eslint-plugin-import/pull/2504#issuecomment-1191057877" target="_blank" rel="noreferrer">resort to forked plugins due to version constraints</a>.</p>
+]]></summary>
+        <content type="html"><![CDATA[<AppBlogPostHeader /><p>We are thrilled to announce that oxlint is now generally available!
+This milestone signifies our team's ability to promptly address and triage issues.</p>
+<p>Oxlint is a JavaScript linter designed to catch erroneous or useless code without requiring any configurations by default.</p>
+<h2 id="how-to-use" tabindex="-1">How to Use <a class="header-anchor" href="#how-to-use" aria-label="Permalink to &quot;How to Use&quot;">&ZeroWidthSpace;</a></h2>
+<p>At this stage, oxlint is <strong>not intended to fully replace ESLint</strong>; it serves as an enhancement when ESLint's slowness becomes a bottleneck in your workflow.</p>
+<p>For faster feedback loops, we recommend running oxlint before ESLint in your lint-staged or CI setup, considering it only takes a few seconds to run on large codebases.</p>
+<p>To test oxlint in your JavaScript / TypeScript codebase, simply execute the following command at the root directory of your repository:</p>
+<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-khB4T" id="tab-H_be_W1" checked="checked"><label for="tab-H_be_W1">npm</label><input type="radio" name="group-khB4T" id="tab-02Lpx1x" ><label for="tab-02Lpx1x">pnpm</label><input type="radio" name="group-khB4T" id="tab-jHb7YXq" ><label for="tab-jHb7YXq">yarn</label><input type="radio" name="group-khB4T" id="tab-uqaawaS" ><label for="tab-uqaawaS">bun</label><input type="radio" name="group-khB4T" id="tab-QNr7Zq5" ><label for="tab-QNr7Zq5">deno</label></div><div class="blocks">
+<div class="language-sh vp-adaptive-theme active"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">$</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> npx</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> oxlint@latest</span></span></code></pre>
+</div><div class="language-sh vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">$</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> pnpm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> dlx</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> oxlint@latest</span></span></code></pre>
+</div><div class="language-sh vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">$</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> yarn</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> dlx</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> oxlint@latest</span></span></code></pre>
+</div><div class="language-sh vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">$</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> bunx</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> oxlint@latest</span></span></code></pre>
+</div><div class="language-sh vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">$</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> deno</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> run</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> npm:oxlint@latest</span></span></code></pre>
+</div></div></div>
+<p>Alternatively, refer to the <a href="/docs/guide/usage/linter.html">installation guide</a> for detailed instructions.</p>
+<h2 id="design" tabindex="-1">Design <a class="header-anchor" href="#design" aria-label="Permalink to &quot;Design&quot;">&ZeroWidthSpace;</a></h2>
+<h3 id="_50-100-times-faster-than-eslint" tabindex="-1">50-100 Times Faster than ESLint <a class="header-anchor" href="#_50-100-times-faster-than-eslint" aria-label="Permalink to &quot;50-100 Times Faster than ESLint&quot;">&ZeroWidthSpace;</a></h3>
+<p>In real-world scenarios, Shopify reported that their 75 CI minutes ESLint run is now only 10 seconds.</p>
+<p>From Jason Miller, Shopify DX and creator of Preact:</p>
+<blockquote>
+<p>oxlint has been a massive win for us at Shopify. Our previous linting setup took 75 minutes to run, so we were fanning it out across 40+ workers in CI.</p>
+<p>By comparison, oxlint takes around 10 seconds to lint the same codebase on a single worker, and the output is easier to interpret.</p>
+<p>We even caught a few bugs that were hidden or skipped by our old setup when we migrated!</p>
+</blockquote>
+<p>The majority of the performance gains stem from Oxlint being purposefully designed for performance, utilizing Rust and parallel processing as key factors.</p>
+<h3 id="lint-for-correctness" tabindex="-1">Lint for Correctness <a class="header-anchor" href="#lint-for-correctness" aria-label="Permalink to &quot;Lint for Correctness&quot;">&ZeroWidthSpace;</a></h3>
+<p>Oxlint defaults to identifying erroneous, redundant, or confusing code — prioritizing correctness over unnecessary nitpicking rules (categorized as <code>perf</code>, <code>suspicious</code>, <code>pedantic</code>, or <code>style</code>), which are disabled by default.</p>
+<h3 id="ease-of-use" tabindex="-1">Ease of Use <a class="header-anchor" href="#ease-of-use" aria-label="Permalink to &quot;Ease of Use&quot;">&ZeroWidthSpace;</a></h3>
+<p>Setting up new JavaScript / TypeScript codebases is becoming increasingly complex.
+There's a high likelihood of encountering compatibility issues among your tools, potentially resulting in hours of wasted time.</p>
+<p>That's why we designed oxlint to be zero-config out of the box; even Node.js is not a requirement.
+Most adjustments can be made through the command-line, and reading from ESLint configuration file is currently work in progress.</p>
+<h3 id="enhanced-diagnostics" tabindex="-1">Enhanced Diagnostics <a class="header-anchor" href="#enhanced-diagnostics" aria-label="Permalink to &quot;Enhanced Diagnostics&quot;">&ZeroWidthSpace;</a></h3>
+<p>Understanding linter messages can be challenging.
+Oxlint aims to simplify this by pinpointing root causes and providing helpful messages — eliminating the need for lengthy rule documentation reading, saving valuable time.</p>
+<p>Running <code>oxlint -D perf</code> in the <a href="https://github.com/microsoft/vscode" target="_blank" rel="noreferrer">vscode repository</a>:</p>
+<img width="100%" src="https://github.com/oxc-project/oxc/assets/1430279/094a3b24-0433-42ae-aad2-48a7dec2b985" >
+<h3 id="consolidated-rules" tabindex="-1">Consolidated Rules <a class="header-anchor" href="#consolidated-rules" aria-label="Permalink to &quot;Consolidated Rules&quot;">&ZeroWidthSpace;</a></h3>
+<p>Oxlint does not provide a plugin system yet, but we are actively consolidating rules from popular plugins like TypeScript, React, Jest, Unicorn, JSX-a11y and Import.</p>
+<p>We recognize the importance of plugins in the JavaScript ecosystem and are also investigating a DSL-based plugin system.</p>
+<p>However, you might appreciate a standalone linter — no need to manage a list of plugin dependencies,
+navigate through <a href="https://github.com/antfu/eslint-ts-patch" target="_blank" rel="noreferrer">compatibility issues</a>,
+or <a href="https://github.com/import-js/eslint-plugin-import/pull/2504#issuecomment-1191057877" target="_blank" rel="noreferrer">resort to forked plugins due to version constraints</a>.</p>
+<hr>
+<p>Happy linting and have a joyful holiday season!</p>
+<p>To get started, follow the <a href="/docs/guide/usage/linter.html">installation guide</a>,
+learn more about the <a href="/docs/guide/introduction.html">oxc project</a>,
+or discuss on <a href="https://news.ycombinator.com/item?id=38652887" target="_blank" rel="noreferrer">Hacker News</a>.</p>
+]]></content>
+        <author>
+            <name>Boshen</name>
+            <uri>https://github.com/Boshen</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Oxlint Import Plugin Alpha]]></title>
+        <id>https://oxc-project.github.io/blog/2024-05-04-import-plugin-alpha</id>
+        <link href="https://oxc-project.github.io/blog/2024-05-04-import-plugin-alpha"/>
+        <updated>2024-05-04T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[<AppBlogPostHeader /><p>We are excited to announce an alpha release for <code>oxlint --import-plugin</code>, a port of <a href="https://github.com/import-js/eslint-plugin-import" target="_blank" rel="noreferrer"><code>eslint-plugin-import</code></a>.</p>
+<p>This port aims to resolve all known issues associated with <code>eslint-plugin-import</code>:</p>
+<ul>
+<li>Performance - execution time exceeding one minute when certain rules are enabled</li>
+<li>Dependency size - 188 dependencies totaling 30M</li>
+<li>Backwards compatibility - the necessity to <a href="https://github.com/import-js/eslint-plugin-import/pull/2447#issuecomment-1117384140" target="_blank" rel="noreferrer">support Node.js v4.0.0</a></li>
+<li>Dependency compatibility - the need to replace it with <a href="https://github.com/un-ts/eslint-plugin-import-x" target="_blank" rel="noreferrer"><code>eslint-plugin-import-x</code></a></li>
+<li><a href="https://github.com/import-js/eslint-plugin-import/issues/2948" target="_blank" rel="noreferrer">Upgrading to ESLint v9</a></li>
+</ul>
+<h2 id="what-s-in-the-release" tabindex="-1">What's in the release? <a class="header-anchor" href="#what-s-in-the-release" aria-label="Permalink to &quot;What's in the release?&quot;">&ZeroWidthSpace;</a></h2>
+<p>This alpha release is expected to work if your project is in ESM (ECMAScript Modules).</p>
+<p>If path aliases (e.g. <code>@/foo</code>) is required through <a href="https://www.typescriptlang.org/tsconfig/#paths" target="_blank" rel="noreferrer">tsconfig.compilerOptions.paths</a>,
+the <code>--tsconfig</code> option can be used:</p>
+<div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" v-pre=""><code><span class="line"><span>npx oxlint@latest --tsconfig ./tsconfig.json --import-plugin</span></span></code></pre>
+</div><p>The rules that are enabled by default via <code>npx oxlint@latest --import-plugin</code> are:</p>
+<ul>
+<li><a href="https://github.com/import-js/eslint-plugin-import/blob/v2.29.1/docs/rules/default.md" target="_blank" rel="noreferrer">default</a></li>
+<li><a href="https://github.com/import-js/eslint-plugin-import/blob/v2.29.1/docs/rules/named.md" target="_blank" rel="noreferrer">named</a></li>
+<li><a href="https://github.com/import-js/eslint-plugin-import/blob/v2.29.1/docs/rules/namespace.md" target="_blank" rel="noreferrer">namespace</a></li>
+</ul>
+<p>Rules that can be enabled selectively via <code>npx oxlint@latest --import-plugin -D rule-name</code> are:</p>
+<ul>
+<li><a href="https://github.com/import-js/eslint-plugin-import/blob/v2.29.1/docs/rules/no-named-as-default.md" target="_blank" rel="noreferrer">no-named-as-default</a></li>
+<li><a href="https://github.com/import-js/eslint-plugin-import/blob/v2.29.1/docs/rules/no-named-as-default-member.md" target="_blank" rel="noreferrer">no-named-as-default-member</a></li>
+<li><a href="https://github.com/import-js/eslint-plugin-import/blob/v2.29.1/docs/rules/no-self-import.md" target="_blank" rel="noreferrer">no-self-import</a></li>
+<li><a href="https://github.com/import-js/eslint-plugin-import/blob/v2.29.1/docs/rules/no-duplicates.md" target="_blank" rel="noreferrer">no-duplicates</a></li>
+<li><a href="https://github.com/import-js/eslint-plugin-import/blob/v2.29.1/docs/rules/no-amd.md" target="_blank" rel="noreferrer">no-amd</a></li>
+<li><a href="https://github.com/import-js/eslint-plugin-import/blob/v2.29.1/docs/rules/no-default-export.md" target="_blank" rel="noreferrer">no-default-export</a></li>
+<li><a href="https://github.com/import-js/eslint-plugin-import/blob/v2.29.1/docs/rules/no-cycle.md" target="_blank" rel="noreferrer">no-cycle</a></li>
+</ul>
+<p>There are also improvements to these rules; for example, the diagnostics for the <code>no-cycle</code> rule have been improved:</p>
+<div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" v-pre=""><code><span class="line"><span>  ⚠ eslint-plugin-import(no-cycle): Dependency cycle detected</span></span>
+<span class="line"><span>    ╭─[apps/web/playwright/lib/fixtures.ts:13:42]</span></span>
+<span class="line"><span> 12 │ import { createPaymentsFixture } from "../fixtures/payments";</span></span>
+<span class="line"><span> 13 │ import { createBookingPageFixture } from "../fixtures/regularBookings";</span></span>
+<span class="line"><span>    ·                                          ─────────────────────────────</span></span>
+<span class="line"><span> 14 │ import { createRoutingFormsFixture } from "../fixtures/routingForms";</span></span>
+<span class="line"><span>    ╰────</span></span>
+<span class="line"><span>  help: These paths form a cycle:</span></span>
+<span class="line"><span>        -> ../fixtures/regularBookings - apps/web/playwright/fixtures/regularBookings.ts</span></span>
+<span class="line"><span>        -> ./users - apps/web/playwright/fixtures/users.ts</span></span>
+<span class="line"><span>        -> ../lib/testUtils - apps/web/playwright/lib/testUtils.ts</span></span>
+<span class="line"><span>        -> ./fixtures - apps/web/playwright/lib/fixtures.ts</span></span></code></pre>
+</div><p>This isn't a long list of features,
+but due to the complexity of the current state of the ecosystem,
+it requires a lot of effort to implement these rules and ensure they work correctly.</p>
+<p>Over the past six months, we have worked in our spare time and successfully completed all the prerequisites for the <code>--import-plugin</code> to work:</p>
+<ul>
+<li>a <a href="https://github.com/oxc-project/oxc-resolver" target="_blank" rel="noreferrer">resolver</a> for module resolution</li>
+<li>a small <a href="https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/service.rs" target="_blank" rel="noreferrer">&quot;runtime&quot;</a> to maximize processing dependent files in parallel</li>
+<li>a <a href="https://github.com/oxc-project/oxc/blob/main/crates/oxc_syntax/src/module_record.rs" target="_blank" rel="noreferrer"><code>ModuleRecord</code></a> data structure for storing import / export information, and its respective <a href="https://github.com/oxc-project/oxc/blob/main/crates/oxc_semantic/src/module_record/builder.rs" target="_blank" rel="noreferrer">builder</a></li>
+</ul>
+<h2 id="how-can-i-help" tabindex="-1">How can I help? <a class="header-anchor" href="#how-can-i-help" aria-label="Permalink to &quot;How can I help?&quot;">&ZeroWidthSpace;</a></h2>
+<p>If you are a project maintainer (a.k.a. configuration engineer) and lack the time or energy to keep ESLint and all its plugins updated,
+you may follow <a href="https://github.com/brooooooklyn" target="_blank" rel="noreferrer">@brooooooklyn</a>'s lead and <a href="https://github.com/napi-rs/napi-rs/pull/2032" target="_blank" rel="noreferrer">replace ESLint with oxlint in all his projects</a>.</p>
+<p>If you are an open-source enthusiast and are willing to help out, come talk to us on <a href="https://discord.gg/9uXCAwqQZW" target="_blank" rel="noreferrer">discord</a>, check out the <a href="https://github.com/oxc-project/oxc/issues/481" target="_blank" rel="noreferrer">linter product plan and progress issue</a>, or help by <a href="https://github.com/oxc-project/oxc/issues/3161" target="_blank" rel="noreferrer">proposing new rules</a> that were deferred.</p>
+<p>If you are an engineering manager, or are willing to migrate your project to oxlint (with 330 rules and growing) to keep your infrastructure costs down,
+you may consider <a href="https://github.com/sponsors/Boshen" target="_blank" rel="noreferrer">sponsoring</a> so we can prioritize your project.</p>
+<p>Please remember <code>oxlint</code> is currently community driven, I believe that with enough resources, we can make <code>--import-plugin</code> generally available in the next few months.</p>
+]]></summary>
+        <content type="html"><![CDATA[<AppBlogPostHeader /><p>We are excited to announce an alpha release for <code>oxlint --import-plugin</code>, a port of <a href="https://github.com/import-js/eslint-plugin-import" target="_blank" rel="noreferrer"><code>eslint-plugin-import</code></a>.</p>
+<p>This port aims to resolve all known issues associated with <code>eslint-plugin-import</code>:</p>
+<ul>
+<li>Performance - execution time exceeding one minute when certain rules are enabled</li>
+<li>Dependency size - 188 dependencies totaling 30M</li>
+<li>Backwards compatibility - the necessity to <a href="https://github.com/import-js/eslint-plugin-import/pull/2447#issuecomment-1117384140" target="_blank" rel="noreferrer">support Node.js v4.0.0</a></li>
+<li>Dependency compatibility - the need to replace it with <a href="https://github.com/un-ts/eslint-plugin-import-x" target="_blank" rel="noreferrer"><code>eslint-plugin-import-x</code></a></li>
+<li><a href="https://github.com/import-js/eslint-plugin-import/issues/2948" target="_blank" rel="noreferrer">Upgrading to ESLint v9</a></li>
+</ul>
+<h2 id="what-s-in-the-release" tabindex="-1">What's in the release? <a class="header-anchor" href="#what-s-in-the-release" aria-label="Permalink to &quot;What's in the release?&quot;">&ZeroWidthSpace;</a></h2>
+<p>This alpha release is expected to work if your project is in ESM (ECMAScript Modules).</p>
+<p>If path aliases (e.g. <code>@/foo</code>) is required through <a href="https://www.typescriptlang.org/tsconfig/#paths" target="_blank" rel="noreferrer">tsconfig.compilerOptions.paths</a>,
+the <code>--tsconfig</code> option can be used:</p>
+<div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" v-pre=""><code><span class="line"><span>npx oxlint@latest --tsconfig ./tsconfig.json --import-plugin</span></span></code></pre>
+</div><p>The rules that are enabled by default via <code>npx oxlint@latest --import-plugin</code> are:</p>
+<ul>
+<li><a href="https://github.com/import-js/eslint-plugin-import/blob/v2.29.1/docs/rules/default.md" target="_blank" rel="noreferrer">default</a></li>
+<li><a href="https://github.com/import-js/eslint-plugin-import/blob/v2.29.1/docs/rules/named.md" target="_blank" rel="noreferrer">named</a></li>
+<li><a href="https://github.com/import-js/eslint-plugin-import/blob/v2.29.1/docs/rules/namespace.md" target="_blank" rel="noreferrer">namespace</a></li>
+</ul>
+<p>Rules that can be enabled selectively via <code>npx oxlint@latest --import-plugin -D rule-name</code> are:</p>
+<ul>
+<li><a href="https://github.com/import-js/eslint-plugin-import/blob/v2.29.1/docs/rules/no-named-as-default.md" target="_blank" rel="noreferrer">no-named-as-default</a></li>
+<li><a href="https://github.com/import-js/eslint-plugin-import/blob/v2.29.1/docs/rules/no-named-as-default-member.md" target="_blank" rel="noreferrer">no-named-as-default-member</a></li>
+<li><a href="https://github.com/import-js/eslint-plugin-import/blob/v2.29.1/docs/rules/no-self-import.md" target="_blank" rel="noreferrer">no-self-import</a></li>
+<li><a href="https://github.com/import-js/eslint-plugin-import/blob/v2.29.1/docs/rules/no-duplicates.md" target="_blank" rel="noreferrer">no-duplicates</a></li>
+<li><a href="https://github.com/import-js/eslint-plugin-import/blob/v2.29.1/docs/rules/no-amd.md" target="_blank" rel="noreferrer">no-amd</a></li>
+<li><a href="https://github.com/import-js/eslint-plugin-import/blob/v2.29.1/docs/rules/no-default-export.md" target="_blank" rel="noreferrer">no-default-export</a></li>
+<li><a href="https://github.com/import-js/eslint-plugin-import/blob/v2.29.1/docs/rules/no-cycle.md" target="_blank" rel="noreferrer">no-cycle</a></li>
+</ul>
+<p>There are also improvements to these rules; for example, the diagnostics for the <code>no-cycle</code> rule have been improved:</p>
+<div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" v-pre=""><code><span class="line"><span>  ⚠ eslint-plugin-import(no-cycle): Dependency cycle detected</span></span>
+<span class="line"><span>    ╭─[apps/web/playwright/lib/fixtures.ts:13:42]</span></span>
+<span class="line"><span> 12 │ import { createPaymentsFixture } from "../fixtures/payments";</span></span>
+<span class="line"><span> 13 │ import { createBookingPageFixture } from "../fixtures/regularBookings";</span></span>
+<span class="line"><span>    ·                                          ─────────────────────────────</span></span>
+<span class="line"><span> 14 │ import { createRoutingFormsFixture } from "../fixtures/routingForms";</span></span>
+<span class="line"><span>    ╰────</span></span>
+<span class="line"><span>  help: These paths form a cycle:</span></span>
+<span class="line"><span>        -> ../fixtures/regularBookings - apps/web/playwright/fixtures/regularBookings.ts</span></span>
+<span class="line"><span>        -> ./users - apps/web/playwright/fixtures/users.ts</span></span>
+<span class="line"><span>        -> ../lib/testUtils - apps/web/playwright/lib/testUtils.ts</span></span>
+<span class="line"><span>        -> ./fixtures - apps/web/playwright/lib/fixtures.ts</span></span></code></pre>
+</div><p>This isn't a long list of features,
+but due to the complexity of the current state of the ecosystem,
+it requires a lot of effort to implement these rules and ensure they work correctly.</p>
+<p>Over the past six months, we have worked in our spare time and successfully completed all the prerequisites for the <code>--import-plugin</code> to work:</p>
+<ul>
+<li>a <a href="https://github.com/oxc-project/oxc-resolver" target="_blank" rel="noreferrer">resolver</a> for module resolution</li>
+<li>a small <a href="https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/service.rs" target="_blank" rel="noreferrer">&quot;runtime&quot;</a> to maximize processing dependent files in parallel</li>
+<li>a <a href="https://github.com/oxc-project/oxc/blob/main/crates/oxc_syntax/src/module_record.rs" target="_blank" rel="noreferrer"><code>ModuleRecord</code></a> data structure for storing import / export information, and its respective <a href="https://github.com/oxc-project/oxc/blob/main/crates/oxc_semantic/src/module_record/builder.rs" target="_blank" rel="noreferrer">builder</a></li>
+</ul>
+<h2 id="how-can-i-help" tabindex="-1">How can I help? <a class="header-anchor" href="#how-can-i-help" aria-label="Permalink to &quot;How can I help?&quot;">&ZeroWidthSpace;</a></h2>
+<p>If you are a project maintainer (a.k.a. configuration engineer) and lack the time or energy to keep ESLint and all its plugins updated,
+you may follow <a href="https://github.com/brooooooklyn" target="_blank" rel="noreferrer">@brooooooklyn</a>'s lead and <a href="https://github.com/napi-rs/napi-rs/pull/2032" target="_blank" rel="noreferrer">replace ESLint with oxlint in all his projects</a>.</p>
+<p>If you are an open-source enthusiast and are willing to help out, come talk to us on <a href="https://discord.gg/9uXCAwqQZW" target="_blank" rel="noreferrer">discord</a>, check out the <a href="https://github.com/oxc-project/oxc/issues/481" target="_blank" rel="noreferrer">linter product plan and progress issue</a>, or help by <a href="https://github.com/oxc-project/oxc/issues/3161" target="_blank" rel="noreferrer">proposing new rules</a> that were deferred.</p>
+<p>If you are an engineering manager, or are willing to migrate your project to oxlint (with 330 rules and growing) to keep your infrastructure costs down,
+you may consider <a href="https://github.com/sponsors/Boshen" target="_blank" rel="noreferrer">sponsoring</a> so we can prioritize your project.</p>
+<p>Please remember <code>oxlint</code> is currently community driven, I believe that with enough resources, we can make <code>--import-plugin</code> generally available in the next few months.</p>
+<hr>
+<p>To start using <code>oxlint</code>, follow the <a href="/docs/guide/usage/linter.html">installation guide</a> or learn more about the <a href="/docs/guide/introduction.html">oxc project</a>.</p>
+]]></content>
+        <author>
+            <name>Boshen</name>
+            <uri>https://github.com/Boshen</uri>
+        </author>
+    </entry>
+</feed>
