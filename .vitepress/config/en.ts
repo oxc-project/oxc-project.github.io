@@ -46,11 +46,11 @@ export const enConfig = defineLocaleConfig("root", {
               items: [
                 {
                   text: "Command Line Interface",
-                  link: "/docs/guide/usage/linter-cli",
+                  link: "/docs/guide/usage/linter/cli",
                 },
                 {
                   text: "Rules",
-                  link: "/docs/guide/usage/linter-rules",
+                  link: "/docs/guide/usage/linter/rules",
                 },
               ],
             },

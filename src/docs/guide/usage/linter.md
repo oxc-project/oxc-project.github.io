@@ -80,7 +80,7 @@ $ bun add -D oxlint
 
 ## Command-line Interface
 
-See [Command-line Interface](/docs/guide/usage/linter-cli)
+See [Command-line Interface](/docs/guide/usage/linter/cli)
 
 ## Integration
 
