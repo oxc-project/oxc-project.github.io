@@ -28,7 +28,7 @@ For example `-D correctness -A no-debugger` or `-A all -D no-debugger`.
 
 The default category is `-D correctness`.
 
-See [`rules`](/docs/guide/usage/linter-rules) for rule names.
+See [`rules`](/docs/guide/usage/linter/rules) for rule names.
 
 The categories are:
 
