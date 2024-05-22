@@ -1,7 +1,5 @@
 # Oxc Website
 
-[![Crowdin](https://badges.crowdin.net/oxc/localized.svg)](https://crowdin.com/project/oxc)
-
 Link: [oxc-project.github.io](https://oxc-project.github.io)
 
 ### Contributing

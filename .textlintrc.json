@@ -6,9 +6,6 @@
       "defaultTerms": true,
       "exclude": ["regexp?(s)?", "web[- ]?site(s)?", "ES2015", "website"]
     },
-    "doubled-spaces": true,
-    "ja-space-between-half-and-full-width": {
-      "space": "always"
-    }
+    "doubled-spaces": true
   }
 }
