@@ -206,8 +206,19 @@ fn no_bloat_enum_sizes() {
 
 "no bloat enum sizes" test cases can often be seen in the Rust compiler source code for ensuring small enum sizes.
 
-```rust reference
-https://github.com/rust-lang/rust/blob/9c20b2a8cc7588decb6de25ac6a7912dcef24d65/compiler/rustc_ast/src/ast.rs#L3033-L3042
+```rust
+// https://github.com/rust-lang/rust/blob/9c20b2a8cc7588decb6de25ac6a7912dcef24d65/compiler/rustc_ast/src/ast.rs#L3033-L3042
+
+// Some nodes are used a lot. Make sure they don't unintentionally get bigger.
+#[cfg(all(target_arch = "x86_64", target_pointer_width = "64"))]
+mod size_asserts {
+    use super::*;
+    use rustc_data_structures::static_assert_size;
+    // These are in alphabetical order, which is easy to maintain.
+    static_assert_size!(AssocItem, 160);
+    static_assert_size!(AssocItemKind, 72);
+    static_assert_size!(Attribute, 32);
+    static_assert_size!(Block, 48);
 ```
 
 To find other large types, we can run
