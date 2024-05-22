@@ -113,23 +113,49 @@ The `.len()` and `.as_str().len()` method calls inside `fn offset` feel like O(n
 
 [`.as_str()`](https://doc.rust-lang.org/src/core/str/iter.rs.html#112) returns a pointer to a string slice
 
-```rust reference
-https://github.com/rust-lang/rust/blob/b998821e4c51c44a9ebee395c91323c374236bbb/library/core/src/str/iter.rs#L112-L115
+```rust
+// https://github.com/rust-lang/rust/blob/b998821e4c51c44a9ebee395c91323c374236bbb/library/core/src/str/iter.rs#L112-L115
+
+pub fn as_str(&self) -> &'a str {
+    // SAFETY: `Chars` is only made from a str, which guarantees the iter is valid UTF-8.
+    unsafe { from_utf8_unchecked(self.iter.as_slice()) }
+}
 ```
 
 A [slice](https://doc.rust-lang.org/std/slice/index.html) is a view into a block of memory represented as a pointer and a length.
 The `.len()` method returns the metadata stored inside the slice
 
-```rust reference
-https://github.com/rust-lang/rust/blob/b998821e4c51c44a9ebee395c91323c374236bbb/library/core/src/str/mod.rs#L157-L159
+```rust
+// https://github.com/rust-lang/rust/blob/b998821e4c51c44a9ebee395c91323c374236bbb/library/core/src/str/mod.rs#L157-L159
+
+pub fn as_str(&self) -> &'a str {
+    // SAFETY: `Chars` is only made from a str, which guarantees the iter is valid UTF-8.
+    unsafe { from_utf8_unchecked(self.iter.as_slice()) }
+}
 ```
 
-```rust reference
-https://github.com/rust-lang/rust/blob/b998821e4c51c44a9ebee395c91323c374236bbb/library/core/src/str/mod.rs#L323-L325
+```rust
+// https://github.com/rust-lang/rust/blob/b998821e4c51c44a9ebee395c91323c374236bbb/library/core/src/str/mod.rs#L323-L325
+
+pub const fn as_bytes(&self) -> &[u8] {
+    // SAFETY: const sound because we transmute two types with the same layout
+    unsafe { mem::transmute(self) }
+}
 ```
 
-```rust reference
-https://github.com/rust-lang/rust/blob/b998821e4c51c44a9ebee395c91323c374236bbb/library/core/src/slice/mod.rs#L129-L138
+```rust
+// https://github.com/rust-lang/rust/blob/b998821e4c51c44a9ebee395c91323c374236bbb/library/core/src/slice/mod.rs#L129-L138
+
+pub const fn len(&self) -> usize {
+    // FIXME: Replace with `crate::ptr::metadata(self)` when that is const-stable.
+    // As of this writing this causes a "Const-stable functions can only call other
+    // const-stable functions" error.
+
+    // SAFETY: Accessing the value from the `PtrRepr` union is safe since *const T
+    // and PtrComponents<T> have the same memory layouts. Only std can make this
+    // guarantee.
+    unsafe { crate::ptr::PtrRepr { const_ptr: self }.components.metadata }
+}
 ```
 
 All the above code will get compiled into a single data access, so `.as_str().len()` is actually O(1).
@@ -150,8 +176,14 @@ We don't want to advance the original `chars` iterator so we clone the iterator 
 The `clone` is cheap if we dig into the [source code](https://doc.rust-lang.org/src/core/slice/iter.rs.html#148-152),
 it just copies the tracking and boundary index.
 
-```rust reference
-https://github.com/rust-lang/rust/blob/b998821e4c51c44a9ebee395c91323c374236bbb/library/core/src/slice/iter.rs#L148-L152
+```rust
+// https://github.com/rust-lang/rust/blob/b998821e4c51c44a9ebee395c91323c374236bbb/library/core/src/slice/iter.rs#L148-L152
+
+impl<T> Clone for Iter<'_, T> {
+    fn clone(&self) -> Self {
+        Iter { ptr: self.ptr, end: self.end, _marker: self._marker }
+    }
+}
 ```
 
 :::
@@ -168,8 +200,32 @@ Equipped with `peek`, tokenizing `++` and `+=` are just nested if statements.
 
 Here is a real-world implementation from [jsparagus](https://github.com/mozilla-spidermonkey/jsparagus):
 
-```rust reference
-https://github.com/mozilla-spidermonkey/jsparagus/blob/master/crates/parser/src/lexer.rs#L1769-L1791
+```rust
+// https://github.com/mozilla-spidermonkey/jsparagus/blob/master/crates/parser/src/lexer.rs#L1769-L1791
+
+'+' => match self.peek() {
+    Some('+') => {
+        self.chars.next();
+        return self.set_result(
+            TerminalId::Increment,
+            SourceLocation::new(start, self.offset()),
+            TokenValue::None,
+        );
+    }
+    Some('=') => {
+        self.chars.next();
+        return self.set_result(
+            TerminalId::AddAssign,
+            SourceLocation::new(start, self.offset()),
+            TokenValue::None,
+        );
+    }
+    _ => return self.set_result(
+        TerminalId::Plus,
+        SourceLocation::new(start, self.offset()),
+        TokenValue::None,
+    ),
+},
 ```
 
 The above logic applies to all operators, so let us expand our knowledge on lexing JavaScript.

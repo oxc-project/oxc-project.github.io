@@ -136,8 +136,28 @@ impl<'a> Parser<'a> {
 All the other parse functions build on these primitive helper functions,
 for example parsing the `while` statement in swc:
 
-```rust reference
-https://github.com/swc-project/swc/blob/554b459e26b24202f66c3c58a110b3f26bbd13cd/crates/swc_ecma_parser/src/parser/stmt.rs#L952-L970
+```rust
+// https://github.com/swc-project/swc/blob/554b459e26b24202f66c3c58a110b3f26bbd13cd/crates/swc_ecma_parser/src/parser/stmt.rs#L952-L970
+
+fn parse_while_stmt(&mut self) -> PResult<Stmt> {
+    let start = cur_pos!(self);
+
+    assert_and_bump!(self, "while");
+
+    expect!(self, '(');
+    let test = self.include_in_expr(true).parse_expr()?;
+    expect!(self, ')');
+
+    let ctx = Context {
+        is_break_allowed: true,
+        is_continue_allowed: true,
+        ..self.ctx()
+    };
+    let body = self.with_ctx(ctx).parse_stmt(false).map(Box::new)?;
+
+    let span = span!(self, start);
+    Ok(Stmt::While(WhileStmt { span, test, body }))
+}
 ```
 
 ## Parsing Expressions
@@ -155,16 +175,84 @@ There are lots of places where we need to parse a list separated by a punctuatio
 The code for parsing lists are all similar, we can use the [template method pattern](https://en.wikipedia.org/wiki/Template_method_pattern)
 to avoid duplication by using traits.
 
-```rust reference
-https://github.com/rome/tools/blob/85ddb4b2c622cac9638d5230dcefb6cf571677f8/crates/rome_js_parser/src/parser/parse_lists.rs#L131-L157
+```rust
+// https://github.com/rome/tools/blob/85ddb4b2c622cac9638d5230dcefb6cf571677f8/crates/rome_js_parser/src/parser/parse_lists.rs#L131-L157
+
+fn parse_list(&mut self, p: &mut Parser) -> CompletedMarker {
+    let elements = self.start_list(p);
+    let mut progress = ParserProgress::default();
+    let mut first = true;
+    while !p.at(JsSyntaxKind::EOF) && !self.is_at_list_end(p) {
+        if first {
+            first = false;
+        } else {
+            self.expect_separator(p);
+
+            if self.allow_trailing_separating_element() && self.is_at_list_end(p) {
+                break;
+            }
+        }
+
+        progress.assert_progressing(p);
+
+        let parsed_element = self.parse_element(p);
+
+        if parsed_element.is_absent() && p.at(self.separating_element_kind()) {
+            // a missing element
+            continue;
+        } else if self.recover(p, parsed_element).is_err() {
+            break;
+        }
+    }
+    self.finish_list(p, elements)
+}
 ```
 
 This pattern can also prevent us from infinite loops, specifically `progress.assert_progressing(p);`.
 
 Implementation details can then be provided for different lists, for example:
 
-```rust reference
-https://github.com/rome/tools/blob/85ddb4b2c622cac9638d5230dcefb6cf571677f8/crates/rome_js_parser/src/syntax/expr.rs#L1543-L1580
+```rust
+// https://github.com/rome/tools/blob/85ddb4b2c622cac9638d5230dcefb6cf571677f8/crates/rome_js_parser/src/syntax/expr.rs#L1543-L1580
+
+struct ArrayElementsList;
+
+impl ParseSeparatedList for ArrayElementsList {
+    fn parse_element(&mut self, p: &mut Parser) -> ParsedSyntax {
+        match p.cur() {
+            T![...] => parse_spread_element(p, ExpressionContext::default()),
+            T![,] => Present(p.start().complete(p, JS_ARRAY_HOLE)),
+            _ => parse_assignment_expression_or_higher(p, ExpressionContext::default()),
+        }
+    }
+
+    fn is_at_list_end(&self, p: &mut Parser) -> bool {
+        p.at(T![']'])
+    }
+
+    fn recover(&mut self, p: &mut Parser, parsed_element: ParsedSyntax) -> RecoveryResult {
+        parsed_element.or_recover(
+            p,
+            &ParseRecovery::new(
+                JS_UNKNOWN_EXPRESSION,
+                EXPR_RECOVERY_SET.union(token_set!(T![']'])),
+            ),
+            js_parse_error::expected_array_element,
+        )
+    }
+
+    fn list_kind() -> JsSyntaxKind {
+        JS_ARRAY_ELEMENT_LIST
+    }
+
+    fn separating_element_kind(&mut self) -> JsSyntaxKind {
+        T![,]
+    }
+
+    fn allow_trailing_separating_element(&self) -> bool {
+        true
+    }
+}
 ```
 
 ## Cover Grammar

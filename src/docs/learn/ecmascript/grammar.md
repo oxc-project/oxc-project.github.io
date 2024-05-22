@@ -99,8 +99,17 @@ It is stated as such in `#sec-class-definitions` with just a `Node: A class defi
 It is easy to declare strict mode by associating it with function scopes, but a `class` declaration does not have a scope,
 we need to keep an extra state just for parsing classes.
 
-```rust reference
-https://github.com/swc-project/swc/blob/f9c4eff94a133fa497778328fa0734aa22d5697c/crates/swc_ecma_parser/src/parser/class_and_fn.rs#L85
+```rust
+// https://github.com/swc-project/swc/blob/f9c4eff94a133fa497778328fa0734aa22d5697c/crates/swc_ecma_parser/src/parser/class_and_fn.rs#L85
+fn parse_class_inner(
+    &mut self,
+    _start: BytePos,
+    class_start: BytePos,
+    decorators: Vec<Decorator>,
+    is_ident_required: bool,
+) -> PResult<(Option<Ident>, Class)> {
+    self.strict_mode().parse_with(|p| {
+        expect!(p, "class");
 ```
 
 ---
@@ -324,8 +333,31 @@ namely `[In]`, `[Return]`, `[Yield]`, `[Await]` and `[Default]`.
 
 It is best to keep a context during parsing, for example in Biome:
 
-```rust reference
-https://github.com/rome/tools/blob/5a059c0413baf1d54436ac0c149a829f0dfd1f4d/crates/rome_js_parser/src/state.rs#L404-L425
+```rust
+// https://github.com/rome/tools/blob/5a059c0413baf1d54436ac0c149a829f0dfd1f4d/crates/rome_js_parser/src/state.rs#L404-L425
+
+pub(crate) struct ParsingContextFlags: u8 {
+    /// Whether the parser is in a generator function like `function* a() {}`
+    /// Matches the `Yield` parameter in the ECMA spec
+    const IN_GENERATOR = 1 << 0;
+    /// Whether the parser is inside a function
+    const IN_FUNCTION = 1 << 1;
+    /// Whatever the parser is inside a constructor
+    const IN_CONSTRUCTOR = 1 << 2;
+
+    /// Is async allowed in this context. Either because it's an async function or top level await is supported.
+    /// Equivalent to the `Async` generator in the ECMA spec
+    const IN_ASYNC = 1 << 3;
+
+    /// Whether the parser is parsing a top-level statement (not inside a class, function, parameter) or not
+    const TOP_LEVEL = 1 << 4;
+
+    /// Whether the parser is in an iteration or switch statement and
+    /// `break` is allowed.
+    const BREAK_ALLOWED = 1 << 5;
+
+    /// Whether the parser is in an iteration statement and `continue` is allowed.
+    const CONTINUE_ALLOWED = 1 << 6;
 ```
 
 And toggle and check these flags accordingly by following the grammar.

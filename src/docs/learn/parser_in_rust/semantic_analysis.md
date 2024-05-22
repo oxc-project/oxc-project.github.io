@@ -45,8 +45,19 @@ AsyncGeneratorBody :
 
 An example in Biome checking for the `yield` keyword:
 
-```rust reference
-https://github.com/rome/tools/blob/5a059c0413baf1d54436ac0c149a829f0dfd1f4d/crates/rome_js_parser/src/syntax/expr.rs#L1368-L1377
+```rust
+// https://github.com/rome/tools/blob/5a059c0413baf1d54436ac0c149a829f0dfd1f4d/crates/rome_js_parser/src/syntax/expr.rs#L1368-L1377
+
+pub(super) fn parse_identifier(p: &mut Parser, kind: JsSyntaxKind) -> ParsedSyntax {
+    if !is_at_identifier(p) {
+        return Absent;
+    }
+
+    let error = match p.cur() {
+        T![yield] if p.state.in_generator() => Some(
+            p.err_builder("Illegal use of `yield` as an identifier in generator function")
+                .primary(p.cur_range(), ""),
+        ),
 ```
 
 ## Scope
