@@ -7,29 +7,22 @@ settings:
 importers:
 
   .:
-    dependencies:
-      '@vueuse/core':
-        specifier: ^10.7.2
-        version: 10.9.0(vue@3.4.27(typescript@5.4.5))
-      feed:
-        specifier: ^4.2.2
-        version: 4.2.2
-      vitepress:
-        specifier: 1.1.4
-        version: 1.1.4(@algolia/client-search@4.22.1)(@types/node@20.12.11)(postcss@8.4.38)(search-insights@2.13.0)(typescript@5.4.5)
-      vue:
-        specifier: ^3.4.14
-        version: 3.4.27(typescript@5.4.5)
     devDependencies:
       '@types/node':
         specifier: ^20.11.4
         version: 20.12.11
+      '@vueuse/core':
+        specifier: ^10.7.2
+        version: 10.9.0(vue@3.4.27(typescript@5.4.5))
       citty:
         specifier: ^0.1.5
         version: 0.1.6
       consola:
         specifier: ^3.2.3
         version: 3.2.3
+      feed:
+        specifier: ^4.2.2
+        version: 4.2.2
       husky:
         specifier: ^9.0.0
         version: 9.0.11
@@ -57,6 +50,12 @@ importers:
       typescript:
         specifier: ~5.4.0
         version: 5.4.5
+      vitepress:
+        specifier: 1.1.4
+        version: 1.1.4(@algolia/client-search@4.22.1)(@types/node@20.12.11)(postcss@8.4.38)(search-insights@2.13.0)(typescript@5.4.5)
+      vue:
+        specifier: ^3.4.14
+        version: 3.4.27(typescript@5.4.5)
 
 packages:
 
