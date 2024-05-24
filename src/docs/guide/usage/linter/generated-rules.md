@@ -2,12 +2,12 @@
 
 The progress of all rule implementations is tracked [here](https://github.com/oxc-project/oxc/issues/481).
 
-- Total number of rules: 343
-- Rules turned on by default: 90
+- Total number of rules: 345
+- Rules turned on by default: 89
 
 <!-- textlint-disable terminology -->
 
-## Correctness (158):
+## Correctness (157):
 
 | Rule name                                     | Source     | Default |
 | --------------------------------------------- | ---------- | ------- |
@@ -146,7 +146,6 @@ The progress of all rule implementations is tracked [here](https://github.com/ox
 | no-is-mounted                                 | react      | ✅      |
 | no-render-return-value                        | react      | ✅      |
 | no-string-refs                                | react      | ✅      |
-| require-render-return                         | react      | ✅      |
 | void-dom-elements-no-children                 | react      | ✅      |
 | no-extra-non-null-assertion                   | typescript | ✅      |
 | no-misused-new                                | typescript | ✅      |
@@ -181,7 +180,7 @@ The progress of all rule implementations is tracked [here](https://github.com/ox
 | jsx-no-new-function-as-prop | react_perf |         |
 | jsx-no-new-object-as-prop   | react_perf |         |
 
-## Restriction (36):
+## Restriction (37):
 
 | Rule name                   | Source     | Default |
 | --------------------------- | ---------- | ------- |
@@ -195,6 +194,7 @@ The progress of all rule implementations is tracked [here](https://github.com/ox
 | no-iterator                 | eslint     |         |
 | no-proto                    | eslint     |         |
 | no-regex-spaces             | eslint     |         |
+| no-restricted-globals       | eslint     |         |
 | no-unsafe-optional-chaining | eslint     |         |
 | no-var                      | eslint     |         |
 | no-void                     | eslint     |         |
@@ -239,7 +239,7 @@ The progress of all rule implementations is tracked [here](https://github.com/ox
 | no-unnecessary-type-constraint | typescript |         |
 | prefer-add-event-listener      | unicorn    |         |
 
-## Pedantic (54):
+## Pedantic (55):
 
 | Rule name                               | Source     | Default |
 | --------------------------------------- | ---------- | ------- |
@@ -256,6 +256,7 @@ The progress of all rule implementations is tracked [here](https://github.com/ox
 | no-self-compare                         | eslint     |         |
 | radix                                   | eslint     |         |
 | symbol-description                      | eslint     |         |
+| require-returns                         | jsdoc      |         |
 | checked-requires-onchange-or-readonly   | react      |         |
 | jsx-no-useless-fragment                 | react      |         |
 | no-unescaped-entities                   | react      |         |
@@ -372,7 +373,7 @@ The progress of all rule implementations is tracked [here](https://github.com/ox
 | text-encoding-identifier-case        | unicorn    |         |
 | throw-new-error                      | unicorn    |         |
 
-## Nursery (8):
+## Nursery (9):
 
 | Rule name                         | Source       | Default |
 | --------------------------------- | ------------ | ------- |
@@ -382,6 +383,7 @@ The progress of all rule implementations is tracked [here](https://github.com/ox
 | no-import-assign                  | eslint       |         |
 | no-undef                          | eslint       |         |
 | export                            | import       |         |
+| require-render-return             | react        |         |
 | rules-of-hooks                    | react        |         |
 | no-side-effects-in-initialization | tree_shaking |         |
 
