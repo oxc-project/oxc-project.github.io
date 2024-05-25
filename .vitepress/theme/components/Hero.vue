@@ -10,7 +10,7 @@ function vec2(x, y) {
 }
 
 function vec2_clone(v) {
-  return { x: v.x, y: v.y };
+  return vec2(v.x, v.y);
 }
 
 function vec2_sub(a, b) {
@@ -49,6 +49,15 @@ function clamp(x, min, max) {
   return Math.min(Math.max(x, min), max);
 }
 
+function oscillate(input, min, max) {
+    const range = max - min ;
+    return min + Math.abs(((input + range) % (range * 2)) - range);
+}
+
+function lemniscateGerono(t) {
+  return vec2(Math.sin(t * 2) / 2, Math.cos(t));
+}
+
 
 defineProps<{
   name?: string
@@ -75,10 +84,11 @@ const onMouseMove = (e) => {
   cooldown = setTimeout(() => {
     idle = true;
     targetRotation = vec2();
-  }, 1000);
+  }, 1500);
   if (idle) {
     idle = false;
     targetRotation = vec2_clone(rotation);
+    lastMouse = vec2_clone(mouse);
   }
 };
 
@@ -118,7 +128,7 @@ const WAVE_MIN = vec2(-WAVE_RANGE, -WAVE_RANGE);
 const WAVE_MAX = vec2(+WAVE_RANGE, +WAVE_RANGE);
 
 function update() {
-  const time = (new Date()).getTime() / 500;
+  const time = (new Date()).getTime() / 800;
   const osc = oscillate(time, -1, 1);
   const dir = vec2_mulf(vec2_norm(vec2_sub(lastMouse, mouse)), 10);
 
@@ -129,12 +139,12 @@ function update() {
   let min = undefined
   let max = undefined
   if (idle) {
-    targetRotation = vec2_mulf(lemniscateGerono(osc), 15);
+    targetRotation = vec2_mulf(lemniscateGerono(osc), 20);
     speed = 0.01;
     min = WAVE_MIN;
     max = WAVE_MAX;
   } else {
-    speed = 0.04;
+    speed = 0.02;
     min = TARGET_MIN;
     max = TARGET_MAX;
   }
@@ -144,18 +154,7 @@ function update() {
 
   rotation = vec2_lerp(rotation, targetRotation, speed);
 
-  // blend between passive and active rotations.
-  // rotation = vec2_lerp(mouseRot, lemniscateRot, 0.5);
-
   lastMouse = mouse;
-}
-function oscillate(input, min, max) {
-    const range = max - min ;
-    return min + Math.abs(((input + range) % (range * 2)) - range);
-}
-
-function lemniscateGerono(t) {
-  return vec2(Math.cos(t), Math.sin(t * 2) / 2);
 }
 
 function render() {
