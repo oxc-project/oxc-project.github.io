@@ -65,7 +65,7 @@ let targetRotation = ref(vec2());
 let mouse = vec2();
 let lastMouse = vec2();
 let cooldown = null;
-let slowdown = false;
+let idle = true;
 
 const onMouseMove = (e) => {
   mouse = vec2(e.clientX, e.clientY);
@@ -73,11 +73,11 @@ const onMouseMove = (e) => {
     clearTimeout(cooldown);
   }
   cooldown = setTimeout(() => {
-    slowdown = true;
+    idle = true;
     targetRotation = vec2();
   }, 1000);
-  if (slowdown) {
-    slowdown = false;
+  if (idle) {
+    idle = false;
     targetRotation = vec2_clone(rotation);
   }
 };
@@ -90,7 +90,7 @@ onMounted(() => {
 onUnmounted(() => {
   if (cooldown) {
     clearTimeout(cooldown);
-    slowdown = false;
+    idle = true;
     cooldown = null;
     mouse = null;
   }
@@ -113,16 +113,49 @@ const RANGE = 10;
 const TARGET_MIN = vec2(-RANGE, -RANGE);
 const TARGET_MAX = vec2(+RANGE, +RANGE);
 
+const WAVE_RANGE = 20;
+const WAVE_MIN = vec2(-WAVE_RANGE, -WAVE_RANGE);
+const WAVE_MAX = vec2(+WAVE_RANGE, +WAVE_RANGE);
+
 function update() {
-  const dir = vec2_mulf(vec2_norm(vec2_sub(lastMouse, mouse)), 1);
+  const time = (new Date()).getTime() / 500;
+  const osc = oscillate(time, -1, 1);
+  const dir = vec2_mulf(vec2_norm(vec2_sub(lastMouse, mouse)), 10);
+
   targetRotation.x += dir.y;
   targetRotation.y -= dir.x;
-  targetRotation = vec2_clamp(targetRotation, TARGET_MIN, TARGET_MAX);
 
-  const speed = slowdown ? 0.01 : 0.04;
+  let speed = undefined;
+  let min = undefined
+  let max = undefined
+  if (idle) {
+    targetRotation = vec2_mulf(lemniscateGerono(osc), 15);
+    speed = 0.01;
+    min = WAVE_MIN;
+    max = WAVE_MAX;
+  } else {
+    speed = 0.04;
+    min = TARGET_MIN;
+    max = TARGET_MAX;
+  }
+
+  targetRotation = vec2_clamp(targetRotation, min, max);
+
+
   rotation = vec2_lerp(rotation, targetRotation, speed);
 
+  // blend between passive and active rotations.
+  // rotation = vec2_lerp(mouseRot, lemniscateRot, 0.5);
+
   lastMouse = mouse;
+}
+function oscillate(input, min, max) {
+    const range = max - min ;
+    return min + Math.abs(((input + range) % (range * 2)) - range);
+}
+
+function lemniscateGerono(t) {
+  return vec2(Math.cos(t), Math.sin(t * 2) / 2);
 }
 
 function render() {
