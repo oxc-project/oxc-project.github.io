@@ -106,7 +106,7 @@ function nextFrame() {
   render();
 }
 
-const RANGE = 5;
+const RANGE = 10;
 const TARGET_MIN = vec2(-RANGE, -RANGE);
 const TARGET_MAX = vec2(+RANGE, +RANGE);
 
@@ -116,7 +116,7 @@ function update() {
   targetRotation.y -= dir.x;
   targetRotation = vec2_clamp(targetRotation, TARGET_MIN, TARGET_MAX);
 
-  const speed = slowdown ? 0.01 : 0.05;
+  const speed = slowdown ? 0.01 : 0.04;
   rotation = vec2_lerp(rotation, targetRotation, speed);
 
   lastMouse = mouse;
