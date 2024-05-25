@@ -90,6 +90,9 @@ onMounted(() => {
 onUnmounted(() => {
   if (cooldown) {
     clearTimeout(cooldown);
+    slowdown = false;
+    cooldown = null;
+    mouse = null;
   }
   document.removeEventListener("mousemove", onMouseMove);
 });
