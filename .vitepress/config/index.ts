@@ -1,4 +1,5 @@
 import { defineConfig } from "vitepress";
+import { fileURLToPath, URL } from "node:url";
 
 import { sharedConfig } from "./shared";
 import { rssConfig } from "./rss";
