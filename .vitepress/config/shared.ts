@@ -22,7 +22,8 @@ export const sharedConfig = defineConfig({
       "meta",
       {
         property: "og:image",
-        content: "https://cdn.jsdelivr.net/gh/oxc-project/oxc-assets/preview-white-min.png",
+        content:
+          "https://cdn.jsdelivr.net/gh/oxc-project/oxc-assets/preview-white-min.png",
       },
     ],
     // Twitter (X)
@@ -32,7 +33,8 @@ export const sharedConfig = defineConfig({
       "meta",
       {
         name: "twitter:image",
-        content: "https://cdn.jsdelivr.net/gh/oxc-project/oxc-assets/preview-white-min.png",
+        content:
+          "https://cdn.jsdelivr.net/gh/oxc-project/oxc-assets/preview-white-min.png",
       },
     ],
   ],
@@ -60,10 +62,29 @@ export const sharedConfig = defineConfig({
   },
   vite: {
     resolve: {
-      alias: {
-        "@components": resolve(dirname(fileURLToPath(import.meta.url)), "../theme/components"),
-        "@constants": resolve(dirname(fileURLToPath(import.meta.url)), "../theme/constants"),
-      },
+      alias: [
+        {
+          find: "@components",
+          replacement: resolve(
+            dirname(fileURLToPath(import.meta.url)),
+            "../theme/components",
+          ),
+        },
+        {
+          find: "@constants",
+          replacement: resolve(
+            dirname(fileURLToPath(import.meta.url)),
+            "../theme/constants",
+          ),
+        },
+        {
+          find: /^.*\/VPHero\.vue$/,
+          replacement: resolve(
+            dirname(fileURLToPath(import.meta.url)),
+            "../theme/components/Hero.vue",
+          ),
+        },
+      ],
     },
   },
 });
