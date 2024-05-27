@@ -18,15 +18,15 @@ features:
   - title: Parser ✅
     details: 3x faster than swc
     link: /docs/guide/usage/parser
-    linkText: Learn more
+    linkText: Usage guide
   - title: Linter ✅
     details: 50~100x faster than ESLint<br/>340+ rules and counting
     link: /docs/guide/usage/linter
-    linkText: Learn more
+    linkText: Usage guide
   - title: Resolver ✅
     details: 28x faster than enhanced-resolve
     link: /docs/guide/usage/resolver
-    linkText: Learn more
+    linkText: Usage guide
   - title: Formatter
     details: Prettier compatible
   - title: Transformer 🚧
