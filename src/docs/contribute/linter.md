@@ -10,7 +10,7 @@ outline: deep
 Create a `./test.ts` and then
 
 ```bash
-just watch "run -p oxc_cli --bin oxlint -- test.ts"
+just watch "run --bin oxlint -- test.ts"
 ```
 
 Or test and filter against the rule:

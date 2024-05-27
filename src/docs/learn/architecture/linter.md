@@ -7,11 +7,11 @@ outline: deep
 
 This article is originally posted on [leaysgur.github.io/posts](https://leaysgur.github.io/posts/2024/01/15/160838) by [@leaysgur](https://github.com/leaysgur).
 
-## crates/oxc_cli
+## apps/oxlint
 
-The `oxlint` binary is the result of building `src/linter/main.rs` from the `oxc_cli` crate.
+The `oxlint` binary is the result of building `main.rs` from the `apps/oxlint` crate.
 
-> [Cargo.toml Configuration](https://github.com/oxc-project/oxc/blob/oxlint_v0.2.0/crates/oxc_cli/Cargo.toml#L28)
+> [Cargo.toml Configuration](https://github.com/oxc-project/oxc/blob/main/apps/oxlint/Cargo.toml)
 
 Here, it parses arguments and then runs the `LintRunner`.
 
