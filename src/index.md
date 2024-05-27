@@ -33,13 +33,13 @@ features:
     details: Babel compatible
   - title: Minifier
     details: Faster and better at compression
+  - title: Rolldown Bundler 🚧
+    details: Rollup compatible<br/>Designed for Vite
+    link: https://rolldown.rs
+    external: true
   - title: Rspack Bundler ✅
     details: Webpack compatible
     link: https://rspack.dev
-    external: true
-  - title: Rolldown Bundler 🚧
-    details: Rollup compatible
-    link: https://rolldown.rs
     external: true
 ---
 
