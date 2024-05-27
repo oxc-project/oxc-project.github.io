@@ -22,7 +22,7 @@
     "consola": "^3.2.3",
     "feed": "^4.2.2",
     "husky": "^9.0.0",
-    "lint-staged": "15.2.2",
+    "lint-staged": "15.2.5",
     "prettier": "4.0.0-alpha.8",
     "textlint": "^14.0.0",
     "textlint-filter-rule-comments": "^1.2.2",
@@ -30,7 +30,7 @@
     "textlint-rule-terminology": "^5.0.0",
     "tsx": "^4.7.0",
     "typescript": "~5.4.0",
-    "vitepress": "1.1.4",
+    "vitepress": "1.2.2",
     "vue": "^3.4.14"
   },
   "lint-staged": {
@@ -40,5 +40,5 @@
   "engines": {
     "node": ">=18.0"
   },
-  "packageManager": "pnpm@9.1.1"
+  "packageManager": "pnpm@9.1.2"
 }

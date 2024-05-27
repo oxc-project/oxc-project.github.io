@@ -29,7 +29,7 @@ Use `cargo insta accept` to accept all snapshot changes.
 
 ## Rule generation
 
-Create a new lint rule by providing the ESLint name
+Create a new linter rule by providing the ESLint name
 
 ```bash
 just new-rule name
