@@ -21,7 +21,7 @@ const hide = () => {
 
 const slug = '/blog/2024-05-04-import-plugin-alpha.html'
 
-const bannerDismissed = useLocalStorage<boolean>(`oxc-banner-dismissed-${slug}`, false);
+const bannerDismissed = useLocalStorage<boolean>(`oxc-banner-dismissed-${slug}`, true);
 
 watch(bannerDismissed, () => {
   if (bannerDismissed.value) {
