@@ -1,6 +1,7 @@
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { defineConfig } from "vitepress";
+import svgLoader from "vite-svg-loader";
 
 export const sharedConfig = defineConfig({
   srcDir: "src",
@@ -85,5 +86,6 @@ export const sharedConfig = defineConfig({
         },
       ],
     },
+    plugins: [svgLoader()],
   },
 });
