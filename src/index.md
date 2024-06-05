@@ -44,7 +44,7 @@ features:
 ---
 
 <script setup>
-import Sponsors from 'sponsors/sponsors.svg?component'
+import Sponsors from '../public/sponsors.svg?component'
 </script>
 
 <div style="display: flex;flex-direction: column;justify-content: center;align-items: center;">
