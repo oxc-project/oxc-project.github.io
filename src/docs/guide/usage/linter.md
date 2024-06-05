@@ -21,14 +21,24 @@ We recommend running oxlint before ESLint in your lint-staged or CI setup for a 
 ## Features
 
 - 50 - 100 times faster than ESLint, and scales with the number of CPU cores ([benchmark](https://github.com/oxc-project/bench-javascript-linter)).
-- Over 200 rules with a growing list from `eslint`, `typescript`, `eslint-plugin-react`, `eslint-plugin-jest`, `eslint-plugin-unicorn` and `eslint-plugin-jsx-a11y`.
-- Supports [.eslintignore](https://eslint.org/docs/latest/use/configure/ignore#the-eslintignore-file).
-- Supports [ESLint comment disabling](https://eslint.org/docs/latest/use/configure/rules#disabling-rules).
-- Lint `<script>` content of `.vue`, `.astro`, `.svelte` files by default.
+- Over 340 rules with a growing list from `eslint`, `typescript`, `eslint-plugin-react`, `eslint-plugin-jest`, `eslint-plugin-unicorn` and `eslint-plugin-jsx-a11y`.
+- Supports
+  - [.eslintignore](https://eslint.org/docs/latest/use/configure/ignore#the-eslintignore-file).
+  - [ESLint comment disabling](https://eslint.org/docs/latest/use/configure/rules#disabling-rules).
+  - [Partial ESLint v8 Configuration](./linter/config) in `json` format
+
+## Language Support
+
+- Supports:
+  - JavaScript and TypeScript by their extensions `js`, `mjs`, `cjs`, `jsx`, `ts`, `mts`, `cts` and `tsx`.
+  - `<script>` content of `.vue`, `.astro` and `.svelte` files.
+- No support for:
+  - [type-aware rules](https://typescript-eslint.io/getting-started/typed-linting) defined by `typescript-eslint`.
+  - [stylistic rules](https://eslint.style).
 
 ## Installation
 
-Run oxlint directly at the root of your repository:
+Run `oxlint` directly at the root of your repository:
 
 ::: code-group
 
