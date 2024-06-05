@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
     <channel>
         <title>The Oxidation Compiler Blog</title>
-        <link>https://oxc-project.github.io</link>
+        <link>https://oxc.rs</link>
         <description>undefined</description>
-        <lastBuildDate>Wed, 05 Jun 2024 13:54:10 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 05 Jun 2024 13:58:57 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
         <copyright>Copyright © 2023-present Boshen &amp; Oxc Contributors</copyright>
         <item>
             <title><![CDATA[Oxlint General Availability]]></title>
-            <link>https://oxc-project.github.io/blog/2023-12-12-announcing-oxlint</link>
-            <guid>https://oxc-project.github.io/blog/2023-12-12-announcing-oxlint</guid>
+            <link>https://oxc.rs/blog/2023-12-12-announcing-oxlint</link>
+            <guid>https://oxc.rs/blog/2023-12-12-announcing-oxlint</guid>
             <pubDate>Tue, 12 Dec 2023 00:00:00 GMT</pubDate>
             <description><![CDATA[<AppBlogPostHeader /><p>We are thrilled to announce that oxlint is now generally available!
 This milestone signifies our team's ability to promptly address and triage issues.</p>
@@ -21,7 +21,7 @@ This milestone signifies our team's ability to promptly address and triage issue
 <p>At this stage, oxlint is <strong>not intended to fully replace ESLint</strong>; it serves as an enhancement when ESLint's slowness becomes a bottleneck in your workflow.</p>
 <p>For faster feedback loops, we recommend running oxlint before ESLint in your lint-staged or CI setup, considering it only takes a few seconds to run on large codebases.</p>
 <p>To test oxlint in your JavaScript / TypeScript codebase, simply execute the following command at the root directory of your repository:</p>
-<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-YVh5k" id="tab-NFuR3hw" checked><label for="tab-NFuR3hw">npm</label><input type="radio" name="group-YVh5k" id="tab-PlWuCi1" ><label for="tab-PlWuCi1">pnpm</label><input type="radio" name="group-YVh5k" id="tab-CAnFHb0" ><label for="tab-CAnFHb0">yarn</label><input type="radio" name="group-YVh5k" id="tab-EHjimsk" ><label for="tab-EHjimsk">bun</label><input type="radio" name="group-YVh5k" id="tab-djIkl9F" ><label for="tab-djIkl9F">deno</label></div><div class="blocks">
+<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-0CJE_" id="tab-KLpJ9A4" checked><label for="tab-KLpJ9A4">npm</label><input type="radio" name="group-0CJE_" id="tab-kiSMyGC" ><label for="tab-kiSMyGC">pnpm</label><input type="radio" name="group-0CJE_" id="tab-i_xXu1C" ><label for="tab-i_xXu1C">yarn</label><input type="radio" name="group-0CJE_" id="tab--QPKCd2" ><label for="tab--QPKCd2">bun</label><input type="radio" name="group-0CJE_" id="tab-57D4W_A" ><label for="tab-57D4W_A">deno</label></div><div class="blocks">
 <div class="language-sh vp-adaptive-theme active"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">$</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> npx</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> oxlint@latest</span></span></code></pre>
 </div><div class="language-sh vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">$</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> pnpm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> dlx</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> oxlint@latest</span></span></code></pre>
 </div><div class="language-sh vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">$</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> yarn</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> dlx</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> oxlint@latest</span></span></code></pre>
@@ -65,7 +65,7 @@ This milestone signifies our team's ability to promptly address and triage issue
 <p>At this stage, oxlint is <strong>not intended to fully replace ESLint</strong>; it serves as an enhancement when ESLint's slowness becomes a bottleneck in your workflow.</p>
 <p>For faster feedback loops, we recommend running oxlint before ESLint in your lint-staged or CI setup, considering it only takes a few seconds to run on large codebases.</p>
 <p>To test oxlint in your JavaScript / TypeScript codebase, simply execute the following command at the root directory of your repository:</p>
-<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-px72l" id="tab-qMZvKac" checked><label for="tab-qMZvKac">npm</label><input type="radio" name="group-px72l" id="tab-M-WtBV8" ><label for="tab-M-WtBV8">pnpm</label><input type="radio" name="group-px72l" id="tab-fFV9Wbr" ><label for="tab-fFV9Wbr">yarn</label><input type="radio" name="group-px72l" id="tab-ImKfGSD" ><label for="tab-ImKfGSD">bun</label><input type="radio" name="group-px72l" id="tab-gZAWPMa" ><label for="tab-gZAWPMa">deno</label></div><div class="blocks">
+<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-YIicE" id="tab-sPjy73Q" checked><label for="tab-sPjy73Q">npm</label><input type="radio" name="group-YIicE" id="tab-OvdpiWL" ><label for="tab-OvdpiWL">pnpm</label><input type="radio" name="group-YIicE" id="tab-vsJZ5Nk" ><label for="tab-vsJZ5Nk">yarn</label><input type="radio" name="group-YIicE" id="tab-eV1XFYx" ><label for="tab-eV1XFYx">bun</label><input type="radio" name="group-YIicE" id="tab-8yxfKJ-" ><label for="tab-8yxfKJ-">deno</label></div><div class="blocks">
 <div class="language-sh vp-adaptive-theme active"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">$</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> npx</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> oxlint@latest</span></span></code></pre>
 </div><div class="language-sh vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">$</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> pnpm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> dlx</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> oxlint@latest</span></span></code></pre>
 </div><div class="language-sh vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">$</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> yarn</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> dlx</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> oxlint@latest</span></span></code></pre>
@@ -110,8 +110,8 @@ or discuss on <a href="https://news.ycombinator.com/item?id=38652887" target="_b
         </item>
         <item>
             <title><![CDATA[Oxlint Import Plugin Alpha]]></title>
-            <link>https://oxc-project.github.io/blog/2024-05-04-import-plugin-alpha</link>
-            <guid>https://oxc-project.github.io/blog/2024-05-04-import-plugin-alpha</guid>
+            <link>https://oxc.rs/blog/2024-05-04-import-plugin-alpha</link>
+            <guid>https://oxc.rs/blog/2024-05-04-import-plugin-alpha</guid>
             <pubDate>Sat, 04 May 2024 00:00:00 GMT</pubDate>
             <description><![CDATA[<AppBlogPostHeader /><p>We are excited to announce an alpha release for <code>oxlint --import-plugin</code>, a port of <a href="https://github.com/import-js/eslint-plugin-import" target="_blank" rel="noreferrer"><code>eslint-plugin-import</code></a>.</p>
 <p>This port aims to resolve all known issues associated with <code>eslint-plugin-import</code>:</p>
