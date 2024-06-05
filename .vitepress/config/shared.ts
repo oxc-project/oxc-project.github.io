@@ -1,9 +1,9 @@
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-import { defineConfig } from "vitepress";
+import { HeadConfig, defineConfig } from "vitepress";
 import svgLoader from "vite-svg-loader";
 
-const head = [
+const head: HeadConfig[] = [
   [
     "link",
     {
@@ -41,13 +41,11 @@ const head = [
     gtag('js', new Date());
     gtag('config', 'G-X7WQ091KL7');`,
   ],
+  ["link", { rel: "canonical", href: 'href="https://oxc.rs"' }],
 ];
 
-if (process.env.NODE_ENV === "production") {
-  head.unshift(
-    ["meta", { "http-equiv": "refresh", content: "0; URL=https://oxc.rs" }],
-    ["link", { rel: "canonical", href: 'href="https://oxc.rs"' }],
-  );
+if (process.env.NODE_ENV === "production" && process.env.REDIRECT) {
+  head.unshift(["meta", { "http-equiv": "refresh", content: "0; URL=https://oxc.rs" }]);
 }
 
 export const sharedConfig = defineConfig({
