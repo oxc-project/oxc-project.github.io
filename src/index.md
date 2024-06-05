@@ -52,7 +52,7 @@ features:
       width="768" height="1464"
       class="resizable-img"
       loading="lazy"
-      src="https://cdn.jsdelivr.net/gh/boshen/sponsors/sponsors.svg"
+      src="https://raw.githubusercontent.com/Boshen/sponsors/main/sponsors.svg"
       alt="Sponsors"
     >
   </a>
