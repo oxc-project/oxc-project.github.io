@@ -20,6 +20,9 @@ importers:
       consola:
         specifier: ^3.2.3
         version: 3.2.3
+      degit:
+        specifier: ^2.8.4
+        version: 2.8.4
       feed:
         specifier: ^4.2.2
         version: 4.2.2
@@ -32,9 +35,6 @@ importers:
       prettier:
         specifier: 4.0.0-alpha.8
         version: 4.0.0-alpha.8
-      sponsors:
-        specifier: https://github.com/Boshen/sponsors
-        version: https://codeload.github.com/Boshen/sponsors/tar.gz/df136011f0069896672ad82563bbcc6dc6c7a390
       textlint:
         specifier: ^14.0.0
         version: 14.0.4
@@ -794,6 +794,11 @@ packages:
   define-properties@1.2.1:
     resolution: {integrity: sha512-8QmQKqEASLd5nx0U1B1okLElbUuuttJ/AnYmRXbbbGDWh6uS208EjD4Xqq/I9wK7u0v6O08XhTWnt5XtEbR6Dg==}
     engines: {node: '>= 0.4'}
+
+  degit@2.8.4:
+    resolution: {integrity: sha512-vqYuzmSA5I50J882jd+AbAhQtgK6bdKUJIex1JNfEUPENCgYsxugzKVZlFyMwV4i06MmnV47/Iqi5Io86zf3Ng==}
+    engines: {node: '>=8.0.0'}
+    hasBin: true
 
   dettle@1.0.2:
     resolution: {integrity: sha512-pIVcNUx2/R7P45l3wEUsyrZcfbVUCKBmctUN41syh2asCXmrRndJEiNng9+8socNOAEBiBRqsQCh3HhCkOFwwg==}
@@ -1668,10 +1673,6 @@ packages:
 
   specialist@1.4.0:
     resolution: {integrity: sha512-RO76zlzjdw4acNYH2oiDqmSc3jQTymiJapNI6w47XB1iOKOaWIYA+eZ07b8pCPCsHZPwNdxHTJihS0LHFelFOA==}
-
-  sponsors@https://codeload.github.com/Boshen/sponsors/tar.gz/df136011f0069896672ad82563bbcc6dc6c7a390:
-    resolution: {tarball: https://codeload.github.com/Boshen/sponsors/tar.gz/df136011f0069896672ad82563bbcc6dc6c7a390}
-    version: 0.0.0
 
   sprintf-js@1.0.3:
     resolution: {integrity: sha512-D9cPgkvLlV3t3IzL0D0YLvGA9Ahk4PcvVwUbN0dSGr1aP0Nrt4AEnTUbuGvquEC0mA64Gqt1fzirlRs5ibXx8g==}
@@ -2806,6 +2807,8 @@ snapshots:
       has-property-descriptors: 1.0.2
       object-keys: 1.1.1
 
+  degit@2.8.4: {}
+
   dettle@1.0.2: {}
 
   diff@5.2.0: {}
@@ -3834,8 +3837,6 @@ snapshots:
       tiny-colors: 2.2.0
       tiny-parse-argv: 2.5.1
       tiny-updater: 3.5.2
-
-  sponsors@https://codeload.github.com/Boshen/sponsors/tar.gz/df136011f0069896672ad82563bbcc6dc6c7a390: {}
 
   sprintf-js@1.0.3: {}
 
