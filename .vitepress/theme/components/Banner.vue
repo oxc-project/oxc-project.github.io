@@ -44,7 +44,7 @@ const dismiss = () => {
 </script>
 
 <template>
-  <div ref="el" class="banner">
+  <div ref="el" class="banner banner-dismissed">
     <div class="text">
       <a :href="slug">Oxlint Import Plugin Alpha Release</a> 🎉
     </div>
