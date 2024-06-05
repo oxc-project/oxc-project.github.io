@@ -30,8 +30,8 @@ export const rssConfig = defineConfig({
   buildEnd: async (config: SiteConfig) => {
     const feed = new Feed({
       title: "The Oxidation Compiler Blog",
-      id: "https://oxc-project.github.io",
-      link: "https://oxc-project.github.io",
+      id: "https://oxc.rs",
+      link: "https://oxc.rs",
       language: "en",
       favicon: "https://cdn.jsdelivr.net/gh/oxc-project/oxc-assets/logo-round-min.png",
       copyright: sharedConfig.themeConfig!.footer!.copyright!,
@@ -53,8 +53,8 @@ export const rssConfig = defineConfig({
 
       feed.addItem({
         title: frontmatter.title,
-        id: `https://oxc-project.github.io${url.replace(/\.html$/, "")}`,
-        link: `https://oxc-project.github.io${url.replace(/\.html$/, "")}`,
+        id: `https://oxc.rs${url.replace(/\.html$/, "")}`,
+        link: `https://oxc.rs${url.replace(/\.html$/, "")}`,
         description: excerpt,
         content: html,
         author: (frontmatter.authors as string[]).map<Author>((id) => {
