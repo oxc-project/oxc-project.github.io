@@ -22,8 +22,7 @@ export const sharedConfig = defineConfig({
       "meta",
       {
         property: "og:image",
-        content:
-          "https://cdn.jsdelivr.net/gh/oxc-project/oxc-assets/preview-white-min.png",
+        content: "https://cdn.jsdelivr.net/gh/oxc-project/oxc-assets/preview-white-min.png",
       },
     ],
     // Twitter (X)
@@ -33,9 +32,18 @@ export const sharedConfig = defineConfig({
       "meta",
       {
         name: "twitter:image",
-        content:
-          "https://cdn.jsdelivr.net/gh/oxc-project/oxc-assets/preview-white-min.png",
+        content: "https://cdn.jsdelivr.net/gh/oxc-project/oxc-assets/preview-white-min.png",
       },
+    ],
+    // Google Analytics
+    ["script", { async: "", src: "https://www.googletagmanager.com/gtag/js?id=G-X7WQ091KL7" }],
+    [
+      "script",
+      {},
+      `window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-X7WQ091KL7');`,
     ],
   ],
   lastUpdated: false,
@@ -65,24 +73,15 @@ export const sharedConfig = defineConfig({
       alias: [
         {
           find: "@components",
-          replacement: resolve(
-            dirname(fileURLToPath(import.meta.url)),
-            "../theme/components",
-          ),
+          replacement: resolve(dirname(fileURLToPath(import.meta.url)), "../theme/components"),
         },
         {
           find: "@constants",
-          replacement: resolve(
-            dirname(fileURLToPath(import.meta.url)),
-            "../theme/constants",
-          ),
+          replacement: resolve(dirname(fileURLToPath(import.meta.url)), "../theme/constants"),
         },
         {
           find: /^.*\/VPHero\.vue$/,
-          replacement: resolve(
-            dirname(fileURLToPath(import.meta.url)),
-            "../theme/components/Hero.vue",
-          ),
+          replacement: resolve(dirname(fileURLToPath(import.meta.url)), "../theme/components/Hero.vue"),
         },
       ],
     },
