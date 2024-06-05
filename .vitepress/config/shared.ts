@@ -32,14 +32,14 @@ const head: HeadConfig[] = [
     },
   ],
   // Google Analytics
-  ["script", { async: "", src: "https://www.googletagmanager.com/gtag/js?id=G-X7WQ091KL7" }],
+  ["script", { async: "", src: "https://www.googletagmanager.com/gtag/js?id=G-Q1FN9GDBXP" }],
   [
     "script",
     {},
     `window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-X7WQ091KL7');`,
+    gtag('config', 'G-Q1FN9GDBXP');`,
   ],
   ["link", { rel: "canonical", href: 'href="https://oxc.rs"' }],
 ];

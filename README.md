@@ -2,7 +2,8 @@
 
 # Oxc Website
 
-Link: [oxc-project.github.io](https://oxc-project.github.io)
+- GitHub Pages: [oxc-project.github.io](https://oxc-project.github.io)
+- Netlify: [oxc.rs](https://oxc.rs)
 
 ### Contributing
 
