@@ -43,19 +43,13 @@ features:
     external: true
 ---
 
+<script setup>
+import Sponsors from 'sponsors/sponsors.svg?component'
+</script>
+
 <div style="display: flex;flex-direction: column;justify-content: center;align-items: center;">
   <h2>Sponsored by</h2>
-  <a href="https://github.com/sponsors/Boshen" target="_blank" rel="noopener noreferrer">
-    <img
-      crossorigin="anonymous"
-      inline-block
-      width="768" height="1464"
-      class="resizable-img"
-      loading="lazy"
-      src="https://raw.githubusercontent.com/Boshen/sponsors/main/sponsors.svg"
-      alt="Sponsors"
-    >
-  </a>
+  <Sponsors />
 </div>
 
 <style>
