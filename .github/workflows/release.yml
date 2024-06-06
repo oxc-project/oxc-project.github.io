@@ -1,0 +1,81 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - release-pr
+  workflow_dispatch:
+    inputs:
+      version:
+        required: false
+        type: string
+      issue-number:
+        required: false
+        type: string
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.sha }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          repository: oxc-project/oxc
+          ref: main
+
+      - uses: Boshen/setup-rust@main
+        with:
+          save-cache: true # ${{ github.ref_name == 'main' }}
+
+      - run: cargo build --release -p website
+
+      - uses: actions/upload-artifact@v4
+        with:
+          if-no-files-found: error
+          name: website
+          path: ./target/release/website
+
+  generate:
+    needs: build
+    name: Generate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: taiki-e/checkout-action@v1
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: website
+          path: .
+
+      - run: chmod +x ./website
+
+      - name: generate
+        run: |
+          ./website linter-rules > ./src/docs/guide/usage/linter/generated-rules.md
+          ./website linter-cli > ./src/docs/guide/usage/linter/generated-cli.md
+          ./website linter-schema-markdown > ./src/docs/guide/usage/linter/generated-config.md
+          rm website
+
+      - uses: pnpm/action-setup@v2
+      - uses: actions/setup-node@v4
+        with:
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm run textlint:fix
+
+      - uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: Release ${{ inputs.version }}
+          committer: Boshen <Boshen@users.noreply.github.com>
+          author: Boshen <Boshen@users.noreply.github.com>
+          branch: release
+          branch-suffix: timestamp
+          title: Release ${{ inputs.version }}
+          body: From https://github.com/oxc-project/oxc/pull/${{ inputs.issue-number }}
+          assignees: Boshen
+          base: main
