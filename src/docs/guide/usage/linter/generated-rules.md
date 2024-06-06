@@ -1,14 +1,14 @@
+
 # Rules
 
 The progress of all rule implementations is tracked [here](https://github.com/oxc-project/oxc/issues/481).
 
-- Total number of rules: 345
-- Rules turned on by default: 89
+- Total number of rules: 359
+- Rules turned on by default: 90
 
 <!-- textlint-disable terminology -->
 
-## Correctness (157):
-
+## Correctness (158):
 | Rule name                                     | Source     | Default |
 | --------------------------------------------- | ---------- | ------- |
 | for-direction                                 | eslint     | ✅      |
@@ -20,6 +20,7 @@ The progress of all rule implementations is tracked [here](https://github.com/ox
 | no-const-assign                               | eslint     | ✅      |
 | no-constant-binary-expression                 | eslint     | ✅      |
 | no-constant-condition                         | eslint     | ✅      |
+| no-constructor-return                         | eslint     | ✅      |
 | no-control-regex                              | eslint     | ✅      |
 | no-debugger                                   | eslint     | ✅      |
 | no-delete-var                                 | eslint     | ✅      |
@@ -170,7 +171,6 @@ The progress of all rule implementations is tracked [here](https://github.com/ox
 | prefer-string-starts-ends-with                | unicorn    | ✅      |
 
 ## Perf (6):
-
 | Rule name                   | Source     | Default |
 | --------------------------- | ---------- | ------- |
 | no-await-in-loop            | eslint     |         |
@@ -180,13 +180,13 @@ The progress of all rule implementations is tracked [here](https://github.com/ox
 | jsx-no-new-function-as-prop | react_perf |         |
 | jsx-no-new-object-as-prop   | react_perf |         |
 
-## Restriction (37):
-
+## Restriction (42):
 | Rule name                   | Source     | Default |
 | --------------------------- | ---------- | ------- |
 | default-case                | eslint     |         |
 | no-bitwise                  | eslint     |         |
 | no-console                  | eslint     |         |
+| no-div-regex                | eslint     |         |
 | no-empty                    | eslint     |         |
 | no-empty-function           | eslint     |         |
 | no-eq-null                  | eslint     |         |
@@ -205,7 +205,10 @@ The progress of all rule implementations is tracked [here](https://github.com/ox
 | check-access                | jsdoc      |         |
 | empty-tags                  | jsdoc      |         |
 | bad-bitwise-operator        | oxc        |         |
+| no-async-await              | oxc        |         |
 | no-barrel-file              | oxc        |         |
+| no-const-enum               | oxc        |         |
+| no-rest-spread-properties   | oxc        |         |
 | button-has-type             | react      |         |
 | no-danger                   | react      |         |
 | no-unknown-property         | react      |         |
@@ -216,17 +219,18 @@ The progress of all rule implementations is tracked [here](https://github.com/ox
 | no-anonymous-default-export | unicorn    |         |
 | no-array-for-each           | unicorn    |         |
 | no-array-reduce             | unicorn    |         |
+| no-magic-array-flat-depth   | unicorn    |         |
 | no-nested-ternary           | unicorn    |         |
 | no-process-exit             | unicorn    |         |
 | prefer-modern-math-apis     | unicorn    |         |
 | prefer-node-protocol        | unicorn    |         |
 | prefer-number-properties    | unicorn    |         |
 
-## Suspicious (12):
-
+## Suspicious (13):
 | Rule name                      | Source     | Default |
 | ------------------------------ | ---------- | ------- |
 | no-new                         | eslint     |         |
+| no-useless-concat              | eslint     |         |
 | no-duplicates                  | import     |         |
 | no-named-as-default            | import     |         |
 | no-named-as-default-member     | import     |         |
@@ -239,8 +243,7 @@ The progress of all rule implementations is tracked [here](https://github.com/ox
 | no-unnecessary-type-constraint | typescript |         |
 | prefer-add-event-listener      | unicorn    |         |
 
-## Pedantic (55):
-
+## Pedantic (58):
 | Rule name                               | Source     | Default |
 | --------------------------------------- | ---------- | ------- |
 | array-callback-return                   | eslint     |         |
@@ -255,8 +258,11 @@ The progress of all rule implementations is tracked [here](https://github.com/ox
 | no-redeclare                            | eslint     |         |
 | no-self-compare                         | eslint     |         |
 | radix                                   | eslint     |         |
+| require-await                           | eslint     |         |
 | symbol-description                      | eslint     |         |
 | require-returns                         | jsdoc      |         |
+| require-returns-description             | jsdoc      |         |
+| require-returns-type                    | jsdoc      |         |
 | checked-requires-onchange-or-readonly   | react      |         |
 | jsx-no-useless-fragment                 | react      |         |
 | no-unescaped-entities                   | react      |         |
@@ -299,8 +305,7 @@ The progress of all rule implementations is tracked [here](https://github.com/ox
 | prefer-type-error                       | unicorn    |         |
 | require-number-to-fixed-digits-argument | unicorn    |         |
 
-## Style (69):
-
+## Style (73):
 | Rule name                            | Source     | Default |
 | ------------------------------------ | ---------- | ------- |
 | default-case-last                    | eslint     |         |
@@ -322,6 +327,7 @@ The progress of all rule implementations is tracked [here](https://github.com/ox
 | no-identical-title                   | jest       |         |
 | no-interpolation-in-snapshots        | jest       |         |
 | no-jasmine-globals                   | jest       |         |
+| no-large-snapshots                   | jest       |         |
 | no-mocks-import                      | jest       |         |
 | no-restricted-jest-methods           | jest       |         |
 | no-restricted-matchers               | jest       |         |
@@ -332,6 +338,7 @@ The progress of all rule implementations is tracked [here](https://github.com/ox
 | prefer-comparison-matcher            | jest       |         |
 | prefer-equality-matcher              | jest       |         |
 | prefer-expect-resolves               | jest       |         |
+| prefer-hooks-on-top                  | jest       |         |
 | prefer-lowercase-title               | jest       |         |
 | prefer-mock-promise-shorthand        | jest       |         |
 | prefer-spy-on                        | jest       |         |
@@ -341,9 +348,11 @@ The progress of all rule implementations is tracked [here](https://github.com/ox
 | prefer-to-have-length                | jest       |         |
 | prefer-todo                          | jest       |         |
 | require-hook                         | jest       |         |
+| require-top-level-describe           | jest       |         |
 | adjacent-overload-signatures         | typescript |         |
 | array-type                           | typescript |         |
 | ban-tslint-comment                   | typescript |         |
+| consistent-indexed-object-style      | typescript |         |
 | consistent-type-definitions          | typescript |         |
 | no-empty-interface                   | typescript |         |
 | prefer-for-of                        | typescript |         |
@@ -374,7 +383,6 @@ The progress of all rule implementations is tracked [here](https://github.com/ox
 | throw-new-error                      | unicorn    |         |
 
 ## Nursery (9):
-
 | Rule name                         | Source       | Default |
 | --------------------------------- | ------------ | ------- |
 | constructor-super                 | eslint       |         |
@@ -387,4 +395,7 @@ The progress of all rule implementations is tracked [here](https://github.com/ox
 | rules-of-hooks                    | react        |         |
 | no-side-effects-in-initialization | tree_shaking |         |
 
+
 <!-- textlint-enable -->
+
+
