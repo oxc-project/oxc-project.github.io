@@ -12,10 +12,10 @@ Only the `.json` format is supported.
 
 Example
 
+`.oxlintrc.json`
+
 ```json
-// oxlintrc.json
 {
-  // Comments are supported.
   "env": {
     "browser": true
   },
