@@ -2,7 +2,7 @@
 
 The progress of all rule implementations is tracked [here](https://github.com/oxc-project/oxc/issues/481).
 
-- Total number of rules: 345
+- Total number of rules: 360
 - Rules turned on by default: 89
 
 <!-- textlint-disable terminology -->
@@ -180,13 +180,14 @@ The progress of all rule implementations is tracked [here](https://github.com/ox
 | jsx-no-new-function-as-prop | react_perf |         |
 | jsx-no-new-object-as-prop   | react_perf |         |
 
-## Restriction (37):
+## Restriction (42):
 
 | Rule name                   | Source     | Default |
 | --------------------------- | ---------- | ------- |
 | default-case                | eslint     |         |
 | no-bitwise                  | eslint     |         |
 | no-console                  | eslint     |         |
+| no-div-regex                | eslint     |         |
 | no-empty                    | eslint     |         |
 | no-empty-function           | eslint     |         |
 | no-eq-null                  | eslint     |         |
@@ -205,7 +206,10 @@ The progress of all rule implementations is tracked [here](https://github.com/ox
 | check-access                | jsdoc      |         |
 | empty-tags                  | jsdoc      |         |
 | bad-bitwise-operator        | oxc        |         |
+| no-async-await              | oxc        |         |
 | no-barrel-file              | oxc        |         |
+| no-const-enum               | oxc        |         |
+| no-rest-spread-properties   | oxc        |         |
 | button-has-type             | react      |         |
 | no-danger                   | react      |         |
 | no-unknown-property         | react      |         |
@@ -216,17 +220,19 @@ The progress of all rule implementations is tracked [here](https://github.com/ox
 | no-anonymous-default-export | unicorn    |         |
 | no-array-for-each           | unicorn    |         |
 | no-array-reduce             | unicorn    |         |
+| no-magic-array-flat-depth   | unicorn    |         |
 | no-nested-ternary           | unicorn    |         |
 | no-process-exit             | unicorn    |         |
 | prefer-modern-math-apis     | unicorn    |         |
 | prefer-node-protocol        | unicorn    |         |
 | prefer-number-properties    | unicorn    |         |
 
-## Suspicious (12):
+## Suspicious (13):
 
 | Rule name                      | Source     | Default |
 | ------------------------------ | ---------- | ------- |
 | no-new                         | eslint     |         |
+| no-useless-concat              | eslint     |         |
 | no-duplicates                  | import     |         |
 | no-named-as-default            | import     |         |
 | no-named-as-default-member     | import     |         |
@@ -239,7 +245,7 @@ The progress of all rule implementations is tracked [here](https://github.com/ox
 | no-unnecessary-type-constraint | typescript |         |
 | prefer-add-event-listener      | unicorn    |         |
 
-## Pedantic (55):
+## Pedantic (60):
 
 | Rule name                               | Source     | Default |
 | --------------------------------------- | ---------- | ------- |
@@ -249,14 +255,19 @@ The progress of all rule implementations is tracked [here](https://github.com/ox
 | max-lines                               | eslint     |         |
 | no-array-constructor                    | eslint     |         |
 | no-case-declarations                    | eslint     |         |
+| no-constructor-return                   | eslint     |         |
 | no-inner-declarations                   | eslint     |         |
 | no-new-wrappers                         | eslint     |         |
 | no-prototype-builtins                   | eslint     |         |
 | no-redeclare                            | eslint     |         |
 | no-self-compare                         | eslint     |         |
 | radix                                   | eslint     |         |
+| require-await                           | eslint     |         |
 | symbol-description                      | eslint     |         |
+| require-param                           | jsdoc      |         |
 | require-returns                         | jsdoc      |         |
+| require-returns-description             | jsdoc      |         |
+| require-returns-type                    | jsdoc      |         |
 | checked-requires-onchange-or-readonly   | react      |         |
 | jsx-no-useless-fragment                 | react      |         |
 | no-unescaped-entities                   | react      |         |
@@ -299,7 +310,7 @@ The progress of all rule implementations is tracked [here](https://github.com/ox
 | prefer-type-error                       | unicorn    |         |
 | require-number-to-fixed-digits-argument | unicorn    |         |
 
-## Style (69):
+## Style (73):
 
 | Rule name                            | Source     | Default |
 | ------------------------------------ | ---------- | ------- |
@@ -322,6 +333,7 @@ The progress of all rule implementations is tracked [here](https://github.com/ox
 | no-identical-title                   | jest       |         |
 | no-interpolation-in-snapshots        | jest       |         |
 | no-jasmine-globals                   | jest       |         |
+| no-large-snapshots                   | jest       |         |
 | no-mocks-import                      | jest       |         |
 | no-restricted-jest-methods           | jest       |         |
 | no-restricted-matchers               | jest       |         |
@@ -332,6 +344,7 @@ The progress of all rule implementations is tracked [here](https://github.com/ox
 | prefer-comparison-matcher            | jest       |         |
 | prefer-equality-matcher              | jest       |         |
 | prefer-expect-resolves               | jest       |         |
+| prefer-hooks-on-top                  | jest       |         |
 | prefer-lowercase-title               | jest       |         |
 | prefer-mock-promise-shorthand        | jest       |         |
 | prefer-spy-on                        | jest       |         |
@@ -341,9 +354,11 @@ The progress of all rule implementations is tracked [here](https://github.com/ox
 | prefer-to-have-length                | jest       |         |
 | prefer-todo                          | jest       |         |
 | require-hook                         | jest       |         |
+| require-top-level-describe           | jest       |         |
 | adjacent-overload-signatures         | typescript |         |
 | array-type                           | typescript |         |
 | ban-tslint-comment                   | typescript |         |
+| consistent-indexed-object-style      | typescript |         |
 | consistent-type-definitions          | typescript |         |
 | no-empty-interface                   | typescript |         |
 | prefer-for-of                        | typescript |         |
