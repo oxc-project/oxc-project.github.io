@@ -41,7 +41,7 @@
     "*.md": "textlint"
   },
   "engines": {
-    "node": ">=18.20.3"
+    "node": ">=20.14.0"
   },
   "packageManager": "pnpm@9.2.0"
 }
