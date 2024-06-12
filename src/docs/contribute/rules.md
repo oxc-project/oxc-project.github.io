@@ -26,6 +26,18 @@ outline: deep
 - Monitor code coverage for unused code. Aim for 99% code coverage.
 - CI time should be actively monitored and reduced to speed up merging of PRs. The current CI time on GitHub actions is around 3 minutes.
 
+## Conventional Commits
+
+We follow [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/):
+
+The commit contains the following structural elements, to communicate intent to the consumers:
+
+- `fix`: a commit of the type fix patches a bug in your codebase.
+- `feat`: a commit of the type feat introduces a new feature to the codebase.
+- BREAKING CHANGE: a appends a `!` after the type/scope, introduces a breaking API change, e.g. `feat(parser)!: new feature`.
+- the scopes are crate names.
+- the types are `feat:`, `fix:`, `chore:`, `ci:`, `docs:`, `style:`, `refactor:`, `perf:` and `test:`.
+
 ## Action Policy
 
 Taken from [Astral's values](https://astral-sh.notion.site/Astral-s-Values-0ed6a642bcc84e91af6836b2373572f5):
