@@ -2,12 +2,12 @@
 
 The progress of all rule implementations is tracked [here](https://github.com/oxc-project/oxc/issues/481).
 
-- Total number of rules: 360
-- Rules turned on by default: 89
+- Total number of rules: 369
+- Rules turned on by default: 90
 
 <!-- textlint-disable terminology -->
 
-## Correctness (157):
+## Correctness (158):
 
 | Rule name                                     | Source     | Default |
 | --------------------------------------------- | ---------- | ------- |
@@ -153,6 +153,7 @@ The progress of all rule implementations is tracked [here](https://github.com/ox
 | no-non-null-asserted-optional-chain           | typescript | ✅      |
 | no-this-alias                                 | typescript | ✅      |
 | no-unsafe-declaration-merging                 | typescript | ✅      |
+| no-useless-empty-export                       | typescript | ✅      |
 | prefer-as-const                               | typescript | ✅      |
 | triple-slash-reference                        | typescript | ✅      |
 | no-await-in-promise-methods                   | unicorn    | ✅      |
@@ -180,52 +181,53 @@ The progress of all rule implementations is tracked [here](https://github.com/ox
 | jsx-no-new-function-as-prop | react_perf |         |
 | jsx-no-new-object-as-prop   | react_perf |         |
 
-## Restriction (42):
+## Restriction (43):
 
-| Rule name                   | Source     | Default |
-| --------------------------- | ---------- | ------- |
-| default-case                | eslint     |         |
-| no-bitwise                  | eslint     |         |
-| no-console                  | eslint     |         |
-| no-div-regex                | eslint     |         |
-| no-empty                    | eslint     |         |
-| no-empty-function           | eslint     |         |
-| no-eq-null                  | eslint     |         |
-| no-eval                     | eslint     |         |
-| no-iterator                 | eslint     |         |
-| no-proto                    | eslint     |         |
-| no-regex-spaces             | eslint     |         |
-| no-restricted-globals       | eslint     |         |
-| no-unsafe-optional-chaining | eslint     |         |
-| no-var                      | eslint     |         |
-| no-void                     | eslint     |         |
-| unicode-bom                 | eslint     |         |
-| no-amd                      | import     |         |
-| no-cycle                    | import     |         |
-| no-default-export           | import     |         |
-| check-access                | jsdoc      |         |
-| empty-tags                  | jsdoc      |         |
-| bad-bitwise-operator        | oxc        |         |
-| no-async-await              | oxc        |         |
-| no-barrel-file              | oxc        |         |
-| no-const-enum               | oxc        |         |
-| no-rest-spread-properties   | oxc        |         |
-| button-has-type             | react      |         |
-| no-danger                   | react      |         |
-| no-unknown-property         | react      |         |
-| no-explicit-any             | typescript |         |
-| no-var-requires             | typescript |         |
-| prefer-literal-enum-member  | typescript |         |
-| no-abusive-eslint-disable   | unicorn    |         |
-| no-anonymous-default-export | unicorn    |         |
-| no-array-for-each           | unicorn    |         |
-| no-array-reduce             | unicorn    |         |
-| no-magic-array-flat-depth   | unicorn    |         |
-| no-nested-ternary           | unicorn    |         |
-| no-process-exit             | unicorn    |         |
-| prefer-modern-math-apis     | unicorn    |         |
-| prefer-node-protocol        | unicorn    |         |
-| prefer-number-properties    | unicorn    |         |
+| Rule name                     | Source     | Default |
+| ----------------------------- | ---------- | ------- |
+| default-case                  | eslint     |         |
+| no-bitwise                    | eslint     |         |
+| no-console                    | eslint     |         |
+| no-div-regex                  | eslint     |         |
+| no-empty                      | eslint     |         |
+| no-empty-function             | eslint     |         |
+| no-eq-null                    | eslint     |         |
+| no-eval                       | eslint     |         |
+| no-iterator                   | eslint     |         |
+| no-proto                      | eslint     |         |
+| no-regex-spaces               | eslint     |         |
+| no-restricted-globals         | eslint     |         |
+| no-unsafe-optional-chaining   | eslint     |         |
+| no-var                        | eslint     |         |
+| no-void                       | eslint     |         |
+| unicode-bom                   | eslint     |         |
+| no-amd                        | import     |         |
+| no-cycle                      | import     |         |
+| no-default-export             | import     |         |
+| check-access                  | jsdoc      |         |
+| empty-tags                    | jsdoc      |         |
+| bad-bitwise-operator          | oxc        |         |
+| no-async-await                | oxc        |         |
+| no-barrel-file                | oxc        |         |
+| no-const-enum                 | oxc        |         |
+| no-rest-spread-properties     | oxc        |         |
+| button-has-type               | react      |         |
+| no-danger                     | react      |         |
+| no-unknown-property           | react      |         |
+| explicit-function-return-type | typescript |         |
+| no-explicit-any               | typescript |         |
+| no-var-requires               | typescript |         |
+| prefer-literal-enum-member    | typescript |         |
+| no-abusive-eslint-disable     | unicorn    |         |
+| no-anonymous-default-export   | unicorn    |         |
+| no-array-for-each             | unicorn    |         |
+| no-array-reduce               | unicorn    |         |
+| no-magic-array-flat-depth     | unicorn    |         |
+| no-nested-ternary             | unicorn    |         |
+| no-process-exit               | unicorn    |         |
+| prefer-modern-math-apis       | unicorn    |         |
+| prefer-node-protocol          | unicorn    |         |
+| prefer-number-properties      | unicorn    |         |
 
 ## Suspicious (13):
 
@@ -245,7 +247,7 @@ The progress of all rule implementations is tracked [here](https://github.com/ox
 | no-unnecessary-type-constraint | typescript |         |
 | prefer-add-event-listener      | unicorn    |         |
 
-## Pedantic (60):
+## Pedantic (63):
 
 | Rule name                               | Source     | Default |
 | --------------------------------------- | ---------- | ------- |
@@ -265,6 +267,9 @@ The progress of all rule implementations is tracked [here](https://github.com/ox
 | require-await                           | eslint     |         |
 | symbol-description                      | eslint     |         |
 | require-param                           | jsdoc      |         |
+| require-param-description               | jsdoc      |         |
+| require-param-name                      | jsdoc      |         |
+| require-param-type                      | jsdoc      |         |
 | require-returns                         | jsdoc      |         |
 | require-returns-description             | jsdoc      |         |
 | require-returns-type                    | jsdoc      |         |
@@ -310,7 +315,7 @@ The progress of all rule implementations is tracked [here](https://github.com/ox
 | prefer-type-error                       | unicorn    |         |
 | require-number-to-fixed-digits-argument | unicorn    |         |
 
-## Style (73):
+## Style (75):
 
 | Rule name                            | Source     | Default |
 | ------------------------------------ | ---------- | ------- |
@@ -323,7 +328,9 @@ The progress of all rule implementations is tracked [here](https://github.com/ox
 | no-template-curly-in-string          | eslint     |         |
 | no-ternary                           | eslint     |         |
 | prefer-exponentiation-operator       | eslint     |         |
+| sort-imports                         | eslint     |         |
 | max-expects                          | jest       |         |
+| max-nested-describe                  | jest       |         |
 | no-alias-methods                     | jest       |         |
 | no-confusing-set-timeout             | jest       |         |
 | no-deprecated-functions              | jest       |         |
@@ -388,7 +395,7 @@ The progress of all rule implementations is tracked [here](https://github.com/ox
 | text-encoding-identifier-case        | unicorn    |         |
 | throw-new-error                      | unicorn    |         |
 
-## Nursery (9):
+## Nursery (11):
 
 | Rule name                         | Source       | Default |
 | --------------------------------- | ------------ | ------- |
@@ -397,6 +404,8 @@ The progress of all rule implementations is tracked [here](https://github.com/ox
 | no-fallthrough                    | eslint       |         |
 | no-import-assign                  | eslint       |         |
 | no-undef                          | eslint       |         |
+| no-unreachable                    | eslint       |         |
+| no-useless-constructor            | eslint       |         |
 | export                            | import       |         |
 | require-render-return             | react        |         |
 | rules-of-hooks                    | react        |         |
