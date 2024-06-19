@@ -3,6 +3,8 @@ title: Terminology
 outline: deep
 ---
 
+# Terminology
+
 ## Binding
 
 A value being assigned/bound within a scope.
