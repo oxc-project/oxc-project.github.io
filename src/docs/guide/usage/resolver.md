@@ -16,6 +16,7 @@ Node.js cjs and esm path resolution.
 
 - All configurations are aligned with [webpack/enhanced-resolve][url-enhanced-resolve].
 - 28x faster than [webpack/enhanced-resolve][url-enhanced-resolve] ([benchmark](https://github.com/oxc-project/bench-nodejs-resolver)).
+- See [README](https://github.com/oxc-project/oxc-resolver)
 
 ## Installation
 
@@ -25,7 +26,7 @@ See [https://crates.io/crates/oxc_resolver][url-oxc-resolver-crate] and its docu
 
 ### Node.js
 
-The node binding [oxc-resolver][url-oxc-resolver-npm] is currently work in progress.
+See [oxc-resolver][url-oxc-resolver-npm] for node binding via napi.
 
 <!-- Links -->
 
