@@ -16,7 +16,8 @@ The Rust crate `oxc_parser` is production ready.
 
 - 3x faster than swc parser ([benchmark][url-benchmark]).
 - parses `.js(x)` and `.ts(x)`.
-- passes all parser tests from Test262 and almost all from Babel and TypeScript.
+- passes all parser tests from Test262 and 99% from Babel and TypeScript.
+- [✅ works with checker.ts](https://x.com/robpalmer2/status/1805502964435505559)
 
 ## Installation
 
