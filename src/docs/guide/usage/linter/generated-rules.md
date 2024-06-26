@@ -2,17 +2,18 @@
 
 The progress of all rule implementations is tracked [here](https://github.com/oxc-project/oxc/issues/481).
 
-- Total number of rules: 369
-- Rules turned on by default: 90
+- Total number of rules: 376
+- Rules turned on by default: 93
 
 <!-- textlint-disable terminology -->
 
-## Correctness (158):
+## Correctness (161):
 
 Code that is outright wrong or useless.
 | Rule name | Source | Default |
 | --------------------------------------------- | ---------- | ------- |
 | for-direction | eslint | ✅ |
+| getter-return | eslint | ✅ |
 | no-async-promise-executor | eslint | ✅ |
 | no-caller | eslint | ✅ |
 | no-class-assign | eslint | ✅ |
@@ -33,8 +34,10 @@ Code that is outright wrong or useless.
 | no-empty-static-block | eslint | ✅ |
 | no-ex-assign | eslint | ✅ |
 | no-extra-boolean-cast | eslint | ✅ |
+| no-fallthrough | eslint | ✅ |
 | no-func-assign | eslint | ✅ |
 | no-global-assign | eslint | ✅ |
+| no-import-assign | eslint | ✅ |
 | no-irregular-whitespace | eslint | ✅ |
 | no-loss-of-precision | eslint | ✅ |
 | no-new-native-nonconstructor | eslint | ✅ |
@@ -183,11 +186,11 @@ Code that can be written to run faster.
 | jsx-no-new-function-as-prop | react_perf | |
 | jsx-no-new-object-as-prop | react_perf | |
 
-## Restriction (43):
+## Restriction (47):
 
 Lints which prevent the use of language and library features. Must not be enabled as a whole, should be considered on a case-by-case basis before enabling.
 | Rule name | Source | Default |
-| ----------------------------- | ---------- | ------- |
+| --------------------------------------- | ---------- | ------- |
 | default-case | eslint | |
 | no-bitwise | eslint | |
 | no-console | eslint | |
@@ -213,12 +216,16 @@ Lints which prevent the use of language and library features. Must not be enable
 | no-async-await | oxc | |
 | no-barrel-file | oxc | |
 | no-const-enum | oxc | |
+| no-optional-chaining | oxc | |
 | no-rest-spread-properties | oxc | |
 | button-has-type | react | |
 | no-danger | react | |
 | no-unknown-property | react | |
 | explicit-function-return-type | typescript | |
 | no-explicit-any | typescript | |
+| no-import-type-side-effects | typescript | |
+| no-non-null-asserted-nullish-coalescing | typescript | |
+| no-non-null-assertion | typescript | |
 | no-var-requires | typescript | |
 | prefer-literal-enum-member | typescript | |
 | no-abusive-eslint-disable | unicorn | |
@@ -251,7 +258,7 @@ code that is most likely wrong or useless.
 | no-unnecessary-type-constraint | typescript | |
 | prefer-add-event-listener | unicorn | |
 
-## Pedantic (63):
+## Pedantic (64):
 
 Lints which are rather strict or have occasional false positives.
 | Rule name | Source | Default |
@@ -271,6 +278,7 @@ Lints which are rather strict or have occasional false positives.
 | radix | eslint | |
 | require-await | eslint | |
 | symbol-description | eslint | |
+| max-dependencies | import | |
 | require-param | jsdoc | |
 | require-param-description | jsdoc | |
 | require-param-name | jsdoc | |
@@ -320,7 +328,7 @@ Lints which are rather strict or have occasional false positives.
 | prefer-type-error | unicorn | |
 | require-number-to-fixed-digits-argument | unicorn | |
 
-## Style (75):
+## Style (77):
 
 Code that should be written in a more idiomatic way.
 | Rule name | Source | Default |
@@ -358,6 +366,7 @@ Code that should be written in a more idiomatic way.
 | prefer-equality-matcher | jest | |
 | prefer-expect-resolves | jest | |
 | prefer-hooks-on-top | jest | |
+| prefer-jest-mocked | jest | |
 | prefer-lowercase-title | jest | |
 | prefer-mock-promise-shorthand | jest | |
 | prefer-spy-on | jest | |
@@ -368,6 +377,7 @@ Code that should be written in a more idiomatic way.
 | prefer-todo | jest | |
 | require-hook | jest | |
 | require-top-level-describe | jest | |
+| prefer-es-6-class | react | |
 | adjacent-overload-signatures | typescript | |
 | array-type | typescript | |
 | ban-tslint-comment | typescript | |
@@ -401,15 +411,12 @@ Code that should be written in a more idiomatic way.
 | text-encoding-identifier-case | unicorn | |
 | throw-new-error | unicorn | |
 
-## Nursery (11):
+## Nursery (8):
 
 New lints that are still under development.
 | Rule name | Source | Default |
 | --------------------------------- | ------------ | ------- |
 | constructor-super | eslint | |
-| getter-return | eslint | |
-| no-fallthrough | eslint | |
-| no-import-assign | eslint | |
 | no-undef | eslint | |
 | no-unreachable | eslint | |
 | no-useless-constructor | eslint | |
