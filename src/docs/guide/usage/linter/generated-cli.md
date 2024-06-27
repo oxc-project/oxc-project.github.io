@@ -55,6 +55,8 @@ Arguments:
   Enable the experimental jsdoc plugin and detect JSDoc problems
 - **`    --jest-plugin`** &mdash;
   Enable the Jest plugin and detect test problems
+- **`    --vitest-plugin`** &mdash;
+  Enable the Vitest plugin and detect test problems
 - **`    --jsx-a11y-plugin`** &mdash;
   Enable the JSX-a11y plugin and detect accessibility problems
 - **`    --nextjs-plugin`** &mdash;
@@ -113,5 +115,7 @@ Arguments:
   list all the rules that are currently registered
 - **`-h`**, **`--help`** &mdash;
   Prints help information
+- **`-V`**, **`--version`** &mdash;
+  Prints version information
 
 <!-- textlint-enable -->
