@@ -6,7 +6,7 @@
   "rules": {
     "terminology": {
       "defaultTerms": true,
-      "exclude": ["regexp?(s)?", "web[- ]?site(s)?", "ES2015", "website", "JSDocs?"]
+      "exclude": ["regexp?(s)?", "web[- ]?site(s)?", "ES2015", "website", "JSDocs?", "indexes", "VSCode"]
     },
     "doubled-spaces": true
   }
