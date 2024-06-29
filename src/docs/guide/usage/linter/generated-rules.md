@@ -237,13 +237,14 @@ Lints which prevent the use of language and library features. Must not be enable
 | prefer-node-protocol | unicorn | |
 | prefer-number-properties | unicorn | |
 
-## Suspicious (13):
+## Suspicious (14):
 
 code that is most likely wrong or useless.
 | Rule name | Source | Default |
 | ------------------------------ | ---------- | ------- |
 | no-new | eslint | |
 | no-useless-concat | eslint | |
+| no-useless-constructor | eslint | |
 | no-duplicates | import | |
 | no-named-as-default | import | |
 | no-named-as-default-member | import | |
@@ -410,7 +411,7 @@ Code that should be written in a more idiomatic way.
 | text-encoding-identifier-case | unicorn | |
 | throw-new-error | unicorn | |
 
-## Nursery (9):
+## Nursery (8):
 
 New lints that are still under development.
 | Rule name | Source | Default |
@@ -419,7 +420,6 @@ New lints that are still under development.
 | getter-return | eslint | |
 | no-undef | eslint | |
 | no-unreachable | eslint | |
-| no-useless-constructor | eslint | |
 | export | import | |
 | require-render-return | react | |
 | rules-of-hooks | react | |
