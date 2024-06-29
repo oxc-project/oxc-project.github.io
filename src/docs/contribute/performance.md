@@ -27,37 +27,36 @@ Try [dhat](https://docs.rs/dhat/latest/dhat).
 
 ### CPU - Mac Xcode Instruments
 
-Mac Xcode instruments can be used to produce a CPU profile.
+[`cargo instruments`](https://github.com/cmyr/cargo-instruments) is the tool of choice to bridge Mac Xcode instruments.
 
-To install Xcode Instruments, install the command-line Tools:
+The following instruction replicates the procedure of `cargo instruments`.
+
+First, install Xcode Instruments command-line tools:
 
 ```bash
 xcode-select --install
 ```
 
-For normal Rust builds, [`cargo instruments`](https://github.com/cmyr/cargo-instruments) can be used as the glue
-for profiling and creating the trace file.
-
-First, change the profile for showing debug symbols.
+And then change the build profile to show debug symbols:
 
 ```toml
 [profile.release]
-debug = true # debug info with line tables only
+debug = true # enable debug symbols
 strip = false # do not strip symbols
 ```
 
-Then build the project
+Build the binary with `--release`:
 
 ```bash
 cargo build --release --bin oxlint --features allocator
 ```
 
-The binary is located at `./target/release/oxlint` once the project is built.
+Once the project is built, the binary is located at `./target/release/oxlint`.
 
-Under the hood, `cargo instruments` invokes the `xcrun` command, equivalent to
+Under the hood, `cargo instruments` invokes the `xcrun xctrace` command, which is equivalent to
 
 ```bash
-xcrun xctrace record --template 'Time Profile' --output . --launch -- /path/to/oxc/target/release/oxlint --quiet
+xcrun xctrace record --template 'Time Profile' --output . --launch -- /path/to/oxc/target/release/oxlint
 ```
 
 Running the command above produces the following output
@@ -77,3 +76,5 @@ To see a top down trace:
 1. On the top panel, click CPUs
 2. On the left input box, click `x` then select `Time Profiler`
 3. At the bottom panel, click "Call Tree", turn on "Invert Call Tree" and turn off separate by thread.
+
+For memory and disk operations, use `--template 'Allocations'` and `--template 'File Activity'`.
