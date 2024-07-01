@@ -37,6 +37,10 @@ Once it launches, press `r` for running the program.
 According to their [debugging guide](https://github.com/microsoft/TypeScript/blob/main/CONTRIBUTING.md#debugging-the-tests), in the TypeScript repository:
 
 - rename `.vscode/launch.template.json` to `launch.json`
+- add `tests/cases/compiler/foo.ts`
+- change `"${fileBasenameNoExtension}"` to `foo.ts`
 - set a breakpoint somewhere in TypeScript's source code
-- create a `test.ts` or open any test file of interest
-- From the menu "Run - Debugging", or press F5
+- from the menu "Run - Debugging", or press F5
+- while debugging, tsc will evaluate global `.d.ts` files before the targeted test file
+- `Debug.formatXXX(value)` from `src/compiler/debug.ts` can be used to print out enum values
+- use the "WATCH" section to "see" value of interest
