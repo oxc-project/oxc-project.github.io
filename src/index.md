@@ -27,10 +27,11 @@ features:
     details: 28x faster than enhanced-resolve
     link: /docs/guide/usage/resolver
     linkText: Usage guide
+  - title: Transformer 🚧
+    details: Babel compatible<br/>Isolated Declarations Dts Emit
+    link: /docs/guide/usage/transformer
   - title: Formatter
     details: Prettier compatible
-  - title: Transformer 🚧
-    details: Babel compatible
   - title: Minifier
     details: Faster and better at compression
   - title: Rolldown Bundler 🚧

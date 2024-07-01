@@ -23,15 +23,13 @@ The Rust crate `oxc_parser` is production ready.
 
 ### Rust
 
-Use the umbrella crate [oxc][url-oxc-crate] or individual [oxc_ast][url-oxc-ast-crate] and [oxc_parser][url-oxc-parser-crate] crates.
+Use the umbrella crate [oxc][url-oxc-crate] or the individual [oxc_ast][url-oxc-ast-crate] and [oxc_parser][url-oxc-parser-crate] crates.
 
-### Node.js
+Rust usage example can be found [here](https://github.com/oxc-project/oxc/blob/main/crates/oxc_parser/examples/parser.rs).
 
-The node binding [oxc-parser][url-oxc-parser-npm] is available for experimental use.
+### Node.js (NAPI)
 
-## Rust Usage
-
-Check out [this example](https://github.com/oxc-project/oxc/blob/main/crates/oxc_parser/examples/parser.rs).
+Use the experimental node binding [oxc-parser][url-oxc-parser-npm].
 
 <!-- Links -->
 
