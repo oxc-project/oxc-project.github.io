@@ -27,3 +27,7 @@ outline: deep
 - [Simple but Powerful Pratt Parsing](https://matklad.github.io/2020/04/13/simple-but-powerful-pratt-parsing.html)
 - [JS syntactic quirks](https://github.com/mozilla-spidermonkey/jsparagus/blob/master/js-quirks.md)
 - [Crafting Interpreters](https://craftinginterpreters.com)
+
+### Media
+
+- Shopify Uses oxlint - [Performance👆, complexity👇: Killer updates from Shopify engineering](https://www.shopify.com/news/performance%F0%9F%91%86-complexity%F0%9F%91%87-killer-updates-from-shopify-engineering)
