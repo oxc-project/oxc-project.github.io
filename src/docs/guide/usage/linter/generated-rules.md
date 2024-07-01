@@ -2,7 +2,7 @@
 
 The progress of all rule implementations is tracked [here](https://github.com/oxc-project/oxc/issues/481).
 
-- Total number of rules: 376
+- Total number of rules: 379
 - Rules turned on by default: 91
 
 <!-- textlint-disable terminology -->
@@ -184,7 +184,7 @@ Code that can be written to run faster.
 | jsx-no-new-function-as-prop | react_perf | |
 | jsx-no-new-object-as-prop | react_perf | |
 
-## Restriction (47):
+## Restriction (48):
 
 Lints which prevent the use of language and library features. Must not be enabled as a whole, should be considered on a case-by-case basis before enabling.
 | Rule name | Source | Default |
@@ -220,6 +220,7 @@ Lints which prevent the use of language and library features. Must not be enable
 | no-danger | react | |
 | no-unknown-property | react | |
 | explicit-function-return-type | typescript | |
+| no-dynamic-delete | typescript | |
 | no-explicit-any | typescript | |
 | no-import-type-side-effects | typescript | |
 | no-non-null-asserted-nullish-coalescing | typescript | |
@@ -328,7 +329,7 @@ Lints which are rather strict or have occasional false positives.
 | prefer-type-error | unicorn | |
 | require-number-to-fixed-digits-argument | unicorn | |
 
-## Style (77):
+## Style (78):
 
 Code that should be written in a more idiomatic way.
 | Rule name | Source | Default |
@@ -377,6 +378,7 @@ Code that should be written in a more idiomatic way.
 | prefer-todo | jest | |
 | require-hook | jest | |
 | require-top-level-describe | jest | |
+| no-set-state | react | |
 | prefer-es-6-class | react | |
 | adjacent-overload-signatures | typescript | |
 | array-type | typescript | |
@@ -411,7 +413,7 @@ Code that should be written in a more idiomatic way.
 | text-encoding-identifier-case | unicorn | |
 | throw-new-error | unicorn | |
 
-## Nursery (8):
+## Nursery (9):
 
 New lints that are still under development.
 | Rule name | Source | Default |
@@ -424,5 +426,6 @@ New lints that are still under development.
 | require-render-return | react | |
 | rules-of-hooks | react | |
 | no-side-effects-in-initialization | tree_shaking | |
+| consistent-type-imports | typescript | |
 
 <!-- textlint-enable -->
