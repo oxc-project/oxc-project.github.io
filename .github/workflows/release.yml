@@ -60,7 +60,7 @@ jobs:
           ./website linter-schema-markdown > ./src/docs/guide/usage/linter/generated-config.md
           rm website
 
-      - uses: pnpm/action-setup@v2
+      - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v4
         with:
           cache: pnpm
