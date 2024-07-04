@@ -40,8 +40,5 @@
     "*.{js,jsx,tsx,ts,mts,css,md,json,yml}": "pnpm run fmt --write",
     "*.md": "textlint"
   },
-  "engines": {
-    "node": ">=20.14.0"
-  },
   "packageManager": "pnpm@9.2.0"
 }
