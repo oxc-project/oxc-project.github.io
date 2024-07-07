@@ -9,10 +9,6 @@ outline: deep
 
 Fast Rust bundler for JavaScript with Rollup-compatible API.
 
-## [Rspack](https://www.rspack.dev)
-
-A fast Rust-based web bundler with webpack-compatible API.
-
 ## [Tyvm](https://github.com/zackradisic/tyvm)
 
 An experimental bytecode interpreter for type-level TypeScript.

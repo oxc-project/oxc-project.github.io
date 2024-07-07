@@ -38,10 +38,6 @@ features:
     details: Rollup compatible<br/>Designed for Vite
     link: https://rolldown.rs
     external: true
-  - title: Rspack Bundler ✅
-    details: Webpack compatible
-    link: https://rspack.dev
-    external: true
 ---
 
 <script setup>
