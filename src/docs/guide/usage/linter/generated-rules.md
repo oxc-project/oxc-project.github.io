@@ -2,12 +2,12 @@
 
 The progress of all rule implementations is tracked [here](https://github.com/oxc-project/oxc/issues/481).
 
-- Total number of rules: 379
-- Rules turned on by default: 91
+- Total number of rules: 383
+- Rules turned on by default: 92
 
 <!-- textlint-disable terminology -->
 
-## Correctness (159):
+## Correctness (160):
 
 Code that is outright wrong or useless.
 | Rule name | Source | Default |
@@ -162,6 +162,7 @@ Code that is outright wrong or useless.
 | no-document-cookie | unicorn | ✅ |
 | no-empty-file | unicorn | ✅ |
 | no-invalid-remove-event-listener | unicorn | ✅ |
+| no-negation-in-equality-check | unicorn | ✅ |
 | no-new-array | unicorn | ✅ |
 | no-single-promise-in-promise-methods | unicorn | ✅ |
 | no-thenable | unicorn | ✅ |
@@ -184,7 +185,7 @@ Code that can be written to run faster.
 | jsx-no-new-function-as-prop | react_perf | |
 | jsx-no-new-object-as-prop | react_perf | |
 
-## Restriction (48):
+## Restriction (49):
 
 Lints which prevent the use of language and library features. Must not be enabled as a whole, should be considered on a case-by-case basis before enabling.
 | Rule name | Source | Default |
@@ -201,6 +202,7 @@ Lints which prevent the use of language and library features. Must not be enable
 | no-proto | eslint | |
 | no-regex-spaces | eslint | |
 | no-restricted-globals | eslint | |
+| no-undefined | eslint | |
 | no-unsafe-optional-chaining | eslint | |
 | no-var | eslint | |
 | no-void | eslint | |
@@ -329,7 +331,7 @@ Lints which are rather strict or have occasional false positives.
 | prefer-type-error | unicorn | |
 | require-number-to-fixed-digits-argument | unicorn | |
 
-## Style (78):
+## Style (80):
 
 Code that should be written in a more idiomatic way.
 | Rule name | Source | Default |
@@ -339,11 +341,13 @@ Code that should be written in a more idiomatic way.
 | guard-for-in | eslint | |
 | max-params | eslint | |
 | no-continue | eslint | |
+| no-multi-str | eslint | |
 | no-script-url | eslint | |
 | no-template-curly-in-string | eslint | |
 | no-ternary | eslint | |
 | prefer-exponentiation-operator | eslint | |
 | sort-imports | eslint | |
+| consistent-test-it | jest | |
 | max-expects | jest | |
 | max-nested-describe | jest | |
 | no-alias-methods | jest | |
