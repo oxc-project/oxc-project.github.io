@@ -44,10 +44,14 @@ For larger displays and stickers.
   <img src="https://cdn.jsdelivr.net/gh/oxc-project/oxc-assets/round-bubbles.svg" width="200" />
 </p>
 
-## Visuals
+## Banners
 
 <p><img src="https://cdn.jsdelivr.net/gh/oxc-project/oxc-assets/preview-white-bubbles.png" /></p>
 <p><img src="https://cdn.jsdelivr.net/gh/oxc-project/oxc-assets/preview-dark-bubbles.png" /></p>
+
+## Visuals
+
+Colors: #91EDE9 #FF915C #48ACBA #2B3C5A #8A380F
 
 <p><img src="https://cdn.jsdelivr.net/gh/oxc-project/oxc-assets/VI.png" /></p>
 
