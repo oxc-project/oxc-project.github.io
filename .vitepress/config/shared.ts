@@ -8,7 +8,7 @@ const head: HeadConfig[] = [
     "link",
     {
       rel: "icon",
-      href: "https://cdn.jsdelivr.net/gh/oxc-project/oxc-assets/logo-round-min.png",
+      href: "https://cdn.jsdelivr.net/gh/oxc-project/oxc-assets/round.ico",
     },
   ],
   // Open Graph
@@ -18,7 +18,7 @@ const head: HeadConfig[] = [
     "meta",
     {
       property: "og:image",
-      content: "https://cdn.jsdelivr.net/gh/oxc-project/oxc-assets/preview-white-min.png",
+      content: "https://cdn.jsdelivr.net/gh/oxc-project/oxc-assets/preview-white-bubbles.png",
     },
   ],
   // Twitter (X)
@@ -28,7 +28,7 @@ const head: HeadConfig[] = [
     "meta",
     {
       name: "twitter:image",
-      content: "https://cdn.jsdelivr.net/gh/oxc-project/oxc-assets/preview-white-min.png",
+      content: "https://cdn.jsdelivr.net/gh/oxc-project/oxc-assets/preview-white-bubbles.png",
     },
   ],
   // Google Analytics
@@ -57,7 +57,7 @@ export const sharedConfig = defineConfig({
   lastUpdated: false,
   themeConfig: {
     siteTitle: "Oxc",
-    logo: "https://cdn.jsdelivr.net/gh/oxc-project/oxc-assets/logo-round-min.png",
+    logo: "https://cdn.jsdelivr.net/gh/oxc-project/oxc-assets/round.svg",
     search: {
       provider: "local",
     },
