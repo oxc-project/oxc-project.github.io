@@ -33,7 +33,7 @@ export const rssConfig = defineConfig({
       id: "https://oxc.rs",
       link: "https://oxc.rs",
       language: "en",
-      favicon: "https://cdn.jsdelivr.net/gh/oxc-project/oxc-assets/logo-round-min.png",
+      favicon: "https://cdn.jsdelivr.net/gh/oxc-project/oxc-assets/round.ico",
       copyright: sharedConfig.themeConfig!.footer!.copyright!,
     });
 
