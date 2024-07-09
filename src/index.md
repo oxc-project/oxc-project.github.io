@@ -41,16 +41,27 @@ features:
 ---
 
 <script setup>
-import Sponsors from '../public/sponsors.svg?component'
+import SponsorsSVG from '../public/sponsors.svg?raw'
 </script>
 
-<div style="display: flex;flex-direction: column;justify-content: center;align-items: center;">
+<div class="Sponsors">
   <h2>Sponsored by</h2>
-  <Sponsors />
+  <div v-html="SponsorsSVG"></div>
 </div>
 
 <style>
 .VPHero .VPImage.image-src {
   max-width: 90%;
+}
+
+.Sponsors {
+  display: grid;
+  justify-items: center;
+
+  /* Support narrow viewport */
+  svg {
+    width: 100%;
+    height: auto;
+  }
 }
 </style>
