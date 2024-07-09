@@ -7,7 +7,7 @@ const head: HeadConfig[] = [
     "link",
     {
       rel: "icon",
-      href: "https://cdn.jsdelivr.net/gh/oxc-project/oxc-assets/round.ico",
+      href: "https://cdn.jsdelivr.net/gh/oxc-project/oxc-assets/square.ico",
     },
   ],
   // Open Graph
@@ -17,7 +17,7 @@ const head: HeadConfig[] = [
     "meta",
     {
       property: "og:image",
-      content: "https://cdn.jsdelivr.net/gh/oxc-project/oxc-assets/preview-white-bubbles.png",
+      content: "https://cdn.jsdelivr.net/gh/oxc-project/oxc-assets/preview-universal.png",
     },
   ],
   // Twitter (X)
@@ -27,7 +27,7 @@ const head: HeadConfig[] = [
     "meta",
     {
       name: "twitter:image",
-      content: "https://cdn.jsdelivr.net/gh/oxc-project/oxc-assets/preview-white-bubbles.png",
+      content: "https://cdn.jsdelivr.net/gh/oxc-project/oxc-assets/preview-universal.png",
     },
   ],
   // Google Analytics
