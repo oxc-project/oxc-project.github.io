@@ -1,1 +1,0 @@
-import{_ as e,c as t,o as s,a3 as a}from"./chunks/framework.Bg3dKMxI.js";const b=JSON.parse('{"title":"Branding","description":"","frontmatter":{},"headers":[],"relativePath":"branding.md","filePath":"branding.md"}'),r={name:"branding.md"},n=a("",23),o=[n];function i(c,l,h,d,p,g){return s(),t("div",null,o)}const x=e(r,[["render",i]]);export{b as __pageData,x as default};
