@@ -1,7 +1,6 @@
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { HeadConfig, defineConfig } from "vitepress";
-import svgLoader from "vite-svg-loader";
 
 const head: HeadConfig[] = [
   [
@@ -93,6 +92,5 @@ export const sharedConfig = defineConfig({
         },
       ],
     },
-    plugins: [svgLoader()],
   },
 });
