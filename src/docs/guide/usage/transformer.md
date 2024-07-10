@@ -10,13 +10,13 @@
 
 Use the umbrella crate [oxc][url-oxc-crate] with the `transformer` feature.
 
-Rust usage example can be found [here](https://github.com/oxc-project/oxc/blob/main/crates/oxc_parser/examples/transformer.rs).
+Rust usage example can be found [here](https://github.com/oxc-project/oxc/blob/main/crates/oxc_transformer/examples/transformer.rs).
 
 ### Node.js (NAPI)
 
-Use the experimental node binding [oxc-transformer][url-oxc-transformer-npm].
+Use the experimental node binding [oxc-transform][url-oxc-transform-npm].
 
 <!-- Links -->
 
 [url-oxc-crate]: https://docs.rs/oxc
-[url-oxc-transformer-npm]: https://www.npmjs.com/package/oxc-transformer
+[url-oxc-transform-npm]: https://www.npmjs.com/package/oxc-transform
