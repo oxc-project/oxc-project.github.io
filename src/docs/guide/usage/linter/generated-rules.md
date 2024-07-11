@@ -2,7 +2,7 @@
 
 The progress of all rule implementations is tracked [here](https://github.com/oxc-project/oxc/issues/481).
 
-- Total number of rules: 383
+- Total number of rules: 385
 - Rules turned on by default: 91
 
 <!-- textlint-disable terminology -->
@@ -331,7 +331,7 @@ Lints which are rather strict or have occasional false positives.
 | prefer-type-error | unicorn | |
 | require-number-to-fixed-digits-argument | unicorn | |
 
-## Style (80):
+## Style (82):
 
 Code that should be written in a more idiomatic way.
 | Rule name | Source | Default |
@@ -341,6 +341,7 @@ Code that should be written in a more idiomatic way.
 | guard-for-in | eslint | |
 | max-params | eslint | |
 | no-continue | eslint | |
+| no-label-var | eslint | |
 | no-multi-str | eslint | |
 | no-script-url | eslint | |
 | no-template-curly-in-string | eslint | |
@@ -370,6 +371,7 @@ Code that should be written in a more idiomatic way.
 | prefer-comparison-matcher | jest | |
 | prefer-equality-matcher | jest | |
 | prefer-expect-resolves | jest | |
+| prefer-hooks-in-order | jest | |
 | prefer-hooks-on-top | jest | |
 | prefer-jest-mocked | jest | |
 | prefer-lowercase-title | jest | |
