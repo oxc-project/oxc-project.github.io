@@ -2,12 +2,12 @@
 
 The progress of all rule implementations is tracked [here](https://github.com/oxc-project/oxc/issues/481).
 
-- Total number of rules: 385
+- Total number of rules: 390
 - Rules turned on by default: 91
 
 <!-- textlint-disable terminology -->
 
-## Correctness (159):
+## Correctness (160):
 
 Code that is outright wrong or useless.
 | Rule name | Source | Default |
@@ -138,6 +138,7 @@ Code that is outright wrong or useless.
 | number-arg-out-of-range | oxc | ✅ |
 | only-used-in-recursion | oxc | ✅ |
 | uninvoked-array-callback | oxc | ✅ |
+| no-new-statics | promise | |
 | jsx-key | react | ✅ |
 | jsx-no-duplicate-props | react | ✅ |
 | jsx-no-target-blank | react | ✅ |
@@ -184,7 +185,7 @@ Code that can be written to run faster.
 | jsx-no-new-function-as-prop | react_perf | |
 | jsx-no-new-object-as-prop | react_perf | |
 
-## Restriction (49):
+## Restriction (50):
 
 Lints which prevent the use of language and library features. Must not be enabled as a whole, should be considered on a case-by-case basis before enabling.
 | Rule name | Source | Default |
@@ -217,6 +218,7 @@ Lints which prevent the use of language and library features. Must not be enable
 | no-const-enum | oxc | |
 | no-optional-chaining | oxc | |
 | no-rest-spread-properties | oxc | |
+| avoid-new | promise | |
 | button-has-type | react | |
 | no-danger | react | |
 | no-unknown-property | react | |
@@ -239,11 +241,11 @@ Lints which prevent the use of language and library features. Must not be enable
 | prefer-node-protocol | unicorn | |
 | prefer-number-properties | unicorn | |
 
-## Suspicious (14):
+## Suspicious (15):
 
 code that is most likely wrong or useless.
 | Rule name | Source | Default |
-| ------------------------------ | ---------- | ------- |
+| ------------------------------- | ---------- | ------- |
 | no-new | eslint | |
 | no-useless-concat | eslint | |
 | no-useless-constructor | eslint | |
@@ -256,10 +258,11 @@ code that is most likely wrong or useless.
 | misrefactored-assign-op | oxc | |
 | jsx-no-comment-textnodes | react | |
 | react-in-jsx-scope | react | |
+| no-confusing-non-null-assertion | typescript | |
 | no-unnecessary-type-constraint | typescript | |
 | prefer-add-event-listener | unicorn | |
 
-## Pedantic (66):
+## Pedantic (67):
 
 Lints which are rather strict or have occasional false positives.
 | Rule name | Source | Default |
@@ -312,6 +315,7 @@ Lints which are rather strict or have occasional false positives.
 | no-unreadable-iife | unicorn | |
 | no-useless-promise-resolve-reject | unicorn | |
 | no-useless-switch-case | unicorn | |
+| no-useless-undefined | unicorn | |
 | prefer-array-flat | unicorn | |
 | prefer-array-some | unicorn | |
 | prefer-blob-reading-methods | unicorn | |
@@ -331,7 +335,7 @@ Lints which are rather strict or have occasional false positives.
 | prefer-type-error | unicorn | |
 | require-number-to-fixed-digits-argument | unicorn | |
 
-## Style (82):
+## Style (83):
 
 Code that should be written in a more idiomatic way.
 | Rule name | Source | Default |
@@ -384,6 +388,7 @@ Code that should be written in a more idiomatic way.
 | prefer-todo | jest | |
 | require-hook | jest | |
 | require-top-level-describe | jest | |
+| param-names | promise | |
 | no-set-state | react | |
 | prefer-es-6-class | react | |
 | adjacent-overload-signatures | typescript | |
