@@ -38,7 +38,7 @@ features:
     details: Rollup compatible<br/>Designed for Vite
     link: https://rolldown.rs
     external: true
-  - title: Nova JavaScript Engine
+  - title: Nova JavaScript Engine 🚧
     details: ECMAScript specification with data-oriented design
     link: https://trynova.dev
     external: true
