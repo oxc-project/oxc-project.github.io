@@ -17,7 +17,7 @@
     "sponsors": "degit Boshen/sponsors temp --force && mv temp/sponsors.svg public/sponsors.svg"
   },
   "devDependencies": {
-    "@types/node": "^20.14.2",
+    "@types/node": "^22.0.0",
     "@vueuse/core": "^10.10.0",
     "citty": "^0.1.6",
     "consola": "^3.2.3",
