@@ -8,6 +8,7 @@
     "dev": "vitepress dev",
     "build": "pnpm run sponsors && vitepress build",
     "preview": "vitepress preview",
+    "lint": "oxlint",
     "fmt": "prettier",
     "textlint": "textlint 'src/**/*.md'",
     "textlint:check": "pnpm run textlint",
@@ -33,7 +34,8 @@
     "tsx": "^4.15.1",
     "typescript": "~5.4.5",
     "vitepress": "1.2.3",
-    "vue": "^3.4.27"
+    "vue": "^3.4.27",
+    "oxlint": "latest"
   },
   "lint-staged": {
     "*.{js,jsx,tsx,ts,mts,css,md,json,yml}": "pnpm run fmt --write",

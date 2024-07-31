@@ -28,8 +28,8 @@ jobs:
         with:
           files: .
 
-  textlint:
-    name: Textlint
+  lint:
+    name: Lint
     needs: check-typos
     runs-on: ubuntu-latest
     steps:
@@ -40,11 +40,14 @@ jobs:
           node-version-file: .node-version
           cache: pnpm
       - run: pnpm install --frozen-lockfile
-      - run: pnpm run textlint:check
+      - name: Textlint
+        run: pnpm run textlint:check
+      - name: Oxlint
+        run: pnpm run lint --format github
 
   build-and-deploy:
     name: Build and Deploy
-    needs: textlint
+    needs: lint
     runs-on: ubuntu-latest
     permissions:
       contents: write
