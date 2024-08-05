@@ -9,13 +9,16 @@
 </div>
 
 ### What it does
+
 Disallow calling some global objects as functions
 
 ### Why is this bad?
+
 Some global objects are not intended to be called as functions.
 Calling them as functions will usually result in a TypeError being thrown.
 
 ### Example
+
 ```javascript
 // Bad
 let math = Math();
@@ -34,9 +37,8 @@ let reflect = Reflect();
 let newReflect = new Reflect();
 
 // Good
-let area = r => 2 * Math.PI * r * r;
+let area = (r) => 2 * Math.PI * r * r;
 let object = JSON.parse("{}");
 let first = Atomics.load(sharedArray, 0);
 let segmenterFrom = Intl.Segmenter("fr", { granularity: "word" });
 ```
-

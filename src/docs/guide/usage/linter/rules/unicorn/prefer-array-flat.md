@@ -7,7 +7,7 @@
 
 ### What it does
 
-Prefers `Array#flat()` over legacy techniques to flatten arrays.    ///
+Prefers `Array#flat()` over legacy techniques to flatten arrays. ///
 
 ### Why is this bad?
 
@@ -16,9 +16,10 @@ ES2019 introduced a new method [`Array#flat()`](https://developer.mozilla.org/en
 This rule aims to standardize the use of `Array#flat()` over legacy techniques to flatten arrays.
 
 ### Example
+
 ```javascript
 // Bad
-const foo = array.flatMap(x => x);
+const foo = array.flatMap((x) => x);
 const foo = array.reduce((a, b) => a.concat(b), []);
 const foo = array.reduce((a, b) => [...a, ...b], []);
 const foo = [].concat(maybeArray);
@@ -32,4 +33,3 @@ const foo = Array.prototype.concat.call([], ...array);
 const foo = array.flat();
 const foo = [maybeArray].flat();
 ```
-

@@ -9,18 +9,18 @@
 </div>
 
 ### What it does
+
 This rule disallows \8 and \9 escape sequences in string literals
 
 ### Why is this bad?
+
 ECMAScript specification treats \8 and \9 in string literals as a legacy feature
 
 ### Example
-```javascript
-incorrect:
-"\8"
-"\9"
-correct:
-"8"
-"\\9"
-```
 
+```javascript
+incorrect: "8";
+("9");
+correct: "8";
+("\\9");
+```

@@ -6,17 +6,19 @@
 </div>
 
 ### What it does
+
 Requires all getters to have a return statement
 
 ### Why is this bad?
+
 Getters should always return a value. If they don't, it's probably a mistake.
 
 ### Example
+
 ```javascript
-class Person{
-    get name(){
-        // no return
-    }
+class Person {
+  get name() {
+    // no return
+  }
 }
 ```
-

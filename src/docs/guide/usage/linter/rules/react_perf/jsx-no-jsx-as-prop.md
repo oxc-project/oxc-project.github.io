@@ -10,6 +10,7 @@
 Prevent JSX that are local to the current method from being used as values of JSX props
 
 ### Example
+
 ```javascript
 // Bad
 <Item jsx={<SubItem />} />
@@ -19,4 +20,3 @@ Prevent JSX that are local to the current method from being used as values of JS
 // Good
 <Item callback={this.props.jsx} />
 ```
-

@@ -22,6 +22,7 @@ Developers new to JavaScript classes and/or TypeScript interfaces may
 sometimes confuse when to use constructor or new.
 
 ### Example
-```typescript
-```
 
+```typescript
+
+```

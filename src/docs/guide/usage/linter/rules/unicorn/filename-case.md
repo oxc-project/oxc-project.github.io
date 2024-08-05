@@ -12,5 +12,7 @@ Enforce a case style for filenames.
 ### Why is this bad?
 
 ### Example
+
 ```
 
+```

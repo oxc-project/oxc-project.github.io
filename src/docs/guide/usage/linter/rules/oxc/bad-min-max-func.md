@@ -14,8 +14,8 @@ Checks whether the clamp function `Math.min(Math.max(x, y), z)` always evaluate 
 constant result because the arguments are in the wrong order.
 
 ### Example
+
 ```javascript
 Math.min(Math.max(100, x), 0);
 Math.max(1000, Math.min(0, z));
 ```
-

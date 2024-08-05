@@ -16,6 +16,7 @@ If you are returning Promises then you should update the test to use
 `async/await`.
 
 ### Example
-```javascript
-```
 
+```javascript
+
+```

@@ -14,15 +14,15 @@ Disallow redefine the global variables like 'undefined', 'NaN', 'Infinity', 'eva
 
 ### Why is this bad?
 
-
 ### Example
-```javascript
-function NaN(){}
 
-!function(Infinity){};
+```javascript
+function NaN() {}
+
+!function (Infinity) {};
 
 var undefined = 5;
 
-try {} catch(eval){}
+try {
+} catch (eval) {}
 ```
-

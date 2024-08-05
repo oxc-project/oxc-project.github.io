@@ -6,11 +6,12 @@
 </div>
 
 ### What it does
+
 The HTML `<a>` element, with a valid href attribute, is formally defined as representing a **hyperlink**.
 That is, a link between one HTML document and another, or between one location inside an HTML document and another location inside the same document.
 
 While before it was possible to attach logic to an anchor element, with the advent of JSX libraries,
-it's now  easier to attach logic to any HTML element, anchors included.
+it's now easier to attach logic to any HTML element, anchors included.
 
 This rule is designed to prevent users to attach logic at the click of anchors, and also makes
 sure that the `href` provided to the anchor element is valid. If the anchor has logic attached to it,
@@ -25,18 +26,22 @@ Consider the following:
 <a href="javascript:void(0)" onClick={foo}>Perform action</a>
 <a href="#" onClick={foo}>Perform action</a>
 <a onClick={foo}>Perform action</a>
-````
+```
 
 All these anchor implementations indicate that the element is only used to execute JavaScript code. All the above should be replaced with:
 
 ```jsx
 <button onClick={foo}>Perform action</button>
 ```
+
 `
+
 ### Why is this bad?
+
 There are **many reasons** why an anchor should not have a logic and have a correct `href` attribute:
+
 - it can disrupt the correct flow of the user navigation e.g. a user that wants to open the link
-in another tab, but the default "click" behaviour is prevented
+  in another tab, but the default "click" behaviour is prevented
 - it can source of invalid links, and crawlers can't navigate the website, risking to penalise SEO ranking
 
 ### Example
@@ -62,4 +67,3 @@ in another tab, but the default "click" behaviour is prevented
 ### Reference
 
 - [WCAG 2.1.1](https://www.w3.org/WAI/WCAG21/Understanding/keyboard)
-

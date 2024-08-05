@@ -13,19 +13,18 @@ Disallow classes that only have static members.
 
 A class with only static members could just be an object instead.
 
-
 ### Example
+
 ```javascript
 // Bad
 class A {
-    static a() {}
+  static a() {}
 }
 
 // Good
 class A {
-    static a() {}
+  static a() {}
 
-    constructor() {}
+  constructor() {}
 }
 ```
-

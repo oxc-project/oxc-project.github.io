@@ -14,15 +14,15 @@ Prefers omitting the catch binding parameter if it is unused
 It is unnecessary to bind the error to a variable if it is not used.
 
 ### Example
+
 ```javascript
 // Bad
 try {
- // ...
-} catch (e) { }
+  // ...
+} catch (e) {}
 
 // Good
 try {
- // ...
-} catch { }
+  // ...
+} catch {}
 ```
-

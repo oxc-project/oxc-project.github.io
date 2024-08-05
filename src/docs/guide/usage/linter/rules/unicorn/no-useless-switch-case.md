@@ -14,20 +14,20 @@ Disallows useless default cases in switch statements.
 An empty case before the last default case is useless.
 
 ### Example
+
 ```javascript
 // bad
 switch (foo) {
-	case 1:
-	default:
-		handleDefaultCase();
-		break;
+  case 1:
+  default:
+    handleDefaultCase();
+    break;
 }
 // good:
 switch (foo) {
-	case 1:
-	case 2:
-		handleCase1And2();
-		break;
+  case 1:
+  case 2:
+    handleCase1And2();
+    break;
 }
 ```
-

@@ -15,6 +15,7 @@ Coding for the keyboard is important for users with physical disabilities who ca
 AT compatibility, and screenreader users.
 
 ### Example
+
 ```jsx
 // Good
 <div onMouseOver={() => void 0} onFocus={() => void 0} />
@@ -22,4 +23,3 @@ AT compatibility, and screenreader users.
 // Bad
 <div onMouseOver={() => void 0} />
 ```
-

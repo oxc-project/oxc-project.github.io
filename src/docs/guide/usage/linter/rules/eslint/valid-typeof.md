@@ -12,21 +12,21 @@
 </div>
 
 ### What it does
+
 Enforce comparing `typeof` expressions against valid strings
 
 ### Why is this bad?
+
 It is usually a typing mistake to compare the result of a typeof operator to other string literals.
+
 ### Example
+
 ```javascript
-requireStringLiterals: false
-incorrect:
-typeof foo === "strnig"
-correct:
-typeof foo === "string"
-typeof foo === baz
+requireStringLiterals: false;
+incorrect: typeof foo === "strnig";
+correct: typeof foo === "string";
+typeof foo === baz;
 
-requireStringLiterals: true
-incorrect:
-typeof foo === baz
+requireStringLiterals: true;
+incorrect: typeof foo === baz;
 ```
-

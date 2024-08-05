@@ -6,15 +6,17 @@
 </div>
 
 ### What it does
+
 Enforce a maximum number of parameters in function definitions
 
 ### Why is this bad?
+
 Functions that take numerous parameters can be difficult to read and write because it requires the memorization of what each parameter is, its type, and the order they should appear in. As a result, many coders adhere to a convention that caps the number of parameters a function can take.
 
 ### Example
+
 ```javascript
-function foo (bar, baz, qux, qxx) {
-    doSomething();
+function foo(bar, baz, qux, qxx) {
+  doSomething();
 }
 ```
-

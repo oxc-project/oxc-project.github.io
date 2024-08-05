@@ -12,11 +12,12 @@ or without arguments. It would also issue a warning if there is nothing called
 on `expect()`, e.g.:
 
 ### Example
+
 ```javascript
 expect();
-expect('something');
+expect("something");
 expect(true).toBeDefined;
-expect(Promise.resolve('Hi!')).resolves.toBe('Hi!');
+expect(Promise.resolve("Hi!")).resolves.toBe("Hi!");
 ```
 
 This rule is compatible with [eslint-plugin-vitest](https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/valid-expect.md),
@@ -25,8 +26,7 @@ to use it, add the following configuration to your `.eslintrc.json`:
 ```json
 {
   "rules": {
-     "vitest/valid-expect": "error"
+    "vitest/valid-expect": "error"
   }
 }
 ```
-

@@ -18,6 +18,7 @@ These aliases are going to be removed in the next major version of Jest - see [j
 This rule will makes it easier to search for all occurrences of the method within code, and it ensures consistency among the method names used.
 
 ### Example
+
 ```javascript
 expect(a).toBeCalled();
 expect(a).toBeCalledTimes();
@@ -38,8 +39,7 @@ to use it, add the following configuration to your `.eslintrc.json`:
 ```json
 {
   "rules": {
-     "vitest/no-alias-methods": "error"
+    "vitest/no-alias-methods": "error"
   }
 }
 ```
-

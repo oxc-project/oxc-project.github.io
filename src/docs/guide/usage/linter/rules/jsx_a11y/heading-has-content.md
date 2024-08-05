@@ -19,6 +19,7 @@ this could either confuse users or even prevent them
 from accessing information on the page's structure.
 
 ### Example
+
 ```javascript
 // Bad
 <h1 />
@@ -26,4 +27,3 @@ from accessing information on the page's structure.
 // Good
 <h1>Foo</h1>
 ```
-

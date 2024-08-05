@@ -6,12 +6,15 @@
 </div>
 
 ### What it does
+
 Requires that all `@property` tags have descriptions.
 
 ### Why is this bad?
+
 The description of a property should be documented.
 
 ### Example
+
 ```javascript
 // Passing
 /**
@@ -25,4 +28,3 @@ The description of a property should be documented.
  * @property {number} foo
  */
 ```
-

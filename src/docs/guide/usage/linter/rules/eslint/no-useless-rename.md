@@ -17,15 +17,15 @@ Disallow renaming import, export, and destructured assignments to the same name.
 It is unnecessary to rename a variable to the same name.
 
 ### Example
+
 ```javascript
 // Bad
-import { foo as foo } from 'foo';
+import { foo as foo } from "foo";
 const { bar: bar } = obj;
 export { baz as baz };
 
 // Good
-import { foo } from 'foo';
+import { foo } from "foo";
 const { bar: renamed } = obj;
 export { baz };
 ```
-

@@ -14,25 +14,25 @@ This rule prevents comment strings (e.g. beginning with `//` or `/*`) from being
 In JSX, any text node that is not wrapped in curly braces is considered a literal string to be rendered. This can lead to unexpected behavior when the text contains a comment.
 
 ### Example
+
 ```javascript
 // Incorrect:
 
 const Hello = () => {
-    return <div>// empty div</div>;
-}
+  return <div>// empty div</div>;
+};
 
 const Hello = () => {
-    return <div>/* empty div */</div>;
-}
+  return <div>/* empty div */</div>;
+};
 
 // Correct:
 
 const Hello = () => {
-    return <div>// empty div</div>;
-}
+  return <div>// empty div</div>;
+};
 
 const Hello = () => {
-    return <div>{/* empty div */}</div>;
-}
+  return <div>{/* empty div */}</div>;
+};
 ```
-

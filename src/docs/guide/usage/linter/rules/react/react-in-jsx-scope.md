@@ -14,6 +14,7 @@ Disallow missing React when using JSX
 When using JSX, `<a />` expands to `React.createElement("a")`. Therefore the `React` variable must be in scope.
 
 ### Example
+
 ```javascript
 // Bad
 var a = <a />;
@@ -21,6 +22,4 @@ var a = <a />;
 // Good
 import React from "react";
 var a = <a />;
-
 ```
-

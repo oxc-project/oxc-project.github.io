@@ -10,6 +10,7 @@
 ### Why is this bad?
 
 ### Example
-```javascript
-```
 
+```javascript
+
+```

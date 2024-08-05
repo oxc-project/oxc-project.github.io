@@ -9,16 +9,18 @@
 </div>
 
 ### What it does
+
 Disallow reassigning class variables.
 
 ### Why is this bad?
+
 `ClassDeclaration` creates a variable that can be re-assigned,
 but the re-assignment is a mistake in most cases.
 
 ### Example
+
 ```javascript
 class A {}
 A = 123;
-let a = new A() // Error
+let a = new A(); // Error
 ```
-

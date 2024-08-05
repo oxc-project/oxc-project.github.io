@@ -14,6 +14,7 @@ Disallows the use of approximate constants, instead preferring the use of the co
 Approximate constants are not as accurate as the constants in the `Math` object.
 
 ### Example
-```javascript
-```
 
+```javascript
+
+```

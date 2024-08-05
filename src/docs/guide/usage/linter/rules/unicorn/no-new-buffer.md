@@ -14,6 +14,7 @@ Disallows the deprecated `new Buffer()` constructor.
 Enforces the use of [Buffer.from](https://nodejs.org/api/buffer.html#static-method-bufferfromarray) and [Buffer.alloc()](https://nodejs.org/api/buffer.html#static-method-bufferallocsize-fill-encoding) instead of [new Buffer()](https://nodejs.org/api/buffer.html#new-bufferarray), which has been deprecated since Node.js 4.
 
 ### Example
+
 ```javascript
 // Bad
 const buffer = new Buffer(10);
@@ -21,4 +22,3 @@ const buffer = new Buffer(10);
 // Good
 const buffer = Buffer.alloc(10);
 ```
-

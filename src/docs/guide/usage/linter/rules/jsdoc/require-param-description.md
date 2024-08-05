@@ -6,19 +6,21 @@
 </div>
 
 ### What it does
+
 Requires that each `@param` tag has a description value.
 
 ### Why is this bad?
+
 The description of a param should be documented.
 
 ### Example
+
 ```javascript
 // Passing
 /** @param foo Foo. */
-function quux (foo) {}
+function quux(foo) {}
 
 // Failing
 /** @param foo */
-function quux (foo) {}
+function quux(foo) {}
 ```
-

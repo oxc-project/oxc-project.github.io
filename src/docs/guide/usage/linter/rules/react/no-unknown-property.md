@@ -6,18 +6,20 @@
 </div>
 
 ### What it does
+
 Disallow usage of unknown DOM property.
 
 ### Why is this bad?
+
 You can use unknown property name that has no effect.
 
 ### Example
+
 ```jsx
- // Unknown properties
- const Hello = <div class="hello">Hello World</div>;
- const Alphabet = <div abc="something">Alphabet</div>;
+// Unknown properties
+const Hello = <div class="hello">Hello World</div>;
+const Alphabet = <div abc="something">Alphabet</div>;
 
- // Invalid aria-* attribute
- const IconButton = <div aria-foo="bar" />;
+// Invalid aria-* attribute
+const IconButton = <div aria-foo="bar" />;
 ```
-

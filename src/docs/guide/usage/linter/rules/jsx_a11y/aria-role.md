@@ -6,9 +6,11 @@
 </div>
 
 ### What it does
+
 Elements with ARIA roles must use a valid, non-abstract ARIA role. A reference to role definitions can be found at [WAI-ARIA](https://www.w3.org/TR/wai-aria/#role_definitions) site.
 
 ### Why is this bad?
+
 The intent of this Success Criterion is to ensure that Assistive Technologies (AT) can gather information about,
 activate (or set) and keep up to date on the status of user interface controls in the content(such as screen readers, screen magnifiers, and speech recognition software, used by people with disabilities).
 
@@ -20,7 +22,9 @@ A particularly important state of a user interface control is whether or not it 
 Other examples of user interface control state are whether or not a checkbox or radio button has been selected, or whether or not a collapsible tree or list node is expanded or collapsed.
 
 ### Rule options
+
 This rule takes one optional object argument of type object:
+
 ```
 {
     "rules": {
@@ -31,12 +35,15 @@ This rule takes one optional object argument of type object:
     }
  }
 ```
+
 allowedInvalidRules is an optional string array of custom roles that should be allowed in addition to the ARIA spec, such as for cases when you need to use a non-standard role.
 
 For the ignoreNonDOM option, this determines if developer created components are checked.
 
 ### Example
+
 // good
+
 ```javascript
 <div role="button"></div>     <!-- Good: "button" is a valid ARIA role -->
 <div role={role}></div>       <!-- Good: role is a variable & cannot be determined until runtime. -->
@@ -45,10 +52,10 @@ For the ignoreNonDOM option, this determines if developer created components are
 ```
 
 // bad
+
 ```javascript
  <div role="datepicker"></div> <!-- Bad: "datepicker" is not an ARIA role -->
  <div role="range"></div>      <!-- Bad: "range" is an _abstract_ ARIA role -->
  <div role=""></div>           <!-- Bad: An empty ARIA role is not allowed -->
  <Foo role={role}></Foo>       <!-- Bad: ignoreNonDOM is set to false or not set -->
 ```
-

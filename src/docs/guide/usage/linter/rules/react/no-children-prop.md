@@ -17,6 +17,7 @@ When using JSX, the children should be nested between the opening and closing ta
 When not using JSX, the children should be passed as additional arguments to `React.createElement`.
 
 ### Example
+
 ```javascript
 // Bad
 <div children='Children' />
@@ -40,4 +41,3 @@ React.createElement("div", 'Child 1', 'Child 2')
 
 
 ```
-

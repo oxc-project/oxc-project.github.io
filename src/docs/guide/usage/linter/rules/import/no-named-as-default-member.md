@@ -13,11 +13,14 @@ Reports use of an exported name as a property on the default export.
 
 ```javascript
 // ./bar.js
-export function bar() { return null }
-export default () => { return 1 }
+export function bar() {
+  return null;
+}
+export default () => {
+  return 1;
+};
 
 // ./foo.js
-import bar from './bar'
-const bar = foo.bar // trying to access named export via default
+import bar from "./bar";
+const bar = foo.bar; // trying to access named export via default
 ```
-

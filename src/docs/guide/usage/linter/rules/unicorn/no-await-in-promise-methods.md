@@ -17,6 +17,7 @@ Disallow using `await` in `Promise` method parameters
 Using `await` on promises passed as arguments to `Promise.all()`, `Promise.allSettled()`, `Promise.any()`, or `Promise.race()` is likely a mistake.
 
 ### Example
+
 Bad
 
 ```js
@@ -34,4 +35,3 @@ Promise.allSettled([promise, anotherPromise]);
 Promise.any([promise, anotherPromise]);
 Promise.race([promise, anotherPromise]);
 ```
-

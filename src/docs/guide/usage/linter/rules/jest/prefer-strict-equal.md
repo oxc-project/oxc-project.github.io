@@ -16,10 +16,8 @@ This rule triggers a warning if `toEqual()` is used to assert equality.
 
 ```javascript
 // invalid
-expect({ a: 'a', b: undefined }).toEqual({ a: 'a' });
+expect({ a: "a", b: undefined }).toEqual({ a: "a" });
 
 // valid
-expect({ a: 'a', b: undefined }).toStrictEqual({ a: 'a' });
+expect({ a: "a", b: undefined }).toStrictEqual({ a: "a" });
 ```
-
-

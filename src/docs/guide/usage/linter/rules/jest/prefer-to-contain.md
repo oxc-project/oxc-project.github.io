@@ -29,5 +29,3 @@ expect(a.includes(b)).toBe(false);
 expect(a.includes(b)).toEqual(true);
 expect(a.includes(b)).toStrictEqual(true);
 ```
-
-

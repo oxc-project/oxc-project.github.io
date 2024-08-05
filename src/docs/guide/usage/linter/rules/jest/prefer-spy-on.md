@@ -29,7 +29,6 @@ Date.now = jest.fn();
 Date.now = jest.fn(() => 10);
 
 // valid
-jest.spyOn(Date, 'now');
-jest.spyOn(Date, 'now').mockImplementation(() => 10);
+jest.spyOn(Date, "now");
+jest.spyOn(Date, "now").mockImplementation(() => 10);
 ```
-

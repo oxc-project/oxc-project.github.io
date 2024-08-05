@@ -13,33 +13,41 @@
 This rule prevents using string literals in ref attributes.
 
 ### Example
+
 ```javascript
 // Bad
 var Hello = createReactClass({
-  render: function() {
+  render: function () {
     return <div ref="hello">Hello, world.</div>;
-  }
+  },
 });
 
 var Hello = createReactClass({
-  componentDidMount: function() {
+  componentDidMount: function () {
     var component = this.refs.hello;
     // ...do something with component
   },
-  render: function() {
+  render: function () {
     return <div ref="hello">Hello, world.</div>;
-  }
+  },
 });
 
 // Good
 var Hello = createReactClass({
-  componentDidMount: function() {
+  componentDidMount: function () {
     var component = this.hello;
     // ...do something with component
   },
   render() {
-    return <div ref={(c) => { this.hello = c; }}>Hello, world.</div>;
-  }
+    return (
+      <div
+        ref={(c) => {
+          this.hello = c;
+        }}
+      >
+        Hello, world.
+      </div>
+    );
+  },
 });
 ```
-

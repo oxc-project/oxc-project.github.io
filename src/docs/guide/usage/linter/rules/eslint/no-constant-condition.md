@@ -20,7 +20,6 @@ A constant expression (for example, a literal) as a test condition might be a ty
 
 ```javascript
 if (false) {
-   doSomethingUnfinished();
+  doSomethingUnfinished();
 }
 ```
-

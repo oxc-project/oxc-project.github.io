@@ -14,7 +14,7 @@ Require symbol descriptions.
 The Symbol function may have an optional description.
 
 ### Example
+
 ```javascript
 var foo = Symbol();
 ```
-

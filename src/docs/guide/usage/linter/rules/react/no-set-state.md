@@ -17,21 +17,21 @@ especially helpful in read-only applications (that don't use forms), since local
 state should rarely be necessary in such cases.
 
 ### Example
+
 ```javascript
 var Hello = createReactClass({
-  getInitialState: function() {
+  getInitialState: function () {
     return {
-      name: this.props.name
+      name: this.props.name,
     };
   },
-  handleClick: function() {
+  handleClick: function () {
     this.setState({
-      name: this.props.name.toUpperCase()
+      name: this.props.name.toUpperCase(),
     });
   },
-  render: function() {
+  render: function () {
     return <div onClick={this.handleClick.bind(this)}>Hello {this.state.name}</div>;
-  }
+  },
 });
 ```
-

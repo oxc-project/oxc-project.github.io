@@ -6,12 +6,15 @@
 </div>
 
 ### What it does
+
 Requires that each `@property` tag has a type value (within curly brackets).
 
 ### Why is this bad?
+
 The type of a property should be documented.
 
 ### Example
+
 ```javascript
 // Passing
 /**
@@ -25,4 +28,3 @@ The type of a property should be documented.
  * @property foo
  */
 ```
-

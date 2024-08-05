@@ -16,11 +16,13 @@ All built-ins have `.includes()` in addition to `.indexOf()`.
 The `.includes()` method is more readable and less error-prone than `.indexOf()`.
 
 ### Example
+
 ```javascript
 // bad
-if (str.indexOf('foo') !== -1) { }
+if (str.indexOf("foo") !== -1) {
+}
 
 // good
-if (str.includes('foo')) { }
+if (str.includes("foo")) {
+}
 ```
-

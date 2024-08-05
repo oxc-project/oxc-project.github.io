@@ -9,13 +9,16 @@
 </div>
 
 ### What it does
+
 This rule applies when an array method is called on the arguments object itself.
 
 ### Why is this bad?
+
 The arguments object is not an array, but an array-like object. It should be converted to a real array before calling an array method.
 Otherwise, a TypeError exception will be thrown because of the non-existent method.
 
 ### Example
+
 ```javascript
 function add(x, y) {
   return x + y;
@@ -24,4 +27,3 @@ function sum() {
   return arguments.reduce(add, 0);
 }
 ```
-

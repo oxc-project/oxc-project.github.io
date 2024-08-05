@@ -14,11 +14,11 @@ Use [`.dataset`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/da
 The `dataset` property is a map of strings that contains all the `data-*` attributes from the element. It is a convenient way to access all of them at once.
 
 ### Example
+
 ```javascript
 // Bad
-element.setAttribute('data-unicorn', '🦄');
+element.setAttribute("data-unicorn", "🦄");
 
 // Good
-element.dataset.unicorn = '🦄';
+element.dataset.unicorn = "🦄";
 ```
-

@@ -19,6 +19,7 @@ Navigating through iframe and iframe elements quickly becomes difficult and conf
 This rule checks for title property on iframe element.
 
 ### Example
+
 ```javascript
 // Bad
 <iframe />
@@ -35,4 +36,3 @@ This rule checks for title property on iframe element.
 <iframe title="This is a unique title" />
 <iframe title={uniqueTitle} />
 ```
-

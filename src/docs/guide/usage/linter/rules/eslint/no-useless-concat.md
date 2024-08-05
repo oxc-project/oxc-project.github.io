@@ -14,7 +14,7 @@ Disallow unnecessary concatenation of literals or template literals
 It’s unnecessary to concatenate two strings together.
 
 ### Example
+
 ```javascript
 var foo = "a" + "b";
 ```
-

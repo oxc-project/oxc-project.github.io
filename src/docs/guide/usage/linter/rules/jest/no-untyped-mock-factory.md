@@ -24,50 +24,49 @@ needed in test mocks when the source module changes.
 ### Example
 
 // invalid
+
 ```typescript
-jest.mock('../moduleName', () => {
-    return jest.fn(() => 42);
+jest.mock("../moduleName", () => {
+  return jest.fn(() => 42);
 });
 
-jest.mock('./module', () => ({
-    ...jest.requireActual('./module'),
-    foo: jest.fn(),
+jest.mock("./module", () => ({
+  ...jest.requireActual("./module"),
+  foo: jest.fn(),
 }));
 
-jest.mock('random-num', () => {
-    return jest.fn(() => 42);
+jest.mock("random-num", () => {
+  return jest.fn(() => 42);
 });
 ```
 
 // valid
-```typescript
 
+```typescript
 // Uses typeof import()
-jest.mock<typeof import('../moduleName')>('../moduleName', () => {
-    return jest.fn(() => 42);
+jest.mock<typeof import("../moduleName")>("../moduleName", () => {
+  return jest.fn(() => 42);
 });
 
-jest.mock<typeof import('./module')>('./module', () => ({
-    ...jest.requireActual('./module'),
-    foo: jest.fn(),
+jest.mock<typeof import("./module")>("./module", () => ({
+  ...jest.requireActual("./module"),
+  foo: jest.fn(),
 }));
 
 // Uses custom type
-jest.mock<() => number>('random-num', () => {
-    return jest.fn(() => 42);
+jest.mock<() => number>("random-num", () => {
+  return jest.fn(() => 42);
 });
 
 // No factory
-jest.mock('random-num');
+jest.mock("random-num");
 
 // Virtual mock
 jest.mock(
-    '../moduleName',
-    () => {
-        return jest.fn(() => 42);
-    },
-    { virtual: true },
+  "../moduleName",
+  () => {
+    return jest.fn(() => 42);
+  },
+  { virtual: true },
 );
 ```
-
-

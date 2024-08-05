@@ -17,9 +17,9 @@ This rule generates warnings for generator functions that do not have the yield 
 Probably a mistake.
 
 ### Example
+
 ```javascript
 function* foo() {
   return 10;
 }
 ```
-

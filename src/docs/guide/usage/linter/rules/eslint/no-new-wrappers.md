@@ -16,7 +16,7 @@ The second problem comes with boolean objects. Every object is truthy, that mean
 https://eslint.org/docs/latest/rules/no-new-wrappers
 
 ### Example
-```javascript
-var stringObject = new String('Hello world');
-```
 
+```javascript
+var stringObject = new String("Hello world");
+```

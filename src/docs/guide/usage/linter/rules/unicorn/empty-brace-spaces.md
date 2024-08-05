@@ -9,15 +9,16 @@
 </div>
 
 ### What it does
+
 Removes the extra spaces or new line characters inside a pair of braces that does not contain additional code.
 
 ### Why is this bad?
+
 There should be no spaces inside a pair of braces as it affects the overall readability of the code.
 
 ### Example
-```javascript
-const a = {  };
-class A {
-}
-```
 
+```javascript
+const a = {};
+class A {}
+```

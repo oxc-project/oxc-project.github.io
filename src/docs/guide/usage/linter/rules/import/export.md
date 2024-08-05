@@ -6,12 +6,13 @@
 </div>
 
 ### What it does
+
 Reports funny business with exports, like repeated exports of names or defaults.
 
 ### Example
+
 ```javascript
 let foo;
 export { foo }; // Multiple exports of name 'foo'.
-export * from "./export-all" // export-all.js also export foo
+export * from "./export-all"; // export-all.js also export foo
 ```
-

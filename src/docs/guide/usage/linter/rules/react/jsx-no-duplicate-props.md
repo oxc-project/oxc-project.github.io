@@ -18,6 +18,7 @@ Having duplicate props in a JSX element is most likely a mistake.
 Creating JSX elements with duplicate props can cause unexpected behavior in your application.
 
 ### Example
+
 ```javascript
 // Bad
 <App a a />;
@@ -26,6 +27,4 @@ Creating JSX elements with duplicate props can cause unexpected behavior in your
 // Good
 <App a />;
 <App bar baz foo={3} />;
-
 ```
-

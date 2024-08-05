@@ -6,6 +6,7 @@
 </div>
 
 ### What it does
+
 This rule flags any expression that is either at the toplevel of a test file or
 directly within the body of a `describe`, _except_ for the following:
 
@@ -17,95 +18,94 @@ directly within the body of a `describe`, _except_ for the following:
 - Calls to the standard Jest globals
 
 ### Example
+
 ```javascript
 // invalid
-import { database, isCity } from '../database';
-import { Logger } from '../../../src/Logger';
-import { loadCities } from '../api';
+import { database, isCity } from "../database";
+import { Logger } from "../../../src/Logger";
+import { loadCities } from "../api";
 
-jest.mock('../api');
+jest.mock("../api");
 
 const initializeCityDatabase = () => {
-    database.addCity('Vienna');
-    database.addCity('San Juan');
-    database.addCity('Wellington');
+  database.addCity("Vienna");
+  database.addCity("San Juan");
+  database.addCity("Wellington");
 };
 
 const clearCityDatabase = () => {
-    database.clear();
+  database.clear();
 };
 
 initializeCityDatabase();
 
-test('that persists cities', () => {
-    expect(database.cities.length).toHaveLength(3);
+test("that persists cities", () => {
+  expect(database.cities.length).toHaveLength(3);
 });
-test('city database has Vienna', () => {
-    expect(isCity('Vienna')).toBeTruthy();
-});
-
-test('city database has San Juan', () => {
-    expect(isCity('San Juan')).toBeTruthy();
+test("city database has Vienna", () => {
+  expect(isCity("Vienna")).toBeTruthy();
 });
 
-describe('when loading cities from the api', () => {
-    let consoleWarnSpy = jest.spyOn(console, 'warn');
-    loadCities.mockResolvedValue(['Wellington', 'London']);
+test("city database has San Juan", () => {
+  expect(isCity("San Juan")).toBeTruthy();
+});
 
-    it('does not duplicate cities', async () => {
-        await database.loadCities();
-        expect(database.cities).toHaveLength(4);
-    });
+describe("when loading cities from the api", () => {
+  let consoleWarnSpy = jest.spyOn(console, "warn");
+  loadCities.mockResolvedValue(["Wellington", "London"]);
+
+  it("does not duplicate cities", async () => {
+    await database.loadCities();
+    expect(database.cities).toHaveLength(4);
+  });
 });
 clearCityDatabase();
 
 // valid
-import { database, isCity } from '../database';
-import { Logger } from '../../../src/Logger';
-import { loadCities } from '../api';
+import { database, isCity } from "../database";
+import { Logger } from "../../../src/Logger";
+import { loadCities } from "../api";
 
-jest.mock('../api');
+jest.mock("../api");
 const initializeCityDatabase = () => {
-    database.addCity('Vienna');
-    database.addCity('San Juan');
-    database.addCity('Wellington');
+  database.addCity("Vienna");
+  database.addCity("San Juan");
+  database.addCity("Wellington");
 };
 
 const clearCityDatabase = () => {
-    database.clear();
+  database.clear();
 };
 
 beforeEach(() => {
-    initializeCityDatabase();
+  initializeCityDatabase();
 });
 
-test('that persists cities', () => {
-    expect(database.cities.length).toHaveLength(3);
+test("that persists cities", () => {
+  expect(database.cities.length).toHaveLength(3);
 });
 
-test('city database has Vienna', () => {
-    expect(isCity('Vienna')).toBeTruthy();
+test("city database has Vienna", () => {
+  expect(isCity("Vienna")).toBeTruthy();
 });
 
-test('city database has San Juan', () => {
-    expect(isCity('San Juan')).toBeTruthy();
+test("city database has San Juan", () => {
+  expect(isCity("San Juan")).toBeTruthy();
 });
 
-describe('when loading cities from the api', () => {
-    let consoleWarnSpy;
-    beforeEach(() => {
-        consoleWarnSpy = jest.spyOn(console, 'warn');
-        loadCities.mockResolvedValue(['Wellington', 'London']);
-    });
+describe("when loading cities from the api", () => {
+  let consoleWarnSpy;
+  beforeEach(() => {
+    consoleWarnSpy = jest.spyOn(console, "warn");
+    loadCities.mockResolvedValue(["Wellington", "London"]);
+  });
 
-    it('does not duplicate cities', async () => {
-        await database.loadCities();
-        expect(database.cities).toHaveLength(4);
-    });
+  it("does not duplicate cities", async () => {
+    await database.loadCities();
+    expect(database.cities).toHaveLength(4);
+  });
 });
 afterEach(() => {
-    clearCityDatabase();
+  clearCityDatabase();
 });
 ```
-
-

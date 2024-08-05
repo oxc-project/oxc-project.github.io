@@ -9,14 +9,16 @@
 </div>
 
 ### What it does
+
 Disallow certain triple slash directives in favor of ES6-style import declarations.
 
 ### Why is this bad?
+
 Use of triple-slash reference type directives is generally discouraged in favor of ECMAScript Module imports.
 
 ### Example
+
 ```javascript
 /// <reference lib="code" />
 globalThis.value;
 ```
-

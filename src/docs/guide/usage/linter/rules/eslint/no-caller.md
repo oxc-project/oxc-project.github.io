@@ -18,17 +18,17 @@ The use of arguments.caller and arguments.callee make several code optimizations
 They have been deprecated in future versions of JavaScript and their use is forbidden in ECMAScript 5 while in strict mode.
 
 ### Example
+
 ```javascript
 function foo(n) {
-    if (n <= 0) {
-        return;
-    }
+  if (n <= 0) {
+    return;
+  }
 
-    arguments.callee(n - 1);
+  arguments.callee(n - 1);
 }
 
-[1,2,3,4,5].map(function(n) {
-   return !(n > 1) ? 1 : arguments.callee(n - 1) * n;
+[1, 2, 3, 4, 5].map(function (n) {
+  return !(n > 1) ? 1 : arguments.callee(n - 1) * n;
 });
 ```
-

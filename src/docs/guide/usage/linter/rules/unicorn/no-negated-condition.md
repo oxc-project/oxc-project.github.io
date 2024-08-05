@@ -14,25 +14,25 @@ Disallow negated conditions.
 Negated conditions are more difficult to understand. Code can be made more readable by inverting the condition.
 
 ### Example
+
 ```javascript
 // Bad
 
 if (!a) {
-	doSomethingC();
+  doSomethingC();
 } else {
-	doSomethingB();
+  doSomethingB();
 }
 
-!a ? doSomethingC() : doSomethingB()
+!a ? doSomethingC() : doSomethingB();
 
 // Good
 
 if (a) {
-	doSomethingB();
+  doSomethingB();
 } else {
-	doSomethingC();
+  doSomethingC();
 }
 
-a ? doSomethingB() : doSomethingC()
+a ? doSomethingB() : doSomethingC();
 ```
-

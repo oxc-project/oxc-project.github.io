@@ -13,13 +13,13 @@
 This rule reports on any usage of Jasmine globals, which is not ported to Jest, and suggests alternatives from Jest's own API.
 
 ### Example
+
 ```javascript
 jasmine.DEFAULT_TIMEOUT_INTERVAL = 5000;
-test('my test', () => {
-    pending();
+test("my test", () => {
+  pending();
 });
-test('my test', () => {
-    jasmine.createSpy();
+test("my test", () => {
+  jasmine.createSpy();
 });
 ```
-

@@ -10,6 +10,7 @@
 Prevent Arrays that are local to the current method from being used as values of JSX props
 
 ### Example
+
 ```javascript
 // Bad
 <Item list={[]} />
@@ -21,4 +22,3 @@ Prevent Arrays that are local to the current method from being used as values of
 // Good
 <Item list={this.props.list} />
 ```
-

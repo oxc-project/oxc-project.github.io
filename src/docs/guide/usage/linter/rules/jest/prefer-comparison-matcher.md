@@ -12,6 +12,7 @@
 
 This rule checks for comparisons in tests that could be replaced with one of the
 following built-in comparison matchers:
+
 - `toBeGreaterThan`
 - `toBeGreaterThanOrEqual`
 - `toBeLessThan`
@@ -32,7 +33,5 @@ expect(x).toBeGreaterThan(5);
 expect(x).not.toBeLessThanOrEqual(7);
 expect(x).toBeLessThanOrEqual(y);
 // special case - see below
-expect(x < 'Carl').toBe(true);
+expect(x < "Carl").toBe(true);
 ```
-
-

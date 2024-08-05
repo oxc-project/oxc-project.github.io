@@ -20,6 +20,7 @@ These redundant clauses can be a source of confusion and code bloat,
 so it’s better to disallow these unnecessary catch clauses.
 
 ### Example
+
 ```javascript
 try {
   doSomethingThatMightThrow();
@@ -27,4 +28,3 @@ try {
   throw e;
 }
 ```
-

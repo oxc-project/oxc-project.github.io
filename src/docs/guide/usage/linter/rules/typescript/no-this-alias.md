@@ -20,5 +20,7 @@ When no extends is provided, type parameters default a constraint to unknown. It
 the rule doesn't allow const {allowedName} = this
 this is to keep 1:1 with eslint implementation
 sampe with obj.<allowedName> = this
+
 ```
 
+```

@@ -15,11 +15,11 @@ create-react-class module or the new ES6 class system.
 This rule enforces a consistent React class style.
 
 ### Example
+
 ```javascript
 var Hello = createReactClass({
-  render: function() {
+  render: function () {
     return <div>Hello {this.props.name}</div>;
-  }
+  },
 });
 ```
-

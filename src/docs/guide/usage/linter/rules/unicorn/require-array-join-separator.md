@@ -15,11 +15,11 @@ It's better to make it clear what the separator is when calling Array#join(),
 instead of relying on the default comma (',') separator.
 
 ### Example
+
 ```javascript
 // Bad
-foo.join()
+foo.join();
 
 // Good
-foo.join(",")
+foo.join(",");
 ```
-

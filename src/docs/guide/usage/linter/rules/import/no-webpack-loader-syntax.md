@@ -15,11 +15,11 @@ This loader syntax is non-standard, so it couples the code to Webpack. The recom
 specify Webpack loader configuration is in a [Webpack configuration file](https://webpack.js.org/concepts/loaders/#configuration).
 
 ### Example
+
 ```javascript
-import myModule from 'my-loader!my-module';
-import theme from 'style!css!./theme.css';
+import myModule from "my-loader!my-module";
+import theme from "style!css!./theme.css";
 
-var myModule = require('my-loader!./my-module');
-var theme = require('style!css!./theme.css');
+var myModule = require("my-loader!./my-module");
+var theme = require("style!css!./theme.css");
 ```
-

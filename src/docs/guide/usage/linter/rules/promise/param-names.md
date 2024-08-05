@@ -17,8 +17,8 @@ RevealingConstructor pattern. Using the same parameter names as the language spe
 makes code more uniform and easier to understand.
 
 ### Example
+
 ```javascript
 new Promise(function (reject, resolve) { ... }) // incorrect order
 new Promise(function (ok, fail) { ... }) // non-standard parameter names
 ```
-

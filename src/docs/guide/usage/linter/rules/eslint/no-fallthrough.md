@@ -8,5 +8,3 @@
 ### What it does
 
 Disallow fallthrough of `case` statements
-
-

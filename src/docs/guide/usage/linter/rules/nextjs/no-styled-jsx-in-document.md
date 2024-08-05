@@ -7,13 +7,14 @@
 
 ### What it does
 
-Prevent usage of styled-jsx in pages/_document.js.
+Prevent usage of styled-jsx in pages/\_document.js.
 
 ### Why is this bad?
 
 Custom CSS like styled-jsx is not allowed in a [Custom Document](https://nextjs.org/docs/pages/building-your-application/routing/custom-document).
 
 ### Example
-```javascript
-```
 
+```javascript
+
+```

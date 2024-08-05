@@ -22,11 +22,11 @@ let z = { x, ...y };
 {
   "rules": {
     "no-rest-spread-properties": [
-        "error",
-        {
-            "objectSpreadMessage": "Object spread properties are not allowed.",
-            "objectRestMessage": "Object rest properties are not allowed."
-        }
+      "error",
+      {
+        "objectSpreadMessage": "Object spread properties are not allowed.",
+        "objectRestMessage": "Object rest properties are not allowed."
+      }
     ]
   }
 }
@@ -34,5 +34,3 @@ let z = { x, ...y };
 
 - `objectSpreadMessage`: A message to display when object spread properties are found.
 - `objectRestMessage`: A message to display when object rest properties are found.
-
-

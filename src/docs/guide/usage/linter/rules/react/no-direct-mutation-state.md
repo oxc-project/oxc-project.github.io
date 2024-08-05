@@ -9,12 +9,15 @@
 </div>
 
 ### What it does
+
 The restriction coder cannot directly change the value of this.state
 
 ### Why is this bad?
+
 calling setState() afterwards may replace the mutation you made
 
 ### Example
+
 ```javascript
  // error
  var Hello = createReactClass({
@@ -58,4 +61,3 @@ calling setState() afterwards may replace the mutation you made
    }
  }
 ```
-

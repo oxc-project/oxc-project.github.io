@@ -6,12 +6,13 @@
 </div>
 
 ### What it does
+
 Prevent usage of `<head>` element.
 
 ### Why is this bad?
 
-
 ### Example
-```javascript
-```
 
+```javascript
+
+```

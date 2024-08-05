@@ -14,11 +14,12 @@ Disallow `if` statements as the only statement in `if` blocks without `else`.
 It can be confusing to have an `if` statement without an `else` clause as the only statement in an `if` block.
 
 ### Example
+
 ```javascript
 // Bad
 if (foo) {
-        if (bar) {
-    }
+  if (bar) {
+  }
 }
 if (foo) if (bar) baz();
 
@@ -27,4 +28,3 @@ if (foo && bar) {
 }
 if (foo && bar) baz();
 ```
-

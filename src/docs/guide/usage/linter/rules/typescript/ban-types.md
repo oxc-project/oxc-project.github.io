@@ -14,9 +14,9 @@ This rule bans specific types and can suggest alternatives. Note that it does no
 Some built-in types have aliases, while some types are considered dangerous or harmful. It's often a good idea to ban certain types to help with consistency and safety.
 
 ### Example
+
 ```typescript
-let foo: String = 'foo';
+let foo: String = "foo";
 
 let bar: Boolean = true;
 ```
-

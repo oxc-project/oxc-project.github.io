@@ -10,12 +10,14 @@
 Require that function overload signatures be consecutive.
 
 ### Why is this bad?
+
 Function overload signatures represent multiple ways
 a function can be called, potentially with different return types.
 It's typical for an interface or type alias describing a function to place all overload signatures next to each other.
 If Signatures placed elsewhere in the type are easier to be missed by future developers reading the code.
 
 ### Example
+
 ```typescript
 declare namespace Foo {
   export function foo(s: string): void;
@@ -50,4 +52,3 @@ export function foo(n: number): void;
 export function bar(): void;
 export function foo(sn: string | number): void;
 ```
-

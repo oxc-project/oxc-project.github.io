@@ -30,7 +30,6 @@ The following patterns are considered problems:
 
 ```javascript
 function onClick() {
-   console.log(event);    // Unexpected global variable 'event'. Use local parameter instead.
+  console.log(event); // Unexpected global variable 'event'. Use local parameter instead.
 }
 ```
-

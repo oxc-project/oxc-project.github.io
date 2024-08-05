@@ -15,16 +15,17 @@ Disallow the use of the `null` literal, to encourage using `undefined` instead.
 ### Why is this bad?
 
 There are some reasons for using `undefined` instead of `null`.
+
 - From experience, most developers use `null` and `undefined` inconsistently and interchangeably, and few know when to use which.
 - Supporting both `null` and `undefined` complicates input validation.
 - Using `null` makes TypeScript types more verbose: `type A = {foo?: string | null}` vs `type A = {foo?: string}`.
 
 ### Example
+
 ```javascript
 // Bad
 let foo = null;
 
 // Good
-let foo
+let foo;
 ```
-

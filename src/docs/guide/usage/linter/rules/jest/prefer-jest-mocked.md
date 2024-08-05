@@ -16,7 +16,6 @@ enforces the use of `jest.mocked()` for better type safety and readability.
 
 Restricted types:
 
-
 - `jest.Mock`
 - `jest.MockedFunction`
 - `jest.MockedClass`
@@ -38,4 +37,3 @@ const mock = jest.mocked(foo).mockReturnValue(1);
 jest.mocked(Obj.foo).mockReturnValue(1);
 jest.mocked([].foo).mockReturnValue(1);
 ```
-

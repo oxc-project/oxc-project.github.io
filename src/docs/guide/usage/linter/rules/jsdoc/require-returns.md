@@ -6,25 +6,33 @@
 </div>
 
 ### What it does
+
 Requires that return statements are documented.
 Will also report if multiple `@returns` tags are present.
 
 ### Why is this bad?
+
 The rule is intended to prevent the omission of `@returns` tag when necessary.
 
 ### Example
+
 ```javascript
 // Passing
 /** @returns Foo. */
-function quux () { return foo; }
+function quux() {
+  return foo;
+}
 
 // Failing
 /** Foo. */
-function quux () { return foo; }
+function quux() {
+  return foo;
+}
 /**
  * @returns Foo!
  * @returns Foo?
  */
-function quux () { return foo; }
+function quux() {
+  return foo;
+}
 ```
-

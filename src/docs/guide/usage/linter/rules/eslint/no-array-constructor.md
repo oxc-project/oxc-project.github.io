@@ -6,6 +6,7 @@
 </div>
 
 ### What it does
+
 Disallow array constructor
 
 ### Why is this bad?
@@ -14,7 +15,7 @@ Use of the Array constructor to construct a new array is generally discouraged i
 The exception is when the Array constructor is used to intentionally create sparse arrays of a specified size by giving the constructor a single numeric argument.
 
 ### Example
+
 ```javascript
 let arr = new Array();
 ```
-

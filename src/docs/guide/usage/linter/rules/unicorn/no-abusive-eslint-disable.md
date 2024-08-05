@@ -6,12 +6,15 @@
 </div>
 
 ### What it does
+
 This rule disallows `eslint-disable` comments that do not specify any rules to disable.
 
 ### Why is this bad?
+
 When only one rule should be disabled but the `eslint-disable` comment does not specify any rules, other useful errors will also be silently ignored.
 
 ### Example
+
 ```javascript
 // Fail
 /* eslint-disable */
@@ -31,4 +34,3 @@ console.log(message); // eslint-disable-line no-console
 // eslint-disable-next-line no-console
 console.log(message);
 ```
-

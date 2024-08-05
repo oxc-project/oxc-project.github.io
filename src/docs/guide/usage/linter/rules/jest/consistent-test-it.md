@@ -20,58 +20,60 @@ the `test` keywords, with multiple permutations for each:
 
 ```javascript
 /*eslint jest/consistent-test-it: ["error", {"fn": "test"}]*/
-test('foo'); // valid
-test.only('foo'); // valid
+test("foo"); // valid
+test.only("foo"); // valid
 
-it('foo'); // invalid
-it.only('foo'); // invalid
+it("foo"); // invalid
+it.only("foo"); // invalid
 ```
 
 ```javascript
 /*eslint jest/consistent-test-it: ["error", {"fn": "it"}]*/
-it('foo'); // valid
-it.only('foo'); // valid
-test('foo'); // invalid
-test.only('foo'); // invalid
+it("foo"); // valid
+it.only("foo"); // valid
+test("foo"); // invalid
+test.only("foo"); // invalid
 ```
 
 ```javascript
 /*eslint jest/consistent-test-it: ["error", {"fn": "it", "withinDescribe": "test"}]*/
-it('foo'); // valid
-describe('foo', function () {
-    test('bar'); // valid
+it("foo"); // valid
+describe("foo", function () {
+  test("bar"); // valid
 });
 
-test('foo'); // invalid
-describe('foo', function () {
-    it('bar'); // invalid
+test("foo"); // invalid
+describe("foo", function () {
+  it("bar"); // invalid
 });
 ```
 
 #### Options
 
 This rule can be configured as follows
+
 ```json5
 {
-    type: 'object',
-    properties: {
-        fn: {
-            enum: ['it', 'test'],
-        },
-        withinDescribe: {
-            enum: ['it', 'test'],
-        },
+  type: "object",
+  properties: {
+    fn: {
+      enum: ["it", "test"],
     },
-    additionalProperties: false,
+    withinDescribe: {
+      enum: ["it", "test"],
+    },
+  },
+  additionalProperties: false,
 }
 ```
 
 ##### fn
+
 Decides whether to use `test` or `it`.
 
 ##### withinDescribe
-Decides whether to use `test` or `it` within a `describe` scope.
 
+Decides whether to use `test` or `it` within a `describe` scope.
 
 This rule is compatible with [eslint-plugin-vitest](https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/consistent-test-it.md),
 to use it, add the following configuration to your `.eslintrc.json`:
@@ -79,7 +81,7 @@ to use it, add the following configuration to your `.eslintrc.json`:
 ```json
 {
   "rules": {
-     "vitest/consistent-test-it": "error"
+    "vitest/consistent-test-it": "error"
   }
 }
-
+```

@@ -18,5 +18,3 @@ Certain reserved DOM elements do not support ARIA roles, states and properties. 
 // Bad
 <meta charset="UTF-8" aria-hidden="false" />
 ```
-
-

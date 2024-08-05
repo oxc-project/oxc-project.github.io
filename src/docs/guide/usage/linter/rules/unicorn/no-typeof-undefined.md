@@ -13,13 +13,12 @@ Disallow `typeof` comparisons with `undefined`.
 
 Checking if a value is `undefined` by using `typeof value === 'undefined'` is needlessly verbose. It's generally better to compare against `undefined` directly. The only time `typeof` is needed is when a global variable potentially does not exists, in which case, using `globalThis.value === undefined` may be better.
 
-
 ### Example
+
 ```javascript
 // bad
-typeof foo === 'undefined';
+typeof foo === "undefined";
 
 // good
 foo === undefined;
 ```
-

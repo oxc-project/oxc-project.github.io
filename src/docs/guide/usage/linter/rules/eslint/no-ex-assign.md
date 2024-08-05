@@ -9,9 +9,11 @@
 </div>
 
 ### What it does
+
 Disallow reassigning exceptions in catch clauses
 
 ### Why is this bad?
+
 If a catch clause in a try statement accidentally
 (or purposely) assigns another value to the exception parameter,
 it is impossible to refer to the error from that point on.
@@ -19,6 +21,7 @@ Since there is no arguments object to offer alternative access to this data,
 assignment of the parameter is absolutely destructive.
 
 ### Example
-```javascript
-```
 
+```javascript
+
+```

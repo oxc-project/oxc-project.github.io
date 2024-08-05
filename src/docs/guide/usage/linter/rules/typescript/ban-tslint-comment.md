@@ -9,15 +9,17 @@
 </div>
 
 ### What it does
+
 This rule disallows `tslint:<rule-flag>` comments
 
 ### Why is this bad?
+
 Useful when migrating from TSLint to ESLint. Once TSLint has been
 removed, this rule helps locate TSLint annotations
 
 ### Example
+
 ```javascript
 // tslint:disable-next-line
 someCode();
 ```
-

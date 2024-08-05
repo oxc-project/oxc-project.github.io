@@ -6,10 +6,12 @@
 </div>
 
 ### What it does
+
 This rule enforces onChange or readonly attribute for checked property of input elements.
 It also warns when checked and defaultChecked properties are used together.
 
 ### Example
+
 ```javascript
 // Bad
 <input type="checkbox" checked />
@@ -31,4 +33,3 @@ React.createElement('input', { type: 'checkbox', checked: true, readOnly: true }
 React.createElement('input', { type: 'checkbox', checked: true, onChange() {}, readOnly: true });
 React.createElement('input', { type: 'checkbox', defaultChecked: true });
 ```
-

@@ -9,14 +9,16 @@
 </div>
 
 ### What it does
+
 Disallow undeclared variables in JSX
 
 ### Why is this bad?
+
 It is most likely a potential ReferenceError caused by a misspelling of a variable or parameter name.
 
 ### Example
-```jsx
-const A = () => <App />
-const C = <B />
-```
 
+```jsx
+const A = () => <App />;
+const C = <B />;
+```

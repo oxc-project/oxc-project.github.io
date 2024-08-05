@@ -27,6 +27,7 @@ Ensure that the `alt` attribute is present and contains meaningful
 text that describes the element's content or purpose.
 
 ### Example
+
 ```javascript
 // Bad
 <img src="flower.jpg">
@@ -34,4 +35,3 @@ text that describes the element's content or purpose.
 // Good
 <img src="flower.jpg" alt="A close-up of a white daisy">
 ```
-

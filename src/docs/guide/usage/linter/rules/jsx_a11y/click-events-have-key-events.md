@@ -15,6 +15,7 @@ Coding for the keyboard is important for users with physical disabilities who ca
 This does not apply for interactive or hidden elements.
 
 ### Example
+
 ```jsx
 // Good
 <div onClick={() => void 0} onKeyDown={() => void 0} />
@@ -22,4 +23,3 @@ This does not apply for interactive or hidden elements.
 // Bad
 <div onClick={() => void 0} />
 ```
-

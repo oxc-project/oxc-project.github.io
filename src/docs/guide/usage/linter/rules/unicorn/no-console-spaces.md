@@ -17,13 +17,11 @@ Disallows leading/trailing space inside `console.log()` and similar methods.
 The `console.log()` method and similar methods join the parameters with a space so adding a leading/trailing space to a parameter, results in two spaces being added.
 
 ### Example
-```javascript
 
+```javascript
 // Bad
 console.log("abc ", "def");
 
 // Good
 console.log("abc", "def");
-
 ```
-

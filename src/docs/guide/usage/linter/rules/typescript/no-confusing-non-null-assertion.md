@@ -6,15 +6,17 @@
 </div>
 
 ### What it does
+
 Disallow non-null assertion in locations that may be confusing.
 
 ### Why is this bad?
+
 Using a non-null assertion (!) next to an assign or equals check (= or == or ===) creates code that is confusing as it looks similar to a not equals check (!= !==).
 
 ### Example
+
 ```javascript
    a! == b; // a non-null assertions(`!`) and an equals test(`==`)
    a !== b; // not equals test(`!==`)
    a! === b; // a non-null assertions(`!`) and an triple equals test(`===`)
 ```
-

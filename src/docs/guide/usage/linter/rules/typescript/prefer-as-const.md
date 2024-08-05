@@ -12,8 +12,11 @@
 </div>
 
 ### What it does
+
 Enforce the use of as const over literal type.
+
 ### Why is this bad?
+
 There are two common ways to tell TypeScript that a literal value should be interpreted as its literal type (e.g. 2) rather than general primitive type (e.g. number);
 
 as const: telling TypeScript to infer the literal type automatically
@@ -23,8 +26,8 @@ as const is generally preferred, as it doesn't require re-typing the literal val
 This rule reports when an as with an explicit literal type can be replaced with an as const.
 
 ### Example
+
 ```javascript
 let bar: 2 = 2;
 let foo = { bar: 'baz' as 'baz' };
 ```
-

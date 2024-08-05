@@ -17,11 +17,11 @@ This rule warns when the `replaceAll` method is called with a regular expression
 The `replaceAll` method replaces all occurrences of a string with another string. If the global flag (g) is not used in the regular expression, only the first occurrence of the string will be replaced.
 
 ### Example
+
 ```javascript
 // Bad: The global flag (g) is missing in the regular expression.
-withSpaces.replaceAll(/\s+/, ',');
+withSpaces.replaceAll(/\s+/, ",");
 
 // Good: The global flag (g) is used in the regular expression.
-withSpaces.replaceAll(/\s+/g, ',');
+withSpaces.replaceAll(/\s+/g, ",");
 ```
-

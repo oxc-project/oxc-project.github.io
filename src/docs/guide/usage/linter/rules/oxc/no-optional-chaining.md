@@ -33,5 +33,3 @@ obj.fn?.();
 ```
 
 - `message`: A custom help message to display when optional chaining is found.
-
-

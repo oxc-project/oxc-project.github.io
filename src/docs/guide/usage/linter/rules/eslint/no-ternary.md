@@ -6,13 +6,15 @@
 </div>
 
 ### What it does
+
 Disallow ternary operators
 
 ### Why is this bad?
+
 The ternary operator is used to conditionally assign a value to a variable. Some believe that the use of ternary operators leads to unclear code.
 
 ### Example
+
 ```javascript
 var foo = isBar ? baz : qux;
 ```
-

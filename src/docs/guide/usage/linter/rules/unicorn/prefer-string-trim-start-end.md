@@ -17,6 +17,7 @@
 The `trimLeft` and `trimRight` names are confusing and inconsistent with the rest of the language.
 
 ### Example
+
 ```javascript
 // Bad
 str.trimLeft();
@@ -26,4 +27,3 @@ str.trimRight();
 str.trimStart();
 str.trimEnd();
 ```
-

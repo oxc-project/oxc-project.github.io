@@ -14,21 +14,20 @@ The default threshold is 100;
 
 References:
 
-* <https://github.com/thepassle/eslint-plugin-barrel-files>
-* <https://marvinh.dev/blog/speeding-up-javascript-ecosystem-part-7>
+- <https://github.com/thepassle/eslint-plugin-barrel-files>
+- <https://marvinh.dev/blog/speeding-up-javascript-ecosystem-part-7>
 
 ### Example
 
 Invalid:
 
 ```javascript
-export * from 'foo'; // where `foo` loads a subtree of 100 modules
-import * as ns from 'foo'; // where `foo` loads a subtree of 100 modules
+export * from "foo"; // where `foo` loads a subtree of 100 modules
+import * as ns from "foo"; // where `foo` loads a subtree of 100 modules
 ```
 
 Valid:
 
 ```javascript
-export { foo } from 'foo';
+export { foo } from "foo";
 ```
-

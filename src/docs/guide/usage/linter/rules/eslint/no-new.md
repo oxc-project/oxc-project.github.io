@@ -15,7 +15,7 @@ Calling new without assigning or comparing it the reference is thrown away and i
 cases the constructor can be replaced with a function.
 
 ### Example
+
 ```javascript
 new Person();
 ```
-

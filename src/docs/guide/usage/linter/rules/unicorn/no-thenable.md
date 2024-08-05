@@ -9,22 +9,23 @@
 </div>
 
 ### What it does
+
 disallow `then` property
 
 ### Why is this bad?
+
 If an object is defined as "thenable", once it's accidentally
 used in an await expression, it may cause problems:
 
-
 ### Example
+
 ```javascript
 const foo = {
-    unicorn: 1,
-    then() {},
+  unicorn: 1,
+  then() {},
 };
 
-const {unicorn} = await foo;
+const { unicorn } = await foo;
 
-console.log('after'); //<- This will never execute
+console.log("after"); //<- This will never execute
 ```
-

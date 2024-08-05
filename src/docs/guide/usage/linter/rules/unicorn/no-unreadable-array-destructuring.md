@@ -15,11 +15,11 @@ Destructuring is very useful, but it can also make some code harder to read.
 This rule prevents ignoring consecutive values when destructuring from an array.
 
 ### Example
+
 ```javascript
 // Bad
-const [,, foo] = parts;
+const [, , foo] = parts;
 
 // Good
 const [foo] = parts;
 ```
-

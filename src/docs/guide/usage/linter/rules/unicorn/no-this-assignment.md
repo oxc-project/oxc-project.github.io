@@ -14,27 +14,27 @@ Disallow assigning `this` to a variable.
 Assigning `this` to a variable is unnecessary and confusing.
 
 ### Example
+
 ```javascript
 // fail
 const foo = this;
 class Bar {
-	method() {
-		foo.baz();
-	}
+  method() {
+    foo.baz();
+  }
 }
 
 new Bar().method();
 
 // pass
 class Bar {
-	constructor(fooInstance) {
-		this.fooInstance = fooInstance;
-	}
-	method() {
-		this.fooInstance.baz();
-	}
+  constructor(fooInstance) {
+    this.fooInstance = fooInstance;
+  }
+  method() {
+    this.fooInstance.baz();
+  }
 }
 
 new Bar(this).method();
 ```
-

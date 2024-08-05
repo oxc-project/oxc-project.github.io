@@ -9,15 +9,17 @@
 </div>
 
 ### What it does
+
 Disallow reassigning const variables
 
 ### Why is this bad?
+
 We cannot modify variables that are declared using const keyword.
 It will raise a runtime error.
 
 ### Example
+
 ```javascript
 const a = 0;
 a = 1;
 ```
-

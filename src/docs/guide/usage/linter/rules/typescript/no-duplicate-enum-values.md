@@ -6,13 +6,15 @@
 </div>
 
 ### What it does
+
 Disallow duplicate enum member values.
 
 ### Why is this bad?
+
 Although TypeScript supports duplicate enum member values, people usually expect members to have unique values within the same enum. Duplicate values can lead to bugs that are hard to track down.
 
 ### Example
+
 ```javascript
 enum E {
 ```
-

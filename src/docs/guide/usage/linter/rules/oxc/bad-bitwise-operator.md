@@ -6,25 +6,28 @@
 </div>
 
 ### What it does
+
 This rule applies when bitwise operators are used where logical operators are expected.
 
 ### Why is this bad?
+
 Bitwise operators have different results from logical operators and a `TypeError` exception may be thrown because short-circuit evaluation is not applied.
 (In short-circuit evaluation, right operand evaluation is skipped according to left operand value, e.g. `x` is `false` in `x && y`.)
 
 It is obvious that logical operators are expected in the following code patterns:
+
 ```javascript
-e && e.x
-e || {}
-e || ''
+e && e.x;
+e || {};
+e || "";
 ```
 
 ### Example
+
 ```javascript
 if (obj & obj.prop) {
- console.log(obj.prop);
+  console.log(obj.prop);
 }
 options = options | {};
-input |= '';
+input |= "";
 ```
-

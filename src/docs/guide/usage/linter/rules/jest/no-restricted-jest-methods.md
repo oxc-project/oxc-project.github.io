@@ -10,9 +10,10 @@
 Restrict the use of specific `jest` methods.
 
 ### Example
+
 ```javascript
 jest.useFakeTimers();
-it('calls the callback after 1 second via advanceTimersByTime', () => {
+it("calls the callback after 1 second via advanceTimersByTime", () => {
   // ...
 
   jest.advanceTimersByTime(1000);
@@ -20,10 +21,9 @@ it('calls the callback after 1 second via advanceTimersByTime', () => {
   // ...
 });
 
-test('plays video', () => {
-  const spy = jest.spyOn(video, 'play');
+test("plays video", () => {
+  const spy = jest.spyOn(video, "play");
 
   // ...
 });
-
-
+```

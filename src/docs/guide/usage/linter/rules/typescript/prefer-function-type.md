@@ -9,6 +9,7 @@
 </div>
 
 ### What it does
+
 Enforce using function types instead of interfaces with call signatures.
 TypeScript allows for two common ways to declare a type for a function:
 
@@ -20,6 +21,7 @@ The function type form is generally preferred when possible for being more succi
 This rule suggests using a function type instead of an interface or object type literal with a single call signature.
 
 ### Example
+
 ```javascript
 // error
 interface Example {
@@ -63,4 +65,3 @@ interface Overloaded {
 // this is equivalent to Overloaded interface.
 type Intersection = ((data: string) => number) & ((id: number) => string);
 ```
-

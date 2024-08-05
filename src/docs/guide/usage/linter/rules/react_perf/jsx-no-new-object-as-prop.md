@@ -20,4 +20,3 @@ Prevent Objects that are local to the current method from being used as values o
 // Good
 <Item config={staticConfig} />
 ```
-

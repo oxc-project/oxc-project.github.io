@@ -14,7 +14,7 @@ Disallow creating new promises outside of utility libs.
 If you dislike the new promise style promises.
 
 ### Example
+
 ```javascript
 new Promise((resolve, reject) => { ... });
 ```
-

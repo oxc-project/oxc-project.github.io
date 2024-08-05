@@ -6,12 +6,15 @@
 </div>
 
 ### What it does
+
 Requires that all `@property` tags have names.
 
 ### Why is this bad?
+
 The name of a property type should be documented.
 
 ### Example
+
 ```javascript
 // Passing
 /**
@@ -25,4 +28,3 @@ The name of a property type should be documented.
  * @property {number}
  */
 ```
-

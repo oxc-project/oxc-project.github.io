@@ -14,10 +14,12 @@ Checks for usage of legacy patterns for mathematical operations.
 Modern JavaScript provides more concise and readable alternatives to legacy patterns.
 
 Currently, the following cases are checked:
- - Prefer `Math.log10(x)` over alternatives
- - Prefer `Math.hypot(…)` over alternatives
+
+- Prefer `Math.log10(x)` over alternatives
+- Prefer `Math.hypot(…)` over alternatives
 
 ### Example
+
 ```javascript
 // Bad
 Math.log(x) * Math.LOG10E;
@@ -27,4 +29,3 @@ Math.sqrt(a * a + b * b);
 Math.log10(x);
 Math.hypot(a, b);
 ```
-

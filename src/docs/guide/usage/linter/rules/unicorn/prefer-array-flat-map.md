@@ -14,9 +14,9 @@ Prefers the use of `.flatMap()` when `map().flat()` are used together.
 It is slightly more efficient to use `.flatMap(…)` instead of `.map(…).flat()`.
 
 ### Example
+
 ```javascript
-const bar = [1,2,3].map(i => [i]).flat(); // ✗ fail
+const bar = [1, 2, 3].map((i) => [i]).flat(); // ✗ fail
 
-const bar = [1,2,3].flatMap(i => [i]); // ✓ pass
+const bar = [1, 2, 3].flatMap((i) => [i]); // ✓ pass
 ```
-

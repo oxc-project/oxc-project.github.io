@@ -14,11 +14,11 @@ Disallow using `length` as the end argument of a `slice` call.
 Passing `length` as the end argument of a `slice` call is unnecessary and can be confusing.
 
 ### Example
+
 ```javascript
 // Bad
-foo.slice(1, foo.length)
+foo.slice(1, foo.length);
 
 // Good
-foo.slice(1)
+foo.slice(1);
 ```
-

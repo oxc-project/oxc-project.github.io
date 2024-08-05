@@ -18,17 +18,17 @@ If a switch statement has duplicate test expressions in case clauses,
 it is likely that a programmer copied a case clause but forgot to change the test expression.
 
 ### Example
+
 ```javascript
 var a = 1;
 switch (a) {
-    case 1:
-        break;
-    case 1:
-        break;
-    case 2:
-        break;
-    default:
-        break;
+  case 1:
+    break;
+  case 1:
+    break;
+  case 2:
+    break;
+  default:
+    break;
 }
 ```
-

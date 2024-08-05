@@ -13,21 +13,20 @@ Enforces `'utf8'` for UTF-8 encoding
 Enforces `'ascii'` for ASCII encoding.
 
 ### Example
+
 ```javascript
 // Fail
-await fs.readFile(file, 'UTF-8');
+await fs.readFile(file, "UTF-8");
 
-await fs.readFile(file, 'ASCII');
+await fs.readFile(file, "ASCII");
 
-const string = buffer.toString('utf-8');
+const string = buffer.toString("utf-8");
 
 // pass
 
-await fs.readFile(file, 'utf8');
+await fs.readFile(file, "utf8");
 
-await fs.readFile(file, 'ascii');
+await fs.readFile(file, "ascii");
 
-const string = buffer.toString('utf8');
-
+const string = buffer.toString("utf8");
 ```
-

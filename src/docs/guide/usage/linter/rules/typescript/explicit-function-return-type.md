@@ -6,13 +6,16 @@
 </div>
 
 ### What it does
+
 This rule enforces that functions do have an explicit return type annotation.
 
 ### Why is this bad?
+
 Explicit return types do make it visually more clear what type is returned by a function.
 They can also speed up TypeScript type checking performance in large codebases with many large functions.
 
 ### Example
-```javascript
-```
 
+```javascript
+
+```

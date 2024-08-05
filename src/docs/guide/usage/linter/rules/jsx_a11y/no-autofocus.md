@@ -9,9 +9,11 @@
 </div>
 
 ### What it does
+
 Enforce that autoFocus prop is not used on elements. Autofocusing elements can cause usability issues for sighted and non-sighted users, alike.
 
 ### Rule Option
+
 This rule takes one optional object argument of type object:
 
 ```
@@ -27,6 +29,7 @@ This rule takes one optional object argument of type object:
 For the `ignoreNonDOM` option, this determines if developer created components are checked.
 
 ### Example
+
 // good
 
 ```javascript
@@ -41,5 +44,3 @@ For the `ignoreNonDOM` option, this determines if developer created components a
 <div autoFocus="false" />
 <div autoFocus={undefined} />
 ```
-
-

@@ -13,7 +13,7 @@
 Enforce a consistent boolean attribute style in your code.
 
 ### Example
+
 ```javascript
 const Hello = <Hello personal={true} />;
 ```
-

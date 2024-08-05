@@ -6,14 +6,17 @@
 </div>
 
 ### What it does
+
 Checks if `<audio>` and `<video>` elements have a `<track>` element for captions.
 This ensures media content is accessible to all users, including those with hearing impairments.
 
 ### Why is this bad?
+
 Without captions, audio and video content is not accessible to users who are deaf or hard of hearing.
 Captions are also useful for users in noisy environments or where audio is not available.
 
 ### Example
+
 ```jsx
 // Good
 <audio><track kind="captions" src="caption_file.vtt" /></audio>
@@ -23,4 +26,3 @@ Captions are also useful for users in noisy environments or where audio is not a
 <audio></audio>
 <video></video>
 ```
-

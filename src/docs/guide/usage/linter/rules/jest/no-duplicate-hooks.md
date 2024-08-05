@@ -10,69 +10,67 @@
 A `describe` block should not contain duplicate hooks.
 
 ### Example
-```javascript
 
+```javascript
 // invalid
-describe('foo', () => {
-    beforeEach(() => {
-        // some setup
-    });
-    beforeEach(() => {
-        // some setup
-    });
-    test('foo_test', () => {
-        // some test
-    });
+describe("foo", () => {
+  beforeEach(() => {
+    // some setup
+  });
+  beforeEach(() => {
+    // some setup
+  });
+  test("foo_test", () => {
+    // some test
+  });
 });
 
 // Nested describe scenario
-describe('foo', () => {
-    beforeEach(() => {
-        // some setup
+describe("foo", () => {
+  beforeEach(() => {
+    // some setup
+  });
+  test("foo_test", () => {
+    // some test
+  });
+  describe("bar", () => {
+    test("bar_test", () => {
+      afterAll(() => {
+        // some teardown
+      });
+      afterAll(() => {
+        // some teardown
+      });
     });
-    test('foo_test', () => {
-        // some test
-    });
-    describe('bar', () => {
-        test('bar_test', () => {
-            afterAll(() => {
-                // some teardown
-            });
-            afterAll(() => {
-                // some teardown
-            });
-        });
-    });
+  });
 });
 ```
 
 ```javascript
-
 // valid
-describe('foo', () => {
-    beforeEach(() => {
-        // some setup
-    });
-    test('foo_test', () => {
-        // some test
-    });
+describe("foo", () => {
+  beforeEach(() => {
+    // some setup
+  });
+  test("foo_test", () => {
+    // some test
+  });
 });
 
 // Nested describe scenario
-describe('foo', () => {
-    beforeEach(() => {
+describe("foo", () => {
+  beforeEach(() => {
+    // some setup
+  });
+  test("foo_test", () => {
+    // some test
+  });
+  describe("bar", () => {
+    test("bar_test", () => {
+      beforeEach(() => {
         // some setup
+      });
     });
-    test('foo_test', () => {
-        // some test
-    });
-    describe('bar', () => {
-        test('bar_test', () => {
-            beforeEach(() => {
-                // some setup
-            });
-        });
-    });
+  });
 });
 ```
-

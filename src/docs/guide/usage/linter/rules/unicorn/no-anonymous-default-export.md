@@ -6,12 +6,15 @@
 </div>
 
 ### What it does
+
 Disallow anonymous functions and classes as the default export
 
 ### Why is this bad?
+
 Naming default exports improves codebase searchability by ensuring consistent identifier use for a module's default export, both where it's declared and where it's imported.
 
 ### Example
+
 ```javascript
 // Bad
 export default class {}
@@ -34,4 +37,3 @@ module.exports = function foo () {};
 const foo = () => {};
 module.exports = foo;
 ```
-

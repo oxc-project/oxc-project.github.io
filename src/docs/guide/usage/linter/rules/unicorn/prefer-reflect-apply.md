@@ -7,7 +7,6 @@
 
 ### What it does
 
-
 ### Why is this bad?
 
 Reflect.apply() is arguably less verbose and easier to understand.
@@ -15,6 +14,7 @@ In addition, when you accept arbitrary methods,
 it's not safe to assume .apply() exists or is not overridden.
 
 ### Example
+
 ```javascript
 // Bad
 foo.apply(null, [42]);
@@ -22,4 +22,3 @@ foo.apply(null, [42]);
 // Good
 Reflect.apply(foo, null);
 ```
-

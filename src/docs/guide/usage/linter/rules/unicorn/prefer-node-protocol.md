@@ -9,14 +9,14 @@
 </div>
 
 ### What it does
+
 Prefer using the `node:protocol` when importing Node.js builtin modules
 
-
 ### Example
+
 ```javascript
 // Bad
 import fs from "fs";
 // Good
 import fs from "node:fs";
 ```
-

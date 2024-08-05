@@ -17,10 +17,10 @@ Disallow duplicate keys in object literals
 Multiple properties with the same key in object literals can cause unexpected behavior in your application.
 
 ### Example
+
 ```javascript
 var foo = {
-    bar: "baz",
-    bar: "qux"
-}
+  bar: "baz",
+  bar: "qux",
+};
 ```
-

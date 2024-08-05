@@ -9,19 +9,23 @@
 </div>
 
 ### What it does
+
 Disallow duplicate class members
 
 ### Why is this bad?
+
 If there are declarations of the same name in class members,
 the last declaration overwrites other declarations silently. It can cause unexpected behaviors.
 
 ### Example
+
 ```javascript
 class A {
-  foo() { console.log("foo") }
+  foo() {
+    console.log("foo");
+  }
   foo = 123;
 }
 let a = new A();
-a.foo() // Uncaught TypeError: a.foo is not a function
+a.foo(); // Uncaught TypeError: a.foo is not a function
 ```
-

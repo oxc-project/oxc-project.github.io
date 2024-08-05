@@ -15,17 +15,15 @@ Forbid a module to have a default exports. This help your editor to provide bett
 // bad1.js
 
 // There is a default export.
-export const foo = 'foo';
-const bar = 'bar';
-export default 'bar';
+export const foo = "foo";
+const bar = "bar";
+export default "bar";
 ```
 
 ```javascript
 // bad2.js
 
 // There is a default export.
-const foo = 'foo';
-export { foo as default }
+const foo = "foo";
+export { foo as default };
 ```
-
-

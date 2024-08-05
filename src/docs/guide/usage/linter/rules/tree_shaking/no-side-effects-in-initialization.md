@@ -71,7 +71,6 @@ x();
 `@__PURE__` is also supported:
 
 ```js
-import {x} from "./some-file";
+import { x } from "./some-file";
 /*@__PURE__*/ x();
 ```
-

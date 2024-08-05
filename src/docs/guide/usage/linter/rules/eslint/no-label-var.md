@@ -15,13 +15,12 @@ This rule aims to create clearer code by disallowing the bad practice of creatin
 that shares a name with a variable that is in scope.
 
 ### Example
+
 ```javascript
 var x = foo;
 function bar() {
-x:
-  for (;;) {
+  x: for (;;) {
     break x;
   }
 }
 ```
-

@@ -17,12 +17,11 @@ Enforces the use of [the spread operator (`...`)](https://developer.mozilla.org/
 Using the spread operator is more concise and readable.
 
 ### Example
+
 ```javascript
 // bad
 const foo = Array.from(set);
 const foo = Array.from(new Set([1, 2]));
 
 // good
-
 ```
-

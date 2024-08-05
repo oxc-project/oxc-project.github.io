@@ -9,14 +9,16 @@
 </div>
 
 ### What it does
+
 Require consistently using either `T[]` or `Array<T>` for arrays.
 
 ### Why is this bad?
+
 Using the `Array` type directly is not idiomatic. Instead, use the array type `T[]` or `Array<T>`.
 
 ### Example
+
 ```typescript
 const arr: Array<number> = new Array<number>();
 const arr: number[] = new Array<number>();
 ```
-

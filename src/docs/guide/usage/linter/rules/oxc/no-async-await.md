@@ -10,10 +10,10 @@
 Disallows the use of async/await.
 
 ### Example
+
 ```javascript
 async function foo() {
-   await bar();
-   return baz();
+  await bar();
+  return baz();
 }
 ```
-

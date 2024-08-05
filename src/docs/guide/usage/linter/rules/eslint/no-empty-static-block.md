@@ -9,19 +9,18 @@
 </div>
 
 ### What it does
+
 Disallows the usages of empty static blocks
 
 ### Why is this bad?
+
 Empty block statements, while not technically errors, usually occur due to refactoring that wasn’t completed.
 They can cause confusion when reading code.
 
 ### Example
+
 ```javascript
-
 class Foo {
-    static {
-    }
+  static {}
 }
-
 ```
-

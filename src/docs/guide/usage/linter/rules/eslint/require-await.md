@@ -6,15 +6,15 @@
 </div>
 
 ### What it does
+
 Disallow async functions which have no await expression.
 
 ### Why is this bad?
 
-
 ### Example
+
 ```javascript
 async function foo() {
   doSomething();
 }
 ```
-

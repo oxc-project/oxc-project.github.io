@@ -6,13 +6,16 @@
 </div>
 
 ### What it does
+
 Reports an issue with any non-constructor function using `@implements`.
 
 ### Why is this bad?
+
 Constructor functions should be
 whether marked with `@class`, `@constructs`, or being an ES6 class constructor.
 
 ### Example
+
 ```javascript
 // Passing
 class Foo {
@@ -25,12 +28,11 @@ class Foo {
  * @implements {SomeClass}
  * @class
  */
-function quux () {}
+function quux() {}
 
 // Failing
 /**
  * @implements {SomeClass}
  */
-function quux () {}
+function quux() {}
 ```
-

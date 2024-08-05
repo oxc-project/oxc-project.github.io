@@ -21,7 +21,7 @@ single byte. Since UTF-8 is the dominant encoding of the web, we make "never" th
 option.
 
 ### Example
+
 ```javascript
 ﻿var a = 123;"
 ```
-

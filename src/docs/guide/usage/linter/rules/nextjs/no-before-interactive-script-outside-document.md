@@ -6,12 +6,13 @@
 </div>
 
 ### What it does
+
 Prevent usage of `next/script`'s `beforeInteractive` strategy outside of `pages/_document.js`.
 
 ### Why is this bad?
 
-
 ### Example
-```javascript
-```
 
+```javascript
+
+```

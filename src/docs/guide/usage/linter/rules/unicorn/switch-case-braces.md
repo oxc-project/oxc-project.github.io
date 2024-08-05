@@ -9,20 +9,21 @@
 </div>
 
 ### What it does
+
 Require empty switch cases to not have braces. Non-empty braces are required to have braces around them.
 
 ### Why is this bad?
+
 There is less visual clutter for empty cases and proper scope for non-empty cases.
 
 ### Example
+
 ```javascript
 switch (num) {
-    case 1: {
-
-    }
-    case 2:
-        console.log('Case 2');
-        break;
+  case 1: {
+  }
+  case 2:
+    console.log("Case 2");
+    break;
 }
 ```
-

@@ -6,13 +6,16 @@
 </div>
 
 ### What it does
+
 ECMAScript 6 allows programmers to create variables with block scope instead of function scope using the `let` and `const` keywords.
 Block scope is common in many other programming languages and helps programmers avoid mistakes
 
 ### Why is this bad?
+
 Using `var` in an es6 environment triggers this error
 
 ### Example
+
 ```javascript
 // error
 var x = "y";
@@ -22,4 +25,3 @@ var CONFIG = {};
 let x = "y";
 const CONFIG = {};
 ```
-

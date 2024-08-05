@@ -13,8 +13,8 @@ Prefers use of `Date.now()` over `new Date().getTime()` or `new Date().valueOf()
 
 Using `Date.now()` is shorter and nicer than `new Date().getTime()`, and avoids unnecessary instantiation of `Date` objects.
 
-
 ### Example
+
 ```javascript
 // bad
 const ts = new Date().getTime();
@@ -23,4 +23,3 @@ const ts = new Date().valueOf();
 // good
 const ts = Date.now();
 ```
-

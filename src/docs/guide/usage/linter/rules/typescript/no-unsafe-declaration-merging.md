@@ -18,8 +18,8 @@ Declaration merging between classes and interfaces is unsafe.
 The TypeScript compiler doesn't check whether properties are initialized, which can cause lead to TypeScript not detecting code that will cause runtime errors.
 
 ### Example
+
 ```javascript
 interface Foo {}
 class Foo {}
 ```
-

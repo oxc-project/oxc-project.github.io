@@ -14,8 +14,8 @@ Disallow the use of undeclared variables.
 It is most likely a potential ReferenceError caused by a misspelling of a variable or parameter name.
 
 ### Example
+
 ```javascript
 var foo = someFunction();
 var bar = a + 1;
 ```
-

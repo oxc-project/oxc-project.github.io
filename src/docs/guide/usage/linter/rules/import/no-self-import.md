@@ -13,7 +13,6 @@ Forbid a module from importing itself. This can sometimes happen during refactor
 
 ```javascript
 // foo.js
-import foo from './foo.js'
-const foo = require('./foo')
+import foo from "./foo.js";
+const foo = require("./foo");
 ```
-

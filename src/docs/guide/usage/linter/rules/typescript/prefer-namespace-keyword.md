@@ -9,15 +9,17 @@
 </div>
 
 ### What it does
+
 This rule reports when the module keyword is used instead of namespace.
 This rule does not report on the use of TypeScript module declarations to describe external APIs (declare module 'foo' {}).
 
 ### Why is this bad?
+
 Namespaces are an outdated way to organize TypeScript code. ES2015 module syntax is now preferred (import/export).
 For projects still using custom modules / namespaces, it's preferred to refer to them as namespaces.
 
 ### Example
+
 ```typescript
 module Example {}
 ```
-

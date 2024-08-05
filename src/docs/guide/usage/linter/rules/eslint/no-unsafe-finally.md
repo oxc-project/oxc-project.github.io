@@ -18,18 +18,18 @@ JavaScript suspends the control flow statements of try and catch blocks until th
 So, when return, throw, break, or continue is used in finally, control flow statements inside try and catch are overwritten, which is considered as unexpected behavior.
 
 ### Example
+
 ```javascript
 // We expect this function to return 1;
 (() => {
-    try {
-        return 1; // 1 is returned but suspended until finally block ends
-    } catch(err) {
-        return 2;
-    } finally {
-        return 3; // 3 is returned before 1, which we did not expect
-    }
+  try {
+    return 1; // 1 is returned but suspended until finally block ends
+  } catch (err) {
+    return 2;
+  } finally {
+    return 3; // 3 is returned before 1, which we did not expect
+  }
 })();
 
 // > 3
 ```
-

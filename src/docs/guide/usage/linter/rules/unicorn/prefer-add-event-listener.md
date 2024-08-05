@@ -16,11 +16,11 @@ For example, `foo.addEventListener('click', handler);` is preferred over `foo.on
 There are [numerous advantages of using `addEventListener`](https://stackoverflow.com/questions/6348494/addeventlistener-vs-onclick/35093997#35093997). Some of these advantages include registering unlimited event handlers and optionally having the event handler invoked only once.
 
 ### Example
+
 ```javascript
 // bad
 foo.onclick = () => {};
 
 // good
-foo.addEventListener('click', () => {});
+foo.addEventListener("click", () => {});
 ```
-

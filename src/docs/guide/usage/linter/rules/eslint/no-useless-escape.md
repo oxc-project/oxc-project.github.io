@@ -17,8 +17,8 @@ Disallow unnecessary escape characters
 
 ### Why is this bad?
 
-
 ### Example
-```javascript
-```
 
+```javascript
+
+```

@@ -6,15 +6,17 @@
 </div>
 
 ### What it does
+
 Prevent duplicate polyfills from Polyfill.io.
 
 ### Why is this bad?
+
 You are using polyfills from Polyfill.io and including polyfills already shipped with Next.js. This unnecessarily increases page weight which can affect loading performance.
 
 ### Example
+
 ```javascript
 <script src='https://polyfill.io/v3/polyfill.min.js?features=Array.prototype.copyWithin'></script>
 
 <script src='https://polyfill.io/v3/polyfill.min.js?features=WeakSet%2CPromise%2CPromise.prototype.finally%2Ces2015%2Ces5%2Ces6'></script>
 ```
-

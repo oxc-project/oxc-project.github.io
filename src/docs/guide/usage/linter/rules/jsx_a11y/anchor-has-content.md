@@ -14,7 +14,6 @@ Alternatively, you may use the `title` prop or the `aria-label` prop.
 
 ### Why is this bad?
 
-
 ### Example
 
 #### good
@@ -33,5 +32,3 @@ Alternatively, you may use the `title` prop or the `aria-label` prop.
 <a />
 <a><TextWrapper aria-hidden /></a>
 ```
-
-

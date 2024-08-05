@@ -19,14 +19,16 @@ Dependency cycles lead to confusing architectures where bugs become hard to find
 It is common to import an `undefined` value that is caused by a cyclic dependency.
 
 ### Example
+
 ```javascript
 // dep-b.js
-import './dep-a.js'
-export function b() { /* ... */ }
+import "./dep-a.js";
+export function b() {
+  /* ... */
+}
 ```
 
 ```javascript
 // dep-a.js
-import { b } from './dep-b.js' // reported: Dependency cycle detected.
+import { b } from "./dep-b.js"; // reported: Dependency cycle detected.
 ```
-

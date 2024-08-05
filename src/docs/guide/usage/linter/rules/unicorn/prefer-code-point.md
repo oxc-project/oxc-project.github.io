@@ -20,13 +20,13 @@ Unicode is better supported in [`String#codePointAt()`](https://developer.mozill
 [Difference between `String.fromCodePoint()` and `String.fromCharCode()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/fromCodePoint#compared_to_fromcharcode)
 
 ### Example
+
 ```javascript
 // bad
-'🦄'.charCodeAt(0);
+"🦄".charCodeAt(0);
 String.fromCharCode(0x1f984);
 
 // good
-'🦄'.codePointAt(0);
+"🦄".codePointAt(0);
 String.fromCodePoint(0x1f984);
 ```
-

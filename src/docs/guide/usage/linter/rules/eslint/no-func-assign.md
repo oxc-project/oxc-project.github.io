@@ -9,15 +9,16 @@
 </div>
 
 ### What it does
+
 Disallow reassigning `function` declarations
 
 ### Why is this bad?
+
 Overwriting/reassigning a function written as a FunctionDeclaration is often indicative of a mistake or issue.
 
 ### Example
-```javascript
 
+```javascript
 function foo() {}
 foo = bar;
 ```
-

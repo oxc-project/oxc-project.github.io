@@ -6,6 +6,7 @@
 </div>
 
 ### What it does
+
 As more assertions are made, there is a possible tendency for the test to be
 more likely to mix multiple objectives. To avoid this, this rule reports when
 the maximum number of assertions is exceeded.
@@ -18,22 +19,21 @@ The following patterns are considered warnings (with the default option of `{ "m
 ### Example
 
 ```javascript
-test('should not pass', () => {
-    expect(true).toBeDefined();
-    expect(true).toBeDefined();
-    expect(true).toBeDefined();
-    expect(true).toBeDefined();
-    expect(true).toBeDefined();
-    expect(true).toBeDefined();
+test("should not pass", () => {
+  expect(true).toBeDefined();
+  expect(true).toBeDefined();
+  expect(true).toBeDefined();
+  expect(true).toBeDefined();
+  expect(true).toBeDefined();
+  expect(true).toBeDefined();
 });
 
-it('should not pass', () => {
-    expect(true).toBeDefined();
-    expect(true).toBeDefined();
-    expect(true).toBeDefined();
-    expect(true).toBeDefined();
-    expect(true).toBeDefined();
-    expect(true).toBeDefined();
+it("should not pass", () => {
+  expect(true).toBeDefined();
+  expect(true).toBeDefined();
+  expect(true).toBeDefined();
+  expect(true).toBeDefined();
+  expect(true).toBeDefined();
+  expect(true).toBeDefined();
 });
 ```
-

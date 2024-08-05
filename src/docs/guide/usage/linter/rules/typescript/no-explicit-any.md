@@ -27,9 +27,9 @@ annotation.
 Examples of **incorrect** code for this rule:
 
 ```typescript
-const age: any = 'seventeen';
-const ages: any[] = ['seventeen']
-const ages: Array<any> = ['seventeen'];
+const age: any = "seventeen";
+const ages: any[] = ["seventeen"];
+const ages: Array<any> = ["seventeen"];
 function greet(): any {}
 function greet(): any[] {}
 function greet(): Array<any> {}
@@ -57,6 +57,7 @@ function greet(param: Array<string>): Array<string> {}
 This rule accepts the following options:
 
 ### `ignoreRestArgs`
+
 A boolean to specify if arrays from the rest operator are considered ok. `false` by
 default.
 
@@ -64,4 +65,3 @@ default.
 
 Whether to enable auto-fixing in which the `any` type is converted to the `unknown` type.
 `false` by default.
-

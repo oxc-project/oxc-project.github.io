@@ -6,6 +6,7 @@
 </div>
 
 ### What it does
+
 This rule raises a warning about disabled tests.
 
 ### Why is this bad?
@@ -18,22 +19,22 @@ running.
 ### Example
 
 ```js
-describe.skip('foo', () => {});
-it.skip('foo', () => {});
-test.skip('foo', () => {});
+describe.skip("foo", () => {});
+it.skip("foo", () => {});
+test.skip("foo", () => {});
 
-describe['skip']('bar', () => {});
-it['skip']('bar', () => {});
-test['skip']('bar', () => {});
+describe["skip"]("bar", () => {});
+it["skip"]("bar", () => {});
+test["skip"]("bar", () => {});
 
-xdescribe('foo', () => {});
-xit('foo', () => {});
-xtest('foo', () => {});
+xdescribe("foo", () => {});
+xit("foo", () => {});
+xtest("foo", () => {});
 
-it('bar');
-test('bar');
+it("bar");
+test("bar");
 
-it('foo', () => {
+it("foo", () => {
   pending();
 });
 ```
@@ -44,8 +45,7 @@ to use it, add the following configuration to your `.eslintrc.json`:
 ```json
 {
   "rules": {
-     "vitest/no-disabled-tests": "error"
+    "vitest/no-disabled-tests": "error"
   }
 }
 ```
-

@@ -19,25 +19,19 @@ These methods should be preferred when possible.
 ```javascript
 // invalid
 jest.fn().mockImplementation(() => Promise.resolve(123));
-jest
-  .spyOn(fs.promises, 'readFile')
-  .mockReturnValue(Promise.reject(new Error('oh noes!')));
+jest.spyOn(fs.promises, "readFile").mockReturnValue(Promise.reject(new Error("oh noes!")));
 
 myFunction
   .mockReturnValueOnce(Promise.resolve(42))
   .mockImplementationOnce(() => Promise.resolve(42))
-  .mockReturnValue(Promise.reject(new Error('too many calls!')));
+  .mockReturnValue(Promise.reject(new Error("too many calls!")));
 ```
 
 // valid
+
 ```javascript
 jest.fn().mockResolvedValue(123);
-jest.spyOn(fs.promises, 'readFile').mockRejectedValue(new Error('oh noes!'));
+jest.spyOn(fs.promises, "readFile").mockRejectedValue(new Error("oh noes!"));
 
-myFunction
-  .mockResolvedValueOnce(42)
-  .mockResolvedValueOnce(42)
-  .mockRejectedValue(new Error('too many calls!'));
+myFunction.mockResolvedValueOnce(42).mockResolvedValueOnce(42).mockRejectedValue(new Error("too many calls!"));
 ```
-
-

@@ -11,14 +11,16 @@
 ### What it does
 
 Checks for redundant comparisons between constants:
- - Checks for ineffective double comparisons against constants.
- - Checks for impossible comparisons against constants.
+
+- Checks for ineffective double comparisons against constants.
+- Checks for impossible comparisons against constants.
 
 ### Why is this bad?
 
 Only one of the comparisons has any effect on the result, the programmer probably intended to flip one of the comparison operators, or compare a different value entirely.
 
 ### Example
+
 ```javascript
 // Bad
 status_code <= 400 && status_code > 500;
@@ -30,4 +32,3 @@ status_code >= 400 && status_code < 500;
 500 <= status_code && 600 > status_code;
 500 <= status_code && status_code <= 600;
 ```
-

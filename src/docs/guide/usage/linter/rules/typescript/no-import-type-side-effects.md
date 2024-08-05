@@ -18,9 +18,11 @@ The `--verbatimModuleSyntax` compiler option causes TypeScript to do simple and 
 Namely, it completely removes import declarations with a top-level type qualifier, and it removes any import specifiers with an inline type qualifier.
 
 The latter behavior does have one potentially surprising effect in that in certain cases TS can leave behind a "side effect" import at runtime:
+
 ```javascript
 import { type A, type B } from 'mod';
 ```
+
 is transpiled to
 
 ```javascript
@@ -28,13 +30,14 @@ import {} from 'mod';
 which is the same as
 import 'mod';
 ```
+
 For the rare case of needing to import for side effects, this may be desirable - but for most cases you will not want to leave behind an unnecessary side effect import.
 
 ### Example
+
 ```javascript
 import { type A } from 'mod';
 import { type A as AA } from 'mod';
 import { type A, type B } from 'mod';
 import { type A as AA, type B as BB } from 'mod';
 ```
-

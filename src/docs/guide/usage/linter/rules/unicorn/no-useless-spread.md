@@ -15,10 +15,10 @@
 
 Disallows using spread syntax in following, unnecessary cases:
 
-  - Spread an array literal as elements of an array literal
-  - Spread an array literal as arguments of a call or a `new` call
-  - Spread an object literal as properties of an object literal
-  - Use spread syntax to clone an array created inline
+- Spread an array literal as elements of an array literal
+- Spread an array literal as arguments of a call or a `new` call
+- Spread an object literal as properties of an object literal
+- Use spread syntax to clone an array created inline
 
 ### Why is this bad?
 
@@ -39,43 +39,39 @@ Disallows using spread syntax in following, unnecessary cases:
 - `yield*` can delegate to another iterable, so it's unnecessary to convert the iterable to an array.
 
 ### Example
-```javascript
 
+```javascript
 const array = [firstElement, ...[secondElement], thirdElement];
-const object = {firstProperty, ...{secondProperty}, thirdProperty};
+const object = { firstProperty, ...{ secondProperty }, thirdProperty };
 foo(firstArgument, ...[secondArgument], thirdArgument);
 const object = new Foo(firstArgument, ...[secondArgument], thirdArgument);
 const set = new Set([...iterable]);
 const results = await Promise.all([...iterable]);
 for (const foo of [...set]);
-function * foo() {
-	yield * [...anotherGenerator()];
+function* foo() {
+  yield* [...anotherGenerator()];
 }
 function foo(bar) {
-	return [
-		...bar.map(x => x * 2),
-	];
+  return [...bar.map((x) => x * 2)];
 }
 
 // Pass
 
 const array = [firstElement, secondElement, thirdElement];
-const object = {firstProperty, secondProperty, thirdProperty};
+const object = { firstProperty, secondProperty, thirdProperty };
 foo(firstArgument, secondArgument, thirdArgument);
 const object = new Foo(firstArgument, secondArgument, thirdArgument);
 const array = [...foo, bar];
-const object = {...foo, bar};
+const object = { ...foo, bar };
 foo(foo, ...bar);
 const object = new Foo(...foo, bar);
 const set = new Set(iterable);
 const results = await Promise.all(iterable);
 for (const foo of set);
-function * foo() {
-	yield * anotherGenerator();
+function* foo() {
+  yield* anotherGenerator();
 }
 function foo(bar) {
-	return bar.map(x => x * 2);
+  return bar.map((x) => x * 2);
 }
-
 ```
-

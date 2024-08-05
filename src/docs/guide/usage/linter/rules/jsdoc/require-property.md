@@ -6,13 +6,16 @@
 </div>
 
 ### What it does
+
 Requires that all `@typedef` and `@namespace` tags have `@property` tags
 when their type is a plain `object`, `Object`, or `PlainObject`.
 
 ### Why is this bad?
+
 Object type should have properties defined.
 
 ### Example
+
 ```javascript
 // Passing
 /**
@@ -32,4 +35,3 @@ Object type should have properties defined.
  * @namespace {Object} SomeNamesoace
  */
 ```
-

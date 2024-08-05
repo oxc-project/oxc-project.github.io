@@ -7,12 +7,12 @@
 
 ### What it does
 
-This rule reports imports from a path containing a __mocks__ component.
+This rule reports imports from a path containing a **mocks** component.
 
 ### Example
+
 ```javascript
-import thing from './__mocks__/index';
-require('./__mocks__/index');
-require('__mocks__');
-
-
+import thing from "./__mocks__/index";
+require("./__mocks__/index");
+require("__mocks__");
+```

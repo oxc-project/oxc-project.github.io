@@ -9,10 +9,12 @@
 </div>
 
 ### What it does
+
 There are some HTML elements that are only self-closing (e.g. img, br, hr). These are collectively known as void DOM elements.
 This rule checks that children are not passed to void DOM elements.
 
 ### Example
+
 ```javascript
 // Bad
 <br>Children</br>
@@ -30,4 +32,3 @@ React.createElement('div', undefined, 'Children')
 React.createElement('div', { children: 'Children' })
 React.createElement('div', { dangerouslySetInnerHTML: { __html: 'HTML' } })
 ```
-

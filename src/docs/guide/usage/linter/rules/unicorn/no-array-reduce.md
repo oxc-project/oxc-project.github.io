@@ -16,6 +16,7 @@ Disallow `Array#reduce()` and `Array#reduceRight()`.
 It's only somewhat useful in the rare case of summing up numbers, which is allowed by default.
 
 ### Example
-```javascript
-```
 
+```javascript
+
+```

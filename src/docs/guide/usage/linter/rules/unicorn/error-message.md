@@ -10,15 +10,13 @@
 This rule enforces a `message` value to be passed in when creating an instance of a built-in `Error` object, which leads to more readable and debuggable code.
 
 ### Example
+
 ```javascript
 // Fail
-throw Error()
-throw new TypeError()
+throw Error();
+throw new TypeError();
 
 // Pass
-throw new Error('Unexpected token')
-throw new TypeError('Number expected')
-
-
+throw new Error("Unexpected token");
+throw new TypeError("Number expected");
 ```
-

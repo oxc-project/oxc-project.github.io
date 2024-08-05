@@ -15,10 +15,10 @@ When calling asynchronous code in hooks and tests, jest needs to know when the a
 Originally the most common pattern to achieve this was to use callbacks:
 
 ```javascript
-test('the data is peanut butter', done => {
+test("the data is peanut butter", (done) => {
   function callback(data) {
     try {
-      expect(data).toBe('peanut butter');
+      expect(data).toBe("peanut butter");
       done();
     } catch (error) {
       done(error);
@@ -32,17 +32,17 @@ test('the data is peanut butter', done => {
 This can be very error-prone however, as it requires careful understanding of how assertions work in tests or otherwise tests won't behave as expected.
 
 ### Example
+
 ```javascript
-beforeEach(done => {
+beforeEach((done) => {
   // ...
 });
 
-test('myFunction()', done => {
+test("myFunction()", (done) => {
   // ...
 });
 
-test('myFunction()', function (done) {
+test("myFunction()", function (done) {
   // ...
 });
 ```
-

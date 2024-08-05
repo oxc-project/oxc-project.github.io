@@ -6,17 +6,19 @@
 </div>
 
 ### What it does
-Prevent duplicate usage of <Head> in pages/_document.js.
+
+Prevent duplicate usage of <Head> in pages/\_document.js.
 
 ### Why is this bad?
+
 This can cause unexpected behavior in your application.
 
 ### Example
+
 ```javascript
-import Document, { Html, Head, Main, NextScript } from 'next/document'
+import Document, { Html, Head, Main, NextScript } from "next/document";
 class MyDocument extends Document {
-  static async getInitialProps(ctx) {
-  }
+  static async getInitialProps(ctx) {}
   render() {
     return (
       <Html>
@@ -26,9 +28,8 @@ class MyDocument extends Document {
           <NextScript />
         </body>
       </Html>
-   )
- }
+    );
+  }
 }
-export default MyDocument
+export default MyDocument;
 ```
-

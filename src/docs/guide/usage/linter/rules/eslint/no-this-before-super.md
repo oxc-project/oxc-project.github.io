@@ -9,20 +9,22 @@
 </div>
 
 ### What it does
+
 Requires calling `super()` before using `this` or `super`.
 
 ### Why is this bad?
+
 Getters should always return a value.
 If they don't, it's probably a mistake.
 
 ### Example
+
 ```javascript
 class A1 extends B {
-    constructor() {
-        // super() needs to be called first
-        this.a = 0;
-        super();
-    }
+  constructor() {
+    // super() needs to be called first
+    this.a = 0;
+    super();
+  }
 }
 ```
-

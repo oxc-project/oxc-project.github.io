@@ -17,13 +17,13 @@ This rule warns when the return value of the `charAt` method is used to compare 
 The `charAt` method returns a string of length 1. If the return value is compared with a string of length greater than 1, the comparison will always be false.
 
 ### Example
+
 ```javascript
 // Bad: The return value of the `charAt` method is compared with a string of length greater than 1.
-a.charAt(4) === 'a2';
-a.charAt(4) === '/n';
+a.charAt(4) === "a2";
+a.charAt(4) === "/n";
 
 // Good: The return value of the `charAt` method is compared with a string of length 1.
-a.charAt(4) === 'a'
-a.charAt(4) === '\n';
+a.charAt(4) === "a";
+a.charAt(4) === "\n";
 ```
-

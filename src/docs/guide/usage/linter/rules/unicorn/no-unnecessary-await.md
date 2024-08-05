@@ -12,13 +12,15 @@
 </div>
 
 ### What it does
+
 Disallow awaiting on non-promise values.
 
 ### Why is this bad?
+
 The `await` operator should only be used on `Promise` values.
 
 ### Example
+
 ```javascript
 await await promise;
 ```
-

@@ -6,14 +6,17 @@
 </div>
 
 ### What it does
+
 Disallow lexical declarations in case clauses.
 
 ### Why is this bad?
+
 The reason is that the lexical declaration is visible
 in the entire switch block but it only gets initialized when it is assigned,
 which will only happen if the case where it is defined is reached.
 
 ### Example
-```javascript
-```
 
+```javascript
+
+```

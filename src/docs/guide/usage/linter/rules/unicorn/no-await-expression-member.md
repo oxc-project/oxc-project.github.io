@@ -15,6 +15,7 @@ When accessing a member from an await expression,
 the await expression has to be parenthesized, which is not readable.
 
 ### Example
+
 ```javascript
 // Bad
 const secondElement = (await getArray())[1];
@@ -22,4 +23,3 @@ const secondElement = (await getArray())[1];
 // Good
 const [, secondElement] = await getArray();
 ```
-

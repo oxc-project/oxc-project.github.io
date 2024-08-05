@@ -14,6 +14,7 @@ Prefers the use of `child.remove()` over `parentNode.removeChild(child)`.
 The DOM function [`Node#remove()`](https://developer.mozilla.org/en-US/docs/Web/API/ChildNode/remove) is preferred over the indirect removal of an object with [`Node#removeChild()`](https://developer.mozilla.org/en-US/docs/Web/API/Node/removeChild).
 
 ### Example
+
 ```javascript
 // bad
 parentNode.removeChild(childNode);
@@ -21,4 +22,3 @@ parentNode.removeChild(childNode);
 // good
 childNode.remove();
 ```
-

@@ -8,5 +8,3 @@
 ### What it does
 
 Disallow unreachable code after `return`, `throw`, `continue`, and `break` statements
-
-

@@ -14,16 +14,15 @@ Require `new` when throwing an error.`
 While it's possible to create a new error without using the `new` keyword, it's better to be explicit.
 
 ### Example
+
 ```javascript
 // Fail
-throw Error('🦄');
-throw TypeError('unicorn');
-throw lib.TypeError('unicorn');
+throw Error("🦄");
+throw TypeError("unicorn");
+throw lib.TypeError("unicorn");
 
 // Pass
-throw new Error('🦄');
-throw new TypeError('unicorn');
-throw new lib.TypeError('unicorn');
-
+throw new Error("🦄");
+throw new TypeError("unicorn");
+throw new lib.TypeError("unicorn");
 ```
-

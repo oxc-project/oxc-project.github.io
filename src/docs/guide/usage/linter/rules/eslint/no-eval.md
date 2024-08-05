@@ -6,15 +6,17 @@
 </div>
 
 ### What it does
+
 Disallows referencing the 'eval' function.
 
 ### Why is this bad?
+
 Calling 'eval' is not supported in some secure contexts and can lead to
 vulnerabilities.
 
 ### Example
+
 ```javascript
-const someString = "console.log('pwned')"
+const someString = "console.log('pwned')";
 eval(someString);
 ```
-

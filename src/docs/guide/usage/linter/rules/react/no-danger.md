@@ -14,6 +14,7 @@ This rule prevents the use of `dangerouslySetInnerHTML` prop.
 `dangerouslySetInnerHTML` is a way to inject HTML into your React component. This is dangerous because it can easily lead to XSS vulnerabilities.
 
 ### Example
-```javascript
-```
 
+```javascript
+
+```

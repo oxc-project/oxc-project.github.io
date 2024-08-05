@@ -25,12 +25,10 @@ used to assert objects length property.
 expect.hasAssertions;
 expect.hasAssertions();
 expect(files).toHaveLength(1);
-expect(files.name).toBe('file');
+expect(files.name).toBe("file");
 
 // invalid
 expect(files["length"]).toBe(1);
-expect(files["length"]).toBe(1,);
-expect(files["length"])["not"].toBe(1)
+expect(files["length"]).toBe(1);
+expect(files["length"])["not"].toBe(1);
 ```
-
-

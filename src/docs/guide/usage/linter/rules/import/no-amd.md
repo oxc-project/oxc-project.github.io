@@ -13,9 +13,8 @@ Forbid AMD `require` and `define` calls.
 
 ```javascript
 // fail
-require([a, b], function() {} );
+require([a, b], function () {});
 // pass
-require('../name');
+require("../name");
 require(`../name`);
 ```
-

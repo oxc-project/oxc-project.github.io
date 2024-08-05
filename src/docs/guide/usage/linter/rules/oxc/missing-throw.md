@@ -13,8 +13,12 @@
 Checks whether the `throw` keyword is missing in front of a `new` expression.
 
 ### Example
-```javascript
-function foo() { throw Error() }
-const foo = () => { new Error() }
-```
 
+```javascript
+function foo() {
+  throw Error();
+}
+const foo = () => {
+  new Error();
+};
+```

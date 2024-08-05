@@ -19,10 +19,10 @@ the code and find necessary imports later.
 ### Why is this bad?
 
 ### Example
+
 ```javascript
-import {b, a, c} from 'foo.js'
+import { b, a, c } from "foo.js";
 
-import d from 'foo.js';
-import e from 'bar.js';
+import d from "foo.js";
+import e from "bar.js";
 ```
-

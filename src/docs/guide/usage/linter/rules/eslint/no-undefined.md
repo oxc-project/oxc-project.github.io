@@ -6,12 +6,13 @@
 </div>
 
 ### What it does
+
 Disallow the use of `undefined` as an identifier
 
 ### Why is this bad?
 
-
 ### Example of bad code
+
 ```javascript
 
 var foo = undefined;
@@ -31,6 +32,7 @@ bar(undefined, "lorem");
 ```
 
 ### Example of good code
+
 ```javascript
 var foo = void 0;
 
@@ -44,5 +46,3 @@ global.undefined = "foo";
 
 bar(void 0, "lorem");
 ```
-
-

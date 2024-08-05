@@ -15,16 +15,16 @@ If a function is equivalent to [`String`](https://developer.mozilla.org/en-US/do
 Wrapping the built-in in a function is moot.
 
 ### Example
+
 ```javascript
 // bad
-const foo = v => String(v);
+const foo = (v) => String(v);
 foo(1);
-const foo = v => Number(v);
-array.some((v, ) => /* comment */ v)
+const foo = (v) => Number(v);
+array.some((v) => /* comment */ v);
 
 // good
 String(1);
 Number(1);
 array.some(Boolean);
 ```
-

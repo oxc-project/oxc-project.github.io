@@ -9,15 +9,17 @@
 </div>
 
 ### What it does
+
 Requires the use of the === and !== operators
 
 ### Why is this bad?
+
 Using non-strict equality operators leads to hard to track bugs due to type coercion.
 
 ### Example
-```javascript
-let a = []
-let b = false
-a == b
-```
 
+```javascript
+let a = [];
+let b = false;
+a == b;
+```

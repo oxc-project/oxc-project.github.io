@@ -14,6 +14,7 @@ Prefers using [`Array#some`](https://developer.mozilla.org/en-US/docs/Web/JavaSc
 Using `.some()` is more idiomatic and easier to read.
 
 ### Example
+
 ```javascript
 // Bad
 const foo = array.find(fn) ? bar : baz;
@@ -21,4 +22,3 @@ const foo = array.find(fn) ? bar : baz;
 // Good
 const foo = array.some(fn) ? bar : baz;
 ```
-

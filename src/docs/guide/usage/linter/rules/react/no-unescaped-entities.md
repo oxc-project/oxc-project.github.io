@@ -14,6 +14,7 @@ This rule prevents characters that you may have meant as JSX escape characters f
 JSX escape characters are used to inject characters into JSX statements that would otherwise be interpreted as code.
 
 ### Example
+
 Incorrect
 
 ```jsx
@@ -27,6 +28,5 @@ Correct
 ```
 
 ```jsx
-<div> {'>'} </div>
+<div> {">"} </div>
 ```
-

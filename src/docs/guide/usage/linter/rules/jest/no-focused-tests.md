@@ -9,6 +9,7 @@
 </div>
 
 ### What it does
+
 This rule reminds you to remove `.only` from your tests by raising a warning
 whenever you are using the exclusivity feature.
 
@@ -23,16 +24,16 @@ have fixed your test and before committing the changes you have to remove
 ### Example
 
 ```javascript
-describe.only('foo', () => {});
-it.only('foo', () => {});
-describe['only']('bar', () => {});
-it['only']('bar', () => {});
-test.only('foo', () => {});
-test['only']('bar', () => {});
-fdescribe('foo', () => {});
-fit('foo', () => {});
+describe.only("foo", () => {});
+it.only("foo", () => {});
+describe["only"]("bar", () => {});
+it["only"]("bar", () => {});
+test.only("foo", () => {});
+test["only"]("bar", () => {});
+fdescribe("foo", () => {});
+fit("foo", () => {});
 fit.each`
-table
+  table
 `();
 ```
 
@@ -42,8 +43,7 @@ to use it, add the following configuration to your `.eslintrc.json`:
 ```json
 {
   "rules": {
-     "vitest/no-focused-tests": "error"
+    "vitest/no-focused-tests": "error"
   }
 }
 ```
-

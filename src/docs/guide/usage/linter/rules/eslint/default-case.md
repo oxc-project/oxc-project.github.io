@@ -15,10 +15,10 @@ Some code conventions require that all switch statements have a default case, ev
 default case is empty.
 
 ### Example
+
 ```javascript
 switch (foo) {
   case 1:
     break;
 }
 ```
-

@@ -6,12 +6,15 @@
 </div>
 
 ### What it does
+
 Enforces that an element's autocomplete attribute must be a valid value.
 
 ### Why is this bad?
+
 Incorrectly using the autocomplete attribute may decrease the accessibility of the website for users.
 
 ### Example
+
 ```javascript
 // Bad
 <input autocomplete="invalid-value" />
@@ -19,4 +22,3 @@ Incorrectly using the autocomplete attribute may decrease the accessibility of t
 // Good
 <input autocomplete="name" />
 ```
-

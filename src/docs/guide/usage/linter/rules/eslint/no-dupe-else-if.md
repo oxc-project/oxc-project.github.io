@@ -18,15 +18,14 @@ if-else-if chains are commonly used when there is a need to execute only one bra
 Two identical test conditions in the same chain are almost always a mistake in the code. Unless there are side effects in the expressions,
 a duplicate will evaluate to the same true or false value as the identical expression earlier in the chain, meaning that its branch can never execute.
 
-
 ### Example
+
 ```javascript
 if (a) {
-foo();
+  foo();
 } else if (b) {
-    bar();
+  bar();
 } else if (b) {
-    baz();
+  baz();
 }
 ```
-

@@ -16,12 +16,12 @@ Therefore, treating an evaluated optional chaining expression as a function, obj
 can cause TypeError or unexpected results. For example:
 
 ### Example
+
 ```javascript
 var obj = undefined;
-1 in obj?.foo;  // TypeError
-with (obj?.foo);  // TypeError
-for (bar of obj?.foo);  // TypeError
-bar instanceof obj?.foo;  // TypeError
-const { bar } = obj?.foo;  // TypeError
+1 in obj?.foo; // TypeError
+with (obj?.foo); // TypeError
+for (bar of obj?.foo); // TypeError
+bar instanceof obj?.foo; // TypeError
+const { bar } = obj?.foo; // TypeError
 ```
-

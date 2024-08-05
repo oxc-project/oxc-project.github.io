@@ -17,15 +17,14 @@ These should not use `new` as that would create object wrappers for the primitiv
 
 They work the same, but `new` should be preferred for consistency with other constructors.
 
-
 ### Example
+
 ```javascript
 // bad
-const foo = new String('hello world');
+const foo = new String("hello world");
 const bar = Array(1, 2, 3);
 
 // good
-const foo = String('hello world');
+const foo = String("hello world");
 const bar = new Array(1, 2, 3);
 ```
-

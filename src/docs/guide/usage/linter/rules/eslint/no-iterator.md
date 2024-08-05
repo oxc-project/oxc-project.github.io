@@ -6,15 +6,17 @@
 </div>
 
 ### What it does
-Disallow the use of the __iterator__ property
+
+Disallow the use of the **iterator** property
 
 ### Why is this bad?
-The __iterator__ property was a SpiderMonkey extension to JavaScript that could be used to create custom iterators that are compatible with JavaScript’s for in and for each constructs. However, this property is now obsolete, so it should not be used. Here’s an example of how this used to work:
+
+The **iterator** property was a SpiderMonkey extension to JavaScript that could be used to create custom iterators that are compatible with JavaScript’s for in and for each constructs. However, this property is now obsolete, so it should not be used. Here’s an example of how this used to work:
 
 ### Example
-```javascript
-Foo.prototype.__iterator__ = function() {
-    return new FooIterator(this);
-}
-```
 
+```javascript
+Foo.prototype.__iterator__ = function () {
+  return new FooIterator(this);
+};
+```

@@ -6,12 +6,12 @@
 </div>
 
 ### What it does
+
 Suggest using `toBeCalledWith()` or `toHaveBeenCalledWith()`
 
 ### Example
 
 ```javascript
-
 // valid
 expect(noArgsFunction).toBeCalledWith();
 expect(roughArgsFunction).toBeCalledWith(expect.anything(), expect.any(Date));
@@ -22,5 +22,3 @@ expect(uncalledFunction).not.toBeCalled();
 expect(someFunction).toBeCalled();
 expect(someFunction).toHaveBeenCalled();
 ```
-
-

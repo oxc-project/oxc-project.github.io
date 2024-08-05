@@ -15,8 +15,8 @@ Files containing multiple classes can often result in a less navigable and poorl
 structured codebase. Best practice is to keep each file limited to a single responsibility.
 
 ### Example
+
 ```javascript
 class Foo {}
 class Bar {}
 ```
-

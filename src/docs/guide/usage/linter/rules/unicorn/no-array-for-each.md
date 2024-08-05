@@ -20,13 +20,17 @@ Benefits of [`for…of` statement](https://developer.mozilla.org/en-US/docs/Web/
 Additionally, using `for…of` has great benefits if you are using TypeScript, because it does not cause a function boundary to be crossed. This means that type-narrowing earlier on in the current scope will work properly while inside of the loop (without having to re-type-narrow). Furthermore, any mutated variables inside of the loop will picked up on for the purposes of determining if a variable is being used.
 
 ### Example
+
 ```javascript
 // Bad
 const foo = [1, 2, 3];
-foo.forEach((element) => { /* ... */ });
+foo.forEach((element) => {
+  /* ... */
+});
 
 // Good
 const foo = [1, 2, 3];
-for (const element of foo) { /* ... */ }
+for (const element of foo) {
+  /* ... */
+}
 ```
-

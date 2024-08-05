@@ -9,13 +9,15 @@
 </div>
 
 ### What it does
+
 Disallow empty character classes in regular expressions
 
 ### Why is this bad?
+
 Because empty character classes in regular expressions do not match anything, they might be typing mistakes.
 
 ### Example
+
 ```javascript
 var foo = /^abc[]/;
 ```
-

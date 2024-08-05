@@ -16,6 +16,7 @@ Jest only considers a test to have failed if it throws an error, meaning if call
 Additionally, conditionals tend to make tests more brittle and complex, as they increase the amount of mental thinking needed to understand what is actually being tested.
 
 ### Example
+
 ```javascript
 it('foo', () => {
   doTest && expect(1).toBe(2);
@@ -36,8 +37,7 @@ to use it, add the following configuration to your `.eslintrc.json`:
 ```json
 {
   "rules": {
-     "vitest/no-conditional-expect": "error"
+    "vitest/no-conditional-expect": "error"
   }
 }
 ```
-

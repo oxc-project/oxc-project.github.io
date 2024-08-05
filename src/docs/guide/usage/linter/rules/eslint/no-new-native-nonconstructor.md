@@ -18,6 +18,7 @@ Both new Symbol and new BigInt throw a type error because they are functions and
 It is easy to make this mistake by assuming the uppercase letters indicate classes.
 
 ### Example
+
 ```javascript
 // throws a TypeError
 let foo = new Symbol("foo");
@@ -25,4 +26,3 @@ let foo = new Symbol("foo");
 // throws a TypeError
 let result = new BigInt(9007199254740991);
 ```
-

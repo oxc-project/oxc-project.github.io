@@ -6,19 +6,21 @@
 </div>
 
 ### What it does
+
 Requires that each `@param` tag has a type value (within curly brackets).
 
 ### Why is this bad?
+
 The type of a parameter should be documented.
 
 ### Example
+
 ```javascript
 // Passing
 /** @param {SomeType} foo */
-function quux (foo) {}
+function quux(foo) {}
 
 // Failing
 /** @param foo */
-function quux (foo) {}
+function quux(foo) {}
 ```
-

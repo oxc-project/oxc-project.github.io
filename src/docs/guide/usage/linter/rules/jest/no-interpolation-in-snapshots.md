@@ -32,8 +32,5 @@ expect(something).toMatchInlineSnapshot(
   }`,
 );
 
-expect(errorThrowingFunction).toThrowErrorMatchingInlineSnapshot(
-  `${interpolated}`,
-);
+expect(errorThrowingFunction).toThrowErrorMatchingInlineSnapshot(`${interpolated}`);
 ```
-

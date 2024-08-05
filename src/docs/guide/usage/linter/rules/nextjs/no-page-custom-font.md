@@ -6,13 +6,16 @@
 </div>
 
 ### What it does
+
 Prevent page-only custom fonts.
 
 ### Why is this bad?
-* The custom font you're adding was added to a page - this only adds the font to the specific page and not the entire application.
-* The custom font you're adding was added to a separate component within pages/_document.js - this disables automatic font optimization.
+
+- The custom font you're adding was added to a page - this only adds the font to the specific page and not the entire application.
+- The custom font you're adding was added to a separate component within pages/\_document.js - this disables automatic font optimization.
 
 ### Example
-```javascript
-```
 
+```javascript
+
+```

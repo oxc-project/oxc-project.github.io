@@ -6,16 +6,16 @@
 </div>
 
 ### What it does
+
 Prevent common typos in Next.js's data fetching functions
 
 ### Why is this bad?
 
-
 ### Example
+
 ```javascript
 export default function Page() {
   return <div></div>;
 }
-export async function getServurSideProps(){};
+export async function getServurSideProps() {}
 ```
-

@@ -16,7 +16,6 @@ important to allow for thorough reviews.
 ### Example
 
 ```javascript
-
 // invalid
 exports[`a large snapshot 1`] = `
 line 1
@@ -80,5 +79,3 @@ line 3
 line 4
 `;
 ```
-
-

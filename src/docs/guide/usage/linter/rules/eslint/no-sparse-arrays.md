@@ -17,8 +17,8 @@ Disallow sparse arrays.
 The confusion around sparse arrays is enough that it’s recommended to avoid using them unless you are certain that they are useful in your code.
 
 ### Example
-```javascript
-var items = [,,];
-var colors = [ "red",, "blue" ];
-```
 
+```javascript
+var items = [, ,];
+var colors = ["red", , "blue"];
+```

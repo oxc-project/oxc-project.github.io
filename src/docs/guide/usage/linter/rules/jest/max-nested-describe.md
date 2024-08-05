@@ -16,73 +16,70 @@ The following patterns are considered warnings (with the default option of
 ### Example
 
 ```javascript
-
 // invalid
-describe('foo', () => {
-    describe('bar', () => {
-        describe('baz', () => {
-            describe('qux', () => {
-                describe('quxx', () => {
-                    describe('too many', () => {
-                        it('should get something', () => {
-                            expect(getSomething()).toBe('Something');
-                        });
-                    });
-                });
+describe("foo", () => {
+  describe("bar", () => {
+    describe("baz", () => {
+      describe("qux", () => {
+        describe("quxx", () => {
+          describe("too many", () => {
+            it("should get something", () => {
+              expect(getSomething()).toBe("Something");
             });
+          });
         });
+      });
     });
+  });
 });
 
-describe('foo', function () {
-    describe('bar', function () {
-        describe('baz', function () {
-            describe('qux', function () {
-                describe('quxx', function () {
-                    describe('too many', function () {
-                        it('should get something', () => {
-                            expect(getSomething()).toBe('Something');
-                        });
-                    });
-                });
+describe("foo", function () {
+  describe("bar", function () {
+    describe("baz", function () {
+      describe("qux", function () {
+        describe("quxx", function () {
+          describe("too many", function () {
+            it("should get something", () => {
+              expect(getSomething()).toBe("Something");
             });
+          });
         });
+      });
     });
+  });
 });
 
 // valid
-describe('foo', () => {
-    describe('bar', () => {
-        it('should get something', () => {
-            expect(getSomething()).toBe('Something');
-        });
+describe("foo", () => {
+  describe("bar", () => {
+    it("should get something", () => {
+      expect(getSomething()).toBe("Something");
     });
-    describe('qux', () => {
-        it('should get something', () => {
-            expect(getSomething()).toBe('Something');
-        });
+  });
+  describe("qux", () => {
+    it("should get something", () => {
+      expect(getSomething()).toBe("Something");
     });
+  });
 });
 
-describe('foo2', function () {
-    it('should get something', () => {
-        expect(getSomething()).toBe('Something');
-    });
+describe("foo2", function () {
+  it("should get something", () => {
+    expect(getSomething()).toBe("Something");
+  });
 });
 
-describe('foo', function () {
-    describe('bar', function () {
-        describe('baz', function () {
-            describe('qux', function () {
-                describe('this is the limit', function () {
-                    it('should get something', () => {
-                        expect(getSomething()).toBe('Something');
-                    });
-                });
-            });
+describe("foo", function () {
+  describe("bar", function () {
+    describe("baz", function () {
+      describe("qux", function () {
+        describe("this is the limit", function () {
+          it("should get something", () => {
+            expect(getSomething()).toBe("Something");
+          });
         });
+      });
     });
+  });
 });
 ```
-
-

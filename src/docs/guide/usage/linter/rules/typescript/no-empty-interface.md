@@ -16,8 +16,8 @@ Using an empty interface is often a sign of programmer error, such as misunderst
 This rule aims to ensure that only meaningful interfaces are declared in the code.
 
 ### Example
+
 ```javascript
 interface Foo {}
 interface Bar extends Foo {}
 ```
-

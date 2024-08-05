@@ -7,16 +7,16 @@
 
 ### What it does
 
-Disallow the use of Math.pow in favor of the ** operator
+Disallow the use of Math.pow in favor of the \*\* operator
 
 ### Why is this bad?
 
-Introduced in ES2016, the infix exponentiation operator ** is an alternative for the
+Introduced in ES2016, the infix exponentiation operator \*\* is an alternative for the
 standard Math.pow function. Infix notation is considered to be more readable and thus more
 preferable than the function notation.
 
 ### Example
-```javascript
-Math.pow(a, b)
-```
 
+```javascript
+Math.pow(a, b);
+```

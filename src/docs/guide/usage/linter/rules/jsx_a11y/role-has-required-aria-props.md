@@ -6,12 +6,15 @@
 </div>
 
 ### What it does
+
 Enforces that elements with ARIA roles must have all required attributes for that role.
 
 ### Why is this bad?
+
 Certain ARIA roles require specific attributes to express necessary semantics for assistive technology.
 
 ### Example
+
 ```javascript
 // Bad
 <div role="checkbox" />
@@ -19,4 +22,3 @@ Certain ARIA roles require specific attributes to express necessary semantics fo
 // Good
 <div role="checkbox" aria-checked="false" />
 ```
-

@@ -14,15 +14,15 @@ Enforce throwing a `TypeError` instead of a generic `Error` after a type checkin
 Throwing a `TypeError` instead of a generic `Error` after a type checking if-statement is more specific and helps to catch bugs.
 
 ### Example
+
 ```javascript
 // Bad
 if (Array.isArray(foo)) {
-    throw new Error('Expected foo to be an array');
+  throw new Error("Expected foo to be an array");
 }
 
 // Good
 if (Array.isArray(foo)) {
-    throw new TypeError('Expected foo to be an array');
+  throw new TypeError("Expected foo to be an array");
 }
 ```
-

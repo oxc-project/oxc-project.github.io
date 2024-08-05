@@ -9,14 +9,17 @@
 </div>
 
 ### What it does
+
 This rule disallows the use of `findDOMNode`.
 
 ### Why is this bad?
+
 `findDOMNode` is an escape hatch used to access the underlying DOM node.
 In most cases, use of this escape hatch is discouraged because it pierces the component abstraction.
 [It has been deprecated in `StrictMode`.](https://legacy.reactjs.org/docs/strict-mode.html#warning-about-deprecated-finddomnode-usage)
 
 ### Example
+
 ```javascript
 class MyComponent extends Component {
   componentDidMount() {
@@ -27,4 +30,3 @@ class MyComponent extends Component {
   }
 }
 ```
-

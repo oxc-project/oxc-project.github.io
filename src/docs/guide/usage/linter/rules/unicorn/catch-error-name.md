@@ -10,13 +10,13 @@
 This rule enforces naming conventions for catch statements.
 
 ### Example
-```javascript
 
+```javascript
 // fail
-try { } catch (foo) { }
+try {
+} catch (foo) {}
 
 // pass
-try { } catch (error) { }
-
+try {
+} catch (error) {}
 ```
-

@@ -17,12 +17,11 @@ Prefer `Set#size` over `Set#length` when the `Set` is converted to an array.
 Using `Set#size` is more readable and performant.
 
 ### Example
+
 ```javascript
 // bad
 const length = [...new Set([1, 2, 3])].length;
 
 // good
 const size = new Set([1, 2, 3]).size;
-
 ```
-

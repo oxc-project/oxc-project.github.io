@@ -6,12 +6,13 @@
 </div>
 
 ### What it does
+
 Prevent importing `next/document` outside of `pages/_document.js`.
 
 ### Why is this bad?
 
-
 ### Example
-```javascript
-```
 
+```javascript
+
+```

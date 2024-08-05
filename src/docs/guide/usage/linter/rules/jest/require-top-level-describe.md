@@ -59,5 +59,3 @@ using the `maxNumberOfTopLevelDescribes` option:
   ]
 }
 ```
-
-

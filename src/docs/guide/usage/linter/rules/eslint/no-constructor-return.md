@@ -15,7 +15,9 @@ In JavaScript, returning a value in the constructor of a class may be a mistake.
 Forbidding this pattern prevents mistakes resulting from unfamiliarity with the language or a copy-paste error.
 
 ### Example
+
 Bad:
+
 ```rust
 class C {
     constructor() { return 42; }
@@ -23,9 +25,9 @@ class C {
 ```
 
 Good:
+
 ```rust
 class C {
     constructor() { this.value = 42; }
 }
 ```
-

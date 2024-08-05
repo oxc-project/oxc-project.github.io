@@ -8,7 +8,9 @@
 ### What it does
 
 Prevent Functions that are local to the current method from being used as values of JSX props
+
 ### Example
+
 ```javascript
 // Bad
 <Item callback={new Function(...)} />
@@ -17,4 +19,3 @@ Prevent Functions that are local to the current method from being used as values
 // Good
 <Item callback={this.props.callback} />
 ```
-

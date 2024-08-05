@@ -6,12 +6,15 @@
 </div>
 
 ### What it does
+
 Ensures that property names in JSDoc are not duplicated on the same block and that nested properties have defined roots.
 
 ### Why is this bad?
+
 `@property` tags with the same name can be confusing and may indicate a mistake.
 
 ### Example
+
 ```javascript
 // Passing
 /**
@@ -36,4 +39,3 @@ Ensures that property names in JSDoc are not duplicated on the same block and th
  * @property {number} foo.bar
  */
 ```
-

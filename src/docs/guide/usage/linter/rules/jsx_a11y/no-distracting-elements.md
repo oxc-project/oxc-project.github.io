@@ -19,6 +19,7 @@ Such elements are most likely deprecated, and should be avoided. By default, <ma
 This rule checks for marquee and blink element.
 
 ### Example
+
 ```javascript
 // Bad
 <marquee />
@@ -33,4 +34,3 @@ This rule checks for marquee and blink element.
 <Marquee />
 <Blink />
 ```
-

@@ -15,10 +15,10 @@ Comparing a variable against itself is usually an error, either a typo or refact
 It is confusing to the reader and may potentially introduce a runtime error.
 
 ### Example
+
 ```javascript
 var x = 10;
 if (x === x) {
   x = 20;
 }
 ```
-

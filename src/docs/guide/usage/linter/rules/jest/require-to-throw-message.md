@@ -6,25 +6,25 @@
 </div>
 
 ### What it does
+
 This rule triggers a warning if `toThrow()` or `toThrowError()` is used without an error message.
 
 ### Example
+
 ```javascript
 // invalid
-test('all the things', async () => {
-    expect(() => a()).toThrow();
-    expect(() => a()).toThrowError();
-    await expect(a()).rejects.toThrow();
-    await expect(a()).rejects.toThrowError();
+test("all the things", async () => {
+  expect(() => a()).toThrow();
+  expect(() => a()).toThrowError();
+  await expect(a()).rejects.toThrow();
+  await expect(a()).rejects.toThrowError();
 });
 
 // valid
-test('all the things', async () => {
-  expect(() => a()).toThrow('a');
-  expect(() => a()).toThrowError('a');
-  await expect(a()).rejects.toThrow('a');
-  await expect(a()).rejects.toThrowError('a');
+test("all the things", async () => {
+  expect(() => a()).toThrow("a");
+  expect(() => a()).toThrowError("a");
+  await expect(a()).rejects.toThrow("a");
+  await expect(a()).rejects.toThrowError("a");
 });
 ```
-
-

@@ -11,15 +11,15 @@ This rule triggers when there is no call made to `expect` in a test, ensure that
 
 ### Why is this bad?
 
- People may forget to add assertions.
+People may forget to add assertions.
 
 ### Example
 
 ```javascript
-it('should be a test', () => {
-    console.log('no assertion');
+it("should be a test", () => {
+  console.log("no assertion");
 });
-test('should assert something', () => {});
+test("should assert something", () => {});
 ```
 
 This rule is compatible with [eslint-plugin-vitest](https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/expect-expect.md),
@@ -28,8 +28,7 @@ to use it, add the following configuration to your `.eslintrc.json`:
 ```json
 {
   "rules": {
-     "vitest/expect-expect": "error"
+    "vitest/expect-expect": "error"
   }
 }
 ```
-

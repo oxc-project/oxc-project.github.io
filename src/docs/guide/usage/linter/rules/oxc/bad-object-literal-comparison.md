@@ -19,14 +19,17 @@ Comparing a variable to an object or array literal will always return false as o
 If you want to check if an object or array is empty, use `Object.entries()` or `Object.keys()` and their lengths.
 
 ### Example
+
 ```javascript
 // Bad
-if (x === {}) { }
-if (arr !== []) { }
-
+if (x === {}) {
+}
+if (arr !== []) {
+}
 
 // Good
-if (typeof x === 'object' && Object.keys(x).length === 0) { }
-if (Array.isArray(x) && x.length === 0) { }
+if (typeof x === "object" && Object.keys(x).length === 0) {
+}
+if (Array.isArray(x) && x.length === 0) {
+}
 ```
-

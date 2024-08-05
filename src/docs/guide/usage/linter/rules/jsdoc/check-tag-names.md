@@ -6,13 +6,16 @@
 </div>
 
 ### What it does
+
 Reports invalid block tag names.
 Additionally checks for tag names that are redundant when using a type checker such as TypeScript.
 
 ### Why is this bad?
+
 Using invalid tags can lead to confusion and make the documentation harder to read.
 
 ### Example
+
 ```javascript
 // Passing
 /** @param */
@@ -26,4 +29,3 @@ Using invalid tags can lead to confusion and make the documentation harder to re
  * @type {string}
  */
 ```
-

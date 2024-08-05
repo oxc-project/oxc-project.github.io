@@ -18,6 +18,7 @@ See the [differences](https://nodejs.org/api/events.html#eventtarget-and-event-a
 While [`EventEmitter`](https://nodejs.org/api/events.html#class-eventemitter) is only available in Node.js, [`EventTarget`](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget) is also available in _Deno_ and browsers.
 
 ### Example
+
 ```javascript
 // Bad
 class Foo extends EventEmitter {}
@@ -25,4 +26,3 @@ class Foo extends EventEmitter {}
 // Good
 class Foo extends OtherClass {}
 ```
-

@@ -14,17 +14,21 @@ Disallow negated expressions on the left of (in)equality checks.
 A negated expression on the left of an (in)equality check is likely a mistake from trying to negate the whole condition.
 
 ### Example
+
 ```javascript
 // Bad
 
-if (!foo === bar) {}
+if (!foo === bar) {
+}
 
-if (!foo !== bar) {}
+if (!foo !== bar) {
+}
 
 // Good
 
-if (foo !== bar) {}
+if (foo !== bar) {
+}
 
-if (!(foo === bar)) {}
+if (!(foo === bar)) {
+}
 ```
-

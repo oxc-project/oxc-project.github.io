@@ -10,6 +10,7 @@
 Enforce elements with aria-activedescendant are tabbable.
 
 ### Example
+
 ```jsx
 // Good
 <CustomComponent />
@@ -31,4 +32,3 @@ Enforce elements with aria-activedescendant are tabbable.
 // Bad
 <div aria-activedescendant={someID} />
 ```
-

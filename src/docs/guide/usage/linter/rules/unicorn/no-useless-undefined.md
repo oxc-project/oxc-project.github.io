@@ -9,17 +9,18 @@
 </div>
 
 ### What it does
+
 Do not use useless `undefined`.
 
 ### Why is this bad?
+
 `undefined` is the default value for new variables, parameters, return statements, etc… so specifying it doesn't make any difference.
 
-
 ### Example
+
 ```javascript
 // bad
 let foo = undefined;
 // good:
 let foo;
 ```
-

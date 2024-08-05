@@ -18,14 +18,14 @@ Disallow empty exports that don't change anything in a module file.
 ### Example
 
 ### Bad
+
 ```javascript
-export const value = 'Hello, world!';
+export const value = "Hello, world!";
 export {};
 ```
 
 ### Good
+
 ```javascript
-export const value = 'Hello, world!';
+export const value = "Hello, world!";
 ```
-
-

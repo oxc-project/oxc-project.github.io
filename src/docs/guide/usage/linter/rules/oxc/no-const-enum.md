@@ -19,6 +19,7 @@ Const enums are not supported by bundlers and are incompatible with the isolated
 Their use can lead to import nonexistent values (because const enums are erased).
 
 ### Example
+
 ```javascript
 const enum Color {
    Red,
@@ -26,4 +27,3 @@ const enum Color {
    Blue
 }
 ```
-

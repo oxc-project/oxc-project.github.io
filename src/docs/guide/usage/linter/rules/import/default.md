@@ -13,9 +13,10 @@ If a default import is requested, this rule will report if there is no default e
 
 ```javascript
 // ./bar.js
-export function bar() { return null }
+export function bar() {
+  return null;
+}
 
 // ./foo.js
-import bar from './bar' // no default export found in ./bar
+import bar from "./bar"; // no default export found in ./bar
 ```
-

@@ -21,6 +21,7 @@ Supplying an argument that is only used in recursive calls is likely a mistake.
 It increase cognitive complexity and may impact performance.
 
 ### Example
+
 ```javascript
 // Bad - the argument `b` is only used in recursive calls
 function f(a: number, b: number): number {
@@ -40,4 +41,3 @@ function f(a: number): number {
    }
 }
 ```
-

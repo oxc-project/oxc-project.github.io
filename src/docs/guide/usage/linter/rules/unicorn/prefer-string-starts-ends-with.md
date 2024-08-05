@@ -20,6 +20,7 @@ Prefer [`String#startsWith()`](https://developer.mozilla.org/en/docs/Web/JavaScr
 Using `String#startsWith()` and `String#endsWith()` is more readable and performant as it does not need to parse a regex.
 
 ### Example
+
 ```javascript
 // Bad
 const foo = "hello";
@@ -29,4 +30,3 @@ const foo = "hello";
 const foo = "hello";
 foo.startsWith("abc");
 ```
-

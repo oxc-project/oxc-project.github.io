@@ -15,6 +15,7 @@ Generic type parameters (<T>) in TypeScript may be "constrained" with an extends
 When no extends is provided, type parameters default a constraint to unknown. It is therefore redundant to extend from any or unknown.
 
 ### Example
+
 ```javascript
 interface FooAny<T extends any> {}
 interface FooUnknown<T extends unknown> {}
@@ -26,4 +27,3 @@ class BazAny<T extends any> {
 const QuuxAny = <T extends any>() => {};
 function QuuzAny<T extends any>() {}
 ```
-

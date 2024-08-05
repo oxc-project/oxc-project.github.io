@@ -21,4 +21,3 @@ var foo = void 0;
 "foo.void()",
 "foo.void = bar",
 ```
-

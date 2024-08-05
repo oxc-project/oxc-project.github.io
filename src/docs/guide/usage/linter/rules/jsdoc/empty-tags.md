@@ -6,7 +6,9 @@
 </div>
 
 ### What it does
+
 Expects the following tags to be empty of any content:
+
 - `@abstract`
 - `@async`
 - `@generator`
@@ -27,9 +29,11 @@ Expects the following tags to be empty of any content:
 - `@static`
 
 ### Why is this bad?
+
 The void tags should be empty.
 
 ### Example
+
 ```javascript
 // Passing
 /** @async */
@@ -41,4 +45,3 @@ The void tags should be empty.
 
 /** @private bar */
 ```
-

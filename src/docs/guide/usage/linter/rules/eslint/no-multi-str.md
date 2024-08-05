@@ -15,8 +15,9 @@ Some consider this to be a bad practice as it was an undocumented feature of Jav
 that was only formalized later.
 
 ### Example
+
 ```javascript
-var x = "Line 1 \
+var x =
+  "Line 1 \
  Line 2";
 ```
-

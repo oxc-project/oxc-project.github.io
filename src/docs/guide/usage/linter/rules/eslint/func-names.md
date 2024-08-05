@@ -28,18 +28,18 @@ Example of **incorrect** code for this rule:
 /*eslint func-names: "error" */
 
 // default is "always" and there is an anonymous function
-Foo.prototype.bar = function() {};
+Foo.prototype.bar = function () {};
 
 /*eslint func-names: ["error", "always"] */
 
 // there is an anonymous function
-Foo.prototype.bar = function() {};
+Foo.prototype.bar = function () {};
 
 /*eslint func-names: ["error", "as-needed"] */
 
 // there is an anonymous function
 // where the name isn’t assigned automatically per the ECMAScript specs
-Foo.prototype.bar = function() {};
+Foo.prototype.bar = function () {};
 
 /*eslint func-names: ["error", "never"] */
 
@@ -47,7 +47,7 @@ Foo.prototype.bar = function() {};
 Foo.prototype.bar = function bar() {};
 ```
 
-Example of **correct* code for this rule:
+Example of \*_correct_ code for this rule:
 
 ```javascript
 /*eslint func-names: "error" */
@@ -60,10 +60,9 @@ Foo.prototype.bar = function bar() {};
 
 /*eslint func-names: ["error", "as-needed"] */
 
-var foo = function(){};
+var foo = function () {};
 
 /*eslint func-names: ["error", "never"] */
 
-Foo.prototype.bar = function() {};
+Foo.prototype.bar = function () {};
 ```
-

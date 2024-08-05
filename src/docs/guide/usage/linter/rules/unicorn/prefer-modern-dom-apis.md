@@ -8,6 +8,7 @@
 ### What it does
 
 Enforces the use of:
+
 - childNode.replaceWith(newNode) over parentNode.replaceChild(newNode, oldNode)
 - referenceNode.before(newNode) over parentNode.insertBefore(newNode, referenceNode)
 - referenceNode.before('text') over referenceNode.insertAdjacentText('beforebegin', 'text')
@@ -16,11 +17,13 @@ Enforces the use of:
 ### Why is this bad?
 
 There are some advantages of using the newer DOM APIs, like:
+
 - Traversing to the parent node is not necessary.
 - Appending multiple nodes at once.
 - Both DOMString and DOM node objects can be manipulated.
 
 ### Example
+
 ```javascript
 // Bad
 ("oldChildNode.replaceWith(newChildNode);", None),
@@ -28,4 +31,3 @@ There are some advantages of using the newer DOM APIs, like:
 // Good
 ("parentNode.replaceChild(newChildNode, oldChildNode);", None),
 ```
-

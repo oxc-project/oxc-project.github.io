@@ -6,6 +6,7 @@
 </div>
 
 ### What it does
+
 Disallow 2+ consecutive spaces in regular expressions.
 
 ### Why is this bad?
@@ -19,7 +20,7 @@ var re = /foo {3}bar/;
 ```
 
 ### Example
+
 ```javascript
 var re = /foo   bar/;
 ```
-

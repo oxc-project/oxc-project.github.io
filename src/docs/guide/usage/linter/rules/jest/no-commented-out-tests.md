@@ -33,8 +33,7 @@ to use it, add the following configuration to your `.eslintrc.json`:
 ```json
 {
   "rules": {
-     "vitest/no-commented-out-tests": "error"
+    "vitest/no-commented-out-tests": "error"
   }
 }
 ```
-

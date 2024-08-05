@@ -9,8 +9,9 @@
 
 This rule validates that the second parameter of a `describe()` function is a
 callback function. This callback function:
+
 - should not be
-[async](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
+  [async](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
 - should not contain any parameters
 - should not contain any `return` statements
 
@@ -23,20 +24,20 @@ errors.
 
 ```javascript
 // Async callback functions are not allowed
-describe('myFunction()', async () => {
+describe("myFunction()", async () => {
   // ...
 });
 
 // Callback function parameters are not allowed
-describe('myFunction()', done => {
+describe("myFunction()", (done) => {
   // ...
 });
 
 // Returning a value from a describe block is not allowed
-describe('myFunction', () =>
-  it('returns a truthy value', () => {
+describe("myFunction", () =>
+  it("returns a truthy value", () => {
     expect(myFunction()).toBeTruthy();
-}));
+  }));
 ```
 
 This rule is compatible with [eslint-plugin-vitest](https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/valid-describe-callback.md),
@@ -45,8 +46,7 @@ to use it, add the following configuration to your `.eslintrc.json`:
 ```json
 {
   "rules": {
-     "vitest/valid-describe-callback": "error"
+    "vitest/valid-describe-callback": "error"
   }
 }
 ```
-

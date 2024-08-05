@@ -6,15 +6,15 @@
 </div>
 
 ### What it does
+
 Require 'super()' calls in constructors.
 
 ### Why is this bad?
 
-
 ### Example
+
 ```javascript
 class A extends B {
   constructor() {}
 }
 ```
-

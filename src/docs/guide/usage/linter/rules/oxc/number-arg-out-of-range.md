@@ -13,9 +13,9 @@
 Checks whether the radix or precision arguments of number-related functions exceeds the limit.
 
 ### Example
+
 ```javascript
 var x = 42;
 var s_radix_64 = x.toString(64);
 var s = x.toString(1);
 ```
-

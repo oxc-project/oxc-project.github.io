@@ -19,13 +19,13 @@ The two are generally very similar, and can often be used interchangeably.
 Using the same type declaration style consistently helps with code readability.
 
 ### Example
+
 ```ts
 // incorrect, when set to "interface"
 type T = { x: number };
 
 // incorrect when set to "type"
 interface T {
-x: number;
+  x: number;
 }
 ```
-

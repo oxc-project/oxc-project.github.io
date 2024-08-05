@@ -6,19 +6,21 @@
 </div>
 
 ### What it does
+
 Requires that `@returns` tag has a type value (in curly brackets).
 
 ### Why is this bad?
+
 A `@returns` tag should have a type value.
 
 ### Example
+
 ```javascript
 // Passing
 /** @returns {string} */
-function quux (foo) {}
+function quux(foo) {}
 
 // Failing
 /** @returns */
-function quux (foo) {}
+function quux(foo) {}
 ```
-

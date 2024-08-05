@@ -6,6 +6,7 @@
 </div>
 
 ### What it does
+
 Jest has built-in matchers for expecting equality, which allow for more readable
 tests and error messages if an expectation fails.
 
@@ -14,12 +15,11 @@ tests and error messages if an expectation fails.
 ```javascript
 // invalid
 expect(x === 5).toBe(true);
-expect(name === 'Carl').not.toEqual(true);
+expect(name === "Carl").not.toEqual(true);
 expect(myObj !== thatObj).toStrictEqual(true);
 
 // valid
 expect(x).toBe(5);
-expect(name).not.toEqual('Carl');
+expect(name).not.toEqual("Carl");
 expect(myObj).toStrictEqual(thatObj);
 ```
-

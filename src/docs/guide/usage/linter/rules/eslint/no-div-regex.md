@@ -18,7 +18,9 @@ Characters /= at the beginning of a regular expression literal can be confused w
 division assignment operator.
 
 ### Example
-```javascript
-function bar() { return /=foo/; }
-```
 
+```javascript
+function bar() {
+  return /=foo/;
+}
+```

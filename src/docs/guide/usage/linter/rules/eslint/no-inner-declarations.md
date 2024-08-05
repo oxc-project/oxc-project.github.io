@@ -15,11 +15,10 @@ A variable declaration is permitted anywhere a statement can go, even nested dee
 This is often undesirable due to variable hoisting, and moving declarations to the root of the program or function body can increase clarity.
 Note that block bindings (let, const) are not hoisted and therefore they are not affected by this rule.
 
-
 ### Example
+
 ```javascript
 if (test) {
-    function doSomethingElse () { }
+  function doSomethingElse() {}
 }
 ```
-

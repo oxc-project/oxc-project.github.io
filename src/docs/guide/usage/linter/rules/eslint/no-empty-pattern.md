@@ -9,9 +9,11 @@
 </div>
 
 ### What it does
+
 Disallow empty destructuring patterns
 
 ### Why is this bad?
+
 When using destructuring, it’s possible to create a pattern that has no effect.
 This happens when empty curly braces are used to the right of
 an embedded object destructuring pattern, such as:
@@ -20,6 +22,7 @@ an embedded object destructuring pattern, such as:
 // doesn't create any variables
 var {a: {}} = foo;
 ```
+
 In this code, no new variables are created because a is just a location helper
 while the `{}` is expected to contain the variables to create, such as:
 
@@ -60,5 +63,3 @@ var {a = []} = foo;
 function foo({a = {}}) {}
 function foo({a = []}) {}
 ```
-
-

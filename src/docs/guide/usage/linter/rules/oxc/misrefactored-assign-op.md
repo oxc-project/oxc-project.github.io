@@ -16,6 +16,7 @@ Checks for `a op= a op b` or `a op= b op a` patterns.
 Most likely these are bugs where one meant to write `a op= b`.
 
 ### Example
+
 ```javascript
 // Bad
 a += a + b;
@@ -25,4 +26,3 @@ a -= a - b;
 a += b;
 a -= b;
 ```
-

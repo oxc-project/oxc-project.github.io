@@ -13,19 +13,19 @@
 Prefer `.querySelector()` over `.getElementById()`, `.querySelectorAll()` over `.getElementsByClassName()` and `.getElementsByTagName()`.
 
 ### Example
+
 ```javascript
 // Bad
-document.getElementById('foo');
-document.getElementsByClassName('foo bar');
-document.getElementsByTagName('main');
+document.getElementById("foo");
+document.getElementsByClassName("foo bar");
+document.getElementsByTagName("main");
 document.getElementsByClassName(fn());
 
 // Good
-document.querySelector('#foo');
-document.querySelector('.bar');
-document.querySelector('main #foo .bar');
-document.querySelectorAll('.foo .bar');
-document.querySelectorAll('li a');
-document.querySelector('li').querySelectorAll('a');
+document.querySelector("#foo");
+document.querySelector(".bar");
+document.querySelector("main #foo .bar");
+document.querySelectorAll(".foo .bar");
+document.querySelectorAll("li a");
+document.querySelector("li").querySelectorAll("a");
 ```
-

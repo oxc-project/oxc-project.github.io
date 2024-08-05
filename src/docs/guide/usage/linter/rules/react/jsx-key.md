@@ -13,13 +13,16 @@
 Enforce `key` prop for elements in array
 
 ### Example
+
 ```javascript
 // Bad
-[1, 2, 3].map(x => <App />);
-[1, 2, 3]?.map(x => <BabelEslintApp />)
+[1, 2, 3].map((x) => <App />);
+[1, 2, 3]
+  ?.map((x) => <BabelEslintApp />)
 
-// Good
-[1, 2, 3].map(x => <App key={x} />);
-[1, 2, 3]?.map(x => <BabelEslintApp key={x} />)
+  [
+    // Good
+    (1, 2, 3)
+  ].map((x) => <App key={x} />);
+[1, 2, 3]?.map((x) => <BabelEslintApp key={x} />);
 ```
-

@@ -10,17 +10,15 @@
 
 ### What it does
 
-
 Disallows any files only containing the following:
- - Whitespace
- - Comments
- - Directives
- - Empty statements
- - Empty blocks
- - Hashbang
+
+- Whitespace
+- Comments
+- Directives
+- Empty statements
+- Empty blocks
+- Hashbang
 
 ### Why is this bad?
 
 Meaningless files clutter a codebase.
-
-

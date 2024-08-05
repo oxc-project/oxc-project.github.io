@@ -6,12 +6,15 @@
 </div>
 
 ### What it does
+
 Enforces using semantic HTML tags over `role` attribute.
 
 ### Why is this bad?
+
 Using semantic HTML tags can improve accessibility and readability of the code.
 
 ### Example
+
 ```javascript
 // Bad
 <div role="button" />
@@ -19,4 +22,3 @@ Using semantic HTML tags can improve accessibility and readability of the code.
 // Good
 <button />
 ```
-

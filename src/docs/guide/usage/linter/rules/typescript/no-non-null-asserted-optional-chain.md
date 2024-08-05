@@ -13,14 +13,15 @@
 Disallow non-null assertions after an optional chain expression.
 
 ### Why is this bad?
+
 `?.` optional chain expressions provide undefined if an object is null or undefined.
 Using a `!` non-null assertion to assert the result of an `?.` optional chain expression is non-nullable is likely wrong.
 
 Most of the time, either the object was not nullable and did not need the `?.` for its property lookup, or the `!` is incorrect and introducing a type safety hole.
 
 ### Example
+
 ```javascript
 foo?.bar!;
 foo?.bar()!;
 ```
-

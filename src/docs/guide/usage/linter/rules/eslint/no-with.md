@@ -9,15 +9,17 @@
 </div>
 
 ### What it does
+
 Disallow `with` statements
 
 ### Why is this bad?
+
 The with statement is potentially problematic because it adds members of an object to the current scope, making it impossible to tell what a variable inside the block actually refers to.
 
 ### Example
+
 ```javascript
 with (point) {
-    r = Math.sqrt(x * x + y * y); // is r a member of point?
+  r = Math.sqrt(x * x + y * y); // is r a member of point?
 }
 ```
-

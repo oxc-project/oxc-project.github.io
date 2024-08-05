@@ -15,33 +15,32 @@ Disallow confusing usages of jest.setTimeout
 - being called multiple times
 - being called after other Jest functions like hooks, `describe`, `test`, or `it`
 
-
 ### Example
 
 All of these are invalid case:
+
 ```javascript
-escribe('test foo', () => {
+escribe("test foo", () => {
   jest.setTimeout(1000);
-  it('test-description', () => {
+  it("test-description", () => {
     // test logic;
   });
 });
 
-describe('test bar', () => {
-  it('test-description', () => {
+describe("test bar", () => {
+  it("test-description", () => {
     jest.setTimeout(1000);
     // test logic;
   });
 });
 
-test('foo-bar', () => {
+test("foo-bar", () => {
   jest.setTimeout(1000);
 });
 
-describe('unit test', () => {
+describe("unit test", () => {
   beforeEach(() => {
     jest.setTimeout(1000);
   });
 });
 ```
-

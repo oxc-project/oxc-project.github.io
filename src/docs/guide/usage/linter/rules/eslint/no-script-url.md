@@ -6,12 +6,15 @@
 </div>
 
 ### What it does
+
 Disallow javascript: urls
 
 ### Why is this bad?
+
 Using javascript: URLs is considered by some as a form of eval. Code passed in javascript: URLs has to be parsed and evaluated by the browser in the same way that eval is processed.
 
 ### Example
+
 ```javascript
 /*eslint no-script-url: "error"*/
 
@@ -19,4 +22,3 @@ location.href = "javascript:void(0)";
 
 location.href = `javascript:void(0)`;
 ```
-

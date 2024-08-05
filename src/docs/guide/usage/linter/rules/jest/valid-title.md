@@ -15,15 +15,15 @@ Checks that the title of Jest blocks are valid by ensuring that titles are:
 - have no leading or trailing spaces
 
 ### Example
-```javascript
-describe('', () => {});
-describe('foo', () => {
-  it('', () => {});
-});
-it('', () => {});
-test('', () => {});
-xdescribe('', () => {});
-xit('', () => {});
-xtest('', () => {});
-```
 
+```javascript
+describe("", () => {});
+describe("foo", () => {
+  it("", () => {});
+});
+it("", () => {});
+test("", () => {});
+xdescribe("", () => {});
+xit("", () => {});
+xtest("", () => {});
+```

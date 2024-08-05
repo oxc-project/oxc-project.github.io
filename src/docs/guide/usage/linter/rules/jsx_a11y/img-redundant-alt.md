@@ -22,6 +22,7 @@ This rule checks for alternative text on the following elements:
 `<img>` and the components which you define in options.components with the exception of components which is hidden from screen reader.
 
 ### Example
+
 ```javascript
 // Bad
 <img src="foo" alt="Photo of foo being weird." />
@@ -33,4 +34,3 @@ This rule checks for alternative text on the following elements:
 <img src="bar" aria-hidden alt="Picture of me taking a photo of an image" /> // Will pass because it is hidden.
 <img src="baz" alt={`Baz taking a ${photo}`} /> // This is valid since photo is a variable name.
 ```
-

@@ -17,59 +17,57 @@ Disallow unused private class members
 Private class members that are declared and not used anywhere in the code are most likely an error due to incomplete refactoring. Such class members take up space in the code and can lead to confusion by readers.
 
 ### Example
-```javascript
 
+```javascript
 /// bad
 class A {
-		#unusedMember = 5;
-	}
+  #unusedMember = 5;
+}
 
-	class B {
-			#usedOnlyInWrite = 5;
-			method() {
-					this.#usedOnlyInWrite = 42;
-			}
-	}
+class B {
+  #usedOnlyInWrite = 5;
+  method() {
+    this.#usedOnlyInWrite = 42;
+  }
+}
 
-	class C {
-			#usedOnlyToUpdateItself = 5;
-			method() {
-					this.#usedOnlyToUpdateItself++;
-			}
-	}
+class C {
+  #usedOnlyToUpdateItself = 5;
+  method() {
+    this.#usedOnlyToUpdateItself++;
+  }
+}
 
-	class D {
-			#unusedMethod() {}
-	}
+class D {
+  #unusedMethod() {}
+}
 
-	class E {
-			get #unusedAccessor() {}
-			set #unusedAccessor(value) {}
-	}
+class E {
+  get #unusedAccessor() {}
+  set #unusedAccessor(value) {}
+}
 
 /// Good
 class A {
-		#usedMember = 42;
-		method() {
-				return this.#usedMember;
-		}
-	}
-	class B {
-			#usedMethod() {
-					return 42;
-			}
-			anotherMethod() {
-					return this.#usedMethod();
-			}
-	}
-	class C {
-			get #usedAccessor() {}
-			set #usedAccessor(value) {}
+  #usedMember = 42;
+  method() {
+    return this.#usedMember;
+  }
+}
+class B {
+  #usedMethod() {
+    return 42;
+  }
+  anotherMethod() {
+    return this.#usedMethod();
+  }
+}
+class C {
+  get #usedAccessor() {}
+  set #usedAccessor(value) {}
 
-			method() {
-					this.#usedAccessor = 42;
-			}
-	}
-
+  method() {
+    this.#usedAccessor = 42;
+  }
+}
 ```
-

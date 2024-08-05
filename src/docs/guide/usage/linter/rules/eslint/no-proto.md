@@ -6,12 +6,15 @@
 </div>
 
 ### What it does
-Disallow the use of the __proto__ property
+
+Disallow the use of the **proto** property
 
 ### Why is this bad?
-__proto__ property has been deprecated as of ECMAScript 3.1 and shouldn’t be used in the code. Use Object.getPrototypeOf and Object.setPrototypeOf instead.
+
+**proto** property has been deprecated as of ECMAScript 3.1 and shouldn’t be used in the code. Use Object.getPrototypeOf and Object.setPrototypeOf instead.
 
 ### Example
+
 ```javascript
 /*eslint no-proto: "error"*/
 
@@ -23,4 +26,3 @@ obj.__proto__ = b;
 
 obj["__proto__"] = b;
 ```
-

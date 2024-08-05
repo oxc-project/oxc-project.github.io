@@ -10,13 +10,14 @@
 Ensures that every HTML document has a lang attribute
 
 ### Why is this bad?
+
 If the language of a webpage is not specified,
 the screen reader assumes the default language set by the user.
 Language settings become an issue for users who speak multiple languages
 and access website in more than one language.
 
-
 ### Example
+
 ```javascript
 // Bad
 <html />
@@ -24,4 +25,3 @@ and access website in more than one language.
 // Good
 <html lang="en" />
 ```
-

@@ -22,4 +22,3 @@ For example, when performing mathematical operations
 ```javascript
 var x = 2e999;
 ```
-

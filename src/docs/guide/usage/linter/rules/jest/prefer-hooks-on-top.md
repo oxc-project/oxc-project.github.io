@@ -15,104 +15,103 @@ cases.
 
 ```javascript
 // invalid
-describe('foo', () => {
+describe("foo", () => {
+  beforeEach(() => {
+    seedMyDatabase();
+  });
+
+  it("accepts this input", () => {
+    // ...
+  });
+
+  beforeAll(() => {
+    createMyDatabase();
+  });
+
+  it("returns that value", () => {
+    // ...
+  });
+
+  describe("when the database has specific values", () => {
+    const specificValue = "...";
     beforeEach(() => {
-        seedMyDatabase();
+      seedMyDatabase(specificValue);
     });
 
-    it('accepts this input', () => {
-        // ...
+    it("accepts that input", () => {
+      // ...
     });
 
-    beforeAll(() => {
-        createMyDatabase();
+    it("throws an error", () => {
+      // ...
     });
 
-    it('returns that value', () => {
-        // ...
+    afterEach(() => {
+      clearLogger();
     });
 
-    describe('when the database has specific values', () => {
-        const specificValue = '...';
-        beforeEach(() => {
-            seedMyDatabase(specificValue);
-        });
-
-        it('accepts that input', () => {
-            // ...
-        });
-
-        it('throws an error', () => {
-            // ...
-        });
-
-        afterEach(() => {
-            clearLogger();
-        });
-
-        beforeEach(() => {
-            mockLogger();
-        });
-
-        it('logs a message', () => {
-            // ...
-        });
+    beforeEach(() => {
+      mockLogger();
     });
 
-    afterAll(() => {
-        removeMyDatabase();
+    it("logs a message", () => {
+      // ...
     });
+  });
+
+  afterAll(() => {
+    removeMyDatabase();
+  });
 });
 
 // valid
-describe('foo', () => {
-    beforeAll(() => {
-        createMyDatabase();
+describe("foo", () => {
+  beforeAll(() => {
+    createMyDatabase();
+  });
+
+  beforeEach(() => {
+    seedMyDatabase();
+  });
+
+  afterAll(() => {
+    clearMyDatabase();
+  });
+
+  it("accepts this input", () => {
+    // ...
+  });
+
+  it("returns that value", () => {
+    // ...
+  });
+
+  describe("when the database has specific values", () => {
+    const specificValue = "...";
+
+    beforeEach(() => {
+      seedMyDatabase(specificValue);
     });
 
     beforeEach(() => {
-        seedMyDatabase();
+      mockLogger();
     });
 
-    afterAll(() => {
-        clearMyDatabase();
+    afterEach(() => {
+      clearLogger();
     });
 
-    it('accepts this input', () => {
-        // ...
+    it("accepts that input", () => {
+      // ...
     });
 
-    it('returns that value', () => {
-        // ...
+    it("throws an error", () => {
+      // ...
     });
 
-    describe('when the database has specific values', () => {
-        const specificValue = '...';
-
-        beforeEach(() => {
-            seedMyDatabase(specificValue);
-        });
-
-        beforeEach(() => {
-            mockLogger();
-        });
-
-        afterEach(() => {
-            clearLogger();
-        });
-
-        it('accepts that input', () => {
-            // ...
-        });
-
-        it('throws an error', () => {
-            // ...
-        });
-
-        it('logs a message', () => {
-            // ...
-        });
+    it("logs a message", () => {
+      // ...
     });
+  });
 });
 ```
-

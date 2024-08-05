@@ -17,6 +17,7 @@ This rule checks for double comparisons in logical expressions.
 Redundant comparisons can be confusing and make code harder to understand.
 
 ### Example
+
 ```javascript
 // Bad
 x === y || x < y;
@@ -26,4 +27,3 @@ x < y || x === y;
 x <= y;
 x >= y;
 ```
-

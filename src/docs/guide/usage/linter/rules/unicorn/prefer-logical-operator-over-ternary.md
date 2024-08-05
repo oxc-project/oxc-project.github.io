@@ -14,8 +14,8 @@ This rule finds ternary expressions that can be simplified to a logical operator
 Using a logical operator is shorter and simpler than a ternary expression.
 
 ### Example
-```javascript
 
+```javascript
 // Bad
 const foo = bar ? bar : baz;
 console.log(foo ? foo : bar);
@@ -23,6 +23,4 @@ console.log(foo ? foo : bar);
 // Good
 const foo = bar || baz;
 console.log(foo ?? bar);
-
 ```
-

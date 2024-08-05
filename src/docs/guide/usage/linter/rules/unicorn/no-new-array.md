@@ -17,6 +17,7 @@ Disallow `new Array()`.
 When using the `Array` constructor with one argument, it's not clear whether the argument is meant to be the length of the array or the only element.
 
 ### Example
+
 ```javascript
 // bad
 const array = new Array(1);
@@ -27,4 +28,3 @@ const array = new Array(foo);
 const array = Array.from({ length: 42 });
 const array = [42];
 ```
-

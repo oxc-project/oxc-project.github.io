@@ -6,17 +6,19 @@
 </div>
 
 ### What it does
+
 Enforce the consistent use of the radix argument when using `parseInt()`.
 
 ### Why is this bad?
+
 Using the `parseInt()` function without specifying the radix can lead to unexpected results.
 
 ### Example
+
 ```javascript
 // error
-var num = parseInt("071");      // 57
+var num = parseInt("071"); // 57
 
 // success
-var num = parseInt("071", 10);  // 71
+var num = parseInt("071", 10); // 71
 ```
-

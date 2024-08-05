@@ -9,12 +9,15 @@
 </div>
 
 ### What it does
+
 Require or disallow the `Record` type.
 
 ### Why is this bad?
+
 Inconsistent style for indexed object types can harm readability in a project.
 
 ### Example
+
 With "record":
 
 ```javascript
@@ -33,4 +36,3 @@ With "index-signature":
 // bad
 type Foo = Record<string, unknown>;
 ```
-

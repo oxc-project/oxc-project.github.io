@@ -18,16 +18,16 @@ isMounted is an anti-pattern, is not available when using ES6 classes,
 and it is on its way to being officially deprecated.///
 
 ### Example
+
 ```javascript
 class Hello extends React.Component {
-    someMethod() {
-        if (!this.isMounted()) {
-            return;
-        }
+  someMethod() {
+    if (!this.isMounted()) {
+      return;
     }
-    render() {
-        return <div onClick={this.someMethod.bind(this)}>Hello</div>;
-    }
-};
+  }
+  render() {
+    return <div onClick={this.someMethod.bind(this)}>Hello</div>;
+  }
+}
 ```
-

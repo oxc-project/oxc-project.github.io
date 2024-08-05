@@ -17,10 +17,10 @@ Enforce consistent usage of type imports.
 inconsistent usage of type imports can make the code harder to read and understand.
 
 ### Example
+
 ```javascript
 import { Foo } from 'Foo';
 type T = Foo;
 
 type S = import("Foo");
 ```
-

@@ -6,13 +6,13 @@
 </div>
 
 ### What it does
+
 This rule is aimed at preventing unexpected behavior that could arise from using a for in loop without filtering the results in the loop. As such, it will warn when for in loops do not filter their results with an if statement.
 
 ### Why is this bad?
 
-
 ### Example
+
 ```javascript
 for (key in foo) {
 ```
-

@@ -17,7 +17,7 @@ Disallow calling new on a Promise static method.
 Calling a Promise static method with new is invalid, resulting in a TypeError at runtime.
 
 ### Example
+
 ```javascript
 new Promise.resolve(value);
 ```
-

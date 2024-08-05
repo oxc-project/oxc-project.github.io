@@ -13,16 +13,19 @@ Reports use of an exported name as the locally imported name of a default export
 
 ```javascript
 // foo.js
-export default 'foo';
-export const bar = 'baz';
-```
-Valid:
-```javascript
-import foo from './foo.js';
-```
-Invalid:
-```javascript
-// using exported name 'bar' as identifier for default export.
-import bar from './foo.js';
+export default "foo";
+export const bar = "baz";
 ```
 
+Valid:
+
+```javascript
+import foo from "./foo.js";
+```
+
+Invalid:
+
+```javascript
+// using exported name 'bar' as identifier for default export.
+import bar from "./foo.js";
+```

@@ -14,6 +14,7 @@ Enforces explicit `type` attribute for all the `button` HTML elements.
 The default value of `type` attribute for `button` HTML element is `"submit"` which is often not the desired behavior and may lead to unexpected page reloads.
 
 ### Example
+
 ```javascript
 // Bad
 <button />
@@ -23,4 +24,3 @@ The default value of `type` attribute for `button` HTML element is `"submit"` wh
 <button type="button" />
 <button type="submit" />
 ```
-

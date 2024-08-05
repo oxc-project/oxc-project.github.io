@@ -10,6 +10,7 @@
 Ban specific matchers & modifiers from being used, and can suggest alternatives.
 
 ### Example
+
 ```javascript
 
 it('is false', () => {
@@ -30,3 +31,4 @@ describe('when an error happens', () => {
 });
 
 
+```

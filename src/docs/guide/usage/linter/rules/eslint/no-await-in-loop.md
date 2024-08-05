@@ -15,7 +15,9 @@ It potentially indicates that the async operations are not being effectively par
 Instead, they are being run in series, which can lead to poorer performance.
 
 ### Example
+
 Bad:
+
 ```javascript
 for (const user of users) {
   const userRecord = await getUserRecord(user);
@@ -23,7 +25,7 @@ for (const user of users) {
 ```
 
 Good:
-```javascript
-await Promise.all(users.map(user => getUserRecord(user)));
-```
 
+```javascript
+await Promise.all(users.map((user) => getUserRecord(user)));
+```

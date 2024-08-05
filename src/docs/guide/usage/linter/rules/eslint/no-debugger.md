@@ -12,16 +12,18 @@
 </div>
 
 ### What it does
+
 Checks for usage of the `debugger` statement
 
 ### Why is this bad?
+
 `debugger` statements do not affect functionality when a debugger isn't attached.
 They're most commonly an accidental debugging leftover.
 
 ### Example
+
 ```javascript
 const data = await getData();
 const result = complexCalculation(data);
 debugger;
 ```
-

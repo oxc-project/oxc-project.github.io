@@ -23,14 +23,13 @@ messages as well.
 ```javascript
 // valid
 expect(value).not.toBe(5);
-expect(getMessage()).toBe('hello world');
-expect(loadMessage()).resolves.toBe('hello world');
+expect(getMessage()).toBe("hello world");
+expect(loadMessage()).resolves.toBe("hello world");
 expect(didError).not.toBe(true);
-expect(catchError()).toStrictEqual({ message: 'oh noes!' });
+expect(catchError()).toStrictEqual({ message: "oh noes!" });
 
 // invalid
 expect(value).not.toEqual(5);
-expect(getMessage()).toStrictEqual('hello world');
-expect(loadMessage()).resolves.toEqual('hello world');
+expect(getMessage()).toStrictEqual("hello world");
+expect(loadMessage()).resolves.toEqual("hello world");
 ```
-

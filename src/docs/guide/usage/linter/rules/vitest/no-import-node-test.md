@@ -16,20 +16,19 @@ This rule warns when `node:test` is imported (usually accidentally). With `--fix
 
 ```javascript
 // invalid
-import { test } from 'node:test'
-import { expect } from 'vitest'
+import { test } from "node:test";
+import { expect } from "vitest";
 
-test('foo', () => {
-  expect(1).toBe(1)
-})
+test("foo", () => {
+  expect(1).toBe(1);
+});
 ```
 
 ```javascript
 // valid
-import { test, expect } from 'vitest'
+import { test, expect } from "vitest";
 
-test('foo', () => {
-  expect(1).toBe(1)
-})
+test("foo", () => {
+  expect(1).toBe(1);
+});
 ```
-
