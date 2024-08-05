@@ -2,7 +2,7 @@
 
 ## Usage
 
-**`oxlint`** \[**`-c`**=_`<./oxlintrc.json>`_\] \[**`--fix`**\] \[_`PATH`_\]...
+**`oxlint`** \[**`-c`**=_`<./oxlintrc.json>`_\] \[**`--fix`**\] \[**`--fix-suggestions`**\] \[**`--fix-dangerously`**\] \[_`PATH`_\]...
 
 ## Basic Configuration
 
@@ -70,6 +70,10 @@ Arguments:
 
 - **`    --fix`** &mdash;
   Fix as many issues as possible. Only unfixed issues are reported in the output
+- **`    --fix-suggestions`** &mdash;
+  Apply auto-fixable suggestions. May change program behavior.
+- **`    --fix-dangerously`** &mdash;
+  Apply dangerous fixes and suggestions.
 
 ## Ignore Files
 
