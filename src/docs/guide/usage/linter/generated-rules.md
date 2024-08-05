@@ -2,12 +2,12 @@
 
 The progress of all rule implementations is tracked [here](https://github.com/oxc-project/oxc/issues/481).
 
-- Total number of rules: 390
-- Rules turned on by default: 91
+- Total number of rules: 400
+- Rules turned on by default: 90
 
 <!-- textlint-disable terminology -->
 
-## Correctness (160):
+## Correctness (159):
 
 Code that is outright wrong or useless.
 | Rule name | Source | Default |
@@ -152,7 +152,6 @@ Code that is outright wrong or useless.
 | void-dom-elements-no-children | react | ✅ |
 | no-extra-non-null-assertion | typescript | ✅ |
 | no-misused-new | typescript | ✅ |
-| no-namespace | typescript | ✅ |
 | no-non-null-asserted-optional-chain | typescript | ✅ |
 | no-this-alias | typescript | ✅ |
 | no-unsafe-declaration-merging | typescript | ✅ |
@@ -185,7 +184,7 @@ Code that can be written to run faster.
 | jsx-no-new-function-as-prop | react_perf | |
 | jsx-no-new-object-as-prop | react_perf | |
 
-## Restriction (50):
+## Restriction (53):
 
 Lints which prevent the use of language and library features. Must not be enabled as a whole, should be considered on a case-by-case basis before enabling.
 | Rule name | Source | Default |
@@ -210,6 +209,7 @@ Lints which prevent the use of language and library features. Must not be enable
 | no-amd | import | |
 | no-cycle | import | |
 | no-default-export | import | |
+| no-webpack-loader-syntax | import | |
 | check-access | jsdoc | |
 | empty-tags | jsdoc | |
 | bad-bitwise-operator | oxc | |
@@ -226,6 +226,7 @@ Lints which prevent the use of language and library features. Must not be enable
 | no-dynamic-delete | typescript | |
 | no-explicit-any | typescript | |
 | no-import-type-side-effects | typescript | |
+| no-namespace | typescript | |
 | no-non-null-asserted-nullish-coalescing | typescript | |
 | no-non-null-assertion | typescript | |
 | no-var-requires | typescript | |
@@ -234,6 +235,7 @@ Lints which prevent the use of language and library features. Must not be enable
 | no-anonymous-default-export | unicorn | |
 | no-array-for-each | unicorn | |
 | no-array-reduce | unicorn | |
+| no-length-as-slice-end | unicorn | |
 | no-magic-array-flat-depth | unicorn | |
 | no-nested-ternary | unicorn | |
 | no-process-exit | unicorn | |
@@ -241,7 +243,7 @@ Lints which prevent the use of language and library features. Must not be enable
 | prefer-node-protocol | unicorn | |
 | prefer-number-properties | unicorn | |
 
-## Suspicious (15):
+## Suspicious (16):
 
 code that is most likely wrong or useless.
 | Rule name | Source | Default |
@@ -259,6 +261,7 @@ code that is most likely wrong or useless.
 | jsx-no-comment-textnodes | react | |
 | react-in-jsx-scope | react | |
 | no-confusing-non-null-assertion | typescript | |
+| no-extraneous-class | typescript | |
 | no-unnecessary-type-constraint | typescript | |
 | prefer-add-event-listener | unicorn | |
 
@@ -335,13 +338,14 @@ Lints which are rather strict or have occasional false positives.
 | prefer-type-error | unicorn | |
 | require-number-to-fixed-digits-argument | unicorn | |
 
-## Style (83):
+## Style (89):
 
 Code that should be written in a more idiomatic way.
 | Rule name | Source | Default |
 | ------------------------------------ | ---------- | ------- |
 | default-case-last | eslint | |
 | default-param-last | eslint | |
+| func-names | eslint | |
 | guard-for-in | eslint | |
 | max-params | eslint | |
 | no-continue | eslint | |
@@ -351,6 +355,7 @@ Code that should be written in a more idiomatic way.
 | no-template-curly-in-string | eslint | |
 | no-ternary | eslint | |
 | prefer-exponentiation-operator | eslint | |
+| prefer-numeric-literals | eslint | |
 | sort-imports | eslint | |
 | consistent-test-it | jest | |
 | max-expects | jest | |
@@ -389,8 +394,10 @@ Code that should be written in a more idiomatic way.
 | require-hook | jest | |
 | require-top-level-describe | jest | |
 | param-names | promise | |
+| jsx-boolean-value | react | |
+| jsx-curly-brace-presence | react | |
 | no-set-state | react | |
-| prefer-es-6-class | react | |
+| prefer-es6-class | react | |
 | adjacent-overload-signatures | typescript | |
 | array-type | typescript | |
 | ban-tslint-comment | typescript | |
@@ -399,6 +406,7 @@ Code that should be written in a more idiomatic way.
 | no-empty-interface | typescript | |
 | prefer-for-of | typescript | |
 | prefer-function-type | typescript | |
+| prefer-namespace-keyword | typescript | |
 | catch-error-name | unicorn | |
 | empty-brace-spaces | unicorn | |
 | error-message | unicorn | |
@@ -423,8 +431,9 @@ Code that should be written in a more idiomatic way.
 | switch-case-braces | unicorn | |
 | text-encoding-identifier-case | unicorn | |
 | throw-new-error | unicorn | |
+| no-import-node-test | vitest | |
 
-## Nursery (9):
+## Nursery (10):
 
 New lints that are still under development.
 | Rule name | Source | Default |
@@ -433,6 +442,7 @@ New lints that are still under development.
 | getter-return | eslint | |
 | no-undef | eslint | |
 | no-unreachable | eslint | |
+| no-unused-vars | eslint | |
 | export | import | |
 | require-render-return | react | |
 | rules-of-hooks | react | |
