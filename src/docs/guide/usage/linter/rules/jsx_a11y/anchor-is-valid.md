@@ -6,7 +6,7 @@
 </div>
 
 ### What it does
-The HTML <a> element, with a valid href attribute, is formally defined as representing a **hyperlink**.
+The HTML `<a>` element, with a valid href attribute, is formally defined as representing a **hyperlink**.
 That is, a link between one HTML document and another, or between one location inside an HTML document and another location inside the same document.
 
 While before it was possible to attach logic to an anchor element, with the advent of JSX libraries,
@@ -21,7 +21,7 @@ used for user interaction.
 
 Consider the following:
 
-```javascript
+```jsx
 <a href="javascript:void(0)" onClick={foo}>Perform action</a>
 <a href="#" onClick={foo}>Perform action</a>
 <a onClick={foo}>Perform action</a>
@@ -29,7 +29,7 @@ Consider the following:
 
 All these anchor implementations indicate that the element is only used to execute JavaScript code. All the above should be replaced with:
 
-```javascript
+```jsx
 <button onClick={foo}>Perform action</button>
 ```
 `
@@ -43,33 +43,19 @@ in another tab, but the default "click" behaviour is prevented
 
 #### Valid
 
-```javascript
+```jsx
 <a href={`https://www.javascript.com`}>navigate here</a>
-```
-
-```javascript
 <a href={somewhere}>navigate here</a>
-```
-
-```javascript
 <a {...spread}>navigate here</a>
 ```
 
 #### Invalid
 
-```javascript
+```jsx
 <a href={null}>navigate here</a>
-```
-```javascript
 <a href={undefined}>navigate here</a>
-```
-```javascript
 <a href>navigate here</a>
-```
-```javascript
 <a href="javascript:void(0)">navigate here</a>
-```
-```javascript
 <a href="https://example.com" onClick={something}>navigate here</a>
 ```
 

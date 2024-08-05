@@ -3,7 +3,7 @@
 
 The progress of all rule implementations is tracked [here](https://github.com/oxc-project/oxc/issues/481).
 
-- Total number of rules: 399
+- Total number of rules: 400
 - Rules turned on by default: 90
 
 <!-- textlint-disable terminology -->
@@ -334,12 +334,13 @@ Lints which are rather strict or have occasional false positives.
 | [prefer-type-error](/docs/guide/usage/linter/rules/unicorn/prefer-type-error.html) | unicorn    |         |
 | [require-number-to-fixed-digits-argument](/docs/guide/usage/linter/rules/unicorn/require-number-to-fixed-digits-argument.html) | unicorn    |         |
 
-## Style (88):
+## Style (89):
 Code that should be written in a more idiomatic way.
 | Rule name                            | Source     | Default |
 | ------------------------------------ | ---------- | ------- |
 | [default-case-last](/docs/guide/usage/linter/rules/eslint/default-case-last.html) | eslint     |         |
 | [default-param-last](/docs/guide/usage/linter/rules/eslint/default-param-last.html) | eslint     |         |
+| [func-names](/docs/guide/usage/linter/rules/eslint/func-names.html) | eslint     |         |
 | [guard-for-in](/docs/guide/usage/linter/rules/eslint/guard-for-in.html) | eslint     |         |
 | [max-params](/docs/guide/usage/linter/rules/eslint/max-params.html) | eslint     |         |
 | [no-continue](/docs/guide/usage/linter/rules/eslint/no-continue.html) | eslint     |         |
