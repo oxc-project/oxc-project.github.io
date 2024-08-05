@@ -14,7 +14,7 @@ This rule prevents using isMounted in ES6 classes
 
 ### Why is this bad?
 
-isMounted is an anti-pattern, is not available when using ES6 classes,
+isMounted is an antipattern, is not available when using ES6 classes,
 and it is on its way to being officially deprecated.///
 
 ### Example

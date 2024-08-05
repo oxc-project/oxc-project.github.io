@@ -10,11 +10,11 @@
 
 ### What it does
 
-Enforces the use of [the spread operator (`...`)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax) over outdated patterns.
+Enforces the use of [the spread syntax (`...`)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax) over outdated patterns.
 
 ### Why is this bad?
 
-Using the spread operator is more concise and readable.
+Using the spread syntax is more concise and readable.
 
 ### Example
 

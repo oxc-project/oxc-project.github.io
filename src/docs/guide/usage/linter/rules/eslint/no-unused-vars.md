@@ -21,8 +21,7 @@ true:
 - It is called (`foo()`) or constructed (`new foo()`)
 - It is read (`var bar = foo`)
 - It is passed into a function as an argument (`doSomething(foo)`)
-- It is read inside of a function that is passed to another function
-  (`doSomething(function() { foo(); })`)
+- It is read inside of a function that is passed to another function (`doSomething(function() { foo(); })`)
 
 A variable is _not_ considered to be used if it is only ever declared
 (`var foo = 5`) or assigned to (`foo = 7`).

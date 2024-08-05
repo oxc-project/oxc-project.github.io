@@ -58,10 +58,10 @@ This rule accepts the following options:
 
 ### `ignoreRestArgs`
 
-A boolean to specify if arrays from the rest operator are considered ok. `false` by
+A boolean to specify if arrays from the rest operator are considered OK. `false` by
 default.
 
 ### `fixToUnknown`
 
-Whether to enable auto-fixing in which the `any` type is converted to the `unknown` type.
+Whether to enable autofixing in which the `any` type is converted to the `unknown` type.
 `false` by default.

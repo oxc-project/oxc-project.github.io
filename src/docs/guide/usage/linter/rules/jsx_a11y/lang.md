@@ -11,7 +11,7 @@ The lang prop on the `<html>` element must be a valid IETF's BCP 47 language tag
 
 ### Why is this bad?
 
-If the language of a webpage is not specified as valid,
+If the language of a web page is not specified as valid,
 the screen reader assumes the default language set by the user.
 Language settings become an issue for users who speak multiple languages
 and access website in more than one language.

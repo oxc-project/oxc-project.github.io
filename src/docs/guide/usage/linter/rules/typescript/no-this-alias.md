@@ -20,7 +20,7 @@ default a constraint to unknown. It is therefore redundant to extend
 from any or unknown.
 
 the rule doesn't allow `const {allowedName} = this`
-this is to keep 1:1 with eslint implementation
+this is to keep 1:1 with ESLint implementation
 sampe with `obj.<allowedName> = this`
 
 ```

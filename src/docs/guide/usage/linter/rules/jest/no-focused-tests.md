@@ -19,7 +19,7 @@ Jest has a feature that allows you to focus tests by appending `.only` or
 prepending `f` to a test-suite or a test-case. This feature is really helpful to
 debug a failing test, so you don’t have to execute all of your tests. After you
 have fixed your test and before committing the changes you have to remove
-`.only` to ensure all tests are executed on your build system.
+`.only` to ensure all tests are executed on your build tool.
 
 ### Example
 
