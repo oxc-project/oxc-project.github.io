@@ -7,7 +7,7 @@
 
 ### What it does
 
-The scope prop should be used only on <th> elements.
+The scope prop should be used only on `<th>` elements.
 
 ### Why is this bad?
 
@@ -17,7 +17,7 @@ A screen reader operates under the assumption that a table has a header and that
 
 ### Example
 
-```javascript
+```jsx
 // Bad
 <div scope />
 

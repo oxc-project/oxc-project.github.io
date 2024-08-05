@@ -7,7 +7,7 @@
 
 ### What it does
 
-The lang prop on the <html> element must be a valid IETF's BCP 47 language tag.
+The lang prop on the `<html>` element must be a valid IETF's BCP 47 language tag.
 
 ### Why is this bad?
 
@@ -20,14 +20,14 @@ and access website in more than one language.
 
 // good
 
-```javascript
+```jsx
 <html lang="en">
 <html lang="en-US">
 ```
 
 // bad
 
-```javascript
+```jsx
 <html>
 <html lang="foo">
 ```
