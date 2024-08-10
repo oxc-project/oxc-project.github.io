@@ -3,9 +3,9 @@
 # unicorn/prefer-type-error
 
 <div class="rule-meta">
-<span class="fix">
-🚧 An auto-fix is still under development.
-</span>
+<Alert class="fix" type="info">
+<span class="emoji">🚧</span> An auto-fix is still under development.
+</Alert>
 </div>
 
 ### What it does

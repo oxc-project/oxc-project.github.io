@@ -3,9 +3,9 @@
 # typescript/prefer-function-type
 
 <div class="rule-meta">
-<span class="fix">
-🛠️ An auto-fix is available for this rule for some violations.
-</span>
+<Alert class="fix" type="info">
+<span class="emoji">🛠️</span> An auto-fix is available for this rule for some violations.
+</Alert>
 </div>
 
 ### What it does

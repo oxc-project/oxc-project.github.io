@@ -3,9 +3,9 @@
 # eslint/no-eq-null
 
 <div class="rule-meta">
-<span class="fix">
-⚠️🛠️️ A dangerous auto-fix is available for this rule.
-</span>
+<Alert class="fix" type="info">
+<span class="emoji">⚠️🛠️️</span> A dangerous auto-fix is available for this rule.
+</Alert>
 </div>
 
 ### What it does

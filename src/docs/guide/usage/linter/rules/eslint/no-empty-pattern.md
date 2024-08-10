@@ -3,9 +3,9 @@
 # eslint/no-empty-pattern
 
 <div class="rule-meta">
-<span class="default-on">
-✅ This rule is turned on by default.
-</span>
+<Alert class="default-on" type="success">
+<span class="emoji">✅</span> This rule is turned on by default.
+</Alert>
 </div>
 
 ### What it does

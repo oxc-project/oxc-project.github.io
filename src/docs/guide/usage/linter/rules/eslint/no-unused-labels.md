@@ -3,12 +3,12 @@
 # eslint/no-unused-labels
 
 <div class="rule-meta">
-<span class="default-on">
-✅ This rule is turned on by default.
-</span>
-<span class="fix">
-🛠️ An auto-fix is available for this rule.
-</span>
+<Alert class="default-on" type="success">
+<span class="emoji">✅</span> This rule is turned on by default.
+</Alert>
+<Alert class="fix" type="info">
+<span class="emoji">🛠️</span> An auto-fix is available for this rule.
+</Alert>
 </div>
 
 ### What it does
