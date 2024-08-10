@@ -3,6 +3,9 @@
 # jsx_a11y/no-aria-hidden-on-focusable
 
 <div class="rule-meta">
+<span class="fix">
+🛠️ An auto-fix is available for this rule.
+</span>
 </div>
 
 ### What it does
@@ -15,7 +18,7 @@ Enforces that `aria-hidden="true"` is not set on focusable elements.
 
 ### Example
 
-```javascript
+```jsx
 // Bad
 <div aria-hidden="true" tabIndex="0" />
 

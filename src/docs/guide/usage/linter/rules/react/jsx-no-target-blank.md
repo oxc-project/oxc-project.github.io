@@ -23,7 +23,7 @@ target='\_blank' attributes with rel='noreferrer'.
 
 ### Example
 
-```javascript
+```jsx
 /// correct
 var Hello = <p target="_blank"></p>;
 var Hello = <a target="_blank" rel="noreferrer" href="https://example.com"></a>;

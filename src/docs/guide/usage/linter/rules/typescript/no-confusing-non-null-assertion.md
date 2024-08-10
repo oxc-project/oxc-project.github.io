@@ -15,8 +15,8 @@ Using a non-null assertion (!) next to an assign or equals check (= or == or ===
 
 ### Example
 
-```javascript
-   a! == b; // a non-null assertions(`!`) and an equals test(`==`)
-   a !== b; // not equals test(`!==`)
-   a! === b; // a non-null assertions(`!`) and an triple equals test(`===`)
+```ts
+a! == b; // a non-null assertions(`!`) and an equals test(`==`)
+a !== b; // not equals test(`!==`)
+a! === b; // a non-null assertions(`!`) and an triple equals test(`===`)
 ```

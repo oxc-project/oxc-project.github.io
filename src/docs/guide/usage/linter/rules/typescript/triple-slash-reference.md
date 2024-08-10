@@ -18,7 +18,7 @@ Use of triple-slash reference type directives is generally discouraged in favor 
 
 ### Example
 
-```javascript
+```ts
 /// <reference lib="code" />
 globalThis.value;
 ```

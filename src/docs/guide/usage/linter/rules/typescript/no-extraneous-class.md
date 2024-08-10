@@ -30,20 +30,20 @@ when they're all on the class (see: Finding dead code (and dead types) in TypeSc
 
 ### Example
 
-```javascript
+```ts
 class StaticConstants {
-	static readonly version = 42;
+  static readonly version = 42;
 
-	static isProduction() {
-	  return process.env.NODE_ENV === 'production';
-	}
+  static isProduction() {
+    return process.env.NODE_ENV === "production";
   }
+}
 
-  class HelloWorldLogger {
-	constructor() {
-	  console.log('Hello, world!');
-	}
+class HelloWorldLogger {
+  constructor() {
+    console.log("Hello, world!");
   }
+}
 
-  abstract class Foo {}
+abstract class Foo {}
 ```

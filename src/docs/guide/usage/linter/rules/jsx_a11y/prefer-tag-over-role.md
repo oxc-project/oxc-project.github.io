@@ -15,7 +15,7 @@ Using semantic HTML tags can improve accessibility and readability of the code.
 
 ### Example
 
-```javascript
+```jsx
 // Bad
 <div role="button" />
 

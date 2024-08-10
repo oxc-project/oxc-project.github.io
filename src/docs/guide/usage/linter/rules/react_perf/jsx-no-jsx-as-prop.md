@@ -11,7 +11,7 @@ Prevent JSX that are local to the current method from being used as values of JS
 
 ### Example
 
-```javascript
+```jsx
 // Bad
 <Item jsx={<SubItem />} />
 <Item jsx={this.props.jsx || <SubItem />} />

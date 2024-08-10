@@ -18,5 +18,7 @@ If you are returning Promises then you should update the test to use
 ### Example
 
 ```javascript
-
+test("one", () => {
+  return expect(1).toBe(1);
+});
 ```

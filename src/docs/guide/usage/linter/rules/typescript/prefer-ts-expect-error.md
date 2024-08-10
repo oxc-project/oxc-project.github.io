@@ -22,13 +22,13 @@ This is dangerous, as if a new error arises on that line it'll be suppressed by 
 
 ### Example
 
-```javascript
+```ts
 // @ts-ignore
 const str: string = 1;
 
 /**
-* Explaining comment
-*
-* @ts-ignore */
-const multiLine: number = 'value';
+ * Explaining comment
+ *
+ * @ts-ignore */
+const multiLine: number = "value";
 ```

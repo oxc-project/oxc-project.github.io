@@ -7,7 +7,7 @@
 
 ### What it does
 
-This rule disallows the use of await within loop bodies. (for, for-in, for-of, while, do-while).
+This rule disallows the use of `await` within loop bodies. (for, for-in, for-of, while, do-while).
 
 ### Why is this bad?
 
@@ -19,13 +19,17 @@ Instead, they are being run in series, which can lead to poorer performance.
 Bad:
 
 ```javascript
-for (const user of users) {
-  const userRecord = await getUserRecord(user);
+async function bad() {
+  for (const user of users) {
+    const userRecord = await getUserRecord(user);
+  }
 }
 ```
 
 Good:
 
 ```javascript
-await Promise.all(users.map((user) => getUserRecord(user)));
+async function good() {
+  await Promise.all(users.map((user) => getUserRecord(user)));
+}
 ```

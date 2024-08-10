@@ -17,9 +17,11 @@ the await expression has to be parenthesized, which is not readable.
 ### Example
 
 ```javascript
-// Bad
-const secondElement = (await getArray())[1];
+async function bad() {
+  const secondElement = (await getArray())[1];
+}
 
-// Good
-const [, secondElement] = await getArray();
+async function good() {
+  const [, secondElement] = await getArray();
+}
 ```

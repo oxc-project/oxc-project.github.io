@@ -19,7 +19,7 @@ The TypeScript compiler doesn't check whether properties are initialized, which 
 
 ### Example
 
-```javascript
+```ts
 interface Foo {}
 class Foo {}
 ```

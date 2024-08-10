@@ -18,7 +18,7 @@ calling setState() afterwards may replace the mutation you made
 
 ### Example
 
-```javascript
+```jsx
  // error
  var Hello = createReactClass({
    componentDidMount: function() {

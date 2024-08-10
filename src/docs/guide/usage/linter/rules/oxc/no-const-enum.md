@@ -20,10 +20,10 @@ Their use can lead to import nonexistent values (because const enums are erased)
 
 ### Example
 
-```javascript
+```ts
 const enum Color {
-   Red,
-   Green,
-   Blue
+  Red,
+  Green,
+  Blue,
 }
 ```

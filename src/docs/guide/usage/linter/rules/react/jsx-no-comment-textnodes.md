@@ -15,7 +15,7 @@ In JSX, any text node that is not wrapped in curly braces is considered a litera
 
 ### Example
 
-```javascript
+```jsx
 // Incorrect:
 
 const Hello = () => {

@@ -18,8 +18,8 @@ inconsistent usage of type imports can make the code harder to read and understa
 
 ### Example
 
-```javascript
-import { Foo } from 'Foo';
+```ts
+import { Foo } from "Foo";
 type T = Foo;
 
 type S = import("Foo");

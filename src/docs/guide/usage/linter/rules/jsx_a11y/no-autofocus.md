@@ -10,37 +10,43 @@
 
 ### What it does
 
-Enforce that autoFocus prop is not used on elements. Autofocusing elements can cause usability issues for sighted and non-sighted users, alike.
+Enforce that `autoFocus` prop is not used on elements. Autofocusing
+elements can cause usability issues for sighted and non-sighted users,
+alike.
 
 ### Rule Option
 
 This rule takes one optional object argument of type object:
 
-```
+```json
 {
-    "rules": {
-        "jsx-a11y/no-autofocus": [ 2, {
-            "ignoreNonDOM": true
-        }],
-    }
+  "rules": {
+    "jsx-a11y/no-autofocus": [
+      2,
+      {
+        "ignoreNonDOM": true
+      }
+    ]
+  }
 }
 ```
 
-For the `ignoreNonDOM` option, this determines if developer created components are checked.
+For the `ignoreNonDOM` option, this determines if developer created
+components are checked.
 
 ### Example
 
-// good
+Examples of **incorrect** code for this rule:
 
-```javascript
-<div />
-```
-
-// bad
-
-```
+```jsx
 <div autoFocus />
 <div autoFocus="true" />
 <div autoFocus="false" />
 <div autoFocus={undefined} />
+```
+
+Examples of **correct** code for this rule:
+
+```jsx
+<div />
 ```

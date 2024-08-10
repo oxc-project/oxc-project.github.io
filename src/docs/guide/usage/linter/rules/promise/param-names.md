@@ -19,6 +19,10 @@ makes code more uniform and easier to understand.
 ### Example
 
 ```javascript
-new Promise(function (reject, resolve) { ... }) // incorrect order
-new Promise(function (ok, fail) { ... }) // non-standard parameter names
+new Promise(function (reject, resolve) {
+  /* ... */
+}); // incorrect order
+new Promise(function (ok, fail) {
+  /* ... */
+}); // non-standard parameter names
 ```

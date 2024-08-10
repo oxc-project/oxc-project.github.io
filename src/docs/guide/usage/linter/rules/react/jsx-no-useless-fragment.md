@@ -15,7 +15,7 @@ Fragments are a useful tool when you need to group multiple children without add
 
 ### Example
 
-```javascript
+```jsx
 // Bad
 <>foo</>
 <div><>foo</></div>

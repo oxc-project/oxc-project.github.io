@@ -3,11 +3,14 @@
 # unicorn/prefer-array-flat
 
 <div class="rule-meta">
+<span class="fix">
+🚧 An auto-fix is still under development.
+</span>
 </div>
 
 ### What it does
 
-Prefers `Array#flat()` over legacy techniques to flatten arrays. ///
+Prefers `Array#flat()` over legacy techniques to flatten arrays.
 
 ### Why is this bad?
 

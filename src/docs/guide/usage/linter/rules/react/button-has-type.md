@@ -11,11 +11,13 @@ Enforces explicit `type` attribute for all the `button` HTML elements.
 
 ### Why is this bad?
 
-The default value of `type` attribute for `button` HTML element is `"submit"` which is often not the desired behavior and may lead to unexpected page reloads.
+The default value of `type` attribute for `button` HTML element is
+`"submit"` which is often not the desired behavior and may lead to
+unexpected page reloads.
 
 ### Example
 
-```javascript
+```jsx
 // Bad
 <button />
 <button type="foo" />

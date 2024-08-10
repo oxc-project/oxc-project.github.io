@@ -9,7 +9,7 @@
 
 Prevent Objects that are local to the current method from being used as values of JSX props
 
-```javascript
+```jsx
 // Bad
 <Item config={{}} />
 <Item config={new Object()} />

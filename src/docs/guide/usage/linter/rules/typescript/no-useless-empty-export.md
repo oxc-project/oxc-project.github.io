@@ -19,13 +19,13 @@ Disallow empty exports that don't change anything in a module file.
 
 ### Bad
 
-```javascript
+```ts
 export const value = "Hello, world!";
 export {};
 ```
 
 ### Good
 
-```javascript
+```ts
 export const value = "Hello, world!";
 ```

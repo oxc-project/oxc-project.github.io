@@ -18,7 +18,7 @@ When not using JSX, the children should be passed as additional arguments to `Re
 
 ### Example
 
-```javascript
+```jsx
 // Bad
 <div children='Children' />
 

@@ -7,15 +7,17 @@
 
 ### What it does
 
-Enforces that elements with ARIA roles must have all required attributes for that role.
+Enforces that elements with ARIA roles must have all required attributes
+for that role.
 
 ### Why is this bad?
 
-Certain ARIA roles require specific attributes to express necessary semantics for assistive technology.
+Certain ARIA roles require specific attributes to express necessary
+semantics for assistive technology.
 
 ### Example
 
-```javascript
+```jsx
 // Bad
 <div role="checkbox" />
 

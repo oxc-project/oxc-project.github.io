@@ -17,4 +17,13 @@ The continue statement terminates execution of the statements in the current ite
 
 ```javascript
 var sum = 0,
+  i;
+
+for (i = 0; i < 10; i++) {
+  if (i >= 5) {
+    continue;
+  }
+
+  sum += i;
+}
 ```

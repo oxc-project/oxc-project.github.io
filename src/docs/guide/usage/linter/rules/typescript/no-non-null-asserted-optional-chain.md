@@ -21,7 +21,7 @@ Most of the time, either the object was not nullable and did not need the `?.` f
 
 ### Example
 
-```javascript
+```ts
 foo?.bar!;
 foo?.bar()!;
 ```

@@ -28,10 +28,14 @@ text that describes the element's content or purpose.
 
 ### Example
 
-```javascript
-// Bad
-<img src="flower.jpg">
+Examples of **incorrect** code for this rule:
 
-// Good
-<img src="flower.jpg" alt="A close-up of a white daisy">
+```jsx
+<img src="flower.jpg" alt="A close-up of a white daisy" />
+```
+
+Examples of **correct** code for this rule:
+
+```jsx
+<img src="flower.jpg" />
 ```

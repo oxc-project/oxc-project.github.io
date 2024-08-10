@@ -3,12 +3,17 @@
 # eslint/no-var
 
 <div class="rule-meta">
+<span class="fix">
+🚧 An auto-fix is still under development.
+</span>
 </div>
 
 ### What it does
 
-ECMAScript 6 allows programmers to create variables with block scope instead of function scope using the `let` and `const` keywords.
-Block scope is common in many other programming languages and helps programmers avoid mistakes
+ECMAScript 6 allows programmers to create variables with block scope
+instead of function scope using the `let` and `const` keywords. Block
+scope is common in many other programming languages and helps
+programmers avoid mistakes.
 
 ### Why is this bad?
 

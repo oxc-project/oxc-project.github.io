@@ -15,4 +15,6 @@ This rule is aimed at preventing unexpected behavior that could arise from using
 
 ```javascript
 for (key in foo) {
+  doSomething(key);
+}
 ```

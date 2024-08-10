@@ -16,7 +16,7 @@ Inconsistencies between keyboard shortcuts and keyboard commands used by screenr
 
 ### Example
 
-```javascript
+```jsx
 // Bad
 <div accessKey="h" />
 

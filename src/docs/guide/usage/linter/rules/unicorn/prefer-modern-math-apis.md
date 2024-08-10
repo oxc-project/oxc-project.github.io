@@ -3,6 +3,9 @@
 # unicorn/prefer-modern-math-apis
 
 <div class="rule-meta">
+<span class="fix">
+🚧 An auto-fix is still under development.
+</span>
 </div>
 
 ### What it does

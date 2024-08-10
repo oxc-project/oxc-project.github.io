@@ -20,7 +20,7 @@ In most cases, use of this escape hatch is discouraged because it pierces the co
 
 ### Example
 
-```javascript
+```jsx
 class MyComponent extends Component {
   componentDidMount() {
     findDOMNode(this).scrollIntoView();

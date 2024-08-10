@@ -18,17 +18,19 @@ Additionally, conditionals tend to make tests more brittle and complex, as they 
 ### Example
 
 ```javascript
-it('foo', () => {
+it("foo", () => {
   doTest && expect(1).toBe(2);
 });
 
-it('bar', () => {
+it("bar", () => {
   if (!skipTest) {
     expect(1).toEqual(2);
   }
 });
 
-it('throws an error', async () => {
+it("throws an error", async () => {
+  await foo().catch((error) => expect(error).toBeInstanceOf(error));
+});
 ```
 
 This rule is compatible with [eslint-plugin-vitest](https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/no-conditional-expect.md),

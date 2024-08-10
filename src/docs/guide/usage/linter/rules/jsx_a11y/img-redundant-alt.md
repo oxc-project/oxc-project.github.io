@@ -23,7 +23,7 @@ This rule checks for alternative text on the following elements:
 
 ### Example
 
-```javascript
+```jsx
 // Bad
 <img src="foo" alt="Photo of foo being weird." />
 <img src="bar" alt="Image of me at a bar!" />

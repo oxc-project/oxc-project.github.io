@@ -17,7 +17,7 @@ Consider using a Map or Set if you’re using an object as a key-value collectio
 
 ### Example
 
-```javascript
+```ts
 const container: { [i: string]: 0 } = {};
-delete container['aa' + 'b'];
+delete container["aa" + "b"];
 ```

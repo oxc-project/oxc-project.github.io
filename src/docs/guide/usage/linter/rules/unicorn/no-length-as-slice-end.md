@@ -3,6 +3,9 @@
 # unicorn/no-length-as-slice-end
 
 <div class="rule-meta">
+<span class="fix">
+🛠️ An auto-fix is available for this rule.
+</span>
 </div>
 
 ### What it does

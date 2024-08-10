@@ -3,6 +3,9 @@
 # unicorn/prefer-string-replace-all
 
 <div class="rule-meta">
+<span class="fix">
+🛠️ An auto-fix is available for this rule.
+</span>
 </div>
 
 ### What it does
@@ -15,6 +18,18 @@ The [`String#replaceAll()`](https://developer.mozilla.org/en-US/docs/Web/JavaScr
 
 ### Example
 
-```javascript
+Examples of **incorrect** code for this rule:
 
+```js
+array.reduceRight(reducer, initialValue);
+```
+
+Examples of **correct** code for this rule:
+
+```js
+foo.replace(/a/, bar);
+foo.replaceAll(/a/, bar);
+
+const pattern = "not-a-regexp";
+foo.replace(pattern, bar);
 ```

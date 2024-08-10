@@ -12,23 +12,20 @@ Ban specific matchers & modifiers from being used, and can suggest alternatives.
 ### Example
 
 ```javascript
-
-it('is false', () => {
-  if this has a modifier (i.e. `not.toBeFalsy`), it would be considered fine
+it("is false", () => {
+  // if this has a modifier (i.e. `not.toBeFalsy`), it would be considered fine
   expect(a).toBeFalsy();
 });
 
-it('resolves', async () => {
+it("resolves", async () => {
   // all uses of this modifier are disallowed, regardless of matcher
   await expect(myPromise()).resolves.toBe(true);
 });
 
-describe('when an error happens', () => {
-  it('does not upload the file', async () => {
+describe("when an error happens", () => {
+  it("does not upload the file", async () => {
     // all uses of this matcher are disallowed
-    expect(uploadFileMock).not.toHaveBeenCalledWith('file.name');
+    expect(uploadFileMock).not.toHaveBeenCalledWith("file.name");
   });
 });
-
-
 ```

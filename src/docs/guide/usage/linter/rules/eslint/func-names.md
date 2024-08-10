@@ -4,65 +4,73 @@
 
 <div class="rule-meta">
 <span class="fix">
-🚧 An auto-fix is still under development.
+🛠️💡 An auto-fix and a suggestion are available for this rule for some violations.
 </span>
 </div>
 
 ### What it does
 
-Require or disallow named function expressions
+Require or disallow named function expressions.
 
 ### Why is this bad?
 
-Leaving the name off a function will cause `<anonymous>` to appear
-in stack traces of errors thrown in it or any function called within it.
-This makes it more difficult to find where an error is thrown.
-If you provide the optional name for a function expression
-then you will get the name of the function expression in the stack trace.
+Leaving the name off a function will cause `<anonymous>` to appear in
+stack traces of errors thrown in it or any function called within it.
+This makes it more difficult to find where an error is thrown. If you
+provide the optional name for a function expression then you will get
+the name of the function expression in the stack trace.
 
-/// ### Example
+## Configuration
 
-Example of **incorrect** code for this rule:
+This rule has a string option:
+
+- `"always"` requires a function expression to have a name under all circumstances.
+- `"as-needed"` requires a function expression to have a name only when one will not be automatically inferred by the runtime.
+- `"never"` requires a function expression to not have a name under any circumstances.
+
+### Example
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
-/*eslint func-names: "error" */
+/*oxlint func-names: "error" */
 
 // default is "always" and there is an anonymous function
 Foo.prototype.bar = function () {};
 
-/*eslint func-names: ["error", "always"] */
+/*oxlint func-names: ["error", "always"] */
 
 // there is an anonymous function
 Foo.prototype.bar = function () {};
 
-/*eslint func-names: ["error", "as-needed"] */
+/*oxlint func-names: ["error", "as-needed"] */
 
 // there is an anonymous function
 // where the name isn’t assigned automatically per the ECMAScript specs
 Foo.prototype.bar = function () {};
 
-/*eslint func-names: ["error", "never"] */
+/*oxlint func-names: ["error", "never"] */
 
 // there is a named function
 Foo.prototype.bar = function bar() {};
 ```
 
-Example of \*_correct_ code for this rule:
+Examples of \*_correct_ code for this rule:
 
 ```javascript
-/*eslint func-names: "error" */
+/*oxlint func-names: "error" */
 
 Foo.prototype.bar = function bar() {};
 
-/*eslint func-names: ["error", "always"] */
+/*oxlint func-names: ["error", "always"] */
 
 Foo.prototype.bar = function bar() {};
 
-/*eslint func-names: ["error", "as-needed"] */
+/*oxlint func-names: ["error", "as-needed"] */
 
 var foo = function () {};
 
-/*eslint func-names: ["error", "never"] */
+/*oxlint func-names: ["error", "never"] */
 
 Foo.prototype.bar = function () {};
 ```

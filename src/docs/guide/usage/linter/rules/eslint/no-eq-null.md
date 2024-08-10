@@ -3,6 +3,9 @@
 # eslint/no-eq-null
 
 <div class="rule-meta">
+<span class="fix">
+⚠️🛠️️ A dangerous auto-fix is available for this rule.
+</span>
 </div>
 
 ### What it does

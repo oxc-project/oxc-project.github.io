@@ -20,19 +20,19 @@ Inconsistent style for indexed object types can harm readability in a project.
 
 With "record":
 
-```javascript
+```ts
 // bad
 interface Foo {
- [key: string]: unknown;
+  [key: string]: unknown;
 }
 type Foo = {
- [key: string]: unknown;
+  [key: string]: unknown;
 };
 ```
 
 With "index-signature":
 
-```javascript
+```ts
 // bad
 type Foo = Record<string, unknown>;
 ```

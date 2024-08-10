@@ -6,6 +6,9 @@
 <span class="default-on">
 ✅ This rule is turned on by default.
 </span>
+<span class="fix">
+⚠️🛠️️ A dangerous auto-fix is available for this rule.
+</span>
 </div>
 
 ### What it does
@@ -21,5 +24,5 @@ A for loop that is known to run infinitely or never run is considered a bug.
 ```javascript
 for (var i = 0; i < 10; i--) {}
 
-for (var = 10; i >= 0; i++) {}
+for (var i = 10; i >= 0; i++) {}
 ```

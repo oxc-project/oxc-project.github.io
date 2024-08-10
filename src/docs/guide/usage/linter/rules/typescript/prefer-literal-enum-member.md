@@ -16,7 +16,7 @@ However, because enums create their own scope whereby each enum member becomes a
 
 ### Example
 
-```javascript
+```ts
 const imOutside = 2;
 const b = 2;
 enum Foo {

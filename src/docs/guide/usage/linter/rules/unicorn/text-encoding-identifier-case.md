@@ -3,6 +3,9 @@
 # unicorn/text-encoding-identifier-case
 
 <div class="rule-meta">
+<span class="fix">
+🚧 An auto-fix is still under development.
+</span>
 </div>
 
 ### What it does
@@ -15,18 +18,20 @@ Enforces `'ascii'` for ASCII encoding.
 ### Example
 
 ```javascript
-// Fail
-await fs.readFile(file, "UTF-8");
+import fs from "node:fs/promises";
+async function bad() {
+  await fs.readFile(file, "UTF-8");
 
-await fs.readFile(file, "ASCII");
+  await fs.readFile(file, "ASCII");
 
-const string = buffer.toString("utf-8");
+  const string = buffer.toString("utf-8");
+}
 
-// pass
+async function good() {
+  await fs.readFile(file, "utf8");
 
-await fs.readFile(file, "utf8");
+  await fs.readFile(file, "ascii");
 
-await fs.readFile(file, "ascii");
-
-const string = buffer.toString("utf8");
+  const string = buffer.toString("utf8");
+}
 ```

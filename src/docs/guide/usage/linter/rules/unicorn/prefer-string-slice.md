@@ -3,6 +3,9 @@
 # unicorn/prefer-string-slice
 
 <div class="rule-meta">
+<span class="fix">
+🚧 An auto-fix is still under development.
+</span>
 </div>
 
 ### What it does
@@ -15,6 +18,14 @@ Prefer [`String#slice()`](https://developer.mozilla.org/en-US/docs/Web/JavaScrip
 
 ### Example
 
-```javascript
+Examples of **incorrect** code for this rule:
 
+```javascript
+"foo".substr(1, 2);
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
+"foo".slice(1, 2);
 ```

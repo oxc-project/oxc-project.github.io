@@ -15,7 +15,7 @@ Incorrectly using the autocomplete attribute may decrease the accessibility of t
 
 ### Example
 
-```javascript
+```jsx
 // Bad
 <input autocomplete="invalid-value" />
 

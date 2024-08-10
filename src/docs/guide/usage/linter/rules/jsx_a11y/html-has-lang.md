@@ -18,7 +18,7 @@ and access website in more than one language.
 
 ### Example
 
-```javascript
+```jsx
 // Bad
 <html />
 

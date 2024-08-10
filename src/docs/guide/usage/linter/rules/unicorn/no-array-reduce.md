@@ -18,5 +18,6 @@ It's only somewhat useful in the rare case of summing up numbers, which is allow
 ### Example
 
 ```javascript
-
+array.reduce(reducer, initialValue);
+array.reduceRight(reducer, initialValue);
 ```

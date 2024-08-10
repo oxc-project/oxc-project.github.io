@@ -20,7 +20,7 @@ This rule checks for title property on iframe element.
 
 ### Example
 
-```javascript
+```jsx
 // Bad
 <iframe />
 <iframe {...props} />

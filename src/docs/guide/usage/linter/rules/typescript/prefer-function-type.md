@@ -22,7 +22,7 @@ This rule suggests using a function type instead of an interface or object type 
 
 ### Example
 
-```javascript
+```ts
 // error
 interface Example {
   (): string;

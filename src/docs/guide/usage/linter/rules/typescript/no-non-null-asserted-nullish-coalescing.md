@@ -15,9 +15,9 @@ The ?? nullish coalescing runtime operator allows providing a default value when
 
 ### Example
 
-```javascript
+```ts
 foo! ?? bar;
 
 let x: string;
-x! ?? '';
+x! ?? "";
 ```

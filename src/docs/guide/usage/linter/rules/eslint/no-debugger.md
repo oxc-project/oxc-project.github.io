@@ -23,7 +23,9 @@ They're most commonly an accidental debugging leftover.
 ### Example
 
 ```javascript
-const data = await getData();
-const result = complexCalculation(data);
-debugger;
+async function main() {
+  const data = await getData();
+  const result = complexCalculation(data);
+  debugger;
+}
 ```

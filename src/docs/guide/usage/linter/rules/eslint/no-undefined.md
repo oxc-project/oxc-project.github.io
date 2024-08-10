@@ -14,21 +14,19 @@ Disallow the use of `undefined` as an identifier
 ### Example of bad code
 
 ```javascript
-
 var foo = undefined;
 
 var undefined = "foo";
 
 if (foo === undefined) {
-...
+  // ...
 }
 
 function baz(undefined) {
-...
+  // ...
 }
 
 bar(undefined, "lorem");
-
 ```
 
 ### Example of good code
@@ -39,7 +37,7 @@ var foo = void 0;
 var Undefined = "foo";
 
 if (typeof foo === "undefined") {
-...
+  // ...
 }
 
 global.undefined = "foo";

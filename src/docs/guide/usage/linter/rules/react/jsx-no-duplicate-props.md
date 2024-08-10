@@ -19,7 +19,7 @@ Creating JSX elements with duplicate props can cause unexpected behavior in your
 
 ### Example
 
-```javascript
+```jsx
 // Bad
 <App a a />;
 <App foo={2} bar baz foo={3} />;

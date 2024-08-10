@@ -6,6 +6,9 @@
 <span class="default-on">
 ✅ This rule is turned on by default.
 </span>
+<span class="fix">
+🛠️💡 An auto-fix and a suggestion are available for this rule for some violations.
+</span>
 </div>
 
 ### What it does

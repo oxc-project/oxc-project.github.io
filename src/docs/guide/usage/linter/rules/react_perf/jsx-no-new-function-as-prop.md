@@ -11,7 +11,7 @@ Prevent Functions that are local to the current method from being used as values
 
 ### Example
 
-```javascript
+```jsx
 // Bad
 <Item callback={new Function(...)} />
 <Item callback={this.props.callback || function() {}} />

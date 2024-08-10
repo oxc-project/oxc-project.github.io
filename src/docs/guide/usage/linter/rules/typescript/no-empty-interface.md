@@ -17,7 +17,7 @@ This rule aims to ensure that only meaningful interfaces are declared in the cod
 
 ### Example
 
-```javascript
+```ts
 interface Foo {}
 interface Bar extends Foo {}
 ```

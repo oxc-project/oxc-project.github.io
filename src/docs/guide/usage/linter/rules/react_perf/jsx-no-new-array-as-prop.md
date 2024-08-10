@@ -11,9 +11,10 @@ Prevent Arrays that are local to the current method from being used as values of
 
 ### Example
 
-```javascript
+```jsx
 // Bad
 <Item list={[]} />
+
 <Item list={new Array()} />
 <Item list={Array()} />
 <Item list={this.props.list || []} />

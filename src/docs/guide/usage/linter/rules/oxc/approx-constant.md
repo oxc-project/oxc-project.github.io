@@ -7,7 +7,8 @@
 
 ### What it does
 
-Disallows the use of approximate constants, instead preferring the use of the constants in the `Math` object.
+Disallows the use of approximate constants, instead preferring the use
+of the constants in the `Math` object.
 
 ### Why is this bad?
 
@@ -16,5 +17,9 @@ Approximate constants are not as accurate as the constants in the `Math` object.
 ### Example
 
 ```javascript
+// Bad
+let log10e = 0.434294;
 
+// Good
+let log10e = Math.LOG10E;
 ```

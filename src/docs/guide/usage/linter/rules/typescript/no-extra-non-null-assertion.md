@@ -18,7 +18,7 @@ The `!` non-null assertion operator in TypeScript is used to assert that a value
 
 ### Example
 
-```javascript
+```ts
 const foo: { bar: number } | null = null;
 const bar = foo!!!.bar;
 ```

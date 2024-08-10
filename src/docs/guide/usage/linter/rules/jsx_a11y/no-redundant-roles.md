@@ -7,7 +7,8 @@
 
 ### What it does
 
-Enforces that the explicit role property is not the same as implicit/default role property on element.
+Enforces that the explicit `role` property is not the same as
+implicit/default role property on element.
 
 ### Why is this bad?
 
@@ -15,7 +16,7 @@ Redundant roles can lead to confusion and verbosity in the codebase.
 
 ### Example
 
-```javascript
+```jsx
 // Bad
 <nav role="navigation" />
 

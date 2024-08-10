@@ -15,7 +15,7 @@ When writing the `render` method in a component it is easy to forget to return t
 
 ### Example
 
-```javascript
+```jsx
 var Hello = createReactClass({
   render() {
     <div>Hello</div>;

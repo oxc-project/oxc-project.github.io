@@ -18,7 +18,7 @@ state should rarely be necessary in such cases.
 
 ### Example
 
-```javascript
+```jsx
 var Hello = createReactClass({
   getInitialState: function () {
     return {

@@ -14,6 +14,6 @@ Enforce a consistent boolean attribute style in your code.
 
 ### Example
 
-```javascript
+```jsx
 const Hello = <Hello personal={true} />;
 ```

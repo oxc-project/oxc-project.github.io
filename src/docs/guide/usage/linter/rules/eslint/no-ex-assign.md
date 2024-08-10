@@ -23,5 +23,9 @@ assignment of the parameter is absolutely destructive.
 ### Example
 
 ```javascript
-
+try {
+  // code
+} catch (e) {
+  e = 10;
+}
 ```

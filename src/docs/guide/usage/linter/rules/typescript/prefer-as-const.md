@@ -27,7 +27,7 @@ This rule reports when an as with an explicit literal type can be replaced with 
 
 ### Example
 
-```javascript
+```ts
 let bar: 2 = 2;
-let foo = { bar: 'baz' as 'baz' };
+let foo = { bar: "baz" as "baz" };
 ```
