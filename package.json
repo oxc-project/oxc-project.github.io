@@ -26,6 +26,7 @@
     "feed": "^4.2.2",
     "husky": "^9.0.11",
     "lint-staged": "15.2.5",
+    "oxlint": "^0.7.0",
     "prettier": "4.0.0-alpha.8",
     "textlint": "^14.0.4",
     "textlint-filter-rule-comments": "^1.2.2",
@@ -34,8 +35,7 @@
     "tsx": "^4.15.1",
     "typescript": "~5.4.5",
     "vitepress": "1.2.3",
-    "vue": "^3.4.27",
-    "oxlint": "latest"
+    "vue": "^3.4.27"
   },
   "lint-staged": {
     "*.{js,jsx,tsx,ts,mts,css,md,json,yml}": "pnpm run fmt --write",
