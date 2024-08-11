@@ -5,3 +5,6 @@
 [default.extend-words]
 trivias = "trivias"
 trivia = "trivia"
+
+[files]
+extend-exclude = ["src/docs/guide/usage/linter/rules/**/*.md"]
