@@ -9,6 +9,7 @@ export default {
   async enhanceApp({ app }) {
     app.component("AppBadgeList", AppBadgeList);
     app.component("AppBlogPostHeader", AppBlogPostHeader);
+    app.component("Alert", Alert);
   },
   // Layout() {
   // return h(DefaultTheme.Layout, null, {
