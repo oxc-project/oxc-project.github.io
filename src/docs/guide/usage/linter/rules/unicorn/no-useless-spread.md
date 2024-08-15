@@ -22,7 +22,7 @@ Disallows using spread syntax in following, unnecessary cases:
 
 ### Why is this bad?
 
-- The following built-ins accept an iterable, so it's unnecessary to convert the iterable to an array:
+- The following builtins accept an iterable, so it's unnecessary to convert the iterable to an array:
 
   - `Map` constructor
   - `WeakMap` constructor

@@ -3,11 +3,17 @@
 # jsx_a11y/aria-unsupported-elements <Badge type="info" text="Correctness" />
 
 <div class="rule-meta">
+<Alert class="fix" type="info">
+<span class="emoji">🛠️</span> An auto-fix is available for this rule.
+</Alert>
 </div>
 
 ### What it does
 
-Certain reserved DOM elements do not support ARIA roles, states and properties. This is often because they are not visible, for example `meta`, `html`, `script`, `style`. This rule enforces that these DOM elements do not contain the `role` and/or `aria-*` props.
+Certain reserved DOM elements do not support ARIA roles, states and
+properties. This is often because they are not visible, for example
+`meta`, `html`, `script`, `style`. This rule enforces that these DOM
+elements do not contain the `role` and/or `aria-*` props.
 
 ### Example
 

@@ -7,10 +7,10 @@
 
 ### What it does
 
-Marks all side-effects in module initialization that will interfere with tree shaking.
+Marks all side-effects in module initialization that will interfere with tree-shaking.
 
 This plugin is intended as a means for library developers to identify patterns that will
-interfere with the tree shaking algorithm of their module bundler (i.e. rollup or webpack).
+interfere with the tree-shaking algorithm of their module bundler (i.e. rollup or webpack).
 
 ### Why is this bad?
 

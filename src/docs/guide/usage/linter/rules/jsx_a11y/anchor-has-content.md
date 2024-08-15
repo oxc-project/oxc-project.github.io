@@ -3,6 +3,9 @@
 # jsx_a11y/anchor-has-content <Badge type="info" text="Correctness" />
 
 <div class="rule-meta">
+<Alert class="fix" type="info">
+<span class="emoji">💡</span> A suggestion is available for this rule for some violations.
+</Alert>
 </div>
 
 ### What it does
