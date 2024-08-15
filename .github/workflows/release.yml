@@ -71,10 +71,8 @@ jobs:
 
       - uses: peter-evans/create-pull-request@v6
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.OXC_BOT_PAT }}
           commit-message: Release ${{ inputs.version }}
-          committer: Boshen <Boshen@users.noreply.github.com>
-          author: Boshen <Boshen@users.noreply.github.com>
           branch: release
           branch-suffix: timestamp
           title: Release ${{ inputs.version }}
