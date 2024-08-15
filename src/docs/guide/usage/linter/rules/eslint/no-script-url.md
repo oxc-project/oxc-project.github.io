@@ -7,7 +7,7 @@
 
 ### What it does
 
-Disallow javascript: URLs
+Disallow javascript: urls
 
 ### Why is this bad?
 

@@ -3,6 +3,9 @@
 # jsx_a11y/tabindex-no-positive <Badge type="info" text="Correctness" />
 
 <div class="rule-meta">
+<Alert class="fix" type="info">
+<span class="emoji">🚧</span> An auto-fix is still under development.
+</Alert>
 </div>
 
 ### What it does
