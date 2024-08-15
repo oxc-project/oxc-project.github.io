@@ -27,7 +27,7 @@
     "husky": "^9.0.11",
     "lint-staged": "15.2.9",
     "oxlint": "^0.7.0",
-    "prettier": "4.0.0-alpha.9",
+    "prettier": "^3.3.3",
     "textlint": "^14.0.4",
     "textlint-filter-rule-comments": "^1.2.2",
     "textlint-rule-doubled-spaces": "^1.0.2",
