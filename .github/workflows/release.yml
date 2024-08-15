@@ -63,9 +63,11 @@ jobs:
       - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v4
         with:
+          node-version-file: .node-version
           cache: pnpm
       - run: pnpm install --frozen-lockfile
-      - run: pnpm run fmt ./src/docs/guide/usage/linter --write
+      - run: pnpm run fmt --write ./src/docs/guide/usage/linter
+        shell: 'script --return --quiet --log-out /dev/null --command "bash -e {0}"'
       - run: pnpm run textlint:fix
 
       - uses: peter-evans/create-pull-request@v6
