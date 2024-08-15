@@ -10,7 +10,7 @@
 
 ### What it does
 
-Prefer using the `node:protocol` when importing Node.js built-in modules
+Prefer using the `node:protocol` when importing Node.js builtin modules
 
 ### Example
 

@@ -1,4 +1,3 @@
-
 # Oxlint Configuration File
 
 This configuration is aligned with ESLint v8's configuration schema (`eslintrc.json`).
@@ -30,14 +29,11 @@ Example
 }
 ```
 
-
 ## env
 
 type: `object`
 
 Predefine global variables.
-
-
 
 ## globals
 
@@ -45,14 +41,11 @@ type: `object`
 
 Add or remove global variables.
 
-
-
 ## rules
 
+type: `object`
 
 See [Oxlint Rules](./rules)
-
-
 
 ## settings
 
@@ -60,13 +53,9 @@ type: `object`
 
 Shared settings for plugins
 
-
 ### settings.jsdoc
 
 type: `object`
-
-
-
 
 #### settings.jsdoc.augmentsExtendsReplacesDocs
 
@@ -74,15 +63,11 @@ type: `boolean`
 
 Only for `require-(yields|returns|description|example|param|throws)` rule
 
-
-
 #### settings.jsdoc.exemptDestructuredRootsFromChecks
 
 type: `boolean`
 
 Only for `require-param-type` and `require-param-description` rule
-
-
 
 #### settings.jsdoc.ignoreInternal
 
@@ -90,15 +75,11 @@ type: `boolean`
 
 For all rules but NOT apply to `empty-tags` rule
 
-
-
 #### settings.jsdoc.ignorePrivate
 
 type: `boolean`
 
 For all rules but NOT apply to `check-access` and `empty-tags` rule
-
-
 
 #### settings.jsdoc.ignoreReplacesDocs
 
@@ -106,15 +87,11 @@ type: `boolean`
 
 Only for `require-(yields|returns|description|example|param|throws)` rule
 
-
-
 #### settings.jsdoc.implementsReplacesDocs
 
 type: `boolean`
 
 Only for `require-(yields|returns|description|example|param|throws)` rule
-
-
 
 #### settings.jsdoc.overrideReplacesDocs
 
@@ -122,31 +99,17 @@ type: `boolean`
 
 Only for `require-(yields|returns|description|example|param|throws)` rule
 
-
-
 #### settings.jsdoc.tagNamePreference
 
 type: `object`
-
-
-
-
-
 
 ### settings.jsx-a11y
 
 type: `object`
 
-
-
-
 #### settings.jsx-a11y.components
 
 type: `object`
-
-
-
-
 
 #### settings.jsx-a11y.polymorphicPropName
 
@@ -155,63 +118,24 @@ type: `[
   null
 ]`
 
-
-
-
-
-
 ### settings.next
 
 type: `object`
 
-
-
-
 #### settings.next.rootDir
-
-
-
-
-
-
 
 ### settings.react
 
 type: `object`
 
-
-
-
 #### settings.react.formComponents
 
 type: `array`
 
-
-
-
 ##### settings.react.formComponents[n]
-
-
-
-
-
-
 
 #### settings.react.linkComponents
 
 type: `array`
 
-
-
-
 ##### settings.react.linkComponents[n]
-
-
-
-
-
-
-
-
-
-

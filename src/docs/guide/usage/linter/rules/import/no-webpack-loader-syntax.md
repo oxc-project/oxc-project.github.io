@@ -7,12 +7,12 @@
 
 ### What it does
 
-Forbid webpack loader syntax in imports.
+Forbid Webpack loader syntax in imports.
 
 ### Why is this bad?
 
-This loader syntax is non-standard, so it couples the code to webpack. The recommended way to
-specify webpack loader configuration is in a [Webpack configuration file](https://webpack.js.org/concepts/loaders/#configuration).
+This loader syntax is non-standard, so it couples the code to Webpack. The recommended way to
+specify Webpack loader configuration is in a [Webpack configuration file](https://webpack.js.org/concepts/loaders/#configuration).
 
 ### Example
 

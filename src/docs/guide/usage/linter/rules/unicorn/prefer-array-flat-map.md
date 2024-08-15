@@ -3,6 +3,9 @@
 # unicorn/prefer-array-flat-map <Badge type="info" text="Style" />
 
 <div class="rule-meta">
+<Alert class="fix" type="info">
+<span class="emoji">🛠️</span> An auto-fix is available for this rule.
+</Alert>
 </div>
 
 ### What it does
