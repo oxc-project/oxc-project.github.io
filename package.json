@@ -19,7 +19,7 @@
   },
   "devDependencies": {
     "@types/node": "^22.0.0",
-    "@vueuse/core": "^10.10.0",
+    "@vueuse/core": "^11.0.0",
     "citty": "^0.1.6",
     "consola": "^3.2.3",
     "degit": "^2.8.4",
