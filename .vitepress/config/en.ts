@@ -135,7 +135,11 @@ export const enConfig = defineLocaleConfig("root", {
           text: "Tools",
           items: [
             { text: "Parser", link: "/docs/contribute/parser" },
-            { text: "Linter", link: "/docs/contribute/linter" },
+            {
+              text: "Linter",
+              link: "/docs/contribute/linter",
+              items: [{ text: "Adding Rules", link: "/docs/contribute/linter/adding-rules" }],
+            },
             { text: "Formatter", link: "/docs/contribute/formatter" },
             { text: "Resolver", link: "/docs/contribute/resolver" },
             {
