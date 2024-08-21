@@ -12,7 +12,7 @@ This guide will walk you through this process, using ESLint's
 example.
 
 :::tip
-Make sure you've read the [setup instructions](./development.md) first.
+Make sure you've read the [setup instructions](../development.md) first.
 :::
 
 ## Step 1: Pick a Rule
