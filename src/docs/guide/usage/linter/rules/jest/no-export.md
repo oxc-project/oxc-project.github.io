@@ -11,7 +11,8 @@ Prevents using exports if a file has one or more tests in it.
 
 ### Why is this bad?
 
-This rule aims to eliminate duplicate runs of tests by exporting things from test files. If you import from a test file, then all the tests in that file will be run in each imported instance.
+This rule aims to eliminate duplicate runs of tests by exporting things from test files.
+If you import from a test file, then all the tests in that file will be run in each imported instance.
 so bottom line, don't export from a test, but instead move helper functions into a separate file when they need to be shared across tests.
 
 ### Example
