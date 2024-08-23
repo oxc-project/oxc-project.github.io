@@ -47,7 +47,6 @@ jobs:
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - run: pnpm run fmt --write ./src/docs/guide/usage/linter
-      - run: pnpm run textlint:fix
 
       - uses: peter-evans/create-pull-request@v6
         with:
