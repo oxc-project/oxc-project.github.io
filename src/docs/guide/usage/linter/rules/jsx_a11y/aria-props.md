@@ -33,3 +33,7 @@ Examples of **correct** code for this rule:
 ```jsx
 <input aria-labelledby="address_label" />
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/jsx_a11y/aria_props.rs)

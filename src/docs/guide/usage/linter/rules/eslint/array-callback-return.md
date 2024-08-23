@@ -24,3 +24,7 @@ foo.map((a) => {
   console.log(a);
 });
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/eslint/array_callback_return/mod.rs)

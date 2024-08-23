@@ -29,3 +29,7 @@ if ((!key) in object) {
   //and type conversion makes it equivalent to (key ? "false" : "true") in object
 }
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/eslint/no_unsafe_negation.rs)

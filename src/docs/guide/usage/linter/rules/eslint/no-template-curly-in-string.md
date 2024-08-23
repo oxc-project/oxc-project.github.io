@@ -21,3 +21,7 @@ ECMAScript 6 allows programmers to create strings containing variable or express
 "Hello ${name}!";
 "Time: ${12 * 60 * 60 * 1000}";
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/eslint/no_template_curly_in_string.rs)

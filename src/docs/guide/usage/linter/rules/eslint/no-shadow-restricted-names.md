@@ -26,3 +26,7 @@ var undefined = 5;
 try {
 } catch (eval) {}
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/eslint/no_shadow_restricted_names.rs)

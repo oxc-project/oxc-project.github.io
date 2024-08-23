@@ -74,3 +74,7 @@ var foo = function () {};
 
 Foo.prototype.bar = function () {};
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/eslint/func_names.rs)

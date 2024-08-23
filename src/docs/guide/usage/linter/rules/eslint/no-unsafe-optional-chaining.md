@@ -25,3 +25,7 @@ for (bar of obj?.foo); // TypeError
 bar instanceof obj?.foo; // TypeError
 const { bar } = obj?.foo; // TypeError
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/eslint/no_unsafe_optional_chaining.rs)

@@ -26,3 +26,7 @@ new Promise(function (ok, fail) {
   /* ... */
 }); // non-standard parameter names
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/promise/param_names.rs)

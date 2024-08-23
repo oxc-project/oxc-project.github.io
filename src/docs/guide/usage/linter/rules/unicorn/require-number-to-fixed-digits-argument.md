@@ -27,3 +27,7 @@ number.toFixed(2);
 // Fail:
 number.toFixed();
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/unicorn/require_number_to_fixed_digits_argument.rs)

@@ -21,3 +21,7 @@ Calling a Promise static method with new is invalid, resulting in a TypeError at
 ```javascript
 new Promise.resolve(value);
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/promise/no_new_statics.rs)

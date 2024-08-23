@@ -21,3 +21,7 @@ not suitable to ship to the client.
 ```javascript
 console.log("here");
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/eslint/no_console.rs)

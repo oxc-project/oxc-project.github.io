@@ -79,3 +79,7 @@ function foo(bar) {
   return bar.map((x) => x * 2);
 }
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/unicorn/no_useless_spread/mod.rs)

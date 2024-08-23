@@ -61,3 +61,7 @@ calling setState() afterwards may replace the mutation you made
    }
  }
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/react/no_direct_mutation_state.rs)

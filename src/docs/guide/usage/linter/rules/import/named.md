@@ -59,3 +59,7 @@ export { notFoo as defNotBar } from "./foo";
 // will follow 'jsnext:main', if available
 import { dontCreateStore } from "redux";
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/import/named.rs)

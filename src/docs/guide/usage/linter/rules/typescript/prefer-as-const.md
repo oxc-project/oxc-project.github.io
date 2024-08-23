@@ -31,3 +31,7 @@ This rule reports when an as with an explicit literal type can be replaced with 
 let bar: 2 = 2;
 let foo = { bar: "baz" as "baz" };
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/typescript/prefer_as_const.rs)

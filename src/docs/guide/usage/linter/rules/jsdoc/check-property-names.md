@@ -39,3 +39,7 @@ Ensures that property names in JSDoc are not duplicated on the same block and th
  * @property {number} foo.bar
  */
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/jsdoc/check_property_names.rs)

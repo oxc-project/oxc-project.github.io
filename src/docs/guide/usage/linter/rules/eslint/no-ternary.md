@@ -18,3 +18,7 @@ The ternary operator is used to conditionally assign a value to a variable. Some
 ```javascript
 var foo = isBar ? baz : qux;
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/eslint/no_ternary.rs)

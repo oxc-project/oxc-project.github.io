@@ -26,3 +26,7 @@ test.skip("i need to write this test", () => {}); // invalid
 
 test.todo("i need to write this test");
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/jest/prefer_todo.rs)

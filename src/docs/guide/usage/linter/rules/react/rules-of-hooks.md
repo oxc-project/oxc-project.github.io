@@ -10,3 +10,7 @@
 This enforcecs the Rules of Hooks
 
 <https://reactjs.org/docs/hooks-rules.html>
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/react/rules_of_hooks.rs)

@@ -28,3 +28,7 @@ try {
   throw e;
 }
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/eslint/no_useless_catch.rs)

@@ -22,3 +22,7 @@ For example, when performing mathematical operations
 ```javascript
 var x = 2e999;
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/eslint/no_loss_of_precision.rs)

@@ -28,3 +28,7 @@ const array = new Array(foo);
 const array = Array.from({ length: 42 });
 const array = [42];
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/unicorn/no_new_array.rs)

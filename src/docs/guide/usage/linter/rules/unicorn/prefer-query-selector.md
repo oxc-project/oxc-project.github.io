@@ -29,3 +29,7 @@ document.querySelectorAll(".foo .bar");
 document.querySelectorAll("li a");
 document.querySelector("li").querySelectorAll("a");
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/unicorn/prefer_query_selector.rs)

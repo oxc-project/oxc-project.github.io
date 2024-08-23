@@ -29,3 +29,7 @@ mod_ns = {}; // ERROR: 'mod_ns' is readonly.
 // Can't extend 'mod_ns'
 Object.assign(mod_ns, { foo: "foo" }); // ERROR: The members of 'mod_ns' are readonly.
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/eslint/no_import_assign.rs)

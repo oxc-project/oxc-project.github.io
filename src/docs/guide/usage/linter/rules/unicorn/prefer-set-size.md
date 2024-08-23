@@ -28,3 +28,7 @@ const length = [...new Set([1, 2, 3])].length;
 // good
 const size = new Set([1, 2, 3]).size;
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/unicorn/prefer_set_size.rs)

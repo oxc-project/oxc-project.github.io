@@ -21,3 +21,7 @@ Because empty character classes in regular expressions do not match anything, th
 ```javascript
 var foo = /^abc[]/;
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/eslint/no_empty_character_class.rs)

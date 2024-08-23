@@ -41,3 +41,7 @@ React.createElement("div", 'Child 1', 'Child 2')
 
 
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/react/no_children_prop.rs)

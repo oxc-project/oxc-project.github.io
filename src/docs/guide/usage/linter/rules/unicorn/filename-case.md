@@ -15,4 +15,7 @@ Enforce a case style for filenames.
 
 ```
 
+
+## References
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/unicorn/filename_case.rs)
 ```

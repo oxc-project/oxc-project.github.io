@@ -24,3 +24,7 @@ function quux(foo) {}
 /** @param foo */
 function quux(foo) {}
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/jsdoc/require_param_type.rs)

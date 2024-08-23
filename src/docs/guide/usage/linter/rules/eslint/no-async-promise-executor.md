@@ -36,3 +36,7 @@ The executor function can also be an `async function`. However, this is usually 
 
 - If an async executor function throws an error, the error will be lost and won’t cause the newly-constructed `Promise` to reject.This could make it difficult to debug and handle some errors.
 - If a Promise executor function is using `await`, this is usually a sign that it is not actually necessary to use the `new Promise` constructor, or the scope of the `new Promise` constructor can be reduced.
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/eslint/no_async_promise_executor.rs)

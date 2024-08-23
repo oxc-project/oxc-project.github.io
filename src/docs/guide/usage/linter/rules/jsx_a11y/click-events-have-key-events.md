@@ -23,3 +23,7 @@ This does not apply for interactive or hidden elements.
 // Bad
 <div onClick={() => void 0} />
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/jsx_a11y/click_events_have_key_events.rs)

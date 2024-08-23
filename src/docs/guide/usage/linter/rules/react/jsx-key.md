@@ -26,3 +26,7 @@ Enforce `key` prop for elements in array
   ].map((x) => <App key={x} />);
 [1, 2, 3]?.map((x) => <BabelEslintApp key={x} />);
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/react/jsx_key.rs)

@@ -22,3 +22,7 @@ Using semantic HTML tags can improve accessibility and readability of the code.
 // Good
 <button />
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/jsx_a11y/prefer_tag_over_role.rs)

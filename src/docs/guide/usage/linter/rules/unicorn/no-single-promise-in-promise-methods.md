@@ -44,3 +44,7 @@ async function good() {
   const [{ value: foo, reason: error }] = await Promise.allSettled([promise]);
 }
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/unicorn/no_single_promise_in_promise_methods.rs)

@@ -29,3 +29,7 @@ export {};
 ```ts
 export const value = "Hello, world!";
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/typescript/no_useless_empty_export.rs)

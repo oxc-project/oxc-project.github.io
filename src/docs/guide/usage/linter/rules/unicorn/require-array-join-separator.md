@@ -26,3 +26,7 @@ foo.join();
 // Good
 foo.join(",");
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/unicorn/require_array_join_separator.rs)

@@ -32,3 +32,7 @@ Date.now = jest.fn(() => 10);
 jest.spyOn(Date, "now");
 jest.spyOn(Date, "now").mockImplementation(() => 10);
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/jest/prefer_spy_on.rs)

@@ -33,3 +33,7 @@ React.createElement('input', { type: 'checkbox', checked: true, readOnly: true }
 React.createElement('input', { type: 'checkbox', checked: true, onChange() {}, readOnly: true });
 React.createElement('input', { type: 'checkbox', defaultChecked: true });
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/react/checked_requires_onchange_or_readonly.rs)

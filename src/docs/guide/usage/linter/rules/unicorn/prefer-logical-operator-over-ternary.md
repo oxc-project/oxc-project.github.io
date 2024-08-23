@@ -24,3 +24,7 @@ console.log(foo ? foo : bar);
 const foo = bar || baz;
 console.log(foo ?? bar);
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/unicorn/prefer_logical_operator_over_ternary.rs)

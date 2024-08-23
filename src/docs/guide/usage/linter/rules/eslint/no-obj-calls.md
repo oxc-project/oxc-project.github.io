@@ -42,3 +42,7 @@ let object = JSON.parse("{}");
 let first = Atomics.load(sharedArray, 0);
 let segmenterFrom = Intl.Segmenter("fr", { granularity: "word" });
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/eslint/no_obj_calls.rs)

@@ -26,3 +26,7 @@ const foo = "\uD834";
 const foo = "\u{1D306}";
 const foo = "cA";
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/unicorn/escape_case.rs)

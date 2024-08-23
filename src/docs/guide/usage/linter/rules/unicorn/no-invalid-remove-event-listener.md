@@ -27,3 +27,7 @@ el.removeEventListener("click", function () {});
 el.removeEventListener("click", handler);
 el.removeEventListener("click", handler.bind(this));
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/unicorn/no_invalid_remove_event_listener.rs)

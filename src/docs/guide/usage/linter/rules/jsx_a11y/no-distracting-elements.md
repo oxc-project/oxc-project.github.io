@@ -36,3 +36,7 @@ This rule checks for marquee and blink element.
 <Marquee />
 <Blink />
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/jsx_a11y/no_distracting_elements.rs)

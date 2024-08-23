@@ -46,3 +46,7 @@ var pattern6 = new RegExp("\x20");
 var pattern7 = new RegExp("\\t");
 var pattern8 = new RegExp("\\n");
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/eslint/no_control_regex.rs)

@@ -18,3 +18,7 @@ Async/await syntax can be seen as more readable.
 ```javascript
 myPromise.then(doSomething);
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/promise/prefer_await_to_then.rs)

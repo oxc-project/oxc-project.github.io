@@ -35,3 +35,7 @@ Alternatively, you may use the `title` prop or the `aria-label` prop.
 <a />
 <a><TextWrapper aria-hidden /></a>
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/jsx_a11y/anchor_has_content.rs)

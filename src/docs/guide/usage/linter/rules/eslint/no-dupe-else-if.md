@@ -29,3 +29,7 @@ if (a) {
   baz();
 }
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/eslint/no_dupe_else_if.rs)

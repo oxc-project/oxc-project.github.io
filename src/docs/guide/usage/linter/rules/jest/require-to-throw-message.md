@@ -28,3 +28,7 @@ test("all the things", async () => {
   await expect(a()).rejects.toThrowError("a");
 });
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/jest/require_to_throw_message.rs)

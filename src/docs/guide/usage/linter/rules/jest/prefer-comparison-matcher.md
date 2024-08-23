@@ -35,3 +35,7 @@ expect(x).toBeLessThanOrEqual(y);
 // special case - see below
 expect(x < "Carl").toBe(true);
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/jest/prefer_comparison_matcher.rs)

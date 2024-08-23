@@ -32,3 +32,7 @@ const foo = ((bar) => {
   return bar ? bar.baz : baz;
 })(getBar());
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/unicorn/no_unreadable_iife.rs)

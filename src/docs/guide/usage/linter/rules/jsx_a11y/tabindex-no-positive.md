@@ -29,3 +29,7 @@ disrupting the logical order of content.
 <span tabIndex="0">foo</span>
 <span tabIndex="-1">bar</span>
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/jsx_a11y/tabindex_no_positive.rs)

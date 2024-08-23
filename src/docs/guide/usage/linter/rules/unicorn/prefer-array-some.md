@@ -25,3 +25,7 @@ const foo = array.find(fn) ? bar : baz;
 // Good
 const foo = array.some(fn) ? bar : baz;
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/unicorn/prefer_array_some.rs)

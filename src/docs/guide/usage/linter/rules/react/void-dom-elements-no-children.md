@@ -32,3 +32,7 @@ React.createElement('div', undefined, 'Children')
 React.createElement('div', { children: 'Children' })
 React.createElement('div', { dangerouslySetInnerHTML: { __html: 'HTML' } })
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/react/void_dom_elements_no_children.rs)

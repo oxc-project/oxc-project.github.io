@@ -21,3 +21,7 @@ This rule aims to ensure that only meaningful interfaces are declared in the cod
 interface Foo {}
 interface Bar extends Foo {}
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/typescript/no_empty_interface.rs)

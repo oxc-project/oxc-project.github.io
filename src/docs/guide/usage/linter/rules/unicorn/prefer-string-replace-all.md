@@ -33,3 +33,7 @@ foo.replaceAll(/a/, bar);
 const pattern = "not-a-regexp";
 foo.replace(pattern, bar);
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/unicorn/prefer_string_replace_all.rs)

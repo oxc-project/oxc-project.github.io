@@ -29,3 +29,7 @@ try {
   // ...
 } catch {}
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/unicorn/prefer_optional_catch_binding.rs)

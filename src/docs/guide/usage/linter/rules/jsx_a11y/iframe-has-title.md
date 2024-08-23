@@ -36,3 +36,7 @@ This rule checks for title property on iframe element.
 <iframe title="This is a unique title" />
 <iframe title={uniqueTitle} />
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/jsx_a11y/iframe_has_title.rs)

@@ -21,3 +21,7 @@ function foo() {}
 
 const bar = () => {};
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/eslint/no_empty_function.rs)

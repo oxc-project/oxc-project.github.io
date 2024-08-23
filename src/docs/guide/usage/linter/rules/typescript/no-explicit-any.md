@@ -65,3 +65,7 @@ default.
 
 Whether to enable auto-fixing in which the `any` type is converted to the `unknown` type.
 `false` by default.
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/typescript/no_explicit_any.rs)

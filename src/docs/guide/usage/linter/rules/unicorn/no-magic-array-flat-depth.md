@@ -26,3 +26,7 @@ array.flat(1);
 array.flat();
 array.flat(Infinity);
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/unicorn/no_magic_array_flat_depth.rs)

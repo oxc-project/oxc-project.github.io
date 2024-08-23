@@ -24,3 +24,7 @@ export default () => {
 import bar from "./bar";
 const bar = foo.bar; // trying to access named export via default
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/import/no_named_as_default_member.rs)

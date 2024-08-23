@@ -52,3 +52,7 @@ export function foo(n: number): void;
 export function bar(): void;
 export function foo(sn: string | number): void;
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/typescript/adjacent_overload_signatures.rs)

@@ -23,3 +23,7 @@ expectTypeOf(foo).toBe(true);
 expect(foo).toBeTruthy();
 expectTypeOf(foo).toBeTruthy();
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/vitest/prefer_to_be_truthy.rs)

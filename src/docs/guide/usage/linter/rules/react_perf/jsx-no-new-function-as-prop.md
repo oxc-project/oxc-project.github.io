@@ -19,3 +19,7 @@ Prevent Functions that are local to the current method from being used as values
 // Good
 <Item callback={this.props.callback} />
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/react_perf/jsx_no_new_function_as_prop.rs)

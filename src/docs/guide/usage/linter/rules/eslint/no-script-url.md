@@ -22,3 +22,7 @@ location.href = "javascript:void(0)";
 
 location.href = `javascript:void(0)`;
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/eslint/no_script_url.rs)

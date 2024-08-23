@@ -21,3 +21,7 @@ In almost all cases, you don’t want to assign a value to these global variable
 ```javascript
 Object = null;
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/eslint/no_global_assign.rs)

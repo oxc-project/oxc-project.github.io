@@ -27,3 +27,7 @@ for (i = 0; i < 10; i++) {
   sum += i;
 }
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/eslint/no_continue.rs)

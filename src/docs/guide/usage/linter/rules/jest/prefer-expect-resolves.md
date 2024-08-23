@@ -13,8 +13,10 @@
 When working with promises, there are two primary ways you can test the resolved
 value:
 
-1. use the `resolve` modifier on `expect` (`await expect(...).resolves.<matcher>` style)
-2. `await` the promise and assert against its result (`expect(await ...).<matcher>` style)
+1. use the `resolve` modifier on `expect`
+   (`await expect(...).resolves.<matcher>` style)
+2. `await` the promise and assert against its result
+   (`expect(await ...).<matcher>` style)
 
 While the second style is arguably less dependent on `jest`, if the promise
 rejects it will be treated as a general error, resulting in less predictable
@@ -49,3 +51,7 @@ it("is true", async () => {
   expect(await myPromise).toBe(true);
 });
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/jest/prefer_expect_resolves.rs)

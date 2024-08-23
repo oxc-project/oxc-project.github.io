@@ -14,13 +14,42 @@ Disallow duplicate keys in object literals
 
 ### Why is this bad?
 
-Multiple properties with the same key in object literals can cause unexpected behavior in your application.
+Multiple properties with the same key in object literals can cause
+unexpected behavior in your application.
+
+It is safe to disable this rule when using TypeScript because
+TypeScript's compiler enforces this check.
 
 ### Example
 
-```javascript
+Examples of **incorrect** code for this rule:
+
+```js
 var foo = {
   bar: "baz",
   bar: "qux",
 };
+
+var foo = {
+  bar: "baz",
+  bar: "qux",
+};
+
+var foo = {
+  0x1: "baz",
+  1: "qux",
+};
 ```
+
+Examples of **correct** code for this rule:
+
+```js
+var foo = {
+  bar: "baz",
+  qux: "qux",
+};
+```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/eslint/no_dupe_keys.rs)

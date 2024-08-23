@@ -30,3 +30,7 @@ Even when that is not the case this will lead to unnecessary computations being 
 <App myAttr="1" {...props} />
 <App {...props} myAttr="1" />
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/react/jsx_props_no_spread_multi.rs)

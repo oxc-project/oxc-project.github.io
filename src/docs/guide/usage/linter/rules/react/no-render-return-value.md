@@ -24,3 +24,7 @@ function render() {
 // Good
 ReactDOM.render(<App />, document.body);
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/react/no_render_return_value.rs)

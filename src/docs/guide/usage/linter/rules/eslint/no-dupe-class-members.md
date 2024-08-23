@@ -29,3 +29,7 @@ class A {
 let a = new A();
 a.foo(); // Uncaught TypeError: a.foo is not a function
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/eslint/no_dupe_class_members.rs)

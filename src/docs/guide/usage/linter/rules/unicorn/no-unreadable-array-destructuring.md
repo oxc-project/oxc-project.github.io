@@ -23,3 +23,7 @@ const [, , foo] = parts;
 // Good
 const [foo] = parts;
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/unicorn/no_unreadable_array_destructuring.rs)

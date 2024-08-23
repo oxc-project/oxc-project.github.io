@@ -28,3 +28,7 @@ const foo = i > 5 ? true : i < 100 ? true : i < 1000 ? true : false;
 const foo = i > 5 ? (i < 100 ? true : false) : true;
 const foo = i > 5 ? (i < 100 ? true : false) : i < 100 ? true : false;
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/unicorn/no_nested_ternary.rs)

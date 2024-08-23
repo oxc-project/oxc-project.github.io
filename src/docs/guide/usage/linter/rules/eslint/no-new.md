@@ -19,3 +19,7 @@ cases the constructor can be replaced with a function.
 ```javascript
 new Person();
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/eslint/no_new.rs)

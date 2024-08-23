@@ -24,3 +24,7 @@ foo.onclick = () => {};
 // good
 foo.addEventListener("click", () => {});
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/unicorn/prefer_add_event_listener.rs)

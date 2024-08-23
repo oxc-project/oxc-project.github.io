@@ -24,3 +24,7 @@ elements do not contain the `role` and/or `aria-*` props.
 // Bad
 <meta charset="UTF-8" aria-hidden="false" />
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/jsx_a11y/aria_unsupported_elements.rs)

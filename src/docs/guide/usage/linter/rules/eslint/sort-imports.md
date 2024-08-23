@@ -26,3 +26,7 @@ import { b, a, c } from "foo.js";
 import d from "foo.js";
 import e from "bar.js";
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/eslint/sort_imports.rs)

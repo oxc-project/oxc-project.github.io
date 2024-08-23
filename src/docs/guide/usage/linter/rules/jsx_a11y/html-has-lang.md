@@ -25,3 +25,7 @@ and access website in more than one language.
 // Good
 <html lang="en" />
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/jsx_a11y/html_has_lang.rs)

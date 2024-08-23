@@ -20,3 +20,7 @@ structured codebase. Best practice is to keep each file limited to a single resp
 class Foo {}
 class Bar {}
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/eslint/max_classes_per_file.rs)

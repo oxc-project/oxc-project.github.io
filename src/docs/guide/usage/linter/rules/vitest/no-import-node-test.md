@@ -32,3 +32,7 @@ test("foo", () => {
   expect(1).toBe(1);
 });
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/vitest/no_import_node_test.rs)

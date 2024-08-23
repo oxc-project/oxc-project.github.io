@@ -14,3 +14,7 @@
 ```javascript
 
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/nextjs/next_script_for_ga.rs)

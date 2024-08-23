@@ -13,10 +13,8 @@
 Enforce explicitly comparing the length or size property of a value.
 
 The non-zero option can be configured with one of the following:
-greater-than (default)
-Enforces non-zero to be checked with: foo.length > 0
-not-equal
-Enforces non-zero to be checked with: foo.length !== 0
+greater-than (default) Enforces non-zero to be checked with: foo.length > 0
+not-equal Enforces non-zero to be checked with: foo.length !== 0
 
 ### Example
 
@@ -34,3 +32,7 @@ const isEmptySet = !foo.size;
 // pass
 const isEmpty = foo.length === 0;
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/unicorn/explicit_length_check.rs)

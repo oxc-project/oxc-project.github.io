@@ -21,3 +21,7 @@ Consider using a Map or Set if you’re using an object as a key-value collectio
 const container: { [i: string]: 0 } = {};
 delete container["aa" + "b"];
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/typescript/no_dynamic_delete.rs)

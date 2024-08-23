@@ -35,3 +35,7 @@ var Hello = <a></a>;
 var Hello = <a target="_blank" href="https://example.com/"></a>;
 var Hello = <a target="_blank" href={dynamicLink}></a>;
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/react/jsx_no_target_blank.rs)

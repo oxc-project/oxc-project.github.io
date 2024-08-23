@@ -47,3 +47,7 @@ import { type A as AA } from "mod";
 import { type A, type B } from "mod";
 import { type A as AA, type B as BB } from "mod";
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/typescript/no_import_type_side_effects.rs)

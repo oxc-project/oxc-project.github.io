@@ -29,3 +29,7 @@ Examples of **correct** code for this rule:
 ```javascript
 "foo".slice(1, 2);
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/unicorn/prefer_string_slice.rs)
