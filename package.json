@@ -10,9 +10,6 @@
     "preview": "vitepress preview",
     "lint": "oxlint",
     "fmt": "prettier",
-    "textlint": "textlint 'src/**/*.md'",
-    "textlint:check": "pnpm run textlint",
-    "textlint:fix": "pnpm run textlint --fix",
     "typecheck": "tsc",
     "create-blog-post": "tsx ./cli/index.ts create-blog-post",
     "sponsors": "degit Boshen/sponsors temp --force && mv temp/sponsors.svg public/sponsors.svg"
@@ -28,17 +25,13 @@
     "lint-staged": "15.2.9",
     "oxlint": "^0.7.2",
     "prettier": "^3.3.3",
-    "textlint": "^14.0.4",
-    "textlint-filter-rule-comments": "^1.2.2",
-    "textlint-rule-doubled-spaces": "^1.0.2",
     "tsx": "^4.15.1",
     "typescript": "~5.5.0",
     "vitepress": "1.3.2",
     "vue": "^3.4.27"
   },
   "lint-staged": {
-    "*.{js,jsx,tsx,ts,mts,css,md,json,yml}": "pnpm run fmt --write",
-    "*.md": "textlint"
+    "*.{js,jsx,tsx,ts,mts,css,md,json,yml}": "pnpm run fmt --write"
   },
   "packageManager": "pnpm@9.7.1"
 }
