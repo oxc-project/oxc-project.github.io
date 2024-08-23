@@ -33,3 +33,7 @@ It is important to have a consistent way of specifying access levels.
 
 /** @access invalidlevel */
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/jsdoc/check_access.rs)

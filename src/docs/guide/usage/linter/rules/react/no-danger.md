@@ -32,3 +32,7 @@ import React from "react";
 
 const Hello = <div>Hello World</div>;
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/react/no_danger.rs)

@@ -25,3 +25,7 @@ if (false) {
   console.log("hello");
 }
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/typescript/ban_ts_comment.rs)

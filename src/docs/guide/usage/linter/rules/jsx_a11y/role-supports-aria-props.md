@@ -26,3 +26,7 @@ Enforce that elements with explicit or implicit roles defined contain only `aria
     <li aria-required tabIndex="0" role="radio" aria-checked="true">Lake Trout</li>
 </ul>
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/jsx_a11y/role_supports_aria_props.rs)

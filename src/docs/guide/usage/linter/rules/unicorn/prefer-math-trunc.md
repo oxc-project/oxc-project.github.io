@@ -30,3 +30,7 @@ const foo = 1.1 | 0;
 // Good
 const foo = Math.trunc(1.1);
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/unicorn/prefer_math_trunc.rs)

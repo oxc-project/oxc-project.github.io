@@ -28,3 +28,7 @@ class Hello extends React.Component {
   }
 }
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/react/require_render_return.rs)

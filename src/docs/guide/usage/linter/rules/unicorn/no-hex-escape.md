@@ -23,3 +23,7 @@ const foo = `\x1B${bar}`;
 const foo = "\u001B";
 const foo = `\u001B${bar}`;
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/unicorn/no_hex_escape.rs)

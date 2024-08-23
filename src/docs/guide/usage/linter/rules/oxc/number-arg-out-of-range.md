@@ -19,3 +19,7 @@ var x = 42;
 var s_radix_64 = x.toString(64);
 var s = x.toString(1);
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/oxc/number_arg_out_of_range.rs)

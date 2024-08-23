@@ -32,3 +32,7 @@ expect(files["length"]).toBe(1);
 expect(files["length"]).toBe(1);
 expect(files["length"])["not"].toBe(1);
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/jest/prefer_to_have_length.rs)

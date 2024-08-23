@@ -29,3 +29,7 @@ throw new Error("🦄");
 throw new TypeError("unicorn");
 throw new lib.TypeError("unicorn");
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/unicorn/throw_new_error.rs)

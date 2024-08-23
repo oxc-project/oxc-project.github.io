@@ -19,3 +19,7 @@ behavior or hard to spot bugs.
 ```javascript
 Promise.resolve(1, 2);
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/promise/valid_params.rs)

@@ -17,3 +17,7 @@ async function foo() {
   return baz();
 }
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/oxc/no_async_await.rs)

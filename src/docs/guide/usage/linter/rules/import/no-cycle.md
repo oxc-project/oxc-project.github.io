@@ -32,3 +32,7 @@ export function b() {
 // dep-a.js
 import { b } from "./dep-b.js"; // reported: Dependency cycle detected.
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/import/no_cycle.rs)

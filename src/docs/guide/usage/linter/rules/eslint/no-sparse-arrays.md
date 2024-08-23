@@ -22,3 +22,7 @@ The confusion around sparse arrays is enough that it’s recommended to avoid us
 var items = [, ,];
 var colors = ["red", , "blue"];
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/eslint/no_sparse_arrays.rs)

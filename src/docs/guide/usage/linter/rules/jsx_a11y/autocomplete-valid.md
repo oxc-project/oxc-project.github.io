@@ -22,3 +22,7 @@ Incorrectly using the autocomplete attribute may decrease the accessibility of t
 // Good
 <input autocomplete="name" />
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/jsx_a11y/autocomplete_valid.rs)

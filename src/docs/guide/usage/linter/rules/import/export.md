@@ -16,3 +16,7 @@ let foo;
 export { foo }; // Multiple exports of name 'foo'.
 export * from "./export-all"; // export-all.js also export foo
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/import/export.rs)

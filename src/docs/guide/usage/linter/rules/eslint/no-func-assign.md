@@ -22,3 +22,7 @@ Overwriting/reassigning a function written as a FunctionDeclaration is often ind
 function foo() {}
 foo = bar;
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/eslint/no_func_assign.rs)

@@ -7,7 +7,7 @@
 
 ### What it does
 
-Restrict the use of specific `jest` methods.
+Restrict the use of specific `jest` and `vi` methods.
 
 ### Example
 
@@ -27,3 +27,7 @@ test("plays video", () => {
   // ...
 });
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/jest/no_restricted_jest_methods.rs)

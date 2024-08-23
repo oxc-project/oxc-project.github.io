@@ -28,3 +28,7 @@ function quux(foo) {}
 /** @param {number} [foo="7"] */
 function quux(foo) {}
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/jsdoc/no_defaults.rs)

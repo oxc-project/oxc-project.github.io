@@ -28,3 +28,7 @@ if (array.length === 0 || array.every(Boolean)) {
   // do something!
 }
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/unicorn/no_useless_length_check.rs)

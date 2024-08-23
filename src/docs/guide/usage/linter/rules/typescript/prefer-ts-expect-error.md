@@ -32,3 +32,7 @@ const str: string = 1;
  * @ts-ignore */
 const multiLine: number = "value";
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/typescript/prefer_ts_expect_error.rs)

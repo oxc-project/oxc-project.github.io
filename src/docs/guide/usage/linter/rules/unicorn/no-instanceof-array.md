@@ -22,3 +22,7 @@ The instanceof Array check doesn't work across realms/contexts, for example, fra
 array instanceof Array;
 [1, 2, 3] instanceof Array;
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/unicorn/no_instanceof_array.rs)

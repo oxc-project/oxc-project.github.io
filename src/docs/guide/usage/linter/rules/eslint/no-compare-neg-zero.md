@@ -27,3 +27,7 @@ pass for both +0 and -0. The author probably intended Object.is(x, -0).
 if (x === -0) {
 }
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/eslint/no_compare_neg_zero.rs)

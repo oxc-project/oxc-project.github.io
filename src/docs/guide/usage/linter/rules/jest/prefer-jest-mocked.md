@@ -37,3 +37,7 @@ const mock = jest.mocked(foo).mockReturnValue(1);
 jest.mocked(Obj.foo).mockReturnValue(1);
 jest.mocked([].foo).mockReturnValue(1);
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/jest/prefer_jest_mocked.rs)

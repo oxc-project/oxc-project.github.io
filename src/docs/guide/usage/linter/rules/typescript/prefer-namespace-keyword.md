@@ -23,3 +23,7 @@ For projects still using custom modules / namespaces, it's preferred to refer to
 ```typescript
 module Example {}
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/typescript/prefer_namespace_keyword.rs)

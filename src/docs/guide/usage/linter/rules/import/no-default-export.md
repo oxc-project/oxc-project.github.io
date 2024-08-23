@@ -27,3 +27,7 @@ export default "bar";
 const foo = "foo";
 export { foo as default };
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/import/no_default_export.rs)

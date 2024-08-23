@@ -44,3 +44,7 @@ global.undefined = "foo";
 
 bar(void 0, "lorem");
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/eslint/no_undefined.rs)

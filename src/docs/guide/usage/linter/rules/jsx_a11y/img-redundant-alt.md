@@ -34,3 +34,7 @@ This rule checks for alternative text on the following elements:
 <img src="bar" aria-hidden alt="Picture of me taking a photo of an image" /> // Will pass because it is hidden.
 <img src="baz" alt={`Baz taking a ${photo}`} /> // This is valid since photo is a variable name.
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/jsx_a11y/img_redundant_alt.rs)

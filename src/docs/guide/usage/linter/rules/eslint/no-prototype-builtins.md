@@ -26,3 +26,7 @@ var hasBarProperty = foo.hasOwnProperty("bar");
 var isPrototypeOfBar = foo.isPrototypeOf(bar);
 var barIsEnumerable = foo.propertyIsEnumerable("bar");
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/eslint/no_prototype_builtins.rs)

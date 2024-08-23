@@ -53,3 +53,7 @@ of majors, eventually they are removed completely.
 jest.resetModuleRegistry; // since Jest 15
 jest.addMatchers; // since Jest 17
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/jest/no_deprecated_functions.rs)

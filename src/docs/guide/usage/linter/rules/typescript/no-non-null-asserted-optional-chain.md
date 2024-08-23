@@ -25,3 +25,7 @@ Most of the time, either the object was not nullable and did not need the `?.` f
 foo?.bar!;
 foo?.bar()!;
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/typescript/no_non_null_asserted_optional_chain.rs)

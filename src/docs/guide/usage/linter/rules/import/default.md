@@ -20,3 +20,7 @@ export function bar() {
 // ./foo.js
 import bar from "./bar"; // no default export found in ./bar
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/import/default.rs)

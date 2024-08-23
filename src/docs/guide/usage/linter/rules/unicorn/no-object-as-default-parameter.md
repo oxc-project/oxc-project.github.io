@@ -22,3 +22,7 @@ function foo(foo = { a: false }) {}
 // Good
 function foo({ a = false } = {}) {}
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/unicorn/no_object_as_default_parameter.rs)

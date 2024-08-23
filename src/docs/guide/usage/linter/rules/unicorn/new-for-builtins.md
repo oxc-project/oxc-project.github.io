@@ -28,3 +28,7 @@ const bar = Array(1, 2, 3);
 const foo = String("hello world");
 const bar = new Array(1, 2, 3);
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/unicorn/new_for_builtins.rs)

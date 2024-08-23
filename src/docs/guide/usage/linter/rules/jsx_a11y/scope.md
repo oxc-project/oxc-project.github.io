@@ -28,3 +28,7 @@ A screen reader operates under the assumption that a table has a header and that
 <th scope="col" />
 <th scope={scope} />
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/jsx_a11y/scope.rs)

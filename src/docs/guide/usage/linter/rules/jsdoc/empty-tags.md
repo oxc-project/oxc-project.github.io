@@ -45,3 +45,7 @@ The void tags should be empty.
 
 /** @private bar */
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/jsdoc/empty_tags.rs)

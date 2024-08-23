@@ -33,3 +33,7 @@ async function good() {
   await Promise.all(users.map((user) => getUserRecord(user)));
 }
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/eslint/no_await_in_loop.rs)

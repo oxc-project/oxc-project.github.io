@@ -16,3 +16,7 @@ Forbid a module from importing itself. This can sometimes happen during refactor
 import foo from "./foo.js";
 const foo = require("./foo");
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/import/no_self_import.rs)

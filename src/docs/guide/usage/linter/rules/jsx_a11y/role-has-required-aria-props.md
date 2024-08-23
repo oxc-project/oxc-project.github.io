@@ -24,3 +24,7 @@ semantics for assistive technology.
 // Good
 <div role="checkbox" aria-checked="false" />
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/jsx_a11y/role_has_required_aria_props.rs)

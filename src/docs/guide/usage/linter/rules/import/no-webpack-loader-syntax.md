@@ -23,3 +23,7 @@ import theme from "style!css!./theme.css";
 var myModule = require("my-loader!./my-module");
 var theme = require("style!css!./theme.css");
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/import/no_webpack_loader_syntax.rs)

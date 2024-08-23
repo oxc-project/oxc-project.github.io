@@ -29,3 +29,7 @@ describe("when an error happens", () => {
   });
 });
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/jest/no_restricted_matchers.rs)

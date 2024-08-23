@@ -29,3 +29,7 @@ try {
   e = 10;
 }
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/eslint/no_ex_assign.rs)

@@ -16,3 +16,7 @@ lot of things and can make it hard following what’s going. While there
 is not an objective maximum number of lines considered acceptable in a
 file, most people would agree it should not be in the thousands.
 Recommendations usually range from 100 to 500 lines.
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/eslint/max_lines.rs)

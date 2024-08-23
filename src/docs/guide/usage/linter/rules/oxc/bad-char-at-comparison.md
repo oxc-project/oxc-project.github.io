@@ -27,3 +27,7 @@ a.charAt(4) === "/n";
 a.charAt(4) === "a";
 a.charAt(4) === "\n";
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/oxc/bad_char_at_comparison.rs)

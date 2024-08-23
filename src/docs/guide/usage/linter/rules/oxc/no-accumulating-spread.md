@@ -46,3 +46,7 @@ Fail
 arr.reduce((acc, x) => ({ ...acc, [x]: fn(x) }), {});
 Object.keys(obj).reduce((acc, el) => ({ ...acc, [el]: fn(el) }), {});
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/oxc/no_accumulating_spread.rs)

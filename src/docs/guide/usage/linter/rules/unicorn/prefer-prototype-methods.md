@@ -30,3 +30,7 @@ const type = Object.prototype.toString.call(foo);
 Reflect.apply(Array.prototype.forEach, arrayLike, [callback]);
 const maxValue = Math.max.apply(Math, numbers);
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/unicorn/prefer_prototype_methods.rs)

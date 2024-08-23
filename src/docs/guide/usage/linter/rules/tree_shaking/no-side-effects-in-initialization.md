@@ -74,3 +74,7 @@ x();
 import { x } from "./some-file";
 /*@__PURE__*/ x();
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/tree_shaking/no_side_effects_in_initialization/mod.rs)

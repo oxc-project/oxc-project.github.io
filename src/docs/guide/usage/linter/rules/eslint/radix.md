@@ -22,3 +22,7 @@ var num = parseInt("071"); // 57
 // success
 var num = parseInt("071", 10); // 71
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/eslint/radix.rs)

@@ -17,3 +17,7 @@ Enforce a consistent boolean attribute style in your code.
 ```jsx
 const Hello = <Hello personal={true} />;
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/react/jsx_boolean_value.rs)

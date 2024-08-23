@@ -41,3 +41,7 @@ async function foo() {
   Promise.race([promise, anotherPromise]);
 }
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/unicorn/no_await_in_promise_methods.rs)

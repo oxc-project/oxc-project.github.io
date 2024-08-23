@@ -22,3 +22,7 @@ Use of triple-slash reference type directives is generally discouraged in favor 
 /// <reference lib="code" />
 globalThis.value;
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/typescript/triple_slash_reference.rs)

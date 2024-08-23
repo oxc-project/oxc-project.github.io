@@ -22,3 +22,7 @@ parentNode.removeChild(childNode);
 // good
 childNode.remove();
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/unicorn/prefer_dom_node_remove.rs)

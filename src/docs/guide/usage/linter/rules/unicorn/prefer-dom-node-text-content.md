@@ -29,3 +29,7 @@ const text = foo.innerText;
 // Good
 const text = foo.textContent;
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/unicorn/prefer_dom_node_text_content.rs)

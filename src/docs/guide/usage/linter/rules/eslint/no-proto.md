@@ -26,3 +26,7 @@ obj.__proto__ = b;
 
 obj["__proto__"] = b;
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/eslint/no_proto.rs)

@@ -40,3 +40,7 @@ const foo = 0o76;
 const foo = 0xffn;
 const foo = 2e5;
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/unicorn/number_literal_case.rs)

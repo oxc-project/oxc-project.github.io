@@ -34,3 +34,7 @@ console.log(message); // eslint-disable-line no-console
 // eslint-disable-next-line no-console
 console.log(message);
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/unicorn/no_abusive_eslint_disable.rs)

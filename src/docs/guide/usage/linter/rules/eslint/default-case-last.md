@@ -40,3 +40,7 @@ switch (foo) {
     break;
 }
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/eslint/default_case_last.rs)

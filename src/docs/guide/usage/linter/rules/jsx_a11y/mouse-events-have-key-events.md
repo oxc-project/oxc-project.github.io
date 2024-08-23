@@ -23,3 +23,7 @@ AT compatibility, and screenreader users.
 // Bad
 <div onMouseOver={() => void 0} />
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/jsx_a11y/mouse_events_have_key_events.rs)

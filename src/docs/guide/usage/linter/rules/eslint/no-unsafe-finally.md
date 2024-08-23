@@ -33,3 +33,7 @@ So, when return, throw, break, or continue is used in finally, control flow stat
 
 // > 3
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/eslint/no_unsafe_finally.rs)

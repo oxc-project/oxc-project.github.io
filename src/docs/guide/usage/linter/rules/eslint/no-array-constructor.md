@@ -19,3 +19,7 @@ The exception is when the Array constructor is used to intentionally create spar
 ```javascript
 let arr = new Array();
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/eslint/no_array_constructor.rs)

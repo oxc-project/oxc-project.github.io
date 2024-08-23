@@ -65,3 +65,7 @@ interface Overloaded {
 // this is equivalent to Overloaded interface.
 type Intersection = ((data: string) => number) & ((id: number) => string);
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/typescript/prefer_function_type.rs)

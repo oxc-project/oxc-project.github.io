@@ -32,3 +32,7 @@ const bar = parseFloat("10.5");
 const foo = Number.parseInt("10", 2);
 const bar = Number.parseFloat("10.5");
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/unicorn/prefer_number_properties.rs)

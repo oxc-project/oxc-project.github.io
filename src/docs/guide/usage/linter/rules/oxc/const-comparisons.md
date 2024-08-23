@@ -32,3 +32,7 @@ status_code >= 400 && status_code < 500;
 500 <= status_code && 600 > status_code;
 500 <= status_code && status_code <= 600;
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/oxc/const_comparisons.rs)

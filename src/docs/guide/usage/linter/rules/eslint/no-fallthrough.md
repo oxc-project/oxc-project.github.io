@@ -182,3 +182,7 @@ switch (foo) {
 
 Note that the last case statement in these examples does not cause a
 warning because there is nothing to fall through into.
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/eslint/no_fallthrough.rs)

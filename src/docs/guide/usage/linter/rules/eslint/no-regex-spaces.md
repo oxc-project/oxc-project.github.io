@@ -24,3 +24,7 @@ var re = /foo {3}bar/;
 ```javascript
 var re = /foo   bar/;
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/eslint/no_regex_spaces.rs)

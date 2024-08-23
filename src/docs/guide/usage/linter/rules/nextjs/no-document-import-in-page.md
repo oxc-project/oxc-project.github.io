@@ -16,3 +16,7 @@ Prevent importing `next/document` outside of `pages/_document.js`.
 ```javascript
 
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/nextjs/no_document_import_in_page.rs)

@@ -29,3 +29,7 @@ const object = { ...(foo || {}) };
 const object = { ...foo };
 const object = { ...(foo || { not: "empty" }) };
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/unicorn/no_useless_fallback_in_spread.rs)

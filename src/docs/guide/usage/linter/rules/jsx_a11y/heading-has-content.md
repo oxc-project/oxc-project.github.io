@@ -27,3 +27,7 @@ from accessing information on the page's structure.
 // Good
 <h1>Foo</h1>
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/jsx_a11y/heading_has_content.rs)

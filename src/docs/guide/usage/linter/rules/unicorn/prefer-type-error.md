@@ -29,3 +29,7 @@ if (Array.isArray(foo)) {
   throw new TypeError("Expected foo to be an array");
 }
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/unicorn/prefer_type_error.rs)

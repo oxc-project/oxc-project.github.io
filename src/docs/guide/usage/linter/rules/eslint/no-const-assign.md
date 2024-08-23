@@ -10,7 +10,7 @@
 
 ### What it does
 
-Disallow reassigning const variables
+Disallow reassigning `const` variables.
 
 ### Why is this bad?
 
@@ -19,7 +19,26 @@ It will raise a runtime error.
 
 ### Example
 
-```javascript
+Examples of **incorrect** code for this rule:
+
+```js
 const a = 0;
 a = 1;
+
+const b = 0;
+b += 1;
 ```
+
+Examples of **correct** code for this rule:
+
+```js
+const a = 0;
+console.log(a);
+
+var b = 0;
+b += 1;
+```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/eslint/no_const_assign.rs)

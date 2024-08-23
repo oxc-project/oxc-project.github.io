@@ -19,3 +19,7 @@ n JavaScript, it’s possible to redeclare the same variable name using var. Thi
 var a = 3;
 var a = 10;
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/eslint/no_redeclare.rs)

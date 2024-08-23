@@ -20,3 +20,7 @@ throw new TypeError();
 throw new Error("Unexpected token");
 throw new TypeError("Number expected");
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/unicorn/error_message.rs)

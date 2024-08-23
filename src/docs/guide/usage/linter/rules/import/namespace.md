@@ -13,3 +13,7 @@ report if bar is not exported by `./foo.`). Will report at the import
 declaration if there are no exported names found. Also, will report for
 computed references (i.e. `foo["bar"]()`). Reports on assignment to a
 member of an imported namespace.
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/import/namespace.rs)

@@ -20,3 +20,7 @@ You are using polyfills from Polyfill.io and including polyfills already shipped
 
 <script src='https://polyfill.io/v3/polyfill.min.js?features=WeakSet%2CPromise%2CPromise.prototype.finally%2Ces2015%2Ces5%2Ces6'></script>
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/nextjs/no_unwanted_polyfillio.rs)

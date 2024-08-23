@@ -31,3 +31,7 @@ String(1);
 Number(1);
 array.some(Boolean);
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/unicorn/prefer_native_coercion_functions.rs)

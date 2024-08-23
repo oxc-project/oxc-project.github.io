@@ -37,3 +37,7 @@ it("should not pass", () => {
   expect(true).toBeDefined();
 });
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/jest/max_expects.rs)

@@ -20,3 +20,7 @@ x!;
 x!.y;
 x.y!;
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/typescript/no_non_null_assertion.rs)

@@ -25,3 +25,7 @@ withSpaces.replaceAll(/\s+/, ",");
 // Good: The global flag (g) is used in the regular expression.
 withSpaces.replaceAll(/\s+/g, ",");
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/oxc/bad_replace_all_arg.rs)

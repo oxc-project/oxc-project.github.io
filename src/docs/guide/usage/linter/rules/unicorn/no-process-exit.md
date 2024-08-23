@@ -27,3 +27,7 @@ if (problem) throw new Error("message");
 #!/usr/bin/env node
 if (problem) process.exit(1);
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/unicorn/no_process_exit.rs)

@@ -27,3 +27,7 @@ x < y || x === y;
 x <= y;
 x >= y;
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/oxc/double_comparisons.rs)

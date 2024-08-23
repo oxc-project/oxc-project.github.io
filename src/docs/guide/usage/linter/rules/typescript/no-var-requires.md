@@ -18,3 +18,7 @@ var foo = require("foo");
 const foo = require("foo");
 let foo = require("foo");
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/typescript/no_var_requires.rs)

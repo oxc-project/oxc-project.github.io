@@ -36,3 +36,7 @@ const Hello = () => {
   return <div>{/* empty div */}</div>;
 };
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/react/jsx_no_comment_textnodes.rs)

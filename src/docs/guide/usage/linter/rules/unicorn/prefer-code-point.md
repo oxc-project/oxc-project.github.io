@@ -30,3 +30,7 @@ String.fromCharCode(0x1f984);
 "🦄".codePointAt(0);
 String.fromCodePoint(0x1f984);
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/unicorn/prefer_code_point.rs)

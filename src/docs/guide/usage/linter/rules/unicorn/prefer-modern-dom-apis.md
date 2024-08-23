@@ -31,3 +31,7 @@ oldChildNode.replaceWith(newChildNode);
 // Good
 parentNode.replaceChild(newChildNode, oldChildNode);
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/unicorn/prefer_modern_dom_apis.rs)

@@ -33,3 +33,7 @@ obj.fn?.();
 ```
 
 - `message`: A custom help message to display when optional chaining is found.
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/oxc/no_optional_chaining.rs)

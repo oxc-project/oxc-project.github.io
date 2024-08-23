@@ -34,3 +34,7 @@ let z = { x, ...y };
 
 - `objectSpreadMessage`: A message to display when object spread properties are found.
 - `objectRestMessage`: A message to display when object rest properties are found.
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/oxc/no_rest_spread_properties.rs)

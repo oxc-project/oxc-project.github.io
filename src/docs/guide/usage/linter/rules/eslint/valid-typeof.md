@@ -34,3 +34,7 @@ typeof foo === baz;
 // incorrect:
 typeof foo === baz;
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/eslint/valid_typeof.rs)

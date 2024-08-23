@@ -28,3 +28,7 @@ Creating JSX elements with duplicate props can cause unexpected behavior in your
 <App a />;
 <App bar baz foo={3} />;
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/react/jsx_no_duplicate_props.rs)

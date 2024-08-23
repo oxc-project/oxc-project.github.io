@@ -21,3 +21,7 @@ var x =
   "Line 1 \
  Line 2";
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/eslint/no_multi_str.rs)

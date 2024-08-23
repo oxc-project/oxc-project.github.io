@@ -22,3 +22,7 @@ If a callback function is passed to the function of this array, the callback fun
 ```javascript
 const list = new Array(5).map((_) => createElement());
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/oxc/uninvoked_array_callback.rs)

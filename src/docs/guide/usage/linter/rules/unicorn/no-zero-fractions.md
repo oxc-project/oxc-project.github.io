@@ -30,3 +30,7 @@ const foo = -1;
 const foo = 123456;
 const foo = 1.1;
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/unicorn/no_zero_fractions.rs)

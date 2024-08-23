@@ -29,3 +29,7 @@ OUTER_LOOP: for (const student of students) {
   doSomething(student);
 }
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/eslint/no_unused_labels.rs)

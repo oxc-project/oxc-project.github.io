@@ -20,3 +20,7 @@ import fs from "fs";
 // Good
 import fs from "node:fs";
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/unicorn/prefer_node_protocol.rs)

@@ -19,3 +19,7 @@ It is most likely a potential ReferenceError caused by a misspelling of a variab
 var foo = someFunction();
 var bar = a + 1;
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/eslint/no_undef.rs)

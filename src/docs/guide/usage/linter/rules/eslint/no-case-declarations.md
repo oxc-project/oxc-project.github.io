@@ -32,3 +32,7 @@ switch (foo) {
     class C {}
 }
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/eslint/no_case_declarations.rs)
