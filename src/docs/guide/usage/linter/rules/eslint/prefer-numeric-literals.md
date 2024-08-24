@@ -31,3 +31,7 @@ Number.parseInt("111110111", 2) === 503;
 Number.parseInt("767", 8) === 503;
 Number.parseInt("1F7", 16) === 503;
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/eslint/prefer_numeric_literals.rs)

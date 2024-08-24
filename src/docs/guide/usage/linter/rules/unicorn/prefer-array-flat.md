@@ -36,3 +36,7 @@ const foo = Array.prototype.concat.call([], ...array);
 const foo = array.flat();
 const foo = [maybeArray].flat();
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/unicorn/prefer_array_flat.rs)

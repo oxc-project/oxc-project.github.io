@@ -29,3 +29,7 @@ expect(a.includes(b)).toBe(false);
 expect(a.includes(b)).toEqual(true);
 expect(a.includes(b)).toStrictEqual(true);
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/jest/prefer_to_contain.rs)

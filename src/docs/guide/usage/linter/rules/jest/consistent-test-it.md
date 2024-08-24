@@ -81,7 +81,11 @@ to use it, add the following configuration to your `.eslintrc.json`:
 ```json
 {
   "rules": {
-    "vitest/consistent-test-it": "error"
+     "vitest/consistent-test-it": "error"
   }
 }
+
+
+## References
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/jest/consistent_test_it.rs)
 ```

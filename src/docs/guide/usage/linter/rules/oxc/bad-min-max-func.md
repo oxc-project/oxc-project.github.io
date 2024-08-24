@@ -19,3 +19,7 @@ constant result because the arguments are in the wrong order.
 Math.min(Math.max(100, x), 0);
 Math.max(1000, Math.min(0, z));
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/oxc/bad_min_max_func.rs)

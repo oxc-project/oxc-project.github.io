@@ -20,3 +20,7 @@ a! == b; // a non-null assertions(`!`) and an equals test(`==`)
 a !== b; // not equals test(`!==`)
 a! === b; // a non-null assertions(`!`) and an triple equals test(`===`)
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/typescript/no_confusing_non_null_assertion.rs)

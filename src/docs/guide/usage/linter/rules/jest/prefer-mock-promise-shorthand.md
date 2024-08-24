@@ -35,3 +35,7 @@ jest.spyOn(fs.promises, "readFile").mockRejectedValue(new Error("oh noes!"));
 
 myFunction.mockResolvedValueOnce(42).mockResolvedValueOnce(42).mockRejectedValue(new Error("too many calls!"));
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/jest/prefer_mock_promise_shorthand.rs)

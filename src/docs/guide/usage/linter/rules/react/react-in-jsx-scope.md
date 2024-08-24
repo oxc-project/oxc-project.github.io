@@ -24,3 +24,7 @@ var a = <a />;
 import React from "react";
 var a = <a />;
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/react/react_in_jsx_scope.rs)

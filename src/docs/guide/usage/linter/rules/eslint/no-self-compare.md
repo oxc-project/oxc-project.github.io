@@ -22,3 +22,7 @@ if (x === x) {
   x = 20;
 }
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/eslint/no_self_compare.rs)

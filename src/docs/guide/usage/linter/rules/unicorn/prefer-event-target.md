@@ -26,3 +26,7 @@ class Foo extends EventEmitter {}
 // Good
 class Foo extends OtherClass {}
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/unicorn/prefer_event_target.rs)

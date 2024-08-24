@@ -23,3 +23,7 @@ expect(x).toBe(5);
 expect(name).not.toEqual("Carl");
 expect(myObj).toStrictEqual(thatObj);
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/jest/prefer_equality_matcher.rs)

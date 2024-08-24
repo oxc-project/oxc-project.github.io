@@ -21,3 +21,7 @@ myPromise.finally(function (val) {
   return val;
 });
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/promise/no_return_in_finally.rs)

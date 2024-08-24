@@ -14,12 +14,47 @@ Disallow constant expressions in conditions
 
 ### Why is this bad?
 
-A constant expression (for example, a literal) as a test condition might be a typo or development trigger for a specific behavior.
+A constant expression (for example, a literal) as a test condition might
+be a typo or development trigger for a specific behavior.
+
+This rule disallows constant expressions in the test condition of:
+
+- `if`, `for`, `while`, or `do...while` statement
+- `?`: ternary expression
 
 ### Example
 
-```javascript
+Examples of **incorrect** code for this rule:
+
+```js
 if (false) {
   doSomethingUnfinished();
 }
+
+if (new Boolean(x)) {
+  doSomethingAlways();
+}
+if ((x ||= true)) {
+  doSomethingAlways();
+}
+
+do {
+  doSomethingForever();
+} while ((x = -1));
 ```
+
+Examples of **correct** code for this rule:
+
+```js
+if (x === 0) {
+  doSomething();
+}
+
+while (typeof x === "undefined") {
+  doSomething();
+}
+```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/eslint/no_constant_condition.rs)

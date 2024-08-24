@@ -26,3 +26,7 @@ Captions are also useful for users in noisy environments or where audio is not a
 <audio></audio>
 <video></video>
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/jsx_a11y/media_has_caption.rs)

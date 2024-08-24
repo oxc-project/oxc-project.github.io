@@ -63,3 +63,7 @@ using the `maxNumberOfTopLevelDescribes` option:
   ]
 }
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/jest/require_top_level_describe.rs)

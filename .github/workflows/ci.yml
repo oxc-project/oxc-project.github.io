@@ -40,8 +40,6 @@ jobs:
           node-version-file: .node-version
           cache: pnpm
       - run: pnpm install --frozen-lockfile
-      - name: Textlint
-        run: pnpm run textlint:check
       - name: Oxlint
         run: pnpm run lint --format github
 

@@ -23,3 +23,7 @@ let log10e = 0.434294;
 // Good
 let log10e = Math.LOG10E;
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/oxc/approx_constant.rs)

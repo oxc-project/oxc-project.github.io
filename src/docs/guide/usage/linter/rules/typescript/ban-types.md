@@ -20,3 +20,7 @@ let foo: String = "foo";
 
 let bar: Boolean = true;
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/typescript/ban_types.rs)

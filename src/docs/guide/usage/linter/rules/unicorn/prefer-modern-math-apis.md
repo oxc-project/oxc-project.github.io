@@ -32,3 +32,7 @@ Math.sqrt(a * a + b * b);
 Math.log10(x);
 Math.hypot(a, b);
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/unicorn/prefer_modern_math_apis.rs)

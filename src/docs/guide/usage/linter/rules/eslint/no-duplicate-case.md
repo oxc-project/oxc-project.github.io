@@ -19,11 +19,40 @@ it is likely that a programmer copied a case clause but forgot to change the tes
 
 ### Example
 
-```javascript
-var a = 1;
+Examples of **incorrect** code for this rule:
+
+```js
+var a = 1,
+  one = 1;
 switch (a) {
   case 1:
     break;
+  case 2:
+    break;
+  case 1: // duplicate test expression
+    break;
+  default:
+    break;
+}
+
+switch (a) {
+  case one:
+    break;
+  case 2:
+    break;
+  case one: // duplicate test expression
+    break;
+  default:
+    break;
+}
+```
+
+Examples of **correct** code for this rule:
+
+```js
+var a = 1,
+  one = 1;
+switch (a) {
   case 1:
     break;
   case 2:
@@ -31,4 +60,17 @@ switch (a) {
   default:
     break;
 }
+
+switch (a) {
+  case "1":
+    break;
+  case "2":
+    break;
+  default:
+    break;
+}
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/eslint/no_duplicate_case.rs)

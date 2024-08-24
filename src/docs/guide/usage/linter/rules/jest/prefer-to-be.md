@@ -33,3 +33,7 @@ expect(value).not.toEqual(5);
 expect(getMessage()).toStrictEqual("hello world");
 expect(loadMessage()).resolves.toEqual("hello world");
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/jest/prefer_to_be.rs)

@@ -27,3 +27,7 @@ class BazAny<T extends any> {
 const QuuxAny = <T extends any>() => {};
 function QuuzAny<T extends any>() {}
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/typescript/no_unnecessary_type_constraint.rs)

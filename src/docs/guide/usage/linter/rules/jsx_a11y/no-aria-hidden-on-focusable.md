@@ -25,3 +25,7 @@ Enforces that `aria-hidden="true"` is not set on focusable elements.
 // Good
 <div aria-hidden="true" />
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/jsx_a11y/no_aria_hidden_on_focusable.rs)

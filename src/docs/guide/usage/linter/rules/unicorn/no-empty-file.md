@@ -22,3 +22,7 @@ Disallows any files only containing the following:
 ### Why is this bad?
 
 Meaningless files clutter a codebase.
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/unicorn/no_empty_file.rs)

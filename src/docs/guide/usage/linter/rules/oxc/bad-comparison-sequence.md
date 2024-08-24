@@ -24,3 +24,7 @@ if ((a == b) == c) {
   console.log("a, b, and c are the same");
 }
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/oxc/bad_comparison_sequence.rs)

@@ -80,3 +80,7 @@ Examples of **correct** code for this rule:
 <div></div>                   <!-- Good: No ARIA role -->
 <Foo role={role}></Foo>       <!-- Good: ignoreNonDOM is set to true -->
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/jsx_a11y/aria_role.rs)

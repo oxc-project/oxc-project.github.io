@@ -35,3 +35,7 @@ async function good() {
   const string = buffer.toString("utf8");
 }
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/unicorn/text_encoding_identifier_case.rs)

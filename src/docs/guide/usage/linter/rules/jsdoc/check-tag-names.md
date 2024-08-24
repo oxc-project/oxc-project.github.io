@@ -29,3 +29,7 @@ Using invalid tags can lead to confusion and make the documentation harder to re
  * @type {string}
  */
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/jsdoc/check_tag_names.rs)

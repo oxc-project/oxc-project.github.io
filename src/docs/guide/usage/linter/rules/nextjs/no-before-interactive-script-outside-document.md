@@ -16,3 +16,7 @@ Prevent usage of `next/script`'s `beforeInteractive` strategy outside of `pages/
 ```javascript
 
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/nextjs/no_before_interactive_script_outside_document.rs)

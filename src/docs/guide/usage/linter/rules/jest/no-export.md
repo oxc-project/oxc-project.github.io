@@ -23,3 +23,7 @@ describe("a test", () => {
   expect(1).toBe(1);
 });
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/jest/no_export.rs)

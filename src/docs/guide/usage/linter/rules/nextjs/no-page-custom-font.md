@@ -19,3 +19,7 @@ Prevent page-only custom fonts.
 ```javascript
 
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/nextjs/no_page_custom_font.rs)

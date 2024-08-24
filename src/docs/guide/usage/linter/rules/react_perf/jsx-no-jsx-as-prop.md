@@ -20,3 +20,7 @@ Prevent JSX that are local to the current method from being used as values of JS
 // Good
 <Item callback={this.props.jsx} />
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/react_perf/jsx_no_jsx_as_prop.rs)

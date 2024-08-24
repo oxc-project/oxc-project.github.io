@@ -28,3 +28,7 @@ for (const item of arr) {
   console.log(item);
 }
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/typescript/prefer_for_of.rs)

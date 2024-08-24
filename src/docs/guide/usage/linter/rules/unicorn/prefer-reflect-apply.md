@@ -22,3 +22,7 @@ foo.apply(null, [42]);
 // Good
 Reflect.apply(foo, null);
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/unicorn/prefer_reflect_apply.rs)

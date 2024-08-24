@@ -22,3 +22,7 @@ Self assignments have no effect, so probably those are an error due to incomplet
 foo = foo;
 [bar, baz] = [bar, qiz];
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/eslint/no_self_assign.rs)

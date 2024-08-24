@@ -22,3 +22,7 @@ if (test) {
   function doSomethingElse() {}
 }
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/eslint/no_inner_declarations.rs)

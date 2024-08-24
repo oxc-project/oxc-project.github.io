@@ -78,3 +78,7 @@ There are **many reasons** why an anchor should not have a logic and have a corr
 ### Reference
 
 - [WCAG 2.1.1](https://www.w3.org/WAI/WCAG21/Understanding/keyboard)
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/jsx_a11y/anchor_is_valid.rs)

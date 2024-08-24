@@ -28,3 +28,7 @@ The name of a property type should be documented.
  * @property {number}
  */
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/jsdoc/require_property_name.rs)

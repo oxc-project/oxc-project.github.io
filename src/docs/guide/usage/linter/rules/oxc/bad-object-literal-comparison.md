@@ -33,3 +33,7 @@ if (typeof x === "object" && Object.keys(x).length === 0) {
 if (Array.isArray(x) && x.length === 0) {
 }
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/oxc/bad_object_literal_comparison.rs)

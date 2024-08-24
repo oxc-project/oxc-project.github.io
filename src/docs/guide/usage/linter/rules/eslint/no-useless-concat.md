@@ -18,3 +18,7 @@ It’s unnecessary to concatenate two strings together.
 ```javascript
 var foo = "a" + "b";
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/eslint/no_useless_concat.rs)

@@ -22,43 +22,23 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     steps:
+      - uses: taiki-e/checkout-action@v1
+
       - uses: actions/checkout@v4
         with:
           repository: oxc-project/oxc
           ref: main
+          path: oxc
 
-      - uses: Boshen/setup-rust@main
+      - name: Install Tools
+        uses: taiki-e/install-action@v2
         with:
-          save-cache: ${{ github.ref_name == 'main' }}
+          tool: just
 
-      - run: cargo build --release -p website
-
-      - uses: actions/upload-artifact@v4
-        with:
-          if-no-files-found: error
-          name: website
-          path: ./target/release/website
-
-  generate:
-    needs: build
-    name: Generate
-    runs-on: ubuntu-latest
-    steps:
-      - uses: taiki-e/checkout-action@v1
-
-      - uses: actions/download-artifact@v4
-        with:
-          name: website
-          path: .
-
-      - run: chmod +x ./website
-
-      - name: generate
+      - name: Build
         run: |
-          ./website linter-rules --table ./src/docs/guide/usage/linter/generated-rules.md --rule-docs ./src/docs/guide/usage/linter/rules
-          ./website linter-cli > ./src/docs/guide/usage/linter/generated-cli.md
-          ./website linter-schema-markdown > ./src/docs/guide/usage/linter/generated-config.md
-          rm website
+          cd oxc && just website ../
+          rm -rf oxc
 
       - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v4
@@ -67,7 +47,6 @@ jobs:
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - run: pnpm run fmt --write ./src/docs/guide/usage/linter
-      - run: pnpm run textlint:fix
 
       - uses: peter-evans/create-pull-request@v6
         with:

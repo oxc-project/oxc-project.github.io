@@ -211,3 +211,7 @@ strings with escapes characters.
 You should turn this rule off if you are not concerned about maintaining
 consistency regarding the use of curly braces in JSX props and/or
 children as well as the use of unnecessary JSX expressions.
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/react/jsx_curly_brace_presence.rs)

@@ -22,3 +22,7 @@ Using the `Array` type directly is not idiomatic. Instead, use the array type `T
 const arr: Array<number> = new Array<number>();
 const arr: number[] = new Array<number>();
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/typescript/array_type.rs)

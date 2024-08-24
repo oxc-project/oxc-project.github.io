@@ -23,3 +23,7 @@ const bar = [1, 2, 3].map((i) => [i]).flat(); // ✗ fail
 
 const bar = [1, 2, 3].flatMap((i) => [i]); // ✓ pass
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/unicorn/prefer_array_flat_map.rs)

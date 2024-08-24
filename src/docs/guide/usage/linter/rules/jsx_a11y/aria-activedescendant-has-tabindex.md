@@ -34,3 +34,7 @@ const Good = (
 
 const Bad = <div aria-activedescendant={someID} />;
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/jsx_a11y/aria_activedescendant_has_tabindex.rs)

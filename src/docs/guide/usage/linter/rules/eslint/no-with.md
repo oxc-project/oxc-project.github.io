@@ -23,3 +23,7 @@ with (point) {
   r = Math.sqrt(x * x + y * y); // is r a member of point?
 }
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/eslint/no_with.rs)

@@ -42,3 +42,7 @@ to use it, add the following configuration to your `.eslintrc.json`:
   }
 }
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/jest/no_test_prefixes.rs)

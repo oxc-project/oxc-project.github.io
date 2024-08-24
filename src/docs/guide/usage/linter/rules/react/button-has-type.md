@@ -26,3 +26,7 @@ unexpected page reloads.
 <button type="button" />
 <button type="submit" />
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/react/button_has_type.rs)

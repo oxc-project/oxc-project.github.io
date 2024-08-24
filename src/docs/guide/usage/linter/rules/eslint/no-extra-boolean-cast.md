@@ -35,3 +35,7 @@ if (Boolean(foo)) {
 if (!!foo || bar) {
 }
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/eslint/no_extra_boolean_cast.rs)

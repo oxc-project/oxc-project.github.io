@@ -22,3 +22,7 @@ There should be no spaces inside a pair of braces as it affects the overall read
 const a = {};
 class A {}
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/unicorn/empty_brace_spaces.rs)

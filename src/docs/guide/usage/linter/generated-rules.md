@@ -2,16 +2,16 @@
 
 The progress of all rule implementations is tracked [here](https://github.com/oxc-project/oxc/issues/481).
 
-- Total number of rules: 406
-- Rules turned on by default: 91
+- Total number of rules: 411
+- Rules turned on by default: 92
 
 <!-- textlint-disable terminology -->
 
-## Correctness (161):
+## Correctness (164):
 
 Code that is outright wrong or useless.
 | Rule name | Source | Default | Fixable? |
-| --------------------------------------------- | ---------- | ------- | -------- |
+| --------------------------------------------------- | ---------- | ------- | -------- |
 | [for-direction](/docs/guide/usage/linter/rules/eslint/for-direction.html) | eslint | ✅ | ⚠️🛠️️ |
 | [no-async-promise-executor](/docs/guide/usage/linter/rules/eslint/no-async-promise-executor.html) | eslint | ✅ | |
 | [no-caller](/docs/guide/usage/linter/rules/eslint/no-caller.html) | eslint | ✅ | |
@@ -136,7 +136,7 @@ Code that is outright wrong or useless.
 | [erasing-op](/docs/guide/usage/linter/rules/oxc/erasing-op.html) | oxc | ✅ | |
 | [missing-throw](/docs/guide/usage/linter/rules/oxc/missing-throw.html) | oxc | ✅ | 💡 |
 | [number-arg-out-of-range](/docs/guide/usage/linter/rules/oxc/number-arg-out-of-range.html) | oxc | ✅ | |
-| [only-used-in-recursion](/docs/guide/usage/linter/rules/oxc/only-used-in-recursion.html) | oxc | ✅ | |
+| [only-used-in-recursion](/docs/guide/usage/linter/rules/oxc/only-used-in-recursion.html) | oxc | ✅ | ⚠️🛠️️ |
 | [uninvoked-array-callback](/docs/guide/usage/linter/rules/oxc/uninvoked-array-callback.html) | oxc | ✅ | |
 | [no-new-statics](/docs/guide/usage/linter/rules/promise/no-new-statics.html) | promise | | 🛠️ |
 | [valid-params](/docs/guide/usage/linter/rules/promise/valid-params.html) | promise | | |
@@ -158,6 +158,7 @@ Code that is outright wrong or useless.
 | [no-this-alias](/docs/guide/usage/linter/rules/typescript/no-this-alias.html) | typescript | ✅ | |
 | [no-unsafe-declaration-merging](/docs/guide/usage/linter/rules/typescript/no-unsafe-declaration-merging.html) | typescript | ✅ | |
 | [no-useless-empty-export](/docs/guide/usage/linter/rules/typescript/no-useless-empty-export.html) | typescript | ✅ | 🛠️ |
+| [no-wrapper-object-types](/docs/guide/usage/linter/rules/typescript/no-wrapper-object-types.html) | typescript | ✅ | 🛠️ |
 | [prefer-as-const](/docs/guide/usage/linter/rules/typescript/prefer-as-const.html) | typescript | ✅ | 🛠️ |
 | [triple-slash-reference](/docs/guide/usage/linter/rules/typescript/triple-slash-reference.html) | typescript | ✅ | |
 | [no-await-in-promise-methods](/docs/guide/usage/linter/rules/unicorn/no-await-in-promise-methods.html) | unicorn | ✅ | |
@@ -173,6 +174,8 @@ Code that is outright wrong or useless.
 | [no-useless-spread](/docs/guide/usage/linter/rules/unicorn/no-useless-spread.html) | unicorn | ✅ | 🛠️ |
 | [prefer-set-size](/docs/guide/usage/linter/rules/unicorn/prefer-set-size.html) | unicorn | ✅ | 🚧 |
 | [prefer-string-starts-ends-with](/docs/guide/usage/linter/rules/unicorn/prefer-string-starts-ends-with.html) | unicorn | ✅ | 🛠️ |
+| [no-conditional-tests](/docs/guide/usage/linter/rules/vitest/no-conditional-tests.html) | vitest | | |
+| [require-local-test-context-for-concurrent-snapshots](/docs/guide/usage/linter/rules/vitest/require-local-test-context-for-concurrent-snapshots.html) | vitest | | |
 
 ## Perf (6):
 
@@ -245,7 +248,7 @@ Lints which prevent the use of language and library features. Must not be enable
 | [prefer-node-protocol](/docs/guide/usage/linter/rules/unicorn/prefer-node-protocol.html) | unicorn | | 🛠️ |
 | [prefer-number-properties](/docs/guide/usage/linter/rules/unicorn/prefer-number-properties.html) | unicorn | | |
 
-## Suspicious (16):
+## Suspicious (17):
 
 code that is most likely wrong or useless.
 | Rule name | Source | Default | Fixable? |
@@ -265,9 +268,10 @@ code that is most likely wrong or useless.
 | [no-confusing-non-null-assertion](/docs/guide/usage/linter/rules/typescript/no-confusing-non-null-assertion.html) | typescript | | |
 | [no-extraneous-class](/docs/guide/usage/linter/rules/typescript/no-extraneous-class.html) | typescript | | |
 | [no-unnecessary-type-constraint](/docs/guide/usage/linter/rules/typescript/no-unnecessary-type-constraint.html) | typescript | | |
+| [consistent-function-scoping](/docs/guide/usage/linter/rules/unicorn/consistent-function-scoping.html) | unicorn | | 🚧 |
 | [prefer-add-event-listener](/docs/guide/usage/linter/rules/unicorn/prefer-add-event-listener.html) | unicorn | | |
 
-## Pedantic (67):
+## Pedantic (68):
 
 Lints which are rather strict or have occasional false positives.
 | Rule name | Source | Default | Fixable? |
@@ -289,6 +293,7 @@ Lints which are rather strict or have occasional false positives.
 | [require-await](/docs/guide/usage/linter/rules/eslint/require-await.html) | eslint | | |
 | [symbol-description](/docs/guide/usage/linter/rules/eslint/symbol-description.html) | eslint | | |
 | [max-dependencies](/docs/guide/usage/linter/rules/import/max-dependencies.html) | import | | |
+| [no-conditional-in-test](/docs/guide/usage/linter/rules/jest/no-conditional-in-test.html) | jest | | |
 | [require-param](/docs/guide/usage/linter/rules/jsdoc/require-param.html) | jsdoc | | |
 | [require-param-description](/docs/guide/usage/linter/rules/jsdoc/require-param-description.html) | jsdoc | | |
 | [require-param-name](/docs/guide/usage/linter/rules/jsdoc/require-param-name.html) | jsdoc | | |

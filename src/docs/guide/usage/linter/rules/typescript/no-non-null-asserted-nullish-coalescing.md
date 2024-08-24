@@ -21,3 +21,7 @@ foo! ?? bar;
 let x: string;
 x! ?? "";
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/typescript/no_non_null_asserted_nullish_coalescing.rs)

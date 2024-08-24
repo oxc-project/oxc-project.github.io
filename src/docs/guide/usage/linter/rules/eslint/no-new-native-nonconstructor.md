@@ -10,19 +10,34 @@
 
 ### What it does
 
-Disallow new operators with global non-constructor functions (Symbol, BigInt)
+Disallow `new` operators with global non-constructor functions (`Symbol`, `BigInt`)
 
 ### Why is this bad?
 
-Both new Symbol and new BigInt throw a type error because they are functions and not classes.
-It is easy to make this mistake by assuming the uppercase letters indicate classes.
+Both `new Symbol` and `new BigInt` throw a type error because they are
+functions and not classes. It is easy to make this mistake by assuming
+the uppercase letters indicate classes.
 
 ### Example
 
-```javascript
+Examples of **incorrect** code for this rule:
+
+```js
 // throws a TypeError
 let foo = new Symbol("foo");
 
 // throws a TypeError
 let result = new BigInt(9007199254740991);
 ```
+
+Examples of **correct** code for this rule:
+
+```js
+let foo = Symbol("foo");
+
+let result = BigInt(9007199254740991);
+```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/eslint/no_new_native_nonconstructor.rs)

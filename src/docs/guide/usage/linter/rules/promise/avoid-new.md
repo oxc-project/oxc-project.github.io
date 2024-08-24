@@ -20,3 +20,7 @@ new Promise((resolve, reject) => {
   /* ... */
 });
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/promise/avoid_new.rs)

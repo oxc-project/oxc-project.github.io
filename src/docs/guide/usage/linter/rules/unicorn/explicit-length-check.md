@@ -34,3 +34,7 @@ const isEmptySet = !foo.size;
 // pass
 const isEmpty = foo.length === 0;
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/unicorn/explicit_length_check.rs)

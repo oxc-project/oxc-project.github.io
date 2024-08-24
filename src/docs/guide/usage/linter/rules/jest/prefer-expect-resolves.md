@@ -49,3 +49,7 @@ it("is true", async () => {
   expect(await myPromise).toBe(true);
 });
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/jest/prefer_expect_resolves.rs)

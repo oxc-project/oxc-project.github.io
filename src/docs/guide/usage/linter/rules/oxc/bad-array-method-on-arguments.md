@@ -27,3 +27,7 @@ function sum() {
   return arguments.reduce(add, 0);
 }
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/oxc/bad_array_method_on_arguments.rs)

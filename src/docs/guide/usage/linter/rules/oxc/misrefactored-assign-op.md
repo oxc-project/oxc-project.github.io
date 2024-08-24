@@ -26,3 +26,7 @@ a -= a - b;
 a += b;
 a -= b;
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/oxc/misrefactored_assign_op.rs)

@@ -26,3 +26,7 @@ Redundant roles can lead to confusion and verbosity in the codebase.
 // Good
 <nav />
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/jsx_a11y/no_redundant_roles.rs)

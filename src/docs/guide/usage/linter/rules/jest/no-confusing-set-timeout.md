@@ -44,3 +44,7 @@ describe("unit test", () => {
   });
 });
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/jest/no_confusing_set_timeout.rs)

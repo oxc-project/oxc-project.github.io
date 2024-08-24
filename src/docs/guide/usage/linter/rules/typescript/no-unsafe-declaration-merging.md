@@ -23,3 +23,7 @@ The TypeScript compiler doesn't check whether properties are initialized, which 
 interface Foo {}
 class Foo {}
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/typescript/no_unsafe_declaration_merging.rs)

@@ -25,3 +25,7 @@ foo.slice(1, foo.length);
 // Good
 foo.slice(1);
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/unicorn/no_length_as_slice_end.rs)

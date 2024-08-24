@@ -31,3 +31,7 @@ async function example() {
   console.log("after"); //<- This will never execute
 }
 ```
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/unicorn/no_thenable.rs)
