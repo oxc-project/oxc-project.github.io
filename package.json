@@ -8,7 +8,7 @@
     "dev": "vitepress dev",
     "build": "pnpm run sponsors && vitepress build",
     "preview": "vitepress preview",
-    "lint": "oxlint",
+    "lint": "oxlint -W correctness -W no-unused-vars --deny-warnings",
     "fmt": "prettier",
     "typecheck": "tsc",
     "create-blog-post": "tsx ./cli/index.ts create-blog-post",
