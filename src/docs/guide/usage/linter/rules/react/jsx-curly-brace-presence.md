@@ -163,7 +163,9 @@ that option for checking on both JSX props and children.
 The fix also deals with template literals, strings with quotes, and
 strings with escapes characters.
 
-- If the rule is set to get rid of unnecessary curly braces and the template literal inside a JSX expression has no expression, it will throw a warning and be fixed with double quotes. For example:
+- If the rule is set to get rid of unnecessary curly braces and the
+  template literal inside a JSX expression has no expression, it will
+  throw a warning and be fixed with double quotes. For example:
 
   ```jsx
   <App prop={`Hello world`}>{`Hello world`}</App>
@@ -175,7 +177,10 @@ strings with escapes characters.
   <App prop="Hello world">Hello world</App>
   ```
 
-- If the rule is set to enforce curly braces and the strings have quotes, it will be fixed with double quotes for JSX children and the normal way for JSX attributes. Also, double quotes will be escaped in the fix.
+- If the rule is set to enforce curly braces and the strings have
+  quotes, it will be fixed with double quotes for JSX children and the
+  normal way for JSX attributes. Also, double quotes will be escaped in
+  the fix.
 
   For example:
 
@@ -189,7 +194,12 @@ strings with escapes characters.
   <App prop={'Hello "foo" world'}>{"Hello 'foo' \"bar\" world"}</App>
   ```
 
-- If the rule is set to get rid of unnecessary curly braces(JSX expression) and there are characters that need to be escaped in its JSX form, such as quote characters, [forbidden JSX text characters](https://facebook.github.io/jsx/), escaped characters and anything that looks like HTML entity names, the code will not be warned because the fix may make the code less readable.
+- If the rule is set to get rid of unnecessary curly braces(JSX
+  expression) and there are characters that need to be escaped in its JSX
+  form, such as quote characters, [forbidden JSX text
+  characters](https://facebook.github.io/jsx/), escaped characters and
+  anything that looks like HTML entity names, the code will not be warned
+  because the fix may make the code less readable.
 
   Examples of **correct** code for this rule, even when configured with `"never"`:
 

@@ -24,9 +24,12 @@ the name of the function expression in the stack trace.
 
 This rule has a string option:
 
-- `"always"` requires a function expression to have a name under all circumstances.
-- `"as-needed"` requires a function expression to have a name only when one will not be automatically inferred by the runtime.
-- `"never"` requires a function expression to not have a name under any circumstances.
+- `"always"` requires a function expression to have a name under all
+  circumstances.
+- `"as-needed"` requires a function expression to have a name only when
+  one will not be automatically inferred by the runtime.
+- `"never"` requires a function expression to not have a name under any
+  circumstances.
 
 ### Example
 
