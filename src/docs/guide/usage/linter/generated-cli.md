@@ -1,5 +1,3 @@
-<!-- textlint-disable -->
-
 ## Usage
 
 **`oxlint`** \[**`-c`**=_`<./oxlintrc.json>`_\] \[_`PATH`_\]...
@@ -123,5 +121,3 @@ Arguments:
   Prints help information
 - **`-V`**, **`--version`** &mdash;
   Prints version information
-
-<!-- textlint-enable -->
