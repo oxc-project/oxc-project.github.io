@@ -14,7 +14,7 @@ pnpm run dev
 
 ### Source code for the playground
 
-https://github.com/oxc-project/oxc/tree/main/website/playground
+https://github.com/oxc-project/playground
 
 # [Sponsored By](https://github.com/sponsors/Boshen)
 
