@@ -25,7 +25,6 @@ export const enConfig = defineLocaleConfig("root", {
         items: [
           { text: "Blog", link: "/blog/2024-05-04-import-plugin-alpha.html" },
           { text: "Team", link: "/team" },
-          { text: "Ecosystem", link: "/ecosystem" },
           { text: "Branding", link: "/branding" },
           { text: "Website GitHub", link: "https://github.com/oxc-project/oxc-project.github.io" },
         ],
@@ -62,6 +61,9 @@ export const enConfig = defineLocaleConfig("root", {
             { text: "Transformer", link: "/docs/guide/usage/transformer" },
             { text: "Resolver", link: "/docs/guide/usage/resolver" },
           ],
+        },
+        {
+          items: [{ text: "Projects using Oxc", link: "/docs/guide/projects" }],
         },
       ],
       "/docs/learn/": [
