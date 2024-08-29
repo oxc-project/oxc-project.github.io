@@ -2,10 +2,10 @@
 
 The progress of all rule implementations is tracked [here](https://github.com/oxc-project/oxc/issues/481).
 
-- Total number of rules: 413
+- Total number of rules: 414
 - Rules turned on by default: 93
 
-## Correctness (165):
+## Correctness (166):
 
 Code that is outright wrong or useless.
 | Rule name | Source | Default | Fixable? |
@@ -91,6 +91,7 @@ Code that is outright wrong or useless.
 | [html-has-lang](/docs/guide/usage/linter/rules/jsx_a11y/html-has-lang.html) | jsx_a11y | | |
 | [iframe-has-title](/docs/guide/usage/linter/rules/jsx_a11y/iframe-has-title.html) | jsx_a11y | | |
 | [img-redundant-alt](/docs/guide/usage/linter/rules/jsx_a11y/img-redundant-alt.html) | jsx_a11y | | |
+| [label-has-associated-control](/docs/guide/usage/linter/rules/jsx_a11y/label-has-associated-control.html) | jsx_a11y | | |
 | [lang](/docs/guide/usage/linter/rules/jsx_a11y/lang.html) | jsx_a11y | | |
 | [media-has-caption](/docs/guide/usage/linter/rules/jsx_a11y/media-has-caption.html) | jsx_a11y | | |
 | [mouse-events-have-key-events](/docs/guide/usage/linter/rules/jsx_a11y/mouse-events-have-key-events.html) | jsx_a11y | | |
@@ -102,7 +103,7 @@ Code that is outright wrong or useless.
 | [prefer-tag-over-role](/docs/guide/usage/linter/rules/jsx_a11y/prefer-tag-over-role.html) | jsx_a11y | | |
 | [role-has-required-aria-props](/docs/guide/usage/linter/rules/jsx_a11y/role-has-required-aria-props.html) | jsx_a11y | | |
 | [role-supports-aria-props](/docs/guide/usage/linter/rules/jsx_a11y/role-supports-aria-props.html) | jsx_a11y | | |
-| [scope](/docs/guide/usage/linter/rules/jsx_a11y/scope.html) | jsx_a11y | | 🚧 |
+| [scope](/docs/guide/usage/linter/rules/jsx_a11y/scope.html) | jsx_a11y | | 🛠️ |
 | [tabindex-no-positive](/docs/guide/usage/linter/rules/jsx_a11y/tabindex-no-positive.html) | jsx_a11y | | 🚧 |
 | [google-font-display](/docs/guide/usage/linter/rules/nextjs/google-font-display.html) | nextjs | | |
 | [google-font-preconnect](/docs/guide/usage/linter/rules/nextjs/google-font-preconnect.html) | nextjs | | |
@@ -197,7 +198,7 @@ Lints which prevent the use of language and library features. Must not be enable
 | [no-bitwise](/docs/guide/usage/linter/rules/eslint/no-bitwise.html) | eslint | | |
 | [no-console](/docs/guide/usage/linter/rules/eslint/no-console.html) | eslint | | |
 | [no-div-regex](/docs/guide/usage/linter/rules/eslint/no-div-regex.html) | eslint | | 🛠️ |
-| [no-empty](/docs/guide/usage/linter/rules/eslint/no-empty.html) | eslint | | 🚧 |
+| [no-empty](/docs/guide/usage/linter/rules/eslint/no-empty.html) | eslint | | 💡 |
 | [no-empty-function](/docs/guide/usage/linter/rules/eslint/no-empty-function.html) | eslint | | |
 | [no-eq-null](/docs/guide/usage/linter/rules/eslint/no-eq-null.html) | eslint | | ⚠️🛠️️ |
 | [no-eval](/docs/guide/usage/linter/rules/eslint/no-eval.html) | eslint | | |
@@ -207,7 +208,7 @@ Lints which prevent the use of language and library features. Must not be enable
 | [no-restricted-globals](/docs/guide/usage/linter/rules/eslint/no-restricted-globals.html) | eslint | | |
 | [no-undefined](/docs/guide/usage/linter/rules/eslint/no-undefined.html) | eslint | | |
 | [no-unsafe-optional-chaining](/docs/guide/usage/linter/rules/eslint/no-unsafe-optional-chaining.html) | eslint | | |
-| [no-var](/docs/guide/usage/linter/rules/eslint/no-var.html) | eslint | | 🚧 |
+| [no-var](/docs/guide/usage/linter/rules/eslint/no-var.html) | eslint | | 🛠️ |
 | [no-void](/docs/guide/usage/linter/rules/eslint/no-void.html) | eslint | | |
 | [unicode-bom](/docs/guide/usage/linter/rules/eslint/unicode-bom.html) | eslint | | 🛠️ |
 | [no-amd](/docs/guide/usage/linter/rules/import/no-amd.html) | import | | |
@@ -329,7 +330,7 @@ Lints which are rather strict or have occasional false positives.
 | [prefer-array-some](/docs/guide/usage/linter/rules/unicorn/prefer-array-some.html) | unicorn | | 🛠️ |
 | [prefer-blob-reading-methods](/docs/guide/usage/linter/rules/unicorn/prefer-blob-reading-methods.html) | unicorn | | |
 | [prefer-code-point](/docs/guide/usage/linter/rules/unicorn/prefer-code-point.html) | unicorn | | 🛠️ |
-| [prefer-date-now](/docs/guide/usage/linter/rules/unicorn/prefer-date-now.html) | unicorn | | 🚧 |
+| [prefer-date-now](/docs/guide/usage/linter/rules/unicorn/prefer-date-now.html) | unicorn | | 🛠️ |
 | [prefer-dom-node-append](/docs/guide/usage/linter/rules/unicorn/prefer-dom-node-append.html) | unicorn | | 🛠️ |
 | [prefer-dom-node-dataset](/docs/guide/usage/linter/rules/unicorn/prefer-dom-node-dataset.html) | unicorn | | |
 | [prefer-dom-node-remove](/docs/guide/usage/linter/rules/unicorn/prefer-dom-node-remove.html) | unicorn | | |
@@ -438,7 +439,7 @@ Code that should be written in a more idiomatic way.
 | [require-array-join-separator](/docs/guide/usage/linter/rules/unicorn/require-array-join-separator.html) | unicorn | | 🛠️ |
 | [switch-case-braces](/docs/guide/usage/linter/rules/unicorn/switch-case-braces.html) | unicorn | | 🛠️ |
 | [text-encoding-identifier-case](/docs/guide/usage/linter/rules/unicorn/text-encoding-identifier-case.html) | unicorn | | 🛠️ |
-| [throw-new-error](/docs/guide/usage/linter/rules/unicorn/throw-new-error.html) | unicorn | | 🚧 |
+| [throw-new-error](/docs/guide/usage/linter/rules/unicorn/throw-new-error.html) | unicorn | | 🛠️ |
 | [no-import-node-test](/docs/guide/usage/linter/rules/vitest/no-import-node-test.html) | vitest | | 🛠️ |
 | [prefer-each](/docs/guide/usage/linter/rules/vitest/prefer-each.html) | vitest | | |
 | [prefer-to-be-falsy](/docs/guide/usage/linter/rules/vitest/prefer-to-be-falsy.html) | vitest | | 🛠️ |
