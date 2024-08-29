@@ -16,11 +16,11 @@ hero:
       link: https://github.com/oxc-project/oxc
 features:
   - title: Parser ✅
-    details: 3x faster than swc
+    details: 3x faster than swc<br/>Passed all Test262 stage4 tests
     link: /docs/guide/usage/parser
     linkText: Usage guide
   - title: Linter ✅
-    details: 50~100x faster than ESLint<br/>400+ rules and counting
+    details: 50~100x faster than ESLint<br/>414+ rules and counting
     link: /docs/guide/usage/linter
     linkText: Usage guide
   - title: Resolver ✅
