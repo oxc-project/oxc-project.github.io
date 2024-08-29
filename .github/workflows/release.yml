@@ -38,6 +38,7 @@ jobs:
       - name: Build
         run: |
           cd oxc && just website ../
+          git rm oxc
           rm -rf oxc
 
       - uses: pnpm/action-setup@v4
