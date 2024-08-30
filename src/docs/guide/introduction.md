@@ -17,7 +17,7 @@ Our goal is to create and empower tooling for [The Third Age of JavaScript](http
 
 ## Endorsements
 
-#### [Evan You](https://twitter.com/youyuxi/status/1734439543280128030), creator of [Vue.js](https://vuejs.org) and [Vite](https://vitejs.dev):
+#### [Evan You](https://x.com/youyuxi/status/1734439543280128030), creator of [Vue.js](https://vuejs.org) and [Vite](https://vitejs.dev):
 
 > Ran oxlint on the Vue 3 codebase, ~200 rules + ~590 files finished in 50ms 🤯 (30ms re-runs)
 >
@@ -31,11 +31,19 @@ Our goal is to create and empower tooling for [The Third Age of JavaScript](http
 >
 > We even caught a few bugs that were hidden or skipped by our old setup when we migrated!
 
+### [Luke Edwards](https://x.com/lukeed05/status/1829527267162345651)
+
+> For a while now, @boshen_c has been crushing it, setting the foundation for the next generation of JS tooling.
+>
+> There's just so much to learn from the OXC source code. Everything is meticulously measured and benchmarked, then formalized into simple, elegant, non-frightening APIs.
+>
+> This guy is brilliant, a team player, and is + has been doing thankless, hard work.
+
 #### [Yagiz Nizipli](https://github.com/sponsors/anonrig), founder of [Node.js performance team](https://github.com/nodejs/performance):
 
 > I'm impressed by how oxc is actively encouraging JavaScript tools to improve their performance.
 
-#### [Eric Simons](https://twitter.com/ericsimons40/status/1766525300584947999), CEO of [StackBlitz](https://stackblitz.com/):
+#### [Eric Simons](https://x.com/ericsimons40/status/1766525300584947999), CEO of [StackBlitz](https://stackblitz.com/):
 
 > Oxc is slept on rn
 >
