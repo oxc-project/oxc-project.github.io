@@ -99,6 +99,10 @@ export const enConfig = defineLocaleConfig("root", {
             // text: "Minifier",
             // link: "/docs/learn/architecture/minifier",
             // },
+            {
+              text: "Test Infrastructure",
+              link: "/docs/learn/architecture/test",
+            },
           ],
         },
         {
