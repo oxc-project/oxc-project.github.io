@@ -30,11 +30,6 @@ jobs:
           ref: main
           path: oxc
 
-      - uses: Swatinem/rust-cache@v2
-        with:
-          workspaces: oxc
-          save-if: ${{ github.ref_name == 'main' }}
-
       - name: Install Tools
         uses: taiki-e/install-action@v2
         with:
