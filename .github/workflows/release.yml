@@ -35,11 +35,9 @@ jobs:
         with:
           tool: just
 
-      - name: Build
-        run: |
-          cd oxc && just website ../
-          git rm oxc
-          rm -rf oxc
+      - run: cd oxc && just website ..
+      - run: git rm oxc
+      - run: rm -rf oxc
 
       - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v4
