@@ -30,13 +30,17 @@ jobs:
           ref: main
           path: oxc
 
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: oxc
+          save-if: ${{ github.ref_name == 'main' }}
+
       - name: Install Tools
         uses: taiki-e/install-action@v2
         with:
           tool: just
 
       - run: cd oxc && just website ..
-      - run: git rm oxc
       - run: rm -rf oxc
 
       - uses: pnpm/action-setup@v4
