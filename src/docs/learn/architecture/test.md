@@ -9,15 +9,15 @@ feel free to contact us on [Discord][discord-url].
 
 In Oxc, correctness and reliability are taken extremely seriously.
 
-We spend half of our time on strengthening the test infrastructure to prevent problems from propagating to downstream tools.
+We spend a great deal of time strengthening the test infrastructure to prevent problems from propagating to downstream tools.
 
 ## Parser
 
 ### Conformance
 
-All parser tests from [Test262](https://github.com/tc39/test262), [Babel](https://github.com/babel/babel), and [TypeScript](https://github.com/microsoft/TypeScript) are used to test JavaScript, TypeScript, and JSX syntax.
+Parser tests from [Test262](https://github.com/tc39/test262), [Babel](https://github.com/babel/babel), and [TypeScript](https://github.com/microsoft/TypeScript) are used to test JavaScript, TypeScript, and JSX syntax.
 
-For test262, all stage 4 and regular expression tests are included.
+For Test262, all stage 4 and regular expression tests are included.
 
 All conformance results are stored in a snapshot file for tracking changes:
 
@@ -32,15 +32,15 @@ All syntax errors are written to these snapshot files for diffing changes.
 To ensure that the parser does not panic when encountering random data, three fuzzers are used:
 
 1. [cargo fuzz](https://github.com/rust-fuzz/cargo-fuzz) for [sending random bytes](https://github.com/oxc-project/oxc-fuzz-parser/blob/main/fuzz/fuzz_targets/parser.rs) to the parser.
-2. [shift-fuzzer-js](https://github.com/shapesecurity/shift-fuzzer-js) by [bakkot](https://github.com/bakkot) for producing random by valid ASTs.
-3. [Automated-Fuzzer](https://github.com/qarmin/Automated-Fuzzer) by [qarmin](https://github.com/qarmin), who [actively reports](https://github.com/oxc-project/oxc/issues?q=is%3Aissue+author%3Aqarmin+) crashes.
+2. [shift-fuzzer-js](https://github.com/shapesecurity/shift-fuzzer-js) by [bakkot](https://github.com/bakkot) for producing random but valid ASTs.
+3. [Automated-Fuzzer](https://github.com/qarmin/Automated-Fuzzer) by [qarmin](https://github.com/qarmin), which [actively reports](https://github.com/oxc-project/oxc/issues?q=is%3Aissue+author%3Aqarmin+) crashes.
 
 ### Memory Safety
 
 The oxc parser uses [`bumpalo`](https://docs.rs/bumpalo/latest/bumpalo) as the memory allocator for its AST.
 None of the AST nodes have a `drop` implementation.
-Miri [is used](https://github.com/oxc-project/oxc/actions/workflows/miri.yml) to ensure that no heap-allocated data is stored on the AST nodes
-so that memory is leaked when the memory allocator is dropped.
+Miri [is used](https://github.com/oxc-project/oxc/actions/workflows/miri.yml) to ensure that no heap-allocated data
+is stored on the AST nodes, which would result in memory leaks when the allocator is dropped.
 
 ## Linter
 
@@ -103,7 +103,7 @@ line coverage.
 
 ## End to End
 
-The repository [monitor-oxc](https://github.com/oxc-project/monitor-oxc) contains end-to-end logic against the top 3000 npm packages from [npm-high-impact](https://github.com/wooorm/npm-high-impact).
+The repository [monitor-oxc](https://github.com/oxc-project/monitor-oxc) performs end-to-end tests against the top 3000 npm packages from [npm-high-impact](https://github.com/wooorm/npm-high-impact).
 
 Its `package.json` has 3000 dependencies:
 
