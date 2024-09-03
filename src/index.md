@@ -20,7 +20,7 @@ features:
     link: /docs/guide/usage/parser
     linkText: Usage guide
   - title: Linter ✅
-    details: 50~100x faster than ESLint<br/>400+ rules and counting
+    details: 50~100x faster than ESLint<br/>400+ rules and growing
     link: /docs/guide/usage/linter
     linkText: Usage guide
   - title: Resolver ✅
@@ -28,7 +28,7 @@ features:
     link: /docs/guide/usage/resolver
     linkText: Usage guide
   - title: Transformer 🚧
-    details: Babel compatible<br/>✓ TypeScript / React JSX<br/>✓ Isolated Declarations Dts Emit
+    details: Babel compatible<br/>✓ TypeScript / React JSX<br/>✓ Isolated Declarations DTS Emit
     link: /docs/guide/usage/transformer
   - title: Formatter
     details: Prettier compatible
