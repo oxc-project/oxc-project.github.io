@@ -18,7 +18,7 @@ export const enConfig = defineLocaleConfig("root", {
       {
         text: "Playground",
         target: "_blank",
-        link: "https://oxc-playground.netlify.app",
+        link: "https://playground.oxc.rs",
       },
       {
         text: "Resources",
