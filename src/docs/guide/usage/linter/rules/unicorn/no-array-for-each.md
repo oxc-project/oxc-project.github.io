@@ -3,6 +3,9 @@
 # unicorn/no-array-for-each <Badge type="info" text="Restriction" />
 
 <div class="rule-meta">
+<Alert class="fix" type="info">
+<span class="emoji">🚧</span> An auto-fix is still under development.
+</Alert>
 </div>
 
 ### What it does
@@ -21,14 +24,18 @@ Additionally, using `for…of` has great benefits if you are using TypeScript, b
 
 ### Example
 
+Examples of **incorrect** code for this rule:
+
 ```javascript
-// Bad
 const foo = [1, 2, 3];
 foo.forEach((element) => {
   /* ... */
 });
+```
 
-// Good
+Examples of **correct** code for this rule:
+
+```javascript
 const foo = [1, 2, 3];
 for (const element of foo) {
   /* ... */

@@ -11,19 +11,23 @@ Enforce that elements with explicit or implicit roles defined contain only `aria
 
 ### Example
 
-```jsx
-// Good
-<ul role="radiogroup" aria-required "aria-labelledby"="foo">
-    <li tabIndex="-1" role="radio" aria-checked="false">Rainbow Trout</li>
-    <li tabIndex="-1" role="radio" aria-checked="false">Brook Trout</li>
-    <li tabIndex="0" role="radio" aria-checked="true">Lake Trout</li>
-</ul>
+Examples of **incorrect** code for this rule:
 
-// Bad
+```jsx
 <ul role="radiogroup" "aria-labelledby"="foo">
     <li aria-required tabIndex="-1" role="radio" aria-checked="false">Rainbow Trout</li>
     <li aria-required tabIndex="-1" role="radio" aria-checked="false">Brook Trout</li>
     <li aria-required tabIndex="0" role="radio" aria-checked="true">Lake Trout</li>
+</ul>
+```
+
+Examples of **correct** code for this rule:
+
+```jsx
+<ul role="radiogroup" aria-required "aria-labelledby"="foo">
+    <li tabIndex="-1" role="radio" aria-checked="false">Rainbow Trout</li>
+    <li tabIndex="-1" role="radio" aria-checked="false">Brook Trout</li>
+    <li tabIndex="0" role="radio" aria-checked="true">Lake Trout</li>
 </ul>
 ```
 

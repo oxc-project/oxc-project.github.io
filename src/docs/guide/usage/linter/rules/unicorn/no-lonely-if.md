@@ -15,15 +15,19 @@ It can be confusing to have an `if` statement without an `else` clause as the on
 
 ### Example
 
+Examples of **incorrect** code for this rule:
+
 ```javascript
-// Bad
 if (foo) {
   if (bar) {
   }
 }
 if (foo) if (bar) baz();
+```
 
-// Good
+Examples of **correct** code for this rule:
+
+```javascript
 if (foo && bar) {
 }
 if (foo && bar) baz();

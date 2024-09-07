@@ -13,19 +13,23 @@ Requires that all `@property` tags have names.
 
 The name of a property type should be documented.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
-// Passing
-/**
- * @typedef {SomeType} SomeTypedef
- * @property {number} foo
- */
-
-// Failing
 /**
  * @typedef {SomeType} SomeTypedef
  * @property {number}
+ */
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
+/**
+ * @typedef {SomeType} SomeTypedef
+ * @property {number} foo
  */
 ```
 

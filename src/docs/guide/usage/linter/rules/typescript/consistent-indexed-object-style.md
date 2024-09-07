@@ -16,12 +16,11 @@ Require or disallow the `Record` type.
 
 Inconsistent style for indexed object types can harm readability in a project.
 
-### Example
+### Examples
 
-With "record":
+Examples of **incorrect** code for this rule:
 
 ```ts
-// bad
 interface Foo {
   [key: string]: unknown;
 }
@@ -30,10 +29,9 @@ type Foo = {
 };
 ```
 
-With "index-signature":
+Examples of **correct** code for this rule:
 
 ```ts
-// bad
 type Foo = Record<string, unknown>;
 ```
 

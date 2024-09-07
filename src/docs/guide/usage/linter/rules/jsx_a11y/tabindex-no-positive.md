@@ -21,11 +21,15 @@ disrupting the logical order of content.
 
 ### Example
 
-```jsx
-// Bad
-<span tabIndex="1">foo</span>
+Examples of **incorrect** code for this rule:
 
-// Good
+```jsx
+<span tabIndex="1">foo</span>
+```
+
+Examples of **correct** code for this rule:
+
+```jsx
 <span tabIndex="0">foo</span>
 <span tabIndex="-1">bar</span>
 ```

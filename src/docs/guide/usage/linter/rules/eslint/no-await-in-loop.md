@@ -16,7 +16,7 @@ Instead, they are being run in series, which can lead to poorer performance.
 
 ### Example
 
-Bad:
+Examples of **incorrect** code for this rule:
 
 ```javascript
 async function bad() {
@@ -26,7 +26,7 @@ async function bad() {
 }
 ```
 
-Good:
+Examples of **correct** code for this rule:
 
 ```javascript
 async function good() {

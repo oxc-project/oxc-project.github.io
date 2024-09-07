@@ -15,11 +15,15 @@ Default parameters should not be passed to a function through an object literal.
 
 ### Example
 
-```javascript
-// Bad
-function foo(foo = { a: false }) {}
+Examples of **incorrect** code for this rule:
 
-// Good
+```javascript
+function foo(foo = { a: false }) {}
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
 function foo({ a = false } = {}) {}
 ```
 

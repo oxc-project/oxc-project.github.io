@@ -20,11 +20,15 @@ A screen reader operates under the assumption that a table has a header and that
 
 ### Example
 
-```jsx
-// Bad
-<div scope />
+Examples of **incorrect** code for this rule:
 
-// Good
+```jsx
+<div scope />
+```
+
+Examples of **correct** code for this rule:
+
+```jsx
 <th scope="col" />
 <th scope={scope} />
 ```

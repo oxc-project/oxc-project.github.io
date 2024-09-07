@@ -3,6 +3,9 @@
 # unicorn/prefer-modern-dom-apis <Badge type="info" text="Style" />
 
 <div class="rule-meta">
+<Alert class="fix" type="info">
+<span class="emoji">🚧</span> An auto-fix is still under development.
+</Alert>
 </div>
 
 ### What it does
@@ -24,11 +27,15 @@ There are some advantages of using the newer DOM APIs, like:
 
 ### Example
 
-```javascript
-// Bad
-oldChildNode.replaceWith(newChildNode);
+Examples of **incorrect** code for this rule:
 
-// Good
+```javascript
+oldChildNode.replaceWith(newChildNode);
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
 parentNode.replaceChild(newChildNode, oldChildNode);
 ```
 

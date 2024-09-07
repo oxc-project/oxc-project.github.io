@@ -21,12 +21,16 @@ Using `String#startsWith()` and `String#endsWith()` is more readable and perform
 
 ### Example
 
+Examples of **incorrect** code for this rule:
+
 ```javascript
-// Bad
 const foo = "hello";
 /^abc/.test(foo);
+```
 
-// Good
+Examples of **correct** code for this rule:
+
+```javascript
 const foo = "hello";
 foo.startsWith("abc");
 ```

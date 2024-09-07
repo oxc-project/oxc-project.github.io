@@ -15,17 +15,22 @@ It also optionally reports the presence of the square-bracketed optional argumen
 The rule is intended to prevent the indication of defaults on tags
 where this would be redundant with ES6 default parameters.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
-// Passing
+/** @param {number} [foo="7"] */
+function quux(foo) {}
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
 /** @param {number} foo */
 function quux(foo) {}
-/** @param foo */
-function quux(foo) {}
 
-// Failing
-/** @param {number} [foo="7"] */
+/** @param foo */
 function quux(foo) {}
 ```
 
