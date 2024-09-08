@@ -46,7 +46,7 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - run: pnpm run fmt --write ./src/docs/guide/usage/linter
 
-      - uses: peter-evans/create-pull-request@v6
+      - uses: peter-evans/create-pull-request@v7
         with:
           token: ${{ secrets.OXC_BOT_PAT }}
           commit-message: Release ${{ inputs.version }}
