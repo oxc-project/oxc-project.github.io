@@ -5,7 +5,7 @@ hero:
   name: "The JavaScript Oxidation Compiler"
   tagline: A collection of JavaScript tools written in Rust
   image:
-    src: https://cdn.jsdelivr.net/gh/oxc-project/oxc-assets/uwu.png
+    src: https://cdn.jsdelivr.net/gh/oxc-project/oxc-assets/round-bubbles.png
     alt: The JavaScript Oxidation Compiler
   actions:
     - theme: brand
@@ -44,15 +44,6 @@ features:
     external: true
 ---
 
-<script setup>
-import SponsorsSVG from '../public/sponsors.svg?raw'
-</script>
-
-<div class="Sponsors">
-  <h2>Sponsored by</h2>
-  <div v-html="SponsorsSVG"></div>
-</div>
-
 <style>
 .VPHero .VPImage.image-src {
   max-width: 90%;
@@ -69,3 +60,22 @@ import SponsorsSVG from '../public/sponsors.svg?raw'
   }
 }
 </style>
+
+<script setup>
+import SponsorsSVG from '../public/sponsors.svg?raw'
+import { onMounted } from 'vue'
+
+onMounted(() => {
+  const img = document.querySelector('.VPHero .VPImage.image-src');
+  img.onclick = () => {
+    img.src = 'https://raw.githubusercontent.com/oxc-project/oxc-assets/main/uwu.png';
+    img.alt = 'Oxc Kawaii Logo by @icarusgkx';
+    img.style = "max-width:90%";
+  };
+})
+</script>
+
+<div class="Sponsors">
+  <h2>Sponsored by</h2>
+  <div v-html="SponsorsSVG"></div>
+</div>
