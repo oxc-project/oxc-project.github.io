@@ -3,6 +3,9 @@
 # typescript/prefer-for-of <Badge type="info" text="Style" />
 
 <div class="rule-meta">
+<Alert class="fix" type="info">
+<span class="emoji">🚧</span> An auto-fix is still under development.
+</Alert>
 </div>
 
 ### What it does
@@ -17,13 +20,17 @@ eliminate the need for an index variable and manual array access.
 
 ### Example
 
-```ts
-// Bad
+Examples of **incorrect** code for this rule:
+
+```typescript
 for (let i = 0; i < arr.length; i++) {
   console.log(arr[i]);
 }
+```
 
-// Good
+Examples of **correct** code for this rule:
+
+```typescript
 for (const item of arr) {
   console.log(item);
 }

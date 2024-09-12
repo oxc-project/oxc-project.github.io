@@ -22,11 +22,15 @@ There are some disadvantages of using .innerText.
 
 ### Example
 
-```javascript
-// Bad
-const text = foo.innerText;
+Examples of **incorrect** code for this rule:
 
-// Good
+```javascript
+const text = foo.innerText;
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
 const text = foo.textContent;
 ```
 

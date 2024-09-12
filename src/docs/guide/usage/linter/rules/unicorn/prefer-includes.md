@@ -3,26 +3,32 @@
 # unicorn/prefer-includes <Badge type="info" text="Style" />
 
 <div class="rule-meta">
+<Alert class="fix" type="info">
+<span class="emoji">🚧</span> An auto-fix is still under development.
+</Alert>
 </div>
 
 ### What it does
 
 Prefer `includes()` over `indexOf()` when checking for existence or non-existence.
-
 All built-ins have `.includes()` in addition to `.indexOf()`.
 
 ### Why is this bad?
 
 The `.includes()` method is more readable and less error-prone than `.indexOf()`.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
-// bad
 if (str.indexOf("foo") !== -1) {
 }
+```
 
-// good
+Examples of **correct** code for this rule:
+
+```javascript
 if (str.includes("foo")) {
 }
 ```

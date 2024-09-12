@@ -17,15 +17,19 @@ Enforce using the digits argument with Number.toFixed()
 It's better to make it clear what the value of the digits argument is when calling Number.toFixed(),
 instead of relying on the default value of 0.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
-// Pass
+number.toFixed();
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
 number.toFixed(0);
 number.toFixed(2);
-
-// Fail:
-number.toFixed();
 ```
 
 ## References

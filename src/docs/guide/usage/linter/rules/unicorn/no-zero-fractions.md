@@ -18,13 +18,17 @@ There is no difference in JavaScript between, for example, `1`, `1.0` and `1.`, 
 
 ### Example
 
+Examples of **incorrect** code for this rule:
+
 ```javascript
-// Bad
 const foo = 1.0;
 const foo = -1.0;
 const foo = 123_456.000_000;
+```
 
-// Good
+Examples of **correct** code for this rule:
+
+```javascript
 const foo = 1;
 const foo = -1;
 const foo = 123456;

@@ -15,12 +15,16 @@ Magic numbers are hard to understand and maintain. When calling `Array.prototype
 
 ### Example
 
+Examples of **incorrect** code for this rule:
+
 ```javascript
-// Bad
 array.flat(2);
 array.flat(20);
-//
-// Good
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
 array.flat(2 /* explanation */);
 array.flat(1);
 array.flat();

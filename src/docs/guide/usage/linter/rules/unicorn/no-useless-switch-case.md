@@ -3,6 +3,9 @@
 # unicorn/no-useless-switch-case <Badge type="info" text="Pedantic" />
 
 <div class="rule-meta">
+<Alert class="fix" type="info">
+<span class="emoji">🚧</span> An auto-fix is still under development.
+</Alert>
 </div>
 
 ### What it does
@@ -13,17 +16,22 @@ Disallows useless default cases in switch statements.
 
 An empty case before the last default case is useless.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
-// bad
 switch (foo) {
   case 1:
   default:
     handleDefaultCase();
     break;
 }
-// good:
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
 switch (foo) {
   case 1:
   case 2:

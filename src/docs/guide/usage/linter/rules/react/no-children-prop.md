@@ -18,16 +18,19 @@ When not using JSX, the children should be passed as additional arguments to `Re
 
 ### Example
 
+Examples of **incorrect** code for this rule:
+
 ```jsx
-// Bad
 <div children='Children' />
 
 <MyComponent children={<AnotherComponent />} />
 <MyComponent children={['Child 1', 'Child 2']} />
 React.createElement("div", { children: 'Children' })
+```
 
-// Good
+Examples of **correct** code for this rule:
 
+```jsx
 <div>Children</div>
 <MyComponent>Children</MyComponent>
 
@@ -38,8 +41,6 @@ React.createElement("div", { children: 'Children' })
 
 React.createElement("div", {}, 'Children')
 React.createElement("div", 'Child 1', 'Child 2')
-
-
 ```
 
 ## References

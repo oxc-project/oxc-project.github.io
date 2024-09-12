@@ -9,12 +9,19 @@
 
 Forbid AMD `require` and `define` calls.
 
-### Example
+### Why is this bad?
+
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
-// fail
 require([a, b], function () {});
-// pass
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
 require("../name");
 require(`../name`);
 ```

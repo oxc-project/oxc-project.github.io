@@ -14,10 +14,20 @@ Reports an issue with any non-constructor function using `@implements`.
 Constructor functions should be
 whether marked with `@class`, `@constructs`, or being an ES6 class constructor.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
-// Passing
+/**
+ * @implements {SomeClass}
+ */
+function quux() {}
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
 class Foo {
   /**
    * @implements {SomeClass}
@@ -27,12 +37,6 @@ class Foo {
 /**
  * @implements {SomeClass}
  * @class
- */
-function quux() {}
-
-// Failing
-/**
- * @implements {SomeClass}
  */
 function quux() {}
 ```
