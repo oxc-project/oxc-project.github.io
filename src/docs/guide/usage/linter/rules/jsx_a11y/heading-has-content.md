@@ -20,11 +20,15 @@ from accessing information on the page's structure.
 
 ### Example
 
-```jsx
-// Bad
-<h1 />
+Examples of **incorrect** code for this rule:
 
-// Good
+```jsx
+<h1 />
+```
+
+Examples of **correct** code for this rule:
+
+```jsx
 <h1>Foo</h1>
 ```
 

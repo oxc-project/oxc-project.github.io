@@ -13,16 +13,20 @@ Requires that all function parameters are documented with JSDoc `@param` tags.
 
 The rule is aimed at enforcing code quality and maintainability by requiring that all function parameters are documented.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
-// Passing
-/** @param foo */
-function quux(foo) {}
-
-// Failing
 /** @param foo */
 function quux(foo, bar) {}
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
+/** @param foo */
+function quux(foo) {}
 ```
 
 ## References

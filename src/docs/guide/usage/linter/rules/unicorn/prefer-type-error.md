@@ -18,13 +18,17 @@ Throwing a `TypeError` instead of a generic `Error` after a type checking if-sta
 
 ### Example
 
+Examples of **incorrect** code for this rule:
+
 ```javascript
-// Bad
 if (Array.isArray(foo)) {
   throw new Error("Expected foo to be an array");
 }
+```
 
-// Good
+Examples of **correct** code for this rule:
+
+```javascript
 if (Array.isArray(foo)) {
   throw new TypeError("Expected foo to be an array");
 }

@@ -17,12 +17,16 @@ elements do not contain the `role` and/or `aria-*` props.
 
 ### Example
 
-```jsx
-// Good
-	<meta charset="UTF-8" />
+Examples of **incorrect** code for this rule:
 
-// Bad
+```jsx
 <meta charset="UTF-8" aria-hidden="false" />
+```
+
+Examples of **correct** code for this rule:
+
+```jsx
+<meta charset="UTF-8" />
 ```
 
 ## References

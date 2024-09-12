@@ -13,19 +13,23 @@ Requires that each `@property` tag has a type value (within curly brackets).
 
 The type of a property should be documented.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
-// Passing
-/**
- * @typedef {SomeType} SomeTypedef
- * @property {number} foo
- */
-
-// Failing
 /**
  * @typedef {SomeType} SomeTypedef
  * @property foo
+ */
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
+/**
+ * @typedef {SomeType} SomeTypedef
+ * @property {number} foo
  */
 ```
 

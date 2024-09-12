@@ -16,12 +16,16 @@ AT compatibility, and screenreader users.
 
 ### Example
 
-```jsx
-// Good
-<div onMouseOver={() => void 0} onFocus={() => void 0} />
+Examples of **incorrect** code for this rule:
 
-// Bad
+```jsx
 <div onMouseOver={() => void 0} />
+```
+
+Examples of **correct** code for this rule:
+
+```jsx
+<div onMouseOver={() => void 0} onFocus={() => void 0} />
 ```
 
 ## References

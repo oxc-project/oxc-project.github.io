@@ -14,24 +14,29 @@ Will also report if multiple `@returns` tags are present.
 
 The rule is intended to prevent the omission of `@returns` tag when necessary.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
-// Passing
-/** @returns Foo. */
-function quux() {
-  return foo;
-}
-
-// Failing
 /** Foo. */
 function quux() {
   return foo;
 }
+
 /**
  * @returns Foo!
  * @returns Foo?
  */
+function quux() {
+  return foo;
+}
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
+/** @returns Foo. */
 function quux() {
   return foo;
 }

@@ -14,16 +14,17 @@ Enforce `key` prop for elements in array
 
 ### Example
 
-```jsx
-// Bad
-[1, 2, 3].map((x) => <App />);
-[1, 2, 3]
-  ?.map((x) => <BabelEslintApp />)
+Examples of **incorrect** code for this rule:
 
-  [
-    // Good
-    (1, 2, 3)
-  ].map((x) => <App key={x} />);
+```jsx
+[1, 2, 3].map((x) => <App />);
+[1, 2, 3]?.map((x) => <BabelEslintApp />);
+```
+
+Examples of **correct** code for this rule:
+
+```jsx
+[1, 2, 3].map((x) => <App key={x} />);
 [1, 2, 3]?.map((x) => <BabelEslintApp key={x} />);
 ```
 

@@ -16,14 +16,20 @@ Enforces the use of [the spread operator (`...`)](https://developer.mozilla.org/
 
 Using the spread operator is more concise and readable.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
-// bad
 const foo = Array.from(set);
 const foo = Array.from(new Set([1, 2]));
+```
 
-// good
+Examples of **correct** code for this rule:
+
+```javascript
+[...set].map(() => {});
+Array.from(...argumentsArray);
 ```
 
 ## References
