@@ -22,11 +22,15 @@ Even when that is not the case this will lead to unnecessary computations being 
 
 ### Example
 
-```jsx
-// Bad
-<App {...props} myAttr="1" {...props} />
+Examples of **incorrect** code for this rule:
 
-// Good
+```jsx
+<App {...props} myAttr="1" {...props} />
+```
+
+Examples of **correct** code for this rule:
+
+```jsx
 <App myAttr="1" {...props} />
 <App {...props} myAttr="1" />
 ```

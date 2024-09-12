@@ -13,15 +13,19 @@ Requires that each `@param` tag has a description value.
 
 The description of a param should be documented.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
-// Passing
-/** @param foo Foo. */
-function quux(foo) {}
-
-// Failing
 /** @param foo */
+function quux(foo) {}
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
+/** @param foo Foo. */
 function quux(foo) {}
 ```
 

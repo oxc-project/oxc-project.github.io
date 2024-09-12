@@ -3,6 +3,9 @@
 # unicorn/prefer-math-trunc <Badge type="info" text="Pedantic" />
 
 <div class="rule-meta">
+<Alert class="fix" type="info">
+<span class="emoji">🚧</span> An auto-fix is still under development.
+</Alert>
 </div>
 
 ### What it does
@@ -23,11 +26,15 @@ Using bitwise operations to truncate numbers is not clear and do not work in [so
 
 ### Example
 
-```javascript
-// Bad
-const foo = 1.1 | 0;
+Examples of **incorrect** code for this rule:
 
-// Good
+```javascript
+const foo = 1.1 | 0;
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
 const foo = Math.trunc(1.1);
 ```
 

@@ -13,15 +13,19 @@ This rule disallows IIFEs with a parenthesized arrow function body.
 
 IIFEs with a parenthesized arrow function body are unreadable.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
-// Fail
 const foo = ((bar) => (bar ? bar.baz : baz))(getBar());
 
 const foo = ((bar, baz) => ({ bar, baz }))(bar, baz);
+```
 
-// Pass
+Examples of **correct** code for this rule:
+
+```javascript
 const bar = getBar();
 const foo = bar ? bar.baz : baz;
 

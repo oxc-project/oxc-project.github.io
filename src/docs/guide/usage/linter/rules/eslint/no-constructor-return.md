@@ -16,7 +16,7 @@ Forbidding this pattern prevents mistakes resulting from unfamiliarity with the 
 
 ### Example
 
-Bad:
+Examples of **incorrect** code for this rule:
 
 ```rust
 class C {
@@ -24,7 +24,7 @@ class C {
 }
 ```
 
-Good:
+Examples of **correct** code for this rule:
 
 ```rust
 class C {

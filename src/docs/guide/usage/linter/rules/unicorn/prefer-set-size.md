@@ -19,13 +19,17 @@ Prefer `Set#size` over `Set#length` when the `Set` is converted to an array.
 
 Using `Set#size` is more readable and performant.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
-// bad
 const length = [...new Set([1, 2, 3])].length;
+```
 
-// good
+Examples of **correct** code for this rule:
+
+```javascript
 const size = new Set([1, 2, 3]).size;
 ```
 

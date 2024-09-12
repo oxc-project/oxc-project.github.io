@@ -15,16 +15,20 @@ Naming default exports improves codebase searchability by ensuring consistent id
 
 ### Example
 
+Examples of **incorrect** code for this rule:
+
 ```javascript
-// Bad
 export default class {}
 export default function () {}
 export default () => {};
 module.exports = class {};
 module.exports = function () {};
 module.exports = () => {};
+```
 
-// Good
+Examples of **correct** code for this rule:
+
+```javascript
 export default class Foo {}
 export default function foo () {}
 

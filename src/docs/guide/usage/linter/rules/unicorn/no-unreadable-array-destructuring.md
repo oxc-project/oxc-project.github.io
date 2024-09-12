@@ -16,11 +16,15 @@ This rule prevents ignoring consecutive values when destructuring from an array.
 
 ### Example
 
-```javascript
-// Bad
-const [, , foo] = parts;
+Examples of **incorrect** code for this rule:
 
-// Good
+```javascript
+const [, , foo] = parts;
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
 const [foo] = parts;
 ```
 

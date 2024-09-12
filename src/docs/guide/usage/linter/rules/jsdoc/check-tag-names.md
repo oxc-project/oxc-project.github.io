@@ -14,13 +14,11 @@ Additionally checks for tag names that are redundant when using a type checker s
 
 Using invalid tags can lead to confusion and make the documentation harder to read.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
-// Passing
-/** @param */
-
-// Failing
 /** @Param */
 /** @foo */
 
@@ -28,6 +26,12 @@ Using invalid tags can lead to confusion and make the documentation harder to re
  * This is redundant when typed.
  * @type {string}
  */
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
+/** @param */
 ```
 
 ## References

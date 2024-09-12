@@ -19,11 +19,15 @@ instead of relying on the default comma (',') separator.
 
 ### Example
 
-```javascript
-// Bad
-foo.join();
+Examples of **incorrect** code for this rule:
 
-// Good
+```javascript
+foo.join();
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
 foo.join(",");
 ```
 

@@ -13,15 +13,19 @@ Requires that `@returns` tag has a type value (in curly brackets).
 
 A `@returns` tag should have a type value.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
-// Passing
-/** @returns {string} */
-function quux(foo) {}
-
-// Failing
 /** @returns */
+function quux(foo) {}
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
+/** @returns {string} */
 function quux(foo) {}
 ```
 

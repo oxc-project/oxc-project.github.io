@@ -3,6 +3,9 @@
 # unicorn/prefer-number-properties <Badge type="info" text="Restriction" />
 
 <div class="rule-meta">
+<Alert class="fix" type="info">
+<span class="emoji">🚧</span> An auto-fix is still under development.
+</Alert>
 </div>
 
 ### What it does
@@ -21,14 +24,18 @@ ECMAScript 2015 moved globals onto the `Number` constructor for consistency and 
 - [`Number.POSITIVE_INFINITY`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/POSITIVE_INFINITY) over [`Infinity`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Infinity)
 - [`Number.NEGATIVE_INFINITY`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/NEGATIVE_INFINITY) over [`-Infinity`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Infinity)
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
-// bad
 const foo = parseInt("10", 2);
 const bar = parseFloat("10.5");
+```
 
-// good
+Examples of **correct** code for this rule:
+
+```javascript
 const foo = Number.parseInt("10", 2);
 const bar = Number.parseFloat("10.5");
 ```

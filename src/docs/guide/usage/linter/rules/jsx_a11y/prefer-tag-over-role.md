@@ -15,11 +15,15 @@ Using semantic HTML tags can improve accessibility and readability of the code.
 
 ### Example
 
-```jsx
-// Bad
-<div role="button" />
+Examples of **incorrect** code for this rule:
 
-// Good
+```jsx
+<div role="button" />
+```
+
+Examples of **correct** code for this rule:
+
+```jsx
 <button />
 ```
 
