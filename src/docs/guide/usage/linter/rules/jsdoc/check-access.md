@@ -20,18 +20,22 @@ Also reports:
 
 It is important to have a consistent way of specifying access levels.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
-// Passing
-/** @access private */
-
-/** @private */
-
-// Failing
 /** @access private @public */
 
 /** @access invalidlevel */
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
+/** @access private */
+
+/** @private */
 ```
 
 ## References

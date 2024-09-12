@@ -3,6 +3,9 @@
 # unicorn/no-new-buffer <Badge type="info" text="Pedantic" />
 
 <div class="rule-meta">
+<Alert class="fix" type="info">
+<span class="emoji">🚧</span> An auto-fix is still under development.
+</Alert>
 </div>
 
 ### What it does
@@ -15,11 +18,15 @@ Enforces the use of [Buffer.from](https://nodejs.org/api/buffer.html#static-meth
 
 ### Example
 
-```javascript
-// Bad
-const buffer = new Buffer(10);
+Examples of **incorrect** code for this rule:
 
-// Good
+```javascript
+const buffer = new Buffer(10);
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
 const buffer = Buffer.alloc(10);
 ```
 

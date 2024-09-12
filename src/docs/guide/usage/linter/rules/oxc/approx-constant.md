@@ -16,11 +16,15 @@ Approximate constants are not as accurate as the constants in the `Math` object.
 
 ### Example
 
-```javascript
-// Bad
-let log10e = 0.434294;
+Examples of **incorrect** code for this rule:
 
-// Good
+```javascript
+let log10e = 0.434294;
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
 let log10e = Math.LOG10E;
 ```
 

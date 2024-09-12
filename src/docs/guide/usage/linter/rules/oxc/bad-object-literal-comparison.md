@@ -20,14 +20,18 @@ If you want to check if an object or array is empty, use `Object.entries()` or `
 
 ### Example
 
+Examples of **incorrect** code for this rule:
+
 ```javascript
-// Bad
 if (x === {}) {
 }
 if (arr !== []) {
 }
+```
 
-// Good
+Examples of **correct** code for this rule:
+
+```javascript
 if (typeof x === "object" && Object.keys(x).length === 0) {
 }
 if (Array.isArray(x) && x.length === 0) {

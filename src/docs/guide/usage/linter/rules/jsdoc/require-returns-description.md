@@ -14,15 +14,19 @@ The error will not be reported if the return value is `void `or `undefined` or i
 
 A `@returns` tag should have a description value.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
-// Passing
-/** @returns Foo. */
-function quux(foo) {}
-
-// Failing
 /** @returns */
+function quux(foo) {}
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
+/** @returns Foo. */
 function quux(foo) {}
 ```
 

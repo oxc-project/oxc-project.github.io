@@ -16,10 +16,11 @@ This rule enforces proper case for numeric literals.
 
 When both an identifier and a number literal are in lower case, it can be hard to differentiate between them.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
-// Fail
 const foo = 0xff;
 const foo = 0xff;
 const foo = 0xff;
@@ -32,8 +33,11 @@ const foo = 0o76;
 const foo = 0o76n;
 
 const foo = 2e-5;
+```
 
-// Pass
+Examples of **correct** code for this rule:
+
+```javascript
 const foo = 0xff;
 const foo = 0b10;
 const foo = 0o76;

@@ -15,11 +15,15 @@ Incorrectly using the autocomplete attribute may decrease the accessibility of t
 
 ### Example
 
-```jsx
-// Bad
-<input autocomplete="invalid-value" />
+Examples of **incorrect** code for this rule:
 
-// Good
+```jsx
+<input autocomplete="invalid-value" />
+```
+
+Examples of **correct** code for this rule:
+
+```jsx
 <input autocomplete="name" />
 ```
 

@@ -13,21 +13,11 @@ Ensures that property names in JSDoc are not duplicated on the same block and th
 
 `@property` tags with the same name can be confusing and may indicate a mistake.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
-// Passing
-/**
- * @typedef {object} state
- * @property {number} foo
- */
-/**
- * @typedef {object} state
- * @property {object} foo
- * @property {number} foo.bar
- */
-
-// Failing
 /**
  * @typedef {object} state
  * @property {number} foo
@@ -36,6 +26,21 @@ Ensures that property names in JSDoc are not duplicated on the same block and th
 
 /**
  * @typedef {object} state
+ * @property {number} foo.bar
+ */
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
+/**
+ * @typedef {object} state
+ * @property {number} foo
+ */
+
+/**
+ * @typedef {object} state
+ * @property {object} foo
  * @property {number} foo.bar
  */
 ```

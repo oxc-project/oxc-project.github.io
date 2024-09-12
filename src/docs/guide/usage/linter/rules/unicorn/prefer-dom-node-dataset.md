@@ -3,6 +3,9 @@
 # unicorn/prefer-dom-node-dataset <Badge type="info" text="Pedantic" />
 
 <div class="rule-meta">
+<Alert class="fix" type="info">
+<span class="emoji">🚧</span> An auto-fix is still under development.
+</Alert>
 </div>
 
 ### What it does
@@ -15,11 +18,15 @@ The `dataset` property is a map of strings that contains all the `data-*` attrib
 
 ### Example
 
-```javascript
-// Bad
-element.setAttribute("data-unicorn", "🦄");
+Examples of **incorrect** code for this rule:
 
-// Good
+```javascript
+element.setAttribute("data-unicorn", "🦄");
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
 element.dataset.unicorn = "🦄";
 ```
 
