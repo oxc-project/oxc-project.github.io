@@ -14,24 +14,29 @@ Will also report if multiple `@yields` tags are present.
 
 The rule is intended to prevent the omission of `@yields` tags when they are necessary.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
-// Passing
-/** * @yields Foo */
 function* quux(foo) {
   yield foo;
 }
 
-// Failing
-function* quux(foo) {
-  yield foo;
-}
 /**
  * @yields {undefined}
  * @yields {void}
  */
 function* quux(foo) {}
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
+/** * @yields Foo */
+function* quux(foo) {
+  yield foo;
+}
 ```
 
 ## References

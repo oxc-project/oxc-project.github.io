@@ -6,6 +6,9 @@
 <Alert class="default-on" type="success">
 <span class="emoji">✅</span> This rule is turned on by default.
 </Alert>
+<Alert class="fix" type="info">
+<span class="emoji">🚧</span> An auto-fix is still under development.
+</Alert>
 </div>
 
 ### What it does
@@ -16,15 +19,19 @@ Disallow `new Array()`.
 
 When using the `Array` constructor with one argument, it's not clear whether the argument is meant to be the length of the array or the only element.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
-// bad
 const array = new Array(1);
 const array = new Array(42);
 const array = new Array(foo);
+```
 
-// good
+Examples of **correct** code for this rule:
+
+```javascript
 const array = Array.from({ length: 42 });
 const array = [42];
 ```

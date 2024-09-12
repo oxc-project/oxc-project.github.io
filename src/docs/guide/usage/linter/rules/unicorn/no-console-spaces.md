@@ -18,11 +18,15 @@ The `console.log()` method and similar methods join the parameters with a space 
 
 ### Example
 
-```javascript
-// Bad
-console.log("abc ", "def");
+Examples of **incorrect** code for this rule:
 
-// Good
+```javascript
+console.log("abc ", "def");
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
 console.log("abc", "def");
 ```
 

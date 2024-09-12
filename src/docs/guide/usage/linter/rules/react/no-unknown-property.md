@@ -3,6 +3,9 @@
 # react/no-unknown-property <Badge type="info" text="Restriction" />
 
 <div class="rule-meta">
+<Alert class="fix" type="info">
+<span class="emoji">🚧</span> An auto-fix is still under development.
+</Alert>
 </div>
 
 ### What it does

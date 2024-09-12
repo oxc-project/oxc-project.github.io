@@ -15,11 +15,15 @@ Only use `process.exit()` in CLI apps. Throw an error instead.
 
 ### Example
 
-```javascript
-// Bad
-if (problem) process.exit(1);
+Examples of **incorrect** code for this rule:
 
-// Good
+```javascript
+if (problem) process.exit(1);
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
 if (problem) throw new Error("message");
 ```
 

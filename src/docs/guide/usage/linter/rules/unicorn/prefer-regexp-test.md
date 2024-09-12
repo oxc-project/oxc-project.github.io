@@ -18,14 +18,18 @@ When you want to know whether a pattern is found in a string, use [`RegExp#test(
 
 ### Example
 
+Examples of **incorrect** code for this rule:
+
 ```javascript
-// Bad
 if (string.match(/unicorn/)) {
 }
 if (/unicorn/.exec(string)) {
 }
+```
 
-// Good
+Examples of **correct** code for this rule:
+
+```javascript
 if (/unicorn/.test(string)) {
 }
 Boolean(string.match(/unicorn/));

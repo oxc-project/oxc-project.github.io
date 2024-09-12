@@ -15,12 +15,16 @@ Fragments are a useful tool when you need to group multiple children without add
 
 ### Example
 
+Examples of **incorrect** code for this rule:
+
 ```jsx
-// Bad
 <>foo</>
 <div><>foo</></div>
+```
 
-// Good
+Examples of **correct** code for this rule:
+
+```jsx
 <>foo <div></div></>
 <div>foo</div>
 ```

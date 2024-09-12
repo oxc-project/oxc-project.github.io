@@ -9,6 +9,12 @@
 
 This rule enforces using `each` rather than manual loops.
 
+### Why is this bad?
+
+Manual loops for tests can be less readable and more error-prone. Using
+`each` provides a clearer and more concise way to run parameterized tests,
+improving readability and maintainability.
+
 ### Examples
 
 Examples of **incorrect** code for this rule:
