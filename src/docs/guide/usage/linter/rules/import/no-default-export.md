@@ -11,21 +11,20 @@ Forbid a module to have a default exports. This help your editor to provide bett
 
 ### Examples
 
-```javascript
-// bad1.js
+Examples of **incorrect** code for this rule:
 
-// There is a default export.
-export const foo = "foo";
-const bar = "bar";
-export default "bar";
+```javascript
+export default 'bar';
+
+const foo = 'foo';
+export { foo as default }
 ```
 
-```javascript
-// bad2.js
+Examples of **correct** code for this rule:
 
-// There is a default export.
-const foo = "foo";
-export { foo as default };
+```javascript
+export const foo = "foo";
+export const bar = "bar";
 ```
 
 ## References

@@ -19,11 +19,15 @@ Redundant roles can lead to confusion and verbosity in the codebase.
 
 ### Example
 
-```jsx
-// Bad
-<nav role="navigation" />
+Examples of **incorrect** code for this rule:
 
-// Good
+```jsx
+<nav role="navigation" />
+```
+
+Examples of **correct** code for this rule:
+
+```jsx
 <nav />
 ```
 

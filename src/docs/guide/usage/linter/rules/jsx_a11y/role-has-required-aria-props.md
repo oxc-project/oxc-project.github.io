@@ -17,11 +17,15 @@ semantics for assistive technology.
 
 ### Example
 
-```jsx
-// Bad
-<div role="checkbox" />
+Examples of **incorrect** code for this rule:
 
-// Good
+```jsx
+<div role="checkbox" />
+```
+
+Examples of **correct** code for this rule:
+
+```jsx
 <div role="checkbox" aria-checked="false" />
 ```
 

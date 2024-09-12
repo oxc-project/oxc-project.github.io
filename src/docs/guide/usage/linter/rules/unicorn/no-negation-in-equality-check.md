@@ -3,6 +3,9 @@
 # unicorn/no-negation-in-equality-check <Badge type="info" text="Pedantic" />
 
 <div class="rule-meta">
+<Alert class="fix" type="info">
+<span class="emoji">🚧</span> An auto-fix is still under development.
+</Alert>
 </div>
 
 ### What it does
@@ -15,17 +18,19 @@ A negated expression on the left of an (in)equality check is likely a mistake fr
 
 ### Example
 
-```javascript
-// Bad
+Examples of **incorrect** code for this rule:
 
+```javascript
 if (!foo === bar) {
 }
 
 if (!foo !== bar) {
 }
+```
 
-// Good
+Examples of **correct** code for this rule:
 
+```javascript
 if (foo !== bar) {
 }
 

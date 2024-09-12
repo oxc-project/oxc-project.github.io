@@ -16,20 +16,20 @@ the screen reader assumes the default language set by the user.
 Language settings become an issue for users who speak multiple languages
 and access website in more than one language.
 
-### Example
+### Examples
 
-// good
-
-```jsx
-<html lang="en">
-<html lang="en-US">
-```
-
-// bad
+Examples of **incorrect** code for this rule:
 
 ```jsx
 <html>
 <html lang="foo">
+```
+
+Examples of **correct** code for this rule:
+
+```jsx
+<html lang="en">
+<html lang="en-US">
 ```
 
 ### Resources

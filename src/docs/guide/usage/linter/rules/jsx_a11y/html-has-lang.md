@@ -18,11 +18,15 @@ and access website in more than one language.
 
 ### Example
 
-```jsx
-// Bad
-<html />
+Examples of **incorrect** code for this rule:
 
-// Good
+```jsx
+<html />
+```
+
+Examples of **correct** code for this rule:
+
+```jsx
 <html lang="en" />
 ```
 

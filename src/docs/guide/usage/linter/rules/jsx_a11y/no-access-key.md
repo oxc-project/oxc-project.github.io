@@ -16,11 +16,15 @@ Inconsistencies between keyboard shortcuts and keyboard commands used by screenr
 
 ### Example
 
-```jsx
-// Bad
-<div accessKey="h" />
+Examples of **incorrect** code for this rule:
 
-// Good
+```jsx
+<div accessKey="h" />
+```
+
+Examples of **correct** code for this rule:
+
+```jsx
 <div />
 ```
 

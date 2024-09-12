@@ -18,12 +18,16 @@ The `trimLeft` and `trimRight` names are confusing and inconsistent with the res
 
 ### Example
 
+Examples of **incorrect** code for this rule:
+
 ```javascript
-// Bad
 str.trimLeft();
 str.trimRight();
+```
 
-// Good
+Examples of **correct** code for this rule:
+
+```javascript
 str.trimStart();
 str.trimEnd();
 ```

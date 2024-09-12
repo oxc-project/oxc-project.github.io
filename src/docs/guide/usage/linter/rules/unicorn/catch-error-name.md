@@ -3,20 +3,29 @@
 # unicorn/catch-error-name <Badge type="info" text="Style" />
 
 <div class="rule-meta">
+<Alert class="fix" type="info">
+<span class="emoji">🚧</span> An auto-fix is still under development.
+</Alert>
 </div>
 
 ### What it does
 
 This rule enforces naming conventions for catch statements.
 
-### Example
+### Why is this bad?
+
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
-// fail
 try {
 } catch (foo) {}
+```
 
-// pass
+Examples of **correct** code for this rule:
+
+```javascript
 try {
 } catch (error) {}
 ```

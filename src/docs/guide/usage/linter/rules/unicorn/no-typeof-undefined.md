@@ -3,6 +3,9 @@
 # unicorn/no-typeof-undefined <Badge type="info" text="Pedantic" />
 
 <div class="rule-meta">
+<Alert class="fix" type="info">
+<span class="emoji">🚧</span> An auto-fix is still under development.
+</Alert>
 </div>
 
 ### What it does
@@ -13,13 +16,17 @@ Disallow `typeof` comparisons with `undefined`.
 
 Checking if a value is `undefined` by using `typeof value === 'undefined'` is needlessly verbose. It's generally better to compare against `undefined` directly. The only time `typeof` is needed is when a global variable potentially does not exists, in which case, using `globalThis.value === undefined` may be better.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
-// bad
 typeof foo === "undefined";
+```
 
-// good
+Examples of **correct** code for this rule:
+
+```javascript
 foo === undefined;
 ```
 
