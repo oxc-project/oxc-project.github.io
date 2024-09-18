@@ -10,16 +10,25 @@
 
 ### What it does
 
-Disallow calling new on a Promise static method.
+Disallows calling new on static `Promise` methods.
 
 ### Why is this bad?
 
-Calling a Promise static method with new is invalid, resulting in a TypeError at runtime.
+Calling a static `Promise` method with `new` is invalid and will result
+in a `TypeError` at runtime.
 
 ### Example
 
+Examples of **incorrect** code for this rule:
+
 ```javascript
-new Promise.resolve(value);
+const x = new Promise.resolve(value);
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
+const x = Promise.resolve(value);
 ```
 
 ## References

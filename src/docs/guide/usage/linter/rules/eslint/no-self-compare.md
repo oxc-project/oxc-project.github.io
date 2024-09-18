@@ -16,6 +16,8 @@ It is confusing to the reader and may potentially introduce a runtime error.
 
 ### Example
 
+Examples of **incorrect** code for this rule:
+
 ```javascript
 var x = 10;
 if (x === x) {

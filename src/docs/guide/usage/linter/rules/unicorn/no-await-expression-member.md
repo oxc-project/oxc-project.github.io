@@ -3,16 +3,19 @@
 # unicorn/no-await-expression-member <Badge type="info" text="Style" />
 
 <div class="rule-meta">
+<Alert class="fix" type="info">
+<span class="emoji">🚧</span> An auto-fix is still under development.
+</Alert>
 </div>
 
 ### What it does
 
-This rule disallows member access from await expression
+Disallows member access from `await` expressions.
 
 ### Why is this bad?
 
-When accessing a member from an await expression,
-the await expression has to be parenthesized, which is not readable.
+When accessing a member from an `await` expression,
+the `await` expression has to be parenthesized, which is not readable.
 
 ### Example
 

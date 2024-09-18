@@ -7,17 +7,20 @@
 
 ### What it does
 
-Jest provides global functions for setup and teardown tasks, which are called before/after each test case
-and each test suite. The use of these hooks promotes shared state between tests.
+Disallows Jest setup and teardown hooks, such as `beforeAll`.
 
 ### Why is this bad?
 
+Jest provides global functions for setup and teardown tasks, which are
+called before/after each test case and each test suite. The use of these
+hooks promotes shared state between tests.
+
 This rule reports for the following function calls:
 
-- beforeAll
-- beforeEach
-- afterAll
-- afterEach
+- `beforeAll`
+- `beforeEach`
+- `afterAll`
+- `afterEach`
 
 ### Example
 
