@@ -10,11 +10,18 @@
 
 ### What it does
 
-This rule is aimed at disallowing `exports = {}`, but allows `module.exports = exports = {}` to avoid conflict with `n/exports-style` rule's `allowBatchAssign` option.
+Disallows assignment to `exports`.
 
 ### Why is this bad?
 
-Directly using `exports = {}` can lead to confusion and potential bugs because it reassigns the `exports` object, which may break module exports. It is more predictable and clearer to use `module.exports` directly or in conjunction with `exports`.
+Directly using `exports = {}` can lead to confusion and potential bugs
+because it reassigns the `exports` object, which may break module
+exports. It is more predictable and clearer to use `module.exports`
+directly or in conjunction with `exports`.
+
+This rule is aimed at disallowing `exports = {}`, but allows
+`module.exports = exports = {}` to avoid conflict with `n/exports-style`
+rule's `allowBatchAssign` option.
 
 ### Examples
 

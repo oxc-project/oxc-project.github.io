@@ -3,15 +3,20 @@
 # eslint/no-proto <Badge type="info" text="Restriction" />
 
 <div class="rule-meta">
+<Alert class="fix" type="info">
+<span class="emoji">🚧</span> An auto-fix is still under development.
+</Alert>
 </div>
 
 ### What it does
 
-Disallow the use of the **proto** property
+Disallow the use of the `__proto__` property
 
 ### Why is this bad?
 
-**proto** property has been deprecated as of ECMAScript 3.1 and shouldn’t be used in the code. Use Object.getPrototypeOf and Object.setPrototypeOf instead.
+The `__proto__` property has been deprecated as of ECMAScript 3.1 and
+shouldn’t be used in new code. Use `Object.getPrototypeOf` and
+`Object.setPrototypeOf` instead.
 
 ### Example
 
