@@ -16,10 +16,25 @@ intentional or not. So writing a clear comment for empty functions is a good pra
 
 ### Example
 
+Examples of **incorrect** code for this rule:
+
 ```javascript
 function foo() {}
 
 const bar = () => {};
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
+function foo() {
+  // do nothing
+}
+
+function foo() {
+  return;
+}
+const add = (a, b) => a + b;
 ```
 
 ## References
