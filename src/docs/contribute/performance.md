@@ -25,6 +25,10 @@ any regressions need to be fixed.
 
 Try [dhat](https://docs.rs/dhat/latest/dhat).
 
+### CPU - Samply
+
+[Samply](https://github.com/mstange/samply) is a command line CPU profiler which uses the Firefox profiler as its UI. Works on macOS and Linux.
+
 ### CPU - Mac Xcode Instruments
 
 [`cargo instruments`](https://github.com/cmyr/cargo-instruments) is the tool of choice to bridge Mac Xcode instruments.
