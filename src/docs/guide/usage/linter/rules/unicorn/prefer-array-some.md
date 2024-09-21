@@ -4,7 +4,7 @@
 
 <div class="rule-meta">
 <Alert class="fix" type="info">
-<span class="emoji">🚧</span> An auto-fix is still under development.
+<span class="emoji">🛠️</span> An auto-fix is available for this rule.
 </Alert>
 </div>
 
@@ -18,11 +18,15 @@ Using `.some()` is more idiomatic and easier to read.
 
 ### Example
 
-```javascript
-// Bad
-const foo = array.find(fn) ? bar : baz;
+Examples of **incorrect** code for this rule:
 
-// Good
+```javascript
+const foo = array.find(fn) ? bar : baz;
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
 const foo = array.some(fn) ? bar : baz;
 ```
 

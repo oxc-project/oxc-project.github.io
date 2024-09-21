@@ -3,6 +3,9 @@
 # unicorn/prefer-add-event-listener <Badge type="info" text="Suspicious" />
 
 <div class="rule-meta">
+<Alert class="fix" type="info">
+<span class="emoji">🚧</span> An auto-fix is still under development.
+</Alert>
 </div>
 
 ### What it does
@@ -15,13 +18,17 @@ For example, `foo.addEventListener('click', handler);` is preferred over `foo.on
 
 There are [numerous advantages of using `addEventListener`](https://stackoverflow.com/questions/6348494/addeventlistener-vs-onclick/35093997#35093997). Some of these advantages include registering unlimited event handlers and optionally having the event handler invoked only once.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
-// bad
 foo.onclick = () => {};
+```
 
-// good
+Examples of **correct** code for this rule:
+
+```javascript
 foo.addEventListener("click", () => {});
 ```
 

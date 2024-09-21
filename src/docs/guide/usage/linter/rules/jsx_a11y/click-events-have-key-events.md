@@ -16,12 +16,16 @@ This does not apply for interactive or hidden elements.
 
 ### Example
 
-```jsx
-// Good
-<div onClick={() => void 0} onKeyDown={() => void 0} />
+Examples of **incorrect** code for this rule:
 
-// Bad
+```jsx
 <div onClick={() => void 0} />
+```
+
+Examples of **correct** code for this rule:
+
+```jsx
+<div onClick={() => void 0} onKeyDown={() => void 0} />
 ```
 
 ## References

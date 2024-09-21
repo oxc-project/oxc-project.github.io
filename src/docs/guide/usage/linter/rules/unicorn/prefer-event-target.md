@@ -19,11 +19,15 @@ While [`EventEmitter`](https://nodejs.org/api/events.html#class-eventemitter) is
 
 ### Example
 
-```javascript
-// Bad
-class Foo extends EventEmitter {}
+Examples of **incorrect** code for this rule:
 
-// Good
+```javascript
+class Foo extends EventEmitter {}
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
 class Foo extends OtherClass {}
 ```
 

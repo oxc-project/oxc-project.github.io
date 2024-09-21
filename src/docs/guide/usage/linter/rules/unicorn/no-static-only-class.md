@@ -3,6 +3,9 @@
 # unicorn/no-static-only-class <Badge type="info" text="Pedantic" />
 
 <div class="rule-meta">
+<Alert class="fix" type="info">
+<span class="emoji">🚧</span> An auto-fix is still under development.
+</Alert>
 </div>
 
 ### What it does
@@ -15,17 +18,35 @@ A class with only static members could just be an object instead.
 
 ### Example
 
+Examples of **incorrect** code for this rule:
+
 ```javascript
-// Bad
 class A {
   static a() {}
 }
+```
 
-// Good
+Examples of **correct** code for this rule:
+
+```javascript
 class A {
   static a() {}
 
   constructor() {}
+}
+```
+
+```javascript
+const X = {
+  foo: false,
+  bar() {},
+};
+```
+
+```javascript
+class X {
+  static #foo = false; // private field
+  static bar() {}
 }
 ```
 

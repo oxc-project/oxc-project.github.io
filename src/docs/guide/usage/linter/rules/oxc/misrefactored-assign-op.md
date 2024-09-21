@@ -3,6 +3,9 @@
 # oxc/misrefactored-assign-op <Badge type="info" text="Suspicious" />
 
 <div class="rule-meta">
+<Alert class="fix" type="info">
+<span class="emoji">🚧</span> An auto-fix is still under development.
+</Alert>
 </div>
 
 ### What it does
@@ -17,12 +20,16 @@ Most likely these are bugs where one meant to write `a op= b`.
 
 ### Example
 
+Examples of **incorrect** code for this rule:
+
 ```javascript
-// Bad
 a += a + b;
 a -= a - b;
+```
 
-// Good
+Examples of **correct** code for this rule:
+
+```javascript
 a += b;
 a -= b;
 ```

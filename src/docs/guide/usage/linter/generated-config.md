@@ -2,7 +2,7 @@
 
 This configuration is aligned with ESLint v8's configuration schema (`eslintrc.json`).
 
-Usage: `oxlint -c oxlintrc.json`
+Usage: `oxlint -c oxlintrc.json --import-plugin`
 
 ::: danger NOTE
 
@@ -24,7 +24,8 @@ Example
   },
   "settings": {},
   "rules": {
-    "eqeqeq": "warn"
+    "eqeqeq": "warn",
+    "import/no-cycle": "error"
   }
 }
 ```

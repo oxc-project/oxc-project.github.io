@@ -17,14 +17,18 @@ Captions are also useful for users in noisy environments or where audio is not a
 
 ### Example
 
-```jsx
-// Good
-<audio><track kind="captions" src="caption_file.vtt" /></audio>
-<video><track kind="captions" src="caption_file.vtt" /></video>
+Examples of **incorrect** code for this rule:
 
-// Bad
+```jsx
 <audio></audio>
 <video></video>
+```
+
+Examples of **correct** code for this rule:
+
+```jsx
+<audio><track kind="captions" src="caption_file.vtt" /></audio>
+<video><track kind="captions" src="caption_file.vtt" /></video>
 ```
 
 ## References

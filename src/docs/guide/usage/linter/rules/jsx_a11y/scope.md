@@ -4,7 +4,7 @@
 
 <div class="rule-meta">
 <Alert class="fix" type="info">
-<span class="emoji">🚧</span> An auto-fix is still under development.
+<span class="emoji">🛠️</span> An auto-fix is available for this rule.
 </Alert>
 </div>
 
@@ -20,11 +20,15 @@ A screen reader operates under the assumption that a table has a header and that
 
 ### Example
 
-```jsx
-// Bad
-<div scope />
+Examples of **incorrect** code for this rule:
 
-// Good
+```jsx
+<div scope />
+```
+
+Examples of **correct** code for this rule:
+
+```jsx
 <th scope="col" />
 <th scope={scope} />
 ```

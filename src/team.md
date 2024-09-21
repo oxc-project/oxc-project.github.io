@@ -1,18 +1,29 @@
 ---
+layout: page
 title: Meet the Team
+sidebar: false
+aside: false
 ---
 
 <script setup>
-import { VPTeamMembers } from 'vitepress/theme'
+import {
+  VPTeamPage,
+  VPTeamPageTitle,
+  VPTeamPageSection,
+  VPTeamMembers
+} from 'vitepress/theme'
 import { CORE_TEAM_MEMBERS, CONSULTANTS } from '@constants/team'
 </script>
 
-# Meet the Team
-
-## Core Team
-
-<VPTeamMembers size="small" :members="CORE_TEAM_MEMBERS" />
-
-## Consultants
-
-<VPTeamMembers size="small" :members="CONSULTANTS" />
+<VPTeamPage>
+  <VPTeamPageTitle>
+    <template #title>Meet the Team</template>
+  </VPTeamPageTitle>
+  <VPTeamMembers :members="CORE_TEAM_MEMBERS" />
+  <VPTeamPageSection>
+    <template #title>Consultants</template>
+    <template #members>
+      <VPTeamMembers size="small" :members="CONSULTANTS" />
+    </template>
+  </VPTeamPageSection>
+</VPTeamPage>

@@ -3,21 +3,38 @@
 # eslint/no-array-constructor <Badge type="info" text="Pedantic" />
 
 <div class="rule-meta">
+<Alert class="fix" type="info">
+<span class="emoji">🚧</span> An auto-fix is still under development.
+</Alert>
 </div>
 
 ### What it does
 
-Disallow array constructor
+Disallows creating arrays with the `Array` constructor.
 
 ### Why is this bad?
 
-Use of the Array constructor to construct a new array is generally discouraged in favor of array literal notation because of the single-argument pitfall and because the Array global may be redefined.
-The exception is when the Array constructor is used to intentionally create sparse arrays of a specified size by giving the constructor a single numeric argument.
+Use of the `Array` constructor to construct a new array is generally
+discouraged in favor of array literal notation because of the
+single-argument pitfall and because the `Array` global may be redefined.
+The exception is when the `Array` constructor is used to intentionally
+create sparse arrays of a specified size by giving the constructor a
+single numeric argument.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
 let arr = new Array();
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
+let arr = [];
+let arr2 = Array.from(iterable);
+let arr3 = new Array(9);
 ```
 
 ## References

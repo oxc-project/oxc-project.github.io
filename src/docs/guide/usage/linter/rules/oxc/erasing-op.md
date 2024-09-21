@@ -6,6 +6,9 @@
 <Alert class="default-on" type="success">
 <span class="emoji">✅</span> This rule is turned on by default.
 </Alert>
+<Alert class="fix" type="info">
+<span class="emoji">💡</span> A suggestion is available for this rule.
+</Alert>
 </div>
 
 ### What it does
@@ -20,12 +23,16 @@ The whole expression can be replaced by zero. This is most likely not the intend
 
 ### Example
 
+Examples of **incorrect** code for this rule:
+
 ```javascript
-// Bad
 let x = 1;
 let y = x * 0;
+```
 
-// Good
+Examples of **correct** code for this rule:
+
+```javascript
 let x = 1;
 let y = 0;
 ```

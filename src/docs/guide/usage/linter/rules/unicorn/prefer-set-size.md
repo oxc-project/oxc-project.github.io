@@ -7,7 +7,7 @@
 <span class="emoji">✅</span> This rule is turned on by default.
 </Alert>
 <Alert class="fix" type="info">
-<span class="emoji">🚧</span> An auto-fix is still under development.
+<span class="emoji">🛠️</span> An auto-fix is available for this rule.
 </Alert>
 </div>
 
@@ -19,13 +19,17 @@ Prefer `Set#size` over `Set#length` when the `Set` is converted to an array.
 
 Using `Set#size` is more readable and performant.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
-// bad
 const length = [...new Set([1, 2, 3])].length;
+```
 
-// good
+Examples of **correct** code for this rule:
+
+```javascript
 const size = new Set([1, 2, 3]).size;
 ```
 

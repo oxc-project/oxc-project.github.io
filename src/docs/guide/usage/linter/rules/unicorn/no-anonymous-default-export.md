@@ -11,20 +11,26 @@ Disallow anonymous functions and classes as the default export
 
 ### Why is this bad?
 
-Naming default exports improves codebase searchability by ensuring consistent identifier use for a module's default export, both where it's declared and where it's imported.
+Naming default exports improves codebase searchability by ensuring
+consistent identifier use for a module's default export, both where it's
+declared and where it's imported.
 
 ### Example
 
+Examples of **incorrect** code for this rule:
+
 ```javascript
-// Bad
 export default class {}
 export default function () {}
 export default () => {};
 module.exports = class {};
 module.exports = function () {};
 module.exports = () => {};
+```
 
-// Good
+Examples of **correct** code for this rule:
+
+```javascript
 export default class Foo {}
 export default function foo () {}
 

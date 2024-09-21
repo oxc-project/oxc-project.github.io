@@ -18,12 +18,16 @@ The [`removeEventListener`](https://developer.mozilla.org/en-US/docs/Web/API/Eve
 
 ### Example
 
+Examples of **incorrect** code for this rule:
+
 ```javascript
-// Bad
 el.removeEventListener("click", () => {});
 el.removeEventListener("click", function () {});
+```
 
-// Good
+Examples of **correct** code for this rule:
+
+```javascript
 el.removeEventListener("click", handler);
 el.removeEventListener("click", handler.bind(this));
 ```

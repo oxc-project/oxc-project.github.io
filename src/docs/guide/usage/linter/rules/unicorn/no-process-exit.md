@@ -3,6 +3,9 @@
 # unicorn/no-process-exit <Badge type="info" text="Restriction" />
 
 <div class="rule-meta">
+<Alert class="fix" type="info">
+<span class="emoji">🚧</span> An auto-fix is still under development.
+</Alert>
 </div>
 
 ### What it does
@@ -15,11 +18,15 @@ Only use `process.exit()` in CLI apps. Throw an error instead.
 
 ### Example
 
-```javascript
-// Bad
-if (problem) process.exit(1);
+Examples of **incorrect** code for this rule:
 
-// Good
+```javascript
+if (problem) process.exit(1);
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
 if (problem) throw new Error("message");
 ```
 

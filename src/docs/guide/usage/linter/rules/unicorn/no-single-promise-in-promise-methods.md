@@ -22,9 +22,9 @@ Passing a single-element array to `Promise.all()`, `Promise.any()`, or
 
 ### Example
 
-Bad
+Examples of **incorrect** code for this rule:
 
-```js
+```javascript
 async function bad() {
   const foo = await Promise.all([promise]);
   const foo = await Promise.any([promise]);
@@ -33,9 +33,9 @@ async function bad() {
 }
 ```
 
-Good
+Examples of **correct** code for this rule:
 
-```js
+```javascript
 async function good() {
   const foo = await promise;
   const promise = Promise.resolve(nonPromise);

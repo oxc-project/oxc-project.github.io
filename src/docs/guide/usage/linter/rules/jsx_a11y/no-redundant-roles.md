@@ -4,7 +4,7 @@
 
 <div class="rule-meta">
 <Alert class="fix" type="info">
-<span class="emoji">🚧</span> An auto-fix is still under development.
+<span class="emoji">🛠️</span> An auto-fix is available for this rule.
 </Alert>
 </div>
 
@@ -19,11 +19,15 @@ Redundant roles can lead to confusion and verbosity in the codebase.
 
 ### Example
 
-```jsx
-// Bad
-<nav role="navigation" />
+Examples of **incorrect** code for this rule:
 
-// Good
+```jsx
+<nav role="navigation" />
+```
+
+Examples of **correct** code for this rule:
+
+```jsx
 <nav />
 ```
 

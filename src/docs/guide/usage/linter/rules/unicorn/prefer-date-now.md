@@ -4,7 +4,7 @@
 
 <div class="rule-meta">
 <Alert class="fix" type="info">
-<span class="emoji">🚧</span> An auto-fix is still under development.
+<span class="emoji">🛠️</span> An auto-fix is available for this rule.
 </Alert>
 </div>
 
@@ -16,14 +16,18 @@ Prefers use of `Date.now()` over `new Date().getTime()` or `new Date().valueOf()
 
 Using `Date.now()` is shorter and nicer than `new Date().getTime()`, and avoids unnecessary instantiation of `Date` objects.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
-// bad
 const ts = new Date().getTime();
 const ts = new Date().valueOf();
+```
 
-// good
+Examples of **correct** code for this rule:
+
+```javascript
 const ts = Date.now();
 ```
 

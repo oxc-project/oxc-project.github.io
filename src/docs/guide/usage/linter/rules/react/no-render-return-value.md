@@ -14,14 +14,18 @@ This rule will warn you if you try to use the ReactDOM.render() return value.
 
 ### Example
 
+Examples of **incorrect** code for this rule:
+
 ```jsx
-// Bad
 vaa inst =ReactDOM.render(<App />, document.body);
 function render() {
  return ReactDOM.render(<App />, document.body);
 }
+```
 
-// Good
+Examples of **correct** code for this rule:
+
+```jsx
 ReactDOM.render(<App />, document.body);
 ```
 

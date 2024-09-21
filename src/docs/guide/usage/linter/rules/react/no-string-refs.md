@@ -14,8 +14,9 @@ This rule prevents using string literals in ref attributes.
 
 ### Example
 
+Examples of **incorrect** code for this rule:
+
 ```jsx
-// Bad
 var Hello = createReactClass({
   render: function () {
     return <div ref="hello">Hello, world.</div>;
@@ -31,8 +32,11 @@ var Hello = createReactClass({
     return <div ref="hello">Hello, world.</div>;
   },
 });
+```
 
-// Good
+Examples of **correct** code for this rule:
+
+```jsx
 var Hello = createReactClass({
   componentDidMount: function () {
     var component = this.hello;

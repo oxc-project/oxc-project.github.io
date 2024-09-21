@@ -20,9 +20,9 @@ mistake.
 
 ### Example
 
-Bad
+Examples of **incorrect** code for this rule:
 
-```js
+```javascript
 async function foo() {
   Promise.all([await promise, anotherPromise]);
   Promise.allSettled([await promise, anotherPromise]);
@@ -31,9 +31,9 @@ async function foo() {
 }
 ```
 
-Good
+Examples of **correct** code for this rule:
 
-```js
+```javascript
 async function foo() {
   Promise.all([promise, anotherPromise]);
   Promise.allSettled([promise, anotherPromise]);

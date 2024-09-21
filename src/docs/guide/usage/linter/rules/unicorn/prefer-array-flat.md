@@ -4,7 +4,7 @@
 
 <div class="rule-meta">
 <Alert class="fix" type="info">
-<span class="emoji">🚧</span> An auto-fix is still under development.
+<span class="emoji">🛠️</span> An auto-fix is available for this rule for some violations.
 </Alert>
 </div>
 
@@ -20,8 +20,9 @@ This rule aims to standardize the use of `Array#flat()` over legacy techniques t
 
 ### Example
 
+Examples of **incorrect** code for this rule:
+
 ```javascript
-// Bad
 const foo = array.flatMap((x) => x);
 const foo = array.reduce((a, b) => a.concat(b), []);
 const foo = array.reduce((a, b) => [...a, ...b], []);
@@ -31,8 +32,11 @@ const foo = [].concat.apply([], array);
 const foo = Array.prototype.concat.apply([], array);
 const foo = Array.prototype.concat.call([], maybeArray);
 const foo = Array.prototype.concat.call([], ...array);
+```
 
-// Good
+Examples of **correct** code for this rule:
+
+```javascript
 const foo = array.flat();
 const foo = [maybeArray].flat();
 ```

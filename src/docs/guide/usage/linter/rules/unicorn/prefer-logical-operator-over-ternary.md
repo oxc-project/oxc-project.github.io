@@ -3,6 +3,9 @@
 # unicorn/prefer-logical-operator-over-ternary <Badge type="info" text="Style" />
 
 <div class="rule-meta">
+<Alert class="fix" type="info">
+<span class="emoji">🚧</span> An auto-fix is still under development.
+</Alert>
 </div>
 
 ### What it does
@@ -15,16 +18,20 @@ Using a logical operator is shorter and simpler than a ternary expression.
 
 ### Example
 
+Examples of **incorrect** code for this rule:
+
 ```javascript
-// Bad
 const foo = bar ? bar : baz;
 console.log(foo ? foo : bar);
-
-// Good
-const foo = bar || baz;
-console.log(foo ?? bar);
 ```
 
-## References
+Examples of **correct** code for this rule:
+const foo = bar || baz;
+console.log(foo ?? bar);
 
+```
+
+
+## References
 - [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/unicorn/prefer_logical_operator_over_ternary.rs)
+```

@@ -18,18 +18,18 @@ export const enConfig = defineLocaleConfig("root", {
       {
         text: "Playground",
         target: "_blank",
-        link: "https://oxc-project.github.io/oxc/playground/",
+        link: "https://playground.oxc.rs",
       },
       {
         text: "Resources",
         items: [
           { text: "Blog", link: "/blog/2024-05-04-import-plugin-alpha.html" },
           { text: "Team", link: "/team" },
-          { text: "Ecosystem", link: "/ecosystem" },
           { text: "Branding", link: "/branding" },
           { text: "Website GitHub", link: "https://github.com/oxc-project/oxc-project.github.io" },
         ],
       },
+      { text: "Sponsor", link: "/sponsor" },
     ],
     sidebar: {
       "/docs/guide/": [
@@ -67,6 +67,9 @@ export const enConfig = defineLocaleConfig("root", {
             { text: "Resolver", link: "/docs/guide/usage/resolver" },
           ],
         },
+        {
+          items: [{ text: "Projects using Oxc", link: "/docs/guide/projects" }],
+        },
       ],
       "/docs/learn/": [
         {
@@ -100,6 +103,10 @@ export const enConfig = defineLocaleConfig("root", {
             // text: "Minifier",
             // link: "/docs/learn/architecture/minifier",
             // },
+            {
+              text: "Test Infrastructure",
+              link: "/docs/learn/architecture/test",
+            },
           ],
         },
         {

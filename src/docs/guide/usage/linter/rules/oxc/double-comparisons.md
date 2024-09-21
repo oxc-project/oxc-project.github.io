@@ -6,6 +6,9 @@
 <Alert class="default-on" type="success">
 <span class="emoji">✅</span> This rule is turned on by default.
 </Alert>
+<Alert class="fix" type="info">
+<span class="emoji">🛠️</span> An auto-fix is available for this rule.
+</Alert>
 </div>
 
 ### What it does
@@ -18,12 +21,16 @@ Redundant comparisons can be confusing and make code harder to understand.
 
 ### Example
 
+Examples of **incorrect** code for this rule:
+
 ```javascript
-// Bad
 x === y || x < y;
 x < y || x === y;
+```
 
-// Good
+Examples of **correct** code for this rule:
+
+```javascript
 x <= y;
 x >= y;
 ```

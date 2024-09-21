@@ -7,7 +7,7 @@
 <span class="emoji">✅</span> This rule is turned on by default.
 </Alert>
 <Alert class="fix" type="info">
-<span class="emoji">🚧</span> An auto-fix is still under development.
+<span class="emoji">🛠️</span> An auto-fix is available for this rule.
 </Alert>
 </div>
 
@@ -22,11 +22,15 @@ Even when that is not the case this will lead to unnecessary computations being 
 
 ### Example
 
-```jsx
-// Bad
-<App {...props} myAttr="1" {...props} />
+Examples of **incorrect** code for this rule:
 
-// Good
+```jsx
+<App {...props} myAttr="1" {...props} />
+```
+
+Examples of **correct** code for this rule:
+
+```jsx
 <App myAttr="1" {...props} />
 <App {...props} myAttr="1" />
 ```

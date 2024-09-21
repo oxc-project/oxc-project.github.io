@@ -20,8 +20,9 @@ This rule checks for title property on iframe element.
 
 ### Example
 
+Examples of **incorrect** code for this rule:
+
 ```jsx
-// Bad
 <iframe />
 <iframe {...props} />
 <iframe title="" />
@@ -31,8 +32,11 @@ This rule checks for title property on iframe element.
 <iframe title={false} />
 <iframe title={true} />
 <iframe title={42} />
+```
 
-// Good
+Examples of **correct** code for this rule:
+
+```jsx
 <iframe title="This is a unique title" />
 <iframe title={uniqueTitle} />
 ```

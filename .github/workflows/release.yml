@@ -35,10 +35,8 @@ jobs:
         with:
           tool: just
 
-      - name: Build
-        run: |
-          cd oxc && just website ../
-          rm -rf oxc
+      - run: cd oxc && just website ..
+      - run: rm -rf oxc
 
       - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v4
@@ -48,7 +46,7 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - run: pnpm run fmt --write ./src/docs/guide/usage/linter
 
-      - uses: peter-evans/create-pull-request@v6
+      - uses: peter-evans/create-pull-request@v7
         with:
           token: ${{ secrets.OXC_BOT_PAT }}
           commit-message: Release ${{ inputs.version }}

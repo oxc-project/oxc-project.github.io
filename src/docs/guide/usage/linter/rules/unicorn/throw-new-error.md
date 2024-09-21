@@ -4,7 +4,7 @@
 
 <div class="rule-meta">
 <Alert class="fix" type="info">
-<span class="emoji">🚧</span> An auto-fix is still under development.
+<span class="emoji">🛠️</span> An auto-fix is available for this rule.
 </Alert>
 </div>
 
@@ -16,15 +16,19 @@ Require `new` when throwing an error.`
 
 While it's possible to create a new error without using the `new` keyword, it's better to be explicit.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
-// Fail
 throw Error("🦄");
 throw TypeError("unicorn");
 throw lib.TypeError("unicorn");
+```
 
-// Pass
+Examples of **correct** code for this rule:
+
+```javascript
 throw new Error("🦄");
 throw new TypeError("unicorn");
 throw new lib.TypeError("unicorn");

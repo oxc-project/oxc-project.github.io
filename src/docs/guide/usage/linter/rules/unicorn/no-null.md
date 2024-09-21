@@ -4,7 +4,7 @@
 
 <div class="rule-meta">
 <Alert class="fix" type="info">
-<span class="emoji">🛠️</span> An auto-fix is available for this rule.
+<span class="emoji">🛠️</span> An auto-fix is available for this rule for some violations.
 </Alert>
 </div>
 
@@ -22,11 +22,15 @@ There are some reasons for using `undefined` instead of `null`.
 
 ### Example
 
-```javascript
-// Bad
-let foo = null;
+Examples of **incorrect** code for this rule:
 
-// Good
+```javascript
+let foo = null;
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
 let foo;
 ```
 

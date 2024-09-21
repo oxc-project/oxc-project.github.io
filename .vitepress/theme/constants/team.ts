@@ -54,14 +54,14 @@ export const CORE_MEMBERS: TeamMember[] = [
     ],
   },
   {
-    id: "mysteryven",
+    id: "don",
     type: "core",
-    name: "Mysteryven",
-    title: "Member",
-    avatar: "https://www.github.com/mysteryven.png",
+    name: "Don",
+    title: "Oxlint Product Owner",
+    avatar: "https://www.github.com/donisaac.png",
     links: [
-      { icon: "github", link: "https://github.com/mysteryven" },
-      { icon: "twitter", link: "https://twitter.com/mysteryven" },
+      { icon: "github", link: "https://github.com/donisaac" },
+      { icon: "twitter", link: "https://twitter.com/Don_dev_" },
     ],
   },
   {
@@ -76,23 +76,34 @@ export const CORE_MEMBERS: TeamMember[] = [
     ],
   },
   {
-    id: "don",
-    type: "core",
-    name: "Don",
-    title: "Member",
-    avatar: "https://www.github.com/donisaac.png",
-    links: [
-      { icon: "github", link: "https://github.com/donisaac" },
-      { icon: "twitter", link: "https://twitter.com/Don_dev_" },
-    ],
-  },
-  {
     id: "cameron",
     type: "core",
     name: "Cameron",
     title: "Member",
     avatar: "https://www.github.com/camc314.png",
     links: [{ icon: "github", link: "https://github.com/camc314" }],
+  },
+  {
+    id: "mysteryven",
+    type: "core",
+    name: "Mysteryven",
+    title: "Member",
+    avatar: "https://www.github.com/mysteryven.png",
+    links: [
+      { icon: "github", link: "https://github.com/mysteryven" },
+      { icon: "twitter", link: "https://twitter.com/mysteryven" },
+    ],
+  },
+  {
+    id: "leaysgur",
+    type: "core",
+    name: "Yuji Sugiura",
+    title: "Member",
+    avatar: "https://www.github.com/leaysgur.png",
+    links: [
+      { icon: "github", link: "https://github.com/leaysgur" },
+      { icon: "twitter", link: "https://x.com/leaysgur" },
+    ],
   },
   {
     id: "ematipico",

@@ -7,7 +7,7 @@
 
 ### What it does
 
-Prevents using object or array spreads on accumulators in `Array.prototype.reduce()`.
+Prevents using object or array spreads on accumulators in `Array.prototype.reduce()` and in loops.
 
 ### Why is this bad?
 
@@ -19,9 +19,21 @@ When used on an accumulator, this can lead to `O(n^2)` memory complexity and
 For a more in-depth explanation, see this [blog post](https://prateeksurana.me/blog/why-using-object-spread-with-reduce-bad-idea/)
 by Prateek Surana.
 
-### Example
+### Examples
 
-Pass
+Examples of **incorrect** code for this rule:
+
+```javascript
+arr.reduce((acc, x) => ({ ...acc, [x]: fn(x) }), {});
+Object.keys(obj).reduce((acc, el) => ({ ...acc, [el]: fn(el) }), {});
+
+let foo = [];
+for (let i = 0; i < 10; i++) {
+  foo = [...foo, i];
+}
+```
+
+Examples of **correct** code for this rule:
 
 ```javascript
 function fn(x) {
@@ -38,13 +50,11 @@ Object.keys(obj).reduce((acc, el) => {
   acc[el] = { ...obj[el] };
   return acc;
 }, {});
-```
 
-Fail
-
-```javascript
-arr.reduce((acc, x) => ({ ...acc, [x]: fn(x) }), {});
-Object.keys(obj).reduce((acc, el) => ({ ...acc, [el]: fn(el) }), {});
+let foo = [];
+for (let i = 0; i < 10; i++) {
+  foo.push(i);
+}
 ```
 
 ## References

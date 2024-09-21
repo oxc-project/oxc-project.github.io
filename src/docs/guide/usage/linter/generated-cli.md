@@ -1,5 +1,3 @@
-<!-- textlint-disable -->
-
 ## Usage
 
 **`oxlint`** \[**`-c`**=_`<./oxlintrc.json>`_\] \[_`PATH`_\]...
@@ -65,6 +63,8 @@ Arguments:
   Enable the React performance plugin and detect rendering performance problems
 - **`    --promise-plugin`** &mdash;
   Enable the promise plugin and detect promise usage problems
+- **`    --node-plugin`** &mdash;
+  Enable the node plugin and detect node usage problems
 
 ## Fix Problems
 
@@ -123,5 +123,3 @@ Arguments:
   Prints help information
 - **`-V`**, **`--version`** &mdash;
   Prints version information
-
-<!-- textlint-enable -->

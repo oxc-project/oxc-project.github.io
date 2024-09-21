@@ -3,6 +3,9 @@
 # unicorn/no-negated-condition <Badge type="info" text="Pedantic" />
 
 <div class="rule-meta">
+<Alert class="fix" type="info">
+<span class="emoji">🚧</span> An auto-fix is still under development.
+</Alert>
 </div>
 
 ### What it does
@@ -15,9 +18,9 @@ Negated conditions are more difficult to understand. Code can be made more reada
 
 ### Example
 
-```javascript
-// Bad
+Examples of **incorrect** code for this rule:
 
+```javascript
 if (!a) {
   doSomethingC();
 } else {
@@ -25,9 +28,11 @@ if (!a) {
 }
 
 !a ? doSomethingC() : doSomethingB();
+```
 
-// Good
+Examples of **correct** code for this rule:
 
+```javascript
 if (a) {
   doSomethingB();
 } else {
