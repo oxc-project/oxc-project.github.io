@@ -56,6 +56,10 @@ export const enConfig = defineLocaleConfig("root", {
                   text: "Rules",
                   link: "/docs/guide/usage/linter/rules",
                 },
+                {
+                  text: "Automatic Fixes",
+                  link: "/docs/guide/usage/linter/automatic-fixes",
+                },
               ],
             },
             { text: "Parser", link: "/docs/guide/usage/parser" },
