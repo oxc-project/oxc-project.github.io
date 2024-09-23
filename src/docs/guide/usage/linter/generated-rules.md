@@ -2,10 +2,10 @@
 
 The progress of all rule implementations is tracked [here](https://github.com/oxc-project/oxc/issues/481).
 
-- Total number of rules: 429
+- Total number of rules: 432
 - Rules turned on by default: 96
 
-## Correctness (169):
+## Correctness (170):
 
 Code that is outright wrong or useless.
 | Rule name | Source | Default | Fixable? |
@@ -154,6 +154,7 @@ Code that is outright wrong or useless.
 | [no-render-return-value](/docs/guide/usage/linter/rules/react/no-render-return-value.html) | react | ✅ | |
 | [no-string-refs](/docs/guide/usage/linter/rules/react/no-string-refs.html) | react | ✅ | |
 | [void-dom-elements-no-children](/docs/guide/usage/linter/rules/react/void-dom-elements-no-children.html) | react | ✅ | |
+| [api-keys](/docs/guide/usage/linter/rules/security/api-keys.html) | security | | |
 | [no-duplicate-enum-values](/docs/guide/usage/linter/rules/typescript/no-duplicate-enum-values.html) | typescript | ✅ | |
 | [no-extra-non-null-assertion](/docs/guide/usage/linter/rules/typescript/no-extra-non-null-assertion.html) | typescript | ✅ | |
 | [no-misused-new](/docs/guide/usage/linter/rules/typescript/no-misused-new.html) | typescript | ✅ | |
@@ -192,7 +193,7 @@ Code that can be written to run faster.
 | [jsx-no-new-function-as-prop](/docs/guide/usage/linter/rules/react_perf/jsx-no-new-function-as-prop.html) | react_perf | | |
 | [jsx-no-new-object-as-prop](/docs/guide/usage/linter/rules/react_perf/jsx-no-new-object-as-prop.html) | react_perf | | |
 
-## Restriction (58):
+## Restriction (57):
 
 Lints which prevent the use of language and library features. Must not be enabled as a whole, should be considered on a case-by-case basis before enabling.
 | Rule name | Source | Default | Fixable? |
@@ -209,7 +210,7 @@ Lints which prevent the use of language and library features. Must not be enable
 | [no-iterator](/docs/guide/usage/linter/rules/eslint/no-iterator.html) | eslint | | 🚧 |
 | [no-plusplus](/docs/guide/usage/linter/rules/eslint/no-plusplus.html) | eslint | | 🚧 |
 | [no-proto](/docs/guide/usage/linter/rules/eslint/no-proto.html) | eslint | | 🚧 |
-| [no-regex-spaces](/docs/guide/usage/linter/rules/eslint/no-regex-spaces.html) | eslint | | |
+| [no-regex-spaces](/docs/guide/usage/linter/rules/eslint/no-regex-spaces.html) | eslint | | 🚧 |
 | [no-restricted-globals](/docs/guide/usage/linter/rules/eslint/no-restricted-globals.html) | eslint | | |
 | [no-undefined](/docs/guide/usage/linter/rules/eslint/no-undefined.html) | eslint | | |
 | [no-unsafe-optional-chaining](/docs/guide/usage/linter/rules/eslint/no-unsafe-optional-chaining.html) | eslint | | |
@@ -229,7 +230,6 @@ Lints which prevent the use of language and library features. Must not be enable
 | [no-const-enum](/docs/guide/usage/linter/rules/oxc/no-const-enum.html) | oxc | | 🛠️ |
 | [no-optional-chaining](/docs/guide/usage/linter/rules/oxc/no-optional-chaining.html) | oxc | | |
 | [no-rest-spread-properties](/docs/guide/usage/linter/rules/oxc/no-rest-spread-properties.html) | oxc | | |
-| [avoid-new](/docs/guide/usage/linter/rules/promise/avoid-new.html) | promise | | |
 | [catch-or-return](/docs/guide/usage/linter/rules/promise/catch-or-return.html) | promise | | |
 | [spec-only](/docs/guide/usage/linter/rules/promise/spec-only.html) | promise | | |
 | [button-has-type](/docs/guide/usage/linter/rules/react/button-has-type.html) | react | | |
@@ -256,12 +256,14 @@ Lints which prevent the use of language and library features. Must not be enable
 | [prefer-node-protocol](/docs/guide/usage/linter/rules/unicorn/prefer-node-protocol.html) | unicorn | | 🛠️ |
 | [prefer-number-properties](/docs/guide/usage/linter/rules/unicorn/prefer-number-properties.html) | unicorn | | 🚧 |
 
-## Suspicious (18):
+## Suspicious (20):
 
 code that is most likely wrong or useless.
 | Rule name | Source | Default | Fixable? |
 | ------------------------------- | ---------- | ------- | -------- |
+| [no-extend-native](/docs/guide/usage/linter/rules/eslint/no-extend-native.html) | eslint | | |
 | [no-new](/docs/guide/usage/linter/rules/eslint/no-new.html) | eslint | | |
+| [no-unexpected-multiline](/docs/guide/usage/linter/rules/eslint/no-unexpected-multiline.html) | eslint | | ⚠️🛠️️ |
 | [no-useless-concat](/docs/guide/usage/linter/rules/eslint/no-useless-concat.html) | eslint | | |
 | [no-useless-constructor](/docs/guide/usage/linter/rules/eslint/no-useless-constructor.html) | eslint | | 🛠️ |
 | [no-duplicates](/docs/guide/usage/linter/rules/import/no-duplicates.html) | import | | |
@@ -355,7 +357,7 @@ Lints which are rather strict or have occasional false positives.
 | [prefer-type-error](/docs/guide/usage/linter/rules/unicorn/prefer-type-error.html) | unicorn | | 🛠️ |
 | [require-number-to-fixed-digits-argument](/docs/guide/usage/linter/rules/unicorn/require-number-to-fixed-digits-argument.html) | unicorn | | 🛠️ |
 
-## Style (99):
+## Style (100):
 
 Code that should be written in a more idiomatic way.
 | Rule name | Source | Default | Fixable? |
@@ -413,6 +415,7 @@ Code that should be written in a more idiomatic way.
 | [require-hook](/docs/guide/usage/linter/rules/jest/require-hook.html) | jest | | |
 | [require-top-level-describe](/docs/guide/usage/linter/rules/jest/require-top-level-describe.html) | jest | | |
 | [no-exports-assign](/docs/guide/usage/linter/rules/node/no-exports-assign.html) | node | | 🛠️ |
+| [avoid-new](/docs/guide/usage/linter/rules/promise/avoid-new.html) | promise | | |
 | [param-names](/docs/guide/usage/linter/rules/promise/param-names.html) | promise | | |
 | [prefer-await-to-then](/docs/guide/usage/linter/rules/promise/prefer-await-to-then.html) | promise | | |
 | [jsx-boolean-value](/docs/guide/usage/linter/rules/react/jsx-boolean-value.html) | react | | 🛠️ |

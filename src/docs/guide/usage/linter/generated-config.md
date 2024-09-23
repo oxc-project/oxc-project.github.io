@@ -61,6 +61,14 @@ Globals can be disabled by setting their value to `"off"`. For example, in an en
 
 You may also use `"readable"` or `false` to represent `"readonly"`, and `"writeable"` or `true` to represent `"writable"`.
 
+## plugins
+
+type: `array`
+
+### plugins[n]
+
+type: `string`
+
 ## rules
 
 type: `object`
