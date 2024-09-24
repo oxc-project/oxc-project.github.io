@@ -28,6 +28,12 @@ outline: deep
 - [JS syntactic quirks](https://github.com/mozilla-spidermonkey/jsparagus/blob/master/js-quirks.md)
 - [Crafting Interpreters](https://craftinginterpreters.com)
 
+### Specifications
+
+- [ECMAScript Spec](https://tc39.es/ecma262/)
+- [TypeScript 1.4 Spec](./typescript-spec-1.4.pdf)
+- [JSX Spec](https://facebook.github.io/jsx/)
+
 ### Media
 
 - Shopify Uses oxlint - [Performance👆, complexity👇: Killer updates from Shopify engineering](https://www.shopify.com/news/performance%F0%9F%91%86-complexity%F0%9F%91%87-killer-updates-from-shopify-engineering)
