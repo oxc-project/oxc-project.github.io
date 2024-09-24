@@ -31,7 +31,7 @@ outline: deep
 ### Specifications
 
 - [ECMAScript Spec](https://tc39.es/ecma262/)
-- [TypeScript 1.4 Spec](./typescript-spec-1.4.pdf)
+- [TypeScript 1.4 Spec](/docs/typescript-spec-1.4.pdf)
 - [JSX Spec](https://facebook.github.io/jsx/)
 
 ### Media
