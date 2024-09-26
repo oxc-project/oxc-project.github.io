@@ -35,7 +35,7 @@ export const CORE_MEMBERS: TeamMember[] = [
     id: "Dunqing",
     type: "core",
     name: "Dunqing",
-    title: "Member",
+    title: "Core",
     avatar: "https://www.github.com/dunqing.png",
     links: [
       { icon: "github", link: "https://github.com/dunqing" },
@@ -46,7 +46,7 @@ export const CORE_MEMBERS: TeamMember[] = [
     id: "overlookmotel",
     type: "core",
     name: "overlookmotel",
-    title: "Member",
+    title: "Core",
     avatar: "https://www.github.com/overlookmotel.png",
     links: [
       { icon: "github", link: "https://github.com/overlookmotel" },
@@ -122,10 +122,10 @@ export const CORE_MEMBERS: TeamMember[] = [
     id: "anonrig",
     type: "consultant",
     name: "Yagiz",
-    title: "Performance Engineer",
+    title: "Principal Engineer",
     avatar: "https://www.github.com/anonrig.png",
-    org: "Sentry",
-    orgLink: "https://github.com/getsentry",
+    org: "Cloudflare",
+    orgLink: "https://github.com/cloudflare",
     links: [
       { icon: "github", link: "https://github.com/anonrig" },
       { icon: "twitter", link: "https://twitter.com/yagiznizipli" },
