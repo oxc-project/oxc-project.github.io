@@ -31,7 +31,7 @@ Our goal is to create and empower tooling for [The Third Age of JavaScript](http
 >
 > We even caught a few bugs that were hidden or skipped by our old setup when we migrated!
 
-### [Luke Edwards](https://x.com/lukeed05/status/1829527267162345651)
+#### [Luke Edwards](https://x.com/lukeed05/status/1829527267162345651)
 
 > For a while now, @boshen_c has been crushing it, setting the foundation for the next generation of JS tooling.
 >
