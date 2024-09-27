@@ -14,11 +14,21 @@ Disallow return statements in a finally() callback of a promise.
 Disallow return statements inside a callback passed to finally(), since nothing would
 consume what's returned.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
 myPromise.finally(function (val) {
   return val;
+});
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
+Promise.resolve(1).finally(() => {
+  console.log(2);
 });
 ```
 
