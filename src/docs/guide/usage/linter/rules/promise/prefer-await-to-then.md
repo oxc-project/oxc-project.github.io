@@ -13,10 +13,22 @@ Prefer `await` to `then()`/`catch()`/`finally()` for reading Promise values
 
 Async/await syntax can be seen as more readable.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
-myPromise.then(doSomething);
+function foo() {
+  hey.then((x) => {});
+}
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
+async function hi() {
+  await thing();
+}
 ```
 
 ## References
