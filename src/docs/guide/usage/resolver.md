@@ -15,7 +15,7 @@ Node.js cjs and esm path resolution.
 ## Features
 
 - All configurations are aligned with [webpack/enhanced-resolve][url-enhanced-resolve].
-- 28x faster than [webpack/enhanced-resolve][url-enhanced-resolve] ([benchmark](https://github.com/oxc-project/bench-nodejs-resolver)).
+- 28x faster than [webpack/enhanced-resolve][url-enhanced-resolve] ([benchmark](https://github.com/oxc-project/bench-resolver)).
 - See [README](https://github.com/oxc-project/oxc-resolver)
 
 ## Installation
