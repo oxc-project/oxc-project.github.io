@@ -119,6 +119,10 @@ Download the official VSCode extension from the
 - [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=oxc.oxc-vscode)
 - [Open VSX Registry](https://open-vsx.org/extension/oxc/oxc-vscode)
 
+### Zed Extension
+
+https://zed.dev/extensions?q=oxc
+
 ### Continuous Integration
 
 Since `oxlint` only takes a few seconds to run, we recommend running `oxlint` prior to ESLint for faster feedback loops.
