@@ -2,6 +2,7 @@
 
 ## Features
 
+- Transforming TypeScript and React JSX files to ESNext.
 - [TypeScript Isolated Declarations Emit](https://devblogs.microsoft.com/typescript/announcing-typescript-5-5-beta/#isolated-declarations) without using the TypeScript compiler.
 
 ## Installation
@@ -15,6 +16,24 @@ Use the experimental node binding [oxc-transform][url-oxc-transform-npm].
 Use the umbrella crate [oxc][url-oxc-crate] with the `transformer` feature.
 
 Rust usage example can be found [here](https://github.com/oxc-project/oxc/blob/main/crates/oxc_transformer/examples/transformer.rs).
+
+## API Example
+
+```javascript
+import { transform } from "oxc-transform";
+const transformed = transform(filePath, sourceCode, {
+  typescript: {
+    onlyRemoveTypeImports: true,
+    declaration: { stripInternal: true },
+  },
+});
+await fs.writeFile("out.js", transformed.code);
+await fs.writeFile("out.d.ts", transformed.declaration);
+```
+
+## Isolated Declarations
+
+- [`unplugin-isolated-decl`](https://github.com/unplugin/unplugin-isolated-decl)
 
 <!-- Links -->
 
