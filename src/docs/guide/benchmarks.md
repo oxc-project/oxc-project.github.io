@@ -22,7 +22,7 @@ See repository [bench-transformer](https://github.com/oxc-project/bench-transfor
 
 Oxlint is 50x - 100x faster than ESLint depending on the number of CPU cores.
 
-See repository [bench-javascript-linter(https://github.com/oxc-project/bench-javascript-linter).
+See repository [bench-javascript-linter](https://github.com/oxc-project/bench-javascript-linter).
 
 ## Resolver
 
