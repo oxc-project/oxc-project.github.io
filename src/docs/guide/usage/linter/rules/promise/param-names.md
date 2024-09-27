@@ -16,7 +16,9 @@ avoid confusion with order such as reject, resolve. The Promise constructor uses
 RevealingConstructor pattern. Using the same parameter names as the language specification
 makes code more uniform and easier to understand.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
 new Promise(function (reject, resolve) {
@@ -25,6 +27,12 @@ new Promise(function (reject, resolve) {
 new Promise(function (ok, fail) {
   /* ... */
 }); // non-standard parameter names
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
+new Promise(function (resolve, reject) {});
 ```
 
 ## References

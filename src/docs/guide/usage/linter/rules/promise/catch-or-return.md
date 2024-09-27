@@ -17,7 +17,7 @@ Not catching errors in a promise can cause hard to debug problems or
 missing handling of error conditions. In the worst case, unhandled
 promise rejections can cause your application to crash.
 
-### Example
+### Examples
 
 Examples of **incorrect** code for this rule:
 
