@@ -26,4 +26,4 @@ See repository [bench-javascript-linter(https://github.com/oxc-project/bench-jav
 
 `oxc-resolver` is 20x faster than webpack's `enhanced-resolve`.
 
-See repository [bench-nodejs-resolver](https://github.com/oxc-project/bench-nodejs-resolver).
+See repository [bench-resolver](https://github.com/oxc-project/bench-resolver).
