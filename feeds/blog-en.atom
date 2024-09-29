@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://oxc.rs</id>
     <title>The Oxidation Compiler Blog</title>
-    <updated>2024-09-29T08:43:49.728Z</updated>
+    <updated>2024-09-29T09:23:04.063Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://oxc.rs"/>
     <icon>https://cdn.jsdelivr.net/gh/oxc-project/oxc-assets/square.ico</icon>
@@ -19,7 +19,7 @@ This milestone signifies our team's ability to promptly address and triage issue
 <p>At this stage, oxlint is <strong>not intended to fully replace ESLint</strong>; it serves as an enhancement when ESLint's slowness becomes a bottleneck in your workflow.</p>
 <p>For faster feedback loops, we recommend running oxlint before ESLint in your lint-staged or CI setup, considering it only takes a few seconds to run on large codebases.</p>
 <p>To test oxlint in your JavaScript / TypeScript codebase, simply execute the following command at the root directory of your repository:</p>
-<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-JQvEC" id="tab-iI6I_8b" checked><label for="tab-iI6I_8b">npm</label><input type="radio" name="group-JQvEC" id="tab-GgCHo-V" ><label for="tab-GgCHo-V">pnpm</label><input type="radio" name="group-JQvEC" id="tab-gerrYmm" ><label for="tab-gerrYmm">yarn</label><input type="radio" name="group-JQvEC" id="tab-z8E82aM" ><label for="tab-z8E82aM">bun</label><input type="radio" name="group-JQvEC" id="tab-lY5y0Ig" ><label for="tab-lY5y0Ig">deno</label></div><div class="blocks">
+<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-BbY93" id="tab-iGKAsKA" checked><label for="tab-iGKAsKA">npm</label><input type="radio" name="group-BbY93" id="tab-K63SKjL" ><label for="tab-K63SKjL">pnpm</label><input type="radio" name="group-BbY93" id="tab-kXUHxaH" ><label for="tab-kXUHxaH">yarn</label><input type="radio" name="group-BbY93" id="tab-knBSjmT" ><label for="tab-knBSjmT">bun</label><input type="radio" name="group-BbY93" id="tab-Ckle41G" ><label for="tab-Ckle41G">deno</label></div><div class="blocks">
 <div class="language-sh vp-adaptive-theme active"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">$</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> npx</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> oxlint@latest</span></span></code></pre>
 </div><div class="language-sh vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">$</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> pnpm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> dlx</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> oxlint@latest</span></span></code></pre>
 </div><div class="language-sh vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">$</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> yarn</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> dlx</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> oxlint@latest</span></span></code></pre>
@@ -63,7 +63,7 @@ This milestone signifies our team's ability to promptly address and triage issue
 <p>At this stage, oxlint is <strong>not intended to fully replace ESLint</strong>; it serves as an enhancement when ESLint's slowness becomes a bottleneck in your workflow.</p>
 <p>For faster feedback loops, we recommend running oxlint before ESLint in your lint-staged or CI setup, considering it only takes a few seconds to run on large codebases.</p>
 <p>To test oxlint in your JavaScript / TypeScript codebase, simply execute the following command at the root directory of your repository:</p>
-<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-eTRUU" id="tab-9MU2-D5" checked><label for="tab-9MU2-D5">npm</label><input type="radio" name="group-eTRUU" id="tab-ur-XrSP" ><label for="tab-ur-XrSP">pnpm</label><input type="radio" name="group-eTRUU" id="tab-8ACLTHg" ><label for="tab-8ACLTHg">yarn</label><input type="radio" name="group-eTRUU" id="tab-bTkjOnD" ><label for="tab-bTkjOnD">bun</label><input type="radio" name="group-eTRUU" id="tab-UwYJBHA" ><label for="tab-UwYJBHA">deno</label></div><div class="blocks">
+<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-1ZaTA" id="tab-fsj9EOh" checked><label for="tab-fsj9EOh">npm</label><input type="radio" name="group-1ZaTA" id="tab-GqAAd7B" ><label for="tab-GqAAd7B">pnpm</label><input type="radio" name="group-1ZaTA" id="tab-IewHJNk" ><label for="tab-IewHJNk">yarn</label><input type="radio" name="group-1ZaTA" id="tab-YcaZw2R" ><label for="tab-YcaZw2R">bun</label><input type="radio" name="group-1ZaTA" id="tab-4KkhF05" ><label for="tab-4KkhF05">deno</label></div><div class="blocks">
 <div class="language-sh vp-adaptive-theme active"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">$</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> npx</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> oxlint@latest</span></span></code></pre>
 </div><div class="language-sh vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">$</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> pnpm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> dlx</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> oxlint@latest</span></span></code></pre>
 </div><div class="language-sh vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">$</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> yarn</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> dlx</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> oxlint@latest</span></span></code></pre>
@@ -247,12 +247,13 @@ you may consider <a href="https://github.com/sponsors/Boshen" target="_blank" re
         <id>https://oxc.rs/blog/2024-09-29-transformer-alpha</id>
         <link href="https://oxc.rs/blog/2024-09-29-transformer-alpha"/>
         <updated>2024-09-29T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[<AppBlogPostHeader /><p>We are excited to announce an alpha release for Oxc transform (a.k.a transpile).</p>
+        <summary type="html"><![CDATA[<AppBlogPostHeader /><br />
+<p>We are excited to announce an alpha release for Oxc transform (a.k.a transpile).</p>
 <p>This release contains three major features:</p>
 <ol>
 <li>Transforming TypeScript to ESNext.</li>
 <li>Transforming React JSX to ESNext, with built-in React Refresh.</li>
-<li><a href="https://www.typescriptlang.org/docs/handbook/release-notes/typescript-5-5.html#isolated-declarations" target="_blank" rel="noreferrer">TypeScript Isolated Declarations DTS Emit</a> (<code>tsc --isolatedDeclarations</code>).</li>
+<li><a href="https://www.typescriptlang.org/docs/handbook/release-notes/typescript-5-5.html#isolated-declarations" target="_blank" rel="noreferrer">TypeScript Isolated Declarations DTS Emit</a> without using the TypeScript compiler.</li>
 </ol>
 <p>In this alpha stage, we recommend to experiment with these features to speed up build times.</p>
 <p><a href="https://github.com/oxc-project/bench-transformer" target="_blank" rel="noreferrer">Our benchmark</a> shows:</p>
@@ -299,12 +300,13 @@ and the benchmarks are shown in its <a href="https://github.com/oxc-project/benc
 <p>| Lines  | oxc     | swc     | babel   |
 |</p>
 ]]></summary>
-        <content type="html"><![CDATA[<AppBlogPostHeader /><p>We are excited to announce an alpha release for Oxc transform (a.k.a transpile).</p>
+        <content type="html"><![CDATA[<AppBlogPostHeader /><br />
+<p>We are excited to announce an alpha release for Oxc transform (a.k.a transpile).</p>
 <p>This release contains three major features:</p>
 <ol>
 <li>Transforming TypeScript to ESNext.</li>
 <li>Transforming React JSX to ESNext, with built-in React Refresh.</li>
-<li><a href="https://www.typescriptlang.org/docs/handbook/release-notes/typescript-5-5.html#isolated-declarations" target="_blank" rel="noreferrer">TypeScript Isolated Declarations DTS Emit</a> (<code>tsc --isolatedDeclarations</code>).</li>
+<li><a href="https://www.typescriptlang.org/docs/handbook/release-notes/typescript-5-5.html#isolated-declarations" target="_blank" rel="noreferrer">TypeScript Isolated Declarations DTS Emit</a> without using the TypeScript compiler.</li>
 </ol>
 <p>In this alpha stage, we recommend to experiment with these features to speed up build times.</p>
 <p><a href="https://github.com/oxc-project/bench-transformer" target="_blank" rel="noreferrer">Our benchmark</a> shows:</p>
