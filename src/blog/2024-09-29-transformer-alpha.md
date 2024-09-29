@@ -128,3 +128,9 @@ Memory usage transforming `parser.ts` (10777 lines) - measured using `/usr/bin/t
 ## Next Release
 
 Our next release will include target lowering to ES6 and `@babel/plugin-transform-modules-commonjs`.
+
+## Acknowledgements
+
+Thank you [@Dunqing](https://github.com/dunqing) and [@overlookmotel](https://github.com/overlookmotel) for all the hard work involved in this release.
+
+Thank you [snyder.tech](https://snyder.tech), [schoolhouse.world](https://schoolhouse.world), [@lukeed](https://github.com/lukeed) and [@maraisr](https://github.com/maraisr) for the generous [sponsorship](https://github.com/sponsors/boshen).
