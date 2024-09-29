@@ -9,13 +9,15 @@ authors:
 
 <AppBlogPostHeader />
 
+<br />
+
 We are excited to announce an alpha release for Oxc transform (a.k.a transpile).
 
 This release contains three major features:
 
 1. Transforming TypeScript to ESNext.
 2. Transforming React JSX to ESNext, with built-in React Refresh.
-3. [TypeScript Isolated Declarations DTS Emit](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-5-5.html#isolated-declarations) (`tsc --isolatedDeclarations`).
+3. [TypeScript Isolated Declarations DTS Emit](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-5-5.html#isolated-declarations) without using the TypeScript compiler.
 
 In this alpha stage, we recommend to experiment with these features to speed up build times.
 
