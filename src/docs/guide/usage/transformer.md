@@ -2,7 +2,8 @@
 
 ## Features
 
-- Transforming TypeScript and React JSX files to ESNext.
+- Transforming TypeScript to ESNext.
+- Transforming React JSX to ESNext, with built-in React Refresh.
 - [TypeScript Isolated Declarations Emit](https://devblogs.microsoft.com/typescript/announcing-typescript-5-5-beta/#isolated-declarations) without using the TypeScript compiler.
 
 ## Installation
