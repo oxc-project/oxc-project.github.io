@@ -81,27 +81,23 @@ and the benchmarks are shown in its [GitHub Actions](https://github.com/oxc-proj
 
 (Corrections are welcome for any misconfigurations.)
 
-On `ubuntu-latest`, different lines of code are measured:
+On `ubuntu-latest`, an example of different lines of code are measured:
 
 ### Transform
 
-| Lines  | oxc     | swc     | babel   |
-| ------ | ------- | ------- | ------- |
-| ~100   | 0.17 ms | 0.9 ms  | 14.5 ms |
-| ~1000  | 1.0 ms  | 4.5 ms  | 42.1 ms |
-| ~10000 | 22.9 ms | 37.3 ms | 552 ms  |
-
-Oxc is 3x - 5x faster than SWC and 20x - 50x faster than Babel.
+| Lines  | oxc     | swc           | babel         |
+| ------ | ------- | ------------- | ------------- |
+| ~100   | 0.14 ms | 0.7 ms (5x)   | 11.5 ms (82x) |
+| ~1000  | 0.9 ms  | 5.7 ms (6.3x) | 38.7 ms (43x) |
+| ~10000 | 14.9 ms | 35.9 ms(2.4x) | 492 ms (33x)  |
 
 ### Isolated Declarations
 
-| Lines  | oxc    | tsc      |
-| ------ | ------ | -------- |
-| ~100   | 0.1 ms | 23.1 ms  |
-| ~1000  | 3.1 ms | 26.8 ms  |
-| ~10000 | 3.5 ms | 115.2 ms |
-
-Oxc is 20x - 40x faster than TSC.
+| Lines  | oxc    | tsc            |
+| ------ | ------ | -------------- |
+| ~100   | 0.1 ms | 23.1 ms (231x) |
+| ~1000  | 3.1 ms | 26.8 ms (8.6x) |
+| ~10000 | 3.5 ms | 115.2 ms (33x) |
 
 ## Package size
 
