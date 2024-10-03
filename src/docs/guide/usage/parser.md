@@ -30,7 +30,9 @@ Rust usage example can be found [here](https://github.com/oxc-project/oxc/blob/m
 
 ### Node.js (NAPI)
 
-Use the experimental node binding [oxc-parser][url-oxc-parser-npm].
+Try the experimental node binding [oxc-parser][url-oxc-parser-npm].
+
+This package does not have an AST visitor nor TypeScript typings for the AST yet.
 
 ### ESM Module Lexer
 
