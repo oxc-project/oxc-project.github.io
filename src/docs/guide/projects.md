@@ -30,6 +30,7 @@ outline: deep
 
 ## Other
 
+- [tree-shaker](https://github.com/KermanX/tree-shaker) - An experimental tree shaker for JavaScript.
 - [Tyvm](https://github.com/zackradisic/tyvm) - An experimental bytecode interpreter for type-level TypeScript.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/7VctnNVXe2A?si=3laDGbv4vNVbgvsg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
