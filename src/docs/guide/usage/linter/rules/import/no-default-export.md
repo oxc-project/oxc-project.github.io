@@ -7,7 +7,15 @@
 
 ### What it does
 
-Forbid a module to have a default exports. This help your editor to provide better auto imports.
+Forbids a module from having default exports. This helps your editor
+provide better auto-import functionality, as named exports offer more
+explicit and predictable imports compared to default exports.
+
+### Why is this bad?
+
+Default exports can lead to confusion, as the name of the imported value
+can vary based on how it's imported. This can make refactoring and
+auto-imports less reliable.
 
 ### Examples
 

@@ -7,18 +7,39 @@
 
 ### What it does
 
-Requires all getters to have a return statement
+Requires all getters to have a `return` statement.
 
 ### Why is this bad?
 
 Getters should always return a value. If they don't, it's probably a mistake.
 
+This rule does not run on TypeScript files, since type checking will
+catch getters that do not return a value.
+
 ### Example
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
 class Person {
   get name() {
     // no return
+  }
+}
+
+const obj = {
+  get foo() {
+    // object getter are also checked
+  },
+};
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
+class Person {
+  get name() {
+    return this._name;
   }
 }
 ```

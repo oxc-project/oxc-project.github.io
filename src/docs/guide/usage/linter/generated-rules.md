@@ -2,10 +2,10 @@
 
 The progress of all rule implementations is tracked [here](https://github.com/oxc-project/oxc/issues/481).
 
-- Total number of rules: 432
-- Rules turned on by default: 96
+- Total number of rules: 436
+- Rules turned on by default: 97
 
-## Correctness (170):
+## Correctness (171):
 
 Code that is outright wrong or useless.
 | Rule name | Source | Default | Fixable? |
@@ -45,6 +45,7 @@ Code that is outright wrong or useless.
 | [no-shadow-restricted-names](/docs/guide/usage/linter/rules/eslint/no-shadow-restricted-names.html) | eslint | ✅ | |
 | [no-sparse-arrays](/docs/guide/usage/linter/rules/eslint/no-sparse-arrays.html) | eslint | ✅ | |
 | [no-this-before-super](/docs/guide/usage/linter/rules/eslint/no-this-before-super.html) | eslint | ✅ | |
+| [no-throw-literal](/docs/guide/usage/linter/rules/eslint/no-throw-literal.html) | eslint | ✅ | 💡 |
 | [no-unsafe-finally](/docs/guide/usage/linter/rules/eslint/no-unsafe-finally.html) | eslint | ✅ | |
 | [no-unsafe-negation](/docs/guide/usage/linter/rules/eslint/no-unsafe-negation.html) | eslint | ✅ | 🛠️ |
 | [no-unused-labels](/docs/guide/usage/linter/rules/eslint/no-unused-labels.html) | eslint | ✅ | 🛠️ |
@@ -256,11 +257,12 @@ Lints which prevent the use of language and library features. Must not be enable
 | [prefer-node-protocol](/docs/guide/usage/linter/rules/unicorn/prefer-node-protocol.html) | unicorn | | 🛠️ |
 | [prefer-number-properties](/docs/guide/usage/linter/rules/unicorn/prefer-number-properties.html) | unicorn | | 🚧 |
 
-## Suspicious (20):
+## Suspicious (21):
 
 code that is most likely wrong or useless.
 | Rule name | Source | Default | Fixable? |
 | ------------------------------- | ---------- | ------- | -------- |
+| [no-else-return](/docs/guide/usage/linter/rules/eslint/no-else-return.html) | eslint | | 🛠️ |
 | [no-extend-native](/docs/guide/usage/linter/rules/eslint/no-extend-native.html) | eslint | | |
 | [no-new](/docs/guide/usage/linter/rules/eslint/no-new.html) | eslint | | |
 | [no-unexpected-multiline](/docs/guide/usage/linter/rules/eslint/no-unexpected-multiline.html) | eslint | | ⚠️🛠️️ |
@@ -357,7 +359,7 @@ Lints which are rather strict or have occasional false positives.
 | [prefer-type-error](/docs/guide/usage/linter/rules/unicorn/prefer-type-error.html) | unicorn | | 🛠️ |
 | [require-number-to-fixed-digits-argument](/docs/guide/usage/linter/rules/unicorn/require-number-to-fixed-digits-argument.html) | unicorn | | 🛠️ |
 
-## Style (100):
+## Style (102):
 
 Code that should be written in a more idiomatic way.
 | Rule name | Source | Default | Fixable? |
@@ -372,6 +374,7 @@ Code that should be written in a more idiomatic way.
 | [no-magic-numbers](/docs/guide/usage/linter/rules/eslint/no-magic-numbers.html) | eslint | | 🚧 |
 | [no-multi-str](/docs/guide/usage/linter/rules/eslint/no-multi-str.html) | eslint | | |
 | [no-new-func](/docs/guide/usage/linter/rules/eslint/no-new-func.html) | eslint | | |
+| [no-return-assign](/docs/guide/usage/linter/rules/eslint/no-return-assign.html) | eslint | | 🚧 |
 | [no-script-url](/docs/guide/usage/linter/rules/eslint/no-script-url.html) | eslint | | |
 | [no-template-curly-in-string](/docs/guide/usage/linter/rules/eslint/no-template-curly-in-string.html) | eslint | | 🚧 |
 | [no-ternary](/docs/guide/usage/linter/rules/eslint/no-ternary.html) | eslint | | |
@@ -417,6 +420,7 @@ Code that should be written in a more idiomatic way.
 | [no-exports-assign](/docs/guide/usage/linter/rules/node/no-exports-assign.html) | node | | 🛠️ |
 | [avoid-new](/docs/guide/usage/linter/rules/promise/avoid-new.html) | promise | | |
 | [param-names](/docs/guide/usage/linter/rules/promise/param-names.html) | promise | | |
+| [prefer-await-to-callbacks](/docs/guide/usage/linter/rules/promise/prefer-await-to-callbacks.html) | promise | | |
 | [prefer-await-to-then](/docs/guide/usage/linter/rules/promise/prefer-await-to-then.html) | promise | | |
 | [jsx-boolean-value](/docs/guide/usage/linter/rules/react/jsx-boolean-value.html) | react | | 🛠️ |
 | [jsx-curly-brace-presence](/docs/guide/usage/linter/rules/react/jsx-curly-brace-presence.html) | react | | |
