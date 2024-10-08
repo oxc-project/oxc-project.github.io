@@ -2,7 +2,7 @@
 
 The progress of all rule implementations is tracked [here](https://github.com/oxc-project/oxc/issues/481).
 
-- Total number of rules: 432
+- Total number of rules: 436
 - Rules turned on by default: 96
 
 ## Correctness (170):
@@ -282,7 +282,7 @@ code that is most likely wrong or useless.
 | [consistent-function-scoping](/docs/guide/usage/linter/rules/unicorn/consistent-function-scoping.html) | unicorn | | 🚧 |
 | [prefer-add-event-listener](/docs/guide/usage/linter/rules/unicorn/prefer-add-event-listener.html) | unicorn | | 🚧 |
 
-## Pedantic (69):
+## Pedantic (71):
 
 Lints which are rather strict or have occasional false positives.
 | Rule name | Source | Default | Fixable? |
@@ -294,12 +294,14 @@ Lints which are rather strict or have occasional false positives.
 | [no-array-constructor](/docs/guide/usage/linter/rules/eslint/no-array-constructor.html) | eslint | | 🚧 |
 | [no-case-declarations](/docs/guide/usage/linter/rules/eslint/no-case-declarations.html) | eslint | | |
 | [no-constructor-return](/docs/guide/usage/linter/rules/eslint/no-constructor-return.html) | eslint | | |
+| [no-else-return](/docs/guide/usage/linter/rules/eslint/no-else-return.html) | eslint | | 🛠️ |
 | [no-fallthrough](/docs/guide/usage/linter/rules/eslint/no-fallthrough.html) | eslint | | 🚧 |
 | [no-inner-declarations](/docs/guide/usage/linter/rules/eslint/no-inner-declarations.html) | eslint | | |
 | [no-new-wrappers](/docs/guide/usage/linter/rules/eslint/no-new-wrappers.html) | eslint | | 🚧 |
 | [no-prototype-builtins](/docs/guide/usage/linter/rules/eslint/no-prototype-builtins.html) | eslint | | |
 | [no-redeclare](/docs/guide/usage/linter/rules/eslint/no-redeclare.html) | eslint | | |
 | [no-self-compare](/docs/guide/usage/linter/rules/eslint/no-self-compare.html) | eslint | | |
+| [no-throw-literal](/docs/guide/usage/linter/rules/eslint/no-throw-literal.html) | eslint | | 💡 |
 | [radix](/docs/guide/usage/linter/rules/eslint/radix.html) | eslint | | |
 | [require-await](/docs/guide/usage/linter/rules/eslint/require-await.html) | eslint | | |
 | [sort-keys](/docs/guide/usage/linter/rules/eslint/sort-keys.html) | eslint | | 🚧 |
@@ -357,7 +359,7 @@ Lints which are rather strict or have occasional false positives.
 | [prefer-type-error](/docs/guide/usage/linter/rules/unicorn/prefer-type-error.html) | unicorn | | 🛠️ |
 | [require-number-to-fixed-digits-argument](/docs/guide/usage/linter/rules/unicorn/require-number-to-fixed-digits-argument.html) | unicorn | | 🛠️ |
 
-## Style (100):
+## Style (102):
 
 Code that should be written in a more idiomatic way.
 | Rule name | Source | Default | Fixable? |
@@ -372,6 +374,7 @@ Code that should be written in a more idiomatic way.
 | [no-magic-numbers](/docs/guide/usage/linter/rules/eslint/no-magic-numbers.html) | eslint | | 🚧 |
 | [no-multi-str](/docs/guide/usage/linter/rules/eslint/no-multi-str.html) | eslint | | |
 | [no-new-func](/docs/guide/usage/linter/rules/eslint/no-new-func.html) | eslint | | |
+| [no-return-assign](/docs/guide/usage/linter/rules/eslint/no-return-assign.html) | eslint | | 🚧 |
 | [no-script-url](/docs/guide/usage/linter/rules/eslint/no-script-url.html) | eslint | | |
 | [no-template-curly-in-string](/docs/guide/usage/linter/rules/eslint/no-template-curly-in-string.html) | eslint | | 🚧 |
 | [no-ternary](/docs/guide/usage/linter/rules/eslint/no-ternary.html) | eslint | | |
@@ -417,6 +420,7 @@ Code that should be written in a more idiomatic way.
 | [no-exports-assign](/docs/guide/usage/linter/rules/node/no-exports-assign.html) | node | | 🛠️ |
 | [avoid-new](/docs/guide/usage/linter/rules/promise/avoid-new.html) | promise | | |
 | [param-names](/docs/guide/usage/linter/rules/promise/param-names.html) | promise | | |
+| [prefer-await-to-callbacks](/docs/guide/usage/linter/rules/promise/prefer-await-to-callbacks.html) | promise | | |
 | [prefer-await-to-then](/docs/guide/usage/linter/rules/promise/prefer-await-to-then.html) | promise | | |
 | [jsx-boolean-value](/docs/guide/usage/linter/rules/react/jsx-boolean-value.html) | react | | 🛠️ |
 | [jsx-curly-brace-presence](/docs/guide/usage/linter/rules/react/jsx-curly-brace-presence.html) | react | | |

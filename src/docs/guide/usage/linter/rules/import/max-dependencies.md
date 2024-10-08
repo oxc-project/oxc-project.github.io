@@ -11,18 +11,27 @@ Forbid modules to have too many dependencies (import or require statements).
 
 ### Why is this bad?
 
-This is a useful rule because a module with too many dependencies is a code smell, and
-usually indicates the module is doing too much and/or should be broken up into smaller
-modules.
+This is a useful rule because a module with too many dependencies is a code smell,
+and usually indicates the module is doing too much and/or should be broken up into
+smaller modules.
 
-### Example
+### Examples
 
 Given `{"max": 2}`
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
 import a from "./a";
 import b from "./b";
-import c from "./c";
+import c from "./c"; // Too many dependencies: 3 (max: 2)
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
+import a from "./a";
+import b from "./b"; // Allowed: 2 dependencies (max: 2)
 ```
 
 ## References
