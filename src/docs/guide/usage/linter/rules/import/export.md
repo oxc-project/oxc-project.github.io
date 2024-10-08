@@ -9,12 +9,28 @@
 
 Reports funny business with exports, like repeated exports of names or defaults.
 
-### Example
+### Why is this bad?
+
+Having multiple exports of the same name can lead to ambiguity and confusion
+in the codebase. It makes it difficult to track which export is being used
+and can result in runtime errors if the wrong export is referenced.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
 let foo;
 export { foo }; // Multiple exports of name 'foo'.
-export * from "./export-all"; // export-all.js also export foo
+export * from "./export-all"; // Conflicts if export-all.js also exports foo
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
+let foo;
+export { foo as foo1 }; // Renamed export to avoid conflict
+export * from "./export-all"; // No conflict if export-all.js also exports foo
 ```
 
 ## References
