@@ -21,6 +21,16 @@ any regressions need to be fixed.
 
 ## Profile
 
+### Compiling `oxlint` in release mode with debug information
+
+For profiling, you will need to compile the `oxlint` binary in release mode with debug information enabled. You can do that by passing `--profile release-with-debug` to `cargo build`:
+
+```bash
+cargo build --profile release-with-debug --bin oxlint
+```
+
+After building, the binary is located at `./target/release-with-debug/oxlint`. This is the binary that should be used for profiling.
+
 ### Heap Allocation
 
 Try [dhat](https://docs.rs/dhat/latest/dhat).
@@ -28,6 +38,24 @@ Try [dhat](https://docs.rs/dhat/latest/dhat).
 ### CPU - Samply
 
 [Samply](https://github.com/mstange/samply) is a command line CPU profiler which uses the Firefox profiler as its UI. Works on macOS and Linux.
+
+To use Samply with `oxlint`, run `samply record` followed by the `oxlint` command and arguments:
+
+```bash
+samply record ./target/release-with-debug/oxlint .
+```
+
+To improve the profiling experience, you might consider some of the following options:
+
+- `oxlint`: `--silent` will suppress diagnostics output and keep the profile more focused.
+- `oxlint`: `--threads 1` will run the linter single threaded, which is slower, but makes it easier to analyze the profile for single-threaded performance.
+- `samply record`: `--rate <number>` will sample the profile at a higher rate. The default is 1000Hz (1ms), but increasing this will provide more detailed information at the cost of a larger profile file.
+
+For example, running `oxlint` single-threaded with a 0.1ms sample rate:
+
+```bash
+samply record --rate 10000 ./target/release-with-debug/oxlint --silent --threads 1 .
+```
 
 ### CPU - Mac Xcode Instruments
 
@@ -41,26 +69,12 @@ First, install Xcode Instruments command-line tools:
 xcode-select --install
 ```
 
-And then change the build profile to show debug symbols:
-
-```toml
-[profile.release]
-debug = true # enable debug symbols
-strip = false # do not strip symbols
-```
-
-Build the binary with `--release`:
-
-```bash
-cargo build --release --bin oxlint --features allocator
-```
-
-Once the project is built, the binary is located at `./target/release/oxlint`.
+Then, if you haven't already, [ensure that the `oxlint` binary is compiled](#compiling-oxlint-in-release-mode-with-debug-information).
 
 Under the hood, `cargo instruments` invokes the `xcrun xctrace` command, which is equivalent to
 
 ```bash
-xcrun xctrace record --template 'Time Profile' --output . --launch -- /path/to/oxc/target/release/oxlint
+xcrun xctrace record --template 'Time Profile' --output . --launch -- /path/to/oxc/target/release-with-debug/oxlint
 ```
 
 Running the command above produces the following output
