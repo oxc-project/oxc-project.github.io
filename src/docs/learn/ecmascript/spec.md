@@ -126,8 +126,7 @@ The `asi` function need to be manually called where applicable, for example in t
     fn parse_debugger_statement(&mut self) -> Result<Statement<'a>> {
         let node = self.start_node();
         self.expect(Kind::Debugger)?;
-        // highlight-next-line
-        self.asi()?;
+        self.asi()?; // [!code highlight]
         self.ast.debugger_statement(self.finish_node(node))
     }
 ```

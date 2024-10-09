@@ -43,8 +43,7 @@ pub fn parse_binding_pattern(&mut self, ctx: Context) -> Result<BindingPattern<'
         kind if kind.is_binding_identifier() => {
           // ... code omitted
         }
-        // highlight-next-line
-        _ => Err(()),
+        _ => Err(()), // [!code highlight]
     }
 }
 ```

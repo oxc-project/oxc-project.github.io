@@ -322,20 +322,18 @@ fn match_keyword(&self, ident: &str) -> Kind {
 ### Token Value
 
 We often need to compare identifiers, numbers and strings in later stages of the compiler phases,
-for example testing against identifiers inside a linter,
+for example testing against identifiers inside a linter.
 
 These values are currently in plain source text,
 let's convert them to Rust types so they are easier to work with.
 
-```rust
+```rust{4-6}
 pub enum Kind {
     Eof, // end of file
     Plus,
-    // highlight-start
     Identifier,
     Number,
     String,
-    // highlight-end
 }
 
 #[derive(Debug, Clone, Copy, PartialEq)]
@@ -349,8 +347,7 @@ pub struct Token {
     /// End offset in source
     pub end: usize,
 
-    // highlight-next-line
-    pub value: TokenValue,
+    pub value: TokenValue,// [!code highlight]
 }
 
 #[derive(Debug, Clone, PartialEq)]
@@ -371,7 +368,7 @@ Token { kind: Kind::String, start: 0, end: 4, value: TokenValue::String("bar") }
 To convert them to Rust strings, call `let s = self.source[token.start..token.end].to_string()`
 and save it with `token.value = TokenValue::String(s)`.
 
-When we tokenized a number `1.23`, we get a token with `Token { start: 0, end: 3 }`.
+When we tokenize a number `1.23`, we get a token with `Token { start: 0, end: 3 }`.
 To convert it to Rust `f64`, we can use the string [`parse`](https://doc.rust-lang.org/std/primitive.str.html#method.parse)
 method by calling `self.source[token.start..token.end].parse::<f64>()`, and then save the value into `token.value`.
 For binary, octal and integers, an example of their parsing techniques can be found in [jsparagus](https://github.com/mozilla-spidermonkey/jsparagus/blob/master/crates/parser/src/numeric_value.rs).
@@ -418,8 +415,7 @@ With `string-cache`, `TokenValue` becomes
 pub enum TokenValue {
     None,
     Number(f64),
-    // highlight-next-line
-    String(Atom),
+    String(Atom), // [!code highlight]
 }
 ```
 
