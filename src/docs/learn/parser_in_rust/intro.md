@@ -52,12 +52,12 @@ You should also read [The Rust Performance Book](https://nnethercote.github.io/p
 
 ## Rust Source Code
 
-Whenever the performance of an function call cannot be deduced,
+Whenever the performance of a function call cannot be deduced,
 do not be afraid to click the "source" button on the Rust documentation and read the source code,
 they are easy to understand most of the time.
 
 :::info
 When navigating the Rust source code, searching for a definition is simply looking for
-`fn function_name`, `struct struct_name`, `enum enum_name` etc.
+`fn function_name`, `struct struct_name`, `enum enum_name`, etc.
 This is one advantage of having constant grammar in Rust (compared to JavaScript 😉).
 :::
