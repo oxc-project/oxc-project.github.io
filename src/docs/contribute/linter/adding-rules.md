@@ -359,3 +359,29 @@ fn run<'a>(&self, node: &AstNode<'a>, ctx: &LintContext<'a>) {
     }
 }
 ```
+
+### Use `CompactStr` where possible
+
+Reducing allocations as much as possible is critical for performance in `oxc`. The `String` type requires allocating memory on the heap, which costs memory and CPU cycles. It is possible to [store small strings inline](https://oxc.rs/docs/learn/performance.html#string-inlining) (up to 24 bytes on 64-bit systems) on the stack using `CompactStr`, which means we don't need to allocate memory. If the string is too large to store inline, it will allocate the necessary space. Using `CompactStr` can be used almost anywhere that has the type `String` or `&str`, and can save a significant amount memory and CPU cycles compared to the `String` type.
+
+::: code-group
+
+```rust [good]
+struct Element {
+  name: CompactStr
+}
+
+let element = Element {
+  name: "div".into()
+};
+```
+
+```rust [bad]
+struct Element {
+  name: String
+}
+
+let element = Element {
+  name: "div".to_string()
+};
+```
