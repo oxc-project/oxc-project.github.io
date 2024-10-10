@@ -9,6 +9,7 @@
     "build": "pnpm run sponsors && vitepress build",
     "preview": "vitepress preview",
     "lint": "oxlint -W correctness -W no-unused-vars --deny-warnings",
+    "lint:fix": "pnpm lint --fix && typos -w && pnpm fmt --write .",
     "fmt": "prettier",
     "typecheck": "tsc",
     "create-blog-post": "tsx ./cli/index.ts create-blog-post",

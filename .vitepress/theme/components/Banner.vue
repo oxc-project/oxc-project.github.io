@@ -1,58 +1,57 @@
 <script setup lang="ts">
-import { useElementSize, useLocalStorage } from '@vueuse/core';
-import { ref, watchEffect, watch, onMounted } from 'vue';
+import { useElementSize, useLocalStorage } from "@vueuse/core";
+import { ref, watchEffect, watch, onMounted } from "vue";
 const el = ref<HTMLElement>();
 const { height } = useElementSize(el);
 watchEffect(() => {
   if (height.value) {
-    document.documentElement.style.setProperty(
-      '--vp-layout-top-height',
-      `${height.value + 16}px`
-    );
+    document.documentElement.style.setProperty("--vp-layout-top-height", `${height.value + 16}px`);
   }
 });
 
 const show = () => {
-  document.documentElement.classList.remove('banner-dismissed');
+  document.documentElement.classList.remove("banner-dismissed");
 };
 const hide = () => {
-  document.documentElement.classList.add('banner-dismissed');
+  document.documentElement.classList.add("banner-dismissed");
 };
 
-const slug = '/blog/2024-09-29-transformer-alpha.html'
+const slug = "/blog/2024-09-29-transformer-alpha.html";
 
 const bannerDismissed = useLocalStorage<boolean>(`oxc-banner-dismissed-${slug}`, false);
 
-watch(bannerDismissed, () => {
-  if (bannerDismissed.value) {
-    hide()
-  }
-}, { immediate: true })
+watch(
+  bannerDismissed,
+  () => {
+    if (bannerDismissed.value) {
+      hide();
+    }
+  },
+  { immediate: true },
+);
 
 onMounted(() => {
   if (location.pathname.includes(slug)) {
-    hide()
+    hide();
   } else if (!bannerDismissed.value) {
-    show()
+    show();
   }
-})
+});
 
 const dismiss = () => {
-  bannerDismissed.value = true
-}
-
+  bannerDismissed.value = true;
+};
 </script>
 
 <template>
   <div ref="el" class="banner banner-dismissed">
-    <div class="text">
-      <a :href="slug">Announcing Oxc Transformer Alpha</a> 🎉
-    </div>
+    <div class="text"><a :href="slug">Announcing Oxc Transformer Alpha</a> 🎉</div>
 
     <button type="button" @click="dismiss">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
         <path
-          d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z" />
+          d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z"
+        />
       </svg>
     </button>
   </div>

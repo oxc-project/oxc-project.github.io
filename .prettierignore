@@ -1,0 +1,6 @@
+build/
+!.vitepress/
+.vitepress/cache
+pnpm-lock.yaml
+# auto-generated
+public/sponsors.svg
