@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { type Ref, ref, inject, onMounted, onUnmounted } from 'vue'
-import type { DefaultTheme, HeroAction } from 'vitepress/theme'
-import { withBase } from 'vitepress'
-import { VPButton, VPImage } from 'vitepress/theme'
+import { type Ref, ref, inject, onMounted, onUnmounted } from "vue";
+import type { DefaultTheme, HeroAction } from "vitepress/theme";
+import { withBase } from "vitepress";
+import { VPButton, VPImage } from "vitepress/theme";
 
 // Math stuff
 function vec2(x, y) {
@@ -50,27 +50,26 @@ function clamp(x, min, max) {
 }
 
 function oscillate(input, min, max) {
-    const range = max - min ;
-    return min + Math.abs(((input + range) % (range * 2)) - range);
+  const range = max - min;
+  return min + Math.abs(((input + range) % (range * 2)) - range);
 }
 
 function lemniscateGerono(t) {
   return vec2(Math.sin(t * 2) / 2, Math.cos(t));
 }
 
-
 defineProps<{
-  name?: string
-  text?: string
-  tagline?: string
-  image?: DefaultTheme.ThemeableImage
-  actions?: HeroAction[]
+  name?: string;
+  text?: string;
+  tagline?: string;
+  image?: DefaultTheme.ThemeableImage;
+  actions?: HeroAction[];
 }>();
 
-const heroImageSlotExists = inject('hero-image-slot-exists') as Ref<boolean>;
+const heroImageSlotExists = inject("hero-image-slot-exists") as Ref<boolean>;
 const hero = ref(null);
-let rotation = ref(vec2()); 
-let targetRotation = ref(vec2()); 
+let rotation = ref(vec2());
+let targetRotation = ref(vec2());
 let mouse = vec2();
 let lastMouse = vec2();
 let cooldown = null;
@@ -128,7 +127,7 @@ const WAVE_MIN = vec2(-WAVE_RANGE, -WAVE_RANGE);
 const WAVE_MAX = vec2(+WAVE_RANGE, +WAVE_RANGE);
 
 function update() {
-  const time = (new Date()).getTime() / 800;
+  const time = new Date().getTime() / 800;
   const osc = oscillate(time, -1, 1);
   const dir = vec2_mulf(vec2_norm(vec2_sub(lastMouse, mouse)), 10);
 
@@ -136,8 +135,8 @@ function update() {
   targetRotation.y -= dir.x;
 
   let speed = undefined;
-  let min = undefined
-  let max = undefined
+  let min = undefined;
+  let max = undefined;
   if (idle) {
     targetRotation = vec2_mulf(lemniscateGerono(osc), 20);
     speed = 0.01;
@@ -151,17 +150,14 @@ function update() {
 
   targetRotation = vec2_clamp(targetRotation, min, max);
 
-
   rotation = vec2_lerp(rotation, targetRotation, speed);
 
   lastMouse = mouse;
 }
 
 function render() {
-  hero.value.style
-    .transform = `translate(-50%,-50%) rotateX(${rotation.x}deg) rotateY(${rotation.y}deg)`;
+  hero.value.style.transform = `translate(-50%,-50%) rotateX(${rotation.x}deg) rotateY(${rotation.y}deg)`;
 }
-
 </script>
 
 <template>
