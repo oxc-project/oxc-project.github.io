@@ -11,9 +11,7 @@ The JavaScript Oxidation Compiler (Oxc) is a collection of high-performance tool
 
 Our focus lies in constructing essential compiler tools for JavaScript: parser, linter, formatter, transpiler, minifier and resolver.
 
-Additionally, we provide support for emerging JavaScript tools like Rolldown.
-
-Our goal is to create and empower tooling for [The Third Age of JavaScript](https://www.swyx.io/js-third-age).
+Our goal is to empower the [next generation toolchain for JavaScript](https://voidzero.dev/posts/announcing-voidzero-inc) as part of [VoidZero](https://voidzero.dev).
 
 ## Endorsements
 
