@@ -79,5 +79,5 @@ Please open [a feature
 request](https://github.com/oxc-project/oxc/issues/new?assignees=&labels=C-enhancement%2CA-linter&projects=&template=feature_request.md&title=linter:%20support%20my%20favorite%20plugin).
 Please be aware that we have no plans on supporting rules in plugins that require special
 parsers, such as `eslint-plugin-vue` and `eslint-plugin-svelte`, though we are
-open to suppporting rules in these plugins that only affect script tags in their
+open to supporting rules in these plugins that only affect script tags in their
 source files.
