@@ -8,8 +8,9 @@ outline: deep
 ## Performance Programming
 
 - [The Rust Performance Book](https://nnethercote.github.io/perf-book/introduction.html)
-- [Andrew Kelley - Practical DOD](https://vimeo.com/649009599)
 - [MIT Open Course Ware - Performance Engineering Of Software Systems](https://ocw.mit.edu/courses/6-172-performance-engineering-of-software-systems-fall-2018/video_galleries/lecture-videos)
+- [Andrew Kelley - Practical DOD](https://vimeo.com/649009599)
+- [Mike Acton - Data-Oriented Design and C++](https://youtu.be/rX0ItVEVjHc)
 
 ## JavaScript Parsers
 
