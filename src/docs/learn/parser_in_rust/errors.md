@@ -118,7 +118,7 @@ We can then add an `expect` helper function for throwing an error if the token d
 /// Expect a `Kind` or return error
 pub fn expect(&mut self, kind: Kind) -> Result<()> {
     if self.at(kind) {
-        return Err(SyntaxError::UnExpectedToken);
+        return Err(SyntaxError::UnexpectedToken);
     }
     self.advance(kind);
     Ok(())
