@@ -128,9 +128,8 @@ The `.len()` method returns the metadata stored inside the slice
 ```rust
 // https://github.com/rust-lang/rust/blob/b998821e4c51c44a9ebee395c91323c374236bbb/library/core/src/str/mod.rs#L157-L159
 
-pub fn as_str(&self) -> &'a str {
-    // SAFETY: `Chars` is only made from a str, which guarantees the iter is valid UTF-8.
-    unsafe { from_utf8_unchecked(self.iter.as_slice()) }
+pub const fn len(&self) -> usize {
+    self.as_bytes().len()
 }
 ```
 
