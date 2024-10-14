@@ -12,9 +12,7 @@ Only the `.json` format is supported. You can use comments in configuration file
 
 Example
 
-`.oxlintrc.json`
-
-```json
+```json [.oxlintrc.json]
 {
   "env": {
     "browser": true
