@@ -1,6 +1,7 @@
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { HeadConfig, defineConfig } from "vitepress";
+import { groupIconMdPlugin, groupIconVitePlugin, localIconLoader } from "vitepress-plugin-group-icons";
 
 const head: HeadConfig[] = [
   [
@@ -75,7 +76,19 @@ export const sharedConfig = defineConfig({
       copyright: "Copyright © 2023-present Boshen & Oxc Contributors",
     },
   },
+  markdown: {
+    config(md) {
+      md.use(groupIconMdPlugin);
+    },
+  },
   vite: {
+    plugins: [
+      groupIconVitePlugin({
+        customIcon: {
+          ".oxlintrc": localIconLoader(import.meta.url, "../oxc-logo.svg"),
+        },
+      }),
+    ],
     resolve: {
       alias: [
         {

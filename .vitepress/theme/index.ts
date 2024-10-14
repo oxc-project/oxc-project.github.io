@@ -4,6 +4,7 @@ import DefaultTheme from "vitepress/theme";
 import AppBadgeList from "./components/AppBadgeList.vue";
 import AppBlogPostHeader from "./components/AppBlogPostHeader.vue";
 import Alert from "./components/Alert.vue";
+import "virtual:group-icons.css";
 
 export default {
   extends: DefaultTheme,

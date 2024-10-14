@@ -104,7 +104,7 @@ If you are looking for a way to use oxlint in projects that still need ESLint, Y
 
 ### lint-staged
 
-```json
+```json [package.json]
 {
   "lint-staged": {
     "**/*.{js,mjs,cjs,jsx,ts,mts,cts,tsx,vue,astro,svelte}": "oxlint"
@@ -143,9 +143,7 @@ It is advised to pin the version, otherwise CI may fail after a new release.
 
 ### pre-commit
 
-.pre-commit-hooks.yaml
-
-```yaml
+```yaml [.pre-commit-hooks.yaml]
 repos:
   - repo: https://github.com/oxc-project/mirrors-oxlint
     rev: v0.0.0 # change to the latest version
