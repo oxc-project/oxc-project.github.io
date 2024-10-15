@@ -85,7 +85,7 @@ export const sharedConfig = defineConfig({
     plugins: [
       groupIconVitePlugin({
         customIcon: {
-          ".oxlintrc": localIconLoader(import.meta.url, "../oxc-logo.svg"),
+          ".oxlintrc": "https://cdn.jsdelivr.net/gh/oxc-project/oxc-assets/round.svg",
         },
       }),
     ],
