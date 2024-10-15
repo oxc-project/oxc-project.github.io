@@ -1,7 +1,7 @@
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { HeadConfig, defineConfig } from "vitepress";
-import { groupIconMdPlugin, groupIconVitePlugin, localIconLoader } from "vitepress-plugin-group-icons";
+import { groupIconMdPlugin, groupIconVitePlugin } from "vitepress-plugin-group-icons";
 
 const head: HeadConfig[] = [
   [
@@ -85,7 +85,7 @@ export const sharedConfig = defineConfig({
     plugins: [
       groupIconVitePlugin({
         customIcon: {
-          ".oxlintrc": localIconLoader(import.meta.url, "../oxc-logo.svg"),
+          ".oxlintrc": "https://cdn.jsdelivr.net/gh/oxc-project/oxc-assets/round.svg",
         },
       }),
     ],
