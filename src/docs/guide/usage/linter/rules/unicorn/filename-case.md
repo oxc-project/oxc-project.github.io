@@ -7,15 +7,40 @@
 
 ### What it does
 
-Enforce a case style for filenames.
+Enforces specific case styles for filenames. By default, kebab case is enforced.
 
 ### Why is this bad?
 
-### Example
+Inconsistent file naming conventions can make it harder to locate files or to create new ones.
 
-```
+### Cases
 
+Examples of **correct** filenames for each case:
+
+#### `kebabCase`
+
+- `some-file-name.js`
+- `some-file-name.test.js`
+- `some-file-name.test-utils.js`
+
+#### `camelCase`
+
+- `someFileName.js`
+- `someFileName.test.js`
+- `someFileName.testUtils.js`
+
+#### `snakeCase`
+
+- `some_file_name.js`
+- `some_file_name.test.js`
+- `some_file_name.test_utils.js`
+
+#### `pascalCase`
+
+- `SomeFileName.js`
+- `SomeFileName.Test.js`
+- `SomeFileName.TestUtils.js`
 
 ## References
+
 - [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/unicorn/filename_case.rs)
-```

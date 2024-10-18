@@ -12,7 +12,9 @@ Only the `.json` format is supported. You can use comments in configuration file
 
 Example
 
-```json [.oxlintrc.json]
+`.oxlintrc.json`
+
+```json
 {
   "env": {
     "browser": true
@@ -28,9 +30,44 @@ Example
 }
 ```
 
-## env
+## categories
 
 type: `object`
+
+Configure an entire category of rules all at once.
+
+Rules enabled or disabled this way will be overwritten by individual rules in the `rules` field.
+
+# Example
+
+```json
+{
+  "categories": {
+    "correctness": "warn"
+  },
+  "rules": {
+    "eslint/no-unused-vars": "error"
+  }
+}
+```
+
+### categories.correctness
+
+### categories.nursery
+
+### categories.pedantic
+
+### categories.perf
+
+### categories.restriction
+
+### categories.style
+
+### categories.suspicious
+
+## env
+
+type: `Record<string, boolean>`
 
 Predefine global variables.
 
@@ -38,7 +75,7 @@ Environments specify what global variables are predefined. See [ESLint's list of
 
 ## globals
 
-type: `object`
+type: `Record<string, string>`
 
 Add or remove global variables.
 
@@ -61,11 +98,9 @@ You may also use `"readable"` or `false` to represent `"readonly"`, and `"writea
 
 ## plugins
 
-type: `array`
+type: `string[]`
 
-### plugins[n]
-
-type: `string`
+default: `["react", "unicorn", "typescript", "oxc"]`
 
 ## rules
 
@@ -87,11 +122,15 @@ type: `object`
 
 type: `boolean`
 
+default: `false`
+
 Only for `require-(yields|returns|description|example|param|throws)` rule
 
 #### settings.jsdoc.exemptDestructuredRootsFromChecks
 
 type: `boolean`
+
+default: `false`
 
 Only for `require-param-type` and `require-param-description` rule
 
@@ -99,11 +138,15 @@ Only for `require-param-type` and `require-param-description` rule
 
 type: `boolean`
 
+default: `false`
+
 For all rules but NOT apply to `empty-tags` rule
 
 #### settings.jsdoc.ignorePrivate
 
 type: `boolean`
+
+default: `false`
 
 For all rules but NOT apply to `check-access` and `empty-tags` rule
 
@@ -111,11 +154,15 @@ For all rules but NOT apply to `check-access` and `empty-tags` rule
 
 type: `boolean`
 
+default: `true`
+
 Only for `require-(yields|returns|description|example|param|throws)` rule
 
 #### settings.jsdoc.implementsReplacesDocs
 
 type: `boolean`
+
+default: `false`
 
 Only for `require-(yields|returns|description|example|param|throws)` rule
 
@@ -123,11 +170,15 @@ Only for `require-(yields|returns|description|example|param|throws)` rule
 
 type: `boolean`
 
+default: `true`
+
 Only for `require-(yields|returns|description|example|param|throws)` rule
 
 #### settings.jsdoc.tagNamePreference
 
 type: `object`
+
+default: `{}`
 
 ### settings.jsx-a11y
 
@@ -135,7 +186,9 @@ type: `object`
 
 #### settings.jsx-a11y.components
 
-type: `object`
+type: `Record<string, string>`
+
+default: `{}`
 
 #### settings.jsx-a11y.polymorphicPropName
 
@@ -158,10 +211,14 @@ type: `object`
 
 type: `array`
 
+default: `[]`
+
 ##### settings.react.formComponents[n]
 
 #### settings.react.linkComponents
 
 type: `array`
+
+default: `[]`
 
 ##### settings.react.linkComponents[n]
