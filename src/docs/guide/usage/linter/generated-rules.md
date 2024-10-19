@@ -2,10 +2,10 @@
 
 The progress of all rule implementations is tracked [here](https://github.com/oxc-project/oxc/issues/481).
 
-- Total number of rules: 436
-- Rules turned on by default: 96
+- Total number of rules: 439
+- Rules turned on by default: 98
 
-## Correctness (170):
+## Correctness (173):
 
 Code that is outright wrong or useless.
 | Rule name | Source | Default | Fixable? |
@@ -47,6 +47,7 @@ Code that is outright wrong or useless.
 | [no-this-before-super](/docs/guide/usage/linter/rules/eslint/no-this-before-super.html) | eslint | ✅ | |
 | [no-unsafe-finally](/docs/guide/usage/linter/rules/eslint/no-unsafe-finally.html) | eslint | ✅ | |
 | [no-unsafe-negation](/docs/guide/usage/linter/rules/eslint/no-unsafe-negation.html) | eslint | ✅ | 🛠️ |
+| [no-unsafe-optional-chaining](/docs/guide/usage/linter/rules/eslint/no-unsafe-optional-chaining.html) | eslint | ✅ | |
 | [no-unused-labels](/docs/guide/usage/linter/rules/eslint/no-unused-labels.html) | eslint | ✅ | 🛠️ |
 | [no-unused-private-class-members](/docs/guide/usage/linter/rules/eslint/no-unused-private-class-members.html) | eslint | ✅ | |
 | [no-unused-vars](/docs/guide/usage/linter/rules/eslint/no-unused-vars.html) | eslint | ✅ | ⚠️💡 |
@@ -139,8 +140,10 @@ Code that is outright wrong or useless.
 | [number-arg-out-of-range](/docs/guide/usage/linter/rules/oxc/number-arg-out-of-range.html) | oxc | ✅ | |
 | [only-used-in-recursion](/docs/guide/usage/linter/rules/oxc/only-used-in-recursion.html) | oxc | ✅ | ⚠️🛠️️ |
 | [uninvoked-array-callback](/docs/guide/usage/linter/rules/oxc/uninvoked-array-callback.html) | oxc | ✅ | |
+| [no-callback-in-promise](/docs/guide/usage/linter/rules/promise/no-callback-in-promise.html) | promise | | |
 | [no-new-statics](/docs/guide/usage/linter/rules/promise/no-new-statics.html) | promise | | 🛠️ |
 | [valid-params](/docs/guide/usage/linter/rules/promise/valid-params.html) | promise | | |
+| [iframe-missing-sandbox](/docs/guide/usage/linter/rules/react/iframe-missing-sandbox.html) | react | ✅ | 🚧 |
 | [jsx-key](/docs/guide/usage/linter/rules/react/jsx-key.html) | react | ✅ | |
 | [jsx-no-duplicate-props](/docs/guide/usage/linter/rules/react/jsx-no-duplicate-props.html) | react | ✅ | |
 | [jsx-no-target-blank](/docs/guide/usage/linter/rules/react/jsx-no-target-blank.html) | react | ✅ | |
@@ -208,12 +211,11 @@ Lints which prevent the use of language and library features. Must not be enable
 | [no-eq-null](/docs/guide/usage/linter/rules/eslint/no-eq-null.html) | eslint | | ⚠️🛠️️ |
 | [no-eval](/docs/guide/usage/linter/rules/eslint/no-eval.html) | eslint | | |
 | [no-iterator](/docs/guide/usage/linter/rules/eslint/no-iterator.html) | eslint | | 🚧 |
-| [no-plusplus](/docs/guide/usage/linter/rules/eslint/no-plusplus.html) | eslint | | 🚧 |
+| [no-plusplus](/docs/guide/usage/linter/rules/eslint/no-plusplus.html) | eslint | | 💡 |
 | [no-proto](/docs/guide/usage/linter/rules/eslint/no-proto.html) | eslint | | 🚧 |
 | [no-regex-spaces](/docs/guide/usage/linter/rules/eslint/no-regex-spaces.html) | eslint | | 🚧 |
 | [no-restricted-globals](/docs/guide/usage/linter/rules/eslint/no-restricted-globals.html) | eslint | | |
 | [no-undefined](/docs/guide/usage/linter/rules/eslint/no-undefined.html) | eslint | | |
-| [no-unsafe-optional-chaining](/docs/guide/usage/linter/rules/eslint/no-unsafe-optional-chaining.html) | eslint | | |
 | [no-var](/docs/guide/usage/linter/rules/eslint/no-var.html) | eslint | | 🛠️ |
 | [no-void](/docs/guide/usage/linter/rules/eslint/no-void.html) | eslint | | 🚧 |
 | [unicode-bom](/docs/guide/usage/linter/rules/eslint/unicode-bom.html) | eslint | | 🛠️ |
@@ -224,6 +226,7 @@ Lints which prevent the use of language and library features. Must not be enable
 | [no-webpack-loader-syntax](/docs/guide/usage/linter/rules/import/no-webpack-loader-syntax.html) | import | | |
 | [check-access](/docs/guide/usage/linter/rules/jsdoc/check-access.html) | jsdoc | | |
 | [empty-tags](/docs/guide/usage/linter/rules/jsdoc/empty-tags.html) | jsdoc | | |
+| [no-new-require](/docs/guide/usage/linter/rules/node/no-new-require.html) | node | | |
 | [bad-bitwise-operator](/docs/guide/usage/linter/rules/oxc/bad-bitwise-operator.html) | oxc | | |
 | [no-async-await](/docs/guide/usage/linter/rules/oxc/no-async-await.html) | oxc | | |
 | [no-barrel-file](/docs/guide/usage/linter/rules/oxc/no-barrel-file.html) | oxc | | |
@@ -282,7 +285,7 @@ code that is most likely wrong or useless.
 | [consistent-function-scoping](/docs/guide/usage/linter/rules/unicorn/consistent-function-scoping.html) | unicorn | | 🚧 |
 | [prefer-add-event-listener](/docs/guide/usage/linter/rules/unicorn/prefer-add-event-listener.html) | unicorn | | 🚧 |
 
-## Pedantic (71):
+## Pedantic (70):
 
 Lints which are rather strict or have occasional false positives.
 | Rule name | Source | Default | Fixable? |
@@ -304,7 +307,6 @@ Lints which are rather strict or have occasional false positives.
 | [no-throw-literal](/docs/guide/usage/linter/rules/eslint/no-throw-literal.html) | eslint | | 💡 |
 | [radix](/docs/guide/usage/linter/rules/eslint/radix.html) | eslint | | |
 | [require-await](/docs/guide/usage/linter/rules/eslint/require-await.html) | eslint | | |
-| [sort-keys](/docs/guide/usage/linter/rules/eslint/sort-keys.html) | eslint | | 🚧 |
 | [sort-vars](/docs/guide/usage/linter/rules/eslint/sort-vars.html) | eslint | | 🚧 |
 | [symbol-description](/docs/guide/usage/linter/rules/eslint/symbol-description.html) | eslint | | |
 | [max-dependencies](/docs/guide/usage/linter/rules/import/max-dependencies.html) | import | | |
@@ -359,7 +361,7 @@ Lints which are rather strict or have occasional false positives.
 | [prefer-type-error](/docs/guide/usage/linter/rules/unicorn/prefer-type-error.html) | unicorn | | 🛠️ |
 | [require-number-to-fixed-digits-argument](/docs/guide/usage/linter/rules/unicorn/require-number-to-fixed-digits-argument.html) | unicorn | | 🛠️ |
 
-## Style (102):
+## Style (103):
 
 Code that should be written in a more idiomatic way.
 | Rule name | Source | Default | Fixable? |
@@ -381,6 +383,7 @@ Code that should be written in a more idiomatic way.
 | [prefer-exponentiation-operator](/docs/guide/usage/linter/rules/eslint/prefer-exponentiation-operator.html) | eslint | | |
 | [prefer-numeric-literals](/docs/guide/usage/linter/rules/eslint/prefer-numeric-literals.html) | eslint | | 🛠️ |
 | [sort-imports](/docs/guide/usage/linter/rules/eslint/sort-imports.html) | eslint | | 🛠️ |
+| [sort-keys](/docs/guide/usage/linter/rules/eslint/sort-keys.html) | eslint | | 🚧 |
 | [consistent-test-it](/docs/guide/usage/linter/rules/jest/consistent-test-it.html) | jest | | 🛠️ |
 | [max-expects](/docs/guide/usage/linter/rules/jest/max-expects.html) | jest | | |
 | [max-nested-describe](/docs/guide/usage/linter/rules/jest/max-nested-describe.html) | jest | | |
