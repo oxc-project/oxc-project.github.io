@@ -3,6 +3,9 @@
 # jest/valid-title <Badge type="info" text="Correctness" />
 
 <div class="rule-meta">
+<Alert class="fix" type="info">
+<span class="emoji">🛠️</span> An auto-fix is available for this rule for some violations.
+</Alert>
 </div>
 
 ### What it does

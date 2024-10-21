@@ -2,7 +2,7 @@
 
 The progress of all rule implementations is tracked [here](https://github.com/oxc-project/oxc/issues/481).
 
-- Total number of rules: 439
+- Total number of rules: 441
 - Rules turned on by default: 98
 
 ## Correctness (173):
@@ -70,7 +70,7 @@ Code that is outright wrong or useless.
 | [require-to-throw-message](/docs/guide/usage/linter/rules/jest/require-to-throw-message.html) | jest | | |
 | [valid-describe-callback](/docs/guide/usage/linter/rules/jest/valid-describe-callback.html) | jest | | |
 | [valid-expect](/docs/guide/usage/linter/rules/jest/valid-expect.html) | jest | | |
-| [valid-title](/docs/guide/usage/linter/rules/jest/valid-title.html) | jest | | |
+| [valid-title](/docs/guide/usage/linter/rules/jest/valid-title.html) | jest | | 🛠️ |
 | [check-property-names](/docs/guide/usage/linter/rules/jsdoc/check-property-names.html) | jsdoc | | |
 | [check-tag-names](/docs/guide/usage/linter/rules/jsdoc/check-tag-names.html) | jsdoc | | |
 | [implements-on-classes](/docs/guide/usage/linter/rules/jsdoc/implements-on-classes.html) | jsdoc | | |
@@ -285,7 +285,7 @@ code that is most likely wrong or useless.
 | [consistent-function-scoping](/docs/guide/usage/linter/rules/unicorn/consistent-function-scoping.html) | unicorn | | 🚧 |
 | [prefer-add-event-listener](/docs/guide/usage/linter/rules/unicorn/prefer-add-event-listener.html) | unicorn | | 🚧 |
 
-## Pedantic (70):
+## Pedantic (72):
 
 Lints which are rather strict or have occasional false positives.
 | Rule name | Source | Default | Fixable? |
@@ -325,6 +325,7 @@ Lints which are rather strict or have occasional false positives.
 | [ban-types](/docs/guide/usage/linter/rules/typescript/ban-types.html) | typescript | | 🚧 |
 | [prefer-enum-initializers](/docs/guide/usage/linter/rules/typescript/prefer-enum-initializers.html) | typescript | | 🚧 |
 | [prefer-ts-expect-error](/docs/guide/usage/linter/rules/typescript/prefer-ts-expect-error.html) | typescript | | 🛠️ |
+| [consistent-empty-array-spread](/docs/guide/usage/linter/rules/unicorn/consistent-empty-array-spread.html) | unicorn | | 💡 |
 | [escape-case](/docs/guide/usage/linter/rules/unicorn/escape-case.html) | unicorn | | 🛠️ |
 | [explicit-length-check](/docs/guide/usage/linter/rules/unicorn/explicit-length-check.html) | unicorn | | 🛠️ |
 | [new-for-builtins](/docs/guide/usage/linter/rules/unicorn/new-for-builtins.html) | unicorn | | |
@@ -351,6 +352,7 @@ Lints which are rather strict or have occasional false positives.
 | [prefer-dom-node-dataset](/docs/guide/usage/linter/rules/unicorn/prefer-dom-node-dataset.html) | unicorn | | 🚧 |
 | [prefer-dom-node-remove](/docs/guide/usage/linter/rules/unicorn/prefer-dom-node-remove.html) | unicorn | | |
 | [prefer-event-target](/docs/guide/usage/linter/rules/unicorn/prefer-event-target.html) | unicorn | | |
+| [prefer-math-min-max](/docs/guide/usage/linter/rules/unicorn/prefer-math-min-max.html) | unicorn | | 🛠️ |
 | [prefer-math-trunc](/docs/guide/usage/linter/rules/unicorn/prefer-math-trunc.html) | unicorn | | 🚧 |
 | [prefer-native-coercion-functions](/docs/guide/usage/linter/rules/unicorn/prefer-native-coercion-functions.html) | unicorn | | 🚧 |
 | [prefer-prototype-methods](/docs/guide/usage/linter/rules/unicorn/prefer-prototype-methods.html) | unicorn | | 🛠️ |
