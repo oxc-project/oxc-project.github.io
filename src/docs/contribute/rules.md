@@ -13,13 +13,19 @@ outline: deep
 
 ## Development Policy
 
-- All performance issues are considered as bugs in this project, this includes all runtime and compilation performance issues.
 - Embrace data-oriented design.
 - Keep APIs simple and well-documented.
-- Minimize third-party dependencies to reduce compilation speed and project complexity.
-- Avoid heavy macros, generics, or any Rust techniques that slow down compilation.
 - Always provide a reference to the source if the implementation is from another project.
-- Minimize the use of the `regex` crate. Use Rust iterators and string methods for better performance.
+
+### Performance
+
+- All performance issues are considered as bugs in this project, this includes all runtime and compilation performance issues.
+  - Follow guidance from the [Rust performance book](https://nnethercote.github.io/perf-book/introduction.html).
+  - Minimize the use of the `regex` crate. Use Rust iterators and string methods for better performance.
+- Compile time must be minimized to reduce impact on development workflow and downstream tools.
+  - Minimize third-party dependencies to reduce compilation speed and project complexity.
+  - Avoid heavy macros, generics, or any Rust techniques that slow down compilation.
+  - Our [CI runs](https://github.com/oxc-project/oxc/actions/workflows/ci.yml?query=branch%3Amain) complete in 3 minutes, any regressions need to be fixed.
 
 ## Maintenance Policy
 

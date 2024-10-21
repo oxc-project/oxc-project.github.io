@@ -1,27 +1,11 @@
 ---
-title: Performance
+title: Profiling
 outline: deep
 ---
 
-# Performance
+# Profiling
 
-- All performance issues (runtime and compilation speed) are considered as bugs in this project.
-- Follow guidance from the [Rust performance book](https://nnethercote.github.io/perf-book/introduction.html).
-
-## Compile Time
-
-While Rust has gained a reputation for its comparatively slower compilation speed,
-we have dedicated significant effort to fine-tune the Rust compilation speed.
-
-Our goal is to minimize any impact on development workflow,
-ensuring that Oxc based tools remain fast to compile.
-
-Our [CI runs](https://github.com/oxc-project/oxc/actions/workflows/ci.yml?query=branch%3Amain) complete in 3 minutes,
-any regressions need to be fixed.
-
-## Profile
-
-### Compiling `oxlint` in release mode with debug information
+## Compiling `oxlint` in release mode with debug information
 
 For profiling, you will need to compile the `oxlint` binary in release mode with debug information enabled. You can do that by passing `--profile release-with-debug` to `cargo build`:
 
@@ -31,11 +15,7 @@ cargo build --profile release-with-debug --bin oxlint
 
 After building, the binary is located at `./target/release-with-debug/oxlint`. This is the binary that should be used for profiling.
 
-### Heap Allocation
-
-Try [dhat](https://docs.rs/dhat/latest/dhat).
-
-### CPU - Samply
+## CPU - Samply
 
 [Samply](https://github.com/mstange/samply) is a command line CPU profiler which uses the Firefox profiler as its UI. Works on macOS and Linux.
 
@@ -57,7 +37,7 @@ For example, running `oxlint` single-threaded with a 0.1ms sample rate:
 samply record --rate 10000 ./target/release-with-debug/oxlint --silent --threads 1 .
 ```
 
-### CPU - Mac Xcode Instruments
+## CPU - Mac Xcode Instruments
 
 [`cargo instruments`](https://github.com/cmyr/cargo-instruments) is the tool of choice to bridge Mac Xcode instruments.
 
@@ -96,3 +76,7 @@ To see a top down trace:
 3. At the bottom panel, click "Call Tree", turn on "Invert Call Tree" and turn off separate by thread.
 
 For memory and disk operations, use `--template 'Allocations'` and `--template 'File Activity'`.
+
+## Heap Allocation
+
+Try [dhat](https://docs.rs/dhat/latest/dhat).
