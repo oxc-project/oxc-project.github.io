@@ -5,10 +5,12 @@ outline: deep
 
 # Projects Using Oxc
 
-## [Rolldown](https://rolldown.rs)
+## Crates
 
-- Fast Rust bundler for JavaScript with Rollup-compatible API
-- Uses all components of oxc
+- [Rolldown](https://rolldown.rs) - Uses all compiler components
+- [Tauri](https://github.com/tauri-apps/tauri/blob/8c6d1e8e6c852667bb223b5f4823948868c26d98/crates/tauri-cli/src/migrate/migrations/v1/frontend.rs) - Uses the parser for its codemod
+- [tree-shaker](https://github.com/KermanX/tree-shaker) - An experimental tree shaker for JavaScript
+- [Tyvm](https://github.com/zackradisic/tyvm) - An experimental bytecode interpreter for type-level TypeScript
 
 ## Oxlint
 
@@ -22,15 +24,13 @@ outline: deep
 
 - [swc-node](https://github.com/swc-project/swc-node) - Faster ts-node without typecheck
 - [Biome](https://biomejs.dev) - for loading configuration
+- [turborepo](https://github.com/vercel/turborepo/pull/9134) - for `turbo-trace`
 
 ## Transformer
 
 - [unplugin-isolated-decl](https://www.npmjs.com/package/unplugin-isolated-decl) - A blazing-fast tool for generating isolated declarations
-- [stc](https://github.com/long-woo/stc) - A tool for converting OpenApi/Swagger/Apifox into code.
+- [stc](https://github.com/long-woo/stc) - A tool for converting OpenApi/Swagger/Apifox into code
 
-## Other
-
-- [tree-shaker](https://github.com/KermanX/tree-shaker) - An experimental tree shaker for JavaScript.
-- [Tyvm](https://github.com/zackradisic/tyvm) - An experimental bytecode interpreter for type-level TypeScript.
+## Media
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/7VctnNVXe2A?si=3laDGbv4vNVbgvsg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
