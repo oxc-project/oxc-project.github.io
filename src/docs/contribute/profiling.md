@@ -77,6 +77,18 @@ To see a top down trace:
 
 For memory and disk operations, use `--template 'Allocations'` and `--template 'File Activity'`.
 
+For more detailed CPU profiling, such as L1/L2 cache misses, cycle and instruction counts, and branch prediction info, you need to use a custom "CPU Counters" template:
+
+1. Open Instruments and select the "CPU Counters" template.
+2. In the "CPU Counters" settings:
+   1. Turn on the "High Frequency Sampling" option.
+   2. Below the "High Frequency Sampling" option, click the plus icon and select an event type. Some suggested event types:
+      - Cycles - for getting a rough idea of how many CPU cycles are spent in each function.
+      - Instructions - for getting a rough idea of how many CPU instructions are executed in each function and how many cycles that takes
+      - `L1D_CACHE_MISS_LD` - count of L1 cache misses from loading data from memory
+3. Once you have enabled the events you are interested in, save the template in "File > Save as Template ..." and give it a name.
+4. Now you can use this with `xctrace` by passing the template name to the `--template` option: `xcrun xctrace record --template 'My Custom CPU Counters' --output . --launch -- /path/to/oxc/target/release-with-debug/oxlint`
+
 ## Heap Allocation
 
 Try [dhat](https://docs.rs/dhat/latest/dhat).
