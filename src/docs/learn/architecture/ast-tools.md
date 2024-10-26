@@ -1,0 +1,49 @@
+---
+title: AST Tools
+outline: deep
+---
+
+# AST Tools
+
+The [AST Tools](https://github.com/oxc-project/oxc/tree/main/tasks/ast_tools) task serves as our secret weapon for managing all generated files.
+These tools include the AST builder, visitors, `Eq`, `Hash`, and TypeScript types, all of which are machine-generated.
+
+For instance, the following files are automatically generated:
+
+- `crates/oxc_ast/src/generated/ast_builder.rs`
+- `crates/oxc_ast/src/generated/visit.rs`
+- `crates/oxc_ast/src/generated/visit_mut.rs`
+- `crates/oxc_ast/src/generated/derive_content_eq.rs`
+- `crates/oxc_ast/src/generated/derive_content_hash.rs`
+- `npm/oxc-types/src/generated/types.d.ts`
+
+## Background
+
+Rust's compile time is notoriously slow, and using procedural macros to generate these visitors worsens the issue.
+
+Requiring users to generate all visitors during build time would significantly hinder the development experience for downstream projects.
+
+Both cold and incremental build times [can regress drastically](https://github.com/swc-project/swc/issues/7071).
+
+## The RFC
+
+The team discussed the topic in [RFC: codegen AST related codes](https://github.com/oxc-project/oxc/issues/4134) and agreed on the following requirements and user story.
+
+We began with banning the usage of build-time procedure macros.
+
+### Requirements
+
+- no build.rs published to the user
+- all generated code are checked into git
+- no nightly
+- Rust code is source of truth, need to read parse `#[visited_node]`
+
+### Workflow
+
+- a user changes the oxc_crate
+- a watch change picks it up
+- parse all `#[visited_node]`
+- saves them into a model, e.g. `struct ASTModel { name: String, attributes: Vec<Attributes> }`
+- generate code and save file
+
+## Infrastructure
