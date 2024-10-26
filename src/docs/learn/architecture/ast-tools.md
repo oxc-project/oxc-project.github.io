@@ -19,9 +19,9 @@ For instance, the following files are automatically generated:
 
 ## Background
 
-Rust's compile time is notoriously slow, and using procedural macros to generate these visitors worsens the issue.
+Rust's compile time is notoriously slow, and using procedural macros to generate this much code worsens the issue.
 
-Requiring users to generate all visitors during build time would significantly hinder the development experience for downstream projects.
+Requiring users to wait for code generation to complete at build time would significantly hinder the development experience for downstream projects.
 
 Both cold and incremental build times [can regress drastically](https://github.com/swc-project/swc/issues/7071).
 
@@ -39,7 +39,7 @@ The team discussed the topic in [RFC: codegen AST related codes](https://github.
 
 ### Workflow
 
-- A user changes the oxc_crate.
+- A user changes code in repo.
 - A watch change picks it up.
 - Parse all types marked `#[ast]`.
 - Record details of all AST types in a schema.
