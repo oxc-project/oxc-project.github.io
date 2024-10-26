@@ -1,4 +1,4 @@
-import { defineAsyncComponent, h } from "vue";
+// import { defineAsyncComponent, h } from "vue";
 import type { Theme } from "vitepress";
 import DefaultTheme from "vitepress/theme";
 import AppBadgeList from "./components/AppBadgeList.vue";
@@ -13,9 +13,9 @@ export default {
     app.component("AppBlogPostHeader", AppBlogPostHeader);
     app.component("Alert", Alert);
   },
-  Layout() {
-    return h(DefaultTheme.Layout, null, {
-      "layout-top": () => h(defineAsyncComponent(() => import("./components/Banner.vue"))),
-    });
-  },
+  // Layout() {
+  // return h(DefaultTheme.Layout, null, {
+  // "layout-top": () => h(defineAsyncComponent(() => import("./components/Banner.vue"))),
+  // });
+  // },
 } satisfies Theme;
