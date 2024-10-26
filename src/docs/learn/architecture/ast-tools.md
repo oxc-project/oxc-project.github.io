@@ -34,14 +34,14 @@ The team discussed the topic in [RFC: codegen AST related codes](https://github.
 - No build.rs published to the user.
 - All generated code are checked into git.
 - No nightly.
-- Rust code is source of truth, need to read parse `#[visited_node]`.
+- Rust code is source of truth, need to parse types marked `#[ast]`.
 - Avoid compile-time procedural macros as much as possible.
 
 ### Workflow
 
 - A user changes the oxc_crate.
 - A watch change picks it up.
-- Parse all `#[visited_node]`.
+- Parse all types marked `#[ast]`.
 - Saves them into a model, e.g. `struct ASTModel { name: String, attributes: Vec<Attributes> }`.
 - Generate code and save file.
 
