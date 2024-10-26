@@ -23,9 +23,6 @@ importers:
       feed:
         specifier: ^4.2.2
         version: 4.2.2
-      husky:
-        specifier: ^9.1.6
-        version: 9.1.6
       lint-staged:
         specifier: 15.2.10
         version: 15.2.10
@@ -35,6 +32,9 @@ importers:
       prettier:
         specifier: ^3.3.3
         version: 3.3.3
+      simple-git-hooks:
+        specifier: ^2.11.1
+        version: 2.11.1
       tsx:
         specifier: ^4.19.1
         version: 4.19.1
@@ -898,11 +898,6 @@ packages:
     resolution: {integrity: sha512-AXcZb6vzzrFAUE61HnN4mpLqd/cSIwNQjtNWR0euPm6y0iqx3G4gOXaIDdtdDwZmhwe82LA6+zinmW4UBWVePQ==}
     engines: {node: '>=16.17.0'}
 
-  husky@9.1.6:
-    resolution: {integrity: sha512-sqbjZKK7kf44hfdE94EoX8MZNk0n7HeW37O4YrVGCF4wzgQjp+akPAkfUK5LZ6KuR/6sqeAVuXHji+RzQgOn5A==}
-    engines: {node: '>=18'}
-    hasBin: true
-
   is-fullwidth-code-point@4.0.0:
     resolution: {integrity: sha512-O4L094N2/dZ7xqVdrXhh9r1KODPJpFms8B5sGdJLPy664AgvXsreZUyCQQNItZRDlYug4xStLjNp/sz3HvBowQ==}
     engines: {node: '>=12'}
@@ -1111,6 +1106,10 @@ packages:
   signal-exit@4.1.0:
     resolution: {integrity: sha512-bzyZ1e88w9O1iNJbKnOlvYTrWPDl46O1bG0D3XInv+9tkPrxrN8jUUTiFlDkkmKWgn1M6CfIA13SuGqOa9Korw==}
     engines: {node: '>=14'}
+
+  simple-git-hooks@2.11.1:
+    resolution: {integrity: sha512-tgqwPUMDcNDhuf1Xf6KTUsyeqGdgKMhzaH4PAZZuzguOgTl5uuyeYe/8mWgAr6IBxB5V06uqEf6Dy37gIWDtDg==}
+    hasBin: true
 
   slice-ansi@5.0.0:
     resolution: {integrity: sha512-FC+lgizVPfie0kkhqUScwRu1O/lF6NOgJmlCgK+/LYxDCTk8sGelYaHDhFcDN+Sn3Cv+3VSa4Byeo+IMCzpMgQ==}
@@ -2060,8 +2059,6 @@ snapshots:
 
   human-signals@5.0.0: {}
 
-  husky@9.1.6: {}
-
   is-fullwidth-code-point@4.0.0: {}
 
   is-fullwidth-code-point@5.0.0:
@@ -2292,6 +2289,8 @@ snapshots:
       '@types/hast': 3.0.4
 
   signal-exit@4.1.0: {}
+
+  simple-git-hooks@2.11.1: {}
 
   slice-ansi@5.0.0:
     dependencies:
