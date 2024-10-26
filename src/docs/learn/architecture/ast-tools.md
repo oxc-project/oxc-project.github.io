@@ -27,23 +27,23 @@ Both cold and incremental build times [can regress drastically](https://github.c
 
 ## The RFC
 
-The team discussed the topic in [RFC: codegen AST related codes](https://github.com/oxc-project/oxc/issues/4134) and agreed on the following requirements and user story.
+The team discussed the topic in [RFC: codegen AST related codes](https://github.com/oxc-project/oxc/issues/4134) and agreed on the following requirements and user story:
 
 We began with banning the usage of build-time procedure macros.
 
 ### Requirements
 
-- no build.rs published to the user
-- all generated code are checked into git
-- no nightly
-- Rust code is source of truth, need to read parse `#[visited_node]`
+- No build.rs published to the user.
+- All generated code are checked into git.
+- No nightly.
+- Rust code is source of truth, need to read parse `#[visited_node]`.
 
 ### Workflow
 
-- a user changes the oxc_crate
-- a watch change picks it up
-- parse all `#[visited_node]`
-- saves them into a model, e.g. `struct ASTModel { name: String, attributes: Vec<Attributes> }`
-- generate code and save file
+- A user changes the oxc_crate.
+- A watch change picks it up.
+- Parse all `#[visited_node]`.
+- Saves them into a model, e.g. `struct ASTModel { name: String, attributes: Vec<Attributes> }`.
+- Generate code and save file.
 
 ## Infrastructure
