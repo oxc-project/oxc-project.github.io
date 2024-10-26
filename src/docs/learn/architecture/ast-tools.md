@@ -6,7 +6,7 @@ outline: deep
 # AST Tools
 
 The [AST Tools](https://github.com/oxc-project/oxc/tree/main/tasks/ast_tools) task serves as our secret weapon for managing all generated files.
-These tools include the AST builder, visitors, `Eq`, `Hash`, and TypeScript types, all of which are machine-generated.
+These tools include the AST builder, visitors, traits like `ContentEq` and `ContentHash`, and TypeScript types - all of which are machine-generated.
 
 For instance, the following files are automatically generated:
 
