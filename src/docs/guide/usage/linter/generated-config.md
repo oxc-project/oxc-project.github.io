@@ -16,6 +16,8 @@ Example
 
 ```json
 {
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["import", "unicorn"],
   "env": {
     "browser": true
   },
@@ -42,6 +44,7 @@ Rules enabled or disabled this way will be overwritten by individual rules in th
 
 ```json
 {
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
   "categories": {
     "correctness": "warn"
   },
@@ -85,6 +88,7 @@ Globals can be disabled by setting their value to `"off"`. For example, in an en
 
 ```json
 {
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
   "env": {
     "es6": true
   },
