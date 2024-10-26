@@ -42,7 +42,7 @@ The team discussed the topic in [RFC: codegen AST related codes](https://github.
 - A user changes the oxc_crate.
 - A watch change picks it up.
 - Parse all types marked `#[ast]`.
-- Saves them into a model, e.g. `struct ASTModel { name: String, attributes: Vec<Attributes> }`.
-- Generate code and save file.
+- Record details of all AST types in a schema.
+- Generate code from schema and save to files.
 
 ## Infrastructure
