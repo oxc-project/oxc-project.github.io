@@ -17,9 +17,6 @@ importers:
       citty:
         specifier: ^0.1.6
         version: 0.1.6
-      consola:
-        specifier: ^3.2.3
-        version: 3.2.3
       degit:
         specifier: ^2.8.4
         version: 2.8.4

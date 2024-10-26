@@ -1,4 +1,3 @@
-import consola from "consola";
 import type { DefaultTheme, HeadConfig, LocaleConfig, LocaleSpecificConfig } from "vitepress";
 
 type Config = LocaleConfig<DefaultTheme.Config>[string] & {
@@ -45,7 +44,7 @@ export function defineLocaleConfig(key: string, config: Config): LocaleConfig<De
     const error = new Error(
       `Do not set \`${propertyOrName}\` in locale-level \`head\` config, because it is supposed to be set automatically according to \`title\` and \`description\` options.`,
     );
-    consola.error(error);
+    console.error(error);
     throw error;
   });
 

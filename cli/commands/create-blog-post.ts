@@ -1,6 +1,5 @@
 import * as fs from "node:fs/promises";
 import { defineCommand } from "citty";
-import consola from "consola";
 
 export default defineCommand({
   meta: {
@@ -34,13 +33,13 @@ export default defineCommand({
     const isValidDate = /^(?:20\d{2})-(?:0?[1-9]|1[012])-(?:0?[1-9]|1\d|2\d|3[0-1])$/.test(date);
 
     if (!isValidDate) {
-      consola.error(`date is invalid: ${date}`);
+      console.error(`date is invalid: ${date}`);
     }
 
     await writeMarkdownFile({ date, title, slug, author });
     await writeSidebarFile({ date, title, slug });
 
-    consola.success(`blog post created`);
+    console.log(`blog post created`);
   },
 });
 
