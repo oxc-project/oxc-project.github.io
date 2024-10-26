@@ -3,9 +3,9 @@
 The progress of all rule implementations is tracked [here](https://github.com/oxc-project/oxc/issues/481).
 
 - Total number of rules: 441
-- Rules turned on by default: 98
+- Rules turned on by default: 97
 
-## Correctness (173):
+## Correctness (172):
 
 Code that is outright wrong or useless.
 | Rule name | Source | Default | Fixable? |
@@ -97,7 +97,7 @@ Code that is outright wrong or useless.
 | [lang](/docs/guide/usage/linter/rules/jsx_a11y/lang.html) | jsx_a11y | | |
 | [media-has-caption](/docs/guide/usage/linter/rules/jsx_a11y/media-has-caption.html) | jsx_a11y | | |
 | [mouse-events-have-key-events](/docs/guide/usage/linter/rules/jsx_a11y/mouse-events-have-key-events.html) | jsx_a11y | | |
-| [no-access-key](/docs/guide/usage/linter/rules/jsx_a11y/no-access-key.html) | jsx_a11y | | |
+| [no-access-key](/docs/guide/usage/linter/rules/jsx_a11y/no-access-key.html) | jsx_a11y | | 💡 |
 | [no-aria-hidden-on-focusable](/docs/guide/usage/linter/rules/jsx_a11y/no-aria-hidden-on-focusable.html) | jsx_a11y | | 🛠️ |
 | [no-autofocus](/docs/guide/usage/linter/rules/jsx_a11y/no-autofocus.html) | jsx_a11y | | 🛠️ |
 | [no-distracting-elements](/docs/guide/usage/linter/rules/jsx_a11y/no-distracting-elements.html) | jsx_a11y | | |
@@ -143,7 +143,6 @@ Code that is outright wrong or useless.
 | [no-callback-in-promise](/docs/guide/usage/linter/rules/promise/no-callback-in-promise.html) | promise | | |
 | [no-new-statics](/docs/guide/usage/linter/rules/promise/no-new-statics.html) | promise | | 🛠️ |
 | [valid-params](/docs/guide/usage/linter/rules/promise/valid-params.html) | promise | | |
-| [iframe-missing-sandbox](/docs/guide/usage/linter/rules/react/iframe-missing-sandbox.html) | react | ✅ | 🚧 |
 | [jsx-key](/docs/guide/usage/linter/rules/react/jsx-key.html) | react | ✅ | |
 | [jsx-no-duplicate-props](/docs/guide/usage/linter/rules/react/jsx-no-duplicate-props.html) | react | ✅ | |
 | [jsx-no-target-blank](/docs/guide/usage/linter/rules/react/jsx-no-target-blank.html) | react | ✅ | |
@@ -259,7 +258,7 @@ Lints which prevent the use of language and library features. Must not be enable
 | [prefer-node-protocol](/docs/guide/usage/linter/rules/unicorn/prefer-node-protocol.html) | unicorn | | 🛠️ |
 | [prefer-number-properties](/docs/guide/usage/linter/rules/unicorn/prefer-number-properties.html) | unicorn | | 🚧 |
 
-## Suspicious (20):
+## Suspicious (21):
 
 code that is most likely wrong or useless.
 | Rule name | Source | Default | Fixable? |
@@ -277,6 +276,7 @@ code that is most likely wrong or useless.
 | [approx-constant](/docs/guide/usage/linter/rules/oxc/approx-constant.html) | oxc | | |
 | [misrefactored-assign-op](/docs/guide/usage/linter/rules/oxc/misrefactored-assign-op.html) | oxc | | 🚧 |
 | [no-async-endpoint-handlers](/docs/guide/usage/linter/rules/oxc/no-async-endpoint-handlers.html) | oxc | | |
+| [iframe-missing-sandbox](/docs/guide/usage/linter/rules/react/iframe-missing-sandbox.html) | react | | 🚧 |
 | [jsx-no-comment-textnodes](/docs/guide/usage/linter/rules/react/jsx-no-comment-textnodes.html) | react | | |
 | [react-in-jsx-scope](/docs/guide/usage/linter/rules/react/react-in-jsx-scope.html) | react | | |
 | [no-confusing-non-null-assertion](/docs/guide/usage/linter/rules/typescript/no-confusing-non-null-assertion.html) | typescript | | 🚧 |
