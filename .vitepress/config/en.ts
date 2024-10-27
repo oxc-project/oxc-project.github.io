@@ -114,6 +114,10 @@ export const enConfig = defineLocaleConfig("root", {
               text: "Test Infrastructure",
               link: "/docs/learn/architecture/test",
             },
+            {
+              text: "AST Tools",
+              link: "/docs/learn/architecture/ast-tools",
+            },
           ],
         },
         {
