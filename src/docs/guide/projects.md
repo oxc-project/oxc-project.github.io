@@ -27,6 +27,10 @@ outline: deep
 - [Biome](https://biomejs.dev) - for loading configuration
 - [turborepo](https://github.com/vercel/turborepo/pull/9134) - for `turbo-trace`
 
+## Parser
+
+- [todoctor](https://github.com/azat-io/todoctor) - CLI tool to track and visualize TODO comments in Git repositories and make report
+
 ## Transformer
 
 - [unplugin-isolated-decl](https://www.npmjs.com/package/unplugin-isolated-decl) - A blazing-fast tool for generating isolated declarations
