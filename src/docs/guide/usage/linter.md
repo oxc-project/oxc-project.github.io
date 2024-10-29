@@ -100,7 +100,7 @@ See [Configuration File](./linter/config)
 
 ### ESLint
 
-If you are looking for a way to use oxlint in projects that still need ESLint, You can use [eslint-plugin-oxlint](https://github.com/oxc-project/eslint-plugin-oxlint) to turn off ESLint rules that are already supported by oxlint. So you can enjoy the speed of oxlint while still using ESLint.
+If you are looking for a way to use oxlint in projects that still need ESLint, you can use [eslint-plugin-oxlint](https://github.com/oxc-project/eslint-plugin-oxlint) to turn off ESLint rules that are already supported by oxlint. So you can enjoy the speed of oxlint while still using ESLint.
 
 ### lint-staged
 
@@ -125,7 +125,7 @@ https://zed.dev/extensions?q=oxc
 
 ### Continuous Integration
 
-Since `oxlint` only takes a few seconds to run, we recommend running `oxlint` prior to ESLint for faster feedback loops.
+Since `oxlint` only takes a few seconds to run, we recommend running `oxlint` before ESLint for faster feedback loops.
 
 #### GitHub Actions
 
