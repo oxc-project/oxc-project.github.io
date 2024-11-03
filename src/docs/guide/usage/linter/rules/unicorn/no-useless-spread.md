@@ -7,7 +7,7 @@
 <span class="emoji">✅</span> This rule is turned on by default.
 </Alert>
 <Alert class="fix" type="info">
-<span class="emoji">🛠️</span> An auto-fix is available for this rule for some violations.
+<span class="emoji">⚠️🛠️️</span> A dangerous auto-fix is available for this rule.
 </Alert>
 </div>
 
