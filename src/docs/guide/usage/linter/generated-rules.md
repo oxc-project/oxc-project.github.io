@@ -2,7 +2,7 @@
 
 The progress of all rule implementations is tracked [here](https://github.com/oxc-project/oxc/issues/481).
 
-- Total number of rules: 441
+- Total number of rules: 445
 - Rules turned on by default: 97
 
 ## Correctness (172):
@@ -177,7 +177,7 @@ Code that is outright wrong or useless.
 | [no-unnecessary-await](/docs/guide/usage/linter/rules/unicorn/no-unnecessary-await.html) | unicorn | ✅ | 🛠️ |
 | [no-useless-fallback-in-spread](/docs/guide/usage/linter/rules/unicorn/no-useless-fallback-in-spread.html) | unicorn | ✅ | 🛠️ |
 | [no-useless-length-check](/docs/guide/usage/linter/rules/unicorn/no-useless-length-check.html) | unicorn | ✅ | 🚧 |
-| [no-useless-spread](/docs/guide/usage/linter/rules/unicorn/no-useless-spread.html) | unicorn | ✅ | 🛠️ |
+| [no-useless-spread](/docs/guide/usage/linter/rules/unicorn/no-useless-spread.html) | unicorn | ✅ | ⚠️🛠️️ |
 | [prefer-set-size](/docs/guide/usage/linter/rules/unicorn/prefer-set-size.html) | unicorn | ✅ | 🛠️ |
 | [prefer-string-starts-ends-with](/docs/guide/usage/linter/rules/unicorn/prefer-string-starts-ends-with.html) | unicorn | ✅ | 🛠️ |
 | [no-conditional-tests](/docs/guide/usage/linter/rules/vitest/no-conditional-tests.html) | vitest | | |
@@ -195,7 +195,7 @@ Code that can be written to run faster.
 | [jsx-no-new-function-as-prop](/docs/guide/usage/linter/rules/react_perf/jsx-no-new-function-as-prop.html) | react_perf | | |
 | [jsx-no-new-object-as-prop](/docs/guide/usage/linter/rules/react_perf/jsx-no-new-object-as-prop.html) | react_perf | | |
 
-## Restriction (57):
+## Restriction (58):
 
 Lints which prevent the use of language and library features. Must not be enabled as a whole, should be considered on a case-by-case basis before enabling.
 | Rule name | Source | Default | Fixable? |
@@ -219,6 +219,7 @@ Lints which prevent the use of language and library features. Must not be enable
 | [no-void](/docs/guide/usage/linter/rules/eslint/no-void.html) | eslint | | 🚧 |
 | [unicode-bom](/docs/guide/usage/linter/rules/eslint/unicode-bom.html) | eslint | | 🛠️ |
 | [no-amd](/docs/guide/usage/linter/rules/import/no-amd.html) | import | | |
+| [no-commonjs](/docs/guide/usage/linter/rules/import/no-commonjs.html) | import | | |
 | [no-cycle](/docs/guide/usage/linter/rules/import/no-cycle.html) | import | | |
 | [no-default-export](/docs/guide/usage/linter/rules/import/no-default-export.html) | import | | |
 | [no-dynamic-require](/docs/guide/usage/linter/rules/import/no-dynamic-require.html) | import | | |
@@ -258,7 +259,7 @@ Lints which prevent the use of language and library features. Must not be enable
 | [prefer-node-protocol](/docs/guide/usage/linter/rules/unicorn/prefer-node-protocol.html) | unicorn | | 🛠️ |
 | [prefer-number-properties](/docs/guide/usage/linter/rules/unicorn/prefer-number-properties.html) | unicorn | | 🚧 |
 
-## Suspicious (21):
+## Suspicious (22):
 
 code that is most likely wrong or useless.
 | Rule name | Source | Default | Fixable? |
@@ -279,6 +280,7 @@ code that is most likely wrong or useless.
 | [iframe-missing-sandbox](/docs/guide/usage/linter/rules/react/iframe-missing-sandbox.html) | react | | 🚧 |
 | [jsx-no-comment-textnodes](/docs/guide/usage/linter/rules/react/jsx-no-comment-textnodes.html) | react | | |
 | [react-in-jsx-scope](/docs/guide/usage/linter/rules/react/react-in-jsx-scope.html) | react | | |
+| [style-prop-object](/docs/guide/usage/linter/rules/react/style-prop-object.html) | react | | |
 | [no-confusing-non-null-assertion](/docs/guide/usage/linter/rules/typescript/no-confusing-non-null-assertion.html) | typescript | | 🚧 |
 | [no-extraneous-class](/docs/guide/usage/linter/rules/typescript/no-extraneous-class.html) | typescript | | |
 | [no-unnecessary-type-constraint](/docs/guide/usage/linter/rules/typescript/no-unnecessary-type-constraint.html) | typescript | | |
@@ -363,7 +365,7 @@ Lints which are rather strict or have occasional false positives.
 | [prefer-type-error](/docs/guide/usage/linter/rules/unicorn/prefer-type-error.html) | unicorn | | 🛠️ |
 | [require-number-to-fixed-digits-argument](/docs/guide/usage/linter/rules/unicorn/require-number-to-fixed-digits-argument.html) | unicorn | | 🛠️ |
 
-## Style (103):
+## Style (104):
 
 Code that should be written in a more idiomatic way.
 | Rule name | Source | Default | Fixable? |
@@ -384,6 +386,7 @@ Code that should be written in a more idiomatic way.
 | [no-ternary](/docs/guide/usage/linter/rules/eslint/no-ternary.html) | eslint | | |
 | [prefer-exponentiation-operator](/docs/guide/usage/linter/rules/eslint/prefer-exponentiation-operator.html) | eslint | | |
 | [prefer-numeric-literals](/docs/guide/usage/linter/rules/eslint/prefer-numeric-literals.html) | eslint | | 🛠️ |
+| [prefer-object-has-own](/docs/guide/usage/linter/rules/eslint/prefer-object-has-own.html) | eslint | | 🛠️ |
 | [sort-imports](/docs/guide/usage/linter/rules/eslint/sort-imports.html) | eslint | | 🛠️ |
 | [sort-keys](/docs/guide/usage/linter/rules/eslint/sort-keys.html) | eslint | | 🚧 |
 | [consistent-test-it](/docs/guide/usage/linter/rules/jest/consistent-test-it.html) | jest | | 🛠️ |
@@ -472,7 +475,7 @@ Code that should be written in a more idiomatic way.
 | [prefer-to-be-object](/docs/guide/usage/linter/rules/vitest/prefer-to-be-object.html) | vitest | | 🛠️ |
 | [prefer-to-be-truthy](/docs/guide/usage/linter/rules/vitest/prefer-to-be-truthy.html) | vitest | | 🛠️ |
 
-## Nursery (10):
+## Nursery (11):
 
 New lints that are still under development.
 | Rule name | Source | Default | Fixable? |
@@ -482,6 +485,7 @@ New lints that are still under development.
 | [no-undef](/docs/guide/usage/linter/rules/eslint/no-undef.html) | eslint | | |
 | [no-unreachable](/docs/guide/usage/linter/rules/eslint/no-unreachable.html) | eslint | | |
 | [export](/docs/guide/usage/linter/rules/import/export.html) | import | | |
+| [no-map-spread](/docs/guide/usage/linter/rules/oxc/no-map-spread.html) | oxc | | 🛠️💡 |
 | [no-return-in-finally](/docs/guide/usage/linter/rules/promise/no-return-in-finally.html) | promise | | |
 | [require-render-return](/docs/guide/usage/linter/rules/react/require-render-return.html) | react | | |
 | [rules-of-hooks](/docs/guide/usage/linter/rules/react/rules-of-hooks.html) | react | | |
