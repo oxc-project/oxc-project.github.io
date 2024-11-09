@@ -2,7 +2,7 @@
 
 The progress of all rule implementations is tracked [here](https://github.com/oxc-project/oxc/issues/481).
 
-- Total number of rules: 445
+- Total number of rules: 448
 - Rules turned on by default: 97
 
 ## Correctness (172):
@@ -195,7 +195,7 @@ Code that can be written to run faster.
 | [jsx-no-new-function-as-prop](/docs/guide/usage/linter/rules/react_perf/jsx-no-new-function-as-prop.html) | react_perf | | |
 | [jsx-no-new-object-as-prop](/docs/guide/usage/linter/rules/react_perf/jsx-no-new-object-as-prop.html) | react_perf | | |
 
-## Restriction (58):
+## Restriction (59):
 
 Lints which prevent the use of language and library features. Must not be enabled as a whole, should be considered on a case-by-case basis before enabling.
 | Rule name | Source | Default | Fixable? |
@@ -224,6 +224,7 @@ Lints which prevent the use of language and library features. Must not be enable
 | [no-default-export](/docs/guide/usage/linter/rules/import/no-default-export.html) | import | | |
 | [no-dynamic-require](/docs/guide/usage/linter/rules/import/no-dynamic-require.html) | import | | |
 | [no-webpack-loader-syntax](/docs/guide/usage/linter/rules/import/no-webpack-loader-syntax.html) | import | | |
+| [unambiguous](/docs/guide/usage/linter/rules/import/unambiguous.html) | import | | |
 | [check-access](/docs/guide/usage/linter/rules/jsdoc/check-access.html) | jsdoc | | |
 | [empty-tags](/docs/guide/usage/linter/rules/jsdoc/empty-tags.html) | jsdoc | | |
 | [no-new-require](/docs/guide/usage/linter/rules/node/no-new-require.html) | node | | |
@@ -287,7 +288,7 @@ code that is most likely wrong or useless.
 | [consistent-function-scoping](/docs/guide/usage/linter/rules/unicorn/consistent-function-scoping.html) | unicorn | | 🚧 |
 | [prefer-add-event-listener](/docs/guide/usage/linter/rules/unicorn/prefer-add-event-listener.html) | unicorn | | 🚧 |
 
-## Pedantic (72):
+## Pedantic (73):
 
 Lints which are rather strict or have occasional false positives.
 | Rule name | Source | Default | Fixable? |
@@ -325,6 +326,7 @@ Lints which are rather strict or have occasional false positives.
 | [no-unescaped-entities](/docs/guide/usage/linter/rules/react/no-unescaped-entities.html) | react | | |
 | [ban-ts-comment](/docs/guide/usage/linter/rules/typescript/ban-ts-comment.html) | typescript | | 🛠️ |
 | [ban-types](/docs/guide/usage/linter/rules/typescript/ban-types.html) | typescript | | 🚧 |
+| [no-unsafe-function-type](/docs/guide/usage/linter/rules/typescript/no-unsafe-function-type.html) | typescript | | |
 | [prefer-enum-initializers](/docs/guide/usage/linter/rules/typescript/prefer-enum-initializers.html) | typescript | | 🚧 |
 | [prefer-ts-expect-error](/docs/guide/usage/linter/rules/typescript/prefer-ts-expect-error.html) | typescript | | 🛠️ |
 | [consistent-empty-array-spread](/docs/guide/usage/linter/rules/unicorn/consistent-empty-array-spread.html) | unicorn | | 💡 |
@@ -365,7 +367,7 @@ Lints which are rather strict or have occasional false positives.
 | [prefer-type-error](/docs/guide/usage/linter/rules/unicorn/prefer-type-error.html) | unicorn | | 🛠️ |
 | [require-number-to-fixed-digits-argument](/docs/guide/usage/linter/rules/unicorn/require-number-to-fixed-digits-argument.html) | unicorn | | 🛠️ |
 
-## Style (104):
+## Style (105):
 
 Code that should be written in a more idiomatic way.
 | Rule name | Source | Default | Fixable? |
@@ -389,6 +391,7 @@ Code that should be written in a more idiomatic way.
 | [prefer-object-has-own](/docs/guide/usage/linter/rules/eslint/prefer-object-has-own.html) | eslint | | 🛠️ |
 | [sort-imports](/docs/guide/usage/linter/rules/eslint/sort-imports.html) | eslint | | 🛠️ |
 | [sort-keys](/docs/guide/usage/linter/rules/eslint/sort-keys.html) | eslint | | 🚧 |
+| [first](/docs/guide/usage/linter/rules/import/first.html) | import | | 🚧 |
 | [consistent-test-it](/docs/guide/usage/linter/rules/jest/consistent-test-it.html) | jest | | 🛠️ |
 | [max-expects](/docs/guide/usage/linter/rules/jest/max-expects.html) | jest | | |
 | [max-nested-describe](/docs/guide/usage/linter/rules/jest/max-nested-describe.html) | jest | | |
