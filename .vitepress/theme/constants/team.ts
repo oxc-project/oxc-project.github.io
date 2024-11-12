@@ -1,10 +1,10 @@
 import type { DefaultTheme } from "vitepress";
 
-export type TeamMember = CoreTeamMember | CommunityTeamMember | Consultant;
+export type TeamMember = CoreTeamMember | Emeriti | CommunityTeamMember | Consultant;
 
 interface TeamMemberBase extends DefaultTheme.TeamMember {
   id: string;
-  type: "core" | "community" | "consultant";
+  type: "core" | "emeriti" | "community" | "consultant";
 }
 
 export interface CoreTeamMember extends TeamMemberBase {
@@ -17,6 +17,10 @@ export interface CommunityTeamMember extends TeamMemberBase {
 
 export interface Consultant extends TeamMemberBase {
   type: "consultant";
+}
+
+export interface Emeriti extends TeamMemberBase {
+  type: "emeriti";
 }
 
 export const CORE_MEMBERS: TeamMember[] = [
@@ -85,7 +89,7 @@ export const CORE_MEMBERS: TeamMember[] = [
   },
   {
     id: "mysteryven",
-    type: "core",
+    type: "emeriti",
     name: "Mysteryven",
     title: "Member",
     avatar: "https://www.github.com/mysteryven.png",
@@ -146,8 +150,10 @@ export const CORE_MEMBERS: TeamMember[] = [
 
 export const CORE_TEAM_MEMBERS = CORE_MEMBERS.filter(({ type }) => type === "core") as CoreTeamMember[];
 
+export const CONSULTANTS = CORE_MEMBERS.filter(({ type }) => type === "consultant") as Consultant[];
+
+export const EMERITI = CORE_MEMBERS.filter(({ type }) => type === "emeriti") as Emeriti[];
+
 export const TEAM_MEMBERS_MAP: Record<TeamMember["id"], TeamMember> = Object.fromEntries(
   CORE_MEMBERS.map(({ id, ...rest }) => [id, { id, ...rest }]),
 );
-
-export const CONSULTANTS = CORE_MEMBERS.filter(({ type }) => type === "consultant") as Consultant[];
