@@ -106,6 +106,17 @@ export const CORE_MEMBERS: TeamMember[] = [
     ],
   },
   {
+    id: "camchenry",
+    type: "core",
+    name: "Cam McHenry",
+    title: "Member",
+    avatar: "https://www.github.com/camchenry.png",
+    links: [
+      { icon: "github", link: "https://github.com/camchenry" },
+      { icon: "twitter", link: "https://x.com/cammchenry" },
+    ],
+  },
+  {
     id: "ematipico",
     type: "consultant",
     name: "Emanuele",
