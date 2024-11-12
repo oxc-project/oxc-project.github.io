@@ -112,7 +112,7 @@ export const CORE_MEMBERS: TeamMember[] = [
   {
     id: "camchenry",
     type: "core",
-    name: "Cam McHenry",
+    name: "Cam",
     title: "Member",
     avatar: "https://www.github.com/camchenry.png",
     links: [
