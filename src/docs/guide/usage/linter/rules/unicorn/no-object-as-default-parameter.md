@@ -29,4 +29,4 @@ function foo({ a = false } = {}) {}
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/unicorn/no_object_as_default_parameter.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/5190b7fb280dcd15c6de81717c073b06a161ced6/crates/oxc_linter/src/rules/unicorn/no_object_as_default_parameter.rs)

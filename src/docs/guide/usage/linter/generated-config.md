@@ -17,7 +17,7 @@ Example
 ```json
 {
   "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["import", "unicorn"],
+  "plugins": ["import", "typescript", "unicorn"],
   "env": {
     "browser": true
   },
@@ -28,7 +28,15 @@ Example
   "rules": {
     "eqeqeq": "warn",
     "import/no-cycle": "error"
-  }
+  },
+  "overrides": [
+    {
+      "files": ["*.test.ts", "*.spec.ts"],
+      "rules": {
+        "@typescript-eslint/no-explicit-any": "off"
+      }
+    }
+  ]
 }
 ```
 
@@ -99,6 +107,24 @@ Globals can be disabled by setting their value to `"off"`. For example, in an en
 ```
 
 You may also use `"readable"` or `false` to represent `"readonly"`, and `"writeable"` or `true` to represent `"writable"`.
+
+## overrides
+
+type: `array`
+
+### overrides[n]
+
+type: `object`
+
+#### overrides[n].files
+
+type: `string[]`
+
+#### overrides[n].rules
+
+type: `object`
+
+See [Oxlint Rules](https://oxc.rs/docs/guide/usage/linter/rules.html)
 
 ## plugins
 

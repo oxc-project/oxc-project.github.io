@@ -46,7 +46,7 @@ solution/architecture for your use case.
 One possible alternative is to store secrets in a secure secrets manager
 (such as [AWS
 KMS](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kms/),
-[HashiCorp Vault](https://github.com/nodevault/node-vault/tree/master),
+[HashiCorp Vault](https://github.com/nodevault/node-vault/tree/v0.10.2),
 [Pangea](https://pangea.cloud/docs/sdk/js/vault#retrieve), etc.) and
 request them when your application starts (e.g. a Docker container, an
 EC2).
@@ -69,4 +69,4 @@ const OPENAI_API_KEY = await getSecret("open-ai-api-key");
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/security/api_keys/mod.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/5190b7fb280dcd15c6de81717c073b06a161ced6/crates/oxc_linter/src/rules/security/api_keys/mod.rs)
