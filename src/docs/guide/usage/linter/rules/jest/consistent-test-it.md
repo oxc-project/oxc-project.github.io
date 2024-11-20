@@ -75,7 +75,7 @@ Decides whether to use `test` or `it`.
 
 Decides whether to use `test` or `it` within a `describe` scope.
 
-This rule is compatible with [eslint-plugin-vitest](https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/consistent-test-it.md),
+This rule is compatible with [eslint-plugin-vitest](https://github.com/veritem/eslint-plugin-vitest/blob/v1.1.9/docs/rules/consistent-test-it.md),
 to use it, add the following configuration to your `.eslintrc.json`:
 
 ```json
@@ -87,5 +87,5 @@ to use it, add the following configuration to your `.eslintrc.json`:
 
 
 ## References
-- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/jest/consistent_test_it.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/5190b7fb280dcd15c6de81717c073b06a161ced6/crates/oxc_linter/src/rules/jest/consistent_test_it.rs)
 ```

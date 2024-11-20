@@ -28,7 +28,7 @@ describe("baz", () => {
 });
 ```
 
-This rule is compatible with [eslint-plugin-vitest](https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/no-identical-title.md),
+This rule is compatible with [eslint-plugin-vitest](https://github.com/veritem/eslint-plugin-vitest/blob/v1.1.9/docs/rules/no-identical-title.md),
 to use it, add the following configuration to your `.eslintrc.json`:
 
 ```json
@@ -41,4 +41,4 @@ to use it, add the following configuration to your `.eslintrc.json`:
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules/jest/no_identical_title.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/5190b7fb280dcd15c6de81717c073b06a161ced6/crates/oxc_linter/src/rules/jest/no_identical_title.rs)
