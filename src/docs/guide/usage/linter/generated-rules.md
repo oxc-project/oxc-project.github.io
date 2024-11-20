@@ -2,7 +2,7 @@
 
 The progress of all rule implementations is tracked [here](https://github.com/oxc-project/oxc/issues/481).
 
-- Total number of rules: 448
+- Total number of rules: 453
 - Rules turned on by default: 97
 
 ## Correctness (172):
@@ -195,7 +195,7 @@ Code that can be written to run faster.
 | [jsx-no-new-function-as-prop](/docs/guide/usage/linter/rules/react_perf/jsx-no-new-function-as-prop.html) | react_perf | | |
 | [jsx-no-new-object-as-prop](/docs/guide/usage/linter/rules/react_perf/jsx-no-new-object-as-prop.html) | react_perf | | |
 
-## Restriction (59):
+## Restriction (60):
 
 Lints which prevent the use of language and library features. Must not be enabled as a whole, should be considered on a case-by-case basis before enabling.
 | Rule name | Source | Default | Fixable? |
@@ -241,6 +241,7 @@ Lints which prevent the use of language and library features. Must not be enable
 | [no-unknown-property](/docs/guide/usage/linter/rules/react/no-unknown-property.html) | react | | 🚧 |
 | [explicit-function-return-type](/docs/guide/usage/linter/rules/typescript/explicit-function-return-type.html) | typescript | | |
 | [no-dynamic-delete](/docs/guide/usage/linter/rules/typescript/no-dynamic-delete.html) | typescript | | |
+| [no-empty-object-type](/docs/guide/usage/linter/rules/typescript/no-empty-object-type.html) | typescript | | |
 | [no-explicit-any](/docs/guide/usage/linter/rules/typescript/no-explicit-any.html) | typescript | | 🛠️ |
 | [no-import-type-side-effects](/docs/guide/usage/linter/rules/typescript/no-import-type-side-effects.html) | typescript | | 🛠️ |
 | [no-namespace](/docs/guide/usage/linter/rules/typescript/no-namespace.html) | typescript | | |
@@ -367,7 +368,7 @@ Lints which are rather strict or have occasional false positives.
 | [prefer-type-error](/docs/guide/usage/linter/rules/unicorn/prefer-type-error.html) | unicorn | | 🛠️ |
 | [require-number-to-fixed-digits-argument](/docs/guide/usage/linter/rules/unicorn/require-number-to-fixed-digits-argument.html) | unicorn | | 🛠️ |
 
-## Style (105):
+## Style (108):
 
 Code that should be written in a more idiomatic way.
 | Rule name | Source | Default | Fixable? |
@@ -392,6 +393,7 @@ Code that should be written in a more idiomatic way.
 | [sort-imports](/docs/guide/usage/linter/rules/eslint/sort-imports.html) | eslint | | 🛠️ |
 | [sort-keys](/docs/guide/usage/linter/rules/eslint/sort-keys.html) | eslint | | 🚧 |
 | [first](/docs/guide/usage/linter/rules/import/first.html) | import | | 🚧 |
+| [import-no-namespace](/docs/guide/usage/linter/rules/import/import-no-namespace.html) | import | | 🚧 |
 | [consistent-test-it](/docs/guide/usage/linter/rules/jest/consistent-test-it.html) | jest | | 🛠️ |
 | [max-expects](/docs/guide/usage/linter/rules/jest/max-expects.html) | jest | | |
 | [max-nested-describe](/docs/guide/usage/linter/rules/jest/max-nested-describe.html) | jest | | |
@@ -448,6 +450,7 @@ Code that should be written in a more idiomatic way.
 | [prefer-function-type](/docs/guide/usage/linter/rules/typescript/prefer-function-type.html) | typescript | | 🛠️ |
 | [prefer-namespace-keyword](/docs/guide/usage/linter/rules/typescript/prefer-namespace-keyword.html) | typescript | | 🛠️ |
 | [catch-error-name](/docs/guide/usage/linter/rules/unicorn/catch-error-name.html) | unicorn | | 🚧 |
+| [consistent-existence-index-check](/docs/guide/usage/linter/rules/unicorn/consistent-existence-index-check.html) | unicorn | | 🛠️ |
 | [empty-brace-spaces](/docs/guide/usage/linter/rules/unicorn/empty-brace-spaces.html) | unicorn | | 🛠️ |
 | [error-message](/docs/guide/usage/linter/rules/unicorn/error-message.html) | unicorn | | |
 | [filename-case](/docs/guide/usage/linter/rules/unicorn/filename-case.html) | unicorn | | |
@@ -466,6 +469,7 @@ Code that should be written in a more idiomatic way.
 | [prefer-optional-catch-binding](/docs/guide/usage/linter/rules/unicorn/prefer-optional-catch-binding.html) | unicorn | | 🛠️ |
 | [prefer-reflect-apply](/docs/guide/usage/linter/rules/unicorn/prefer-reflect-apply.html) | unicorn | | |
 | [prefer-spread](/docs/guide/usage/linter/rules/unicorn/prefer-spread.html) | unicorn | | 🛠️ |
+| [prefer-string-raw](/docs/guide/usage/linter/rules/unicorn/prefer-string-raw.html) | unicorn | | 🛠️ |
 | [prefer-string-trim-start-end](/docs/guide/usage/linter/rules/unicorn/prefer-string-trim-start-end.html) | unicorn | | 🛠️ |
 | [prefer-structured-clone](/docs/guide/usage/linter/rules/unicorn/prefer-structured-clone.html) | unicorn | | 🚧 |
 | [require-array-join-separator](/docs/guide/usage/linter/rules/unicorn/require-array-join-separator.html) | unicorn | | 🛠️ |
@@ -478,7 +482,7 @@ Code that should be written in a more idiomatic way.
 | [prefer-to-be-object](/docs/guide/usage/linter/rules/vitest/prefer-to-be-object.html) | vitest | | 🛠️ |
 | [prefer-to-be-truthy](/docs/guide/usage/linter/rules/vitest/prefer-to-be-truthy.html) | vitest | | 🛠️ |
 
-## Nursery (11):
+## Nursery (12):
 
 New lints that are still under development.
 | Rule name | Source | Default | Fixable? |
@@ -490,6 +494,7 @@ New lints that are still under development.
 | [export](/docs/guide/usage/linter/rules/import/export.html) | import | | |
 | [no-map-spread](/docs/guide/usage/linter/rules/oxc/no-map-spread.html) | oxc | | 🛠️💡 |
 | [no-return-in-finally](/docs/guide/usage/linter/rules/promise/no-return-in-finally.html) | promise | | |
+| [exhaustive-deps](/docs/guide/usage/linter/rules/react/exhaustive-deps.html) | react | | |
 | [require-render-return](/docs/guide/usage/linter/rules/react/require-render-return.html) | react | | |
 | [rules-of-hooks](/docs/guide/usage/linter/rules/react/rules-of-hooks.html) | react | | |
 | [no-side-effects-in-initialization](/docs/guide/usage/linter/rules/tree_shaking/no-side-effects-in-initialization.html) | tree_shaking | | |
