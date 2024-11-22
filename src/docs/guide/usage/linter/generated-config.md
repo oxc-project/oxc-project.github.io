@@ -142,7 +142,35 @@ See [Oxlint Rules](https://oxc.rs/docs/guide/usage/linter/rules.html)
 
 type: `object`
 
-Shared settings for plugins
+Configure the behavior of linter plugins.
+
+## Example
+
+Here's an example if you're using Next.js in a monorepo:
+
+```json
+{
+  "settings": {
+    "next": {
+      "rootDir": "apps/dashboard/"
+    },
+    "react": {
+      "linkComponents": [
+        {
+          "name": "Link",
+          "linkAttribute": "to"
+        }
+      ]
+    },
+    "jsx-a11y": {
+      "components": {
+        "Link": "a",
+        "Button": "button"
+      }
+    }
+  }
+}
+```
 
 ### settings.jsdoc
 
@@ -214,11 +242,21 @@ default: `{}`
 
 type: `object`
 
+Configure JSX A11y plugin rules.
+
+See [eslint-plugin-jsx-a11y](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y#configurations)'s configuration for a full reference.
+
 #### settings.jsx-a11y.components
 
 type: `Record<string, string>`
 
 default: `{}`
+
+To have your custom components be checked as DOM elements, you can provide a mapping of your component names to the DOM element name.
+
+## Example
+
+`json { "settings": { "jsx-a11y": { "components": { "Link": "a", "IconButton": "button" } } } } `
 
 #### settings.jsx-a11y.polymorphicPropName
 
@@ -227,9 +265,19 @@ type: `[
   null
 ]`
 
+An optional setting that define the prop your code uses to create polymorphic components. This setting will be used to determine the element type in rules that require semantic context.
+
+For example, if you set the `polymorphicPropName` to `as`, then this element:
+
+`jsx <Box as="h3">Hello</Box> `
+
+Will be treated as an `h3`. If not set, this component will be treated as a `Box`.
+
 ### settings.next
 
 type: `object`
+
+Configure Next.js plugin rules.
 
 #### settings.next.rootDir
 
@@ -237,11 +285,21 @@ type: `object`
 
 type: `object`
 
+Configure React plugin rules.
+
+Derived from [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react#configuration-legacy-eslintrc-)
+
 #### settings.react.formComponents
 
 type: `array`
 
 default: `[]`
+
+Components used as alternatives to `<form>` for forms, such as `<Formik>`.
+
+## Example
+
+`jsonc { "settings": { "react": { "formComponents": [ "CustomForm", // OtherForm is considered a form component and has an endpoint attribute { "name": "OtherForm", "formAttribute": "endpoint" }, // allows specifying multiple properties if necessary { "name": "Form", "formAttribute": ["registerEndpoint", "loginEndpoint"] } ] } } } `
 
 ##### settings.react.formComponents[n]
 
@@ -250,5 +308,11 @@ default: `[]`
 type: `array`
 
 default: `[]`
+
+Components used as alternatives to `<a>` for linking, such as `<Link>`.
+
+## Example
+
+``jsonc { "settings": { "react": { "linkComponents": [ "HyperLink", // Use `linkAttribute` for components that use a different prop name // than `href`. { "name": "MyLink", "linkAttribute": "to" }, // allows specifying multiple properties if necessary { "name": "Link", "linkAttribute": ["to", "href"] } ] } } } ``
 
 ##### settings.react.linkComponents[n]
