@@ -2,7 +2,7 @@
 
 The progress of all rule implementations is tracked [here](https://github.com/oxc-project/oxc/issues/481).
 
-- Total number of rules: 453
+- Total number of rules: 454
 - Rules turned on by default: 97
 
 ## Correctness (172):
@@ -183,19 +183,20 @@ Code that is outright wrong or useless.
 | [no-conditional-tests](/docs/guide/usage/linter/rules/vitest/no-conditional-tests.html) | vitest | | |
 | [require-local-test-context-for-concurrent-snapshots](/docs/guide/usage/linter/rules/vitest/require-local-test-context-for-concurrent-snapshots.html) | vitest | | 🚧 |
 
-## Perf (6):
+## Perf (7):
 
 Code that can be written to run faster.
 | Rule name | Source | Default | Fixable? |
 | --------------------------- | ---------- | ------- | -------- |
 | [no-await-in-loop](/docs/guide/usage/linter/rules/eslint/no-await-in-loop.html) | eslint | | |
 | [no-accumulating-spread](/docs/guide/usage/linter/rules/oxc/no-accumulating-spread.html) | oxc | | |
+| [no-array-index-key](/docs/guide/usage/linter/rules/react/no-array-index-key.html) | react | | |
 | [jsx-no-jsx-as-prop](/docs/guide/usage/linter/rules/react_perf/jsx-no-jsx-as-prop.html) | react_perf | | |
 | [jsx-no-new-array-as-prop](/docs/guide/usage/linter/rules/react_perf/jsx-no-new-array-as-prop.html) | react_perf | | |
 | [jsx-no-new-function-as-prop](/docs/guide/usage/linter/rules/react_perf/jsx-no-new-function-as-prop.html) | react_perf | | |
 | [jsx-no-new-object-as-prop](/docs/guide/usage/linter/rules/react_perf/jsx-no-new-object-as-prop.html) | react_perf | | |
 
-## Restriction (60):
+## Restriction (61):
 
 Lints which prevent the use of language and library features. Must not be enabled as a whole, should be considered on a case-by-case basis before enabling.
 | Rule name | Source | Default | Fixable? |
@@ -203,7 +204,7 @@ Lints which prevent the use of language and library features. Must not be enable
 | [default-case](/docs/guide/usage/linter/rules/eslint/default-case.html) | eslint | | |
 | [no-alert](/docs/guide/usage/linter/rules/eslint/no-alert.html) | eslint | | |
 | [no-bitwise](/docs/guide/usage/linter/rules/eslint/no-bitwise.html) | eslint | | |
-| [no-console](/docs/guide/usage/linter/rules/eslint/no-console.html) | eslint | | |
+| [no-console](/docs/guide/usage/linter/rules/eslint/no-console.html) | eslint | | 💡 |
 | [no-div-regex](/docs/guide/usage/linter/rules/eslint/no-div-regex.html) | eslint | | 🛠️ |
 | [no-empty](/docs/guide/usage/linter/rules/eslint/no-empty.html) | eslint | | 💡 |
 | [no-empty-function](/docs/guide/usage/linter/rules/eslint/no-empty-function.html) | eslint | | |
@@ -247,6 +248,7 @@ Lints which prevent the use of language and library features. Must not be enable
 | [no-namespace](/docs/guide/usage/linter/rules/typescript/no-namespace.html) | typescript | | |
 | [no-non-null-asserted-nullish-coalescing](/docs/guide/usage/linter/rules/typescript/no-non-null-asserted-nullish-coalescing.html) | typescript | | |
 | [no-non-null-assertion](/docs/guide/usage/linter/rules/typescript/no-non-null-assertion.html) | typescript | | |
+| [no-require-imports](/docs/guide/usage/linter/rules/typescript/no-require-imports.html) | typescript | | 🚧 |
 | [no-var-requires](/docs/guide/usage/linter/rules/typescript/no-var-requires.html) | typescript | | |
 | [prefer-literal-enum-member](/docs/guide/usage/linter/rules/typescript/prefer-literal-enum-member.html) | typescript | | |
 | [no-abusive-eslint-disable](/docs/guide/usage/linter/rules/unicorn/no-abusive-eslint-disable.html) | unicorn | | |
@@ -482,11 +484,11 @@ Code that should be written in a more idiomatic way.
 | [prefer-to-be-object](/docs/guide/usage/linter/rules/vitest/prefer-to-be-object.html) | vitest | | 🛠️ |
 | [prefer-to-be-truthy](/docs/guide/usage/linter/rules/vitest/prefer-to-be-truthy.html) | vitest | | 🛠️ |
 
-## Nursery (12):
+## Nursery (11):
 
 New lints that are still under development.
 | Rule name | Source | Default | Fixable? |
-| --------------------------------- | ------------ | ------- | -------- |
+| ----------------------- | ---------- | ------- | -------- |
 | [constructor-super](/docs/guide/usage/linter/rules/eslint/constructor-super.html) | eslint | | |
 | [getter-return](/docs/guide/usage/linter/rules/eslint/getter-return.html) | eslint | | |
 | [no-undef](/docs/guide/usage/linter/rules/eslint/no-undef.html) | eslint | | |
@@ -497,5 +499,4 @@ New lints that are still under development.
 | [exhaustive-deps](/docs/guide/usage/linter/rules/react/exhaustive-deps.html) | react | | |
 | [require-render-return](/docs/guide/usage/linter/rules/react/require-render-return.html) | react | | |
 | [rules-of-hooks](/docs/guide/usage/linter/rules/react/rules-of-hooks.html) | react | | |
-| [no-side-effects-in-initialization](/docs/guide/usage/linter/rules/tree_shaking/no-side-effects-in-initialization.html) | tree_shaking | | |
 | [consistent-type-imports](/docs/guide/usage/linter/rules/typescript/consistent-type-imports.html) | typescript | | 🛠️ |

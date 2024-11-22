@@ -32,4 +32,4 @@ withSpaces.replaceAll(/\s+/g, ",");
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/5190b7fb280dcd15c6de81717c073b06a161ced6/crates/oxc_linter/src/rules/oxc/bad_replace_all_arg.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/e91c2878d8c49213790df4d192bb3136503aa08b/crates/oxc_linter/src/rules/oxc/bad_replace_all_arg.rs)
