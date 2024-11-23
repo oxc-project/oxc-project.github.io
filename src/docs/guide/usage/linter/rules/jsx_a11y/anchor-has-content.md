@@ -38,4 +38,4 @@ Alternatively, you may use the `title` prop or the `aria-label` prop.
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/e91c2878d8c49213790df4d192bb3136503aa08b/crates/oxc_linter/src/rules/jsx_a11y/anchor_has_content.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/4bb1dca6730cf630cc8c53db2bfd03f2d0f3dd8f/crates/oxc_linter/src/rules/jsx_a11y/anchor_has_content.rs)
