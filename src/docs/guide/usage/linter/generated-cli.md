@@ -10,6 +10,8 @@
 * only `.json` extension is supported
 * tries to be compatible with the ESLint v8's format
 
+  If not provided, Oxlint will look for `.oxlintrc.json` in the current working directory.
+
 - **`    --tsconfig`**=_`<./tsconfig.json>`_ &mdash;
   TypeScript `tsconfig.json` path for reading path alias and project references for import plugin
 

@@ -2,7 +2,7 @@
 
 The progress of all rule implementations is tracked [here](https://github.com/oxc-project/oxc/issues/481).
 
-- Total number of rules: 454
+- Total number of rules: 455
 - Rules turned on by default: 97
 
 ## Correctness (172):
@@ -263,7 +263,7 @@ Lints which prevent the use of language and library features. Must not be enable
 | [prefer-node-protocol](/docs/guide/usage/linter/rules/unicorn/prefer-node-protocol.html) | unicorn | | 🛠️ |
 | [prefer-number-properties](/docs/guide/usage/linter/rules/unicorn/prefer-number-properties.html) | unicorn | | 🚧 |
 
-## Suspicious (22):
+## Suspicious (23):
 
 code that is most likely wrong or useless.
 | Rule name | Source | Default | Fixable? |
@@ -281,6 +281,7 @@ code that is most likely wrong or useless.
 | [approx-constant](/docs/guide/usage/linter/rules/oxc/approx-constant.html) | oxc | | |
 | [misrefactored-assign-op](/docs/guide/usage/linter/rules/oxc/misrefactored-assign-op.html) | oxc | | 🚧 |
 | [no-async-endpoint-handlers](/docs/guide/usage/linter/rules/oxc/no-async-endpoint-handlers.html) | oxc | | |
+| [no-promise-in-callback](/docs/guide/usage/linter/rules/promise/no-promise-in-callback.html) | promise | | |
 | [iframe-missing-sandbox](/docs/guide/usage/linter/rules/react/iframe-missing-sandbox.html) | react | | 🚧 |
 | [jsx-no-comment-textnodes](/docs/guide/usage/linter/rules/react/jsx-no-comment-textnodes.html) | react | | |
 | [react-in-jsx-scope](/docs/guide/usage/linter/rules/react/react-in-jsx-scope.html) | react | | |
