@@ -2,7 +2,7 @@
 
 The progress of all rule implementations is tracked [here](https://github.com/oxc-project/oxc/issues/481).
 
-- Total number of rules: 455
+- Total number of rules: 461
 - Rules turned on by default: 97
 
 ## Correctness (172):
@@ -183,7 +183,7 @@ Code that is outright wrong or useless.
 | [no-conditional-tests](/docs/guide/usage/linter/rules/vitest/no-conditional-tests.html) | vitest | | |
 | [require-local-test-context-for-concurrent-snapshots](/docs/guide/usage/linter/rules/vitest/require-local-test-context-for-concurrent-snapshots.html) | vitest | | 🚧 |
 
-## Perf (7):
+## Perf (8):
 
 Code that can be written to run faster.
 | Rule name | Source | Default | Fixable? |
@@ -195,8 +195,9 @@ Code that can be written to run faster.
 | [jsx-no-new-array-as-prop](/docs/guide/usage/linter/rules/react_perf/jsx-no-new-array-as-prop.html) | react_perf | | |
 | [jsx-no-new-function-as-prop](/docs/guide/usage/linter/rules/react_perf/jsx-no-new-function-as-prop.html) | react_perf | | |
 | [jsx-no-new-object-as-prop](/docs/guide/usage/linter/rules/react_perf/jsx-no-new-object-as-prop.html) | react_perf | | |
+| [prefer-set-has](/docs/guide/usage/linter/rules/unicorn/prefer-set-has.html) | unicorn | | ⚠️🛠️️ |
 
-## Restriction (61):
+## Restriction (62):
 
 Lints which prevent the use of language and library features. Must not be enabled as a whole, should be considered on a case-by-case basis before enabling.
 | Rule name | Source | Default | Fixable? |
@@ -228,6 +229,7 @@ Lints which prevent the use of language and library features. Must not be enable
 | [unambiguous](/docs/guide/usage/linter/rules/import/unambiguous.html) | import | | |
 | [check-access](/docs/guide/usage/linter/rules/jsdoc/check-access.html) | jsdoc | | |
 | [empty-tags](/docs/guide/usage/linter/rules/jsdoc/empty-tags.html) | jsdoc | | |
+| [anchor-ambiguous-text](/docs/guide/usage/linter/rules/jsx_a11y/anchor-ambiguous-text.html) | jsx_a11y | | |
 | [no-new-require](/docs/guide/usage/linter/rules/node/no-new-require.html) | node | | |
 | [bad-bitwise-operator](/docs/guide/usage/linter/rules/oxc/bad-bitwise-operator.html) | oxc | | |
 | [no-async-await](/docs/guide/usage/linter/rules/oxc/no-async-await.html) | oxc | | |
@@ -263,7 +265,7 @@ Lints which prevent the use of language and library features. Must not be enable
 | [prefer-node-protocol](/docs/guide/usage/linter/rules/unicorn/prefer-node-protocol.html) | unicorn | | 🛠️ |
 | [prefer-number-properties](/docs/guide/usage/linter/rules/unicorn/prefer-number-properties.html) | unicorn | | 🚧 |
 
-## Suspicious (23):
+## Suspicious (24):
 
 code that is most likely wrong or useless.
 | Rule name | Source | Default | Fixable? |
@@ -284,6 +286,7 @@ code that is most likely wrong or useless.
 | [no-promise-in-callback](/docs/guide/usage/linter/rules/promise/no-promise-in-callback.html) | promise | | |
 | [iframe-missing-sandbox](/docs/guide/usage/linter/rules/react/iframe-missing-sandbox.html) | react | | 🚧 |
 | [jsx-no-comment-textnodes](/docs/guide/usage/linter/rules/react/jsx-no-comment-textnodes.html) | react | | |
+| [jsx-no-script-url](/docs/guide/usage/linter/rules/react/jsx-no-script-url.html) | react | | 🚧 |
 | [react-in-jsx-scope](/docs/guide/usage/linter/rules/react/react-in-jsx-scope.html) | react | | |
 | [style-prop-object](/docs/guide/usage/linter/rules/react/style-prop-object.html) | react | | |
 | [no-confusing-non-null-assertion](/docs/guide/usage/linter/rules/typescript/no-confusing-non-null-assertion.html) | typescript | | 🚧 |
@@ -292,7 +295,7 @@ code that is most likely wrong or useless.
 | [consistent-function-scoping](/docs/guide/usage/linter/rules/unicorn/consistent-function-scoping.html) | unicorn | | 🚧 |
 | [prefer-add-event-listener](/docs/guide/usage/linter/rules/unicorn/prefer-add-event-listener.html) | unicorn | | 🚧 |
 
-## Pedantic (73):
+## Pedantic (74):
 
 Lints which are rather strict or have occasional false positives.
 | Rule name | Source | Default | Fixable? |
@@ -308,6 +311,7 @@ Lints which are rather strict or have occasional false positives.
 | [no-fallthrough](/docs/guide/usage/linter/rules/eslint/no-fallthrough.html) | eslint | | 🚧 |
 | [no-inner-declarations](/docs/guide/usage/linter/rules/eslint/no-inner-declarations.html) | eslint | | |
 | [no-new-wrappers](/docs/guide/usage/linter/rules/eslint/no-new-wrappers.html) | eslint | | 🚧 |
+| [no-object-constructor](/docs/guide/usage/linter/rules/eslint/no-object-constructor.html) | eslint | | 🚧 |
 | [no-prototype-builtins](/docs/guide/usage/linter/rules/eslint/no-prototype-builtins.html) | eslint | | |
 | [no-redeclare](/docs/guide/usage/linter/rules/eslint/no-redeclare.html) | eslint | | |
 | [no-self-compare](/docs/guide/usage/linter/rules/eslint/no-self-compare.html) | eslint | | |
@@ -371,7 +375,7 @@ Lints which are rather strict or have occasional false positives.
 | [prefer-type-error](/docs/guide/usage/linter/rules/unicorn/prefer-type-error.html) | unicorn | | 🛠️ |
 | [require-number-to-fixed-digits-argument](/docs/guide/usage/linter/rules/unicorn/require-number-to-fixed-digits-argument.html) | unicorn | | 🛠️ |
 
-## Style (108):
+## Style (110):
 
 Code that should be written in a more idiomatic way.
 | Rule name | Source | Default | Fixable? |
@@ -382,6 +386,7 @@ Code that should be written in a more idiomatic way.
 | [guard-for-in](/docs/guide/usage/linter/rules/eslint/guard-for-in.html) | eslint | | |
 | [max-params](/docs/guide/usage/linter/rules/eslint/max-params.html) | eslint | | |
 | [no-continue](/docs/guide/usage/linter/rules/eslint/no-continue.html) | eslint | | |
+| [no-duplicate-imports](/docs/guide/usage/linter/rules/eslint/no-duplicate-imports.html) | eslint | | 🚧 |
 | [no-label-var](/docs/guide/usage/linter/rules/eslint/no-label-var.html) | eslint | | |
 | [no-magic-numbers](/docs/guide/usage/linter/rules/eslint/no-magic-numbers.html) | eslint | | 🚧 |
 | [no-multi-str](/docs/guide/usage/linter/rules/eslint/no-multi-str.html) | eslint | | |
@@ -469,6 +474,7 @@ Code that should be written in a more idiomatic way.
 | [prefer-includes](/docs/guide/usage/linter/rules/unicorn/prefer-includes.html) | unicorn | | 🚧 |
 | [prefer-logical-operator-over-ternary](/docs/guide/usage/linter/rules/unicorn/prefer-logical-operator-over-ternary.html) | unicorn | | 🚧 |
 | [prefer-modern-dom-apis](/docs/guide/usage/linter/rules/unicorn/prefer-modern-dom-apis.html) | unicorn | | 🚧 |
+| [prefer-negative-index](/docs/guide/usage/linter/rules/unicorn/prefer-negative-index.html) | unicorn | | 🛠️ |
 | [prefer-optional-catch-binding](/docs/guide/usage/linter/rules/unicorn/prefer-optional-catch-binding.html) | unicorn | | 🛠️ |
 | [prefer-reflect-apply](/docs/guide/usage/linter/rules/unicorn/prefer-reflect-apply.html) | unicorn | | |
 | [prefer-spread](/docs/guide/usage/linter/rules/unicorn/prefer-spread.html) | unicorn | | 🛠️ |
