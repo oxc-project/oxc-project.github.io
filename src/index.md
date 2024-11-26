@@ -20,7 +20,7 @@ features:
     link: /docs/guide/usage/parser
     linkText: Usage guide
   - title: Linter ✅
-    details: 50~100x faster than ESLint<br/>430+ rules and growing
+    details: 50~100x faster than ESLint<br/>460+ rules and growing
     link: /docs/guide/usage/linter
     linkText: Usage guide
   - title: Resolver ✅
