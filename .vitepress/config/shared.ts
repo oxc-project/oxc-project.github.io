@@ -62,7 +62,7 @@ export const sharedConfig = defineConfig({
       provider: "local",
     },
     socialLinks: [
-      { icon: "twitter", link: "https://x.com/boshen_c" },
+      { icon: "bluesky", link: "https://bsky.app/profile/boshen.github.io" },
       { icon: "discord", link: "https://discord.gg/9uXCAwqQZW" },
       { icon: "github", link: "https://github.com/oxc-project/oxc" },
     ],

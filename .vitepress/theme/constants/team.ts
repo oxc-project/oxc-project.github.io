@@ -32,6 +32,7 @@ export const CORE_MEMBERS: TeamMember[] = [
     avatar: "https://www.github.com/Boshen.png",
     links: [
       { icon: "github", link: "https://github.com/Boshen" },
+      { icon: "bluesky", link: "https://bsky.app/profile/boshen.github.io" },
       { icon: "twitter", link: "https://twitter.com/boshen_c" },
     ],
   },
