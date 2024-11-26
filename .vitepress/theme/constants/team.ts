@@ -59,45 +59,12 @@ export const CORE_MEMBERS: TeamMember[] = [
     ],
   },
   {
-    id: "don",
-    type: "core",
-    name: "Don",
-    title: "Oxlint Product Owner",
-    avatar: "https://www.github.com/donisaac.png",
-    links: [
-      { icon: "github", link: "https://github.com/donisaac" },
-      { icon: "twitter", link: "https://twitter.com/Don_dev_" },
-    ],
-  },
-  {
-    id: "rzvxa",
-    type: "core",
-    name: "rzvxa",
-    title: "Member",
-    avatar: "https://www.github.com/rzvxa.png",
-    links: [
-      { icon: "github", link: "https://github.com/rzvxa" },
-      { icon: "twitter", link: "https://twitter.com/rzvxa" },
-    ],
-  },
-  {
     id: "cameron",
     type: "core",
     name: "Cameron",
     title: "Member",
     avatar: "https://www.github.com/camc314.png",
     links: [{ icon: "github", link: "https://github.com/camc314" }],
-  },
-  {
-    id: "mysteryven",
-    type: "emeriti",
-    name: "Mysteryven",
-    title: "Member",
-    avatar: "https://www.github.com/mysteryven.png",
-    links: [
-      { icon: "github", link: "https://github.com/mysteryven" },
-      { icon: "twitter", link: "https://twitter.com/mysteryven" },
-    ],
   },
   {
     id: "leaysgur",
@@ -119,6 +86,36 @@ export const CORE_MEMBERS: TeamMember[] = [
     links: [
       { icon: "github", link: "https://github.com/camchenry" },
       { icon: "twitter", link: "https://x.com/cammchenry" },
+    ],
+  },
+  {
+    id: "mysteryven",
+    type: "emeriti",
+    name: "Mysteryven",
+    avatar: "https://www.github.com/mysteryven.png",
+    links: [
+      { icon: "github", link: "https://github.com/mysteryven" },
+      { icon: "twitter", link: "https://twitter.com/mysteryven" },
+    ],
+  },
+  {
+    id: "don",
+    type: "emeriti",
+    name: "Don",
+    avatar: "https://www.github.com/donisaac.png",
+    links: [
+      { icon: "github", link: "https://github.com/donisaac" },
+      { icon: "twitter", link: "https://twitter.com/Don_dev_" },
+    ],
+  },
+  {
+    id: "rzvxa",
+    type: "emeriti",
+    name: "rzvxa",
+    avatar: "https://www.github.com/rzvxa.png",
+    links: [
+      { icon: "github", link: "https://github.com/rzvxa" },
+      { icon: "twitter", link: "https://twitter.com/rzvxa" },
     ],
   },
   {
