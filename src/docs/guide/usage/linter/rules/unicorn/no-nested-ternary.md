@@ -35,4 +35,4 @@ const foo = i > 5 ? (i < 100 ? true : false) : i < 100 ? true : false;
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/4bb1dca6730cf630cc8c53db2bfd03f2d0f3dd8f/crates/oxc_linter/src/rules/unicorn/no_nested_ternary.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/45ef3eb2becc663e756a3da557df5a03fb40fd84/crates/oxc_linter/src/rules/unicorn/no_nested_ternary.rs)
