@@ -28,7 +28,7 @@ Examples of **incorrect** code for this rule:
 
 Examples of **correct** code for this rule:
 
-```jsx
+```text
 <Foo test="javascript:void(0)" />
 ```
 
