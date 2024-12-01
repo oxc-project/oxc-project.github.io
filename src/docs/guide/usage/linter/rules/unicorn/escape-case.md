@@ -22,7 +22,7 @@ Examples of **incorrect** code for this rule:
 const foo = "\xa9";
 const foo = "\ud834";
 const foo = "\u{1d306}";
-const foo = "ca";
+const foo = "\ca";
 ```
 
 Examples of **correct** code for this rule:
@@ -31,9 +31,9 @@ Examples of **correct** code for this rule:
 const foo = "\xA9";
 const foo = "\uD834";
 const foo = "\u{1D306}";
-const foo = "cA";
+const foo = "\cA";
 ```
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/45ef3eb2becc663e756a3da557df5a03fb40fd84/crates/oxc_linter/src/rules/unicorn/escape_case.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/a6b0100501fda75ec313146a992a9f5fce995518/crates/oxc_linter/src/rules/unicorn/escape_case.rs)

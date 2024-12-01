@@ -22,4 +22,4 @@ Math.max(1000, Math.min(0, z));
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/45ef3eb2becc663e756a3da557df5a03fb40fd84/crates/oxc_linter/src/rules/oxc/bad_min_max_func.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/a6b0100501fda75ec313146a992a9f5fce995518/crates/oxc_linter/src/rules/oxc/bad_min_max_func.rs)
