@@ -2,7 +2,7 @@
 
 The progress of all rule implementations is tracked [here](https://github.com/oxc-project/oxc/issues/481).
 
-- Total number of rules: 461
+- Total number of rules: 464
 - Rules turned on by default: 97
 
 ## Correctness (172):
@@ -197,7 +197,7 @@ Code that can be written to run faster.
 | [jsx-no-new-object-as-prop](/docs/guide/usage/linter/rules/react_perf/jsx-no-new-object-as-prop.html) | react_perf | | |
 | [prefer-set-has](/docs/guide/usage/linter/rules/unicorn/prefer-set-has.html) | unicorn | | ⚠️🛠️️ |
 
-## Restriction (62):
+## Restriction (63):
 
 Lints which prevent the use of language and library features. Must not be enabled as a whole, should be considered on a case-by-case basis before enabling.
 | Rule name | Source | Default | Fixable? |
@@ -251,6 +251,7 @@ Lints which prevent the use of language and library features. Must not be enable
 | [no-non-null-asserted-nullish-coalescing](/docs/guide/usage/linter/rules/typescript/no-non-null-asserted-nullish-coalescing.html) | typescript | | |
 | [no-non-null-assertion](/docs/guide/usage/linter/rules/typescript/no-non-null-assertion.html) | typescript | | |
 | [no-require-imports](/docs/guide/usage/linter/rules/typescript/no-require-imports.html) | typescript | | 🚧 |
+| [no-unused-expressions](/docs/guide/usage/linter/rules/typescript/no-unused-expressions.html) | typescript | | |
 | [no-var-requires](/docs/guide/usage/linter/rules/typescript/no-var-requires.html) | typescript | | |
 | [prefer-literal-enum-member](/docs/guide/usage/linter/rules/typescript/prefer-literal-enum-member.html) | typescript | | |
 | [no-abusive-eslint-disable](/docs/guide/usage/linter/rules/unicorn/no-abusive-eslint-disable.html) | unicorn | | |
@@ -375,7 +376,7 @@ Lints which are rather strict or have occasional false positives.
 | [prefer-type-error](/docs/guide/usage/linter/rules/unicorn/prefer-type-error.html) | unicorn | | 🛠️ |
 | [require-number-to-fixed-digits-argument](/docs/guide/usage/linter/rules/unicorn/require-number-to-fixed-digits-argument.html) | unicorn | | 🛠️ |
 
-## Style (110):
+## Style (112):
 
 Code that should be written in a more idiomatic way.
 | Rule name | Source | Default | Fixable? |
@@ -398,10 +399,11 @@ Code that should be written in a more idiomatic way.
 | [prefer-exponentiation-operator](/docs/guide/usage/linter/rules/eslint/prefer-exponentiation-operator.html) | eslint | | |
 | [prefer-numeric-literals](/docs/guide/usage/linter/rules/eslint/prefer-numeric-literals.html) | eslint | | 🛠️ |
 | [prefer-object-has-own](/docs/guide/usage/linter/rules/eslint/prefer-object-has-own.html) | eslint | | 🛠️ |
+| [prefer-spread](/docs/guide/usage/linter/rules/eslint/prefer-spread.html) | eslint | | 🛠️ |
 | [sort-imports](/docs/guide/usage/linter/rules/eslint/sort-imports.html) | eslint | | 🛠️ |
 | [sort-keys](/docs/guide/usage/linter/rules/eslint/sort-keys.html) | eslint | | 🚧 |
 | [first](/docs/guide/usage/linter/rules/import/first.html) | import | | 🚧 |
-| [import-no-namespace](/docs/guide/usage/linter/rules/import/import-no-namespace.html) | import | | 🚧 |
+| [no-namespace](/docs/guide/usage/linter/rules/import/no-namespace.html) | import | | 🚧 |
 | [consistent-test-it](/docs/guide/usage/linter/rules/jest/consistent-test-it.html) | jest | | 🛠️ |
 | [max-expects](/docs/guide/usage/linter/rules/jest/max-expects.html) | jest | | |
 | [max-nested-describe](/docs/guide/usage/linter/rules/jest/max-nested-describe.html) | jest | | |
@@ -451,9 +453,11 @@ Code that should be written in a more idiomatic way.
 | [adjacent-overload-signatures](/docs/guide/usage/linter/rules/typescript/adjacent-overload-signatures.html) | typescript | | |
 | [array-type](/docs/guide/usage/linter/rules/typescript/array-type.html) | typescript | | 🛠️ |
 | [ban-tslint-comment](/docs/guide/usage/linter/rules/typescript/ban-tslint-comment.html) | typescript | | 🛠️ |
+| [consistent-generic-constructors](/docs/guide/usage/linter/rules/typescript/consistent-generic-constructors.html) | typescript | | 🚧 |
 | [consistent-indexed-object-style](/docs/guide/usage/linter/rules/typescript/consistent-indexed-object-style.html) | typescript | | 🛠️ |
 | [consistent-type-definitions](/docs/guide/usage/linter/rules/typescript/consistent-type-definitions.html) | typescript | | 🛠️ |
 | [no-empty-interface](/docs/guide/usage/linter/rules/typescript/no-empty-interface.html) | typescript | | |
+| [no-inferrable-types](/docs/guide/usage/linter/rules/typescript/no-inferrable-types.html) | typescript | | 🚧 |
 | [prefer-for-of](/docs/guide/usage/linter/rules/typescript/prefer-for-of.html) | typescript | | 🚧 |
 | [prefer-function-type](/docs/guide/usage/linter/rules/typescript/prefer-function-type.html) | typescript | | 🛠️ |
 | [prefer-namespace-keyword](/docs/guide/usage/linter/rules/typescript/prefer-namespace-keyword.html) | typescript | | 🛠️ |
@@ -477,7 +481,6 @@ Code that should be written in a more idiomatic way.
 | [prefer-negative-index](/docs/guide/usage/linter/rules/unicorn/prefer-negative-index.html) | unicorn | | 🛠️ |
 | [prefer-optional-catch-binding](/docs/guide/usage/linter/rules/unicorn/prefer-optional-catch-binding.html) | unicorn | | 🛠️ |
 | [prefer-reflect-apply](/docs/guide/usage/linter/rules/unicorn/prefer-reflect-apply.html) | unicorn | | |
-| [prefer-spread](/docs/guide/usage/linter/rules/unicorn/prefer-spread.html) | unicorn | | 🛠️ |
 | [prefer-string-raw](/docs/guide/usage/linter/rules/unicorn/prefer-string-raw.html) | unicorn | | 🛠️ |
 | [prefer-string-trim-start-end](/docs/guide/usage/linter/rules/unicorn/prefer-string-trim-start-end.html) | unicorn | | 🛠️ |
 | [prefer-structured-clone](/docs/guide/usage/linter/rules/unicorn/prefer-structured-clone.html) | unicorn | | 🚧 |

@@ -5,6 +5,7 @@
 [default.extend-words]
 trivias = "trivias"
 trivia = "trivia"
+inferrable = "inferrable"
 
 [files]
 extend-exclude = ["src/docs/guide/usage/linter/rules", "pnpm-lock.yaml"]

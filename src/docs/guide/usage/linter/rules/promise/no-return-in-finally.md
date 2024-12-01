@@ -34,4 +34,4 @@ Promise.resolve(1).finally(() => {
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/45ef3eb2becc663e756a3da557df5a03fb40fd84/crates/oxc_linter/src/rules/promise/no_return_in_finally.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/a6b0100501fda75ec313146a992a9f5fce995518/crates/oxc_linter/src/rules/promise/no_return_in_finally.rs)
