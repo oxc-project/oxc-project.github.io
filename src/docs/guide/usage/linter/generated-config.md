@@ -108,6 +108,14 @@ Globals can be disabled by setting their value to `"off"`. For example, in an en
 
 You may also use `"readable"` or `false` to represent `"readonly"`, and `"writeable"` or `true` to represent `"writable"`.
 
+## ignorePatterns
+
+type: `string[]`
+
+default: `[]`
+
+Globs to ignore during linting. These are resolved from the configuration file path.
+
 ## overrides
 
 type: `array`
@@ -143,8 +151,6 @@ See [Oxlint Rules](https://oxc.rs/docs/guide/usage/linter/rules.html)
 type: `object`
 
 Configure the behavior of linter plugins.
-
-## Example
 
 Here's an example if you're using Next.js in a monorepo:
 
@@ -254,7 +260,7 @@ default: `{}`
 
 To have your custom components be checked as DOM elements, you can provide a mapping of your component names to the DOM element name.
 
-## Example
+Example:
 
 `json { "settings": { "jsx-a11y": { "components": { "Link": "a", "IconButton": "button" } } } } `
 
@@ -297,7 +303,7 @@ default: `[]`
 
 Components used as alternatives to `<form>` for forms, such as `<Formik>`.
 
-## Example
+Example:
 
 `jsonc { "settings": { "react": { "formComponents": [ "CustomForm", // OtherForm is considered a form component and has an endpoint attribute { "name": "OtherForm", "formAttribute": "endpoint" }, // allows specifying multiple properties if necessary { "name": "Form", "formAttribute": ["registerEndpoint", "loginEndpoint"] } ] } } } `
 
@@ -311,7 +317,7 @@ default: `[]`
 
 Components used as alternatives to `<a>` for linking, such as `<Link>`.
 
-## Example
+Example:
 
 ``jsonc { "settings": { "react": { "linkComponents": [ "HyperLink", // Use `linkAttribute` for components that use a different prop name // than `href`. { "name": "MyLink", "linkAttribute": "to" }, // allows specifying multiple properties if necessary { "name": "Link", "linkAttribute": ["to", "href"] } ] } } } ``
 
