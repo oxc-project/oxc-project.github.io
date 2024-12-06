@@ -15,7 +15,13 @@
 
 Checks whether the `throw` keyword is missing in front of a `new` expression.
 
+### Why is this bad?
+
+The `throw` keyword is required in front of a `new` expression to throw an error. Omitting it is usually a mistake.
+
 ### Example
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
 function foo() {
@@ -26,6 +32,17 @@ const foo = () => {
 };
 ```
 
+Examples of **correct** code for this rule:
+
+```javascript
+function foo() {
+  throw new Error();
+}
+const foo = () => {
+  throw new Error();
+};
+```
+
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/a6b0100501fda75ec313146a992a9f5fce995518/crates/oxc_linter/src/rules/oxc/missing_throw.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/fd0935cfcd660901d612b9b146bc136d40d2f02f/crates/oxc_linter/src/rules/oxc/missing_throw.rs)

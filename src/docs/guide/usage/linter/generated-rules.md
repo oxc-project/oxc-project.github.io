@@ -2,7 +2,7 @@
 
 The progress of all rule implementations is tracked [here](https://github.com/oxc-project/oxc/issues/481).
 
-- Total number of rules: 464
+- Total number of rules: 465
 - Rules turned on by default: 97
 
 ## Correctness (172):
@@ -217,6 +217,7 @@ Lints which prevent the use of language and library features. Must not be enable
 | [no-regex-spaces](/docs/guide/usage/linter/rules/eslint/no-regex-spaces.html) | eslint | | 🚧 |
 | [no-restricted-globals](/docs/guide/usage/linter/rules/eslint/no-restricted-globals.html) | eslint | | |
 | [no-undefined](/docs/guide/usage/linter/rules/eslint/no-undefined.html) | eslint | | |
+| [no-unused-expressions](/docs/guide/usage/linter/rules/eslint/no-unused-expressions.html) | eslint | | |
 | [no-var](/docs/guide/usage/linter/rules/eslint/no-var.html) | eslint | | 🛠️ |
 | [no-void](/docs/guide/usage/linter/rules/eslint/no-void.html) | eslint | | 🚧 |
 | [unicode-bom](/docs/guide/usage/linter/rules/eslint/unicode-bom.html) | eslint | | 🛠️ |
@@ -251,7 +252,6 @@ Lints which prevent the use of language and library features. Must not be enable
 | [no-non-null-asserted-nullish-coalescing](/docs/guide/usage/linter/rules/typescript/no-non-null-asserted-nullish-coalescing.html) | typescript | | |
 | [no-non-null-assertion](/docs/guide/usage/linter/rules/typescript/no-non-null-assertion.html) | typescript | | |
 | [no-require-imports](/docs/guide/usage/linter/rules/typescript/no-require-imports.html) | typescript | | 🚧 |
-| [no-unused-expressions](/docs/guide/usage/linter/rules/typescript/no-unused-expressions.html) | typescript | | |
 | [no-var-requires](/docs/guide/usage/linter/rules/typescript/no-var-requires.html) | typescript | | |
 | [prefer-literal-enum-member](/docs/guide/usage/linter/rules/typescript/prefer-literal-enum-member.html) | typescript | | |
 | [no-abusive-eslint-disable](/docs/guide/usage/linter/rules/unicorn/no-abusive-eslint-disable.html) | unicorn | | |
@@ -296,7 +296,7 @@ code that is most likely wrong or useless.
 | [consistent-function-scoping](/docs/guide/usage/linter/rules/unicorn/consistent-function-scoping.html) | unicorn | | 🚧 |
 | [prefer-add-event-listener](/docs/guide/usage/linter/rules/unicorn/prefer-add-event-listener.html) | unicorn | | 🚧 |
 
-## Pedantic (74):
+## Pedantic (75):
 
 Lints which are rather strict or have occasional false positives.
 | Rule name | Source | Default | Fixable? |
@@ -333,6 +333,7 @@ Lints which are rather strict or have occasional false positives.
 | [checked-requires-onchange-or-readonly](/docs/guide/usage/linter/rules/react/checked-requires-onchange-or-readonly.html) | react | | |
 | [jsx-no-useless-fragment](/docs/guide/usage/linter/rules/react/jsx-no-useless-fragment.html) | react | | |
 | [no-unescaped-entities](/docs/guide/usage/linter/rules/react/no-unescaped-entities.html) | react | | |
+| [rules-of-hooks](/docs/guide/usage/linter/rules/react/rules-of-hooks.html) | react | | |
 | [ban-ts-comment](/docs/guide/usage/linter/rules/typescript/ban-ts-comment.html) | typescript | | 🛠️ |
 | [ban-types](/docs/guide/usage/linter/rules/typescript/ban-types.html) | typescript | | 🚧 |
 | [no-unsafe-function-type](/docs/guide/usage/linter/rules/typescript/no-unsafe-function-type.html) | typescript | | |
@@ -376,7 +377,7 @@ Lints which are rather strict or have occasional false positives.
 | [prefer-type-error](/docs/guide/usage/linter/rules/unicorn/prefer-type-error.html) | unicorn | | 🛠️ |
 | [require-number-to-fixed-digits-argument](/docs/guide/usage/linter/rules/unicorn/require-number-to-fixed-digits-argument.html) | unicorn | | 🛠️ |
 
-## Style (112):
+## Style (113):
 
 Code that should be written in a more idiomatic way.
 | Rule name | Source | Default | Fixable? |
@@ -402,6 +403,7 @@ Code that should be written in a more idiomatic way.
 | [prefer-spread](/docs/guide/usage/linter/rules/eslint/prefer-spread.html) | eslint | | 🛠️ |
 | [sort-imports](/docs/guide/usage/linter/rules/eslint/sort-imports.html) | eslint | | 🛠️ |
 | [sort-keys](/docs/guide/usage/linter/rules/eslint/sort-keys.html) | eslint | | 🚧 |
+| [yoda](/docs/guide/usage/linter/rules/eslint/yoda.html) | eslint | | 🛠️ |
 | [first](/docs/guide/usage/linter/rules/import/first.html) | import | | 🚧 |
 | [no-namespace](/docs/guide/usage/linter/rules/import/no-namespace.html) | import | | 🚧 |
 | [consistent-test-it](/docs/guide/usage/linter/rules/jest/consistent-test-it.html) | jest | | 🛠️ |
@@ -494,7 +496,7 @@ Code that should be written in a more idiomatic way.
 | [prefer-to-be-object](/docs/guide/usage/linter/rules/vitest/prefer-to-be-object.html) | vitest | | 🛠️ |
 | [prefer-to-be-truthy](/docs/guide/usage/linter/rules/vitest/prefer-to-be-truthy.html) | vitest | | 🛠️ |
 
-## Nursery (11):
+## Nursery (10):
 
 New lints that are still under development.
 | Rule name | Source | Default | Fixable? |
@@ -508,5 +510,4 @@ New lints that are still under development.
 | [no-return-in-finally](/docs/guide/usage/linter/rules/promise/no-return-in-finally.html) | promise | | |
 | [exhaustive-deps](/docs/guide/usage/linter/rules/react/exhaustive-deps.html) | react | | |
 | [require-render-return](/docs/guide/usage/linter/rules/react/require-render-return.html) | react | | |
-| [rules-of-hooks](/docs/guide/usage/linter/rules/react/rules-of-hooks.html) | react | | |
 | [consistent-type-imports](/docs/guide/usage/linter/rules/typescript/consistent-type-imports.html) | typescript | | 🛠️ |

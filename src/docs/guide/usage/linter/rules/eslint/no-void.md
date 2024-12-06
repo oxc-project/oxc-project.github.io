@@ -12,19 +12,27 @@
 
 Disallow `void` operators.
 
-### Example
+Why is this bad
 
-```javascript
-// error
+The `void` operator is often used to obtain the `undefined` primitive value, but it is unnecessary. You can use `undefined` directly instead.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```ts
 void 0;
 var foo = void 0;
+```
 
-// success
-("var foo = bar()");
-("foo.void()");
-("foo.void = bar");
+Examples of **correct** code for this rule:
+
+```ts
+"var foo = bar()";
+"foo.void()";
+"foo.void = bar";
 ```
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/a6b0100501fda75ec313146a992a9f5fce995518/crates/oxc_linter/src/rules/eslint/no_void.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/fd0935cfcd660901d612b9b146bc136d40d2f02f/crates/oxc_linter/src/rules/eslint/no_void.rs)

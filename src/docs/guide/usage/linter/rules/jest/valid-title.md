@@ -10,14 +10,22 @@
 
 ### What it does
 
-Checks that the title of Jest blocks are valid by ensuring that titles are:
+Checks that the titles of Jest blocks are valid.
+
+Titles must be:
 
 - not empty,
-- is a string,
+- strings,
 - not prefixed with their block name,
-- have no leading or trailing spaces
+- have no leading or trailing spaces.
+
+Why is this bad?
+
+Titles that are not valid can be misleading and make it harder to understand the purpose of the test.
 
 ### Example
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
 describe("", () => {});
@@ -31,6 +39,14 @@ xit("", () => {});
 xtest("", () => {});
 ```
 
-## References
+Examples of **correct** code for this rule:
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/a6b0100501fda75ec313146a992a9f5fce995518/crates/oxc_linter/src/rules/jest/valid_title.rs)
+```javascript
+describe('foo', () => {});
+it('bar', () => {});
+test('baz', () => {});
+
+
+## References
+- [Rule Source](https://github.com/oxc-project/oxc/blob/fd0935cfcd660901d612b9b146bc136d40d2f02f/crates/oxc_linter/src/rules/jest/valid_title.rs)
+```

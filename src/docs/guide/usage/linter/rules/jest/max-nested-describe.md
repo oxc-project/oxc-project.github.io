@@ -7,16 +7,20 @@
 
 ### What it does
 
-This rule enforces a maximum depth to nested `describe()` calls to improve code
-clarity in your tests.
+This rule enforces a maximum depth to nested `describe()` calls.
+
+### Why is this bad?
+
+Nesting `describe()` blocks too deeply can make the test suite hard to read and understand.
+
+### Example
 
 The following patterns are considered warnings (with the default option of
 `{ "max": 5 } `):
 
-### Example
+/// /// Examples of **incorrect** code for this rule:
 
 ```javascript
-// invalid
 describe("foo", () => {
   describe("bar", () => {
     describe("baz", () => {
@@ -48,8 +52,11 @@ describe("foo", function () {
     });
   });
 });
+```
 
-// valid
+Examples of **correct** code for this rule:
+
+```ts
 describe("foo", () => {
   describe("bar", () => {
     it("should get something", () => {
@@ -86,4 +93,4 @@ describe("foo", function () {
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/a6b0100501fda75ec313146a992a9f5fce995518/crates/oxc_linter/src/rules/jest/max_nested_describe.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/fd0935cfcd660901d612b9b146bc136d40d2f02f/crates/oxc_linter/src/rules/jest/max_nested_describe.rs)

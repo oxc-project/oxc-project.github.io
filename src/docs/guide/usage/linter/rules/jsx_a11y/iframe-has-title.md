@@ -9,7 +9,7 @@
 
 Enforce iframe elements have a title attribute.
 
-### Why is this necessary?
+### Why is this bad?
 
 Screen reader users rely on a iframe title to describe the contents of the iframe.
 Navigating through iframe and iframe elements quickly becomes difficult and confusing for users of this technology if the markup does not contain a title attribute.
@@ -43,4 +43,4 @@ Examples of **correct** code for this rule:
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/a6b0100501fda75ec313146a992a9f5fce995518/crates/oxc_linter/src/rules/jsx_a11y/iframe_has_title.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/fd0935cfcd660901d612b9b146bc136d40d2f02f/crates/oxc_linter/src/rules/jsx_a11y/iframe_has_title.rs)

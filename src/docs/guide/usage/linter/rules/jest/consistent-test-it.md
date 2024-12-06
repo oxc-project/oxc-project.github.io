@@ -16,6 +16,10 @@ the `test` keywords, with multiple permutations for each:
 - **it:** `it`, `xit`, `fit`, `it.only`, `it.skip`.
 - **test:** `test`, `xtest`, `test.only`, `test.skip`.
 
+### Why is this bad?
+
+It's a good practice to be consistent in your test suite, so that all tests are written in the same way.
+
 ### Example
 
 ```javascript
@@ -87,5 +91,5 @@ to use it, add the following configuration to your `.eslintrc.json`:
 
 
 ## References
-- [Rule Source](https://github.com/oxc-project/oxc/blob/a6b0100501fda75ec313146a992a9f5fce995518/crates/oxc_linter/src/rules/jest/consistent_test_it.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/fd0935cfcd660901d612b9b146bc136d40d2f02f/crates/oxc_linter/src/rules/jest/consistent_test_it.rs)
 ```
