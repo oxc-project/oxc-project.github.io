@@ -7,7 +7,11 @@
 
 ### What it does
 
-This rule reports on any use of a conditional statement such as if, switch, and ternary expressions.
+Disallow conditional statements in tests.
+
+### Why is this bad?
+
+Conditional statements in tests can make the test harder to read and understand. It is better to have a single test case per test function.
 
 ### Examples
 
@@ -79,4 +83,4 @@ it("baz", async () => {
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/a6b0100501fda75ec313146a992a9f5fce995518/crates/oxc_linter/src/rules/jest/no_conditional_in_test.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/fd0935cfcd660901d612b9b146bc136d40d2f02f/crates/oxc_linter/src/rules/jest/no_conditional_in_test.rs)

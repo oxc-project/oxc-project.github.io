@@ -15,7 +15,14 @@ This rule aims to enforce consistent case for text encoding identifiers.
 Enforces `'utf8'` for UTF-8 encoding
 Enforces `'ascii'` for ASCII encoding.
 
+### Why is this bad?
+
+- Inconsistency in text encoding identifiers can make the code harder to read and understand.
+- The ECMAScript specification does not define the case sensitivity of text encoding identifiers, but it is common practice to use lowercase.
+
 ### Example
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
 import fs from "node:fs/promises";
@@ -26,7 +33,11 @@ async function bad() {
 
   const string = buffer.toString("utf-8");
 }
+```
 
+Examples of **correct** code for this rule:
+
+```javascript
 async function good() {
   await fs.readFile(file, "utf8");
 
@@ -38,4 +49,4 @@ async function good() {
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/a6b0100501fda75ec313146a992a9f5fce995518/crates/oxc_linter/src/rules/unicorn/text_encoding_identifier_case.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/fd0935cfcd660901d612b9b146bc136d40d2f02f/crates/oxc_linter/src/rules/unicorn/text_encoding_identifier_case.rs)

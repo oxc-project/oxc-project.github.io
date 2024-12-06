@@ -50,4 +50,4 @@ import { type A as AA, type B as BB } from "mod";
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/a6b0100501fda75ec313146a992a9f5fce995518/crates/oxc_linter/src/rules/typescript/no_import_type_side_effects.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/fd0935cfcd660901d612b9b146bc136d40d2f02f/crates/oxc_linter/src/rules/typescript/no_import_type_side_effects.rs)

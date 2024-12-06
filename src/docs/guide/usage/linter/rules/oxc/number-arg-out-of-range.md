@@ -12,7 +12,15 @@
 
 Checks whether the radix or precision arguments of number-related functions exceeds the limit.
 
+### Why is this bad?
+
+The radix argument of `Number.prototype.toString` should be between 2 and 36.
+The precision argument of `Number.prototype.toFixed` and `Number.prototype.toExponential` should be between 0 and 20.
+The precision argument of `Number.prototype.toPrecision` should be between 1 and 21.
+
 ### Example
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
 var x = 42;
@@ -20,6 +28,13 @@ var s_radix_64 = x.toString(64);
 var s = x.toString(1);
 ```
 
+Examples of **correct** code for this rule:
+
+```javascript
+var x = 42;
+var s_radix_16 = x.toString(16);
+```
+
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/a6b0100501fda75ec313146a992a9f5fce995518/crates/oxc_linter/src/rules/oxc/number_arg_out_of_range.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/fd0935cfcd660901d612b9b146bc136d40d2f02f/crates/oxc_linter/src/rules/oxc/number_arg_out_of_range.rs)

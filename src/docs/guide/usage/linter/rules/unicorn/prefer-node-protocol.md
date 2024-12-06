@@ -12,6 +12,10 @@
 
 Prefer using the `node:protocol` when importing Node.js builtin modules
 
+### Why is this bad?
+
+Node.js builtin modules should be imported using the `node:` protocol to avoid ambiguity with local modules.
+
 ### Example
 
 Examples of **incorrect** code for this rule:
@@ -28,4 +32,4 @@ import fs from "node:fs";
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/a6b0100501fda75ec313146a992a9f5fce995518/crates/oxc_linter/src/rules/unicorn/prefer_node_protocol.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/fd0935cfcd660901d612b9b146bc136d40d2f02f/crates/oxc_linter/src/rules/unicorn/prefer_node_protocol.rs)

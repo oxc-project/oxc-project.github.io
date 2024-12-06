@@ -12,12 +12,24 @@
 
 Enforce a consistent boolean attribute style in your code.
 
+### Why is this bad?
+
+In JSX, you can set a boolean attribute to `true` or omit it. This rule will enforce a consistent style for boolean attributes.
+
 ### Example
+
+Examples of **incorrect** code for this rule:
 
 ```jsx
 const Hello = <Hello personal={true} />;
 ```
 
+Examples of **correct** code for this rule:
+
+```jsx
+const Hello = <Hello personal />;
+```
+
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/a6b0100501fda75ec313146a992a9f5fce995518/crates/oxc_linter/src/rules/react/jsx_boolean_value.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/fd0935cfcd660901d612b9b146bc136d40d2f02f/crates/oxc_linter/src/rules/react/jsx_boolean_value.rs)

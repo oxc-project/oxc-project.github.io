@@ -9,6 +9,30 @@
 
 Disallow unreachable code after `return`, `throw`, `continue`, and `break` statements
 
+### Why is this bad?
+
+Unreachable code after a `return`, `throw`, `continue`, or `break` statement can never be run.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```ts
+function foo() {
+  return 2;
+  console.log("this will never be executed");
+}
+```
+
+Examples of **correct** code for this rule:
+
+```ts
+function foo() {
+  console.log("this will be executed");
+  return 2;
+}
+```
+
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/a6b0100501fda75ec313146a992a9f5fce995518/crates/oxc_linter/src/rules/eslint/no_unreachable.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/fd0935cfcd660901d612b9b146bc136d40d2f02f/crates/oxc_linter/src/rules/eslint/no_unreachable.rs)
