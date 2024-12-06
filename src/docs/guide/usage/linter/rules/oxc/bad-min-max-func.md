@@ -13,13 +13,27 @@
 Checks whether the clamp function `Math.min(Math.max(x, y), z)` always evaluate to a
 constant result because the arguments are in the wrong order.
 
+### Why is this bad?
+
+The `Math.min(Math.max(x, y), z)` function is used to clamp a value between two other values.
+If the arguments are in the wrong order, the function will always evaluate to a constant result.
+
 ### Example
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
 Math.min(Math.max(100, x), 0);
 Math.max(1000, Math.min(0, z));
 ```
 
+Examples of **correct** code for this rule:
+
+```javascript
+Math.max(0, Math.min(100, x));
+Math.min(0, Math.max(1000, z));
+```
+
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/a6b0100501fda75ec313146a992a9f5fce995518/crates/oxc_linter/src/rules/oxc/bad_min_max_func.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/fd0935cfcd660901d612b9b146bc136d40d2f02f/crates/oxc_linter/src/rules/oxc/bad_min_max_func.rs)

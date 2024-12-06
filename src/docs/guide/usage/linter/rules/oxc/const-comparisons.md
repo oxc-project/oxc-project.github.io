@@ -10,14 +10,18 @@
 
 ### What it does
 
-Checks for redundant comparisons between constants:
+Checks for redundant or logically impossible comparisons. This includes:
 
-- Checks for ineffective double comparisons against constants.
-- Checks for impossible comparisons against constants.
+- Ineffective double comparisons against constants.
+- Impossible comparisons involving constants.
+- Redundant comparisons where both operands are the same (e.g., a < a).
 
 ### Why is this bad?
 
-Only one of the comparisons has any effect on the result, the programmer probably intended to flip one of the comparison operators, or compare a different value entirely.
+Such comparisons can lead to confusing or incorrect logic in the program. In many cases:
+
+- Only one of the comparisons has any effect on the result, suggesting that the programmer might have made a mistake, such as flipping one of the comparison operators or using the wrong variable.
+- Comparisons like a < a or a >= a are always false or true respectively, making the logic redundant and potentially misleading.
 
 ### Example
 
@@ -27,6 +31,8 @@ Examples of **incorrect** code for this rule:
 status_code <= 400 && status_code > 500;
 status_code < 200 && status_code <= 299;
 status_code > 500 && status_code >= 500;
+a < a; // Always false
+a >= a; // Always true
 ```
 
 Examples of **correct** code for this rule:
@@ -35,8 +41,10 @@ Examples of **correct** code for this rule:
 status_code >= 400 && status_code < 500;
 500 <= status_code && 600 > status_code;
 500 <= status_code && status_code <= 600;
+a < b;
+a <= b;
 ```
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/a6b0100501fda75ec313146a992a9f5fce995518/crates/oxc_linter/src/rules/oxc/const_comparisons.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/fd0935cfcd660901d612b9b146bc136d40d2f02f/crates/oxc_linter/src/rules/oxc/const_comparisons.rs)

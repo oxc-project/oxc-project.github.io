@@ -7,12 +7,17 @@
 
 ### What it does
 
-A `describe` block should not contain duplicate hooks.
+Disallows duplicate hooks in describe blocks.
+
+### Why is this bad?
+
+Having duplicate hooks in a describe block can lead to confusion and unexpected behavior.
 
 ### Example
 
+Examples of **incorrect** code for this rule:
+
 ```javascript
-// invalid
 describe("foo", () => {
   beforeEach(() => {
     // some setup
@@ -46,8 +51,9 @@ describe("foo", () => {
 });
 ```
 
+Examples of **correct** code for this rule:
+
 ```javascript
-// valid
 describe("foo", () => {
   beforeEach(() => {
     // some setup
@@ -77,4 +83,4 @@ describe("foo", () => {
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/a6b0100501fda75ec313146a992a9f5fce995518/crates/oxc_linter/src/rules/jest/no_duplicate_hooks.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/fd0935cfcd660901d612b9b146bc136d40d2f02f/crates/oxc_linter/src/rules/jest/no_duplicate_hooks.rs)

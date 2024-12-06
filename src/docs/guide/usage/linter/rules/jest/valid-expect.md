@@ -7,16 +7,28 @@
 
 ### What it does
 
-This rule triggers a warning if `expect()` is called with more than one argument
-or without arguments. It would also issue a warning if there is nothing called
-on `expect()`, e.g.:
+Checks that `expect()` is called correctly.
+
+Why is this bad?
+
+`expect()` is a function that is used to assert values in tests. It should be called with a single argument, which is the value to be tested. If you call `expect()` with no arguments, or with more than one argument, it will not work as expected.
 
 ### Example
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
 expect();
 expect("something");
 expect(true).toBeDefined;
+expect(Promise.resolve("Hi!")).resolves.toBe("Hi!");
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
+expect("something").toEqual("something");
+expect(true).toBeDefined();
 expect(Promise.resolve("Hi!")).resolves.toBe("Hi!");
 ```
 
@@ -33,4 +45,4 @@ to use it, add the following configuration to your `.eslintrc.json`:
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/a6b0100501fda75ec313146a992a9f5fce995518/crates/oxc_linter/src/rules/jest/valid_expect.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/fd0935cfcd660901d612b9b146bc136d40d2f02f/crates/oxc_linter/src/rules/jest/valid_expect.rs)

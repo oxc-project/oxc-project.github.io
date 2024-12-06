@@ -7,6 +7,10 @@
 
 ### What it does
 
+Disallow large snapshots.
+
+### Why is this bad?
+
 When using Jest's snapshot capability one should be mindful of the size of
 created snapshots. As a general best practice snapshots should be limited in
 size in order to be more manageable and reviewable. A stored snapshot is only as
@@ -15,8 +19,9 @@ important to allow for thorough reviews.
 
 ### Example
 
+Examples of **incorrect** code for this rule:
+
 ```javascript
-// invalid
 exports[`a large snapshot 1`] = `
 line 1
 line 2
@@ -70,8 +75,11 @@ line 49
 line 50
 line 51
 `;
+```
 
-// valid
+Examples of **incorrect** code for this rule:
+
+```js
 exports[`a more manageable and readable snapshot 1`] = `
 line 1
 line 2
@@ -82,4 +90,4 @@ line 4
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/a6b0100501fda75ec313146a992a9f5fce995518/crates/oxc_linter/src/rules/jest/no_large_snapshots.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/fd0935cfcd660901d612b9b146bc136d40d2f02f/crates/oxc_linter/src/rules/jest/no_large_snapshots.rs)

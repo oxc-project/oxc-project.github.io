@@ -12,6 +12,10 @@
 
 This rule will warn you if you try to use the ReactDOM.render() return value.
 
+### Why is this bad?
+
+Using the return value from ReactDOM.render() is a legacy feature and should not be used.
+
 ### Example
 
 Examples of **incorrect** code for this rule:
@@ -31,4 +35,4 @@ ReactDOM.render(<App />, document.body);
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/a6b0100501fda75ec313146a992a9f5fce995518/crates/oxc_linter/src/rules/react/no_render_return_value.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/fd0935cfcd660901d612b9b146bc136d40d2f02f/crates/oxc_linter/src/rules/react/no_render_return_value.rs)

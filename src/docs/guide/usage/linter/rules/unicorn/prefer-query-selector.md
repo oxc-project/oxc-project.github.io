@@ -12,6 +12,11 @@
 
 Prefer `.querySelector()` over `.getElementById()`, `.querySelectorAll()` over `.getElementsByClassName()` and `.getElementsByTagName()`.
 
+### Why is this bad?
+
+- Using `.querySelector()` and `.querySelectorAll()` is more flexible and allows for more specific selectors.
+- It's better to use the same method to query DOM elements. This helps keep consistency and it lends itself to future improvements (e.g. more specific selectors).
+
 ### Example
 
 Examples of **incorrect** code for this rule:
@@ -36,4 +41,4 @@ document.querySelector("li").querySelectorAll("a");
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/a6b0100501fda75ec313146a992a9f5fce995518/crates/oxc_linter/src/rules/unicorn/prefer_query_selector.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/fd0935cfcd660901d612b9b146bc136d40d2f02f/crates/oxc_linter/src/rules/unicorn/prefer_query_selector.rs)

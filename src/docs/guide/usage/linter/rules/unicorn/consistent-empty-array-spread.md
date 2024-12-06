@@ -13,6 +13,10 @@
 When spreading a ternary in an array, we can use both [] and '' as fallbacks,
 but it's better to have consistent types in both branches.
 
+### Why is this bad?
+
+Having consistent types in both branches makes the code easier to read and understand.
+
 ### Examples
 
 Examples of **incorrect** code for this rule:
@@ -33,4 +37,4 @@ const array = [a, ...(foo ? "bc" : "")];
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/a6b0100501fda75ec313146a992a9f5fce995518/crates/oxc_linter/src/rules/unicorn/consistent_empty_array_spread.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/fd0935cfcd660901d612b9b146bc136d40d2f02f/crates/oxc_linter/src/rules/unicorn/consistent_empty_array_spread.rs)

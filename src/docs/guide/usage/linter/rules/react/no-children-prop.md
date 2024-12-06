@@ -10,10 +10,12 @@
 
 ### What it does
 
+Checks that children are not passed using a prop.
+
+Why is this bad?
+
 Children should always be actual children, not passed in as a prop.
-
 When using JSX, the children should be nested between the opening and closing tags.
-
 When not using JSX, the children should be passed as additional arguments to `React.createElement`.
 
 ### Example
@@ -45,4 +47,4 @@ React.createElement("div", 'Child 1', 'Child 2')
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/a6b0100501fda75ec313146a992a9f5fce995518/crates/oxc_linter/src/rules/react/no_children_prop.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/fd0935cfcd660901d612b9b146bc136d40d2f02f/crates/oxc_linter/src/rules/react/no_children_prop.rs)
