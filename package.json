@@ -19,7 +19,7 @@
     "degit": "^2.8.4",
     "feed": "^4.2.2",
     "lint-staged": "15.2.10",
-    "oxlint": "^0.13.0",
+    "oxlint": "^0.14.0",
     "prettier": "^3.4.0",
     "simple-git-hooks": "^2.11.1",
     "typescript": "~5.7.0",
@@ -33,7 +33,7 @@
   "lint-staged": {
     "*.{js,jsx,tsx,ts,mts,css,md,json,yml}": "pnpm run fmt --write"
   },
-  "packageManager": "pnpm@9.14.2",
+  "packageManager": "pnpm@9.15.0",
   "volta": {
     "node": "22.11.0"
   }
