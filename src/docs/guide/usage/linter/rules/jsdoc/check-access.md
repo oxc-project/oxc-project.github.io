@@ -40,4 +40,4 @@ Examples of **correct** code for this rule:
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/fd0935cfcd660901d612b9b146bc136d40d2f02f/crates/oxc_linter/src/rules/jsdoc/check_access.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/bd572c609b9fa4561c18485a4cf88716937c445d/crates/oxc_linter/src/rules/jsdoc/check_access.rs)

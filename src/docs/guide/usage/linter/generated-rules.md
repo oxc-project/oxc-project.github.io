@@ -5,7 +5,7 @@ The progress of all rule implementations is tracked [here](https://github.com/ox
 - Total number of rules: 465
 - Rules turned on by default: 97
 
-## Correctness (172):
+## Correctness (171):
 
 Code that is outright wrong or useless.
 | Rule name | Source | Default | Fixable? |
@@ -156,7 +156,6 @@ Code that is outright wrong or useless.
 | [no-render-return-value](/docs/guide/usage/linter/rules/react/no-render-return-value.html) | react | ✅ | |
 | [no-string-refs](/docs/guide/usage/linter/rules/react/no-string-refs.html) | react | ✅ | |
 | [void-dom-elements-no-children](/docs/guide/usage/linter/rules/react/void-dom-elements-no-children.html) | react | ✅ | |
-| [api-keys](/docs/guide/usage/linter/rules/security/api-keys.html) | security | | |
 | [no-duplicate-enum-values](/docs/guide/usage/linter/rules/typescript/no-duplicate-enum-values.html) | typescript | ✅ | |
 | [no-extra-non-null-assertion](/docs/guide/usage/linter/rules/typescript/no-extra-non-null-assertion.html) | typescript | ✅ | |
 | [no-misused-new](/docs/guide/usage/linter/rules/typescript/no-misused-new.html) | typescript | ✅ | |
@@ -377,7 +376,7 @@ Lints which are rather strict or have occasional false positives.
 | [prefer-type-error](/docs/guide/usage/linter/rules/unicorn/prefer-type-error.html) | unicorn | | 🛠️ |
 | [require-number-to-fixed-digits-argument](/docs/guide/usage/linter/rules/unicorn/require-number-to-fixed-digits-argument.html) | unicorn | | 🛠️ |
 
-## Style (113):
+## Style (114):
 
 Code that should be written in a more idiomatic way.
 | Rule name | Source | Default | Fixable? |
@@ -393,6 +392,7 @@ Code that should be written in a more idiomatic way.
 | [no-magic-numbers](/docs/guide/usage/linter/rules/eslint/no-magic-numbers.html) | eslint | | 🚧 |
 | [no-multi-str](/docs/guide/usage/linter/rules/eslint/no-multi-str.html) | eslint | | |
 | [no-new-func](/docs/guide/usage/linter/rules/eslint/no-new-func.html) | eslint | | |
+| [no-restricted-imports](/docs/guide/usage/linter/rules/eslint/no-restricted-imports.html) | eslint | | |
 | [no-return-assign](/docs/guide/usage/linter/rules/eslint/no-return-assign.html) | eslint | | 🚧 |
 | [no-script-url](/docs/guide/usage/linter/rules/eslint/no-script-url.html) | eslint | | |
 | [no-template-curly-in-string](/docs/guide/usage/linter/rules/eslint/no-template-curly-in-string.html) | eslint | | 🚧 |

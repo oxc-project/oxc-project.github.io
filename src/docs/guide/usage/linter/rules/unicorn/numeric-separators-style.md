@@ -28,4 +28,4 @@ const valid = [1_234_567, 1_234.567_89, 0xab_cd_ef, 0b1000_1111, 0o10_4421, 1_29
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/fd0935cfcd660901d612b9b146bc136d40d2f02f/crates/oxc_linter/src/rules/unicorn/numeric_separators_style.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/bd572c609b9fa4561c18485a4cf88716937c445d/crates/oxc_linter/src/rules/unicorn/numeric_separators_style.rs)
