@@ -21,4 +21,4 @@ Custom CSS like styled-jsx is not allowed in a [Custom Document](https://nextjs.
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/bd572c609b9fa4561c18485a4cf88716937c445d/crates/oxc_linter/src/rules/nextjs/no_styled_jsx_in_document.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/5172f324579e6a3858a816912e6d8a284d5debad/crates/oxc_linter/src/rules/nextjs/no_styled_jsx_in_document.rs)

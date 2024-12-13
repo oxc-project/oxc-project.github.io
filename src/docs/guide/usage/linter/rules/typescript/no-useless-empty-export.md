@@ -50,4 +50,4 @@ export const value = "Hello, world!";
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/bd572c609b9fa4561c18485a4cf88716937c445d/crates/oxc_linter/src/rules/typescript/no_useless_empty_export.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/5172f324579e6a3858a816912e6d8a284d5debad/crates/oxc_linter/src/rules/typescript/no_useless_empty_export.rs)
