@@ -38,4 +38,4 @@ var theme = require("./theme.css");
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/bd572c609b9fa4561c18485a4cf88716937c445d/crates/oxc_linter/src/rules/import/no_webpack_loader_syntax.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/36ebb3e7841818c238c44349d6cf859db4177d55/crates/oxc_linter/src/rules/import/no_webpack_loader_syntax.rs)
