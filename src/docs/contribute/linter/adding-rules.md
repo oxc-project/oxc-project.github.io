@@ -47,15 +47,19 @@ Run `just` with no arguments to see all available commands.
 :::
 
 ```bash
+just new-rule [name]            # for eslint core rules
 just new-jest-rule [name]       # for eslint-plugin-jest
-just new-jsx-a11y-rule [name]   # for eslint-plugin-jsx-a11y
-just new-n-rule [name]          # for eslint-plugin-n
-just new-nextjs-rule [name]     # for eslint-plugin-next
-just new-oxc-rule [name]        # for oxc's own rules
-just new-promise-rule [name]    # for eslint-plugin-promise
-just new-react-rule [name]      # for eslint-plugin-react and eslint-plugin-react-hooks
 just new-ts-rule [name]         # for @typescript-eslint/eslint-plugin
 just new-unicorn-rule [name]    # for eslint-plugin-unicorn
+just new-import-rule [name]     # for eslint-plugin-import
+just new-react-rule [name]      # for eslint-plugin-react and eslint-plugin-react-hooks
+just new-jsx-a11y-rule [name]   # for eslint-plugin-jsx-a11y
+just new-oxc-rule [name]        # for oxc's own rules
+just new-nextjs-rule [name]     # for eslint-plugin-next
+just new-jsdoc-rule [name]      # for eslint-plugin-jsdoc
+just new-react-perf-rule [name] # for eslint-plugin-react-perf
+just new-n-rule [name]          # for eslint-plugin-n
+just new-promise-rule [name]    # for eslint-plugin-promise
 just new-vitest-rule [name]     # for eslint-plugin-vitest
 ```
 
