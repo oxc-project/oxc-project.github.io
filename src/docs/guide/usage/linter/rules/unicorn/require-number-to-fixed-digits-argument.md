@@ -34,4 +34,4 @@ number.toFixed(2);
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/36ebb3e7841818c238c44349d6cf859db4177d55/crates/oxc_linter/src/rules/unicorn/require_number_to_fixed_digits_argument.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/25ddb3519289dfe2a51e53b9b0c355d8ad950bbc/crates/oxc_linter/src/rules/unicorn/require_number_to_fixed_digits_argument.rs)

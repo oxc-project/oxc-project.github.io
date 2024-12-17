@@ -2,8 +2,16 @@
 
 The progress of all rule implementations is tracked [here](https://github.com/oxc-project/oxc/issues/481).
 
-- Total number of rules: 465
+- Total number of rules: 466
 - Rules turned on by default: 97
+
+**Legend for 'Fixable?' column:**
+
+- 🛠️: an auto-fix is available for this rule
+- 💡: a suggestion is available for this rule
+- ⚠️🛠️: a dangerous auto-fix is available for this rule
+- ⚠️💡: a dangerous suggestion is available for this rule
+- 🚧: an auto-fix or suggestion is possible, but currently not implemented
 
 ## Correctness (171):
 
@@ -392,7 +400,6 @@ Code that should be written in a more idiomatic way.
 | [no-magic-numbers](/docs/guide/usage/linter/rules/eslint/no-magic-numbers.html) | eslint | | 🚧 |
 | [no-multi-str](/docs/guide/usage/linter/rules/eslint/no-multi-str.html) | eslint | | |
 | [no-new-func](/docs/guide/usage/linter/rules/eslint/no-new-func.html) | eslint | | |
-| [no-restricted-imports](/docs/guide/usage/linter/rules/eslint/no-restricted-imports.html) | eslint | | |
 | [no-return-assign](/docs/guide/usage/linter/rules/eslint/no-return-assign.html) | eslint | | 🚧 |
 | [no-script-url](/docs/guide/usage/linter/rules/eslint/no-script-url.html) | eslint | | |
 | [no-template-curly-in-string](/docs/guide/usage/linter/rules/eslint/no-template-curly-in-string.html) | eslint | | 🚧 |
@@ -405,6 +412,7 @@ Code that should be written in a more idiomatic way.
 | [sort-keys](/docs/guide/usage/linter/rules/eslint/sort-keys.html) | eslint | | 🚧 |
 | [yoda](/docs/guide/usage/linter/rules/eslint/yoda.html) | eslint | | 🛠️ |
 | [first](/docs/guide/usage/linter/rules/import/first.html) | import | | 🚧 |
+| [no-named-default](/docs/guide/usage/linter/rules/import/no-named-default.html) | import | | |
 | [no-namespace](/docs/guide/usage/linter/rules/import/no-namespace.html) | import | | 🚧 |
 | [consistent-test-it](/docs/guide/usage/linter/rules/jest/consistent-test-it.html) | jest | | 🛠️ |
 | [max-expects](/docs/guide/usage/linter/rules/jest/max-expects.html) | jest | | |
@@ -496,13 +504,14 @@ Code that should be written in a more idiomatic way.
 | [prefer-to-be-object](/docs/guide/usage/linter/rules/vitest/prefer-to-be-object.html) | vitest | | 🛠️ |
 | [prefer-to-be-truthy](/docs/guide/usage/linter/rules/vitest/prefer-to-be-truthy.html) | vitest | | 🛠️ |
 
-## Nursery (10):
+## Nursery (11):
 
 New lints that are still under development.
 | Rule name | Source | Default | Fixable? |
 | ----------------------- | ---------- | ------- | -------- |
 | [constructor-super](/docs/guide/usage/linter/rules/eslint/constructor-super.html) | eslint | | |
 | [getter-return](/docs/guide/usage/linter/rules/eslint/getter-return.html) | eslint | | |
+| [no-restricted-imports](/docs/guide/usage/linter/rules/eslint/no-restricted-imports.html) | eslint | | |
 | [no-undef](/docs/guide/usage/linter/rules/eslint/no-undef.html) | eslint | | |
 | [no-unreachable](/docs/guide/usage/linter/rules/eslint/no-unreachable.html) | eslint | | |
 | [export](/docs/guide/usage/linter/rules/import/export.html) | import | | |
