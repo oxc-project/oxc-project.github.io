@@ -31,7 +31,7 @@ jobs:
           path: oxc
 
       - name: Install Tools
-        uses: taiki-e/install-action@8484225d9734e230a8bf38421a4ffec1cc249372 # v2
+        uses: taiki-e/install-action@acd25891978b4cdaebd139d3efef606d26513b14 # v2
         with:
           tool: just
 
@@ -46,7 +46,7 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - run: pnpm run fmt --write ./src/docs/guide/usage/linter
 
-      - uses: peter-evans/create-pull-request@5e914681df9dc83aa4e4905692ca88beb2f9e91f # v7
+      - uses: peter-evans/create-pull-request@67ccf781d68cd99b580ae25a5c18a1cc84ffff1f # v7
         with:
           token: ${{ secrets.OXC_BOT_PAT }}
           commit-message: Release ${{ inputs.version }}
