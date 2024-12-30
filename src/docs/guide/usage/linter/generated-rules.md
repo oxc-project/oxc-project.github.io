@@ -2,7 +2,7 @@
 
 The progress of all rule implementations is tracked [here](https://github.com/oxc-project/oxc/issues/481).
 
-- Total number of rules: 466
+- Total number of rules: 473
 - Rules turned on by default: 97
 
 **Legend for 'Fixable?' column:**
@@ -67,7 +67,6 @@ Code that is outright wrong or useless.
 | [use-isnan](/docs/guide/usage/linter/rules/eslint/use-isnan.html) | eslint | ✅ | 🛠️ |
 | [valid-typeof](/docs/guide/usage/linter/rules/eslint/valid-typeof.html) | eslint | ✅ | 🛠️ |
 | [default](/docs/guide/usage/linter/rules/import/default.html) | import | | |
-| [named](/docs/guide/usage/linter/rules/import/named.html) | import | | |
 | [namespace](/docs/guide/usage/linter/rules/import/namespace.html) | import | | |
 | [expect-expect](/docs/guide/usage/linter/rules/jest/expect-expect.html) | jest | | |
 | [no-conditional-expect](/docs/guide/usage/linter/rules/jest/no-conditional-expect.html) | jest | | |
@@ -109,6 +108,7 @@ Code that is outright wrong or useless.
 | [no-aria-hidden-on-focusable](/docs/guide/usage/linter/rules/jsx_a11y/no-aria-hidden-on-focusable.html) | jsx_a11y | | 🛠️ |
 | [no-autofocus](/docs/guide/usage/linter/rules/jsx_a11y/no-autofocus.html) | jsx_a11y | | 🛠️ |
 | [no-distracting-elements](/docs/guide/usage/linter/rules/jsx_a11y/no-distracting-elements.html) | jsx_a11y | | |
+| [no-noninteractive-tabindex](/docs/guide/usage/linter/rules/jsx_a11y/no-noninteractive-tabindex.html) | jsx_a11y | | |
 | [no-redundant-roles](/docs/guide/usage/linter/rules/jsx_a11y/no-redundant-roles.html) | jsx_a11y | | 🛠️ |
 | [prefer-tag-over-role](/docs/guide/usage/linter/rules/jsx_a11y/prefer-tag-over-role.html) | jsx_a11y | | |
 | [role-has-required-aria-props](/docs/guide/usage/linter/rules/jsx_a11y/role-has-required-aria-props.html) | jsx_a11y | | |
@@ -318,6 +318,7 @@ Lints which are rather strict or have occasional false positives.
 | [no-else-return](/docs/guide/usage/linter/rules/eslint/no-else-return.html) | eslint | | 🛠️ |
 | [no-fallthrough](/docs/guide/usage/linter/rules/eslint/no-fallthrough.html) | eslint | | 🚧 |
 | [no-inner-declarations](/docs/guide/usage/linter/rules/eslint/no-inner-declarations.html) | eslint | | |
+| [no-negated-condition](/docs/guide/usage/linter/rules/eslint/no-negated-condition.html) | eslint | | 🚧 |
 | [no-new-wrappers](/docs/guide/usage/linter/rules/eslint/no-new-wrappers.html) | eslint | | 🚧 |
 | [no-object-constructor](/docs/guide/usage/linter/rules/eslint/no-object-constructor.html) | eslint | | 🚧 |
 | [no-prototype-builtins](/docs/guide/usage/linter/rules/eslint/no-prototype-builtins.html) | eslint | | |
@@ -353,7 +354,6 @@ Lints which are rather strict or have occasional false positives.
 | [no-hex-escape](/docs/guide/usage/linter/rules/unicorn/no-hex-escape.html) | unicorn | | 🛠️ |
 | [no-instanceof-array](/docs/guide/usage/linter/rules/unicorn/no-instanceof-array.html) | unicorn | | 🛠️ |
 | [no-lonely-if](/docs/guide/usage/linter/rules/unicorn/no-lonely-if.html) | unicorn | | |
-| [no-negated-condition](/docs/guide/usage/linter/rules/unicorn/no-negated-condition.html) | unicorn | | 🚧 |
 | [no-negation-in-equality-check](/docs/guide/usage/linter/rules/unicorn/no-negation-in-equality-check.html) | unicorn | | 🚧 |
 | [no-new-buffer](/docs/guide/usage/linter/rules/unicorn/no-new-buffer.html) | unicorn | | 🚧 |
 | [no-object-as-default-parameter](/docs/guide/usage/linter/rules/unicorn/no-object-as-default-parameter.html) | unicorn | | |
@@ -384,7 +384,7 @@ Lints which are rather strict or have occasional false positives.
 | [prefer-type-error](/docs/guide/usage/linter/rules/unicorn/prefer-type-error.html) | unicorn | | 🛠️ |
 | [require-number-to-fixed-digits-argument](/docs/guide/usage/linter/rules/unicorn/require-number-to-fixed-digits-argument.html) | unicorn | | 🛠️ |
 
-## Style (114):
+## Style (120):
 
 Code that should be written in a more idiomatic way.
 | Rule name | Source | Default | Fixable? |
@@ -396,9 +396,13 @@ Code that should be written in a more idiomatic way.
 | [max-params](/docs/guide/usage/linter/rules/eslint/max-params.html) | eslint | | |
 | [no-continue](/docs/guide/usage/linter/rules/eslint/no-continue.html) | eslint | | |
 | [no-duplicate-imports](/docs/guide/usage/linter/rules/eslint/no-duplicate-imports.html) | eslint | | 🚧 |
+| [no-extra-label](/docs/guide/usage/linter/rules/eslint/no-extra-label.html) | eslint | | 🛠️ |
 | [no-label-var](/docs/guide/usage/linter/rules/eslint/no-label-var.html) | eslint | | |
+| [no-labels](/docs/guide/usage/linter/rules/eslint/no-labels.html) | eslint | | |
 | [no-magic-numbers](/docs/guide/usage/linter/rules/eslint/no-magic-numbers.html) | eslint | | 🚧 |
+| [no-multi-assign](/docs/guide/usage/linter/rules/eslint/no-multi-assign.html) | eslint | | |
 | [no-multi-str](/docs/guide/usage/linter/rules/eslint/no-multi-str.html) | eslint | | |
+| [no-nested-ternary](/docs/guide/usage/linter/rules/eslint/no-nested-ternary.html) | eslint | | |
 | [no-new-func](/docs/guide/usage/linter/rules/eslint/no-new-func.html) | eslint | | |
 | [no-return-assign](/docs/guide/usage/linter/rules/eslint/no-return-assign.html) | eslint | | 🚧 |
 | [no-script-url](/docs/guide/usage/linter/rules/eslint/no-script-url.html) | eslint | | |
@@ -407,9 +411,11 @@ Code that should be written in a more idiomatic way.
 | [prefer-exponentiation-operator](/docs/guide/usage/linter/rules/eslint/prefer-exponentiation-operator.html) | eslint | | |
 | [prefer-numeric-literals](/docs/guide/usage/linter/rules/eslint/prefer-numeric-literals.html) | eslint | | 🛠️ |
 | [prefer-object-has-own](/docs/guide/usage/linter/rules/eslint/prefer-object-has-own.html) | eslint | | 🛠️ |
+| [prefer-rest-params](/docs/guide/usage/linter/rules/eslint/prefer-rest-params.html) | eslint | | |
 | [prefer-spread](/docs/guide/usage/linter/rules/eslint/prefer-spread.html) | eslint | | 🛠️ |
 | [sort-imports](/docs/guide/usage/linter/rules/eslint/sort-imports.html) | eslint | | 🛠️ |
 | [sort-keys](/docs/guide/usage/linter/rules/eslint/sort-keys.html) | eslint | | 🚧 |
+| [vars-on-top](/docs/guide/usage/linter/rules/eslint/vars-on-top.html) | eslint | | |
 | [yoda](/docs/guide/usage/linter/rules/eslint/yoda.html) | eslint | | 🛠️ |
 | [first](/docs/guide/usage/linter/rules/import/first.html) | import | | 🚧 |
 | [no-named-default](/docs/guide/usage/linter/rules/import/no-named-default.html) | import | | |
@@ -504,7 +510,7 @@ Code that should be written in a more idiomatic way.
 | [prefer-to-be-object](/docs/guide/usage/linter/rules/vitest/prefer-to-be-object.html) | vitest | | 🛠️ |
 | [prefer-to-be-truthy](/docs/guide/usage/linter/rules/vitest/prefer-to-be-truthy.html) | vitest | | 🛠️ |
 
-## Nursery (11):
+## Nursery (12):
 
 New lints that are still under development.
 | Rule name | Source | Default | Fixable? |
@@ -515,6 +521,7 @@ New lints that are still under development.
 | [no-undef](/docs/guide/usage/linter/rules/eslint/no-undef.html) | eslint | | |
 | [no-unreachable](/docs/guide/usage/linter/rules/eslint/no-unreachable.html) | eslint | | |
 | [export](/docs/guide/usage/linter/rules/import/export.html) | import | | |
+| [named](/docs/guide/usage/linter/rules/import/named.html) | import | | |
 | [no-map-spread](/docs/guide/usage/linter/rules/oxc/no-map-spread.html) | oxc | | 🛠️💡 |
 | [no-return-in-finally](/docs/guide/usage/linter/rules/promise/no-return-in-finally.html) | promise | | |
 | [exhaustive-deps](/docs/guide/usage/linter/rules/react/exhaustive-deps.html) | react | | |
