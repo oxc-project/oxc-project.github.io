@@ -82,4 +82,4 @@ There are **many reasons** why an anchor should not have a logic and have a corr
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/55744fd9775a032ea83215dadc77a6bff3e2a87d/crates/oxc_linter/src/rules/jsx_a11y/anchor_is_valid.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/2b14a6fb5403dfe5eff8dfade3baf7725b837052/crates/oxc_linter/src/rules/jsx_a11y/anchor_is_valid.rs)
