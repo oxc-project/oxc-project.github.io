@@ -2,7 +2,7 @@
 
 The progress of all rule implementations is tracked [here](https://github.com/oxc-project/oxc/issues/481).
 
-- Total number of rules: 473
+- Total number of rules: 474
 - Rules turned on by default: 97
 
 **Legend for 'Fixable?' column:**
@@ -384,7 +384,7 @@ Lints which are rather strict or have occasional false positives.
 | [prefer-type-error](/docs/guide/usage/linter/rules/unicorn/prefer-type-error.html) | unicorn | | 🛠️ |
 | [require-number-to-fixed-digits-argument](/docs/guide/usage/linter/rules/unicorn/require-number-to-fixed-digits-argument.html) | unicorn | | 🛠️ |
 
-## Style (120):
+## Style (121):
 
 Code that should be written in a more idiomatic way.
 | Rule name | Source | Default | Fixable? |
@@ -394,6 +394,7 @@ Code that should be written in a more idiomatic way.
 | [func-names](/docs/guide/usage/linter/rules/eslint/func-names.html) | eslint | | 🛠️💡 |
 | [guard-for-in](/docs/guide/usage/linter/rules/eslint/guard-for-in.html) | eslint | | |
 | [max-params](/docs/guide/usage/linter/rules/eslint/max-params.html) | eslint | | |
+| [new-cap](/docs/guide/usage/linter/rules/eslint/new-cap.html) | eslint | | 🚧 |
 | [no-continue](/docs/guide/usage/linter/rules/eslint/no-continue.html) | eslint | | |
 | [no-duplicate-imports](/docs/guide/usage/linter/rules/eslint/no-duplicate-imports.html) | eslint | | 🚧 |
 | [no-extra-label](/docs/guide/usage/linter/rules/eslint/no-extra-label.html) | eslint | | 🛠️ |
