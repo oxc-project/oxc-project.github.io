@@ -121,7 +121,7 @@ Download the official VSCode extension from the
 
 ### Zed Extension
 
-https://zed.dev/extensions?q=oxc
+https://zed.dev/extensions?query=oxc
 
 ### Continuous Integration
 
