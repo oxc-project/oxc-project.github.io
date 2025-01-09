@@ -80,47 +80,6 @@ export const enConfig = defineLocaleConfig("root", {
       ],
       "/docs/learn/": [
         {
-          text: "Architecture",
-          items: [
-            // {
-            // text: "Introduction",
-            // link: "/docs/learn/architecture/introduction",
-            // },
-            // {
-            // text: "Parser",
-            // link: "/docs/learn/architecture/parser",
-            // },
-            {
-              text: "Linter",
-              link: "/docs/learn/architecture/linter",
-            },
-            // {
-            // text: "Resolver",
-            // link: "/docs/learn/architecture/resolver",
-            // },
-            // {
-            // text: "Transformer",
-            // link: "/docs/learn/architecture/transformer",
-            // },
-            // {
-            // text: "Formatter",
-            // link: "/docs/learn/architecture/formatter",
-            // },
-            // {
-            // text: "Minifier",
-            // link: "/docs/learn/architecture/minifier",
-            // },
-            {
-              text: "Test Infrastructure",
-              link: "/docs/learn/architecture/test",
-            },
-            {
-              text: "AST Tools",
-              link: "/docs/learn/architecture/ast-tools",
-            },
-          ],
-        },
-        {
           text: "JavaScript Parser in Rust",
           items: [
             { text: "Introduction", link: "/docs/learn/parser_in_rust/intro" },
@@ -129,6 +88,27 @@ export const enConfig = defineLocaleConfig("root", {
             { text: "Parser", link: "/docs/learn/parser_in_rust/parser" },
             { text: "Errors", link: "/docs/learn/parser_in_rust/errors" },
             { text: "Semantic Analysis", link: "/docs/learn/parser_in_rust/semantic_analysis" },
+          ],
+        },
+        {
+          text: "Architecture",
+          items: [
+            {
+              text: "Parser",
+              link: "/docs/learn/architecture/parser",
+            },
+            {
+              text: "Linter",
+              link: "/docs/learn/architecture/linter",
+            },
+            {
+              text: "Test Infrastructure",
+              link: "/docs/learn/architecture/test",
+            },
+            {
+              text: "AST Tools",
+              link: "/docs/learn/architecture/ast-tools",
+            },
           ],
         },
         {
@@ -177,7 +157,6 @@ export const enConfig = defineLocaleConfig("root", {
               text: "Transformer",
               link: "/docs/contribute/transformer",
             },
-            // { text: "Codegen", link: "/docs/contribute/codegen" },
             { text: "Minifier", link: "/docs/contribute/minifier" },
             { text: "VSCode", link: "/docs/contribute/vscode" },
           ],
