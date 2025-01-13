@@ -37,4 +37,4 @@ const foo = 1.1;
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/2b14a6fb5403dfe5eff8dfade3baf7725b837052/crates/oxc_linter/src/rules/unicorn/no_zero_fractions.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/457aa31d92800aaf37a12c695928e8d941308d33/crates/oxc_linter/src/rules/unicorn/no_zero_fractions.rs)
