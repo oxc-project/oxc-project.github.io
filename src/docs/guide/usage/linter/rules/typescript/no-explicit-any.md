@@ -68,4 +68,4 @@ Whether to enable auto-fixing in which the `any` type is converted to the `unkno
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/2b14a6fb5403dfe5eff8dfade3baf7725b837052/crates/oxc_linter/src/rules/typescript/no_explicit_any.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/457aa31d92800aaf37a12c695928e8d941308d33/crates/oxc_linter/src/rules/typescript/no_explicit_any.rs)

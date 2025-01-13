@@ -3,6 +3,9 @@
 # vitest/require-local-test-context-for-concurrent-snapshots <Badge type="info" text="Correctness" />
 
 <div class="rule-meta">
+<Alert class="default-on" type="success">
+<span class="emoji">✅</span> This rule is turned on by default.
+</Alert>
 <Alert class="fix" type="info">
 <span class="emoji">🚧</span> An auto-fix is still under development.
 </Alert>
@@ -50,4 +53,4 @@ test.concurrent("myLogic", (context) => {
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/2b14a6fb5403dfe5eff8dfade3baf7725b837052/crates/oxc_linter/src/rules/vitest/require_local_test_context_for_concurrent_snapshots.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/457aa31d92800aaf37a12c695928e8d941308d33/crates/oxc_linter/src/rules/vitest/require_local_test_context_for_concurrent_snapshots.rs)

@@ -3,14 +3,9 @@
 # eslint/prefer-spread <Badge type="info" text="Style" />
 
 <div class="rule-meta">
-<Alert class="fix" type="info">
-<span class="emoji">🛠️</span> An auto-fix is available for this rule for some violations.
-</Alert>
 </div>
 
 This rule is combined 2 rules from `eslint:prefer-spread` and `unicorn:prefer-spread`.
-
-## original eslint:prefer-spread
 
 ### What it does
 
@@ -61,32 +56,6 @@ foo.apply(null, [1, 2, 3]);
 obj.foo.apply(obj, [1, 2, 3]);
 ```
 
-## unicorn:prefer-spread
-
-### What it does
-
-Enforces the use of [the spread operator (`...`)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax) over outdated patterns.
-
-### Why is this bad?
-
-Using the spread operator is more concise and readable.
-
-### Examples
-
-Examples of **incorrect** code for this rule:
-
-```javascript
-const foo = Array.from(set);
-const foo = Array.from(new Set([1, 2]));
-```
-
-Examples of **correct** code for this rule:
-
-```javascript
-[...set].map(() => {});
-Array.from(...argumentsArray);
-```
-
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/2b14a6fb5403dfe5eff8dfade3baf7725b837052/crates/oxc_linter/src/rules/eslint/prefer_spread.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/457aa31d92800aaf37a12c695928e8d941308d33/crates/oxc_linter/src/rules/eslint/prefer_spread.rs)
