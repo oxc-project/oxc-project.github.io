@@ -34,4 +34,4 @@ Array.from(...argumentsArray);
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/45ef3eb2becc663e756a3da557df5a03fb40fd84/crates/oxc_linter/src/rules/unicorn/prefer_spread.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/457aa31d92800aaf37a12c695928e8d941308d33/crates/oxc_linter/src/rules/unicorn/prefer_spread.rs)
