@@ -14,6 +14,8 @@
 
 - **`    --tsconfig`**=_`<./tsconfig.json>`_ &mdash;
   TypeScript `tsconfig.json` path for reading path alias and project references for import plugin
+- **`    --init`** &mdash;
+  Initialize oxlint configuration with default values
 
 ## Allowing / Denying Multiple Lints
 
