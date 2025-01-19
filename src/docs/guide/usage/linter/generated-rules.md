@@ -2,7 +2,7 @@
 
 The progress of all rule implementations is tracked [here](https://github.com/oxc-project/oxc/issues/481).
 
-- Total number of rules: 476
+- Total number of rules: 477
 - Rules turned on by default: 123
 
 **Legend for 'Fixable?' column:**
@@ -384,7 +384,7 @@ Lints which are rather strict or have occasional false positives.
 | [prefer-type-error](/docs/guide/usage/linter/rules/unicorn/prefer-type-error.html) | unicorn | | 🛠️ |
 | [require-number-to-fixed-digits-argument](/docs/guide/usage/linter/rules/unicorn/require-number-to-fixed-digits-argument.html) | unicorn | | 🛠️ |
 
-## Style (123):
+## Style (124):
 
 Code that should be written in a more idiomatic way.
 | Rule name | Source | Default | Fixable? |
@@ -413,6 +413,7 @@ Code that should be written in a more idiomatic way.
 | [prefer-exponentiation-operator](/docs/guide/usage/linter/rules/eslint/prefer-exponentiation-operator.html) | eslint | | |
 | [prefer-numeric-literals](/docs/guide/usage/linter/rules/eslint/prefer-numeric-literals.html) | eslint | | 🛠️ |
 | [prefer-object-has-own](/docs/guide/usage/linter/rules/eslint/prefer-object-has-own.html) | eslint | | 🛠️ |
+| [prefer-promise-reject-errors](/docs/guide/usage/linter/rules/eslint/prefer-promise-reject-errors.html) | eslint | | |
 | [prefer-rest-params](/docs/guide/usage/linter/rules/eslint/prefer-rest-params.html) | eslint | | |
 | [prefer-spread](/docs/guide/usage/linter/rules/eslint/prefer-spread.html) | eslint | | |
 | [sort-imports](/docs/guide/usage/linter/rules/eslint/sort-imports.html) | eslint | | 🛠️ |
@@ -443,6 +444,7 @@ Code that should be written in a more idiomatic way.
 | [no-untyped-mock-factory](/docs/guide/usage/linter/rules/jest/no-untyped-mock-factory.html) | jest | | 🛠️ |
 | [prefer-called-with](/docs/guide/usage/linter/rules/jest/prefer-called-with.html) | jest | | |
 | [prefer-comparison-matcher](/docs/guide/usage/linter/rules/jest/prefer-comparison-matcher.html) | jest | | 🛠️ |
+| [prefer-each](/docs/guide/usage/linter/rules/jest/prefer-each.html) | jest | | |
 | [prefer-equality-matcher](/docs/guide/usage/linter/rules/jest/prefer-equality-matcher.html) | jest | | |
 | [prefer-expect-resolves](/docs/guide/usage/linter/rules/jest/prefer-expect-resolves.html) | jest | | 🛠️ |
 | [prefer-hooks-in-order](/docs/guide/usage/linter/rules/jest/prefer-hooks-in-order.html) | jest | | |
@@ -508,7 +510,6 @@ Code that should be written in a more idiomatic way.
 | [text-encoding-identifier-case](/docs/guide/usage/linter/rules/unicorn/text-encoding-identifier-case.html) | unicorn | | 🛠️ |
 | [throw-new-error](/docs/guide/usage/linter/rules/unicorn/throw-new-error.html) | unicorn | | 🛠️ |
 | [no-import-node-test](/docs/guide/usage/linter/rules/vitest/no-import-node-test.html) | vitest | | 🛠️ |
-| [prefer-each](/docs/guide/usage/linter/rules/vitest/prefer-each.html) | vitest | | |
 | [prefer-to-be-falsy](/docs/guide/usage/linter/rules/vitest/prefer-to-be-falsy.html) | vitest | | 🛠️ |
 | [prefer-to-be-object](/docs/guide/usage/linter/rules/vitest/prefer-to-be-object.html) | vitest | | 🛠️ |
 | [prefer-to-be-truthy](/docs/guide/usage/linter/rules/vitest/prefer-to-be-truthy.html) | vitest | | 🛠️ |
