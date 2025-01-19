@@ -45,11 +45,22 @@ xtest("", () => {});
 Examples of **correct** code for this rule:
 
 ```javascript
-describe('foo', () => {});
-it('bar', () => {});
-test('baz', () => {});
+describe("foo", () => {});
+it("bar", () => {});
+test("baz", () => {});
+```
 
+### Options
+
+interface Options {
+ignoreSpaces?: boolean;
+ignoreTypeOfTestName?: boolean;
+ignoreTypeOfDescribeName?: boolean;
+disallowedWords?: string[];
+mustNotMatch?: Partial<Record<'describe' | 'test' | 'it', string>> | string;
+mustMatch?: Partial<Record<'describe' | 'test' | 'it', string>> | string;
+}
 
 ## References
-- [Rule Source](https://github.com/oxc-project/oxc/blob/457aa31d92800aaf37a12c695928e8d941308d33/crates/oxc_linter/src/rules/jest/valid_title.rs)
-```
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/40f51654ec5755283bf15e9903e100f7077a6d8d/crates/oxc_linter/src/rules/jest/valid_title.rs)

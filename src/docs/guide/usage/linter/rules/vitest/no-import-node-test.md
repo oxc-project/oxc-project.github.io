@@ -44,4 +44,4 @@ test("foo", () => {
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/457aa31d92800aaf37a12c695928e8d941308d33/crates/oxc_linter/src/rules/vitest/no_import_node_test.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/40f51654ec5755283bf15e9903e100f7077a6d8d/crates/oxc_linter/src/rules/vitest/no_import_node_test.rs)

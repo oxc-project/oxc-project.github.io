@@ -48,7 +48,7 @@ Configure an entire category of rules all at once.
 
 Rules enabled or disabled this way will be overwritten by individual rules in the `rules` field.
 
-# Example
+Example
 
 ```json
 {

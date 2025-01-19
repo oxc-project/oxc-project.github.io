@@ -36,4 +36,4 @@ import b from "./b"; // Allowed: 2 dependencies (max: 2)
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/457aa31d92800aaf37a12c695928e8d941308d33/crates/oxc_linter/src/rules/import/max_dependencies.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/40f51654ec5755283bf15e9903e100f7077a6d8d/crates/oxc_linter/src/rules/import/max_dependencies.rs)
