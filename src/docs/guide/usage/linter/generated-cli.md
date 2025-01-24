@@ -105,7 +105,7 @@ Arguments:
 ## Output
 
 - **`-f`**, **`--format`**=_`ARG`_ &mdash;
-  Use a specific output format (default, json, unix, checkstyle, github)
+  Use a specific output format (default, json, unix, checkstyle, github, stylish)
 
 ## Miscellaneous
 
