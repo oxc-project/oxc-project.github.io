@@ -58,4 +58,4 @@ obj.foo.apply(obj, [1, 2, 3]);
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/4f6d164f52c4b120dc2976fc172fc0cf49f165b7/crates/oxc_linter/src/rules/eslint/prefer_spread.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/57b7ca8eae8a1d308119ac0e0a8e657e5e61b4bb/crates/oxc_linter/src/rules/eslint/prefer_spread.rs)

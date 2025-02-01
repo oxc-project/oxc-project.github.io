@@ -2,7 +2,7 @@
 
 The progress of all rule implementations is tracked [here](https://github.com/oxc-project/oxc/issues/481).
 
-- Total number of rules: 477
+- Total number of rules: 479
 - Rules turned on by default: 123
 
 **Legend for 'Fixable?' column:**
@@ -190,12 +190,13 @@ Code that is outright wrong or useless.
 | [no-conditional-tests](/docs/guide/usage/linter/rules/vitest/no-conditional-tests.html) | vitest | ✅ | |
 | [require-local-test-context-for-concurrent-snapshots](/docs/guide/usage/linter/rules/vitest/require-local-test-context-for-concurrent-snapshots.html) | vitest | ✅ | 🚧 |
 
-## Perf (8):
+## Perf (9):
 
 Code that can be written to run faster.
 | Rule name | Source | Default | Fixable? |
 | --------------------------- | ---------- | ------- | -------- |
 | [no-await-in-loop](/docs/guide/usage/linter/rules/eslint/no-await-in-loop.html) | eslint | | |
+| [no-useless-call](/docs/guide/usage/linter/rules/eslint/no-useless-call.html) | eslint | | |
 | [no-accumulating-spread](/docs/guide/usage/linter/rules/oxc/no-accumulating-spread.html) | oxc | | |
 | [no-array-index-key](/docs/guide/usage/linter/rules/react/no-array-index-key.html) | react | | |
 | [jsx-no-jsx-as-prop](/docs/guide/usage/linter/rules/react_perf/jsx-no-jsx-as-prop.html) | react_perf | | |
@@ -384,7 +385,7 @@ Lints which are rather strict or have occasional false positives.
 | [prefer-type-error](/docs/guide/usage/linter/rules/unicorn/prefer-type-error.html) | unicorn | | 🛠️ |
 | [require-number-to-fixed-digits-argument](/docs/guide/usage/linter/rules/unicorn/require-number-to-fixed-digits-argument.html) | unicorn | | 🛠️ |
 
-## Style (124):
+## Style (125):
 
 Code that should be written in a more idiomatic way.
 | Rule name | Source | Default | Fixable? |
@@ -413,6 +414,7 @@ Code that should be written in a more idiomatic way.
 | [prefer-exponentiation-operator](/docs/guide/usage/linter/rules/eslint/prefer-exponentiation-operator.html) | eslint | | |
 | [prefer-numeric-literals](/docs/guide/usage/linter/rules/eslint/prefer-numeric-literals.html) | eslint | | 🛠️ |
 | [prefer-object-has-own](/docs/guide/usage/linter/rules/eslint/prefer-object-has-own.html) | eslint | | 🛠️ |
+| [prefer-object-spread](/docs/guide/usage/linter/rules/eslint/prefer-object-spread.html) | eslint | | 🛠️ |
 | [prefer-promise-reject-errors](/docs/guide/usage/linter/rules/eslint/prefer-promise-reject-errors.html) | eslint | | |
 | [prefer-rest-params](/docs/guide/usage/linter/rules/eslint/prefer-rest-params.html) | eslint | | |
 | [prefer-spread](/docs/guide/usage/linter/rules/eslint/prefer-spread.html) | eslint | | |
