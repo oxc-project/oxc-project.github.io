@@ -10,7 +10,7 @@
 
 ### What it does
 
-Enforce `it`, `test` and `describe` to have descriptions that begin with a
+Enforce `it`, `test`, `describe`, and `bench` to have descriptions that begin with a
 lowercase letter. This provides more readable test failures. This rule is not
 enabled by default.
 
@@ -43,12 +43,13 @@ it("adds 1 + 2 to equal 3", () => {
 
 ### `ignore`
 
-This array option controls which Jest functions are checked by this rule. There
-are three possible values:
+This array option controls which Jest or Vitest functions are checked by this rule. There
+are four possible values:
 
 - `"describe"`
 - `"test"`
 - `"it"`
+- `"bench"`
 
 By default, none of these options are enabled (the equivalent of
 `{ "ignore": [] }`).
@@ -105,6 +106,36 @@ describe("MyClass", () => {
 });
 ```
 
+### `lowercaseFirstCharacterOnly`
+
+This option can be set to only validate that the first character of a test name is lowercased.
+
+Example of **correct** code for the `{ "lowercaseFirstCharacterOnly": true }` option:
+
+```js
+/* eslint vitest/prefer-lowercase-title: ["error", { "lowercaseFirstCharacterOnly": true }] */
+describe("myClass", () => {
+  describe("myMethod", () => {
+    it("does things", () => {
+      //
+    });
+  });
+});
+```
+
+Example of **incorrect** code for the `{ "lowercaseFirstCharacterOnly": true }` option:
+
+```js
+/* eslint vitest/prefer-lowercase-title: ["error", { "lowercaseFirstCharacterOnly": true }] */
+describe("MyClass", () => {
+  describe("MyMethod", () => {
+    it("does things", () => {
+      //
+    });
+  });
+});
+```
+
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/4f6d164f52c4b120dc2976fc172fc0cf49f165b7/crates/oxc_linter/src/rules/jest/prefer_lowercase_title.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/57b7ca8eae8a1d308119ac0e0a8e657e5e61b4bb/crates/oxc_linter/src/rules/jest/prefer_lowercase_title/mod.rs)

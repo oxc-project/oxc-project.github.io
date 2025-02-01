@@ -36,4 +36,4 @@ Examples of **correct** code for this rule:
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/4f6d164f52c4b120dc2976fc172fc0cf49f165b7/crates/oxc_linter/src/rules/jsx_a11y/role_supports_aria_props.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/57b7ca8eae8a1d308119ac0e0a8e657e5e61b4bb/crates/oxc_linter/src/rules/jsx_a11y/role_supports_aria_props.rs)
