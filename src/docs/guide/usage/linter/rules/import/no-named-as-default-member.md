@@ -49,4 +49,4 @@ import { bar } from "./bar"; // Correct: accessing named export directly
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/57b7ca8eae8a1d308119ac0e0a8e657e5e61b4bb/crates/oxc_linter/src/rules/import/no_named_as_default_member.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/e453be4bf22d285a34825652a7a1d20b3fdf7121/crates/oxc_linter/src/rules/import/no_named_as_default_member.rs)
