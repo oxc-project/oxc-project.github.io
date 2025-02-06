@@ -219,7 +219,7 @@ Lints which prevent the use of language and library features. Must not be enable
 | [no-empty-function](/docs/guide/usage/linter/rules/eslint/no-empty-function.html) | eslint | | |
 | [no-eq-null](/docs/guide/usage/linter/rules/eslint/no-eq-null.html) | eslint | | ⚠️🛠️️ |
 | [no-eval](/docs/guide/usage/linter/rules/eslint/no-eval.html) | eslint | | |
-| [no-iterator](/docs/guide/usage/linter/rules/eslint/no-iterator.html) | eslint | | 🚧 |
+| [no-iterator](/docs/guide/usage/linter/rules/eslint/no-iterator.html) | eslint | | 💡 |
 | [no-plusplus](/docs/guide/usage/linter/rules/eslint/no-plusplus.html) | eslint | | 💡 |
 | [no-proto](/docs/guide/usage/linter/rules/eslint/no-proto.html) | eslint | | 🚧 |
 | [no-regex-spaces](/docs/guide/usage/linter/rules/eslint/no-regex-spaces.html) | eslint | | 🚧 |

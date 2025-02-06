@@ -4,7 +4,7 @@
 
 <div class="rule-meta">
 <Alert class="fix" type="info">
-<span class="emoji">🚧</span> An auto-fix is still under development.
+<span class="emoji">💡</span> A suggestion is available for this rule.
 </Alert>
 </div>
 
@@ -52,4 +52,4 @@ Foo.prototype[Symbol.iterator] = function () {
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/57b7ca8eae8a1d308119ac0e0a8e657e5e61b4bb/crates/oxc_linter/src/rules/eslint/no_iterator.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/e453be4bf22d285a34825652a7a1d20b3fdf7121/crates/oxc_linter/src/rules/eslint/no_iterator.rs)
