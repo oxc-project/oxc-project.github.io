@@ -35,9 +35,10 @@ Next, run the rulegen script to generate boilerplate code for your new rule.
 just new-rule no-debugger
 ```
 
-This will create a new file in
-`crates/oxc_linter/rules/<plugin-name>/<rule-name>.rs` with the start of your
-rule's implementation and all test cases ported from ESLint.
+This will:
+1. Create a new file in `crates/oxc_linter/rules/<plugin-name>/<rule-name>.rs` with the start of your rule's implementation and all test cases ported from ESLint
+2. Register the rule in the appropriate `mod` in [`rules.rs`](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules.rs)
+3. Add the rule to `oxc_macros::declare_all_lint_rules!`
 
 For rules that are part of a different plugin, you'll need to use that plugin's
 own rulegen script.
@@ -128,14 +129,6 @@ fn test() {
 :::
 
 </details>
-
-You then need to register your newly created rule with the linter. Add the rule
-to the appropriate `mod` in
-[`rules.rs`](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules.rs)
-(such as
-[here](https://github.com/oxc-project/oxc/blob/c1da5741f468eb89851218c8a81569fc219a1082/crates/oxc_linter/src/rules.rs#L57)
-for `no-debugger`) and add it to `oxc_macros::declare_all_lint_rules!` (such as
-[here](https://github.com/oxc-project/oxc/blob/c1da5741f468eb89851218c8a81569fc219a1082/crates/oxc_linter/src/rules.rs#L498)).
 
 Your rule should now be ready to run! You can try it out with `cargo test -p
 oxc_linter`. The tests should fail, since you haven't implemented the rule yet.
