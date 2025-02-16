@@ -61,6 +61,27 @@ mustNotMatch?: Partial<Record<'describe' | 'test' | 'it', string>> | string;
 mustMatch?: Partial<Record<'describe' | 'test' | 'it', string>> | string;
 }
 
+## How to use
+
+To **enable** this rule in the CLI or using the config file, you can use:
+
+::: code-group
+
+```bash [CLI]
+oxlint --deny jest/valid-title --jest-plugin
+```
+
+```json [Config (.oxlintrc.json)]
+{
+  "plugins": ["jest"],
+  "rules": {
+    "jest/valid-title": "error"
+  }
+}
+```
+
+:::
+
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/e453be4bf22d285a34825652a7a1d20b3fdf7121/crates/oxc_linter/src/rules/jest/valid_title.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/19fdf8993df7b697b99d9b92a3a546cce7171c42/crates/oxc_linter/src/rules/jest/valid_title.rs)

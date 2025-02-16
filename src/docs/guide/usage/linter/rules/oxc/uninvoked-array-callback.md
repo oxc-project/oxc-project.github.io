@@ -23,6 +23,26 @@ If a callback function is passed to the function of this array, the callback fun
 const list = new Array(5).map((_) => createElement());
 ```
 
+## How to use
+
+To **enable** this rule in the CLI or using the config file, you can use:
+
+::: code-group
+
+```bash [CLI]
+oxlint --deny oxc/uninvoked-array-callback
+```
+
+```json [Config (.oxlintrc.json)]
+{
+  "rules": {
+    "oxc/uninvoked-array-callback": "error"
+  }
+}
+```
+
+:::
+
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/e453be4bf22d285a34825652a7a1d20b3fdf7121/crates/oxc_linter/src/rules/oxc/uninvoked_array_callback.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/19fdf8993df7b697b99d9b92a3a546cce7171c42/crates/oxc_linter/src/rules/oxc/uninvoked_array_callback.rs)

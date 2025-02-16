@@ -198,6 +198,26 @@ function UsersTable({ users }) {
 - [ECMA262 - Object spread evaluation semantics](https://262.ecma-international.org/15.0/index.html#sec-runtime-semantics-propertydefinitionevaluation)
 - [JSPerf - `concat` vs array spread performance](https://jsperf.app/pihevu)
 
+## How to use
+
+To **enable** this rule in the CLI or using the config file, you can use:
+
+::: code-group
+
+```bash [CLI]
+oxlint --deny oxc/no-map-spread
+```
+
+```json [Config (.oxlintrc.json)]
+{
+  "rules": {
+    "oxc/no-map-spread": "error"
+  }
+}
+```
+
+:::
+
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/e453be4bf22d285a34825652a7a1d20b3fdf7121/crates/oxc_linter/src/rules/oxc/no_map_spread.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/19fdf8993df7b697b99d9b92a3a546cce7171c42/crates/oxc_linter/src/rules/oxc/no_map_spread.rs)

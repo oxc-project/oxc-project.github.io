@@ -47,6 +47,27 @@ Examples of **correct** code for this rule:
 import { bar } from "./bar"; // Correct: accessing named export directly
 ```
 
+## How to use
+
+To **enable** this rule in the CLI or using the config file, you can use:
+
+::: code-group
+
+```bash [CLI]
+oxlint --deny import/no-named-as-default-member --import-plugin
+```
+
+```json [Config (.oxlintrc.json)]
+{
+  "plugins": ["import"],
+  "rules": {
+    "import/no-named-as-default-member": "error"
+  }
+}
+```
+
+:::
+
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/e453be4bf22d285a34825652a7a1d20b3fdf7121/crates/oxc_linter/src/rules/import/no_named_as_default_member.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/19fdf8993df7b697b99d9b92a3a546cce7171c42/crates/oxc_linter/src/rules/import/no_named_as_default_member.rs)
