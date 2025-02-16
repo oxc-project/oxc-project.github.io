@@ -22,6 +22,27 @@ Custom CSS like styled-jsx is not allowed in a [Custom Document](https://nextjs.
 
 ```
 
+## How to use
+
+To **enable** this rule in the CLI or using the config file, you can use:
+
+::: code-group
+
+```bash [CLI]
+oxlint --deny nextjs/no-styled-jsx-in-document --nextjs-plugin
+```
+
+```json [Config (.oxlintrc.json)]
+{
+  "plugins": ["nextjs"],
+  "rules": {
+    "nextjs/no-styled-jsx-in-document": "error"
+  }
+}
+```
+
+:::
+
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/e453be4bf22d285a34825652a7a1d20b3fdf7121/crates/oxc_linter/src/rules/nextjs/no_styled_jsx_in_document.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/85b14a378b63d1839da9f3a11e14db5a7fddb472/crates/oxc_linter/src/rules/nextjs/no_styled_jsx_in_document.rs)

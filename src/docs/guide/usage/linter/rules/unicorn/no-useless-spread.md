@@ -22,64 +22,83 @@ Disallows using spread syntax in following, unnecessary cases:
 
 ### Why is this bad?
 
-- The following builtins accept an iterable, so it's unnecessary to convert the iterable to an array:
+The following builtins accept an iterable, so it's unnecessary to
+convert the iterable to an array:
 
-  - `Map` constructor
-  - `WeakMap` constructor
-  - `Set` constructor
-  - `WeakSet` constructor
-  - `TypedArray` constructor
-  - `Array.from(…)`
-  - `TypedArray.from(…)`
-  - `Promise.{all,allSettled,any,race}(…)`
-  - `Object.fromEntries(…)`
+- `Map` constructor
+- `WeakMap` constructor
+- `Set` constructor
+- `WeakSet` constructor
+- `TypedArray` constructor
+- `Array.from(…)`
+- `TypedArray.from(…)`
+- `Promise.{all,allSettled,any,race}(…)`
+- `Object.fromEntries(…)`
 
-- `for…of` loop can iterate over any iterable object not just array, so it's unnecessary to convert the iterable to an array.
+The `for…of` loop can iterate over any iterable object not just array,
+so it's unnecessary to convert the iterable to an array.
 
-- `yield*` can delegate to another iterable, so it's unnecessary to convert the iterable to an array.
+The `yield*` can delegate to another iterable, so it's unnecessary to
+convert the iterable to an array.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
 const array = [firstElement, ...[secondElement], thirdElement];
-const object = { firstProperty, ...{ secondProperty }, thirdProperty };
-foo(firstArgument, ...[secondArgument], thirdArgument);
-const object = new Foo(firstArgument, ...[secondArgument], thirdArgument);
-const set = new Set([...iterable]);
-async function foo() {
-  const results = await Promise.all([...iterable]);
-}
+
+await Promise.all([...iterable]);
+
 for (const foo of [...set]);
+
 function* foo() {
   yield* [...anotherGenerator()];
 }
+
 function foo(bar) {
   return [...bar.map((x) => x * 2)];
 }
+```
 
-// Pass
+Examples of **correct** code for this rule:
 
+```javascript
 const array = [firstElement, secondElement, thirdElement];
-const object = { firstProperty, secondProperty, thirdProperty };
-foo(firstArgument, secondArgument, thirdArgument);
-const object = new Foo(firstArgument, secondArgument, thirdArgument);
-const array = [...foo, bar];
-const object = { ...foo, bar };
-foo(foo, ...bar);
-const object = new Foo(...foo, bar);
-const set = new Set(iterable);
-async function foo() {
-  const results = await Promise.all(iterable);
-}
+
+await Promise.all(iterable);
+
 for (const foo of set);
+
 function* foo() {
   yield* anotherGenerator();
 }
+
 function foo(bar) {
   return bar.map((x) => x * 2);
 }
 ```
 
+## How to use
+
+To **enable** this rule in the CLI or using the config file, you can use:
+
+::: code-group
+
+```bash [CLI]
+oxlint --deny unicorn/no-useless-spread
+```
+
+```json [Config (.oxlintrc.json)]
+{
+  "rules": {
+    "unicorn/no-useless-spread": "error"
+  }
+}
+```
+
+:::
+
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/e453be4bf22d285a34825652a7a1d20b3fdf7121/crates/oxc_linter/src/rules/unicorn/no_useless_spread/mod.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/85b14a378b63d1839da9f3a11e14db5a7fddb472/crates/oxc_linter/src/rules/unicorn/no_useless_spread/mod.rs)

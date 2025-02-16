@@ -30,6 +30,26 @@ mod_ns = {}; // ERROR: 'mod_ns' is readonly.
 Object.assign(mod_ns, { foo: "foo" }); // ERROR: The members of 'mod_ns' are readonly.
 ```
 
+## How to use
+
+To **enable** this rule in the CLI or using the config file, you can use:
+
+::: code-group
+
+```bash [CLI]
+oxlint --deny /no-import-assign
+```
+
+```json [Config (.oxlintrc.json)]
+{
+  "rules": {
+    "/no-import-assign": "error"
+  }
+}
+```
+
+:::
+
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/e453be4bf22d285a34825652a7a1d20b3fdf7121/crates/oxc_linter/src/rules/eslint/no_import_assign.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/85b14a378b63d1839da9f3a11e14db5a7fddb472/crates/oxc_linter/src/rules/eslint/no_import_assign.rs)

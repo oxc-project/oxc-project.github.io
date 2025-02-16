@@ -20,6 +20,27 @@ Prevent usage of `next/script`'s `beforeInteractive` strategy outside of `pages/
 
 ```
 
+## How to use
+
+To **enable** this rule in the CLI or using the config file, you can use:
+
+::: code-group
+
+```bash [CLI]
+oxlint --deny nextjs/no-before-interactive-script-outside-document --nextjs-plugin
+```
+
+```json [Config (.oxlintrc.json)]
+{
+  "plugins": ["nextjs"],
+  "rules": {
+    "nextjs/no-before-interactive-script-outside-document": "error"
+  }
+}
+```
+
+:::
+
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/e453be4bf22d285a34825652a7a1d20b3fdf7121/crates/oxc_linter/src/rules/nextjs/no_before_interactive_script_outside_document.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/85b14a378b63d1839da9f3a11e14db5a7fddb472/crates/oxc_linter/src/rules/nextjs/no_before_interactive_script_outside_document.rs)

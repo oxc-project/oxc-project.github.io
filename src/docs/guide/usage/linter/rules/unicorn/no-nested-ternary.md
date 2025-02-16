@@ -33,6 +33,26 @@ const foo = i > 5 ? (i < 100 ? true : false) : true;
 const foo = i > 5 ? (i < 100 ? true : false) : i < 100 ? true : false;
 ```
 
+## How to use
+
+To **enable** this rule in the CLI or using the config file, you can use:
+
+::: code-group
+
+```bash [CLI]
+oxlint --deny unicorn/no-nested-ternary
+```
+
+```json [Config (.oxlintrc.json)]
+{
+  "rules": {
+    "unicorn/no-nested-ternary": "error"
+  }
+}
+```
+
+:::
+
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/e453be4bf22d285a34825652a7a1d20b3fdf7121/crates/oxc_linter/src/rules/unicorn/no_nested_ternary.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/85b14a378b63d1839da9f3a11e14db5a7fddb472/crates/oxc_linter/src/rules/unicorn/no_nested_ternary.rs)

@@ -45,6 +45,26 @@ const styles = { height: '100px' };
 React.createElement("div", { style: styles });
 ```
 
+## How to use
+
+To **enable** this rule in the CLI or using the config file, you can use:
+
+::: code-group
+
+```bash [CLI]
+oxlint --deny react/style-prop-object
+```
+
+```json [Config (.oxlintrc.json)]
+{
+  "rules": {
+    "react/style-prop-object": "error"
+  }
+}
+```
+
+:::
+
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/e453be4bf22d285a34825652a7a1d20b3fdf7121/crates/oxc_linter/src/rules/react/style_prop_object.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/85b14a378b63d1839da9f3a11e14db5a7fddb472/crates/oxc_linter/src/rules/react/style_prop_object.rs)

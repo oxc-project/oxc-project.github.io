@@ -10,9 +10,15 @@
 
 ### What it does
 
-This rule enforces naming conventions for catch statements.
+This rule enforces consistent and descriptive naming for error variables
+in `catch` statements, preventing the use of vague names like `badName`
+or `_` when the error is used.
 
 ### Why is this bad?
+
+Using non-descriptive names like `badName` or `_` makes the code harder
+to read and understand, especially when debugging. It's important to use
+clear, consistent names to represent errors.
 
 ### Examples
 
@@ -20,7 +26,17 @@ Examples of **incorrect** code for this rule:
 
 ```javascript
 try {
-} catch (foo) {}
+} catch (badName) {}
+
+// `_` is not allowed if it's used
+try {
+} catch (_) {
+  console.log(_);
+}
+
+promise.catch((badName) => {});
+
+promise.then(undefined, (badName) => {});
 ```
 
 Examples of **correct** code for this rule:
@@ -28,8 +44,76 @@ Examples of **correct** code for this rule:
 ```javascript
 try {
 } catch (error) {}
+
+// `_` is allowed if it's not used
+try {
+} catch (_) {
+  console.log(123);
+}
+
+promise.catch((error) => {});
+
+promise.then(undefined, (error) => {});
 ```
+
+### Options
+
+#### name
+
+`{ type: string, default: "error" }`
+
+The name to use for error variables in `catch` blocks. You can customize it
+to something other than `'error'` (e.g., `'exception'`).
+
+Example:
+
+```json
+"unicorn/catch-error-name": [
+  "error",
+  { "name": "exception" }
+]
+```
+
+#### ignore
+
+`{ type: Array<string | RegExp>, default: [] }`
+
+A list of patterns to ignore when checking `catch` variable names. The pattern
+can be a string or regular expression.
+
+Example:
+
+```json
+"unicorn/catch-error-name": [
+  "error",
+  {
+    "ignore": [
+      "^error\\d*$"
+    ]
+  }
+]
+```
+
+## How to use
+
+To **enable** this rule in the CLI or using the config file, you can use:
+
+::: code-group
+
+```bash [CLI]
+oxlint --deny unicorn/catch-error-name
+```
+
+```json [Config (.oxlintrc.json)]
+{
+  "rules": {
+    "unicorn/catch-error-name": "error"
+  }
+}
+```
+
+:::
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/e453be4bf22d285a34825652a7a1d20b3fdf7121/crates/oxc_linter/src/rules/unicorn/catch_error_name.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/85b14a378b63d1839da9f3a11e14db5a7fddb472/crates/oxc_linter/src/rules/unicorn/catch_error_name.rs)

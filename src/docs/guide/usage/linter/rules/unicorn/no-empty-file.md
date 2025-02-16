@@ -23,6 +23,26 @@ Disallows any files only containing the following:
 
 Meaningless files clutter a codebase.
 
+## How to use
+
+To **enable** this rule in the CLI or using the config file, you can use:
+
+::: code-group
+
+```bash [CLI]
+oxlint --deny unicorn/no-empty-file
+```
+
+```json [Config (.oxlintrc.json)]
+{
+  "rules": {
+    "unicorn/no-empty-file": "error"
+  }
+}
+```
+
+:::
+
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/e453be4bf22d285a34825652a7a1d20b3fdf7121/crates/oxc_linter/src/rules/unicorn/no_empty_file.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/85b14a378b63d1839da9f3a11e14db5a7fddb472/crates/oxc_linter/src/rules/unicorn/no_empty_file.rs)

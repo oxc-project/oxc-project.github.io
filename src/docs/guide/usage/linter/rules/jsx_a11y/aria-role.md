@@ -84,6 +84,27 @@ Examples of **correct** code for this rule:
 <Foo role={role}></Foo>       <!-- Good: ignoreNonDOM is set to true -->
 ```
 
+## How to use
+
+To **enable** this rule in the CLI or using the config file, you can use:
+
+::: code-group
+
+```bash [CLI]
+oxlint --deny jsx-a11y/aria-role --jsx-a11y-plugin
+```
+
+```json [Config (.oxlintrc.json)]
+{
+  "plugins": ["jsx-a11y"],
+  "rules": {
+    "jsx-a11y/aria-role": "error"
+  }
+}
+```
+
+:::
+
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/e453be4bf22d285a34825652a7a1d20b3fdf7121/crates/oxc_linter/src/rules/jsx_a11y/aria_role.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/85b14a378b63d1839da9f3a11e14db5a7fddb472/crates/oxc_linter/src/rules/jsx_a11y/aria_role.rs)

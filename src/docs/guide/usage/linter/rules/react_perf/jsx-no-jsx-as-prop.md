@@ -34,6 +34,27 @@ Examples of **correct** code for this rule:
 <Item callback={this.props.jsx} />
 ```
 
+## How to use
+
+To **enable** this rule in the CLI or using the config file, you can use:
+
+::: code-group
+
+```bash [CLI]
+oxlint --deny react-perf/jsx-no-jsx-as-prop --react-perf-plugin
+```
+
+```json [Config (.oxlintrc.json)]
+{
+  "plugins": ["react-perf"],
+  "rules": {
+    "react-perf/jsx-no-jsx-as-prop": "error"
+  }
+}
+```
+
+:::
+
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/e453be4bf22d285a34825652a7a1d20b3fdf7121/crates/oxc_linter/src/rules/react_perf/jsx_no_jsx_as_prop.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/85b14a378b63d1839da9f3a11e14db5a7fddb472/crates/oxc_linter/src/rules/react_perf/jsx_no_jsx_as_prop.rs)

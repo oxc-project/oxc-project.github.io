@@ -110,7 +110,7 @@ describe("foo", () => {
 This rule is compatible with [eslint-plugin-vitest](https://github.com/veritem/eslint-plugin-vitest/blob/v1.1.9/docs/rules/prefer-hooks-in-order.md),
 to use it, add the following configuration to your `.eslintrc.json`:
 
-```json
+````json
 {
   "rules": {
      "vitest/prefer-hooks-in-order": "error"
@@ -118,6 +118,27 @@ to use it, add the following configuration to your `.eslintrc.json`:
 }
 
 
-## References
-- [Rule Source](https://github.com/oxc-project/oxc/blob/e453be4bf22d285a34825652a7a1d20b3fdf7121/crates/oxc_linter/src/rules/jest/prefer_hooks_in_order.rs)
+## How to use
+
+To **enable** this rule in the CLI or using the config file, you can use:
+
+::: code-group
+
+```bash [CLI]
+oxlint --deny jest/prefer-hooks-in-order --jest-plugin
+````
+
+```json [Config (.oxlintrc.json)]
+{
+  "plugins": ["jest"],
+  "rules": {
+    "jest/prefer-hooks-in-order": "error"
+  }
+}
 ```
+
+:::
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/85b14a378b63d1839da9f3a11e14db5a7fddb472/crates/oxc_linter/src/rules/jest/prefer_hooks_in_order.rs)

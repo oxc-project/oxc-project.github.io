@@ -34,6 +34,27 @@ import a from "./a";
 import b from "./b"; // Allowed: 2 dependencies (max: 2)
 ```
 
+## How to use
+
+To **enable** this rule in the CLI or using the config file, you can use:
+
+::: code-group
+
+```bash [CLI]
+oxlint --deny import/max-dependencies --import-plugin
+```
+
+```json [Config (.oxlintrc.json)]
+{
+  "plugins": ["import"],
+  "rules": {
+    "import/max-dependencies": "error"
+  }
+}
+```
+
+:::
+
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/e453be4bf22d285a34825652a7a1d20b3fdf7121/crates/oxc_linter/src/rules/import/max_dependencies.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/85b14a378b63d1839da9f3a11e14db5a7fddb472/crates/oxc_linter/src/rules/import/max_dependencies.rs)

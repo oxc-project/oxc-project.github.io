@@ -27,6 +27,26 @@ const Alphabet = <div abc="something">Alphabet</div>;
 const IconButton = <div aria-foo="bar" />;
 ```
 
+## How to use
+
+To **enable** this rule in the CLI or using the config file, you can use:
+
+::: code-group
+
+```bash [CLI]
+oxlint --deny react/no-unknown-property
+```
+
+```json [Config (.oxlintrc.json)]
+{
+  "rules": {
+    "react/no-unknown-property": "error"
+  }
+}
+```
+
+:::
+
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/e453be4bf22d285a34825652a7a1d20b3fdf7121/crates/oxc_linter/src/rules/react/no_unknown_property.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/85b14a378b63d1839da9f3a11e14db5a7fddb472/crates/oxc_linter/src/rules/react/no_unknown_property.rs)

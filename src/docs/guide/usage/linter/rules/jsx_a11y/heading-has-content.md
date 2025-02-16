@@ -21,7 +21,7 @@ If the heading is empty or the text cannot be accessed,
 this could either confuse users or even prevent them
 from accessing information on the page's structure.
 
-### Example
+### Examples
 
 Examples of **incorrect** code for this rule:
 
@@ -35,6 +35,27 @@ Examples of **correct** code for this rule:
 <h1>Foo</h1>
 ```
 
+## How to use
+
+To **enable** this rule in the CLI or using the config file, you can use:
+
+::: code-group
+
+```bash [CLI]
+oxlint --deny jsx-a11y/heading-has-content --jsx-a11y-plugin
+```
+
+```json [Config (.oxlintrc.json)]
+{
+  "plugins": ["jsx-a11y"],
+  "rules": {
+    "jsx-a11y/heading-has-content": "error"
+  }
+}
+```
+
+:::
+
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/e453be4bf22d285a34825652a7a1d20b3fdf7121/crates/oxc_linter/src/rules/jsx_a11y/heading_has_content.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/85b14a378b63d1839da9f3a11e14db5a7fddb472/crates/oxc_linter/src/rules/jsx_a11y/heading_has_content.rs)

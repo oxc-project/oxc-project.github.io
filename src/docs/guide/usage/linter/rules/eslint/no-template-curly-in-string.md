@@ -33,6 +33,26 @@ Examples of **incorrect** code for this rule:
 "Time: ${12 * 60 * 60 * 1000}";
 ```
 
+## How to use
+
+To **enable** this rule in the CLI or using the config file, you can use:
+
+::: code-group
+
+```bash [CLI]
+oxlint --deny /no-template-curly-in-string
+```
+
+```json [Config (.oxlintrc.json)]
+{
+  "rules": {
+    "/no-template-curly-in-string": "error"
+  }
+}
+```
+
+:::
+
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/e453be4bf22d285a34825652a7a1d20b3fdf7121/crates/oxc_linter/src/rules/eslint/no_template_curly_in_string.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/85b14a378b63d1839da9f3a11e14db5a7fddb472/crates/oxc_linter/src/rules/eslint/no_template_curly_in_string.rs)

@@ -46,6 +46,26 @@ if (index !== -1) {
 }
 ```
 
+## How to use
+
+To **enable** this rule in the CLI or using the config file, you can use:
+
+::: code-group
+
+```bash [CLI]
+oxlint --deny unicorn/consistent-existence-index-check
+```
+
+```json [Config (.oxlintrc.json)]
+{
+  "rules": {
+    "unicorn/consistent-existence-index-check": "error"
+  }
+}
+```
+
+:::
+
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/e453be4bf22d285a34825652a7a1d20b3fdf7121/crates/oxc_linter/src/rules/unicorn/consistent_existence_index_check.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/85b14a378b63d1839da9f3a11e14db5a7fddb472/crates/oxc_linter/src/rules/unicorn/consistent_existence_index_check.rs)

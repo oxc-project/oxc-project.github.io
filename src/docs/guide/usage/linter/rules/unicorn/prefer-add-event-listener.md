@@ -32,6 +32,26 @@ Examples of **correct** code for this rule:
 foo.addEventListener("click", () => {});
 ```
 
+## How to use
+
+To **enable** this rule in the CLI or using the config file, you can use:
+
+::: code-group
+
+```bash [CLI]
+oxlint --deny unicorn/prefer-add-event-listener
+```
+
+```json [Config (.oxlintrc.json)]
+{
+  "rules": {
+    "unicorn/prefer-add-event-listener": "error"
+  }
+}
+```
+
+:::
+
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/e453be4bf22d285a34825652a7a1d20b3fdf7121/crates/oxc_linter/src/rules/unicorn/prefer_add_event_listener.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/85b14a378b63d1839da9f3a11e14db5a7fddb472/crates/oxc_linter/src/rules/unicorn/prefer_add_event_listener.rs)
