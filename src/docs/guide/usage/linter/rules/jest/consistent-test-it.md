@@ -82,7 +82,7 @@ Decides whether to use `test` or `it` within a `describe` scope.
 This rule is compatible with [eslint-plugin-vitest](https://github.com/veritem/eslint-plugin-vitest/blob/v1.1.9/docs/rules/consistent-test-it.md),
 to use it, add the following configuration to your `.eslintrc.json`:
 
-```json
+````json
 {
   "rules": {
      "vitest/consistent-test-it": "error"
@@ -90,6 +90,27 @@ to use it, add the following configuration to your `.eslintrc.json`:
 }
 
 
-## References
-- [Rule Source](https://github.com/oxc-project/oxc/blob/e453be4bf22d285a34825652a7a1d20b3fdf7121/crates/oxc_linter/src/rules/jest/consistent_test_it.rs)
+## How to use
+
+To **enable** this rule in the CLI or using the config file, you can use:
+
+::: code-group
+
+```bash [CLI]
+oxlint --deny jest/consistent-test-it --jest-plugin
+````
+
+```json [Config (.oxlintrc.json)]
+{
+  "plugins": ["jest"],
+  "rules": {
+    "jest/consistent-test-it": "error"
+  }
+}
 ```
+
+:::
+
+## References
+
+- [Rule Source](https://github.com/oxc-project/oxc/blob/19fdf8993df7b697b99d9b92a3a546cce7171c42/crates/oxc_linter/src/rules/jest/consistent_test_it.rs)

@@ -22,6 +22,26 @@ Because empty character classes in regular expressions do not match anything, th
 var foo = /^abc[]/;
 ```
 
+## How to use
+
+To **enable** this rule in the CLI or using the config file, you can use:
+
+::: code-group
+
+```bash [CLI]
+oxlint --deny no-empty-character-class
+```
+
+```json [Config (.oxlintrc.json)]
+{
+  "rules": {
+    "no-empty-character-class": "error"
+  }
+}
+```
+
+:::
+
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/e453be4bf22d285a34825652a7a1d20b3fdf7121/crates/oxc_linter/src/rules/eslint/no_empty_character_class.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/19fdf8993df7b697b99d9b92a3a546cce7171c42/crates/oxc_linter/src/rules/eslint/no_empty_character_class.rs)

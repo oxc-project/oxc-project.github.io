@@ -15,12 +15,17 @@ This includes using expect in callbacks to functions named catch, which are assu
 
 ### Why is this bad?
 
-Jest only considers a test to have failed if it throws an error, meaning if calls to assertion functions like expect occur in conditional code such as a catch statement, tests can end up passing but not actually test anything.
-Additionally, conditionals tend to make tests more brittle and complex, as they increase the amount of mental thinking needed to understand what is actually being tested.
+Jest only considers a test to have failed if it throws an error, meaning if calls to
+assertion functions like expect occur in conditional code such as a catch statement,
+tests can end up passing but not actually test anything. Additionally, conditionals
+tend to make tests more brittle and complex, as they increase the amount of mental
+thinking needed to understand what is actually being tested.
 
-### Example
+### Examples
 
-```javascript
+Examples of **incorrect** code for this rule:
+
+```js
 it("foo", () => {
   doTest && expect(1).toBe(2);
 });
@@ -31,22 +36,72 @@ it("bar", () => {
   }
 });
 
+it("baz", async () => {
+  try {
+    await foo();
+  } catch (err) {
+    expect(err).toMatchObject({ code: "MODULE_NOT_FOUND" });
+  }
+});
+
 it("throws an error", async () => {
   await foo().catch((error) => expect(error).toBeInstanceOf(error));
 });
 ```
 
-This rule is compatible with [eslint-plugin-vitest](https://github.com/veritem/eslint-plugin-vitest/blob/v1.1.9/docs/rules/no-conditional-expect.md),
-to use it, add the following configuration to your `.eslintrc.json`:
+Examples of **correct** code for this rule:
 
-```json
+```js
+it("foo", () => {
+  expect(!value).toBe(false);
+});
+
+function getValue() {
+  if (process.env.FAIL) {
+    return 1;
+  }
+  return 2;
+}
+
+it("foo", () => {
+  expect(getValue()).toBe(2);
+});
+
+it("validates the request", () => {
+  try {
+    processRequest(request);
+  } catch {
+  } finally {
+    expect(validRequest).toHaveBeenCalledWith(request);
+  }
+});
+
+it("throws an error", async () => {
+  await expect(foo).rejects.toThrow(Error);
+});
+```
+
+## How to use
+
+To **enable** this rule in the CLI or using the config file, you can use:
+
+::: code-group
+
+```bash [CLI]
+oxlint --deny jest/no-conditional-expect --jest-plugin
+```
+
+```json [Config (.oxlintrc.json)]
 {
+  "plugins": ["jest"],
   "rules": {
-    "vitest/no-conditional-expect": "error"
+    "jest/no-conditional-expect": "error"
   }
 }
 ```
 
+:::
+
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/e453be4bf22d285a34825652a7a1d20b3fdf7121/crates/oxc_linter/src/rules/jest/no_conditional_expect.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/19fdf8993df7b697b99d9b92a3a546cce7171c42/crates/oxc_linter/src/rules/jest/no_conditional_expect.rs)

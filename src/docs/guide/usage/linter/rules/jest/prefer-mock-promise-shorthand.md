@@ -36,6 +36,27 @@ jest.spyOn(fs.promises, "readFile").mockRejectedValue(new Error("oh noes!"));
 myFunction.mockResolvedValueOnce(42).mockResolvedValueOnce(42).mockRejectedValue(new Error("too many calls!"));
 ```
 
+## How to use
+
+To **enable** this rule in the CLI or using the config file, you can use:
+
+::: code-group
+
+```bash [CLI]
+oxlint --deny jest/prefer-mock-promise-shorthand --jest-plugin
+```
+
+```json [Config (.oxlintrc.json)]
+{
+  "plugins": ["jest"],
+  "rules": {
+    "jest/prefer-mock-promise-shorthand": "error"
+  }
+}
+```
+
+:::
+
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/e453be4bf22d285a34825652a7a1d20b3fdf7121/crates/oxc_linter/src/rules/jest/prefer_mock_promise_shorthand.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/19fdf8993df7b697b99d9b92a3a546cce7171c42/crates/oxc_linter/src/rules/jest/prefer_mock_promise_shorthand.rs)

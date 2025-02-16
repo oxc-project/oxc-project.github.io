@@ -18,6 +18,27 @@
 
 ```
 
+## How to use
+
+To **enable** this rule in the CLI or using the config file, you can use:
+
+::: code-group
+
+```bash [CLI]
+oxlint --deny nextjs/next-script-for-ga --nextjs-plugin
+```
+
+```json [Config (.oxlintrc.json)]
+{
+  "plugins": ["nextjs"],
+  "rules": {
+    "nextjs/next-script-for-ga": "error"
+  }
+}
+```
+
+:::
+
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/e453be4bf22d285a34825652a7a1d20b3fdf7121/crates/oxc_linter/src/rules/nextjs/next_script_for_ga.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/19fdf8993df7b697b99d9b92a3a546cce7171c42/crates/oxc_linter/src/rules/nextjs/next_script_for_ga.rs)
