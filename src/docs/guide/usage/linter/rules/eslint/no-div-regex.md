@@ -32,13 +32,13 @@ To **enable** this rule in the CLI or using the config file, you can use:
 ::: code-group
 
 ```bash [CLI]
-oxlint --deny /no-div-regex
+oxlint --deny no-div-regex
 ```
 
 ```json [Config (.oxlintrc.json)]
 {
   "rules": {
-    "/no-div-regex": "error"
+    "no-div-regex": "error"
   }
 }
 ```
@@ -47,4 +47,4 @@ oxlint --deny /no-div-regex
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/85b14a378b63d1839da9f3a11e14db5a7fddb472/crates/oxc_linter/src/rules/eslint/no_div_regex.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/19fdf8993df7b697b99d9b92a3a546cce7171c42/crates/oxc_linter/src/rules/eslint/no_div_regex.rs)

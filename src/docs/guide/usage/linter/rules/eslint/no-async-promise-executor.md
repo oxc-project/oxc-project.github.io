@@ -44,13 +44,13 @@ To **enable** this rule in the CLI or using the config file, you can use:
 ::: code-group
 
 ```bash [CLI]
-oxlint --deny /no-async-promise-executor
+oxlint --deny no-async-promise-executor
 ```
 
 ```json [Config (.oxlintrc.json)]
 {
   "rules": {
-    "/no-async-promise-executor": "error"
+    "no-async-promise-executor": "error"
   }
 }
 ```
@@ -59,4 +59,4 @@ oxlint --deny /no-async-promise-executor
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/85b14a378b63d1839da9f3a11e14db5a7fddb472/crates/oxc_linter/src/rules/eslint/no_async_promise_executor.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/19fdf8993df7b697b99d9b92a3a546cce7171c42/crates/oxc_linter/src/rules/eslint/no_async_promise_executor.rs)

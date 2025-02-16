@@ -74,4 +74,4 @@ oxlint --deny typescript/no-empty-object-type
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/85b14a378b63d1839da9f3a11e14db5a7fddb472/crates/oxc_linter/src/rules/typescript/no_empty_object_type.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/19fdf8993df7b697b99d9b92a3a546cce7171c42/crates/oxc_linter/src/rules/typescript/no_empty_object_type.rs)

@@ -35,13 +35,13 @@ To **enable** this rule in the CLI or using the config file, you can use:
 ::: code-group
 
 ```bash [CLI]
-oxlint --deny /no-regex-spaces
+oxlint --deny no-regex-spaces
 ```
 
 ```json [Config (.oxlintrc.json)]
 {
   "rules": {
-    "/no-regex-spaces": "error"
+    "no-regex-spaces": "error"
   }
 }
 ```
@@ -50,4 +50,4 @@ oxlint --deny /no-regex-spaces
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/85b14a378b63d1839da9f3a11e14db5a7fddb472/crates/oxc_linter/src/rules/eslint/no_regex_spaces.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/19fdf8993df7b697b99d9b92a3a546cce7171c42/crates/oxc_linter/src/rules/eslint/no_regex_spaces.rs)
