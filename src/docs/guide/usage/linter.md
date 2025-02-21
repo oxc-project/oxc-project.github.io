@@ -96,9 +96,9 @@ See [Command-line Interface](./linter/cli)
 
 See [Configuration File](./linter/config)
 
-## Migrate from eslint v9
+## Migrate from eslint flat config
 
-If you have an existing `eslint.config.*` file, you can convert it to an `.oxlintrc.json` config with [oxlint-migrate](https://github.com/oxc-project/oxlint-migrate).  
+If you have an existing `eslint.config.*` file, you can convert it to an `.oxlintrc.json` config with [oxlint-migrate](https://github.com/oxc-project/oxlint-migrate).
 This script is still under development, please recheck the generated config file.
 
 ## Integration
