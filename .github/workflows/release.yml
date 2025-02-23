@@ -31,7 +31,7 @@ jobs:
           path: oxc
 
       - name: Install Tools
-        uses: taiki-e/install-action@54b836426b3fa9aef432e760885ea0419ab50dab # v2.48.15
+        uses: taiki-e/install-action@eb454bad93a35bbf86f7bf88a114beee8d0e08bd # v2.48.22
         with:
           tool: just
 
