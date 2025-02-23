@@ -84,4 +84,4 @@ oxlint --deny react/no-direct-mutation-state
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/19fdf8993df7b697b99d9b92a3a546cce7171c42/crates/oxc_linter/src/rules/react/no_direct_mutation_state.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/30318457d425dbf627aa428aad8004f6b92b1c59/crates/oxc_linter/src/rules/react/no_direct_mutation_state.rs)

@@ -11,12 +11,31 @@ Disallow unnecessary concatenation of literals or template literals
 
 ### Why is this bad?
 
-It’s unnecessary to concatenate two strings together.
+It’s unnecessary to concatenate two strings together when they could
+be combined into a single literal.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
 var foo = "a" + "b";
+```
+
+```javascript
+var foo = "a" + "b" + "c";
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
+var foo = "a" + bar;
+```
+
+// when the string concatenation is multiline
+
+```javascript
+var foo = "a" + "b" + "c";
 ```
 
 ## How to use
@@ -41,4 +60,4 @@ oxlint --deny no-useless-concat
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/19fdf8993df7b697b99d9b92a3a546cce7171c42/crates/oxc_linter/src/rules/eslint/no_useless_concat.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/30318457d425dbf627aa428aad8004f6b92b1c59/crates/oxc_linter/src/rules/eslint/no_useless_concat.rs)

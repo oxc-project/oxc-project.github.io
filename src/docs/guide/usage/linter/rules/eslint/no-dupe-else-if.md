@@ -18,7 +18,9 @@ if-else-if chains are commonly used when there is a need to execute only one bra
 Two identical test conditions in the same chain are almost always a mistake in the code. Unless there are side effects in the expressions,
 a duplicate will evaluate to the same true or false value as the identical expression earlier in the chain, meaning that its branch can never execute.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
 if (a) {
@@ -27,6 +29,62 @@ if (a) {
   bar();
 } else if (b) {
   baz();
+}
+```
+
+```javascript
+if (a || b) {
+  foo();
+} else if (a) {
+  bar();
+}
+```
+
+```javascript
+if (n === 1) {
+  foo();
+} else if (n === 2) {
+  bar();
+} else if (n === 3) {
+  baz();
+} else if (n === 2) {
+  quux();
+} else if (n === 5) {
+  quuux();
+}
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
+if (a) {
+  foo();
+} else if (b) {
+  bar();
+} else if (c) {
+  baz();
+}
+```
+
+```javascript
+if (a || b) {
+  foo();
+} else if (c) {
+  bar();
+}
+```
+
+```javascript
+if (n === 1) {
+  foo();
+} else if (n === 2) {
+  bar();
+} else if (n === 3) {
+  baz();
+} else if (n === 4) {
+  quux();
+} else if (n === 5) {
+  quuux();
 }
 ```
 
@@ -52,4 +110,4 @@ oxlint --deny no-dupe-else-if
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/19fdf8993df7b697b99d9b92a3a546cce7171c42/crates/oxc_linter/src/rules/eslint/no_dupe_else_if.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/30318457d425dbf627aa428aad8004f6b92b1c59/crates/oxc_linter/src/rules/eslint/no_dupe_else_if.rs)

@@ -10,11 +10,17 @@
 
 ### What it does
 
-Enforce consistent style for element existence checks with `indexOf()`, `lastIndexOf()`, `findIndex()`, and `findLastIndex()`
+Enforce consistent style for element existence checks with `indexOf()`,
+`lastIndexOf()`, `findIndex()`, and `findLastIndex()`. This rule ensures
+that comparisons for element presence are made with `-1` rather than other
+comparison operators like `< 0` or `>= 0`, improving clarity and consistency.
 
 ### Why is this bad?
 
-This rule is only meant to enforce a specific style and make comparisons more clear.
+Using `< 0` or `>= 0` for element existence checks can lead to confusion,
+especially for developers who are not familiar with the specific behavior of
+these methods. The explicit `=== -1` or `!== -1` makes the intent clearer and
+more readable, ensuring consistency across the codebase.
 
 ### Examples
 
@@ -24,9 +30,7 @@ Examples of **incorrect** code for this rule:
 const index = foo.indexOf("bar");
 if (index < 0) {
 }
-```
 
-```javascript
 const index = foo.indexOf("bar");
 if (index >= 0) {
 }
@@ -38,9 +42,7 @@ Examples of **correct** code for this rule:
 const index = foo.indexOf("bar");
 if (index === -1) {
 }
-```
 
-```javascript
 const index = foo.indexOf("bar");
 if (index !== -1) {
 }
@@ -68,4 +70,4 @@ oxlint --deny unicorn/consistent-existence-index-check
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/19fdf8993df7b697b99d9b92a3a546cce7171c42/crates/oxc_linter/src/rules/unicorn/consistent_existence_index_check.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/30318457d425dbf627aa428aad8004f6b92b1c59/crates/oxc_linter/src/rules/unicorn/consistent_existence_index_check.rs)

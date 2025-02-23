@@ -125,6 +125,8 @@ Arguments:
 
 - **`    --rules`** &mdash;
   list all the rules that are currently registered
+- **`    --experimental-nested-config`** &mdash;
+  Enables automatic loading of nested configuration files (experimental feature)
 - **`-h`**, **`--help`** &mdash;
   Prints help information
 - **`-V`**, **`--version`** &mdash;
