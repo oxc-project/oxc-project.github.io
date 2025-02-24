@@ -11,12 +11,44 @@ Disallow ternary operators
 
 ### Why is this bad?
 
-The ternary operator is used to conditionally assign a value to a variable. Some believe that the use of ternary operators leads to unclear code.
+The ternary operator is used to conditionally assign a value to a
+variable. Some believe that the use of ternary operators leads to
+unclear code.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
 var foo = isBar ? baz : qux;
+```
+
+```javascript
+function quux() {
+  return foo ? bar() : baz();
+}
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
+let foo;
+
+if (isBar) {
+  foo = baz;
+} else {
+  foo = qux;
+}
+```
+
+```javascript
+function quux() {
+  if (foo) {
+    return bar();
+  } else {
+    return baz();
+  }
+}
 ```
 
 ## How to use
@@ -41,4 +73,4 @@ oxlint --deny no-ternary
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/19fdf8993df7b697b99d9b92a3a546cce7171c42/crates/oxc_linter/src/rules/eslint/no_ternary.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/30318457d425dbf627aa428aad8004f6b92b1c59/crates/oxc_linter/src/rules/eslint/no_ternary.rs)

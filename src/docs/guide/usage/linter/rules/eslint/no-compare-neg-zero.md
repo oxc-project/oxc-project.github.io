@@ -21,10 +21,39 @@ The rule should warn against code that tries to compare against -0,
 since that will not work as intended. That is, code like x === -0 will
 pass for both +0 and -0. The author probably intended Object.is(x, -0).
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
 if (x === -0) {
+  // doSomething()...
+}
+```
+
+```javascript
+if (-0 > x) {
+  // doSomething()...
+}
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
+if (x === 0) {
+  // doSomething()...
+}
+```
+
+```javascript
+if (Object.is(x, -0)) {
+  // doSomething()...
+}
+```
+
+```javascript
+if (0 > x) {
+  // doSomething()...
 }
 ```
 
@@ -50,4 +79,4 @@ oxlint --deny no-compare-neg-zero
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/19fdf8993df7b697b99d9b92a3a546cce7171c42/crates/oxc_linter/src/rules/eslint/no_compare_neg_zero.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/30318457d425dbf627aa428aad8004f6b92b1c59/crates/oxc_linter/src/rules/eslint/no_compare_neg_zero.rs)

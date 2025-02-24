@@ -14,13 +14,44 @@ Disallow sparse arrays.
 
 ### Why is this bad?
 
-The confusion around sparse arrays is enough that it’s recommended to avoid using them unless you are certain that they are useful in your code.
+Take the following example:
 
-### Example
+```javascript
+const items = [, ,];
+```
+
+While the items array in this example has a length of 2, there are actually
+no values in items[0] or items[1]. The fact that the array literal is
+valid with only commas inside, coupled with the length being set and
+actual item values not being set, make sparse arrays confusing for many
+developers.
+
+The confusion around sparse arrays is enough that it’s recommended to
+avoid using them unless you are certain that they are useful in your
+code.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
 var items = [, ,];
+```
+
+```javascript
 var colors = ["red", , "blue"];
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
+var items = [];
+```
+
+// trailing comma (after the last element) is not a problem
+
+```javascript
+var colors = ["red", "blue"];
 ```
 
 ## How to use
@@ -45,4 +76,4 @@ oxlint --deny no-sparse-arrays
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/19fdf8993df7b697b99d9b92a3a546cce7171c42/crates/oxc_linter/src/rules/eslint/no_sparse_arrays.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/30318457d425dbf627aa428aad8004f6b92b1c59/crates/oxc_linter/src/rules/eslint/no_sparse_arrays.rs)
