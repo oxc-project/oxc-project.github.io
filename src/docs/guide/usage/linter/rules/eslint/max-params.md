@@ -7,19 +7,57 @@
 
 ### What it does
 
-Enforce a maximum number of parameters in function definitions
+Enforce a maximum number of parameters in function definitions which by
+default is three.
 
 ### Why is this bad?
 
-Functions that take numerous parameters can be difficult to read and write because it requires the memorization of what each parameter is, its type, and the order they should appear in. As a result, many coders adhere to a convention that caps the number of parameters a function can take.
+Functions that take numerous parameters can be difficult to read and
+write because it requires the memorization of what each parameter is,
+its type, and the order they should appear in. As a result, many coders
+adhere to a convention that caps the number of parameters a function
+can take.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
 function foo(bar, baz, qux, qxx) {
   doSomething();
 }
 ```
+
+```javascript
+let foo = (bar, baz, qux, qxx) => {
+  doSomething();
+};
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
+function foo(bar, baz, qux) {
+  doSomething();
+}
+```
+
+```javascript
+let foo = (bar, baz, qux) => {
+  doSomething();
+};
+```
+
+### Options
+
+### max
+
+`{ "max": number }`
+
+This option is for changing the maximum allowed number of function parameters.
+
+For example `{ "max": 4 }` would mean that having a function take four
+parameters is allowed which overrides the default of three.
 
 ## How to use
 
@@ -43,4 +81,4 @@ oxlint --deny max-params
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/19fdf8993df7b697b99d9b92a3a546cce7171c42/crates/oxc_linter/src/rules/eslint/max_params.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/30318457d425dbf627aa428aad8004f6b92b1c59/crates/oxc_linter/src/rules/eslint/max_params.rs)

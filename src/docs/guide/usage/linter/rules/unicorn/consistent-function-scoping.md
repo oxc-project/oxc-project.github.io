@@ -16,10 +16,8 @@ any variables from the outer scope.
 ### Why is this bad?
 
 Moving function declarations to the highest possible scope improves
-readability, directly [improves
-performance](https://stackoverflow.com/questions/80802/does-use-of-anonymous-functions-affect-performance/81329#81329)
-and allows JavaScript engines to better [optimize your
-performance](https://ponyfoo.com/articles/javascript-performance-pitfalls-v8#optimization-limit).
+readability, directly [improves performance](https://stackoverflow.com/questions/80802/does-use-of-anonymous-functions-affect-performance/81329#81329)
+and allows JavaScript engines to better [optimize your performance](https://ponyfoo.com/articles/javascript-performance-pitfalls-v8#optimization-limit).
 
 ### Examples
 
@@ -33,6 +31,7 @@ export function doFoo(foo) {
   }
   return doBar;
 }
+
 function doFoo(foo) {
   const doBar = (bar) => {
     return bar === "bar";
@@ -55,21 +54,28 @@ export function doFoo(foo) {
   function doBar(bar) {
     return bar === "bar" && foo.doBar(bar);
   }
-
   return doBar;
 }
 ```
 
-## Options
+### Options
 
-### checkArrowFunctions
+#### checkArrowFunctions
 
-Type: `boolean`\
-Default: `true`
+`{ type: boolean, default: true }`
 
 Pass `"checkArrowFunctions": false` to disable linting of arrow functions.
 
-## Limitations
+Example:
+
+```json
+"unicorn/consistent-function-scoping": [
+  "error",
+  { "checkArrowFunctions": false }
+]
+```
+
+### Limitations
 
 This rule does not detect or remove extraneous code blocks inside of functions:
 
@@ -129,4 +135,4 @@ oxlint --deny unicorn/consistent-function-scoping
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/19fdf8993df7b697b99d9b92a3a546cce7171c42/crates/oxc_linter/src/rules/unicorn/consistent_function_scoping.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/30318457d425dbf627aa428aad8004f6b92b1c59/crates/oxc_linter/src/rules/unicorn/consistent_function_scoping.rs)

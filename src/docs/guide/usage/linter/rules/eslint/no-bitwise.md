@@ -14,10 +14,63 @@ Disallow bitwise operators
 The use of bitwise operators in JavaScript is very rare and often `&` or `|` is simply a mistyped `&&` or `||`,
 which will lead to unexpected behavior.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
 var x = y | z;
+```
+
+```javascript
+var x = y ^ z;
+```
+
+```javascript
+var x = y >> z;
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
+var x = y || z;
+```
+
+```javascript
+var x = y && z;
+```
+
+```javascript
+var x = y > z;
+```
+
+### Options
+
+### allow
+
+`{ "allow": string[] }`
+
+The`allow` option permits the given list of bitwise operators to be used
+as exceptions to this rule.
+
+For example `{ "allow": ["~"] }` would allow the use of the bitwise operator
+`~` without restriction. Such as in the following:
+
+```javascript
+~[1, 2, 3].indexOf(1) === -1;
+```
+
+### int32Hint
+
+`{ "int32Hint": boolean }`
+
+When set to true the `int32Hint` option allows the use of bitwise OR in |0
+pattern for type casting.
+
+For example with `{ "int32Hint": true }` the following is permitted:
+
+```javascript
+const b = a | 0;
 ```
 
 ## How to use
@@ -42,4 +95,4 @@ oxlint --deny no-bitwise
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/19fdf8993df7b697b99d9b92a3a546cce7171c42/crates/oxc_linter/src/rules/eslint/no_bitwise.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/30318457d425dbf627aa428aad8004f6b92b1c59/crates/oxc_linter/src/rules/eslint/no_bitwise.rs)

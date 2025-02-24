@@ -17,10 +17,56 @@ Disallow precision loss of number literal
 It can lead to unexpected results in certain situations
 For example, when performing mathematical operations
 
-### Example
+In JS, Numbers are stored as double-precision floating-point numbers
+according to the IEEE 754 standard. Because of this, numbers can only
+retain accuracy up to a certain amount of digits. If the programmer
+enters additional digits, those digits will be lost in the conversion
+to the Number type and will result in unexpected behavior.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
 var x = 2e999;
+```
+
+```javascript
+var x = 9007199254740993;
+```
+
+```javascript
+var x = 5123000000000000000000000000001;
+```
+
+```javascript
+var x = 1230000000000000000000000.0;
+```
+
+```javascript
+var x = 0x200000_0000000_1;
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
+var x = 12345";
+```
+
+```javascript
+var x = 123.456;
+```
+
+```javascript
+var x = 123.0000000000000000000000";
+```
+
+```javascript
+var x = 123e34;
+```
+
+```javascript
+var x = 0x1fff_ffff_fff_fff;
 ```
 
 ## How to use
@@ -45,4 +91,4 @@ oxlint --deny no-loss-of-precision
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/19fdf8993df7b697b99d9b92a3a546cce7171c42/crates/oxc_linter/src/rules/eslint/no_loss_of_precision.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/30318457d425dbf627aa428aad8004f6b92b1c59/crates/oxc_linter/src/rules/eslint/no_loss_of_precision.rs)
