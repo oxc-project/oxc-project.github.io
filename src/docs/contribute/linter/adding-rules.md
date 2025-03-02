@@ -143,7 +143,7 @@ Fill out the various documentation sections.
 - Explain why the rule is important and what undesirable behavior it prevents.
 - Provide examples of code that violates the rule and code that does not.
 
-Remember, we use this this documentation to generate the [rule documentation
+Remember, we use this documentation to generate the [rule documentation
 pages](/docs/guide/usage/linter/rules) for this website, so make sure your
 documentation is clear and helpful!
 
