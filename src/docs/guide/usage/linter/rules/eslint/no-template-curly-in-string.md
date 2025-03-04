@@ -4,33 +4,40 @@
 
 <div class="rule-meta">
 <Alert class="fix" type="info">
-<span class="emoji">🚧</span> An auto-fix is still under development.
+<span class="emoji">⚠️🛠️️</span> A dangerous auto-fix is available for this rule.
 </Alert>
 </div>
 
 ### What it does
 
-Disallow template literal placeholder syntax in regular strings
+Disallow template literal placeholder syntax in regular strings. This rule ensures that
+expressions like `${variable}` are only used within template literals, avoiding incorrect
+usage in regular strings.
 
 ### Why is this bad?
 
-ECMAScript 6 allows programmers to create strings containing variable or
-expressions using template literals, instead of string concatenation, by
-writing expressions like `${variable}` between two backtick quotes. It
-can be easy to use the wrong quotes when wanting to use template
-literals, by writing `"${variable}"`, and end up with the literal value
-`"${variable}"` instead of a string containing the value of the injected
-expressions.
+ECMAScript 6 allows programmers to create strings containing variables or expressions using
+template literals. This is done by embedding expressions like `${variable}` between backticks.
+If regular quotes (`'` or `"`) are used with template literal syntax, it results in the literal
+string `"${variable}"` instead of evaluating the expression. This rule helps to avoid this mistake,
+ensuring that expressions are correctly evaluated inside template literals.
 
-### Example
+### Examples
 
 Examples of **incorrect** code for this rule:
 
 ```javascript
-/*eslint no-template-curly-in-string: "error"*/
 "Hello ${name}!";
 "Hello ${name}!";
 "Time: ${12 * 60 * 60 * 1000}";
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
+`Hello ${name}!`;
+`Time: ${12 * 60 * 60 * 1000}`;
+templateFunction`Hello ${name}`;
 ```
 
 ## How to use
@@ -55,4 +62,4 @@ oxlint --deny no-template-curly-in-string
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/30318457d425dbf627aa428aad8004f6b92b1c59/crates/oxc_linter/src/rules/eslint/no_template_curly_in_string.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/19c4835a02d596d931670721daf996bff74fcbbd/crates/oxc_linter/src/rules/eslint/no_template_curly_in_string.rs)

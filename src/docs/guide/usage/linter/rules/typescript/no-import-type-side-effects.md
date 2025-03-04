@@ -70,4 +70,4 @@ oxlint --deny typescript/no-import-type-side-effects
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/30318457d425dbf627aa428aad8004f6b92b1c59/crates/oxc_linter/src/rules/typescript/no_import_type_side_effects.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/19c4835a02d596d931670721daf996bff74fcbbd/crates/oxc_linter/src/rules/typescript/no_import_type_side_effects.rs)
