@@ -20,6 +20,7 @@ outline: deep
 - [napi-rs](https://github.com/napi-rs/napi-rs) - A framework for building compiled Node.js add-ons in Rust via Node-API
 - [AFFiNE](https://github.com/toeverything/affine) - Next-gen knowledge base
 - [nuxt-auth](https://github.com/sidebase/nuxt-auth) - Authentication built for Nuxt 3
+- [Hey API](https://heyapi.dev/) - OpenAPI to TypeScript codegen ecosystem
 
 ## Resolver
 
