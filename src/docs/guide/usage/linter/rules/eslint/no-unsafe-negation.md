@@ -13,22 +13,48 @@
 
 ### What it does
 
-Disallow negating the left operand of relational operators
+Disallows negating the left operand of relational operators to prevent logical errors
+caused by misunderstanding operator precedence or accidental use of negation.
 
 ### Why is this bad?
 
-Just as developers might type -a + b when they mean -(a + b) for the negative of a sum,
-they might type !key in object by mistake when they almost certainly mean !(key in object)
-to test that a key is not in an object. !obj instanceof Ctor is similar.
+Negating the left operand of relational operators can result in unexpected behavior due to
+operator precedence, leading to logical errors. For instance, `!a in b` may be interpreted
+as `(!a) in b` instead of `!(a in b)`, which is not the intended logic.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
 if ((!key) in object) {
-  //operator precedence makes it equivalent to (!key) in object
-  //and type conversion makes it equivalent to (key ? "false" : "true") in object
+}
+
+if ((!obj) instanceof Ctor) {
 }
 ```
+
+Examples of **correct** code for this rule:
+
+```javascript
+if (!(key in object)) {
+}
+
+if (!(obj instanceof Ctor)) {
+}
+```
+
+### Options
+
+#### enforceForOrderingRelations
+
+`{ type: boolean, default: false }`
+
+The `enforceForOrderingRelations` option determines whether negation is allowed
+on the left-hand side of ordering relational operators (<, >, <=, >=).
+
+The purpose is to avoid expressions such as `!a < b` (which is equivalent to `(a ? 0 : 1) < b`)
+when what is really intended is `!(a < b)`.
 
 ## How to use
 
@@ -52,4 +78,4 @@ oxlint --deny no-unsafe-negation
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/30318457d425dbf627aa428aad8004f6b92b1c59/crates/oxc_linter/src/rules/eslint/no_unsafe_negation.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/19c4835a02d596d931670721daf996bff74fcbbd/crates/oxc_linter/src/rules/eslint/no_unsafe_negation.rs)

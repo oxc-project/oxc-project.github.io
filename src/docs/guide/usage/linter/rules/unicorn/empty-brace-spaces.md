@@ -10,13 +10,26 @@
 
 ### What it does
 
-Removes the extra spaces or new line characters inside a pair of braces that does not contain additional code.
+Removes the extra spaces or new line characters inside a pair of braces
+that does not contain additional code. This ensures that braces are clean
+and do not contain unnecessary spaces or newlines.
 
 ### Why is this bad?
 
-There should be no spaces inside a pair of braces as it affects the overall readability of the code.
+Extra spaces inside braces can negatively impact the readability of the code.
+Keeping braces clean and free of unnecessary characters improves consistency and
+makes the code easier to understand and maintain.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```javascript
+const a = {};
+class A {}
+```
+
+Examples of **correct** code for this rule:
 
 ```javascript
 const a = {};
@@ -45,4 +58,4 @@ oxlint --deny unicorn/empty-brace-spaces
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/30318457d425dbf627aa428aad8004f6b92b1c59/crates/oxc_linter/src/rules/unicorn/empty_brace_spaces.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/19c4835a02d596d931670721daf996bff74fcbbd/crates/oxc_linter/src/rules/unicorn/empty_brace_spaces.rs)

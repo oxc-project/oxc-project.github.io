@@ -82,13 +82,13 @@ Decides whether to use `test` or `it` within a `describe` scope.
 This rule is compatible with [eslint-plugin-vitest](https://github.com/veritem/eslint-plugin-vitest/blob/v1.1.9/docs/rules/consistent-test-it.md),
 to use it, add the following configuration to your `.eslintrc.json`:
 
-````json
+```json
 {
   "rules": {
-     "vitest/consistent-test-it": "error"
+    "vitest/consistent-test-it": "error"
   }
 }
-
+```
 
 ## How to use
 
@@ -98,7 +98,7 @@ To **enable** this rule in the CLI or using the config file, you can use:
 
 ```bash [CLI]
 oxlint --deny jest/consistent-test-it --jest-plugin
-````
+```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -113,4 +113,4 @@ oxlint --deny jest/consistent-test-it --jest-plugin
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/30318457d425dbf627aa428aad8004f6b92b1c59/crates/oxc_linter/src/rules/jest/consistent_test_it.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/19c4835a02d596d931670721daf996bff74fcbbd/crates/oxc_linter/src/rules/jest/consistent_test_it.rs)

@@ -74,4 +74,4 @@ oxlint --deny vitest/require-local-test-context-for-concurrent-snapshots --vites
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/30318457d425dbf627aa428aad8004f6b92b1c59/crates/oxc_linter/src/rules/vitest/require_local_test_context_for_concurrent_snapshots.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/19c4835a02d596d931670721daf996bff74fcbbd/crates/oxc_linter/src/rules/vitest/require_local_test_context_for_concurrent_snapshots.rs)

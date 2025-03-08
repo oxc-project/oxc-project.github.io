@@ -2,7 +2,7 @@
 
 The progress of all rule implementations is tracked [here](https://github.com/oxc-project/oxc/issues/481).
 
-- Total number of rules: 487
+- Total number of rules: 495
 - Rules turned on by default: 123
 
 **Legend for 'Fixable?' column:**
@@ -13,7 +13,7 @@ The progress of all rule implementations is tracked [here](https://github.com/ox
 - ⚠️💡: a dangerous suggestion is available for this rule
 - 🚧: an auto-fix or suggestion is possible, but currently not implemented
 
-## Correctness (173):
+## Correctness (174):
 
 Code that is outright wrong or useless.
 | Rule name | Source | Default | Fixable? |
@@ -146,6 +146,7 @@ Code that is outright wrong or useless.
 | [double-comparisons](/docs/guide/usage/linter/rules/oxc/double-comparisons.html) | oxc | ✅ | 🛠️ |
 | [erasing-op](/docs/guide/usage/linter/rules/oxc/erasing-op.html) | oxc | ✅ | 💡 |
 | [missing-throw](/docs/guide/usage/linter/rules/oxc/missing-throw.html) | oxc | ✅ | 💡 |
+| [no-redundant-constructor-init](/docs/guide/usage/linter/rules/oxc/no-redundant-constructor-init.html) | oxc | ✅ | 🚧 |
 | [number-arg-out-of-range](/docs/guide/usage/linter/rules/oxc/number-arg-out-of-range.html) | oxc | ✅ | |
 | [only-used-in-recursion](/docs/guide/usage/linter/rules/oxc/only-used-in-recursion.html) | oxc | ✅ | ⚠️🛠️️ |
 | [uninvoked-array-callback](/docs/guide/usage/linter/rules/oxc/uninvoked-array-callback.html) | oxc | ✅ | |
@@ -207,7 +208,7 @@ Code that can be written to run faster.
 | [jsx-no-new-object-as-prop](/docs/guide/usage/linter/rules/react_perf/jsx-no-new-object-as-prop.html) | react_perf | | |
 | [prefer-set-has](/docs/guide/usage/linter/rules/unicorn/prefer-set-has.html) | unicorn | | ⚠️🛠️️ |
 
-## Restriction (62):
+## Restriction (63):
 
 Lints which prevent the use of language and library features. Must not be enabled as a whole, should be considered on a case-by-case basis before enabling.
 | Rule name | Source | Default | Fixable? |
@@ -225,6 +226,7 @@ Lints which prevent the use of language and library features. Must not be enable
 | [no-proto](/docs/guide/usage/linter/rules/eslint/no-proto.html) | eslint | | 🚧 |
 | [no-regex-spaces](/docs/guide/usage/linter/rules/eslint/no-regex-spaces.html) | eslint | | 🚧 |
 | [no-restricted-globals](/docs/guide/usage/linter/rules/eslint/no-restricted-globals.html) | eslint | | |
+| [no-restricted-imports](/docs/guide/usage/linter/rules/eslint/no-restricted-imports.html) | eslint | | |
 | [no-undefined](/docs/guide/usage/linter/rules/eslint/no-undefined.html) | eslint | | |
 | [no-unused-expressions](/docs/guide/usage/linter/rules/eslint/no-unused-expressions.html) | eslint | | |
 | [no-var](/docs/guide/usage/linter/rules/eslint/no-var.html) | eslint | | 🛠️ |
@@ -275,7 +277,7 @@ Lints which prevent the use of language and library features. Must not be enable
 | [prefer-node-protocol](/docs/guide/usage/linter/rules/unicorn/prefer-node-protocol.html) | unicorn | | 🛠️ |
 | [prefer-number-properties](/docs/guide/usage/linter/rules/unicorn/prefer-number-properties.html) | unicorn | | 🚧 |
 
-## Suspicious (25):
+## Suspicious (27):
 
 code that is most likely wrong or useless.
 | Rule name | Source | Default | Fixable? |
@@ -286,6 +288,7 @@ code that is most likely wrong or useless.
 | [no-unneeded-ternary](/docs/guide/usage/linter/rules/eslint/no-unneeded-ternary.html) | eslint | | 🚧 |
 | [no-useless-concat](/docs/guide/usage/linter/rules/eslint/no-useless-concat.html) | eslint | | |
 | [no-useless-constructor](/docs/guide/usage/linter/rules/eslint/no-useless-constructor.html) | eslint | | 🛠️ |
+| [no-absolute-path](/docs/guide/usage/linter/rules/import/no-absolute-path.html) | import | | 🚧 |
 | [no-duplicates](/docs/guide/usage/linter/rules/import/no-duplicates.html) | import | | |
 | [no-named-as-default](/docs/guide/usage/linter/rules/import/no-named-as-default.html) | import | | |
 | [no-named-as-default-member](/docs/guide/usage/linter/rules/import/no-named-as-default-member.html) | import | | |
@@ -298,6 +301,7 @@ code that is most likely wrong or useless.
 | [iframe-missing-sandbox](/docs/guide/usage/linter/rules/react/iframe-missing-sandbox.html) | react | | 🚧 |
 | [jsx-no-comment-textnodes](/docs/guide/usage/linter/rules/react/jsx-no-comment-textnodes.html) | react | | |
 | [jsx-no-script-url](/docs/guide/usage/linter/rules/react/jsx-no-script-url.html) | react | | 🚧 |
+| [no-namespace](/docs/guide/usage/linter/rules/react/no-namespace.html) | react | | |
 | [react-in-jsx-scope](/docs/guide/usage/linter/rules/react/react-in-jsx-scope.html) | react | | |
 | [style-prop-object](/docs/guide/usage/linter/rules/react/style-prop-object.html) | react | | |
 | [no-confusing-non-null-assertion](/docs/guide/usage/linter/rules/typescript/no-confusing-non-null-assertion.html) | typescript | | 🚧 |
@@ -390,11 +394,12 @@ Lints which are rather strict or have occasional false positives.
 | [prefer-type-error](/docs/guide/usage/linter/rules/unicorn/prefer-type-error.html) | unicorn | | 🛠️ |
 | [require-number-to-fixed-digits-argument](/docs/guide/usage/linter/rules/unicorn/require-number-to-fixed-digits-argument.html) | unicorn | | 🛠️ |
 
-## Style (128):
+## Style (133):
 
 Code that should be written in a more idiomatic way.
 | Rule name | Source | Default | Fixable? |
 | ------------------------------------ | ---------- | ------- | -------- |
+| [curly](/docs/guide/usage/linter/rules/eslint/curly.html) | eslint | | 🛠️ |
 | [default-case-last](/docs/guide/usage/linter/rules/eslint/default-case-last.html) | eslint | | |
 | [default-param-last](/docs/guide/usage/linter/rules/eslint/default-param-last.html) | eslint | | |
 | [func-names](/docs/guide/usage/linter/rules/eslint/func-names.html) | eslint | | 🛠️💡 |
@@ -417,8 +422,9 @@ Code that should be written in a more idiomatic way.
 | [no-new-func](/docs/guide/usage/linter/rules/eslint/no-new-func.html) | eslint | | |
 | [no-return-assign](/docs/guide/usage/linter/rules/eslint/no-return-assign.html) | eslint | | 🚧 |
 | [no-script-url](/docs/guide/usage/linter/rules/eslint/no-script-url.html) | eslint | | |
-| [no-template-curly-in-string](/docs/guide/usage/linter/rules/eslint/no-template-curly-in-string.html) | eslint | | 🚧 |
+| [no-template-curly-in-string](/docs/guide/usage/linter/rules/eslint/no-template-curly-in-string.html) | eslint | | ⚠️🛠️️ |
 | [no-ternary](/docs/guide/usage/linter/rules/eslint/no-ternary.html) | eslint | | |
+| [operator-assignment](/docs/guide/usage/linter/rules/eslint/operator-assignment.html) | eslint | | ⚠️🛠️️ |
 | [prefer-exponentiation-operator](/docs/guide/usage/linter/rules/eslint/prefer-exponentiation-operator.html) | eslint | | |
 | [prefer-numeric-literals](/docs/guide/usage/linter/rules/eslint/prefer-numeric-literals.html) | eslint | | 🛠️ |
 | [prefer-object-has-own](/docs/guide/usage/linter/rules/eslint/prefer-object-has-own.html) | eslint | | 🛠️ |
@@ -431,6 +437,7 @@ Code that should be written in a more idiomatic way.
 | [vars-on-top](/docs/guide/usage/linter/rules/eslint/vars-on-top.html) | eslint | | |
 | [yoda](/docs/guide/usage/linter/rules/eslint/yoda.html) | eslint | | 🛠️ |
 | [first](/docs/guide/usage/linter/rules/import/first.html) | import | | 🚧 |
+| [no-mutable-exports](/docs/guide/usage/linter/rules/import/no-mutable-exports.html) | import | | |
 | [no-named-default](/docs/guide/usage/linter/rules/import/no-named-default.html) | import | | |
 | [no-namespace](/docs/guide/usage/linter/rules/import/no-namespace.html) | import | | 🚧 |
 | [consistent-test-it](/docs/guide/usage/linter/rules/jest/consistent-test-it.html) | jest | | 🛠️ |
@@ -472,6 +479,7 @@ Code that should be written in a more idiomatic way.
 | [require-top-level-describe](/docs/guide/usage/linter/rules/jest/require-top-level-describe.html) | jest | | |
 | [no-exports-assign](/docs/guide/usage/linter/rules/node/no-exports-assign.html) | node | | 🛠️ |
 | [avoid-new](/docs/guide/usage/linter/rules/promise/avoid-new.html) | promise | | |
+| [no-nesting](/docs/guide/usage/linter/rules/promise/no-nesting.html) | promise | | 🚧 |
 | [param-names](/docs/guide/usage/linter/rules/promise/param-names.html) | promise | | |
 | [prefer-await-to-callbacks](/docs/guide/usage/linter/rules/promise/prefer-await-to-callbacks.html) | promise | | |
 | [prefer-await-to-then](/docs/guide/usage/linter/rules/promise/prefer-await-to-then.html) | promise | | |
@@ -492,6 +500,7 @@ Code that should be written in a more idiomatic way.
 | [prefer-function-type](/docs/guide/usage/linter/rules/typescript/prefer-function-type.html) | typescript | | 🛠️ |
 | [prefer-namespace-keyword](/docs/guide/usage/linter/rules/typescript/prefer-namespace-keyword.html) | typescript | | 🛠️ |
 | [catch-error-name](/docs/guide/usage/linter/rules/unicorn/catch-error-name.html) | unicorn | | 🛠️ |
+| [consistent-date-clone](/docs/guide/usage/linter/rules/unicorn/consistent-date-clone.html) | unicorn | | 🛠️ |
 | [consistent-existence-index-check](/docs/guide/usage/linter/rules/unicorn/consistent-existence-index-check.html) | unicorn | | 🛠️ |
 | [empty-brace-spaces](/docs/guide/usage/linter/rules/unicorn/empty-brace-spaces.html) | unicorn | | 🛠️ |
 | [error-message](/docs/guide/usage/linter/rules/unicorn/error-message.html) | unicorn | | |
@@ -524,14 +533,13 @@ Code that should be written in a more idiomatic way.
 | [prefer-to-be-object](/docs/guide/usage/linter/rules/vitest/prefer-to-be-object.html) | vitest | | 🛠️ |
 | [prefer-to-be-truthy](/docs/guide/usage/linter/rules/vitest/prefer-to-be-truthy.html) | vitest | | 🛠️ |
 
-## Nursery (12):
+## Nursery (11):
 
 New lints that are still under development.
 | Rule name | Source | Default | Fixable? |
 | ----------------------- | ---------- | ------- | -------- |
 | [constructor-super](/docs/guide/usage/linter/rules/eslint/constructor-super.html) | eslint | | |
 | [getter-return](/docs/guide/usage/linter/rules/eslint/getter-return.html) | eslint | | |
-| [no-restricted-imports](/docs/guide/usage/linter/rules/eslint/no-restricted-imports.html) | eslint | | |
 | [no-undef](/docs/guide/usage/linter/rules/eslint/no-undef.html) | eslint | | |
 | [no-unreachable](/docs/guide/usage/linter/rules/eslint/no-unreachable.html) | eslint | | |
 | [export](/docs/guide/usage/linter/rules/import/export.html) | import | | |

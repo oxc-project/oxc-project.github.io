@@ -27,7 +27,13 @@ Example
   "settings": {},
   "rules": {
     "eqeqeq": "warn",
-    "import/no-cycle": "error"
+    "import/no-cycle": "error",
+    "react/self-closing-comp": [
+      "error",
+      {
+        "html": false
+      }
+    ]
   },
   "overrides": [
     {
