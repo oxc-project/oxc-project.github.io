@@ -128,7 +128,10 @@ Each lint rule belongs to a category, which describes the general purpose or beh
 ```jsonc
 {
   // Enable all rules in the `correctness` and `suspicious` categories
-  "category": ["correctness", "suspicious"],
+  "categories": {
+    "correctness": "error",
+    "suspicious": "warn",
+  },
 }
 ```
 
@@ -142,7 +145,7 @@ The available categories are:
 - `restriction`: Rules that ban specific patterns, syntax, or features and should be enabled on a case-by-case basis
 - `nursery`: Rules that are in development, may change significantly, or contain false positives
 
-Categories can also be enabled or disabled in the command line using the same `-A` and `-D` options used to configure rules:
+Categories can also be enabled or disabled in the command line using the same `-A` (allow), `-W` (warn) and `-D` (deny) options used to configure rules:
 
 ```sh
 # Enable all correctness and suspicious rules
