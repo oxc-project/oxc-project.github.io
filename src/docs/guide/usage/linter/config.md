@@ -231,9 +231,11 @@ The primary way of specifying files to process is by passing a file path as an a
 - `.tsx`
 - `.mts`
 - `.cts`
-- `.astro`
-- `.svelte`
-- `.vue`
+- `.astro` _\*_
+- `.svelte` _\*_
+- `.vue` _\*_
+
+_\*Note: Supports only the `<script>` content, ignores the rest_
 
 ### Ignoring files
 
