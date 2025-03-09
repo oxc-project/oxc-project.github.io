@@ -33,7 +33,7 @@
   "lint-staged": {
     "*.{js,jsx,tsx,ts,mts,css,md,json,yml}": "pnpm run fmt --write"
   },
-  "packageManager": "pnpm@10.5.2",
+  "packageManager": "pnpm@10.6.1",
   "volta": {
     "node": "22.11.0"
   }
