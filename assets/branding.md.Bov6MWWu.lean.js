@@ -1,1 +1,0 @@
-import{_ as t,c as a,o as s,ag as r}from"./chunks/framework.DteEOKvC.js";const g=JSON.parse('{"title":"Branding","description":"","frontmatter":{},"headers":[],"relativePath":"branding.md","filePath":"branding.md"}'),n={name:"branding.md"};function i(o,e,c,l,d,h){return s(),a("div",null,e[0]||(e[0]=[r("",30)]))}const u=t(n,[["render",i]]);export{g as __pageData,u as default};
