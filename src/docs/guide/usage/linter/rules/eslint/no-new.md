@@ -14,10 +14,22 @@ Disallow new operators outside of assignments or comparisons.
 Calling new without assigning or comparing it the reference is thrown away and in many
 cases the constructor can be replaced with a function.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
 new Person();
+
+() => {
+  new Date();
+};
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
+var a = new Date()(() => new Date());
 ```
 
 ## How to use
@@ -42,4 +54,4 @@ oxlint --deny no-new
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/30318457d425dbf627aa428aad8004f6b92b1c59/crates/oxc_linter/src/rules/eslint/no_new.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/19c4835a02d596d931670721daf996bff74fcbbd/crates/oxc_linter/src/rules/eslint/no_new.rs)

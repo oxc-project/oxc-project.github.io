@@ -57,4 +57,4 @@ oxlint --deny react-perf/jsx-no-jsx-as-prop --react-perf-plugin
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/30318457d425dbf627aa428aad8004f6b92b1c59/crates/oxc_linter/src/rules/react_perf/jsx_no_jsx_as_prop.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/19c4835a02d596d931670721daf996bff74fcbbd/crates/oxc_linter/src/rules/react_perf/jsx_no_jsx_as_prop.rs)
