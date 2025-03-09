@@ -45,12 +45,12 @@ export const enConfig = defineLocaleConfig("root", {
               link: "/docs/guide/usage/linter",
               items: [
                 {
-                  text: "Command-line Interface",
-                  link: "/docs/guide/usage/linter/cli",
+                  text: "Configuring Oxlint",
+                  link: "/docs/guide/usage/linter/config",
                 },
                 {
-                  text: "Configuration File",
-                  link: "/docs/guide/usage/linter/config",
+                  text: "Command-line Interface",
+                  link: "/docs/guide/usage/linter/cli",
                 },
                 {
                   text: "Rules",
@@ -63,6 +63,10 @@ export const enConfig = defineLocaleConfig("root", {
                 {
                   text: "Automatic Fixes",
                   link: "/docs/guide/usage/linter/automatic-fixes",
+                },
+                {
+                  text: "Configuration file reference",
+                  link: "/docs/guide/usage/linter/config-file-reference",
                 },
               ],
             },
