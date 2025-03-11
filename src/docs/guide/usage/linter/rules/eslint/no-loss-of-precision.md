@@ -91,4 +91,4 @@ oxlint --deny no-loss-of-precision
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/30318457d425dbf627aa428aad8004f6b92b1c59/crates/oxc_linter/src/rules/eslint/no_loss_of_precision.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/89b6e4c7a880c5e0e6ac98dda359a08759d62e4c/crates/oxc_linter/src/rules/eslint/no_loss_of_precision.rs)

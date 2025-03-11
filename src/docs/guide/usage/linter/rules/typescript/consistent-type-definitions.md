@@ -18,16 +18,53 @@ TypeScript provides two common ways to define an object type: interface and type
 The two are generally very similar, and can often be used interchangeably.
 Using the same type declaration style consistently helps with code readability.
 
-### Example
+### Examples
 
-```ts
-// incorrect, when set to "interface"
+By default this rule enforces the use of interfaces for object types.
+
+Examples of **incorrect** code for this rule:
+
+```typescript
 type T = { x: number };
+```
 
-// incorrect when set to "type"
+Examples of **correct** code for this rule:
+
+```typescript
+type T = string;
+type Foo = string | {};
+
 interface T {
   x: number;
 }
+```
+
+### Options
+
+This rule has a single string option:
+
+`{ type: string, default: "interface" }`
+
+### interface
+
+This is the default option.
+
+### type
+
+Enforces the use of types for object type definitions.
+
+Examples of **incorrect** code for this option:
+
+```typescript
+interface T {
+  x: number;
+}
+```
+
+Examples of **correct** code for this option:
+
+```typescript
+type T = { x: number };
 ```
 
 ## How to use
@@ -52,4 +89,4 @@ oxlint --deny typescript/consistent-type-definitions
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/30318457d425dbf627aa428aad8004f6b92b1c59/crates/oxc_linter/src/rules/typescript/consistent_type_definitions.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/89b6e4c7a880c5e0e6ac98dda359a08759d62e4c/crates/oxc_linter/src/rules/typescript/consistent_type_definitions.rs)
