@@ -14,13 +14,48 @@ Disallow extra non-null assertions.
 
 ### Why is this bad?
 
-The `!` non-null assertion operator in TypeScript is used to assert that a value's type does not include null or undefined. Using the operator any more than once on a single value does nothing.
+The `!` non-null assertion operator in TypeScript is used to assert that a value's type
+does not include null or undefined. Using the operator any more than once on a single value
+does nothing.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```ts
 const foo: { bar: number } | null = null;
 const bar = foo!!!.bar;
+```
+
+```ts
+function foo(bar: number | undefined) {
+  const bar: number = bar!!!;
+}
+```
+
+```ts
+function foo(bar?: { n: number }) {
+  return bar!?.n;
+}
+```
+
+Examples of **correct** code for this rule:
+
+```ts
+const foo: { bar: number } | null = null;
+const bar = foo!.bar;
+```
+
+```ts
+function foo(bar: number | undefined) {
+  const bar: number = bar!;
+}
+```
+
+```ts
+function foo(bar?: { n: number }) {
+  return bar?.n;
+}
 ```
 
 ## How to use
@@ -45,4 +80,4 @@ oxlint --deny typescript/no-extra-non-null-assertion
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/30318457d425dbf627aa428aad8004f6b92b1c59/crates/oxc_linter/src/rules/typescript/no_extra_non_null_assertion.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/89b6e4c7a880c5e0e6ac98dda359a08759d62e4c/crates/oxc_linter/src/rules/typescript/no_extra_non_null_assertion.rs)

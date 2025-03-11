@@ -11,16 +11,15 @@
 ### What it does
 
 Enforce consistent style for element existence checks with `indexOf()`,
-`lastIndexOf()`, `findIndex()`, and `findLastIndex()`. This rule ensures
-that comparisons for element presence are made with `-1` rather than other
-comparison operators like `< 0` or `>= 0`, improving clarity and consistency.
+`lastIndexOf()`, `findIndex()`, and `findLastIndex()`. This ensures
+that comparisons are performed in a standard and clear way.
 
 ### Why is this bad?
 
-Using `< 0` or `>= 0` for element existence checks can lead to confusion,
-especially for developers who are not familiar with the specific behavior of
-these methods. The explicit `=== -1` or `!== -1` makes the intent clearer and
-more readable, ensuring consistency across the codebase.
+This rule is meant to enforce a specific style and improve code clarity.
+Using inconsistent comparison styles (e.g., `index < 0`, `index >= 0`)
+can make the intention behind the code unclear, especially in large
+codebases.
 
 ### Examples
 
@@ -70,4 +69,4 @@ oxlint --deny unicorn/consistent-existence-index-check
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/30318457d425dbf627aa428aad8004f6b92b1c59/crates/oxc_linter/src/rules/unicorn/consistent_existence_index_check.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/89b6e4c7a880c5e0e6ac98dda359a08759d62e4c/crates/oxc_linter/src/rules/unicorn/consistent_existence_index_check.rs)

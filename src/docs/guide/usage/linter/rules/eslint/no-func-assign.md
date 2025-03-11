@@ -14,13 +14,48 @@ Disallow reassigning `function` declarations
 
 ### Why is this bad?
 
-Overwriting/reassigning a function written as a FunctionDeclaration is often indicative of a mistake or issue.
+Overwriting/reassigning a function written as a FunctionDeclaration is often indicative of
+a mistake or issue.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
 function foo() {}
 foo = bar;
+```
+
+```javascript
+function foo() {
+  foo = bar;
+}
+```
+
+```javascript
+let a = function hello() {
+  hello = 123;
+};
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
+let foo = function () {};
+foo = bar;
+```
+
+```javascript
+function baz(baz) {
+  // `baz` is shadowed.
+  baz = bar;
+}
+```
+
+```
+function qux() {
+  const qux = bar;  // `qux` is shadowed.
+}
 ```
 
 ## How to use
@@ -45,4 +80,4 @@ oxlint --deny no-func-assign
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/30318457d425dbf627aa428aad8004f6b92b1c59/crates/oxc_linter/src/rules/eslint/no_func_assign.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/89b6e4c7a880c5e0e6ac98dda359a08759d62e4c/crates/oxc_linter/src/rules/eslint/no_func_assign.rs)

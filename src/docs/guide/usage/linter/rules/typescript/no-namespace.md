@@ -15,13 +15,91 @@ TypeScript historically allowed a form of code organization called "custom modul
 later renamed to "namespaces" (namespace Example). Namespaces are an outdated way to organize TypeScript code.
 ES2015 module syntax is now preferred (import/export).
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```typescript
 module foo {}
 namespace foo {}
 declare module foo {}
 declare namespace foo {}
+```
+
+Examples of **correct** code for this rule:
+
+```typescript
+declare module "foo" {}
+// anything inside a d.ts file
+```
+
+#### allowDeclarations
+
+`{ type: boolean, allowDeclarations: false }`
+
+Whether to allow declare with custom TypeScript namespaces.
+
+Examples of **incorrect** code for this rule when `{ "allowDeclarations": true }`
+
+```typescript
+module foo {}
+namespace foo {}
+```
+
+Examples of **correct** code for this rule when `{ "allowDeclarations": true }`
+
+```typescript
+declare module "foo" {}
+declare module foo {}
+declare namespace foo {}
+
+declare global {
+  namespace foo {}
+}
+
+declare module foo {
+  namespace foo {}
+}
+```
+
+Examples of **incorrect** code for this rule when `{ "allowDeclarations": false }`
+
+```typescript
+module foo {}
+namespace foo {}
+declare module foo {}
+declare namespace foo {}
+```
+
+Examples of **correct** code for this rule when `{ "allowDeclarations": false }`
+
+```typescript
+declare module "foo" {}
+```
+
+#### allowDefinitionFiles
+
+`{ type: boolean, allowDefinitionFiles: true }`
+
+Examples of **incorrect** code for this rule when `{ "allowDefinitionFiles": true }`
+
+```typescript
+// if outside a d.ts file
+module foo {}
+namespace foo {}
+
+// if outside a d.ts file
+module foo {}
+namespace foo {}
+declare module foo {}
+declare namespace foo {}
+```
+
+Examples of **correct** code for this rule when `{ "allowDefinitionFiles": true }`
+
+```typescript
+declare module "foo" {}
+// anything inside a d.ts file
 ```
 
 ## How to use
@@ -46,4 +124,4 @@ oxlint --deny typescript/no-namespace
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/30318457d425dbf627aa428aad8004f6b92b1c59/crates/oxc_linter/src/rules/typescript/no_namespace.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/89b6e4c7a880c5e0e6ac98dda359a08759d62e4c/crates/oxc_linter/src/rules/typescript/no_namespace.rs)

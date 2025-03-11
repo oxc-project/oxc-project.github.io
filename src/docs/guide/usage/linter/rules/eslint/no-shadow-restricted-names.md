@@ -10,11 +10,27 @@
 
 ### What it does
 
-Disallow redefine the global variables like 'undefined', 'NaN', 'Infinity', 'eval', 'arguments'.
+Disallows the redefining of global variables such as `undefined`, `NaN`, `Infinity`, `eval`
+and `arguments`.
 
 ### Why is this bad?
 
-### Example
+Value properties of the Global Object `NaN`, `Infinity`, `undefined` as well as the strict
+mode restricted identifiers `eval` and `arguments` are considered to be restricted names in
+JavaScript. Defining them to mean something else can have unintended consequences and
+confuse others reading the code. For example, there’s nothing preventing you from
+writing:
+
+```javascript
+var undefined = "foo";
+```
+
+Then any code used within the same scope would not get the global undefined, but rather the
+local version with a very different meaning.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
 function NaN() {}
@@ -25,6 +41,29 @@ var undefined = 5;
 
 try {
 } catch (eval) {}
+```
+
+```javascript
+import NaN from "foo";
+
+import { undefined } from "bar";
+
+class Infinity {}
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
+var Object;
+
+function f(a, b) {}
+
+// Exception: `undefined` may be shadowed if the variable is never assigned a value.
+var undefined;
+```
+
+```javascript
+import { undefined as undef } from "bar";
 ```
 
 ## How to use
@@ -49,4 +88,4 @@ oxlint --deny no-shadow-restricted-names
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/30318457d425dbf627aa428aad8004f6b92b1c59/crates/oxc_linter/src/rules/eslint/no_shadow_restricted_names.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/89b6e4c7a880c5e0e6ac98dda359a08759d62e4c/crates/oxc_linter/src/rules/eslint/no_shadow_restricted_names.rs)

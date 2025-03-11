@@ -7,9 +7,14 @@
 
 ### What it does
 
-This rule enforces a `message` value to be passed in when creating an instance of a built-in `Error` object, which leads to more readable and debuggable code.
+Enforces providing a `message` when creating built-in `Error` objects to
+improve readability and debugging.
 
 ### Why is this bad?
+
+Throwing an `Error` without a message, like `throw new Error()`, provides no context
+on what went wrong, making debugging harder. A clear error message improves
+code clarity and helps developers quickly identify issues.
 
 ### Examples
 
@@ -49,4 +54,4 @@ oxlint --deny unicorn/error-message
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/30318457d425dbf627aa428aad8004f6b92b1c59/crates/oxc_linter/src/rules/unicorn/error_message.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/89b6e4c7a880c5e0e6ac98dda359a08759d62e4c/crates/oxc_linter/src/rules/unicorn/error_message.rs)

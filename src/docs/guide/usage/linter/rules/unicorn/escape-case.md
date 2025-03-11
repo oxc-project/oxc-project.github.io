@@ -10,15 +10,17 @@
 
 ### What it does
 
-Enforces defining escape sequence values with uppercase characters rather than lowercase ones. This promotes readability by making the escaped value more distinguishable from the identifier.
+Enforces defining escape sequence values with uppercase characters rather than lowercase ones.
+This promotes readability by making the escaped value more distinguishable from the identifier.
 
 ### Why is this bad?
+
+Using lowercase characters in escape sequences makes them less readable and harder to distinguish
+from surrounding code. Most style guides recommend uppercase for consistency and clarity.
 
 ### Examples
 
 Examples of **incorrect** code for this rule:
-
-<!-- prettier-ignore-start -->
 
 ```javascript
 const foo = "\xa9";
@@ -28,14 +30,13 @@ const foo = "\ca";
 ```
 
 Examples of **correct** code for this rule:
+
 ```javascript
 const foo = "\xA9";
 const foo = "\uD834";
 const foo = "\u{1D306}";
 const foo = "\cA";
 ```
-
-<!-- prettier-ignore-end -->
 
 ## How to use
 
@@ -59,4 +60,4 @@ oxlint --deny unicorn/escape-case
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/30318457d425dbf627aa428aad8004f6b92b1c59/crates/oxc_linter/src/rules/unicorn/escape_case.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/89b6e4c7a880c5e0e6ac98dda359a08759d62e4c/crates/oxc_linter/src/rules/unicorn/escape_case.rs)
