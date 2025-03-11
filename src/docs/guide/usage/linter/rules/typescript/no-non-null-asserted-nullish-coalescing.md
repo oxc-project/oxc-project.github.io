@@ -11,13 +11,41 @@ Disallow non-null assertions in the left operand of a nullish coalescing operato
 
 ### Why is this bad?
 
-The ?? nullish coalescing runtime operator allows providing a default value when dealing with null or undefined. Using a ! non-null assertion type operator in the left operand of a nullish coalescing operator is redundant, and likely a sign of programmer error or confusion over the two operators.
+The ?? nullish coalescing runtime operator allows providing a default value when dealing
+with null or undefined. Using a ! non-null assertion type operator in the left operand of
+a nullish coalescing operator is redundant, and likely a sign of programmer error or
+confusion over the two operators.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```ts
 foo! ?? bar;
+foo.bazz! ?? bar;
+foo!.bazz! ?? bar;
+foo()! ?? bar;
 
+let x!: string;
+x! ?? "";
+
+let x: string;
+x = foo();
+x! ?? "";
+```
+
+Examples of **correct** code for this rule:
+
+```ts
+foo ?? bar;
+foo ?? bar!;
+foo!.bazz ?? bar;
+foo!.bazz ?? bar!;
+foo() ?? bar;
+```
+
+```ts
+// This is considered correct code because there's no way for the user to satisfy it.
 let x: string;
 x! ?? "";
 ```
@@ -44,4 +72,4 @@ oxlint --deny typescript/no-non-null-asserted-nullish-coalescing
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/30318457d425dbf627aa428aad8004f6b92b1c59/crates/oxc_linter/src/rules/typescript/no_non_null_asserted_nullish_coalescing.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/89b6e4c7a880c5e0e6ac98dda359a08759d62e4c/crates/oxc_linter/src/rules/typescript/no_non_null_asserted_nullish_coalescing.rs)

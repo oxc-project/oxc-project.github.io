@@ -10,15 +10,19 @@
 
 ### What it does
 
-Disallow duplicate module imports
+Disallow duplicate module imports.
 
 ### Why is this bad?
 
-Using a single import statement per module will make the code clearer because you can see everything being imported from that module on one line.
+Using a single import statement per module will make the code clearer because you can see
+everything being imported from that module on one line.
 
 ### Examples
 
 Examples of **incorrect** code for this rule:
+
+In the following example the module import on line 1 is repeated on line 3. These can be
+combined to make the list of imports more succinct.
 
 ```js
 import { merge } from "module";
@@ -31,6 +35,45 @@ Examples of **correct** code for this rule:
 ```js
 import { merge, find } from "module";
 import something from "another-module";
+```
+
+### Options
+
+#### includeExports
+
+`{ "includeExports": boolean }`
+
+When `true` this rule will also look at exports to see if there is both a re-export of a
+module as in `export ... from 'module'` and also a standard import statement for the same
+module. This would count as a rule violation because there are in a sense two statements
+importing from the same module.
+
+Examples of **incorrect** when this rule is set to `true`
+
+```js
+import { merge } from "module";
+
+export { find } from "module"; // re-export which is an import and an export.
+```
+
+Examples of **correct** when this rule is set to `true`
+
+If re-exporting from an imported module, you should add the imports to the
+`import` statement, and export that directly, not use `export ... from`.
+
+```js
+import { merge } from "lodash-es";
+export { merge as lodashMerge };
+```
+
+```js
+import { merge, find } from "module";
+
+// cannot be merged with the above import
+export * as something from "module";
+
+// cannot be written differently
+export * from "module";
 ```
 
 ## How to use
@@ -55,4 +98,4 @@ oxlint --deny no-duplicate-imports
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/30318457d425dbf627aa428aad8004f6b92b1c59/crates/oxc_linter/src/rules/eslint/no_duplicate_imports.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/89b6e4c7a880c5e0e6ac98dda359a08759d62e4c/crates/oxc_linter/src/rules/eslint/no_duplicate_imports.rs)
