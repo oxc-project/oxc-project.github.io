@@ -2,7 +2,7 @@
 
 The progress of all rule implementations is tracked [here](https://github.com/oxc-project/oxc/issues/481).
 
-- Total number of rules: 500
+- Total number of rules: 501
 - Rules turned on by default: 123
 
 **Legend for 'Fixable?' column:**
@@ -13,7 +13,7 @@ The progress of all rule implementations is tracked [here](https://github.com/ox
 - ⚠️💡: a dangerous suggestion is available for this rule
 - 🚧: an auto-fix or suggestion is possible, but currently not implemented
 
-## Correctness (174):
+## Correctness (173):
 
 Code that is outright wrong or useless.
 | Rule name | Source | Default | Fixable? |
@@ -146,7 +146,6 @@ Code that is outright wrong or useless.
 | [double-comparisons](/docs/guide/usage/linter/rules/oxc/double-comparisons.html) | oxc | ✅ | 🛠️ |
 | [erasing-op](/docs/guide/usage/linter/rules/oxc/erasing-op.html) | oxc | ✅ | 💡 |
 | [missing-throw](/docs/guide/usage/linter/rules/oxc/missing-throw.html) | oxc | ✅ | 💡 |
-| [no-redundant-constructor-init](/docs/guide/usage/linter/rules/oxc/no-redundant-constructor-init.html) | oxc | ✅ | 🚧 |
 | [number-arg-out-of-range](/docs/guide/usage/linter/rules/oxc/number-arg-out-of-range.html) | oxc | ✅ | |
 | [only-used-in-recursion](/docs/guide/usage/linter/rules/oxc/only-used-in-recursion.html) | oxc | ✅ | ⚠️🛠️️ |
 | [uninvoked-array-callback](/docs/guide/usage/linter/rules/oxc/uninvoked-array-callback.html) | oxc | ✅ | |
@@ -278,11 +277,11 @@ Lints which prevent the use of language and library features. Must not be enable
 | [prefer-node-protocol](/docs/guide/usage/linter/rules/unicorn/prefer-node-protocol.html) | unicorn | | 🛠️ |
 | [prefer-number-properties](/docs/guide/usage/linter/rules/unicorn/prefer-number-properties.html) | unicorn | | 🚧 |
 
-## Suspicious (27):
+## Suspicious (28):
 
 code that is most likely wrong or useless.
 | Rule name | Source | Default | Fixable? |
-| ------------------------------- | ---------- | ------- | -------- |
+| ---------------------------------- | ---------- | ------- | -------- |
 | [no-extend-native](/docs/guide/usage/linter/rules/eslint/no-extend-native.html) | eslint | | |
 | [no-new](/docs/guide/usage/linter/rules/eslint/no-new.html) | eslint | | |
 | [no-unexpected-multiline](/docs/guide/usage/linter/rules/eslint/no-unexpected-multiline.html) | eslint | | ⚠️🛠️️ |
@@ -310,6 +309,7 @@ code that is most likely wrong or useless.
 | [no-unnecessary-type-constraint](/docs/guide/usage/linter/rules/typescript/no-unnecessary-type-constraint.html) | typescript | | |
 | [consistent-function-scoping](/docs/guide/usage/linter/rules/unicorn/consistent-function-scoping.html) | unicorn | | 🚧 |
 | [prefer-add-event-listener](/docs/guide/usage/linter/rules/unicorn/prefer-add-event-listener.html) | unicorn | | 🚧 |
+| [require-post-message-target-origin](/docs/guide/usage/linter/rules/unicorn/require-post-message-target-origin.html) | unicorn | | 🛠️ |
 
 ## Pedantic (78):
 
@@ -538,11 +538,11 @@ Code that should be written in a more idiomatic way.
 | [prefer-to-be-object](/docs/guide/usage/linter/rules/vitest/prefer-to-be-object.html) | vitest | | 🛠️ |
 | [prefer-to-be-truthy](/docs/guide/usage/linter/rules/vitest/prefer-to-be-truthy.html) | vitest | | 🛠️ |
 
-## Nursery (11):
+## Nursery (12):
 
 New lints that are still under development.
 | Rule name | Source | Default | Fixable? |
-| ----------------------- | ---------- | ------- | -------- |
+| -------------------------------------------- | ---------- | ------- | -------- |
 | [constructor-super](/docs/guide/usage/linter/rules/eslint/constructor-super.html) | eslint | | |
 | [getter-return](/docs/guide/usage/linter/rules/eslint/getter-return.html) | eslint | | |
 | [no-undef](/docs/guide/usage/linter/rules/eslint/no-undef.html) | eslint | | |
@@ -554,3 +554,4 @@ New lints that are still under development.
 | [exhaustive-deps](/docs/guide/usage/linter/rules/react/exhaustive-deps.html) | react | | |
 | [require-render-return](/docs/guide/usage/linter/rules/react/require-render-return.html) | react | | |
 | [consistent-type-imports](/docs/guide/usage/linter/rules/typescript/consistent-type-imports.html) | typescript | | 🛠️ |
+| [no-unnecessary-parameter-property-assignment](/docs/guide/usage/linter/rules/typescript/no-unnecessary-parameter-property-assignment.html) | typescript | | 🚧 |

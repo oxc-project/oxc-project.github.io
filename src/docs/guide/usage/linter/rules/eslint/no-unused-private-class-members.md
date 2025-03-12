@@ -100,4 +100,4 @@ oxlint --deny no-unused-private-class-members
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/89b6e4c7a880c5e0e6ac98dda359a08759d62e4c/crates/oxc_linter/src/rules/eslint/no_unused_private_class_members.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/b9ab60bde696d2742d3c5781084ee3c7bb99821e/crates/oxc_linter/src/rules/eslint/no_unused_private_class_members.rs)
