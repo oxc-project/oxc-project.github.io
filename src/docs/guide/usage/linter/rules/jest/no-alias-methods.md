@@ -17,7 +17,9 @@ This rule ensures that only the canonical name as used in the Jest documentation
 These aliases are going to be removed in the next major version of Jest - see [jestjs/jest#13164](https://github.com/jestjs/jest/issues/13164) for more.
 This rule will makes it easier to search for all occurrences of the method within code, and it ensures consistency among the method names used.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
 expect(a).toBeCalled();
@@ -33,6 +35,22 @@ expect(a).nthReturnedWith();
 expect(a).toThrowError();
 ```
 
+Examples of **correct** code for this rule:
+
+```javascript
+expect(a).toHaveBeenCalled();
+expect(a).toHaveBeenCalledTimes();
+expect(a).toHaveBeenCalledWith();
+expect(a).toHaveBeenLastCalledWith();
+expect(a).toHaveBeenNthCalledWith();
+expect(a).toHaveReturned();
+expect(a).toHaveReturnedTimes();
+expect(a).toHaveReturnedWith();
+expect(a).toHaveLastReturnedWith();
+expect(a).toHaveNthReturnedWith();
+expect(a).toThrow();
+```
+
 This rule is compatible with [eslint-plugin-vitest](https://github.com/veritem/eslint-plugin-vitest/blob/v1.1.9/docs/rules/no-alias-methods.md),
 to use it, add the following configuration to your `.eslintrc.json`:
 
@@ -42,6 +60,32 @@ to use it, add the following configuration to your `.eslintrc.json`:
     "vitest/no-alias-methods": "error"
   }
 }
+```
+
+Examples of **incorrect** code for this rule with vitest:
+
+```javascript
+expect(a).toBeCalled();
+expect(a).toBeCalledTimes();
+expect(a).not["toThrowError"]();
+```
+
+Examples of **correct** code for this rule with vitest:
+
+```javascript
+expect(a).toHaveBeenCalled();
+expect(a).toHaveBeenCalledTimes();
+expect(a).toHaveBeenCalledWith();
+expect(a).toHaveBeenLastCalledWith();
+expect(a).toHaveBeenNthCalledWith();
+expect(a).toHaveReturned();
+expect(a).toHaveReturnedTimes();
+expect(a).toHaveReturnedWith();
+expect(a).toHaveLastReturnedWith();
+expect(a).toHaveNthReturnedWith();
+expect(a).toThrow();
+expect(a).rejects;
+expect(a);
 ```
 
 ## How to use
@@ -67,4 +111,4 @@ oxlint --deny jest/no-alias-methods --jest-plugin
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/89b6e4c7a880c5e0e6ac98dda359a08759d62e4c/crates/oxc_linter/src/rules/jest/no_alias_methods.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/b9ab60bde696d2742d3c5781084ee3c7bb99821e/crates/oxc_linter/src/rules/jest/no_alias_methods.rs)
