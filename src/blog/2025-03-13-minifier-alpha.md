@@ -15,7 +15,7 @@ While lacking some advanced minification techniques,
 the current version already outperforms `esbuild` in terms of performance and compression size,
 as demonstrated by [minification-benchmarks](https://github.com/privatenumber/minification-benchmarks).
 
-Comparing widely used minifiers on `typescript.js`:
+Comparing widely-used minifiers on `typescript.js`:
 
 <div align="center">
 
@@ -69,4 +69,4 @@ So it is critical for us to:
 ## Acknowledgements
 
 Thank you [@sapphi-red](https://github.com/sapphi-red) for improving the minifier,
-especially the advanced symbol minification algorithm where `esbuild` lacks.
+especially the advanced symbol minification algorithm which `esbuild` lacks.
