@@ -29,7 +29,7 @@ on. For example,
 oxlint --import-plugin -D correctness -W suspicious
 ```
 
-From import plugin, this will will enable all `correctness` rules as errors and `suspicious` rules as warnings, plus the rules from the base rule set. Note that `correctness` rules are turned on by default.
+From the import plugin, this will enable all `correctness` rules as errors and `suspicious` rules as warnings, plus the rules from the base rule set. Note that `correctness` rules are turned on by default.
 
 ### Enabling plugins in a configuration file
 
