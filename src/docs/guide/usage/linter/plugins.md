@@ -26,26 +26,53 @@ Once enabled, rules in categories you have enabled will automatically be turned
 on. For example,
 
 ```sh
-oxlint --import-plugin -W correctness -W suspicious
+oxlint --import-plugin -D correctness -W suspicious
 ```
 
-Will enable all `correctness` and `suspicious` rules in the `import` plugin, as
-well as the base rule set. Note that `correctness` rules are turned on by
-default.
+From import plugin, this will will enable all `correctness` rules as errors and `suspicious` rules as warnings, plus the rules from the base rule set. Note that `correctness` rules are turned on by default.
+
+### Enabling plugins in a configuration file
+
+You can also enable plugins in a configuration file by adding the `plugins`
+field. For example, to enable `eslint-plugin-import`, add the following to your
+`.oxlintrc.json` file:
+
+```json
+{
+  "plugins": ["import"]
+}
+```
+
+> [!NOTE]
+> Setting the `plugins` field will **overwrite** the base set of plugins. The plugins array should reflect all of the plugins you want to use.
 
 ## Disabling Plugins
 
 Several plugins are enabled by default, and are listed below. You can disable
-them with the `--no-<plugin-name>-plugin` flag. For example, to disable
+them with the `--disable-<plugin-name>-plugin` flag. For example, to disable
 `eslint-plugin-unicorn`, run:
 
 ```sh
-oxlint --no-unicorn-plugin
+oxlint --disable-unicorn-plugin
 ```
+
+Only default plugins support being disabled, as other plugins can be omitted simply by not enabling them.
 
 :::info
 run `oxlint --help` to see a full list of flags to enable or disable plugins.
 :::
+
+### Disabling plugins in a configuration file
+
+You can also disable default plugins in a configuration file by simply adding an empty array to the `plugins` field.
+
+```json
+{
+  "plugins": []
+}
+```
+
+This configuration will disable all default plugins and only use the base set of rules.
 
 ## Supported Plugins
 
@@ -54,22 +81,21 @@ You can also find this information on the [`linter product
 plan`](https://github.com/oxc-project/oxc/issues/481) issue on GitHub.
 :::
 
-| Plugin Name                                                                                                      | Default? | Issue                                                   | Notes                                                                                                               |
-| ---------------------------------------------------------------------------------------------------------------- | -------- | ------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| [`typescript-eslint`](https://typescript-eslint.io/rules/)                                                       | ✅       | [#2180](https://github.com/oxc-project/oxc/issues/2180) | Typescript-specific rules from `@typescript-eslint/eslint-plugin`. We do not support type-aware rules at this time. |
-| [`eslint-plugin-unicorn`](https://github.com/sindresorhus/eslint-plugin-unicorn)                                 | ✅       | [#684](https://github.com/oxc-project/oxc/issues/684)   |
-| [`eslint-plugin-react`](https://www.npmjs.com/package/eslint-plugin-react)                                       | ✅       | [#1022](https://github.com/oxc-project/oxc/issues/1022) |                                                                                                                     |
-| [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks)                           | ✅       | [#2174](https://github.com/oxc-project/oxc/issues/2174) |                                                                                                                     |
-| [`eslint-plugin-react-perf`](https://github.com/cvazac/eslint-plugin-react-perf)                                 |          | [#2041](https://github.com/oxc-project/oxc/issues/2041) |                                                                                                                     |
-| [`eslint-plugin-next`](https://nextjs.org/docs/pages/building-your-application/configuring/eslint#eslint-plugin) |          | [#1929](https://github.com/oxc-project/oxc/issues/1929) |                                                                                                                     |
-| `oxc`                                                                                                            | ✅       | N/A                                                     | Custom oxc-specific rules, as well as some rules ported from [deepscan](https://deepscan.io/)                       |
-| [`eslint-plugin-import`](https://github.com/import-js/eslint-plugin-import)                                      |          | [#1117](https://github.com/oxc-project/oxc/issues/1117) |                                                                                                                     |
-| [`eslint-plugin-jsdoc`](https://github.com/gajus/eslint-plugin-jsdoc)                                            |          | [#1170](https://github.com/oxc-project/oxc/issues/1170) |                                                                                                                     |
-| [`eslint-plugin-jsx-a11y`](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y)                                 |          | [#1141](https://github.com/oxc-project/oxc/issues/1141) |                                                                                                                     |
-| [`eslint-plugin-n`](https://github.com/eslint-community/eslint-plugin-n)                                         |          | [#493](https://github.com/oxc-project/oxc/issues/493)   | Rules use `node` as the plugin prefix (e.g. `node/no-exports-assign`                                                |
-| [`eslint-plugin-promise`](https://github.com/eslint-community/eslint-plugin-promise)                             |          | [#4655](https://github.com/oxc-project/oxc/issues/4655) |                                                                                                                     |
-| [`eslint-plugin-jest`](https://github.com/jest-community/eslint-plugin-jest)                                     |          | [#492](https://github.com/oxc-project/oxc/issues/492)   |                                                                                                                     |
-| [`eslint-plugin-vitest`](https://github.com/vitest-dev/eslint-plugin-vitest)                                     |          | [#4656](https://github.com/oxc-project/oxc/issues/4656) |                                                                                                                     |
+| Plugin Name  | Default? | Issue                                                                                                            | Notes                                                                                                                                                                                   |
+| ------------ | -------- | ---------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `typescript` | ✅       | [#2180](https://github.com/oxc-project/oxc/issues/2180)                                                          | TypeScript-specific rules from [`@typescript-eslint`](https://typescript-eslint.io/rules/). We do not currently support rules that require type information.                            |
+| `unicorn`    | ✅       | [#684](https://github.com/oxc-project/oxc/issues/684)                                                            | Rules ported from [`eslint-plugin-unicorn`](https://github.com/sindresorhus/eslint-plugin-unicorn)                                                                                      |
+| `react`      | ✅       | [#1022](https://github.com/oxc-project/oxc/issues/1022), [#2174](https://github.com/oxc-project/oxc/issues/2174) | Rules ported from [`eslint-plugin-react`](https://www.npmjs.com/package/eslint-plugin-react) and [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks) |
+| `react-perf` |          | [#2041](https://github.com/oxc-project/oxc/issues/2041)                                                          | Rules ported from [`eslint-plugin-react-perf`](https://github.com/cvazac/eslint-plugin-react-perf)                                                                                      |
+| `nextjs`     |          | [#1929](https://github.com/oxc-project/oxc/issues/1929)                                                          | Rules ported from [`eslint-plugin-next`](https://nextjs.org/docs/pages/building-your-application/configuring/eslint#eslint-plugin)                                                      |
+| `oxc`        | ✅       | N/A                                                                                                              | Custom oxc-specific rules, as well as some rules ported from [deepscan](https://deepscan.io/)                                                                                           |
+| `import`     |          | [#1117](https://github.com/oxc-project/oxc/issues/1117)                                                          | Rules ported from [`eslint-plugin-import`](https://github.com/import-js/eslint-plugin-import)                                                                                           |
+| `jsdoc`      |          | [#1170](https://github.com/oxc-project/oxc/issues/1170)                                                          | Rules ported from [`eslint-plugin-jsdoc`](https://github.com/gajus/eslint-plugin-jsdoc)                                                                                                 |
+| `jsx-a11y`   |          | [#1141](https://github.com/oxc-project/oxc/issues/1141)                                                          | Rules ported from [`eslint-plugin-jsx-a11y`](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y)                                                                                      |
+| `node`       |          | [#493](https://github.com/oxc-project/oxc/issues/493)                                                            | Rules ported from [`eslint-plugin-n`](https://github.com/eslint-community/eslint-plugin-n)                                                                                              |
+| `promise`    |          | [#4655](https://github.com/oxc-project/oxc/issues/4655)                                                          | Rules ported from [`eslint-plugin-promise`](https://github.com/eslint-community/eslint-plugin-promise)                                                                                  |
+| `jest`       |          | [#492](https://github.com/oxc-project/oxc/issues/492)                                                            | Rules ported from [`eslint-plugin-jest`](https://github.com/jest-community/eslint-plugin-jest)                                                                                          |
+| `vitest`     |          | [#4656](https://github.com/oxc-project/oxc/issues/4656)                                                          | Rules ported from [`eslint-plugin-vitest`](https://github.com/vitest-dev/eslint-plugin-vitest)                                                                                          |
 
 ## Adding New Plugins
 
