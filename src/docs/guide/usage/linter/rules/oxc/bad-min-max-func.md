@@ -31,7 +31,7 @@ Examples of **correct** code for this rule:
 
 ```javascript
 Math.max(0, Math.min(100, x));
-Math.min(0, Math.max(1000, z));
+Math.min(1000, Math.max(0, z));
 ```
 
 ## How to use
