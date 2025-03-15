@@ -48,7 +48,7 @@ For more detailed instructions on how to use Oxlint and integrate it with your p
 
 ## Highlight of new features since general availability
 
-- Significant performance improvements, up to 60% faster than the previous release
+- Significant performance improvements, up to 50% faster than the previous release
 - Includes over 500 rules built-in, with no extra installation required
 - Many rules from the `typescript`, `unicorn`, `react`, `react-perf`, `nextjs`, `import`, `jsdoc`, `jsx-a11y`, `node`, `promise`, `jest`, `vitest` plugins are now complete.
 - Support for configuration via [`.oxlintrc.json` files](/docs/guide/usage/linter/config.html#configuration-file-format), including [nested configuration files](/docs/guide/usage/linter/config.html#nesting-configuration-files), using `extends` to share configuration between files, applying `overrides` to specific files, and more.
@@ -83,7 +83,9 @@ Despite adding many new rules that are enabled by default, Oxlint is now much fa
 
 ## Roadmap
 
-One of the most commonly requested features for Oxlint is support for existing custom ESLint plugins. We have been busy working on the prerequisites for this feature, and to enable fast linter plugins written in JavaScript. We hope to have this feature available for the next major release.
+One of the most commonly requested features for Oxlint is support for existing custom ESLint plugins. We have been busy working on the prerequisites for this feature, and to enable fast linter plugins written in JavaScript. We hope to have this feature available for the next major release, and more information to share about it in the near future.
+
+We also are planning to continue improving the IDE/editor integrations, with improved support for VSCode, Zed, `coc.nvim`, and IntelliJ plugins.
 
 ## Acknowledgements
 
@@ -93,7 +95,7 @@ Special thanks goes to:
 
 - [@cam314](https://github.com/camc314), [@mysteryven](https://github.com/mysteryven), and [@shulaoda](https://github.com/shulaoda) for implementing many sophisticated lint rules, testing, and constantly improving everything.
 - [@Sysix](https://github.com/Sysix) for maintaining `eslint-plugin-oxlint`.
-- [@DonIsaac](https://github.com/DonIsaac) for improving configuration, documentation and website, and for representing oxc in [Squiggle Conf](https://2024.squiggleconf.com).
+- [@DonIsaac](https://github.com/DonIsaac) for improving configuration, documentation and website, and for representing Oxc at [SquiggleConf 2024](https://2024.squiggleconf.com).
 - [@leaysgur](https://github.com/leaysgur) for the RegExp parser and JSDoc plugin.
 - [@u9g](https://github.com/u9g) and [@rzvxa](https://github.com/rzvxa) for implementing control flow graph analysis.
 - [@branchseer](https://github.com/branchseer) for implementing the multi-file analysis runtime.
