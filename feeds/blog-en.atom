@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://oxc.rs</id>
     <title>The Oxidation Compiler Blog</title>
-    <updated>2025-03-16T02:50:54.532Z</updated>
+    <updated>2025-03-16T02:51:42.166Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://oxc.rs"/>
     <icon>https://cdn.jsdelivr.net/gh/oxc-project/oxc-assets/square.ico</icon>
@@ -19,7 +19,7 @@ This milestone signifies our team's ability to promptly address and triage issue
 <p>At this stage, oxlint is <strong>not intended to fully replace ESLint</strong>; it serves as an enhancement when ESLint's slowness becomes a bottleneck in your workflow.</p>
 <p>For faster feedback loops, we recommend running oxlint before ESLint in your lint-staged or CI setup, considering it only takes a few seconds to run on large codebases.</p>
 <p>To test oxlint in your JavaScript / TypeScript codebase, simply execute the following command at the root directory of your repository:</p>
-<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-ZDsfr" id="tab-NlBPxVz" checked><label data-title="npm" for="tab-NlBPxVz">npm</label><input type="radio" name="group-ZDsfr" id="tab-zCoWf6f" ><label data-title="pnpm" for="tab-zCoWf6f">pnpm</label><input type="radio" name="group-ZDsfr" id="tab-td2ANIV" ><label data-title="yarn" for="tab-td2ANIV">yarn</label><input type="radio" name="group-ZDsfr" id="tab-bMr0u8I" ><label data-title="bun" for="tab-bMr0u8I">bun</label><input type="radio" name="group-ZDsfr" id="tab-kgDOW0q" ><label data-title="deno" for="tab-kgDOW0q">deno</label></div><div class="blocks">
+<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-XJSSk" id="tab-Yy2rRC7" checked><label data-title="npm" for="tab-Yy2rRC7">npm</label><input type="radio" name="group-XJSSk" id="tab-n5LdkBe" ><label data-title="pnpm" for="tab-n5LdkBe">pnpm</label><input type="radio" name="group-XJSSk" id="tab-BX4UGfp" ><label data-title="yarn" for="tab-BX4UGfp">yarn</label><input type="radio" name="group-XJSSk" id="tab-L-iTzI3" ><label data-title="bun" for="tab-L-iTzI3">bun</label><input type="radio" name="group-XJSSk" id="tab-W-hTUan" ><label data-title="deno" for="tab-W-hTUan">deno</label></div><div class="blocks">
 <div class="language-sh vp-adaptive-theme active"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">$</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> npx</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> oxlint@latest</span></span></code></pre>
 </div><div class="language-sh vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">$</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> pnpm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> dlx</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> oxlint@latest</span></span></code></pre>
 </div><div class="language-sh vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">$</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> yarn</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> dlx</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> oxlint@latest</span></span></code></pre>
@@ -63,7 +63,7 @@ This milestone signifies our team's ability to promptly address and triage issue
 <p>At this stage, oxlint is <strong>not intended to fully replace ESLint</strong>; it serves as an enhancement when ESLint's slowness becomes a bottleneck in your workflow.</p>
 <p>For faster feedback loops, we recommend running oxlint before ESLint in your lint-staged or CI setup, considering it only takes a few seconds to run on large codebases.</p>
 <p>To test oxlint in your JavaScript / TypeScript codebase, simply execute the following command at the root directory of your repository:</p>
-<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-b0Oyf" id="tab-DcKCNf4" checked><label data-title="npm" for="tab-DcKCNf4">npm</label><input type="radio" name="group-b0Oyf" id="tab-ees5xLN" ><label data-title="pnpm" for="tab-ees5xLN">pnpm</label><input type="radio" name="group-b0Oyf" id="tab-fjAlhuK" ><label data-title="yarn" for="tab-fjAlhuK">yarn</label><input type="radio" name="group-b0Oyf" id="tab-SZ5vZvo" ><label data-title="bun" for="tab-SZ5vZvo">bun</label><input type="radio" name="group-b0Oyf" id="tab-JK7CiKD" ><label data-title="deno" for="tab-JK7CiKD">deno</label></div><div class="blocks">
+<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-1WdMA" id="tab-6BDdMa3" checked><label data-title="npm" for="tab-6BDdMa3">npm</label><input type="radio" name="group-1WdMA" id="tab-aWTCfLN" ><label data-title="pnpm" for="tab-aWTCfLN">pnpm</label><input type="radio" name="group-1WdMA" id="tab-SQqxftZ" ><label data-title="yarn" for="tab-SQqxftZ">yarn</label><input type="radio" name="group-1WdMA" id="tab-Yux6kQD" ><label data-title="bun" for="tab-Yux6kQD">bun</label><input type="radio" name="group-1WdMA" id="tab-gwlEbDA" ><label data-title="deno" for="tab-gwlEbDA">deno</label></div><div class="blocks">
 <div class="language-sh vp-adaptive-theme active"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">$</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> npx</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> oxlint@latest</span></span></code></pre>
 </div><div class="language-sh vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">$</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> pnpm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> dlx</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> oxlint@latest</span></span></code></pre>
 </div><div class="language-sh vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">$</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> yarn</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> dlx</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> oxlint@latest</span></span></code></pre>
@@ -501,7 +501,7 @@ field inside of your configuration file.</p>
 <p>Now, instead of running this command:</p>
 <div class="language-sh vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">oxlint</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -D</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> correctness</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -W</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> suspicious</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -c</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> oxlint.json</span></span></code></pre>
 </div><p>You can add a <code>categories</code> field to your <code>oxlint.json</code>:</p>
-<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-j0BeH" id="tab-lF-kAZY" checked><label data-title="oxlintrc.json" for="tab-lF-kAZY">oxlintrc.json</label></div><div class="blocks">
+<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-hFXun" id="tab-lCgWziU" checked><label data-title="oxlintrc.json" for="tab-lCgWziU">oxlintrc.json</label></div><div class="blocks">
 <div class="language-jsonc vp-adaptive-theme active"><button title="Copy Code" class="copy"></button><span class="lang">jsonc</span><pre class="shiki shiki-themes github-light github-dark has-diff vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">{</span></span>
 <span class="line diff add"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">  "categories"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: {          </span></span>
 <span class="line diff add"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">    "correctness"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"deny"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span></span>
@@ -518,7 +518,7 @@ field inside of your configuration file.</p>
 <p>Configuration files now support the <code>plugins</code> array from ESLint v8 configs.
 This allows you to enable plugins without CLI arguments, making it possible to
 use plugins in VSCode.</p>
-<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-KOC16" id="tab-ghXwd1V" checked><label data-title="oxlintrc.json" for="tab-ghXwd1V">oxlintrc.json</label></div><div class="blocks">
+<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-PrKV7" id="tab-LUh2IsM" checked><label data-title="oxlintrc.json" for="tab-LUh2IsM">oxlintrc.json</label></div><div class="blocks">
 <div class="language-jsonc vp-adaptive-theme active"><button title="Copy Code" class="copy"></button><span class="lang">jsonc</span><pre class="shiki shiki-themes github-light github-dark has-diff vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">{</span></span>
 <span class="line diff add"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">  "plugins"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: [</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"import"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">], </span></span>
 <span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">  "categories"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: {</span></span>
@@ -532,7 +532,7 @@ use plugins in VSCode.</p>
 <span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">}</span></span></code></pre>
 </div></div></div>
 <p>This plays nicely with <code>categories</code>, as enabled/disabled categories affect plugins as well.</p>
-<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-zUqBq" id="tab-_aDOeBv" checked><label data-title="oxlintrc.json" for="tab-_aDOeBv">oxlintrc.json</label></div><div class="blocks">
+<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-D2zF5" id="tab-v14D-2j" checked><label data-title="oxlintrc.json" for="tab-v14D-2j">oxlintrc.json</label></div><div class="blocks">
 <div class="language-jsonc vp-adaptive-theme active"><button title="Copy Code" class="copy"></button><span class="lang">jsonc</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">{</span></span>
 <span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">  "plugins"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: [</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"import"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">],</span></span>
 <span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">  // `categories` affects all enabled plugins</span></span>
@@ -551,7 +551,7 @@ use plugins in VSCode.</p>
 <p>Before, config files would override rules set in CLI arguments. For example, running this command:</p>
 <div class="language-sh vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">oxlint</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -A</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> correctness</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -c</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> oxlintrc.json</span></span></code></pre>
 </div><p>With this config file</p>
-<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-0UXo9" id="tab-utJCuVU" checked><label data-title="oxlintrc.json" for="tab-utJCuVU">oxlintrc.json</label></div><div class="blocks">
+<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-fShgr" id="tab-9saWmv6" checked><label data-title="oxlintrc.json" for="tab-9saWmv6">oxlintrc.json</label></div><div class="blocks">
 <div class="language-jsonc vp-adaptive-theme active"><button title="Copy Code" class="copy"></button><span class="lang">jsonc</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">{</span></span>
 <span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">  "rules"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: {</span></span>
 <span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">    "no-const-assign"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"error"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">,</span></span>
@@ -564,7 +564,7 @@ same config file will result with <strong>all rules being disabled</strong>. To 
 behavior as before, enable and disable categories in your config file instead of
 with CLI arguments.</p>
 <div class="language-sh vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">oxlint</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -c</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> oxlint.json</span></span></code></pre>
-</div><div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-w7zty" id="tab-aTC9Rr0" checked><label data-title="oxlintrc.json" for="tab-aTC9Rr0">oxlintrc.json</label></div><div class="blocks">
+</div><div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-HyJ3B" id="tab--SmUHBC" checked><label data-title="oxlintrc.json" for="tab--SmUHBC">oxlintrc.json</label></div><div class="blocks">
 <div class="language-jsonc vp-adaptive-theme active"><button title="Copy Code" class="copy"></button><span class="lang">jsonc</span><pre class="shiki shiki-themes github-light github-dark has-diff vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">{</span></span>
 <span class="line diff add"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">  "categories"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: {           </span></span>
 <span class="line diff add"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">    "correctness"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"allow"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span></span>
@@ -693,6 +693,195 @@ especially the advanced symbol minification algorithm which <code>esbuild</code>
         <author>
             <name>Boshen</name>
             <uri>https://github.com/Boshen</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Oxlint Beta]]></title>
+        <id>https://oxc.rs/blog/2025-03-15-oxlint-beta</id>
+        <link href="https://oxc.rs/blog/2025-03-15-oxlint-beta"/>
+        <updated>2025-03-15T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[<AppBlogPostHeader /><p>We are thrilled to announce that Oxlint is now in beta release, after more than a year of development by the community!</p>
+<p>This milestone represents a significant step forward in feature completeness, performance, and stability.</p>
+<h2 id="how-to-use" tabindex="-1">How to use <a class="header-anchor" href="#how-to-use" aria-label="Permalink to &quot;How to use&quot;">&ZeroWidthSpace;</a></h2>
+<p>At this stage, Oxlint can be used to fully replace ESLint in small to medium projects.</p>
+<p>For larger projects, our advice is to turn off ESLint rules via <a href="https://www.npmjs.com/package/eslint-plugin-oxlint" target="_blank" rel="noreferrer">eslint-plugin-oxlint</a>,
+and run Oxlint before ESLint in your local or CI setup for a quicker feedback loop.</p>
+<p>To test Oxlint in your codebase, you can use the package manager of your choice at the root of your codebase:</p>
+<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-M2ty-" id="tab-HLJKxLv" checked><label data-title="npm" for="tab-HLJKxLv">npm</label><input type="radio" name="group-M2ty-" id="tab-6u2TK2r" ><label data-title="pnpm" for="tab-6u2TK2r">pnpm</label><input type="radio" name="group-M2ty-" id="tab-2pX0ANC" ><label data-title="yarn" for="tab-2pX0ANC">yarn</label><input type="radio" name="group-M2ty-" id="tab-vgHj_Ak" ><label data-title="bun" for="tab-vgHj_Ak">bun</label><input type="radio" name="group-M2ty-" id="tab-rSEbnTP" ><label data-title="deno" for="tab-rSEbnTP">deno</label></div><div class="blocks">
+<div class="language-sh vp-adaptive-theme active"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">$</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> npx</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> oxlint@latest</span></span></code></pre>
+</div><div class="language-sh vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">$</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> pnpm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> dlx</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> oxlint@latest</span></span></code></pre>
+</div><div class="language-sh vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">$</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> yarn</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> dlx</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> oxlint@latest</span></span></code></pre>
+</div><div class="language-sh vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">$</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> bunx</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> oxlint@latest</span></span></code></pre>
+</div><div class="language-sh vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">$</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> deno</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> run</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> npm:oxlint@latest</span></span></code></pre>
+</div></div></div>
+<p>For more detailed instructions on how to use Oxlint and integrate it with your project or editor, check out the <a href="/docs/guide/usage/linter.html">installation guide</a>.</p>
+<h2 id="highlight-of-new-features-since-general-availability" tabindex="-1">Highlight of new features since general availability <a class="header-anchor" href="#highlight-of-new-features-since-general-availability" aria-label="Permalink to &quot;Highlight of new features since general availability&quot;">&ZeroWidthSpace;</a></h2>
+<ul>
+<li>Significant performance improvements, up to 50% faster than the previous release</li>
+<li>Includes over 500 rules built-in, with no extra installation required</li>
+<li>Many rules from the <code>typescript</code>, <code>unicorn</code>, <code>react</code>, <code>react-perf</code>, <code>nextjs</code>, <code>import</code>, <code>jsdoc</code>, <code>jsx-a11y</code>, <code>node</code>, <code>promise</code>, <code>jest</code>, <code>vitest</code> plugins are now complete.</li>
+<li>Support for configuration via <a href="/docs/guide/usage/linter/nested-config.html#configuration-file-format"><code>.oxlintrc.json</code> files</a>, including <a href="/docs/guide/usage/linter/nested-config.html">nested configuration files</a>, using <code>extends</code> to share configuration between files, applying <code>overrides</code> to specific files, and more.</li>
+<li>Supports linting <code>&lt;script&gt;</code> content in <code>.astro</code>, <code>.svelte</code> and <code>.vue</code> files with no additional configuration needed.</li>
+<li>Allows applying <a href="/docs/guide/usage/linter/automatic-fixes.html">automatic fixes</a> and suggestions to files.</li>
+</ul>
+<h2 id="more-rules-more-performance" tabindex="-1">More rules, more performance <a class="header-anchor" href="#more-rules-more-performance" aria-label="Permalink to &quot;More rules, more performance&quot;">&ZeroWidthSpace;</a></h2>
+<p>We have focused on making Oxlint more feature complete, supporting many of the most commonly used ESLint rules and plugins, but we have also made Oxlint much faster as well.</p>
+<p>The first <a href="./2023-12-12-announcing-oxlint.html">generally available (GA) release of Oxlint</a> had 205 rules in total, with 70 of those being enabled by default. This beta release now includes 502 rules in total, with 99 of those being enabled by default (a 41% increase in the number of rules enabled by default).</p>
+<p>| Rule type       | Rule count (GA) | Rule count (beta) | Increase       |
+|</p>
+]]></summary>
+        <content type="html"><![CDATA[<AppBlogPostHeader /><p>We are thrilled to announce that Oxlint is now in beta release, after more than a year of development by the community!</p>
+<p>This milestone represents a significant step forward in feature completeness, performance, and stability.</p>
+<h2 id="how-to-use" tabindex="-1">How to use <a class="header-anchor" href="#how-to-use" aria-label="Permalink to &quot;How to use&quot;">&ZeroWidthSpace;</a></h2>
+<p>At this stage, Oxlint can be used to fully replace ESLint in small to medium projects.</p>
+<p>For larger projects, our advice is to turn off ESLint rules via <a href="https://www.npmjs.com/package/eslint-plugin-oxlint" target="_blank" rel="noreferrer">eslint-plugin-oxlint</a>,
+and run Oxlint before ESLint in your local or CI setup for a quicker feedback loop.</p>
+<p>To test Oxlint in your codebase, you can use the package manager of your choice at the root of your codebase:</p>
+<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-a_3Zd" id="tab-taSlzGk" checked><label data-title="npm" for="tab-taSlzGk">npm</label><input type="radio" name="group-a_3Zd" id="tab-ARi351J" ><label data-title="pnpm" for="tab-ARi351J">pnpm</label><input type="radio" name="group-a_3Zd" id="tab-zoztATh" ><label data-title="yarn" for="tab-zoztATh">yarn</label><input type="radio" name="group-a_3Zd" id="tab-0qliFNJ" ><label data-title="bun" for="tab-0qliFNJ">bun</label><input type="radio" name="group-a_3Zd" id="tab-G1q5gzp" ><label data-title="deno" for="tab-G1q5gzp">deno</label></div><div class="blocks">
+<div class="language-sh vp-adaptive-theme active"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">$</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> npx</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> oxlint@latest</span></span></code></pre>
+</div><div class="language-sh vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">$</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> pnpm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> dlx</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> oxlint@latest</span></span></code></pre>
+</div><div class="language-sh vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">$</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> yarn</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> dlx</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> oxlint@latest</span></span></code></pre>
+</div><div class="language-sh vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">$</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> bunx</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> oxlint@latest</span></span></code></pre>
+</div><div class="language-sh vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">$</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> deno</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> run</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> npm:oxlint@latest</span></span></code></pre>
+</div></div></div>
+<p>For more detailed instructions on how to use Oxlint and integrate it with your project or editor, check out the <a href="/docs/guide/usage/linter.html">installation guide</a>.</p>
+<h2 id="highlight-of-new-features-since-general-availability" tabindex="-1">Highlight of new features since general availability <a class="header-anchor" href="#highlight-of-new-features-since-general-availability" aria-label="Permalink to &quot;Highlight of new features since general availability&quot;">&ZeroWidthSpace;</a></h2>
+<ul>
+<li>Significant performance improvements, up to 50% faster than the previous release</li>
+<li>Includes over 500 rules built-in, with no extra installation required</li>
+<li>Many rules from the <code>typescript</code>, <code>unicorn</code>, <code>react</code>, <code>react-perf</code>, <code>nextjs</code>, <code>import</code>, <code>jsdoc</code>, <code>jsx-a11y</code>, <code>node</code>, <code>promise</code>, <code>jest</code>, <code>vitest</code> plugins are now complete.</li>
+<li>Support for configuration via <a href="/docs/guide/usage/linter/nested-config.html#configuration-file-format"><code>.oxlintrc.json</code> files</a>, including <a href="/docs/guide/usage/linter/nested-config.html">nested configuration files</a>, using <code>extends</code> to share configuration between files, applying <code>overrides</code> to specific files, and more.</li>
+<li>Supports linting <code>&lt;script&gt;</code> content in <code>.astro</code>, <code>.svelte</code> and <code>.vue</code> files with no additional configuration needed.</li>
+<li>Allows applying <a href="/docs/guide/usage/linter/automatic-fixes.html">automatic fixes</a> and suggestions to files.</li>
+</ul>
+<h2 id="more-rules-more-performance" tabindex="-1">More rules, more performance <a class="header-anchor" href="#more-rules-more-performance" aria-label="Permalink to &quot;More rules, more performance&quot;">&ZeroWidthSpace;</a></h2>
+<p>We have focused on making Oxlint more feature complete, supporting many of the most commonly used ESLint rules and plugins, but we have also made Oxlint much faster as well.</p>
+<p>The first <a href="./2023-12-12-announcing-oxlint.html">generally available (GA) release of Oxlint</a> had 205 rules in total, with 70 of those being enabled by default. This beta release now includes 502 rules in total, with 99 of those being enabled by default (a 41% increase in the number of rules enabled by default).</p>
+<table tabindex="0">
+<thead>
+<tr>
+<th>Rule type</th>
+<th>Rule count (GA)</th>
+<th>Rule count (beta)</th>
+<th>Increase</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Default rules</td>
+<td>70</td>
+<td>99</td>
+<td>+29 rules</td>
+</tr>
+<tr>
+<td>Correctness</td>
+<td>88</td>
+<td>173</td>
+<td>+88 rules</td>
+</tr>
+<tr>
+<td>Performance</td>
+<td>0</td>
+<td>9</td>
+<td>+9 rules</td>
+</tr>
+<tr>
+<td>Restrictions</td>
+<td>15</td>
+<td>64</td>
+<td>+49 rules</td>
+</tr>
+<tr>
+<td>Pedantic</td>
+<td>43</td>
+<td>79</td>
+<td>+36 rules</td>
+</tr>
+<tr>
+<td>Style</td>
+<td>38</td>
+<td>137</td>
+<td>+99 rules</td>
+</tr>
+<tr>
+<td>Suspicious</td>
+<td>7</td>
+<td>28</td>
+<td>+21 rules</td>
+</tr>
+<tr>
+<td><strong>Total rules</strong></td>
+<td>205</td>
+<td><strong>502</strong></td>
+<td><strong>+297 rules</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Despite adding many new rules that are enabled by default, Oxlint is now much faster than it ever has been. Here are some <a href="https://gist.github.com/camchenry/cb09f6fae14ec1e3df1f72938b7350c8" target="_blank" rel="noreferrer">benchmarks</a> on some popular repositories:</p>
+<table tabindex="0">
+<thead>
+<tr>
+<th>Repository</th>
+<th>File count</th>
+<th>Lint time (GA)</th>
+<th>Lint time (beta)</th>
+<th>Speedup</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>elastic/kibana</code></td>
+<td>68,591</td>
+<td>6.02s</td>
+<td><strong>3.11s</strong></td>
+<td><strong>48% faster</strong></td>
+</tr>
+<tr>
+<td><code>microsoft/vscode</code></td>
+<td>5,703</td>
+<td>1.697s</td>
+<td><strong>0.792s</strong></td>
+<td><strong>53% faster</strong></td>
+</tr>
+<tr>
+<td><code>vitest-dev/vitest</code></td>
+<td>1,732</td>
+<td>105ms</td>
+<td><strong>50ms</strong></td>
+<td><strong>52% faster</strong></td>
+</tr>
+<tr>
+<td><code>vuejs/core</code></td>
+<td>1,063</td>
+<td>217ms</td>
+<td><strong>89ms</strong></td>
+<td><strong>59% faster</strong></td>
+</tr>
+</tbody>
+</table>
+<h2 id="roadmap" tabindex="-1">Roadmap <a class="header-anchor" href="#roadmap" aria-label="Permalink to &quot;Roadmap&quot;">&ZeroWidthSpace;</a></h2>
+<p>One of the most commonly requested features for Oxlint is support for existing custom ESLint plugins. We have been busy working on the prerequisites for this feature, and to enable fast linter plugins written in JavaScript. We hope to have this feature available for the next major release, and more information to share about it in the near future.</p>
+<p>We also are planning to continue improving the IDE/editor integrations, with improved support for VSCode, Zed, <code>coc.nvim</code>, and IntelliJ plugins.</p>
+<h2 id="acknowledgements" tabindex="-1">Acknowledgements <a class="header-anchor" href="#acknowledgements" aria-label="Permalink to &quot;Acknowledgements&quot;">&ZeroWidthSpace;</a></h2>
+<p>Oxlint beta would not have been possible without the over 200 contributors to the project.</p>
+<p>Special thanks goes to:</p>
+<ul>
+<li><a href="https://github.com/camc314" target="_blank" rel="noreferrer">@cam314</a>, <a href="https://github.com/mysteryven" target="_blank" rel="noreferrer">@mysteryven</a>, and <a href="https://github.com/shulaoda" target="_blank" rel="noreferrer">@shulaoda</a> for implementing many sophisticated lint rules, testing, and constantly improving everything.</li>
+<li><a href="https://github.com/Sysix" target="_blank" rel="noreferrer">@Sysix</a> for maintaining <code>eslint-plugin-oxlint</code>.</li>
+<li><a href="https://github.com/DonIsaac" target="_blank" rel="noreferrer">@DonIsaac</a> for improving configuration, documentation and website, and for representing Oxc at <a href="https://2024.squiggleconf.com" target="_blank" rel="noreferrer">SquiggleConf 2024</a>.</li>
+<li><a href="https://github.com/leaysgur" target="_blank" rel="noreferrer">@leaysgur</a> for the RegExp parser and JSDoc plugin.</li>
+<li><a href="https://github.com/u9g" target="_blank" rel="noreferrer">@u9g</a> and <a href="https://github.com/rzvxa" target="_blank" rel="noreferrer">@rzvxa</a> for implementing control flow graph analysis.</li>
+<li><a href="https://github.com/branchseer" target="_blank" rel="noreferrer">@branchseer</a> for implementing the multi-file analysis runtime.</li>
+<li><a href="https://github.com/camchenry" target="_blank" rel="noreferrer">@camchenry</a> for implementing nested configuration support.</li>
+</ul>
+]]></content>
+        <author>
+            <name>Boshen</name>
+            <uri>https://github.com/Boshen</uri>
+        </author>
+        <author>
+            <name>Cam</name>
+            <uri>https://github.com/camchenry</uri>
         </author>
     </entry>
 </feed>
