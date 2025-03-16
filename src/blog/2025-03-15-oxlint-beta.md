@@ -18,7 +18,7 @@ At this stage, Oxlint can be used to fully replace ESLint in small to medium pro
 
 For larger projects, our advice is to turn off ESLint rules via the eslint plugin [eslint-plugin-oxlint](https://www.npmjs.com/package/eslint-plugin-oxlint), and run Oxlint before ESLint in your [lint-staged](https://github.com/lint-staged/lint-staged) or CI setup.
 
-To test Oxlint in your codebase, you can use the package manager of your choice at the root of your code:
+To test Oxlint in your codebase, you can use the package manager of your choice at the root of your codebase:
 
 ::: code-group
 
