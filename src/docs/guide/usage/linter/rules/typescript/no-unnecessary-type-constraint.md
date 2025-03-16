@@ -11,21 +11,48 @@ Disallow unnecessary constraints on generic types.
 
 ### Why is this bad?
 
-Generic type parameters (`<T>`) in TypeScript may be "constrained" with an extends keyword.
-When no extends is provided, type parameters default a constraint to unknown. It is therefore redundant to extend from any or unknown.
+Generic type parameters (`<T>`) in TypeScript may be "constrained" with an `extends`
+keyword. When no `extends` is provided, type parameters default a constraint to `unknown`.
+It is therefore redundant to `extend` from `any` or `unknown`.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```typescript
 interface FooAny<T extends any> {}
 interface FooUnknown<T extends unknown> {}
+
 type BarAny<T extends any> = {};
 type BarUnknown<T extends unknown> = {};
+
+const QuuxAny = <T extends any>() => {};
+
+function QuuzAny<T extends any>() {}
+```
+
+```typescript
 class BazAny<T extends any> {
   quxAny<U extends any>() {}
 }
-const QuuxAny = <T extends any>() => {};
-function QuuzAny<T extends any>() {}
+```
+
+Examples of **correct** code for this rule:
+
+```typescript
+interface Foo<T> {}
+
+type Bar<T> = {};
+
+const Quux = <T>() => {};
+
+function Quuz<T>() {}
+```
+
+```typescript
+class Baz<T> {
+  qux<U>() {}
+}
 ```
 
 ## How to use
@@ -50,4 +77,4 @@ oxlint --deny typescript/no-unnecessary-type-constraint
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/b9ab60bde696d2742d3c5781084ee3c7bb99821e/crates/oxc_linter/src/rules/typescript/no_unnecessary_type_constraint.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/c22276e8fbbf443c4293a3cfe7758ac1ceea325c/crates/oxc_linter/src/rules/typescript/no_unnecessary_type_constraint.rs)

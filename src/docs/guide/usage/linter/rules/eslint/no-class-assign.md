@@ -14,15 +14,61 @@ Disallow reassigning class variables.
 
 ### Why is this bad?
 
-`ClassDeclaration` creates a variable that can be re-assigned,
-but the re-assignment is a mistake in most cases.
+`ClassDeclaration` creates a variable that can be re-assigned, but the re-assignment is a
+mistake in most cases.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
 class A {}
-A = 123;
-let a = new A(); // Error
+A = 0;
+```
+
+```javascript
+A = 0;
+class A {}
+```
+
+```javascript
+class A {
+  b() {
+    A = 0;
+  }
+}
+```
+
+```javascript
+let A = class A {
+  b() {
+    A = 0;
+    // `let A` is shadowed by the class name.
+  }
+};
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
+let A = class A {};
+A = 0; // A is a variable.
+```
+
+```javascript
+let A = class {
+  b() {
+    A = 0; // A is a variable.
+  }
+};
+```
+
+```javascript
+class A {
+  b(A) {
+    A = 0; // A is a parameter.
+  }
+}
 ```
 
 ## How to use
@@ -47,4 +93,4 @@ oxlint --deny no-class-assign
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/b9ab60bde696d2742d3c5781084ee3c7bb99821e/crates/oxc_linter/src/rules/eslint/no_class_assign.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/c22276e8fbbf443c4293a3cfe7758ac1ceea325c/crates/oxc_linter/src/rules/eslint/no_class_assign.rs)

@@ -13,26 +13,62 @@
 
 ### What it does
 
-Enforce comparing `typeof` expressions against valid strings
+Enforce comparing `typeof` expressions against valid strings.
 
 ### Why is this bad?
 
-It is usually a typing mistake to compare the result of a `typeof`
-operator to other string literals.
+For a vast majority of use cases, the result of the `typeof` operator is one of the
+following string literals: `"undefined"`, `"object"`, `"boolean"`, `"number"`, `"string"`,
+`"function"`, `"symbol"`, and `"bigint"`. It is usually a typing mistake to compare the
+result of a `typeof` operator to other string literals.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```js
-// requireStringLiterals: false
-// incorrect:
 typeof foo === "strnig";
-// correct:
-typeof foo === "string";
-typeof foo === baz;
+typeof foo == "undefimed";
+typeof bar != "nunber"; // spellchecker:disable-line
+typeof bar !== "fucntion"; // spellchecker:disable-line
+```
 
-// requireStringLiterals: true
-// incorrect:
-typeof foo === baz;
+Examples of **correct** code for this rule:
+
+````js
+typeof foo === "string"
+typeof bar == "undefined"
+typeof foo === baz
+typeof bar === typeof qux
+```js
+
+### Options
+
+#### requireStringLiterals
+
+`{ type: boolean, default: false }`
+
+The `requireStringLiterals` option when set to `true`, allows the comparison of `typeof`
+expressions with only string literals or other `typeof` expressions, and disallows
+comparisons to any other value. Default is `false`.
+
+With `requireStringLiterals` set to `true` the following are examples of incorrect code:
+```js
+typeof foo === undefined
+typeof bar == Object
+typeof baz === "strnig"
+typeof qux === "some invalid type"
+typeof baz === anotherVariable
+typeof foo == 5
+````
+
+With `requireStringLiterals` set to `true` the following are examples of correct code:
+
+```js
+typeof foo === "undefined";
+typeof bar == "object";
+typeof baz === "string";
+typeof bar === typeof qux;
 ```
 
 ## How to use
@@ -57,4 +93,4 @@ oxlint --deny valid-typeof
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/b9ab60bde696d2742d3c5781084ee3c7bb99821e/crates/oxc_linter/src/rules/eslint/valid_typeof.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/c22276e8fbbf443c4293a3cfe7758ac1ceea325c/crates/oxc_linter/src/rules/eslint/valid_typeof.rs)

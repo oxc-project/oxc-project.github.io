@@ -10,7 +10,8 @@
 
 ### What it does
 
-Enforce valid definition of `new` and `constructor`
+Enforces valid definition of new and constructor. This rule prevents classes from defining
+a method named `new` and interfaces from defining a method named `constructor`.
 
 ### Why is this bad?
 
@@ -22,16 +23,34 @@ define a `new()` method (though this is rarely used in real world code).
 Developers new to JavaScript classes and/or TypeScript interfaces may
 sometimes confuse when to use constructor or new.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```typescript
 declare class C {
   new(): C;
 }
+```
 
+```typescript
 interface I {
   new (): I;
   constructor(): void;
+}
+```
+
+Examples of **correct** code for this rule:
+
+```typescript
+declare class C {
+  constructor();
+}
+```
+
+```typescript
+interface I {
+  new (): C;
 }
 ```
 
@@ -57,4 +76,4 @@ oxlint --deny typescript/no-misused-new
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/b9ab60bde696d2742d3c5781084ee3c7bb99821e/crates/oxc_linter/src/rules/typescript/no_misused_new.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/c22276e8fbbf443c4293a3cfe7758ac1ceea325c/crates/oxc_linter/src/rules/typescript/no_misused_new.rs)

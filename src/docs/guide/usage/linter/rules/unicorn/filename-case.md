@@ -11,7 +11,9 @@ Enforces specific case styles for filenames. By default, kebab case is enforced.
 
 ### Why is this bad?
 
-Inconsistent file naming conventions can make it harder to locate files or to create new ones.
+Inconsistent file naming conventions make it harder to locate files, navigate projects, and enforce
+consistency across a codebase. Standardizing naming conventions improves readability, reduces cognitive
+overhead, and aligns with best practices in large-scale development.
 
 ### Cases
 
@@ -41,6 +43,43 @@ Examples of **correct** filenames for each case:
 - `SomeFileName.Test.js`
 - `SomeFileName.TestUtils.js`
 
+### Options
+
+Use `kebabCase` as the default option.
+
+#### case
+
+`{ type: 'kebabCase' | 'camelCase' | 'snakeCase' | 'pascalCase' }`
+
+You can set the case option like this:
+
+```json
+"unicorn/filename-case": [
+  "error",
+  {
+    "case": "kebabCase"
+  }
+]
+```
+
+#### cases
+
+`{ type: { [key in 'kebabCase' | 'camelCase' | 'snakeCase' | 'pascalCase']?: boolean } }`
+
+You can set the case option like this:
+
+```json
+"unicorn/filename-case": [
+  "error",
+  {
+    "cases": {
+      "camelCase": true,
+      "pascalCase": true
+    }
+  }
+]
+```
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:
@@ -63,4 +102,4 @@ oxlint --deny unicorn/filename-case
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/b9ab60bde696d2742d3c5781084ee3c7bb99821e/crates/oxc_linter/src/rules/unicorn/filename_case.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/c22276e8fbbf443c4293a3cfe7758ac1ceea325c/crates/oxc_linter/src/rules/unicorn/filename_case.rs)

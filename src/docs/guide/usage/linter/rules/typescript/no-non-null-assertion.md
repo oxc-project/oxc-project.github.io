@@ -43,4 +43,4 @@ oxlint --deny typescript/no-non-null-assertion
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/b9ab60bde696d2742d3c5781084ee3c7bb99821e/crates/oxc_linter/src/rules/typescript/no_non_null_assertion.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/c22276e8fbbf443c4293a3cfe7758ac1ceea325c/crates/oxc_linter/src/rules/typescript/no_non_null_assertion.rs)
