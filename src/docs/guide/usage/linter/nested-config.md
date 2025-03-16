@@ -5,9 +5,6 @@ editLink: false
 
 # Nesting configuration files
 
-> [!WARNING]
-> This is currently an experimental feature and may have bugs. To enable it, pass the `--experimental-nested-config` option in the command-line.
-
 It is possible to have multiple configuration files within the same project, and Oxlint will automatically detect the presence of these files and use them in addition to the top-level configuration file. The files must be named `.oxlintrc.json` for this to work.
 
 For example, consider the following project structure:
