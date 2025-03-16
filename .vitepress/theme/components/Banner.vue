@@ -16,7 +16,7 @@ const hide = () => {
   document.documentElement.classList.add("banner-dismissed");
 };
 
-const slug = "/blog/2024-09-29-transformer-alpha.html";
+const slug = "/blog/2025-03-15-oxlint-beta"
 
 const bannerDismissed = useLocalStorage<boolean>(`oxc-banner-dismissed-${slug}`, false);
 
@@ -45,7 +45,7 @@ const dismiss = () => {
 
 <template>
   <div ref="el" class="banner banner-dismissed">
-    <div class="text"><a :href="slug">Announcing Oxc Transformer Alpha</a> 🎉</div>
+    <div class="text"><a :href="slug">Announcing Oxlint Beta</a> 🎉</div>
 
     <button type="button" @click="dismiss">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">

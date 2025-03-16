@@ -13,9 +13,10 @@ badges:
 Oxlint is designed to catch erroneous or useless code without requiring any configurations by default.
 
 :::info
-At the current stage, oxlint is **not intended to fully replace ESLint**; it serves as an enhancement when ESLint's slowness becomes a bottleneck in your workflow.
+At this stage, Oxlint can be used to fully replace ESLint in small to medium projects.
 
-We recommend running oxlint before ESLint in your lint-staged or CI setup for a quicker feedback loop, considering it only takes a few seconds to run on large codebases.
+For larger projects, our advice is to turn off ESLint rules via [eslint-plugin-oxlint](https://www.npmjs.com/package/eslint-plugin-oxlint),
+and run Oxlint before ESLint in your local or CI setup for a quicker feedback loop.
 :::
 
 ## Features
