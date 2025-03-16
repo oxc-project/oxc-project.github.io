@@ -3,9 +3,7 @@ outline: [2, 3]
 editLink: false
 ---
 
-# Nested Configs
-
-## Nesting configuration files
+# Nesting configuration files
 
 > [!WARNING]
 > This is currently an experimental feature and may have bugs. To enable it, pass the `--experimental-nested-config` option in the command-line.

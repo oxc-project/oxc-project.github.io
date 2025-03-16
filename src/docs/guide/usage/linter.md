@@ -23,9 +23,10 @@ We recommend running oxlint before ESLint in your lint-staged or CI setup for a 
 - 50 - 100 times faster than ESLint, and scales with the number of CPU cores ([benchmark](https://github.com/oxc-project/bench-javascript-linter)).
 - Over 500 rules with a growing list from `eslint`, `typescript`, `eslint-plugin-react`, `eslint-plugin-jest`, `eslint-plugin-unicorn`, `eslint-plugin-jsx-a11y` and [many more](https://github.com/oxc-project/oxc/issues/481).
 - Supports
-  - [.eslintignore](https://eslint.org/docs/latest/use/configure/ignore#the-eslintignore-file).
-  - [ESLint comment disabling](https://eslint.org/docs/latest/use/configure/rules#disabling-rules).
-  - [Partial ESLint v8 Configuration](./linter/config) in `json` format
+  - [`.oxlintrc.json` configuration file](./linter/config).
+  - [Nested configuration file](./linter/nested-config)
+  - [Comment disabling](./linter/config.html#configuring-rules-via-inline-configuration-comments).
+  - [Automatic Fixes](./linter/automatic-fixes)
 
 ## Language Support
 
