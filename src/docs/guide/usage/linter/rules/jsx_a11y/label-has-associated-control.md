@@ -67,4 +67,4 @@ oxlint --deny jsx-a11y/label-has-associated-control --jsx-a11y-plugin
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/b9ab60bde696d2742d3c5781084ee3c7bb99821e/crates/oxc_linter/src/rules/jsx_a11y/label_has_associated_control.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/c22276e8fbbf443c4293a3cfe7758ac1ceea325c/crates/oxc_linter/src/rules/jsx_a11y/label_has_associated_control.rs)

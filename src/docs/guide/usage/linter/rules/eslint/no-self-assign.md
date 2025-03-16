@@ -10,17 +10,73 @@
 
 ### What it does
 
-Disallow assignments where both sides are exactly the same
+Disallow assignments where both sides are exactly the same.
 
 ### Why is this bad?
 
-Self assignments have no effect, so probably those are an error due to incomplete refactoring. Those indicate that what you should do is still remaining.
+Self assignments have no effect, so probably those are an error due to incomplete
+refactoring. Those indicate that what you should do is still remaining.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
 foo = foo;
-[bar, baz] = [bar, qiz];
+
+[a, b] = [a, b];
+[a, ...b] = [x, ...b];
+
+({ a, b } = { a, x });
+
+foo &&= foo;
+foo ||= foo;
+foo ??= foo;
+```
+
+```javascript
+obj.a = obj.a;
+obj.a.b = obj.a.b;
+obj["a"] = obj["a"];
+obj[a] = obj[a];
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
+foo = bar;
+[a, b] = [b, a];
+
+// This pattern is warned by the `no-use-before-define` rule.
+let foo = foo;
+
+// The default values have an effect.
+[foo = 1] = [foo];
+
+// This ignores if there is a function call.
+obj.a().b = obj.a().b;
+a().b = a().b;
+
+// `&=` and `|=` have an effect on non-integers.
+foo &= foo;
+foo |= foo;
+```
+
+### Options
+
+#### props
+
+`{ type: boolean, default: true }`
+
+The `props` option when set to `false`, disables the checking of properties.
+
+With `props` set to `false` the following are examples of correct code:
+
+```javascript
+obj.a = obj.a;
+obj.a.b = obj.a.b;
+obj["a"] = obj["a"];
+obj[a] = obj[a];
 ```
 
 ## How to use
@@ -45,4 +101,4 @@ oxlint --deny no-self-assign
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/b9ab60bde696d2742d3c5781084ee3c7bb99821e/crates/oxc_linter/src/rules/eslint/no_self_assign.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/c22276e8fbbf443c4293a3cfe7758ac1ceea325c/crates/oxc_linter/src/rules/eslint/no_self_assign.rs)

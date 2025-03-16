@@ -2,7 +2,7 @@
 
 The progress of all rule implementations is tracked [here](https://github.com/oxc-project/oxc/issues/481).
 
-- Total number of rules: 501
+- Total number of rules: 502
 - Rules turned on by default: 123
 
 **Legend for 'Fixable?' column:**
@@ -311,7 +311,7 @@ code that is most likely wrong or useless.
 | [prefer-add-event-listener](/docs/guide/usage/linter/rules/unicorn/prefer-add-event-listener.html) | unicorn | | 🚧 |
 | [require-post-message-target-origin](/docs/guide/usage/linter/rules/unicorn/require-post-message-target-origin.html) | unicorn | | 🛠️ |
 
-## Pedantic (78):
+## Pedantic (79):
 
 Lints which are rather strict or have occasional false positives.
 | Rule name | Source | Default | Fixable? |
@@ -329,6 +329,7 @@ Lints which are rather strict or have occasional false positives.
 | [no-else-return](/docs/guide/usage/linter/rules/eslint/no-else-return.html) | eslint | | 🛠️ |
 | [no-fallthrough](/docs/guide/usage/linter/rules/eslint/no-fallthrough.html) | eslint | | 🚧 |
 | [no-inner-declarations](/docs/guide/usage/linter/rules/eslint/no-inner-declarations.html) | eslint | | |
+| [no-lonely-if](/docs/guide/usage/linter/rules/eslint/no-lonely-if.html) | eslint | | 🚧 |
 | [no-negated-condition](/docs/guide/usage/linter/rules/eslint/no-negated-condition.html) | eslint | | 🚧 |
 | [no-new-wrappers](/docs/guide/usage/linter/rules/eslint/no-new-wrappers.html) | eslint | | 🚧 |
 | [no-object-constructor](/docs/guide/usage/linter/rules/eslint/no-object-constructor.html) | eslint | | 🚧 |
