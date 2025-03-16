@@ -49,7 +49,7 @@ For more detailed instructions on how to use Oxlint and integrate it with your p
 
 ## Highlight of new features since general availability
 
-- Significant performance improvements, up to 50% faster than the previous release
+- Significant performance improvements, up to twice as fast compared to the previous release
 - Includes over 500 rules built-in, with no extra installation required
 - Many rules from the `typescript`, `unicorn`, `react`, `react-perf`, `nextjs`, `import`, `jsdoc`, `jsx-a11y`, `node`, `promise`, `jest`, `vitest` plugins are now complete.
 - Support for configuration via [`.oxlintrc.json` files](/docs/guide/usage/linter/nested-config.html#configuration-file-format), including [nested configuration files](/docs/guide/usage/linter/nested-config.html), using `extends` to share configuration between files, applying `overrides` to specific files, and more.
@@ -77,10 +77,10 @@ Despite adding many new rules that are enabled by default, Oxlint is now much fa
 
 | Repository          | File count | Lint time (GA) | Lint time (beta) | Speedup        |
 | ------------------- | ---------- | -------------- | ---------------- | -------------- |
-| `elastic/kibana`    | 68,591     | 6.02s          | **3.11s**        | **48% faster** |
-| `microsoft/vscode`  | 5,703      | 1.697s         | **0.792s**       | **53% faster** |
-| `vitest-dev/vitest` | 1,732      | 105ms          | **50ms**         | **52% faster** |
-| `vuejs/core`        | 1,063      | 217ms          | **89ms**         | **59% faster** |
+| `elastic/kibana`    | 68,591     | 6.02s          | **3.11s**        | **1.94x** |
+| `microsoft/vscode`  | 5,703      | 1.697s         | **0.792s**       | **2.14x** |
+| `vitest-dev/vitest` | 1,732      | 105ms          | **50ms**         | **2.1x** |
+| `vuejs/core`        | 1,063      | 217ms          | **89ms**         | **2.44x** |
 
 ## Roadmap
 
