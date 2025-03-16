@@ -27,7 +27,7 @@ Rust usage example can be found [here](https://github.com/oxc-project/oxc/blob/m
 
 ### Node.js (NAPI)
 
-Try the experimental node binding [oxc-parser][url-oxc-parser-npm].
+Try the node binding [oxc-parser][url-oxc-parser-npm].
 
 <!-- Links -->
 

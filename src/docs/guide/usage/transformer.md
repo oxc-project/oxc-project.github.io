@@ -10,7 +10,7 @@
 
 ### Node.js
 
-Use the experimental node binding [oxc-transform][url-oxc-transform-npm].
+Use the node binding [oxc-transform][url-oxc-transform-npm].
 
 ### Rust
 
