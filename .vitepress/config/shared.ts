@@ -41,7 +41,6 @@ const head: HeadConfig[] = [
     gtag('js', new Date());
     gtag('config', 'G-X7WQ091KL7');`,
   ],
-  ["link", { rel: "canonical", href: 'href="https://oxc.rs"' }],
 ];
 
 if (process.env.NODE_ENV === "production" && process.env.REDIRECT) {
