@@ -8,7 +8,7 @@ outline: deep
 ## Clone Repository
 
 ```bash
-git clone git@github.com:oxc-project/oxc.git
+git clone -c core.longpaths=true git@github.com:oxc-project/oxc.git
 ```
 
 ## Set Up Project
