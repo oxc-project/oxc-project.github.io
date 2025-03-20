@@ -56,4 +56,4 @@ oxlint --deny jsx-a11y/no-aria-hidden-on-focusable --jsx-a11y-plugin
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/c22276e8fbbf443c4293a3cfe7758ac1ceea325c/crates/oxc_linter/src/rules/jsx_a11y/no_aria_hidden_on_focusable.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/c6312915dfb377a0f6aad8d9b4beb04d7eccd780/crates/oxc_linter/src/rules/jsx_a11y/no_aria_hidden_on_focusable.rs)

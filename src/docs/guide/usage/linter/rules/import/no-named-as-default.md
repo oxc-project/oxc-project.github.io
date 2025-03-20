@@ -65,4 +65,4 @@ oxlint --deny import/no-named-as-default --import-plugin
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/c22276e8fbbf443c4293a3cfe7758ac1ceea325c/crates/oxc_linter/src/rules/import/no_named_as_default.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/c6312915dfb377a0f6aad8d9b4beb04d7eccd780/crates/oxc_linter/src/rules/import/no_named_as_default.rs)

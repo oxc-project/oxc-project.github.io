@@ -7,6 +7,10 @@
 
 ### What it does
 
+Ensures that hooks are in the order that they are called in.
+
+### Why is this bad?
+
 While hooks can be setup in any order, they're always called by `jest` in this
 specific order:
 
@@ -18,10 +22,11 @@ specific order:
 This rule aims to make that more obvious by enforcing grouped hooks be setup in
 that order within tests.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
-// invalid
 describe("foo", () => {
   beforeEach(() => {
     seedMyDatabase();
@@ -40,7 +45,6 @@ describe("foo", () => {
     beforeEach(() => {
       seedMyDatabase(specificValue);
     });
-
     it("accepts that input", () => {
       // ...
     });
@@ -63,17 +67,16 @@ describe("foo", () => {
 });
 ```
 
+Examples of **correct** code for this rule:
+
 ```javascript
-// valid
 describe("foo", () => {
   beforeAll(() => {
     createMyDatabase();
   });
-
   beforeEach(() => {
     seedMyDatabase();
   });
-
   it("accepts this input", () => {
     // ...
   });
@@ -110,13 +113,13 @@ describe("foo", () => {
 This rule is compatible with [eslint-plugin-vitest](https://github.com/veritem/eslint-plugin-vitest/blob/v1.1.9/docs/rules/prefer-hooks-in-order.md),
 to use it, add the following configuration to your `.eslintrc.json`:
 
-````json
+```json
 {
   "rules": {
-     "vitest/prefer-hooks-in-order": "error"
+    "vitest/prefer-hooks-in-order": "error"
   }
 }
-
+```
 
 ## How to use
 
@@ -126,7 +129,7 @@ To **enable** this rule in the CLI or using the config file, you can use:
 
 ```bash [CLI]
 oxlint --deny jest/prefer-hooks-in-order --jest-plugin
-````
+```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -141,4 +144,4 @@ oxlint --deny jest/prefer-hooks-in-order --jest-plugin
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/c22276e8fbbf443c4293a3cfe7758ac1ceea325c/crates/oxc_linter/src/rules/jest/prefer_hooks_in_order.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/c6312915dfb377a0f6aad8d9b4beb04d7eccd780/crates/oxc_linter/src/rules/jest/prefer_hooks_in_order.rs)

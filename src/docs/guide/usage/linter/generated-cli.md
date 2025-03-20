@@ -116,6 +116,13 @@ Arguments:
 - **`    --print-config`** &mdash;
   This option outputs the configuration to be used. When present, no linting is performed and only config-related options are valid.
 
+## Inline Configuration Comments
+
+- **`    --report-unused-disable-directives`** &mdash;
+  Report directive comments like `// eslint-disable-line` when no errors would have been reported on that line anyway.
+- **`    --report-unused-disable-directives-severity`**=_`SEVERITY`_ &mdash;
+  Same as `--report-unused-disable-directives`, but allows you to specify the severity level of the reported errors. Only one of these two options can be used at a time.
+
 ## Available positional items:
 
 - _`PATH`_ &mdash;
