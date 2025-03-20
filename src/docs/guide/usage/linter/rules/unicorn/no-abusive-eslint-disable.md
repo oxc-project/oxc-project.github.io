@@ -7,11 +7,12 @@
 
 ### What it does
 
-This rule disallows `eslint-disable` comments that do not specify any rules to disable.
+Disallows `oxlint-disable` or `eslint-disable` comments without specifying rules.
 
 ### Why is this bad?
 
-When only one rule should be disabled but the `eslint-disable` comment does not specify any rules, other useful errors will also be silently ignored.
+A general `oxlint-disable` or `eslint-disable` comment suppresses all lint errors, not just the intended one,
+potentially hiding useful warnings and making debugging harder.
 
 ### Examples
 
@@ -61,4 +62,4 @@ oxlint --deny unicorn/no-abusive-eslint-disable
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/c22276e8fbbf443c4293a3cfe7758ac1ceea325c/crates/oxc_linter/src/rules/unicorn/no_abusive_eslint_disable.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/c6312915dfb377a0f6aad8d9b4beb04d7eccd780/crates/oxc_linter/src/rules/unicorn/no_abusive_eslint_disable.rs)

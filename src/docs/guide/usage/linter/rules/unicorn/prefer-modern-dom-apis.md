@@ -61,4 +61,4 @@ oxlint --deny unicorn/prefer-modern-dom-apis
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/c22276e8fbbf443c4293a3cfe7758ac1ceea325c/crates/oxc_linter/src/rules/unicorn/prefer_modern_dom_apis.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/c6312915dfb377a0f6aad8d9b4beb04d7eccd780/crates/oxc_linter/src/rules/unicorn/prefer_modern_dom_apis.rs)
