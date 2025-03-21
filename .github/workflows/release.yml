@@ -29,6 +29,7 @@ jobs:
           repository: oxc-project/oxc
           ref: main
           path: oxc
+          persist-credentials: false
 
       - name: Install Tools
         uses: taiki-e/install-action@2c41309d51ede152b6f2ee6bf3b71e6dc9a8b7df # v2.49.27
