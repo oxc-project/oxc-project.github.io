@@ -13,7 +13,7 @@ The progress of all rule implementations is tracked [here](https://github.com/ox
 - ⚠️💡: a dangerous suggestion is available for this rule
 - 🚧: an auto-fix or suggestion is possible, but currently not implemented
 
-## Correctness (174):
+## Correctness (173):
 
 Code that is outright wrong or useless.
 | Rule name | Source | Default | Fixable? |
@@ -177,7 +177,6 @@ Code that is outright wrong or useless.
 | [prefer-as-const](/docs/guide/usage/linter/rules/typescript/prefer-as-const.html) | typescript | ✅ | 🛠️ |
 | [triple-slash-reference](/docs/guide/usage/linter/rules/typescript/triple-slash-reference.html) | typescript | ✅ | |
 | [no-await-in-promise-methods](/docs/guide/usage/linter/rules/unicorn/no-await-in-promise-methods.html) | unicorn | ✅ | |
-| [no-document-cookie](/docs/guide/usage/linter/rules/unicorn/no-document-cookie.html) | unicorn | ✅ | |
 | [no-empty-file](/docs/guide/usage/linter/rules/unicorn/no-empty-file.html) | unicorn | ✅ | |
 | [no-invalid-fetch-options](/docs/guide/usage/linter/rules/unicorn/no-invalid-fetch-options.html) | unicorn | ✅ | |
 | [no-invalid-remove-event-listener](/docs/guide/usage/linter/rules/unicorn/no-invalid-remove-event-listener.html) | unicorn | ✅ | |
@@ -208,7 +207,7 @@ Code that can be written to run faster.
 | [jsx-no-new-object-as-prop](/docs/guide/usage/linter/rules/react_perf/jsx-no-new-object-as-prop.html) | react_perf | | |
 | [prefer-set-has](/docs/guide/usage/linter/rules/unicorn/prefer-set-has.html) | unicorn | | ⚠️🛠️️ |
 
-## Restriction (64):
+## Restriction (65):
 
 Lints which prevent the use of language and library features. Must not be enabled as a whole, should be considered on a case-by-case basis before enabling.
 | Rule name | Source | Default | Fixable? |
@@ -270,6 +269,7 @@ Lints which prevent the use of language and library features. Must not be enable
 | [no-anonymous-default-export](/docs/guide/usage/linter/rules/unicorn/no-anonymous-default-export.html) | unicorn | | |
 | [no-array-for-each](/docs/guide/usage/linter/rules/unicorn/no-array-for-each.html) | unicorn | | 🚧 |
 | [no-array-reduce](/docs/guide/usage/linter/rules/unicorn/no-array-reduce.html) | unicorn | | |
+| [no-document-cookie](/docs/guide/usage/linter/rules/unicorn/no-document-cookie.html) | unicorn | | |
 | [no-length-as-slice-end](/docs/guide/usage/linter/rules/unicorn/no-length-as-slice-end.html) | unicorn | | 🛠️ |
 | [no-magic-array-flat-depth](/docs/guide/usage/linter/rules/unicorn/no-magic-array-flat-depth.html) | unicorn | | |
 | [no-nested-ternary](/docs/guide/usage/linter/rules/unicorn/no-nested-ternary.html) | unicorn | | 🛠️ |
