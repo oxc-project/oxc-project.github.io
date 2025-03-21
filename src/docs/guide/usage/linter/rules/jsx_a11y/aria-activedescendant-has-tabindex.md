@@ -61,4 +61,4 @@ oxlint --deny jsx-a11y/aria-activedescendant-has-tabindex --jsx-a11y-plugin
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/c6312915dfb377a0f6aad8d9b4beb04d7eccd780/crates/oxc_linter/src/rules/jsx_a11y/aria_activedescendant_has_tabindex.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/bc0670c8a9937f35f43c431ab616950d8f19f8f7/crates/oxc_linter/src/rules/jsx_a11y/aria_activedescendant_has_tabindex.rs)

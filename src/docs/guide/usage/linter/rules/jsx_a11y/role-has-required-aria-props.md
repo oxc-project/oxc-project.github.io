@@ -55,4 +55,4 @@ oxlint --deny jsx-a11y/role-has-required-aria-props --jsx-a11y-plugin
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/c6312915dfb377a0f6aad8d9b4beb04d7eccd780/crates/oxc_linter/src/rules/jsx_a11y/role_has_required_aria_props.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/bc0670c8a9937f35f43c431ab616950d8f19f8f7/crates/oxc_linter/src/rules/jsx_a11y/role_has_required_aria_props.rs)
