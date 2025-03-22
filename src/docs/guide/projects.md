@@ -32,6 +32,7 @@ outline: deep
 
 - [todoctor](https://github.com/azat-io/todoctor) - CLI tool to track and visualize TODO comments in Git repositories and make report
 - [nuxt](https://nuxt.com) - Uses `oxc-parser` to [parse code in plugins](https://github.com/nuxt/nuxt/pull/30066)
+- [Elide](https://elide.dev) - Uses `oxc` to strip TypeScript types before execution
 
 ## Transformer
 
