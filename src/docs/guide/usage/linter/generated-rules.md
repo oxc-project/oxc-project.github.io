@@ -168,9 +168,9 @@ Code that is outright wrong or useless.
 | [no-duplicate-enum-values](/docs/guide/usage/linter/rules/typescript/no-duplicate-enum-values.html) | typescript | ✅ | |
 | [no-extra-non-null-assertion](/docs/guide/usage/linter/rules/typescript/no-extra-non-null-assertion.html) | typescript | ✅ | |
 | [no-misused-new](/docs/guide/usage/linter/rules/typescript/no-misused-new.html) | typescript | ✅ | |
-| [no-non-null-asserted-optional-chain](/docs/guide/usage/linter/rules/typescript/no-non-null-asserted-optional-chain.html) | typescript | ✅ | 🚧 |
+| [no-non-null-asserted-optional-chain](/docs/guide/usage/linter/rules/typescript/no-non-null-asserted-optional-chain.html) | typescript | ✅ | 🛠️ |
 | [no-this-alias](/docs/guide/usage/linter/rules/typescript/no-this-alias.html) | typescript | ✅ | |
-| [no-unnecessary-parameter-property-assignment](/docs/guide/usage/linter/rules/typescript/no-unnecessary-parameter-property-assignment.html) | typescript | ✅ | 🚧 |
+| [no-unnecessary-parameter-property-assignment](/docs/guide/usage/linter/rules/typescript/no-unnecessary-parameter-property-assignment.html) | typescript | ✅ | 💡 |
 | [no-unsafe-declaration-merging](/docs/guide/usage/linter/rules/typescript/no-unsafe-declaration-merging.html) | typescript | ✅ | |
 | [no-useless-empty-export](/docs/guide/usage/linter/rules/typescript/no-useless-empty-export.html) | typescript | ✅ | 🛠️ |
 | [no-wrapper-object-types](/docs/guide/usage/linter/rules/typescript/no-wrapper-object-types.html) | typescript | ✅ | 🛠️ |
@@ -531,7 +531,7 @@ Code that should be written in a more idiomatic way.
 | [prefer-spread](/docs/guide/usage/linter/rules/unicorn/prefer-spread.html) | unicorn | | 🛠️ |
 | [prefer-string-raw](/docs/guide/usage/linter/rules/unicorn/prefer-string-raw.html) | unicorn | | 🛠️ |
 | [prefer-string-trim-start-end](/docs/guide/usage/linter/rules/unicorn/prefer-string-trim-start-end.html) | unicorn | | 🛠️ |
-| [prefer-structured-clone](/docs/guide/usage/linter/rules/unicorn/prefer-structured-clone.html) | unicorn | | 🚧 |
+| [prefer-structured-clone](/docs/guide/usage/linter/rules/unicorn/prefer-structured-clone.html) | unicorn | | 💡 |
 | [require-array-join-separator](/docs/guide/usage/linter/rules/unicorn/require-array-join-separator.html) | unicorn | | 🛠️ |
 | [switch-case-braces](/docs/guide/usage/linter/rules/unicorn/switch-case-braces.html) | unicorn | | 🛠️ |
 | [text-encoding-identifier-case](/docs/guide/usage/linter/rules/unicorn/text-encoding-identifier-case.html) | unicorn | | 🛠️ |

@@ -4,7 +4,7 @@
 
 <div class="rule-meta">
 <Alert class="fix" type="info">
-<span class="emoji">🚧</span> An auto-fix is still under development.
+<span class="emoji">💡</span> A suggestion is available for this rule.
 </Alert>
 </div>
 
@@ -54,4 +54,4 @@ oxlint --deny unicorn/prefer-structured-clone
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/bc0670c8a9937f35f43c431ab616950d8f19f8f7/crates/oxc_linter/src/rules/unicorn/prefer_structured_clone.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/0f1e0e87715075c250763ea31c3a82505a4f10d3/crates/oxc_linter/src/rules/unicorn/prefer_structured_clone.rs)
