@@ -7,18 +7,37 @@
 
 ### What it does
 
-Disallow variable redeclaration
+This rule disallows redeclaring variables within the same scope, ensuring that each variable
+is declared only once. It helps avoid confusion and unintended behavior in code.
 
 ### Why is this bad?
 
-n JavaScript, it’s possible to redeclare the same variable name using var. This can lead to confusion as to where the variable is actually declared and initialized.
+Redeclaring variables in the same scope can lead to unexpected behavior, overwriting existing values,
+and making the code harder to understand and maintain.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
 var a = 3;
 var a = 10;
 ```
+
+Examples of **correct** code for this rule:
+
+```javascript
+var a = 3;
+a = 10;
+```
+
+### Options
+
+#### builtinGlobals
+
+`{ type: bool, default: false }`
+
+When set `true`, it flags redeclaring built-in globals (e.g., `let Object = 1;`).
 
 ## How to use
 
@@ -42,4 +61,4 @@ oxlint --deny no-redeclare
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/bc0670c8a9937f35f43c431ab616950d8f19f8f7/crates/oxc_linter/src/rules/eslint/no_redeclare.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/0f1e0e87715075c250763ea31c3a82505a4f10d3/crates/oxc_linter/src/rules/eslint/no_redeclare.rs)

@@ -7,7 +7,7 @@
 <span class="emoji">✅</span> This rule is turned on by default.
 </Alert>
 <Alert class="fix" type="info">
-<span class="emoji">🚧</span> An auto-fix is still under development.
+<span class="emoji">🛠️</span> An auto-fix is available for this rule.
 </Alert>
 </div>
 
@@ -17,16 +17,30 @@ Disallow non-null assertions after an optional chain expression.
 
 ### Why is this bad?
 
-`?.` optional chain expressions provide undefined if an object is null or undefined.
-Using a `!` non-null assertion to assert the result of an `?.` optional chain expression is non-nullable is likely wrong.
+By design, optional chain expressions (`?.`) provide `undefined` as the expression's value, if the object being
+accessed is `null` or `undefined`, instead of throwing an error. Using a non-null assertion (`!`) to assert the
+result of an optional chain expression is contradictory and likely wrong, as it indicates the code is both expecting
+the value to be potentially `null` or `undefined` and non-null at the same time.
 
-Most of the time, either the object was not nullable and did not need the `?.` for its property lookup, or the `!` is incorrect and introducing a type safety hole.
+In most cases, either:
 
-### Example
+1. The object is not nullable and did not need the `?.` for its property lookup
+2. The non-null assertion is incorrect and introduces a type safety hole.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```ts
 foo?.bar!;
 foo?.bar()!;
+```
+
+Examples of **correct** code for this rule:
+
+```ts
+foo?.bar;
+foo.bar!;
 ```
 
 ## How to use
@@ -51,4 +65,4 @@ oxlint --deny typescript/no-non-null-asserted-optional-chain
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/bc0670c8a9937f35f43c431ab616950d8f19f8f7/crates/oxc_linter/src/rules/typescript/no_non_null_asserted_optional_chain.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/0f1e0e87715075c250763ea31c3a82505a4f10d3/crates/oxc_linter/src/rules/typescript/no_non_null_asserted_optional_chain.rs)

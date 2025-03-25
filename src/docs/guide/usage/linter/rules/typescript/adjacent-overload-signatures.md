@@ -75,4 +75,4 @@ oxlint --deny typescript/adjacent-overload-signatures
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/bc0670c8a9937f35f43c431ab616950d8f19f8f7/crates/oxc_linter/src/rules/typescript/adjacent_overload_signatures.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/0f1e0e87715075c250763ea31c3a82505a4f10d3/crates/oxc_linter/src/rules/typescript/adjacent_overload_signatures.rs)
