@@ -58,4 +58,4 @@ oxlint --deny vitest/prefer-to-be-object --vitest-plugin
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/0f1e0e87715075c250763ea31c3a82505a4f10d3/crates/oxc_linter/src/rules/vitest/prefer_to_be_object.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/aba3654b81166a7d52f13ac067ffa4bab5e702c9/crates/oxc_linter/src/rules/vitest/prefer_to_be_object.rs)
