@@ -7,7 +7,8 @@
 
 ### What it does
 
-Enforces specific case styles for filenames. By default, kebab case is enforced.
+Enforces a consistent case style for filenames to improve project organization and maintainability.
+By default, `kebab-case` is enforced, but other styles can be configured.
 
 ### Why is this bad?
 
@@ -15,7 +16,7 @@ Inconsistent file naming conventions make it harder to locate files, navigate pr
 consistency across a codebase. Standardizing naming conventions improves readability, reduces cognitive
 overhead, and aligns with best practices in large-scale development.
 
-### Cases
+### Examples
 
 Examples of **correct** filenames for each case:
 
@@ -45,13 +46,11 @@ Examples of **correct** filenames for each case:
 
 ### Options
 
-Use `kebabCase` as the default option.
-
 #### case
 
 `{ type: 'kebabCase' | 'camelCase' | 'snakeCase' | 'pascalCase' }`
 
-You can set the case option like this:
+You can set the `case` option like this:
 
 ```json
 "unicorn/filename-case": [
@@ -66,7 +65,7 @@ You can set the case option like this:
 
 `{ type: { [key in 'kebabCase' | 'camelCase' | 'snakeCase' | 'pascalCase']?: boolean } }`
 
-You can set the case option like this:
+You can set the `cases` option like this:
 
 ```json
 "unicorn/filename-case": [
@@ -79,6 +78,29 @@ You can set the case option like this:
   }
 ]
 ```
+
+#### ignore
+
+`{ type: string }`
+
+Specifies a regular expression pattern for filenames that should be ignored by this rule.
+
+You can set the `ignore` option like this:
+
+```json
+"unicorn/filename-case": [
+  "error",
+  {
+    "ignore": "^foo.*$"
+  }
+]
+```
+
+#### multipleFileExtensions
+
+`{ type: boolean, default: true }`
+
+Whether to treat additional, `.`-separated parts of a filename as parts of the extension rather than parts of the filename.
 
 ## How to use
 
@@ -102,4 +124,4 @@ oxlint --deny unicorn/filename-case
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/0f1e0e87715075c250763ea31c3a82505a4f10d3/crates/oxc_linter/src/rules/unicorn/filename_case.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/aba3654b81166a7d52f13ac067ffa4bab5e702c9/crates/oxc_linter/src/rules/unicorn/filename_case.rs)
