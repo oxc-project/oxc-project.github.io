@@ -29,13 +29,14 @@ function MyComponent(props) {
 
 Examples of **correct** code for this rule:
 
-````javascript
+```javascript
 function MyComponent(props) {
     useEffect(() => {
         console.log(props.foo);
     }, [props]);
     return <div />;
 }
+```
 
 
 ## How to use
