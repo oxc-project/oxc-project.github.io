@@ -43,6 +43,16 @@ OXC utilizes [`just`](https://github.com/casey/just), which is a handy way to sa
 cargo binstall just -y
 ```
 
+### Install CMake
+
+Install CMake by downloading from the official [website](https://cmake.org/download/).
+
+[Homebrew](https://brew.sh/) users can alternatively install with:
+
+```bash
+brew install cmake
+```
+
 #### Dependencies
 
 Run the following command in `justfile` at the project root to install dependencies:
