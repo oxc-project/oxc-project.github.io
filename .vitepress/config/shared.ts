@@ -72,7 +72,7 @@ export const sharedConfig = defineConfig({
     },
     footer: {
       message: `Released under the MIT License.`,
-      copyright: "Copyright © 2023-present Boshen & Oxc Contributors",
+      copyright: "Copyright © 2023-present VoidZero Inc.",
     },
   },
   markdown: {

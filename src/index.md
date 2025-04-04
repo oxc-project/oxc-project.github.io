@@ -50,7 +50,29 @@ features:
   max-width: 90%;
 }
 
-.Sponsors {
+h2.voidzero-lead {
+  text-align: center;
+  padding-top: 60px;
+}
+
+.voidzero {
+  display: block;
+  width: 300px;
+  height: 74px;
+  margin: 30px auto -20px;
+  background-image: url(https://voidzero.dev/logo.svg);
+  background-repeat: no-repeat;
+  background-size: auto 74px;
+  background-position: center;
+}
+
+.dark .voidzero {
+  background-image: url(https://voidzero.dev/logo-white.svg);
+}
+
+.sponsors {
+  text-align: center;
+  padding-top: 60px;
   display: grid;
   justify-items: center;
 
@@ -76,7 +98,10 @@ onMounted(() => {
 })
 </script>
 
-<div class="Sponsors">
-  <h2>Sponsored by</h2>
+<h2 class="voidzero-lead">Brought to you by</h2>
+
+<a class="voidzero" href="https://voidzero.dev/" target="_blank" title="voidzero.dev"></a>
+
+<div class="sponsors">
   <div v-html="SponsorsSVG"></div>
 </div>
