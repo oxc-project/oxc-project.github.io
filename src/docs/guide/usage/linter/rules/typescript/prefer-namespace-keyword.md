@@ -46,4 +46,4 @@ oxlint --deny typescript/prefer-namespace-keyword
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/aba3654b81166a7d52f13ac067ffa4bab5e702c9/crates/oxc_linter/src/rules/typescript/prefer_namespace_keyword.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/f5b53d4cbba0da3f684f1854f5801e8a6d15f214/crates/oxc_linter/src/rules/typescript/prefer_namespace_keyword.rs)

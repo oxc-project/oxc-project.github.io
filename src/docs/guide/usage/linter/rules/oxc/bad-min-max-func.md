@@ -56,4 +56,4 @@ oxlint --deny oxc/bad-min-max-func
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/aba3654b81166a7d52f13ac067ffa4bab5e702c9/crates/oxc_linter/src/rules/oxc/bad_min_max_func.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/f5b53d4cbba0da3f684f1854f5801e8a6d15f214/crates/oxc_linter/src/rules/oxc/bad_min_max_func.rs)
