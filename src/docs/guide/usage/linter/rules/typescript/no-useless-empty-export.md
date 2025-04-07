@@ -70,4 +70,4 @@ oxlint --deny typescript/no-useless-empty-export
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/aba3654b81166a7d52f13ac067ffa4bab5e702c9/crates/oxc_linter/src/rules/typescript/no_useless_empty_export.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/f5b53d4cbba0da3f684f1854f5801e8a6d15f214/crates/oxc_linter/src/rules/typescript/no_useless_empty_export.rs)

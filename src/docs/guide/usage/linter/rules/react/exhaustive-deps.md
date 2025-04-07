@@ -29,14 +29,14 @@ function MyComponent(props) {
 
 Examples of **correct** code for this rule:
 
-````javascript
+```javascript
 function MyComponent(props) {
-    useEffect(() => {
-        console.log(props.foo);
-    }, [props]);
-    return <div />;
+  useEffect(() => {
+    console.log(props.foo);
+  }, [props]);
+  return <div />;
 }
-
+```
 
 ## How to use
 
@@ -46,7 +46,7 @@ To **enable** this rule in the CLI or using the config file, you can use:
 
 ```bash [CLI]
 oxlint --deny react/exhaustive-deps
-````
+```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -60,4 +60,4 @@ oxlint --deny react/exhaustive-deps
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/aba3654b81166a7d52f13ac067ffa4bab5e702c9/crates/oxc_linter/src/rules/react/exhaustive_deps.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/f5b53d4cbba0da3f684f1854f5801e8a6d15f214/crates/oxc_linter/src/rules/react/exhaustive_deps.rs)

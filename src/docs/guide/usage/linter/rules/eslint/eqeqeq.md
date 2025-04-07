@@ -10,18 +10,70 @@
 
 ### What it does
 
-Requires the use of the === and !== operators
+Requires the use of the `===` and `!==` operators.
 
 ### Why is this bad?
 
 Using non-strict equality operators leads to hard to track bugs due to type coercion.
 
-### Example
+### Examples
 
-```javascript
-let a = [];
-let b = false;
+Examples of **incorrect** code for this rule:
+
+```js
+const a = [];
+const b = true;
 a == b;
+```
+
+The above will evaluate to `true`, but almost surely not want you want.
+
+Examples of **correct** code for this rule:
+
+```js
+const a = [];
+const b = true;
+a === b;
+```
+
+The above will evaluate to `false` (an array is not boolean true).
+
+### Options
+
+#### null
+
+```json
+  "eslint/eqeqeq": ["error", "always", {"null": "ignore"}]
+```
+
+Allow nullish comparison (`foo == null`). The alternative (`foo === null || foo === undefined`) is verbose and has no other benefit.
+
+#### smart
+
+```json
+  "eslint/eqeqeq": ["error", "smart"]
+```
+
+Allow `==` when comparing:
+
+- the result from `typeof`
+- literal values
+- nullish
+
+Examples of **incorrect** code for this option:
+
+```js
+a == b
+[] == true
+```
+
+Examples of **correct** code for this option:
+
+```js
+typeof foo == "undefined";
+"foo" == "bar";
+42 == 42;
+foo == null;
 ```
 
 ## How to use
@@ -46,4 +98,4 @@ oxlint --deny eqeqeq
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/aba3654b81166a7d52f13ac067ffa4bab5e702c9/crates/oxc_linter/src/rules/eslint/eqeqeq.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/f5b53d4cbba0da3f684f1854f5801e8a6d15f214/crates/oxc_linter/src/rules/eslint/eqeqeq.rs)
