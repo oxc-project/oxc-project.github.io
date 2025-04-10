@@ -43,6 +43,14 @@ OXC utilizes [`just`](https://github.com/casey/just), which is a handy way to sa
 cargo binstall just -y
 ```
 
+### Install NodeJS
+
+Minimum version: v22.14.0
+
+Download from [nodejs.org](https://nodejs.org/en/download).
+
+Or, if you prefer using a NodeJS version manager, we recommend [Volta](https://volta.sh/).
+
 ### Install CMake
 
 Install CMake by downloading from the official [website](https://cmake.org/download/).
