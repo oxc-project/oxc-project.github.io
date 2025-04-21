@@ -58,4 +58,4 @@ oxlint --deny jsx-a11y/heading-has-content --jsx-a11y-plugin
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/f5b53d4cbba0da3f684f1854f5801e8a6d15f214/crates/oxc_linter/src/rules/jsx_a11y/heading_has_content.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/2fc083c8f6fa77d46078b2b4e038a1370527c63c/crates/oxc_linter/src/rules/jsx_a11y/heading_has_content.rs)
