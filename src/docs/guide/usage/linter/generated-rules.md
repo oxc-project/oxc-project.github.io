@@ -2,7 +2,7 @@
 
 The progress of all rule implementations is tracked [here](https://github.com/oxc-project/oxc/issues/481).
 
-- Total number of rules: 503
+- Total number of rules: 504
 - Rules turned on by default: 123
 
 **Legend for 'Fixable?' column:**
@@ -320,7 +320,7 @@ Lints which are rather strict or have occasional false positives.
 | Rule name | Source | Default | Fixable? |
 | --------------------------------------- | ---------- | ------- | -------- |
 | [array-callback-return](/docs/guide/usage/linter/rules/eslint/array-callback-return.html) | eslint | | |
-| [eqeqeq](/docs/guide/usage/linter/rules/eslint/eqeqeq.html) | eslint | | 🛠️ |
+| [eqeqeq](/docs/guide/usage/linter/rules/eslint/eqeqeq.html) | eslint | | ⚠️🛠️️ |
 | [max-classes-per-file](/docs/guide/usage/linter/rules/eslint/max-classes-per-file.html) | eslint | | |
 | [max-depth](/docs/guide/usage/linter/rules/eslint/max-depth.html) | eslint | | |
 | [max-lines](/docs/guide/usage/linter/rules/eslint/max-lines.html) | eslint | | |
@@ -399,7 +399,7 @@ Lints which are rather strict or have occasional false positives.
 | [prefer-type-error](/docs/guide/usage/linter/rules/unicorn/prefer-type-error.html) | unicorn | | 🛠️ |
 | [require-number-to-fixed-digits-argument](/docs/guide/usage/linter/rules/unicorn/require-number-to-fixed-digits-argument.html) | unicorn | | 🛠️ |
 
-## Style (137):
+## Style (138):
 
 Code that should be written in a more idiomatic way.
 | Rule name | Source | Default | Fixable? |
@@ -443,6 +443,7 @@ Code that should be written in a more idiomatic way.
 | [yoda](/docs/guide/usage/linter/rules/eslint/yoda.html) | eslint | | 🛠️ |
 | [exports-last](/docs/guide/usage/linter/rules/import/exports-last.html) | import | | |
 | [first](/docs/guide/usage/linter/rules/import/first.html) | import | | 🚧 |
+| [group-exports](/docs/guide/usage/linter/rules/import/group-exports.html) | import | | |
 | [no-anonymous-default-export](/docs/guide/usage/linter/rules/import/no-anonymous-default-export.html) | import | | |
 | [no-mutable-exports](/docs/guide/usage/linter/rules/import/no-mutable-exports.html) | import | | |
 | [no-named-default](/docs/guide/usage/linter/rules/import/no-named-default.html) | import | | |

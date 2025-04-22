@@ -4,7 +4,7 @@
 
 <div class="rule-meta">
 <Alert class="fix" type="info">
-<span class="emoji">🛠️</span> An auto-fix is available for this rule for some violations.
+<span class="emoji">⚠️🛠️️</span> A dangerous auto-fix is available for this rule for some violations.
 </Alert>
 </div>
 
@@ -26,7 +26,7 @@ const b = true;
 a == b;
 ```
 
-The above will evaluate to `true`, but almost surely not want you want.
+The above will evaluate to `true`, but that is almost surely not what you want.
 
 Examples of **correct** code for this rule:
 
@@ -98,4 +98,4 @@ oxlint --deny eqeqeq
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/f5b53d4cbba0da3f684f1854f5801e8a6d15f214/crates/oxc_linter/src/rules/eslint/eqeqeq.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/2fc083c8f6fa77d46078b2b4e038a1370527c63c/crates/oxc_linter/src/rules/eslint/eqeqeq.rs)
