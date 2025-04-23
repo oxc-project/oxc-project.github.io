@@ -89,6 +89,14 @@ export const CORE_MEMBERS: TeamMember[] = [
     ],
   },
   {
+    id: "Sysix",
+    type: "core",
+    name: "Alexander",
+    title: "Member",
+    avatar: "https://www.github.com/Sysix.png",
+    links: [{ icon: "github", link: "https://github.com/Sysix" }],
+  },
+  {
     id: "mysteryven",
     type: "emeriti",
     name: "Mysteryven",
