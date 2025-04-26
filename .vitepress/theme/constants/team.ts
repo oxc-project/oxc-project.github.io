@@ -108,7 +108,7 @@ export const CORE_MEMBERS: TeamMember[] = [
   },
   {
     id: "don",
-    type: "emeriti",
+    type: "core",
     name: "Don",
     avatar: "https://www.github.com/donisaac.png",
     links: [
