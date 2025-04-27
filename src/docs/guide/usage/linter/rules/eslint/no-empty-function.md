@@ -11,22 +11,59 @@ Disallows the usages of empty functions
 
 ### Why is this bad?
 
-Empty functions can reduce readability because readers need to guess whether it’s
+Empty functions can reduce readability because readers need to guess whether it's
 intentional or not. So writing a clear comment for empty functions is a good practice.
+
+### Configuration
+
+You may pass an object containing a list of `allow`ed function kinds.
+For example:
+
+```json
+// oxlint.json
+{
+  "rules": {
+    "no-empty-function": ["error", { "allow": ["functions"] }]
+  }
+}
+```
+
+`allow` accepts the following values:
+
+- `"functions"`
+- `"arrowFunctions"`
+- `"generatorFunctions"`
+- `"methods"`
+- `"generatorMethods"`
+- `"getters"`
+- `"setters"`
+- `"constructors"`
+- `"privateConstructors"`
+- `"protectedConstructors"`
+- `"asyncFunctions"`
+- `"asyncMethods"`
+- `"decoratedFunctions"`
+- `"overrideMethods"`
 
 ### Example
 
 Examples of **incorrect** code for this rule:
 
-```javascript
+```typescript
 function foo() {}
 
 const bar = () => {};
+
+class Foo {
+  constructor();
+  someMethod() {}
+  set bar(value) {}
+}
 ```
 
 Examples of **correct** code for this rule:
 
-```javascript
+```typescript
 function foo() {
   // do nothing
 }
@@ -35,6 +72,16 @@ function foo() {
   return;
 }
 const add = (a, b) => a + b;
+
+class Foo {
+  // constructor body is empty, but it declares a private property named
+  // `_name`
+  constructor(private _name: string) {}
+
+  public get name() {
+    return this._name;
+  }
+}
 ```
 
 ## How to use
@@ -59,4 +106,4 @@ oxlint --deny no-empty-function
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/2fc083c8f6fa77d46078b2b4e038a1370527c63c/crates/oxc_linter/src/rules/eslint/no_empty_function.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/b31ab8773865e3f2f05afd8aca9ee541f31a5b90/crates/oxc_linter/src/rules/eslint/no_empty_function.rs)
