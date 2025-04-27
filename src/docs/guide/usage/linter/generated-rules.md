@@ -341,7 +341,7 @@ Lints which are rather strict or have occasional false positives.
 | [no-self-compare](/docs/guide/usage/linter/rules/eslint/no-self-compare.html) | eslint | | |
 | [no-throw-literal](/docs/guide/usage/linter/rules/eslint/no-throw-literal.html) | eslint | | 💡 |
 | [radix](/docs/guide/usage/linter/rules/eslint/radix.html) | eslint | | |
-| [require-await](/docs/guide/usage/linter/rules/eslint/require-await.html) | eslint | | |
+| [require-await](/docs/guide/usage/linter/rules/eslint/require-await.html) | eslint | | ⚠️🛠️️ |
 | [sort-vars](/docs/guide/usage/linter/rules/eslint/sort-vars.html) | eslint | | 🚧 |
 | [symbol-description](/docs/guide/usage/linter/rules/eslint/symbol-description.html) | eslint | | |
 | [max-dependencies](/docs/guide/usage/linter/rules/import/max-dependencies.html) | import | | |
@@ -497,7 +497,7 @@ Code that should be written in a more idiomatic way.
 | [jsx-curly-brace-presence](/docs/guide/usage/linter/rules/react/jsx-curly-brace-presence.html) | react | | |
 | [no-set-state](/docs/guide/usage/linter/rules/react/no-set-state.html) | react | | |
 | [prefer-es6-class](/docs/guide/usage/linter/rules/react/prefer-es6-class.html) | react | | |
-| [self-closing-comp](/docs/guide/usage/linter/rules/react/self-closing-comp.html) | react | | 🚧 |
+| [self-closing-comp](/docs/guide/usage/linter/rules/react/self-closing-comp.html) | react | | 🛠️ |
 | [adjacent-overload-signatures](/docs/guide/usage/linter/rules/typescript/adjacent-overload-signatures.html) | typescript | | |
 | [array-type](/docs/guide/usage/linter/rules/typescript/array-type.html) | typescript | | 🛠️ |
 | [ban-tslint-comment](/docs/guide/usage/linter/rules/typescript/ban-tslint-comment.html) | typescript | | 🛠️ |

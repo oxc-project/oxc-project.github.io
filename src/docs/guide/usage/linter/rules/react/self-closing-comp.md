@@ -4,7 +4,7 @@
 
 <div class="rule-meta">
 <Alert class="fix" type="info">
-<span class="emoji">🚧</span> An auto-fix is still under development.
+<span class="emoji">🛠️</span> An auto-fix is available for this rule.
 </Alert>
 </div>
 
@@ -56,4 +56,4 @@ oxlint --deny react/self-closing-comp
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/2fc083c8f6fa77d46078b2b4e038a1370527c63c/crates/oxc_linter/src/rules/react/self_closing_comp.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/b31ab8773865e3f2f05afd8aca9ee541f31a5b90/crates/oxc_linter/src/rules/react/self_closing_comp.rs)
