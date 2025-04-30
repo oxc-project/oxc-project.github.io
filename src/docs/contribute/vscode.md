@@ -17,7 +17,7 @@ After `just init` run `pnpm install` inside `editors/vscode` directory.
 Inside `editors/vscode` run `pnpm build` to compile the vscode extension and build the release version of the language server.
 Run `pnpm install-extension` to install it on your VSCode Editor.
 A editor window restart it needed. With `CTRL` + `SHIFT` + `P` and the search for "Developer: Reload Window",
-you are finally able to manual test the VSCode or the language server inside VSCode.
+you are finally able to manual test your changes inside VSCode.
 
 ### Building Debug Version of Server
 
