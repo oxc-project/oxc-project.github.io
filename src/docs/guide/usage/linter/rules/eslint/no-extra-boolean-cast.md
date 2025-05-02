@@ -7,7 +7,7 @@
 <span class="emoji">✅</span> This rule is turned on by default.
 </Alert>
 <Alert class="fix" type="info">
-<span class="emoji">🚧</span> An auto-fix is still under development.
+<span class="emoji">🛠️💡</span> An auto-fix and a suggestion are available for this rule for some violations.
 </Alert>
 </div>
 
@@ -17,7 +17,7 @@ This rule disallows unnecessary boolean casts.
 
 ### Why is this bad?
 
-In contexts such as an if statement’s test where the result of the expression will already be coerced to a Boolean,
+In contexts such as an if statement's test where the result of the expression will already be coerced to a Boolean,
 casting to a Boolean via double negation (!!) or a Boolean call is unnecessary.
 
 ### Example
@@ -58,4 +58,4 @@ oxlint --deny no-extra-boolean-cast
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/b31ab8773865e3f2f05afd8aca9ee541f31a5b90/crates/oxc_linter/src/rules/eslint/no_extra_boolean_cast.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/4b4b09e0e44b1e904870920b3dbd2c75398ed9fd/crates/oxc_linter/src/rules/eslint/no_extra_boolean_cast.rs)
