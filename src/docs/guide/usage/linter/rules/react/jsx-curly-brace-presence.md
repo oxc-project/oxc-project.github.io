@@ -3,6 +3,9 @@
 # react/jsx-curly-brace-presence <Badge type="info" text="Style" />
 
 <div class="rule-meta">
+<Alert class="fix" type="info">
+<span class="emoji">🚧</span> An auto-fix is still under development.
+</Alert>
 </div>
 
 # Disallow unnecessary JSX expressions when literals alone are
@@ -252,4 +255,4 @@ oxlint --deny react/jsx-curly-brace-presence
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/b31ab8773865e3f2f05afd8aca9ee541f31a5b90/crates/oxc_linter/src/rules/react/jsx_curly_brace_presence.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/4b4b09e0e44b1e904870920b3dbd2c75398ed9fd/crates/oxc_linter/src/rules/react/jsx_curly_brace_presence.rs)

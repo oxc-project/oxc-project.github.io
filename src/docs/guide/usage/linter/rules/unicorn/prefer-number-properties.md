@@ -4,7 +4,7 @@
 
 <div class="rule-meta">
 <Alert class="fix" type="info">
-<span class="emoji">🚧</span> An auto-fix is still under development.
+<span class="emoji">⚠️🛠️️</span> A dangerous auto-fix is available for this rule.
 </Alert>
 </div>
 
@@ -62,4 +62,4 @@ oxlint --deny unicorn/prefer-number-properties
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/b31ab8773865e3f2f05afd8aca9ee541f31a5b90/crates/oxc_linter/src/rules/unicorn/prefer_number_properties.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/4b4b09e0e44b1e904870920b3dbd2c75398ed9fd/crates/oxc_linter/src/rules/unicorn/prefer_number_properties.rs)

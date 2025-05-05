@@ -4,7 +4,7 @@
 
 <div class="rule-meta">
 <Alert class="fix" type="info">
-<span class="emoji">🚧</span> An auto-fix is still under development.
+<span class="emoji">🛠️</span> An auto-fix is available for this rule.
 </Alert>
 </div>
 
@@ -30,6 +30,7 @@ Examples of **incorrect** code for this rule:
 var stringObject = new String("Hello world");
 var numberObject = new Number(33);
 var booleanObject = new Boolean(false);
+var symbolObject = new Symbol("foo"); // symbol is not a constructor
 ```
 
 Examples of **correct** code for this rule:
@@ -39,6 +40,7 @@ var stringObject = "Hello world";
 var stringObject2 = String(value);
 var numberObject = Number(value);
 var booleanObject = Boolean(value);
+var symbolObject = Symbol("foo");
 ```
 
 ## How to use
@@ -63,4 +65,4 @@ oxlint --deny no-new-wrappers
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/b31ab8773865e3f2f05afd8aca9ee541f31a5b90/crates/oxc_linter/src/rules/eslint/no_new_wrappers.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/4b4b09e0e44b1e904870920b3dbd2c75398ed9fd/crates/oxc_linter/src/rules/eslint/no_new_wrappers.rs)

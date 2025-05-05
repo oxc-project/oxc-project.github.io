@@ -63,4 +63,4 @@ oxlint --deny import/no-duplicates --import-plugin
 
 ## References
 
-- [Rule Source](https://github.com/oxc-project/oxc/blob/b31ab8773865e3f2f05afd8aca9ee541f31a5b90/crates/oxc_linter/src/rules/import/no_duplicates.rs)
+- [Rule Source](https://github.com/oxc-project/oxc/blob/4b4b09e0e44b1e904870920b3dbd2c75398ed9fd/crates/oxc_linter/src/rules/import/no_duplicates.rs)
