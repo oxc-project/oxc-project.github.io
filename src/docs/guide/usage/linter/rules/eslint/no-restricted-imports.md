@@ -60,9 +60,9 @@ import foo from "disallowed-import";
 
 This is an object option whose value is an array containing the names of the modules you want to restrict.
 
-````json
+```json
 {"rules: {"no-restricted-imports": ["error", { "paths": ["import1", "import2"] }]}}
-``
+```
 
 Examples of **incorrect** code for `paths`:
 
@@ -70,7 +70,7 @@ Examples of **incorrect** code for `paths`:
 /*eslint no-restricted-imports: ["error", { "paths": ["cluster"] }]*/
 
 import cluster from 'cluster';
-````
+```
 
 Custom messages for a particular module can also be specified in `paths` array using objects with `name` and `message`.
 
