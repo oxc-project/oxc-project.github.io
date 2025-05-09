@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://oxc.rs</id>
     <title>The Oxidation Compiler Blog</title>
-    <updated>2025-05-05T02:40:57.853Z</updated>
+    <updated>2025-05-09T04:53:39.583Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://oxc.rs"/>
     <icon>https://cdn.jsdelivr.net/gh/oxc-project/oxc-assets/square.ico</icon>
@@ -19,7 +19,7 @@ This milestone signifies our team's ability to promptly address and triage issue
 <p>At this stage, oxlint is <strong>not intended to fully replace ESLint</strong>; it serves as an enhancement when ESLint's slowness becomes a bottleneck in your workflow.</p>
 <p>For faster feedback loops, we recommend running oxlint before ESLint in your lint-staged or CI setup, considering it only takes a few seconds to run on large codebases.</p>
 <p>To test oxlint in your JavaScript / TypeScript codebase, simply execute the following command at the root directory of your repository:</p>
-<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-wVbVJ" id="tab-apYcwIK" checked><label data-title="npm" for="tab-apYcwIK">npm</label><input type="radio" name="group-wVbVJ" id="tab-uo7LQfl" ><label data-title="pnpm" for="tab-uo7LQfl">pnpm</label><input type="radio" name="group-wVbVJ" id="tab-9P_iL01" ><label data-title="yarn" for="tab-9P_iL01">yarn</label><input type="radio" name="group-wVbVJ" id="tab-bv0t_H2" ><label data-title="bun" for="tab-bv0t_H2">bun</label><input type="radio" name="group-wVbVJ" id="tab-CVw01wO" ><label data-title="deno" for="tab-CVw01wO">deno</label></div><div class="blocks">
+<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-bAdAn" id="tab-YExOAe5" checked><label data-title="npm" for="tab-YExOAe5">npm</label><input type="radio" name="group-bAdAn" id="tab-TICWYYG" ><label data-title="pnpm" for="tab-TICWYYG">pnpm</label><input type="radio" name="group-bAdAn" id="tab-CzNPaja" ><label data-title="yarn" for="tab-CzNPaja">yarn</label><input type="radio" name="group-bAdAn" id="tab-EQqjgod" ><label data-title="bun" for="tab-EQqjgod">bun</label><input type="radio" name="group-bAdAn" id="tab-aNrmC1O" ><label data-title="deno" for="tab-aNrmC1O">deno</label></div><div class="blocks">
 <div class="language-sh vp-adaptive-theme active"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">$</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> npx</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> oxlint@latest</span></span></code></pre>
 </div><div class="language-sh vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">$</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> pnpm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> dlx</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> oxlint@latest</span></span></code></pre>
 </div><div class="language-sh vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">$</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> yarn</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> dlx</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> oxlint@latest</span></span></code></pre>
@@ -63,7 +63,7 @@ This milestone signifies our team's ability to promptly address and triage issue
 <p>At this stage, oxlint is <strong>not intended to fully replace ESLint</strong>; it serves as an enhancement when ESLint's slowness becomes a bottleneck in your workflow.</p>
 <p>For faster feedback loops, we recommend running oxlint before ESLint in your lint-staged or CI setup, considering it only takes a few seconds to run on large codebases.</p>
 <p>To test oxlint in your JavaScript / TypeScript codebase, simply execute the following command at the root directory of your repository:</p>
-<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-PAzOp" id="tab-csZUwQC" checked><label data-title="npm" for="tab-csZUwQC">npm</label><input type="radio" name="group-PAzOp" id="tab-LWJZvuu" ><label data-title="pnpm" for="tab-LWJZvuu">pnpm</label><input type="radio" name="group-PAzOp" id="tab-3HS9lU1" ><label data-title="yarn" for="tab-3HS9lU1">yarn</label><input type="radio" name="group-PAzOp" id="tab-_Vh3rcq" ><label data-title="bun" for="tab-_Vh3rcq">bun</label><input type="radio" name="group-PAzOp" id="tab-UfHeqCR" ><label data-title="deno" for="tab-UfHeqCR">deno</label></div><div class="blocks">
+<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-NPtef" id="tab-ewXwPyM" checked><label data-title="npm" for="tab-ewXwPyM">npm</label><input type="radio" name="group-NPtef" id="tab-OFJU3Tt" ><label data-title="pnpm" for="tab-OFJU3Tt">pnpm</label><input type="radio" name="group-NPtef" id="tab-hfXqGDA" ><label data-title="yarn" for="tab-hfXqGDA">yarn</label><input type="radio" name="group-NPtef" id="tab-wASE_sx" ><label data-title="bun" for="tab-wASE_sx">bun</label><input type="radio" name="group-NPtef" id="tab-wYXfjPn" ><label data-title="deno" for="tab-wYXfjPn">deno</label></div><div class="blocks">
 <div class="language-sh vp-adaptive-theme active"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">$</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> npx</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> oxlint@latest</span></span></code></pre>
 </div><div class="language-sh vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">$</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> pnpm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> dlx</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> oxlint@latest</span></span></code></pre>
 </div><div class="language-sh vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">$</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> yarn</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> dlx</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> oxlint@latest</span></span></code></pre>
@@ -146,18 +146,18 @@ the <code>--tsconfig</code> option can be used:</p>
 <li><a href="https://github.com/import-js/eslint-plugin-import/blob/v2.29.1/docs/rules/no-cycle.md" target="_blank" rel="noreferrer">no-cycle</a></li>
 </ul>
 <p>There are also improvements to these rules; for example, the diagnostics for the <code>no-cycle</code> rule have been improved:</p>
-<div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span>  ⚠ eslint-plugin-import(no-cycle): Dependency cycle detected</span></span>
-<span class="line"><span>    ╭─[apps/web/playwright/lib/fixtures.ts:13:42]</span></span>
-<span class="line"><span> 12 │ import { createPaymentsFixture } from "../fixtures/payments";</span></span>
-<span class="line"><span> 13 │ import { createBookingPageFixture } from "../fixtures/regularBookings";</span></span>
-<span class="line"><span>    ·                                          ─────────────────────────────</span></span>
-<span class="line"><span> 14 │ import { createRoutingFormsFixture } from "../fixtures/routingForms";</span></span>
-<span class="line"><span>    ╰────</span></span>
-<span class="line"><span>  help: These paths form a cycle:</span></span>
-<span class="line"><span>        -> ../fixtures/regularBookings - apps/web/playwright/fixtures/regularBookings.ts</span></span>
-<span class="line"><span>        -> ./users - apps/web/playwright/fixtures/users.ts</span></span>
-<span class="line"><span>        -> ../lib/testUtils - apps/web/playwright/lib/testUtils.ts</span></span>
-<span class="line"><span>        -> ./fixtures - apps/web/playwright/lib/fixtures.ts</span></span></code></pre>
+<div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span> ⚠ eslint-plugin-import(no-cycle): Dependency cycle detected</span></span>
+<span class="line"><span>   ╭─[apps/web/playwright/lib/fixtures.ts:13:42]</span></span>
+<span class="line"><span>12 │ import { createPaymentsFixture } from "../fixtures/payments";</span></span>
+<span class="line"><span>13 │ import { createBookingPageFixture } from "../fixtures/regularBookings";</span></span>
+<span class="line"><span>   ·                                          ─────────────────────────────</span></span>
+<span class="line"><span>14 │ import { createRoutingFormsFixture } from "../fixtures/routingForms";</span></span>
+<span class="line"><span>   ╰────</span></span>
+<span class="line"><span> help: These paths form a cycle:</span></span>
+<span class="line"><span>       -> ../fixtures/regularBookings - apps/web/playwright/fixtures/regularBookings.ts</span></span>
+<span class="line"><span>       -> ./users - apps/web/playwright/fixtures/users.ts</span></span>
+<span class="line"><span>       -> ../lib/testUtils - apps/web/playwright/lib/testUtils.ts</span></span>
+<span class="line"><span>       -> ./fixtures - apps/web/playwright/lib/fixtures.ts</span></span></code></pre>
 </div><p>This isn't a long list of features,
 but due to the complexity of the current state of the ecosystem,
 it requires a lot of effort to implement these rules and ensure they work correctly.</p>
@@ -206,18 +206,18 @@ the <code>--tsconfig</code> option can be used:</p>
 <li><a href="https://github.com/import-js/eslint-plugin-import/blob/v2.29.1/docs/rules/no-cycle.md" target="_blank" rel="noreferrer">no-cycle</a></li>
 </ul>
 <p>There are also improvements to these rules; for example, the diagnostics for the <code>no-cycle</code> rule have been improved:</p>
-<div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span>  ⚠ eslint-plugin-import(no-cycle): Dependency cycle detected</span></span>
-<span class="line"><span>    ╭─[apps/web/playwright/lib/fixtures.ts:13:42]</span></span>
-<span class="line"><span> 12 │ import { createPaymentsFixture } from "../fixtures/payments";</span></span>
-<span class="line"><span> 13 │ import { createBookingPageFixture } from "../fixtures/regularBookings";</span></span>
-<span class="line"><span>    ·                                          ─────────────────────────────</span></span>
-<span class="line"><span> 14 │ import { createRoutingFormsFixture } from "../fixtures/routingForms";</span></span>
-<span class="line"><span>    ╰────</span></span>
-<span class="line"><span>  help: These paths form a cycle:</span></span>
-<span class="line"><span>        -> ../fixtures/regularBookings - apps/web/playwright/fixtures/regularBookings.ts</span></span>
-<span class="line"><span>        -> ./users - apps/web/playwright/fixtures/users.ts</span></span>
-<span class="line"><span>        -> ../lib/testUtils - apps/web/playwright/lib/testUtils.ts</span></span>
-<span class="line"><span>        -> ./fixtures - apps/web/playwright/lib/fixtures.ts</span></span></code></pre>
+<div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span> ⚠ eslint-plugin-import(no-cycle): Dependency cycle detected</span></span>
+<span class="line"><span>   ╭─[apps/web/playwright/lib/fixtures.ts:13:42]</span></span>
+<span class="line"><span>12 │ import { createPaymentsFixture } from "../fixtures/payments";</span></span>
+<span class="line"><span>13 │ import { createBookingPageFixture } from "../fixtures/regularBookings";</span></span>
+<span class="line"><span>   ·                                          ─────────────────────────────</span></span>
+<span class="line"><span>14 │ import { createRoutingFormsFixture } from "../fixtures/routingForms";</span></span>
+<span class="line"><span>   ╰────</span></span>
+<span class="line"><span> help: These paths form a cycle:</span></span>
+<span class="line"><span>       -> ../fixtures/regularBookings - apps/web/playwright/fixtures/regularBookings.ts</span></span>
+<span class="line"><span>       -> ./users - apps/web/playwright/fixtures/users.ts</span></span>
+<span class="line"><span>       -> ../lib/testUtils - apps/web/playwright/lib/testUtils.ts</span></span>
+<span class="line"><span>       -> ./fixtures - apps/web/playwright/lib/fixtures.ts</span></span></code></pre>
 </div><p>This isn't a long list of features,
 but due to the complexity of the current state of the ecosystem,
 it requires a lot of effort to implement these rules and ensure they work correctly.</p>
@@ -501,16 +501,16 @@ field inside of your configuration file.</p>
 <p>Now, instead of running this command:</p>
 <div class="language-sh vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">oxlint</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -D</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> correctness</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -W</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> suspicious</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -c</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> oxlint.json</span></span></code></pre>
 </div><p>You can add a <code>categories</code> field to your <code>oxlint.json</code>:</p>
-<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-GTSCB" id="tab-hEJAAV1" checked><label data-title="oxlintrc.json" for="tab-hEJAAV1">oxlintrc.json</label></div><div class="blocks">
+<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-BgYh0" id="tab-Tc9a2jS" checked><label data-title="oxlintrc.json" for="tab-Tc9a2jS">oxlintrc.json</label></div><div class="blocks">
 <div class="language-jsonc vp-adaptive-theme active"><button title="Copy Code" class="copy"></button><span class="lang">jsonc</span><pre class="shiki shiki-themes github-light github-dark has-diff vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">{</span></span>
-<span class="line diff add"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">  "categories"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: {          </span></span>
+<span class="line diff add"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">  "categories"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: { </span></span>
 <span class="line diff add"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">    "correctness"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"deny"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span></span>
-<span class="line diff add"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">    "suspicious"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"warn"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">,  </span></span>
-<span class="line diff add"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">  },                       </span></span>
+<span class="line diff add"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">    "suspicious"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"warn"</span></span>
+<span class="line diff add"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">  }, </span></span>
 <span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">  "rules"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: {</span></span>
 <span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">    "no-const-assign"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"error"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">,</span></span>
-<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">    "import/no-cycle"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"error"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">,</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">  },</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">    "import/no-cycle"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"error"</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">  }</span></span>
 <span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">}</span></span></code></pre>
 </div></div></div>
 <p>and drop the <code>-D</code> and <code>-W</code> flags.</p>
@@ -518,32 +518,32 @@ field inside of your configuration file.</p>
 <p>Configuration files now support the <code>plugins</code> array from ESLint v8 configs.
 This allows you to enable plugins without CLI arguments, making it possible to
 use plugins in VSCode.</p>
-<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-t3ajX" id="tab-zhCqetE" checked><label data-title="oxlintrc.json" for="tab-zhCqetE">oxlintrc.json</label></div><div class="blocks">
+<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-aodee" id="tab-f26aY5-" checked><label data-title="oxlintrc.json" for="tab-f26aY5-">oxlintrc.json</label></div><div class="blocks">
 <div class="language-jsonc vp-adaptive-theme active"><button title="Copy Code" class="copy"></button><span class="lang">jsonc</span><pre class="shiki shiki-themes github-light github-dark has-diff vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">{</span></span>
 <span class="line diff add"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">  "plugins"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: [</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"import"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">], </span></span>
 <span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">  "categories"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: {</span></span>
 <span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">    "correctness"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"deny"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">,</span></span>
-<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">    "suspicious"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"warn"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">    "suspicious"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"warn"</span></span>
 <span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">  },</span></span>
 <span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">  "rules"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: {</span></span>
 <span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">    "react/jsx-uses-react"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"off"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">,</span></span>
-<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">    "react/react-in-jsx-scope"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"off"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">,</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">  },</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">    "react/react-in-jsx-scope"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"off"</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">  }</span></span>
 <span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">}</span></span></code></pre>
 </div></div></div>
 <p>This plays nicely with <code>categories</code>, as enabled/disabled categories affect plugins as well.</p>
-<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-e9kPQ" id="tab-gRRuj8g" checked><label data-title="oxlintrc.json" for="tab-gRRuj8g">oxlintrc.json</label></div><div class="blocks">
+<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-uKvXX" id="tab-YBJ2og6" checked><label data-title="oxlintrc.json" for="tab-YBJ2og6">oxlintrc.json</label></div><div class="blocks">
 <div class="language-jsonc vp-adaptive-theme active"><button title="Copy Code" class="copy"></button><span class="lang">jsonc</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">{</span></span>
 <span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">  "plugins"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: [</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"import"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">],</span></span>
 <span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">  // `categories` affects all enabled plugins</span></span>
 <span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">  "categories"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: {</span></span>
 <span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">    "correctness"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"allow"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">,</span></span>
-<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">    "suspicious"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"warn"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">    "suspicious"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"warn"</span></span>
 <span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">  },</span></span>
 <span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">  "rules"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: {</span></span>
 <span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">    "no-const-assign"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"error"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">,</span></span>
-<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">    "import/no-cycle"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"error"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">,</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">  },</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">    "import/no-cycle"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"error"</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">  }</span></span>
 <span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">}</span></span></code></pre>
 </div></div></div>
 <h2 id="breaking-changes-and-migration-guide" tabindex="-1">Breaking Changes and Migration Guide <a class="header-anchor" href="#breaking-changes-and-migration-guide" aria-label="Permalink to &quot;Breaking Changes and Migration Guide&quot;">&ZeroWidthSpace;</a></h2>
@@ -551,11 +551,11 @@ use plugins in VSCode.</p>
 <p>Before, config files would override rules set in CLI arguments. For example, running this command:</p>
 <div class="language-sh vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">oxlint</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -A</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> correctness</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -c</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> oxlintrc.json</span></span></code></pre>
 </div><p>With this config file</p>
-<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-7bwab" id="tab-jKMEpwY" checked><label data-title="oxlintrc.json" for="tab-jKMEpwY">oxlintrc.json</label></div><div class="blocks">
+<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-xN7-P" id="tab-tCeb9kf" checked><label data-title="oxlintrc.json" for="tab-tCeb9kf">oxlintrc.json</label></div><div class="blocks">
 <div class="language-jsonc vp-adaptive-theme active"><button title="Copy Code" class="copy"></button><span class="lang">jsonc</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">{</span></span>
 <span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">  "rules"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: {</span></span>
-<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">    "no-const-assign"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"error"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">,</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">  },</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">    "no-const-assign"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"error"</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">  }</span></span>
 <span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">}</span></span></code></pre>
 </div></div></div>
 <p>Would result in a single rule, <code>no-const-assign</code> being turned on at an error level with all other rules disabled (i.e. set to &quot;allow&quot;).</p>
@@ -564,14 +564,14 @@ same config file will result with <strong>all rules being disabled</strong>. To 
 behavior as before, enable and disable categories in your config file instead of
 with CLI arguments.</p>
 <div class="language-sh vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">oxlint</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -c</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> oxlint.json</span></span></code></pre>
-</div><div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-PLLXY" id="tab-nJVBF47" checked><label data-title="oxlintrc.json" for="tab-nJVBF47">oxlintrc.json</label></div><div class="blocks">
+</div><div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-Y7AKI" id="tab-lzhQs0I" checked><label data-title="oxlintrc.json" for="tab-lzhQs0I">oxlintrc.json</label></div><div class="blocks">
 <div class="language-jsonc vp-adaptive-theme active"><button title="Copy Code" class="copy"></button><span class="lang">jsonc</span><pre class="shiki shiki-themes github-light github-dark has-diff vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">{</span></span>
-<span class="line diff add"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">  "categories"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: {           </span></span>
-<span class="line diff add"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">    "correctness"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"allow"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span></span>
-<span class="line diff add"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">  },                        </span></span>
+<span class="line diff add"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">  "categories"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: { </span></span>
+<span class="line diff add"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">    "correctness"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"allow"</span></span>
+<span class="line diff add"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">  }, </span></span>
 <span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">  "rules"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: {</span></span>
-<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">    "no-const-assign"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"error"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">,</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">  },</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">    "no-const-assign"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"error"</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">  }</span></span>
 <span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">}</span></span></code></pre>
 </div></div></div>
 ]]></content>
@@ -707,7 +707,7 @@ especially the advanced symbol minification algorithm which <code>esbuild</code>
 <p>For larger projects, our advice is to turn off ESLint rules via <a href="https://www.npmjs.com/package/eslint-plugin-oxlint" target="_blank" rel="noreferrer">eslint-plugin-oxlint</a>,
 and run Oxlint before ESLint in your local or CI setup for a quicker feedback loop.</p>
 <p>To test Oxlint in your codebase, you can use the package manager of your choice at the root of your codebase:</p>
-<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-Z3uQM" id="tab-tSbNafP" checked><label data-title="npm" for="tab-tSbNafP">npm</label><input type="radio" name="group-Z3uQM" id="tab-hBPCWp8" ><label data-title="pnpm" for="tab-hBPCWp8">pnpm</label><input type="radio" name="group-Z3uQM" id="tab-zvCLiPJ" ><label data-title="yarn" for="tab-zvCLiPJ">yarn</label><input type="radio" name="group-Z3uQM" id="tab-KeYtDOY" ><label data-title="bun" for="tab-KeYtDOY">bun</label><input type="radio" name="group-Z3uQM" id="tab-fWwBuQY" ><label data-title="deno" for="tab-fWwBuQY">deno</label></div><div class="blocks">
+<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-ts5BP" id="tab-2SRHKWr" checked><label data-title="npm" for="tab-2SRHKWr">npm</label><input type="radio" name="group-ts5BP" id="tab-5PGfx90" ><label data-title="pnpm" for="tab-5PGfx90">pnpm</label><input type="radio" name="group-ts5BP" id="tab-xcWhv9e" ><label data-title="yarn" for="tab-xcWhv9e">yarn</label><input type="radio" name="group-ts5BP" id="tab-5SXSL9c" ><label data-title="bun" for="tab-5SXSL9c">bun</label><input type="radio" name="group-ts5BP" id="tab-5RBLmAt" ><label data-title="deno" for="tab-5RBLmAt">deno</label></div><div class="blocks">
 <div class="language-sh vp-adaptive-theme active"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">$</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> npx</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> oxlint@latest</span></span></code></pre>
 </div><div class="language-sh vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">$</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> pnpm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> dlx</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> oxlint@latest</span></span></code></pre>
 </div><div class="language-sh vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">$</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> yarn</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> dlx</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> oxlint@latest</span></span></code></pre>
@@ -737,7 +737,7 @@ and run Oxlint before ESLint in your local or CI setup for a quicker feedback lo
 <p>For larger projects, our advice is to turn off ESLint rules via <a href="https://www.npmjs.com/package/eslint-plugin-oxlint" target="_blank" rel="noreferrer">eslint-plugin-oxlint</a>,
 and run Oxlint before ESLint in your local or CI setup for a quicker feedback loop.</p>
 <p>To test Oxlint in your codebase, you can use the package manager of your choice at the root of your codebase:</p>
-<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-oEsIp" id="tab-NhEBfO2" checked><label data-title="npm" for="tab-NhEBfO2">npm</label><input type="radio" name="group-oEsIp" id="tab-7v1_Bk5" ><label data-title="pnpm" for="tab-7v1_Bk5">pnpm</label><input type="radio" name="group-oEsIp" id="tab-gjH9JVs" ><label data-title="yarn" for="tab-gjH9JVs">yarn</label><input type="radio" name="group-oEsIp" id="tab-W2QV9SG" ><label data-title="bun" for="tab-W2QV9SG">bun</label><input type="radio" name="group-oEsIp" id="tab-nDNP1YF" ><label data-title="deno" for="tab-nDNP1YF">deno</label></div><div class="blocks">
+<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-UFKtB" id="tab--ad1Sij" checked><label data-title="npm" for="tab--ad1Sij">npm</label><input type="radio" name="group-UFKtB" id="tab-RCy-4WC" ><label data-title="pnpm" for="tab-RCy-4WC">pnpm</label><input type="radio" name="group-UFKtB" id="tab-L2Mf8T2" ><label data-title="yarn" for="tab-L2Mf8T2">yarn</label><input type="radio" name="group-UFKtB" id="tab-r5So5nR" ><label data-title="bun" for="tab-r5So5nR">bun</label><input type="radio" name="group-UFKtB" id="tab-xN2ZFwa" ><label data-title="deno" for="tab-xN2ZFwa">deno</label></div><div class="blocks">
 <div class="language-sh vp-adaptive-theme active"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">$</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> npx</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> oxlint@latest</span></span></code></pre>
 </div><div class="language-sh vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">$</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> pnpm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> dlx</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> oxlint@latest</span></span></code></pre>
 </div><div class="language-sh vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">$</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> yarn</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> dlx</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> oxlint@latest</span></span></code></pre>
