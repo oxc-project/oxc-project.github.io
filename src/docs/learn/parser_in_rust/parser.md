@@ -380,9 +380,9 @@ function tryParseParenthesizedArrowFunctionExpression(allowReturnTypeInArrowFunc
 //                 Speculatively look ahead to be sure, and rollback if not.
 function isParenthesizedArrowFunctionExpression(): Tristate {
   if (
-    token() === SyntaxKind.OpenParenToken ||
-    token() === SyntaxKind.LessThanToken ||
-    token() === SyntaxKind.AsyncKeyword
+    token() === SyntaxKind.OpenParenToken
+    || token() === SyntaxKind.LessThanToken
+    || token() === SyntaxKind.AsyncKeyword
   ) {
     return lookAhead(isParenthesizedArrowFunctionExpressionWorker);
   }

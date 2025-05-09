@@ -21,10 +21,10 @@ makes code more uniform and easier to understand.
 Examples of **incorrect** code for this rule:
 
 ```javascript
-new Promise(function (reject, resolve) {
+new Promise(function(reject, resolve) {
   /* ... */
 }); // incorrect order
-new Promise(function (ok, fail) {
+new Promise(function(ok, fail) {
   /* ... */
 }); // non-standard parameter names
 ```
@@ -32,7 +32,7 @@ new Promise(function (ok, fail) {
 Examples of **correct** code for this rule:
 
 ```javascript
-new Promise(function (resolve, reject) {});
+new Promise(function(resolve, reject) {});
 ```
 
 ## How to use

@@ -23,13 +23,13 @@ elements do not contain the `role` and/or `aria-*` props.
 Examples of **incorrect** code for this rule:
 
 ```jsx
-<meta charset="UTF-8" aria-hidden="false" />
+<meta charset="UTF-8" aria-hidden="false" />;
 ```
 
 Examples of **correct** code for this rule:
 
 ```jsx
-<meta charset="UTF-8" />
+<meta charset="UTF-8" />;
 ```
 
 ## How to use

@@ -274,7 +274,7 @@ To have your custom components be checked as DOM elements, you can provide a map
 
 Example:
 
-`json { "settings": { "jsx-a11y": { "components": { "Link": "a", "IconButton": "button" } } } } `
+`json { "settings": { "jsx-a11y": { "components": { "Link": "a", "IconButton": "button" } } } }`
 
 #### settings.jsx-a11y.polymorphicPropName
 
@@ -287,7 +287,7 @@ An optional setting that define the prop your code uses to create polymorphic co
 
 For example, if you set the `polymorphicPropName` to `as`, then this element:
 
-`jsx <Box as="h3">Hello</Box> `
+`jsx <Box as="h3">Hello</Box>`
 
 Will be treated as an `h3`. If not set, this component will be treated as a `Box`.
 
@@ -317,7 +317,7 @@ Components used as alternatives to `<form>` for forms, such as `<Formik>`.
 
 Example:
 
-`jsonc { "settings": { "react": { "formComponents": [ "CustomForm", // OtherForm is considered a form component and has an endpoint attribute { "name": "OtherForm", "formAttribute": "endpoint" }, // allows specifying multiple properties if necessary { "name": "Form", "formAttribute": ["registerEndpoint", "loginEndpoint"] } ] } } } `
+`jsonc { "settings": { "react": { "formComponents": [ "CustomForm", // OtherForm is considered a form component and has an endpoint attribute { "name": "OtherForm", "formAttribute": "endpoint" }, // allows specifying multiple properties if necessary { "name": "Form", "formAttribute": ["registerEndpoint", "loginEndpoint"] } ] } } }`
 
 ##### settings.react.formComponents[n]
 
@@ -331,6 +331,6 @@ Components used as alternatives to `<a>` for linking, such as `<Link>`.
 
 Example:
 
-``jsonc { "settings": { "react": { "linkComponents": [ "HyperLink", // Use `linkAttribute` for components that use a different prop name // than `href`. { "name": "MyLink", "linkAttribute": "to" }, // allows specifying multiple properties if necessary { "name": "Link", "linkAttribute": ["to", "href"] } ] } } } ``
+``jsonc { "settings": { "react": { "linkComponents": [ "HyperLink", // Use `linkAttribute` for components that use a different prop name // than `href`. { "name": "MyLink", "linkAttribute": "to" }, // allows specifying multiple properties if necessary { "name": "Link", "linkAttribute": ["to", "href"] } ] } } }``
 
 ##### settings.react.linkComponents[n]

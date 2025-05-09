@@ -25,13 +25,13 @@ Inconsistencies between keyboard shortcuts and keyboard commands used by screenr
 Examples of **incorrect** code for this rule:
 
 ```jsx
-<div accessKey="h" />
+<div accessKey="h" />;
 ```
 
 Examples of **correct** code for this rule:
 
 ```jsx
-<div />
+<div />;
 ```
 
 ## How to use

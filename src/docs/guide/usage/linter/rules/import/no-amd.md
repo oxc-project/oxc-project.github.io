@@ -23,7 +23,7 @@ maintainability and consistency across the codebase.
 Examples of **incorrect** code for this rule:
 
 ```javascript
-require([a, b], function () {});
+require([a, b], function() {});
 ```
 
 Examples of **correct** code for this rule:

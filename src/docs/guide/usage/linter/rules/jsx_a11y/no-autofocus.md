@@ -51,7 +51,7 @@ Examples of **incorrect** code for this rule:
 Examples of **correct** code for this rule:
 
 ```jsx
-<div />
+<div />;
 ```
 
 ## How to use

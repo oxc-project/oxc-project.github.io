@@ -35,7 +35,7 @@ test("foo", () => {
 Examples of **correct** code for this rule:
 
 ```javascript
-import { test, expect } from "vitest";
+import { expect, test } from "vitest";
 
 test("foo", () => {
   expect(1).toBe(1);

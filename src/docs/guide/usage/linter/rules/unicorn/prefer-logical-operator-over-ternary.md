@@ -30,8 +30,6 @@ const foo = bar || baz;
 console.log(foo ?? bar);
 
 ````
-
-
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

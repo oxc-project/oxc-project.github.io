@@ -50,7 +50,7 @@ switch (a) {
     /* code */
     break;
 
-  // no default
+    // no default
 }
 ```
 
@@ -60,7 +60,7 @@ switch (a) {
     /* code */
     break;
 
-  // No Default
+    // No Default
 }
 ```
 
@@ -82,7 +82,7 @@ switch (a) {
     /* code */
     break;
 
-  // skip default
+    // skip default
 }
 ```
 

@@ -21,9 +21,9 @@ directly within the body of a `describe`, _except_ for the following:
 
 ```javascript
 // invalid
-import { database, isCity } from "../database";
 import { Logger } from "../../../src/Logger";
 import { loadCities } from "../api";
+import { database, isCity } from "../database";
 
 jest.mock("../api");
 
@@ -62,9 +62,9 @@ describe("when loading cities from the api", () => {
 clearCityDatabase();
 
 // valid
-import { database, isCity } from "../database";
 import { Logger } from "../../../src/Logger";
 import { loadCities } from "../api";
+import { database, isCity } from "../database";
 
 jest.mock("../api");
 const initializeCityDatabase = () => {

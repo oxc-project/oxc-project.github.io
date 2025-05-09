@@ -29,7 +29,7 @@ var f = Function.bind(null, "a", "b", "return a + b");
 Examples of **correct** code for this rule:
 
 ```js
-let x = function (a, b) {
+let x = function(a, b) {
   return a + b;
 };
 ```

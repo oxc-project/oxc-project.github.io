@@ -1,9 +1,9 @@
-import path from "node:path";
-import { mkdirSync, writeFileSync } from "node:fs";
-import { defineConfig, createContentLoader, type SiteConfig } from "vitepress";
 import { Author, Feed } from "feed";
-import { sharedConfig } from "./shared";
+import { mkdirSync, writeFileSync } from "node:fs";
+import path from "node:path";
+import { createContentLoader, defineConfig, type SiteConfig } from "vitepress";
 import { TEAM_MEMBERS_MAP } from "../theme/constants/team";
+import { sharedConfig } from "./shared";
 
 // Thanks to https://laros.io/generating-an-rss-feed-with-vitepress
 export const rssConfig = defineConfig({

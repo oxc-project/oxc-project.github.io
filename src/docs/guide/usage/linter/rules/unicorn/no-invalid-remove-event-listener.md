@@ -22,7 +22,7 @@ Examples of **incorrect** code for this rule:
 
 ```javascript
 el.removeEventListener("click", () => {});
-el.removeEventListener("click", function () {});
+el.removeEventListener("click", function() {});
 ```
 
 Examples of **correct** code for this rule:

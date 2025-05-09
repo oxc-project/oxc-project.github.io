@@ -19,7 +19,7 @@ consume what's returned.
 Examples of **incorrect** code for this rule:
 
 ```javascript
-myPromise.finally(function (val) {
+myPromise.finally(function(val) {
   return val;
 });
 ```

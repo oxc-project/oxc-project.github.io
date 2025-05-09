@@ -20,16 +20,16 @@ import { CORE_TEAM_MEMBERS, CONSULTANTS, EMERITI } from '@constants/team'
     <template #title>Meet the Team</template>
   </VPTeamPageTitle>
 
-  <VPTeamMembers :members="CORE_TEAM_MEMBERS" />
+<VPTeamMembers :members="CORE_TEAM_MEMBERS" />
 
-  <VPTeamPageSection>
+<VPTeamPageSection>
     <template #title>Consultants</template>
     <template #members>
       <VPTeamMembers size="small" :members="CONSULTANTS" />
     </template>
   </VPTeamPageSection>
 
-  <VPTeamPageSection>
+<VPTeamPageSection>
     <template #title>Team Emeriti</template>
     <template #members>
       <VPTeamMembers size="small" :members="EMERITI" />

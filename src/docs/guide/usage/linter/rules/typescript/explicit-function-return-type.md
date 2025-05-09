@@ -29,7 +29,7 @@ function test() {
 }
 
 // Should indicate that a number is returned
-var fn = function () {
+var fn = function() {
   return 1;
 };
 
@@ -53,7 +53,7 @@ function test(): void {
 }
 
 // A return value of type number
-var fn = function (): number {
+var fn = function(): number {
   return 1;
 };
 

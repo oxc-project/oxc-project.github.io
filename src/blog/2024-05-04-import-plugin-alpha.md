@@ -47,18 +47,18 @@ Rules that can be enabled selectively via `npx oxlint@latest --import-plugin -D 
 There are also improvements to these rules; for example, the diagnostics for the `no-cycle` rule have been improved:
 
 ```
-  ⚠ eslint-plugin-import(no-cycle): Dependency cycle detected
-    ╭─[apps/web/playwright/lib/fixtures.ts:13:42]
- 12 │ import { createPaymentsFixture } from "../fixtures/payments";
- 13 │ import { createBookingPageFixture } from "../fixtures/regularBookings";
-    ·                                          ─────────────────────────────
- 14 │ import { createRoutingFormsFixture } from "../fixtures/routingForms";
-    ╰────
-  help: These paths form a cycle:
-        -> ../fixtures/regularBookings - apps/web/playwright/fixtures/regularBookings.ts
-        -> ./users - apps/web/playwright/fixtures/users.ts
-        -> ../lib/testUtils - apps/web/playwright/lib/testUtils.ts
-        -> ./fixtures - apps/web/playwright/lib/fixtures.ts
+ ⚠ eslint-plugin-import(no-cycle): Dependency cycle detected
+   ╭─[apps/web/playwright/lib/fixtures.ts:13:42]
+12 │ import { createPaymentsFixture } from "../fixtures/payments";
+13 │ import { createBookingPageFixture } from "../fixtures/regularBookings";
+   ·                                          ─────────────────────────────
+14 │ import { createRoutingFormsFixture } from "../fixtures/routingForms";
+   ╰────
+ help: These paths form a cycle:
+       -> ../fixtures/regularBookings - apps/web/playwright/fixtures/regularBookings.ts
+       -> ./users - apps/web/playwright/fixtures/users.ts
+       -> ../lib/testUtils - apps/web/playwright/lib/testUtils.ts
+       -> ./fixtures - apps/web/playwright/lib/fixtures.ts
 ```
 
 This isn't a long list of features,

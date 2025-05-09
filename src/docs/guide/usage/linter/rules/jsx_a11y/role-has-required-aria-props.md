@@ -23,13 +23,13 @@ semantics for assistive technology.
 Examples of **incorrect** code for this rule:
 
 ```jsx
-<div role="checkbox" />
+<div role="checkbox" />;
 ```
 
 Examples of **correct** code for this rule:
 
 ```jsx
-<div role="checkbox" aria-checked="false" />
+<div role="checkbox" aria-checked="false" />;
 ```
 
 ## How to use

@@ -148,9 +148,13 @@ Later on in es6, other grammars were added to function parameters, for example `
 Now, what happens if we write the following where "01" is a strict mode error?
 
 ```javaScript
-function foo(value=(function() { return "\01" }())) {
-    "use strict";
-    return value;
+function foo(
+  value = (function() {
+    return "\01";
+  }()),
+) {
+  "use strict";
+  return value;
 }
 ```
 
@@ -174,8 +178,8 @@ Fun fact, the above rule does not apply if we are targeting `es5` in TypeScript,
 
 ```javaScript
 function foo(a, b) {
-    "use strict";
-    if (b === void 0) { b = "\01"; }
+  "use strict";
+  if (b === void 0) b = "\01";
 }
 ```
 
@@ -224,7 +228,7 @@ but in Annex B `#sec-functiondeclarations-in-ifstatement-statement-clauses`,
 it allows declaration inside the statement position of `if` statements in non-strict mode:
 
 ```javascript
-if (x) function foo() {}
+if (x) { function foo() {} }
 else function bar() {}
 ```
 
@@ -241,7 +245,7 @@ The following syntax is correct, it returns a labelled statement (not object lit
   bar={() => {
     baz: "quaz";
   }}
-/>
+/>;
 //   ^^^^^^^^^^^ `LabelledStatement`
 ```
 
@@ -709,7 +713,7 @@ These definitions define:
 
 ```javascript
 ({ prop = value } = {}); // ObjectAssignmentPattern
-({ prop = value }); // ObjectLiteral with SyntaxError
+({ prop: value }); // ObjectLiteral with SyntaxError
 ```
 
 Parsers need to parse `ObjectLiteral` with `CoverInitializedName`,
@@ -718,5 +722,5 @@ and throw the syntax error if it does not reach `=` for `ObjectAssignmentPattern
 As an exercise, which one of the following `=` should throw a syntax error?
 
 ```javascript
-let { x = 1 } = { x = 1 } = { x = 1 }
+let { x = 1 } = { x = 1 } = { x: 1 };
 ```

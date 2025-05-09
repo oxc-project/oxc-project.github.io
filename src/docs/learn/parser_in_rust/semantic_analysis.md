@@ -30,10 +30,9 @@ It is a Syntax Error if this production has an [Await] parameter.
 need to raise an error for
 
 ```javascript
-async *
-  function foo() {
+async function * foo() {
     var yield, await;
-  };
+}
 ```
 
 because `AsyncGeneratorDeclaration` has `[+Yield]` and `[+Await]` for `AsyncGeneratorBody`:

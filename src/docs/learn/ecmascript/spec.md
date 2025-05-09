@@ -123,12 +123,12 @@ All the explanation boils down to
 The `asi` function need to be manually called where applicable, for example in the end of statement:
 
 ```rust
-    fn parse_debugger_statement(&mut self) -> Result<Statement<'a>> {
-        let node = self.start_node();
-        self.expect(Kind::Debugger)?;
-        self.asi()?; // [!code highlight]
-        self.ast.debugger_statement(self.finish_node(node))
-    }
+fn parse_debugger_statement(&mut self) -> Result<Statement<'a>> {
+    let node = self.start_node();
+    self.expect(Kind::Debugger)?;
+    self.asi()?; // [!code highlight]
+    self.ast.debugger_statement(self.finish_node(node))
+}
 ```
 
 :::info

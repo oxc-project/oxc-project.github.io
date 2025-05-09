@@ -24,8 +24,6 @@ this is to keep 1:1 with eslint implementation
 sampe with `obj.<allowedName> = this`
 
 ````
-
-
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

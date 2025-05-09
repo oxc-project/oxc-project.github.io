@@ -105,8 +105,8 @@ Examples of **incorrect** code for this rule:
   "importNames": ["Baz"]
 }]}]*/
 
-import DisallowedObject from "foo";
 import { Baz } from "far";
+import DisallowedObject from "foo";
 ```
 
 ##### allowImportNames

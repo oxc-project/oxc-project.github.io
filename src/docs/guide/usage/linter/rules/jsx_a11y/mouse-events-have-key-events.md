@@ -22,13 +22,13 @@ AT compatibility, and screenreader users.
 Examples of **incorrect** code for this rule:
 
 ```jsx
-<div onMouseOver={() => void 0} />
+<div onMouseOver={() => void 0} />;
 ```
 
 Examples of **correct** code for this rule:
 
 ```jsx
-<div onMouseOver={() => void 0} onFocus={() => void 0} />
+<div onMouseOver={() => void 0} onFocus={() => void 0} />;
 ```
 
 ## How to use

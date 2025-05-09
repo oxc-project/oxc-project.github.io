@@ -23,7 +23,7 @@ var mod = require("fs");
 
 var exports = (module.exports = {});
 
-exports.sayHello = function () {
+exports.sayHello = function() {
   return "Hello";
 };
 

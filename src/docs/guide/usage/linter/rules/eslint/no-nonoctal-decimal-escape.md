@@ -26,8 +26,8 @@ Examples of **incorrect** code for this rule:
 <!-- prettier-ignore-start -->
 
 ```javascript
-let x = "\8"
-let y = "\9"
+let x = "\8";
+let y = "\9";
 ```
 
 <!-- prettier-ignore-end -->

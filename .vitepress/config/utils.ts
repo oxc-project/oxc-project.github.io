@@ -29,9 +29,9 @@ export function defineLocaleConfig(key: string, config: Config): LocaleConfig<De
     if (attrs.property === "og:title" || attrs.property === "og:description") {
       propertyOrName = attrs.property;
     } else if (
-      attrs.name === "twitter:title" ||
-      attrs.name === "twitter:description" ||
-      attrs.name === "twitter:image:alt"
+      attrs.name === "twitter:title"
+      || attrs.name === "twitter:description"
+      || attrs.name === "twitter:image:alt"
     ) {
       propertyOrName = attrs.name;
     }

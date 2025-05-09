@@ -30,11 +30,11 @@ Promise.reject(5);
 
 Promise.reject();
 
-new Promise(function (resolve, reject) {
+new Promise(function(resolve, reject) {
   reject("something bad happened");
 });
 
-new Promise(function (resolve, reject) {
+new Promise(function(resolve, reject) {
   reject();
 });
 ```
@@ -46,7 +46,7 @@ Promise.reject(new Error("something bad happened"));
 
 Promise.reject(new TypeError("something bad happened"));
 
-new Promise(function (resolve, reject) {
+new Promise(function(resolve, reject) {
   reject(new Error("something bad happened"));
 });
 

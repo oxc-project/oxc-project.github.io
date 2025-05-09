@@ -24,13 +24,13 @@ Enforces that `aria-hidden="true"` is not set on focusable elements.
 Examples of **incorrect** code for this rule:
 
 ```jsx
-<div aria-hidden="true" tabIndex="0" />
+<div aria-hidden="true" tabIndex="0" />;
 ```
 
 Examples of **correct** code for this rule:
 
 ```jsx
-<div aria-hidden="true" />
+<div aria-hidden="true" />;
 ```
 
 ## How to use

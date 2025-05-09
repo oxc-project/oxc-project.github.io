@@ -100,7 +100,7 @@ var z = 0;
 z = z + 1;
 
 // By default, unused arguments cause warnings.
-(function (foo) {
+(function(foo) {
   return 5;
 })();
 
@@ -142,12 +142,12 @@ myFunc(
   }.bind(this),
 );
 
-(function (foo) {
+(function(foo) {
   return foo;
 })();
 
 var myFunc;
-myFunc = setTimeout(function () {
+myFunc = setTimeout(function() {
   // myFunc is considered used
   myFunc();
 }, 50);

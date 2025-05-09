@@ -19,7 +19,7 @@ For example, when a test with the same title as another test in the same test su
 
 ```javascript
 describe("baz", () => {
-  //...
+  // ...
 });
 
 describe("baz", () => {

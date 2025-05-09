@@ -17,7 +17,6 @@ Prevent usage of `next/script`'s `beforeInteractive` strategy outside of `pages/
 ### Example
 
 ```javascript
-
 ```
 
 ## How to use

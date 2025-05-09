@@ -1,5 +1,5 @@
-import { defineLocaleConfig } from "./utils";
 import BLOG_SIDEBAR from "../sidebar.blog.json";
+import { defineLocaleConfig } from "./utils";
 
 const TITLE = "The JavaScript Oxidation Compiler";
 const DESCRIPTION = "A collection of high-performance JavaScript tools written in Rust";

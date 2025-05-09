@@ -22,7 +22,7 @@ if (foo) {
   if (bar) {
   }
 }
-if (foo) if (bar) baz();
+if (foo) { if (bar) baz(); }
 ```
 
 Examples of **correct** code for this rule:

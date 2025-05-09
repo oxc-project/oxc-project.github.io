@@ -47,7 +47,7 @@ jobs:
           node-version-file: .node-version
           cache: pnpm # zizmor: ignore[cache-poisoning]
       - run: pnpm install --frozen-lockfile
-      - run: pnpm run fmt --write ./src/docs/guide/usage/linter
+      - run: pnpm run fmt "./src/docs/guide/usage/linter/**"
 
       - uses: peter-evans/create-pull-request@271a8d0340265f705b14b6d32b9829c1cb33d45e # v7.0.8
         with:

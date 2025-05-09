@@ -21,7 +21,7 @@ now obsolete, so it should not be used. Here’s an example of how this
 used to work:
 
 ```js
-Foo.prototype.__iterator__ = function () {
+Foo.prototype.__iterator__ = function() {
   return new FooIterator(this);
 };
 ```
@@ -31,13 +31,13 @@ Foo.prototype.__iterator__ = function () {
 Examples of **incorrect** code for this rule:
 
 ```javascript
-Foo.prototype.__iterator__ = function () {
+Foo.prototype.__iterator__ = function() {
   return new FooIterator(this);
 };
 
-foo.__iterator__ = function () {};
+foo.__iterator__ = function() {};
 
-foo["__iterator__"] = function () {};
+foo["__iterator__"] = function() {};
 ```
 
 Examples of **correct** code for this rule:
@@ -45,7 +45,7 @@ Examples of **correct** code for this rule:
 ```js
 const __iterator__ = 42; // not using the __iterator__ property
 
-Foo.prototype[Symbol.iterator] = function () {
+Foo.prototype[Symbol.iterator] = function() {
   return new FooIterator(this);
 };
 ```

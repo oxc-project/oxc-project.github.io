@@ -23,10 +23,10 @@ nesting callbacks excessively, making code harder to read and understand.
 Examples of **incorrect** code for this rule with the `{ "max": 3 }` option:
 
 ```js
-foo1(function () {
-  foo2(function () {
-    foo3(function () {
-      foo4(function () {
+foo1(function() {
+  foo2(function() {
+    foo3(function() {
+      foo4(function() {
         // ...
       });
     });

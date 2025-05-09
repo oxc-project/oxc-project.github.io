@@ -28,13 +28,13 @@ This rule includes fixes for some common typos.
 Examples of **incorrect** code for this rule:
 
 ```jsx
-<input aria-labeledby="address_label" />
+<input aria-labeledby="address_label" />;
 ```
 
 Examples of **correct** code for this rule:
 
 ```jsx
-<input aria-labelledby="address_label" />
+<input aria-labelledby="address_label" />;
 ```
 
 ## How to use

@@ -20,17 +20,17 @@ state should rarely be necessary in such cases.
 
 ```jsx
 var Hello = createReactClass({
-  getInitialState: function () {
+  getInitialState: function() {
     return {
       name: this.props.name,
     };
   },
-  handleClick: function () {
+  handleClick: function() {
     this.setState({
       name: this.props.name.toUpperCase(),
     });
   },
-  render: function () {
+  render: function() {
     return <div onClick={this.handleClick.bind(this)}>Hello {this.state.name}</div>;
   },
 });

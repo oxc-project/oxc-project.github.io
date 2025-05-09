@@ -20,7 +20,7 @@ created Promise. For example:
 
 ```javascript
 const result = new Promise(function executor(resolve, reject) {
-  readFile("foo.txt", function (err, result) {
+  readFile("foo.txt", function(err, result) {
     if (err) {
       reject(err);
     } else {
@@ -44,7 +44,7 @@ Examples of **incorrect** code for this rule:
 
 ```javascript
 const foo = new Promise(async (resolve, reject) => {
-  readFile("foo.txt", function (err, result) {
+  readFile("foo.txt", function(err, result) {
     if (err) {
       reject(err);
     } else {
@@ -62,7 +62,7 @@ Examples of **correct** code for this rule:
 
 ```javascript
 const foo = new Promise((resolve, reject) => {
-  readFile("foo.txt", function (err, result) {
+  readFile("foo.txt", function(err, result) {
     if (err) {
       reject(err);
     } else {

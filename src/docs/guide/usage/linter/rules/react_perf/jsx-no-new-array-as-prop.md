@@ -33,7 +33,7 @@ Examples of **incorrect** code for this rule:
 Examples of **correct** code for this rule:
 
 ```jsx
-<Item list={this.props.list} />
+<Item list={this.props.list} />;
 ```
 
 ## How to use

@@ -28,7 +28,7 @@ async function example() {
 
   const { unicorn } = await foo;
 
-  console.log("after"); //<- This will never execute
+  console.log("after"); // <- This will never execute
 }
 ```
 

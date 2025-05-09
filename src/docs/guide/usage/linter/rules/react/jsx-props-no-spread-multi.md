@@ -25,7 +25,7 @@ Even when that is not the case this will lead to unnecessary computations being 
 Examples of **incorrect** code for this rule:
 
 ```jsx
-<App {...props} myAttr="1" {...props} />
+<App {...props} myAttr="1" {...props} />;
 ```
 
 Examples of **correct** code for this rule:

@@ -24,13 +24,13 @@ and access website in more than one language.
 Examples of **incorrect** code for this rule:
 
 ```jsx
-<html />
+<html />;
 ```
 
 Examples of **correct** code for this rule:
 
 ```jsx
-<html lang="en" />
+<html lang="en" />;
 ```
 
 ## How to use

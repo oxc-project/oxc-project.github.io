@@ -24,8 +24,8 @@ Examples of **incorrect** code for this rule:
 ```javascript
 /*eslint no-useless-escape: "error"*/
 
-"\'";
-'\"';
+"'";
+"\"";
 "\#";
 "\e";
 `\"`;
@@ -43,7 +43,7 @@ Examples of **correct** code for this rule:
 /*eslint no-useless-escape: "error"*/
 
 "\"";
-'\'';
+"'";
 "\x12";
 "\u00a9";
 "\371";

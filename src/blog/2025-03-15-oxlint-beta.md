@@ -75,11 +75,11 @@ The first [generally available (GA) release of Oxlint](./2023-12-12-announcing-o
 
 Despite adding many new rules that are enabled by default, Oxlint is now much faster than it ever has been. Here are some [benchmarks](https://gist.github.com/camchenry/cb09f6fae14ec1e3df1f72938b7350c8) on some popular repositories:
 
-| Repository          | File count | Lint time (GA) | Lint time (beta) | Speedup        |
-| ------------------- | ---------- | -------------- | ---------------- | -------------- |
+| Repository          | File count | Lint time (GA) | Lint time (beta) | Speedup   |
+| ------------------- | ---------- | -------------- | ---------------- | --------- |
 | `elastic/kibana`    | 68,591     | 6.02s          | **3.11s**        | **1.94x** |
 | `microsoft/vscode`  | 5,703      | 1.697s         | **0.792s**       | **2.14x** |
-| `vitest-dev/vitest` | 1,732      | 105ms          | **50ms**         | **2.1x** |
+| `vitest-dev/vitest` | 1,732      | 105ms          | **50ms**         | **2.1x**  |
 | `vuejs/core`        | 1,063      | 217ms          | **89ms**         | **2.44x** |
 
 ## Roadmap
