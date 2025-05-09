@@ -17,7 +17,11 @@ Example
 ```json
 {
   "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["import", "typescript", "unicorn"],
+  "plugins": [
+    "import",
+    "typescript",
+    "unicorn"
+  ],
   "env": {
     "browser": true
   },
@@ -37,7 +41,10 @@ Example
   },
   "overrides": [
     {
-      "files": ["*.test.ts", "*.spec.ts"],
+      "files": [
+        "*.test.ts",
+        "*.spec.ts"
+      ],
       "rules": {
         "@typescript-eslint/no-explicit-any": "off"
       }

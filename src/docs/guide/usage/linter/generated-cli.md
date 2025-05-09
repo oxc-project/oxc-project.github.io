@@ -87,7 +87,6 @@ Arguments:
   Specify patterns of files to ignore (in addition to those in .eslintignore)
 
   The supported syntax is the same as for .eslintignore and .gitignore files You should quote your patterns in order to avoid shell interpretation of glob patterns
-
 - **`--no-ignore`** &mdash;
   Disables excluding of files from .eslintignore files, **`--ignore-path`** flags and **`--ignore-pattern`** flags
 - **`--symlinks`** &mdash;
