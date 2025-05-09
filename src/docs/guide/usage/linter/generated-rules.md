@@ -2,7 +2,7 @@
 
 The progress of all rule implementations is tracked [here](https://github.com/oxc-project/oxc/issues/481).
 
-- Total number of rules: 507
+- Total number of rules: 509
 - Rules turned on by default: 123
 
 **Legend for 'Fixable?' column:**
@@ -13,7 +13,7 @@ The progress of all rule implementations is tracked [here](https://github.com/ox
 - ⚠️💡: a dangerous suggestion is available for this rule
 - 🚧: an auto-fix or suggestion is possible, but currently not implemented
 
-## Correctness (174):
+## Correctness (175):
 
 Code that is outright wrong or useless.
 
@@ -61,6 +61,7 @@ Code that is outright wrong or useless.
 | [no-unused-labels](/docs/guide/usage/linter/rules/eslint/no-unused-labels.html)                                                                       | eslint     | ✅      | 🛠️        |
 | [no-unused-private-class-members](/docs/guide/usage/linter/rules/eslint/no-unused-private-class-members.html)                                         | eslint     | ✅      |          |
 | [no-unused-vars](/docs/guide/usage/linter/rules/eslint/no-unused-vars.html)                                                                           | eslint     | ✅      | ⚠️💡      |
+| [no-useless-backreference](/docs/guide/usage/linter/rules/eslint/no-useless-backreference.html)                                                       | eslint     | ✅      |          |
 | [no-useless-catch](/docs/guide/usage/linter/rules/eslint/no-useless-catch.html)                                                                       | eslint     | ✅      |          |
 | [no-useless-escape](/docs/guide/usage/linter/rules/eslint/no-useless-escape.html)                                                                     | eslint     | ✅      | 🛠️        |
 | [no-useless-rename](/docs/guide/usage/linter/rules/eslint/no-useless-rename.html)                                                                     | eslint     | ✅      |          |
@@ -145,7 +146,7 @@ Code that is outright wrong or useless.
 | [bad-replace-all-arg](/docs/guide/usage/linter/rules/oxc/bad-replace-all-arg.html)                                                                    | oxc        | ✅      |          |
 | [const-comparisons](/docs/guide/usage/linter/rules/oxc/const-comparisons.html)                                                                        | oxc        | ✅      |          |
 | [double-comparisons](/docs/guide/usage/linter/rules/oxc/double-comparisons.html)                                                                      | oxc        | ✅      | 🛠️        |
-| [erasing-op](/docs/guide/usage/linter/rules/oxc/erasing-op.html)                                                                                      | oxc        | ✅      | 💡       |
+| [erasing-op](/docs/guide/usage/linter/rules/oxc/erasing-op.html)                                                                                      | oxc        | ✅      | ⚠️🛠️️       |
 | [missing-throw](/docs/guide/usage/linter/rules/oxc/missing-throw.html)                                                                                | oxc        | ✅      | 💡       |
 | [number-arg-out-of-range](/docs/guide/usage/linter/rules/oxc/number-arg-out-of-range.html)                                                            | oxc        | ✅      |          |
 | [only-used-in-recursion](/docs/guide/usage/linter/rules/oxc/only-used-in-recursion.html)                                                              | oxc        | ✅      | ⚠️🛠️️       |
@@ -320,7 +321,7 @@ code that is most likely wrong or useless.
 | [prefer-add-event-listener](/docs/guide/usage/linter/rules/unicorn/prefer-add-event-listener.html)                   | unicorn    |         | 🚧       |
 | [require-post-message-target-origin](/docs/guide/usage/linter/rules/unicorn/require-post-message-target-origin.html) | unicorn    |         | 💡       |
 
-## Pedantic (80):
+## Pedantic (81):
 
 Lints which are rather strict or have occasional false positives.
 
@@ -383,6 +384,7 @@ Lints which are rather strict or have occasional false positives.
 | [no-static-only-class](/docs/guide/usage/linter/rules/unicorn/no-static-only-class.html)                                       | unicorn    |         | 🚧       |
 | [no-this-assignment](/docs/guide/usage/linter/rules/unicorn/no-this-assignment.html)                                           | unicorn    |         |          |
 | [no-typeof-undefined](/docs/guide/usage/linter/rules/unicorn/no-typeof-undefined.html)                                         | unicorn    |         | 🚧       |
+| [no-unnecessary-slice-end](/docs/guide/usage/linter/rules/unicorn/no-unnecessary-slice-end.html)                               | unicorn    |         | 🛠️        |
 | [no-unreadable-iife](/docs/guide/usage/linter/rules/unicorn/no-unreadable-iife.html)                                           | unicorn    |         |          |
 | [no-useless-promise-resolve-reject](/docs/guide/usage/linter/rules/unicorn/no-useless-promise-resolve-reject.html)             | unicorn    |         | 🛠️        |
 | [no-useless-switch-case](/docs/guide/usage/linter/rules/unicorn/no-useless-switch-case.html)                                   | unicorn    |         | 🚧       |
