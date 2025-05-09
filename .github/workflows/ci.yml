@@ -20,18 +20,8 @@ concurrency:
   cancel-in-progress: ${{ github.ref_name != 'main' }}
 
 jobs:
-  check-typos:
-    name: Check typos
-    runs-on: ubuntu-latest
-    steps:
-      - uses: taiki-e/checkout-action@b13d20b7cda4e2f325ef19895128f7ff735c0b3d # v1.3.1
-      - uses: crate-ci/typos@0f0ccba9ed1df83948f0c15026e4f5ccfce46109 # v1.32.0
-        with:
-          files: .
-
   lint:
     name: Lint
-    needs: check-typos
     runs-on: ubuntu-latest
     steps:
       - uses: taiki-e/checkout-action@b13d20b7cda4e2f325ef19895128f7ff735c0b3d # v1.3.1
@@ -41,8 +31,12 @@ jobs:
           node-version-file: .node-version
           cache: pnpm
       - run: pnpm install --frozen-lockfile
-      - name: Oxlint
-        run: pnpm run lint --format github
+      - run: pnpm run lint --format github
+      - run: pnpm run fmt
+      - run: git diff --exit-code # Must commit everything
+      - uses: crate-ci/typos@0f0ccba9ed1df83948f0c15026e4f5ccfce46109 # v1.32.0
+        with:
+          files: .
 
   build-and-deploy:
     name: Build and Deploy

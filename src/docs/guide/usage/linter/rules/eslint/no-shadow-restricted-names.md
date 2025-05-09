@@ -35,7 +35,7 @@ Examples of **incorrect** code for this rule:
 ```javascript
 function NaN() {}
 
-!function (Infinity) {};
+!function(Infinity) {};
 
 var undefined = 5;
 

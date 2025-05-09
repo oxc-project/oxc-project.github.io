@@ -22,11 +22,11 @@ obj.fn?.();
 {
   "rules": {
     "no-optional-chaining": [
-        "error",
-        {
-            "message": "Our output target is ES2016, and optional chaining results in verbose
-            helpers and should be avoided.",
-        }
+      "error",
+      {
+        "message": "Our output target is ES2016, and optional chaining results in verbose
+            helpers and should be avoided."
+      }
     ]
   }
 }

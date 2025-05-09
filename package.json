@@ -9,18 +9,18 @@
     "preview": "vitepress preview",
     "lint": "oxlint -W correctness -W no-unused-vars --deny-warnings",
     "lint:fix": "pnpm lint --fix && typos -w && pnpm fmt --write .",
-    "fmt": "prettier",
     "typecheck": "tsc",
+    "fmt": "dprint fmt",
     "sponsors": "degit Boshen/sponsors temp --force && mv temp/sponsors.svg public/sponsors.svg"
   },
   "devDependencies": {
     "@types/node": "^22.10.0",
     "@vueuse/core": "^13.0.0",
     "degit": "^2.8.4",
+    "dprint": "^0.49.1",
     "feed": "^4.2.2",
     "lint-staged": "15.5.0",
     "oxlint": "^0.16.0",
-    "prettier": "^3.4.0",
     "simple-git-hooks": "^2.11.1",
     "typescript": "~5.8.0",
     "vitepress": "^1.5.0",
@@ -31,7 +31,7 @@
     "pre-commit": "npx lint-staged"
   },
   "lint-staged": {
-    "*.{js,jsx,tsx,ts,mts,css,md,json,yml}": "pnpm run fmt --write"
+    "*": "dprint fmt --allow-no-files"
   },
   "packageManager": "pnpm@10.8.0",
   "volta": {

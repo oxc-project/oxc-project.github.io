@@ -23,13 +23,13 @@ In a future major release, React will throw an error if it encounters a `javascr
 Examples of **incorrect** code for this rule:
 
 ```jsx
-<a href="javascript:void(0)">Test</a>
+<a href="javascript:void(0)">Test</a>;
 ```
 
 Examples of **correct** code for this rule:
 
 ```jsx
-<Foo test="javascript:void(0)" />
+<Foo test="javascript:void(0)" />;
 ```
 
 ## How to use

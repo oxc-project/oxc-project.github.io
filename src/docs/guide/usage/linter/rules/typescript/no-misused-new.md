@@ -35,7 +35,7 @@ declare class C {
 
 ```typescript
 interface I {
-  new (): I;
+  new(): I;
   constructor(): void;
 }
 ```
@@ -50,7 +50,7 @@ declare class C {
 
 ```typescript
 interface I {
-  new (): C;
+  new(): C;
 }
 ```
 

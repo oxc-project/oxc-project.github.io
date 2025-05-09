@@ -26,13 +26,13 @@ from accessing information on the page's structure.
 Examples of **incorrect** code for this rule:
 
 ```jsx
-<h1 />
+<h1 />;
 ```
 
 Examples of **correct** code for this rule:
 
 ```jsx
-<h1>Foo</h1>
+<h1>Foo</h1>;
 ```
 
 ## How to use

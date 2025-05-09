@@ -31,7 +31,7 @@ beforeAll("my beforeAll", () => {});
 describe("test suite", () => {});
 afterEach("my afterEach", () => {});
 
-//valid
+// valid
 
 // Above a describe block
 // In a describe block

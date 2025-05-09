@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useElementSize, useLocalStorage } from "@vueuse/core";
-import { ref, watchEffect, watch, onMounted } from "vue";
+import { onMounted, ref, watch, watchEffect } from "vue";
 const el = ref<HTMLElement>();
 const { height } = useElementSize(el);
 watchEffect(() => {
@@ -16,7 +16,7 @@ const hide = () => {
   document.documentElement.classList.add("banner-dismissed");
 };
 
-const slug = "/blog/2025-03-15-oxlint-beta"
+const slug = "/blog/2025-03-15-oxlint-beta";
 
 const bannerDismissed = useLocalStorage<boolean>(`oxc-banner-dismissed-${slug}`, false);
 
@@ -49,9 +49,7 @@ const dismiss = () => {
 
     <button type="button" @click="dismiss">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-        <path
-          d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z"
-        />
+        <path d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z" />
       </svg>
     </button>
   </div>

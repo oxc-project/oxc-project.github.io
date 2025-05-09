@@ -14,7 +14,7 @@ the maximum number of assertions is exceeded.
 ### Why is this bad?
 
 This rule enforces a maximum number of `expect()` calls.
-The following patterns are considered warnings (with the default option of `{ "max": 5 } `):
+The following patterns are considered warnings (with the default option of `{ "max": 5 }`):
 
 ### Example
 

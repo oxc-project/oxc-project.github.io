@@ -15,7 +15,6 @@
 ### Example
 
 ```javascript
-
 ```
 
 ## How to use

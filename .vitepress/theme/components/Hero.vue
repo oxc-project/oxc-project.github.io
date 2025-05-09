@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { type Ref, ref, inject, onMounted, onUnmounted } from "vue";
-import type { DefaultTheme, HeroAction } from "vitepress/theme";
 import { withBase } from "vitepress";
+import type { DefaultTheme, HeroAction } from "vitepress/theme";
 import { VPButton, VPImage } from "vitepress/theme";
+import { inject, onMounted, onUnmounted, type Ref, ref } from "vue";
 
 // Math stuff
 function vec2(x, y) {

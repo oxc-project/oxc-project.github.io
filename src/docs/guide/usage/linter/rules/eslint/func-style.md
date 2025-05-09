@@ -48,7 +48,7 @@ Examples of incorrect code for this rule with the "declaration" option:
 
 ```js
 /*eslint func-style: ["error", "declaration"]*/
-var foo = function () {
+var foo = function() {
   // ...
 };
 
@@ -68,7 +68,7 @@ Examples of incorrect code for this rule with the "expression" and {"overrides":
 
 ```js
 /*eslint func-style: ["error", "expression", { "overrides": { "namedExports": "declaration" } }]*/
-export var foo = function () {
+export var foo = function() {
   // ...
 };
 
@@ -106,7 +106,7 @@ Examples of correct code for this rule with the "declaration" and {"overrides": 
 
 ```js
 /*eslint func-style: ["error", "declaration", { "overrides": { "namedExports": "expression" } }]*/
-export var foo = function () {
+export var foo = function() {
   // ...
 };
 export var bar = () => {};
@@ -125,7 +125,7 @@ Examples of correct code for this rule with the {"overrides": { "namedExports": 
 
 ```js
 /*eslint func-style: ["error", "expression", { "overrides": { "namedExports": "ignore" } }]*/
-export var foo = function () {
+export var foo = function() {
   // ...
 };
 

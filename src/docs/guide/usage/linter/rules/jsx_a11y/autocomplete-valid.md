@@ -21,13 +21,13 @@ Incorrectly using the autocomplete attribute may decrease the accessibility of t
 Examples of **incorrect** code for this rule:
 
 ```jsx
-<input autocomplete="invalid-value" />
+<input autocomplete="invalid-value" />;
 ```
 
 Examples of **correct** code for this rule:
 
 ```jsx
-<input autocomplete="name" />
+<input autocomplete="name" />;
 ```
 
 ## How to use

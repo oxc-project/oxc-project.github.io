@@ -106,7 +106,7 @@ function doFoo(FooComponent) {
 [Immediately invoked function expressions (IIFE)](https://en.wikipedia.org/wiki/Immediately_invoked_function_expression) are ignored:
 
 ```js
-(function () {
+(function() {
   function doFoo(bar) {
     return bar;
   }

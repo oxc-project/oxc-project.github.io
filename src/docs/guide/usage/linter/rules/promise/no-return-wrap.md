@@ -37,24 +37,24 @@ Examples of **incorrect** code for this rule:
 
 ```js
 myPromise().then(() => Promise.resolve(4));
-myPromise().then(function () {
+myPromise().then(function() {
   return Promise.resolve(4);
 });
 
 myPromise().then(() => Promise.reject("err"));
-myPromise().then(function () {
+myPromise().then(function() {
   return Promise.reject("err");
 });
 ```
 
 ```js
-myPromise().catch(function () {
+myPromise().catch(function() {
   return Promise.reject("err");
 });
 ```
 
 ```js
-myPromise().finally(function () {
+myPromise().finally(function() {
   return Promise.reject("err");
 });
 ```
@@ -78,7 +78,7 @@ myPromise().then(function () {
 ```
 
 ```js
-myPromise().catch(function () {
+myPromise().catch(function() {
   throw "err";
 });
 ```
@@ -99,7 +99,7 @@ promise handler.
 With `allowReject` set to `true` the following are examples of correct code:
 
 ```js
-myPromise().then(function () {
+myPromise().then(function() {
   return Promise.reject(0);
 });
 ```

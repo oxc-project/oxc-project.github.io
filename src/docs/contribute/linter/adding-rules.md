@@ -17,14 +17,12 @@ Make sure you've read the [setup instructions](../development.md) first.
 
 ## Step 1: Pick a Rule
 
-Our [Linter product plan and
-progress](https://github.com/oxc-project/oxc/issues/481) issue tracks the status
+Our [Linter product plan and progress](https://github.com/oxc-project/oxc/issues/481) issue tracks the status
 of all rules we want to implement from existing ESLint plugins. From there, pick
 a plugin that looks interesting to you and find a rule that has not been
 implemented.
 
-Most documentation pages for ESLint rules include a link to the rule's [source
-code](https://eslint.org/docs/latest/rules/no-debugger#resources). Using this as
+Most documentation pages for ESLint rules include a link to the rule's [source code](https://eslint.org/docs/latest/rules/no-debugger#resources). Using this as
 a reference will help you with your implementation.
 
 ## Step 2: Rule Generation
@@ -36,6 +34,7 @@ just new-rule no-debugger
 ```
 
 This will:
+
 1. Create a new file in `crates/oxc_linter/rules/<plugin-name>/<rule-name>.rs` with the start of your rule's implementation and all test cases ported from ESLint
 2. Register the rule in the appropriate `mod` in [`rules.rs`](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules.rs)
 3. Add the rule to `oxc_macros::declare_all_lint_rules!`
@@ -143,8 +142,7 @@ Fill out the various documentation sections.
 - Explain why the rule is important and what undesirable behavior it prevents.
 - Provide examples of code that violates the rule and code that does not.
 
-Remember, we use this documentation to generate the [rule documentation
-pages](/docs/guide/usage/linter/rules) for this website, so make sure your
+Remember, we use this documentation to generate the [rule documentation pages](/docs/guide/usage/linter/rules) for this website, so make sure your
 documentation is clear and helpful!
 
 ### Rule Category
@@ -321,8 +319,7 @@ If you find yourself deeply nesting
 statements, consider using [`let-else`](https://doc.rust-lang.org/rust-by-example/flow_control/let_else.html) instead.
 
 :::tip
-CodeAesthetic's [never-nesting
-video](https://www.youtube.com/watch?v=CFRhGnuXG-4) explains this concept in
+CodeAesthetic's [never-nesting video](https://www.youtube.com/watch?v=CFRhGnuXG-4) explains this concept in
 more detail.
 :::
 

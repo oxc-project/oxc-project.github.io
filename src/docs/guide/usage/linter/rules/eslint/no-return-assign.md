@@ -23,7 +23,7 @@ Because of this ambiguity, it’s considered a best practice to not use assignme
 Examples of **incorrect** code for this rule:
 
 ```js
-() => (a = b);
+(() => (a = b));
 function x() {
   return (a = b);
 }
@@ -32,7 +32,7 @@ function x() {
 Examples of **correct** code for this rule:
 
 ```js
-() => (a = b);
+(() => (a = b));
 function x() {
   var result = (a = b);
   return result;

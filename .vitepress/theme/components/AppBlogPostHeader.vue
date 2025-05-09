@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { computed, onMounted, ref, watchEffect } from "vue";
-import { useData } from "vitepress";
 import { TEAM_MEMBERS_MAP } from "@constants/team";
 import type { TeamMember } from "@constants/team";
+import { useData } from "vitepress";
+import { computed, onMounted, ref, watchEffect } from "vue";
 
 const vitePressData = useData();
 const title = computed<string>(() => vitePressData.frontmatter.value.title);
@@ -19,7 +19,7 @@ const authors = computed(() =>
     }
 
     return [];
-  }),
+  })
 );
 const date = computed(() => {
   const filePath = vitePressData.page.value.filePath;
@@ -52,7 +52,7 @@ onMounted(() => {
       <time :datetime="isoDatetime">{{ datetime }}</time>
     </p>
     <ul class="authors">
-      <li v-for="{ avatar, link, name, title } in authors" :key="name" class="author">
+      <li v-for="({ avatar, link, name, title }) in authors" :key="name" class="author">
         <img :src="avatar" :alt="name" class="author-avatar" />
         <p class="author-text">
           <a v-if="link" :href="link" target="_blank" class="author-name">{{ name }}</a>

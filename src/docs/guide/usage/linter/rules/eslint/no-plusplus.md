@@ -10,7 +10,7 @@
 
 ### What it does
 
-Disallow the unary operators `++`` and `--`.
+Disallow the unary operators `++` and``--`.
 
 ### Why is this bad?
 

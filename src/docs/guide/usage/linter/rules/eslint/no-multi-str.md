@@ -17,8 +17,7 @@ that was only formalized later.
 ### Example
 
 ```javascript
-var x =
-  "Line 1 \
+var x = "Line 1 \
  Line 2";
 ```
 

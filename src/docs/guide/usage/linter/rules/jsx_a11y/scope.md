@@ -26,7 +26,7 @@ A screen reader operates under the assumption that a table has a header and that
 Examples of **incorrect** code for this rule:
 
 ```jsx
-<div scope />
+<div scope />;
 ```
 
 Examples of **correct** code for this rule:

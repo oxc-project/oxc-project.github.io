@@ -32,8 +32,8 @@ import { y } from "./bar";
 Examples of **correct** code for this rule:
 
 ```js
-import { x } from "./foo";
 import { y } from "./bar";
+import { x } from "./foo";
 export { x, y };
 ```
 
@@ -44,8 +44,8 @@ with `"absolute-first"`:
 Examples of **incorrect** code for this rule:
 
 ```js
-import { x } from "./foo";
 import { y } from "bar";
+import { x } from "./foo";
 ```
 
 Examples of **correct** code for this rule:

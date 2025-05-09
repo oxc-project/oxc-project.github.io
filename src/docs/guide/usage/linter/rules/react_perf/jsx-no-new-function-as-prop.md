@@ -30,7 +30,7 @@ Examples of **incorrect** code for this rule:
 Examples of **correct** code for this rule:
 
 ```jsx
-<Item callback={this.props.callback} />
+<Item callback={this.props.callback} />;
 ```
 
 ## How to use

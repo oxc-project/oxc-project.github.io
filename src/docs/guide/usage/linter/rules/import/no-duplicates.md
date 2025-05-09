@@ -31,7 +31,7 @@ import { b } from "./module";
 Examples of **correct** code for this rule:
 
 ```typescript
-import { foo, bar } from "./module";
+import { bar, foo } from "./module";
 
 import * as a from "foo"; // separate statements for namespace imports
 import { b } from "foo";

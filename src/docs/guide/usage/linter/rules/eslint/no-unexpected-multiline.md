@@ -29,7 +29,7 @@ var a = b(x || y).doSomething();
 
 var a = b[(a, b, c)].forEach(doSomething);
 
-let x = (function () {})`hello`;
+let x = (function() {})`hello`;
 
 foo / bar / g.test(baz);
 ```
@@ -43,7 +43,7 @@ var a = b;
 var a = b;
 [a, b, c].forEach(doSomething);
 
-let x = function () {};
+let x = function() {};
 `hello`;
 
 foo;

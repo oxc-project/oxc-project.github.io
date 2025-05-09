@@ -41,7 +41,7 @@ let a = function hello() {
 Examples of **correct** code for this rule:
 
 ```javascript
-let foo = function () {};
+let foo = function() {};
 foo = bar;
 ```
 

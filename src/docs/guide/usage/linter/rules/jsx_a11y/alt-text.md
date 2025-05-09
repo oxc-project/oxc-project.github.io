@@ -34,13 +34,13 @@ text that describes the element's content or purpose.
 Examples of **incorrect** code for this rule:
 
 ```jsx
-<img src="flower.jpg" alt="A close-up of a white daisy" />
+<img src="flower.jpg" alt="A close-up of a white daisy" />;
 ```
 
 Examples of **correct** code for this rule:
 
 ```jsx
-<img src="flower.jpg" />
+<img src="flower.jpg" />;
 ```
 
 ## How to use

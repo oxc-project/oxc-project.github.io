@@ -34,7 +34,7 @@ Examples of **incorrect** code for this rule:
 Examples of **correct** code for this rule:
 
 ```jsx
-<Item config={staticConfig} />
+<Item config={staticConfig} />;
 ```
 
 ## How to use

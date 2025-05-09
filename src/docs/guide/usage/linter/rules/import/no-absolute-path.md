@@ -32,8 +32,8 @@ var f = require("/some/path");
 Examples of **correct** code for this rule:
 
 ```js
-import _ from "lodash";
 import foo from "foo";
+import _ from "lodash";
 import foo from "./foo";
 
 var _ = require("lodash");
@@ -44,15 +44,15 @@ var foo = require("./foo");
 Examples of **incorrect** code for the `{ amd: true }` option:
 
 ```js
-define("/foo", function (foo) {});
-require("/foo", function (foo) {});
+define("/foo", function(foo) {});
+require("/foo", function(foo) {});
 ```
 
 Examples of **correct** code for the `{ amd: true }` option:
 
 ```js
-define("./foo", function (foo) {});
-require("./foo", function (foo) {});
+define("./foo", function(foo) {});
+require("./foo", function(foo) {});
 ```
 
 ### Options
@@ -68,10 +68,10 @@ If `{ amd: true }` is provided, dependency paths for AMD-style define and requir
 
 ```js
 /*eslint import/no-absolute-path: ['error', { commonjs: false, amd: true }]*/
-define(["/foo"], function (foo) {
+define(["/foo"], function(foo) {
   /*...*/
 }); // reported
-require(["/foo"], function (foo) {
+require(["/foo"], function(foo) {
   /*...*/
 }); // reported
 

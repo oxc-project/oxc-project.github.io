@@ -20,10 +20,10 @@ Examples of **incorrect** code for this rule:
 
 ```javascript
 export default class {}
-export default function () {}
+export default function() {}
 export default () => {};
 module.exports = class {};
-module.exports = function () {};
+module.exports = function() {};
 module.exports = () => {};
 ```
 
@@ -31,13 +31,13 @@ Examples of **correct** code for this rule:
 
 ```javascript
 export default class Foo {}
-export default function foo () {}
+export default function foo() {}
 
 const foo = () => {};
 export default foo;
 
 module.exports = class Foo {};
-module.exports = function foo () {};
+module.exports = function foo() {};
 
 const foo = () => {};
 module.exports = foo;

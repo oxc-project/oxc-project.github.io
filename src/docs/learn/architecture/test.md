@@ -51,16 +51,16 @@ All linter diagnostics are written to a [snapshot file](https://github.com/oxc-p
 For example:
 
 ```javascript
-  ⚠ typescript-eslint(adjacent-overload-signatures): All "foo" signatures should be adjacent.
-   ╭─[adjacent_overload_signatures.tsx:3:18]
- 2 │         function foo(s: string);
- 3 │         function foo(n: number);
-   ·                  ───
- 4 │         type bar = number;
- 5 │         function foo(sn: string | number) {}
-   ·                  ───
- 6 │       }
-   ╰────
+ ⚠ typescript-eslint(adjacent-overload-signatures): All "foo" signatures should be adjacent.
+  ╭─[adjacent_overload_signatures.tsx:3:18]
+2 │         function foo(s: string);
+3 │         function foo(n: number);
+  ·                  ───
+4 │         type bar = number;
+5 │         function foo(sn: string | number) {}
+  ·                  ───
+6 │       }
+  ╰────
 ```
 
 ### Ecosystem CI

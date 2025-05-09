@@ -22,10 +22,10 @@ auto-imports less reliable.
 Examples of **incorrect** code for this rule:
 
 ```javascript
-export default 'bar';
+export default "bar";
 
-const foo = 'foo';
-export { foo as default }
+const foo = "foo";
+export { foo as default };
 ```
 
 Examples of **correct** code for this rule:

@@ -38,8 +38,8 @@ If a rule's name is unique, it can also be configured without specifying the plu
   "rules": {
     "no-alert": "error", // Emit an error message when a call to `alert()` is found
     "oxc/approx-constant": "warn", // Show a warning when you write a number close to a known constant
-    "no-plusplus": "off", // Allow using the `++` and `--` operators
-  },
+    "no-plusplus": "off" // Allow using the `++` and `--` operators
+  }
 }
 ```
 
@@ -55,8 +55,8 @@ To configure a rule with rule-specific options, use an array with the severity l
 {
   "rules": {
     // Generally error on `x++`, but allow it be used in a for-loop, like `for (let x = 0; x < 10; x++)`
-    "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
-  },
+    "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }]
+  }
 }
 ```
 
@@ -130,8 +130,8 @@ Each lint rule belongs to a category, which describes the general purpose or beh
   // Enable all rules in the `correctness` and `suspicious` categories
   "categories": {
     "correctness": "error",
-    "suspicious": "warn",
-  },
+    "suspicious": "warn"
+  }
 }
 ```
 
@@ -161,7 +161,7 @@ Plugins can be enabled with the `plugins` property in a configuration file. The 
 ```jsonc
 {
   // Enable all of these plugins (which are enabled by default):
-  "plugins": ["react", "unicorn", "typescript", "oxc"],
+  "plugins": ["react", "unicorn", "typescript", "oxc"]
 }
 ```
 
@@ -170,7 +170,7 @@ Default plugins can be disabled by setting an empty array as the value of the `p
 ```jsonc
 {
   // Disable all default plugins
-  "plugins": [],
+  "plugins": []
 }
 ```
 
@@ -189,36 +189,36 @@ Rule configurations can be changed depending on the file path, and this is done 
 ```jsonc
 {
   "rules": {
-    "no-console": "error",
+    "no-console": "error"
   },
   "overrides": [
     {
       "files": ["script/*.js"],
       "rules": {
         // Allow console.* calls in scripts
-        "no-console": "off",
-      },
+        "no-console": "off"
+      }
     },
     {
       // Enable TypeScript-specific rules for TypeScript files
       "files": ["**/*.{ts,tsx}"],
       "plugins": ["typescript"],
       "rules": {
-        "typescript/no-explicit-any": "error",
-      },
+        "typescript/no-explicit-any": "error"
+      }
     },
     {
       // Enable Jest rules for tests
       "files": ["**/test/**"],
       "plugins": ["jest"],
       "env": {
-        "jest": true,
+        "jest": true
       },
       "rules": {
-        "jest/no-disabled-tests": "off",
-      },
-    },
-  ],
+        "jest/no-disabled-tests": "off"
+      }
+    }
+  ]
 }
 ```
 
@@ -246,7 +246,7 @@ You can ignore certain patterns of files by configuring the `ignorePatterns` pro
 
 ```jsonc
 {
-  "ignorePatterns": ["vendor", "test/snapshots/**", "test.js"],
+  "ignorePatterns": ["vendor", "test/snapshots/**", "test.js"]
 }
 ```
 

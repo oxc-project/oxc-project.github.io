@@ -39,18 +39,18 @@ Examples of **incorrect** code for this rule:
 /*oxlint func-names: "error" */
 
 // default is "always" and there is an anonymous function
-Foo.prototype.bar = function () {};
+Foo.prototype.bar = function() {};
 
 /*oxlint func-names: ["error", "always"] */
 
 // there is an anonymous function
-Foo.prototype.bar = function () {};
+Foo.prototype.bar = function() {};
 
 /*oxlint func-names: ["error", "as-needed"] */
 
 // there is an anonymous function
 // where the name isn’t assigned automatically per the ECMAScript specs
-Foo.prototype.bar = function () {};
+Foo.prototype.bar = function() {};
 
 /*oxlint func-names: ["error", "never"] */
 
@@ -71,11 +71,11 @@ Foo.prototype.bar = function bar() {};
 
 /*oxlint func-names: ["error", "as-needed"] */
 
-var foo = function () {};
+var foo = function() {};
 
 /*oxlint func-names: ["error", "never"] */
 
-Foo.prototype.bar = function () {};
+Foo.prototype.bar = function() {};
 ```
 
 ## How to use

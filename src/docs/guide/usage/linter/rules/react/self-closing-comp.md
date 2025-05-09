@@ -30,7 +30,7 @@ Examples of **correct** code for this rule:
 
 ```jsx
 const elem = <Component linter="oxlint" />;
-const welem = <Component linter="oxlint"> </Component>;
+const welem = <Component linter="oxlint"></Component>;
 const dom_elem = <div id="oxlint" />;
 ```
 

@@ -21,10 +21,10 @@ the code and find necessary imports later.
 ### Example
 
 ```javascript
-import { b, a, c } from "foo.js";
+import { a, b, c } from "foo.js";
 
-import d from "foo.js";
 import e from "bar.js";
+import d from "foo.js";
 ```
 
 ## How to use

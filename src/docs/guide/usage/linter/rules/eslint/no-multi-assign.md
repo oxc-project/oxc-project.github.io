@@ -14,7 +14,7 @@ Disallow use of chained assignment expressions.
 Chaining the assignment of variables can lead to unexpected results and be difficult to read.
 
 ```js
-(function () {
+(function() {
   const foo = (bar = 0); // Did you mean `foo = bar == 0`?
   bar = 1; // This will not fail since `bar` is not constant.
 })();

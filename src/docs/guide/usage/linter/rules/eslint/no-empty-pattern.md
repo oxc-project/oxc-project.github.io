@@ -20,7 +20,7 @@ an embedded object destructuring pattern, such as:
 
 ```JavaScript
 // doesn't create any variables
-var {a: {}} = foo;
+var { a: {} } = foo;
 ```
 
 In this code, no new variables are created because a is just a location helper
@@ -28,7 +28,7 @@ while the `{}` is expected to contain the variables to create, such as:
 
 ```JavaScript
 // creates variable b
-var {a: { b }} = foo;
+var { a: { b } } = foo;
 ```
 
 In many cases, the empty object pattern is a mistake
@@ -36,7 +36,7 @@ where the author intended to use a default value instead, such as:
 
 ```JavaScript
 // creates variable a
-var {a = {}} = foo;
+var { a = {} } = foo;
 ```
 
 The difference between these two patterns is subtle,
@@ -47,21 +47,21 @@ especially because the problematic empty pattern looks just like an object liter
 ```JavaScript
 var {} = foo;
 var [] = foo;
-var {a: {}} = foo;
-var {a: []} = foo;
+var { a: {} } = foo;
+var { a: [] } = foo;
 function foo({}) {}
 function foo([]) {}
-function foo({a: {}}) {}
-function foo({a: []}) {}
+function foo({ a: {} }) {}
+function foo({ a: [] }) {}
 ```
 
 ### Examples of correct code for this rule:
 
 ```JavaScript
-var {a = {}} = foo;
-var {a = []} = foo;
-function foo({a = {}}) {}
-function foo({a = []}) {}
+var { a = {} } = foo;
+var { a = [] } = foo;
+function foo({ a = {} }) {}
+function foo({ a = [] }) {}
 ```
 
 ## How to use

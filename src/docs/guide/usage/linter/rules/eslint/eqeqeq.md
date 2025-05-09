@@ -43,7 +43,7 @@ The above will evaluate to `false` (an array is not boolean true).
 #### null
 
 ```json
-  "eslint/eqeqeq": ["error", "always", {"null": "ignore"}]
+"eslint/eqeqeq": ["error", "always", {"null": "ignore"}]
 ```
 
 Allow nullish comparison (`foo == null`). The alternative (`foo === null || foo === undefined`) is verbose and has no other benefit.
@@ -51,7 +51,7 @@ Allow nullish comparison (`foo == null`). The alternative (`foo === null || foo 
 #### smart
 
 ```json
-  "eslint/eqeqeq": ["error", "smart"]
+"eslint/eqeqeq": ["error", "smart"]
 ```
 
 Allow `==` when comparing:

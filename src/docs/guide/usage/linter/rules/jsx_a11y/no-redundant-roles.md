@@ -25,13 +25,13 @@ Redundant roles can lead to confusion and verbosity in the codebase.
 Examples of **incorrect** code for this rule:
 
 ```jsx
-<nav role="navigation" />
+<nav role="navigation" />;
 ```
 
 Examples of **correct** code for this rule:
 
 ```jsx
-<nav />
+<nav />;
 ```
 
 ## How to use

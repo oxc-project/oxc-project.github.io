@@ -25,16 +25,16 @@ In the following example the module import on line 1 is repeated on line 3. Thes
 combined to make the list of imports more succinct.
 
 ```js
-import { merge } from "module";
 import something from "another-module";
+import { merge } from "module";
 import { find } from "module";
 ```
 
 Examples of **correct** code for this rule:
 
 ```js
-import { merge, find } from "module";
 import something from "another-module";
+import { find, merge } from "module";
 ```
 
 ### Options
@@ -67,7 +67,7 @@ export { merge as lodashMerge };
 ```
 
 ```js
-import { merge, find } from "module";
+import { find, merge } from "module";
 
 // cannot be merged with the above import
 export * as something from "module";

@@ -17,7 +17,6 @@ Prevent usage of `<head>` element.
 ### Example
 
 ```javascript
-
 ```
 
 ## How to use

@@ -16,7 +16,7 @@ Nesting `describe()` blocks too deeply can make the test suite hard to read and 
 ### Example
 
 The following patterns are considered warnings (with the default option of
-`{ "max": 5 } `):
+`{ "max": 5 }`):
 
 /// /// Examples of **incorrect** code for this rule:
 
@@ -37,12 +37,12 @@ describe("foo", () => {
   });
 });
 
-describe("foo", function () {
-  describe("bar", function () {
-    describe("baz", function () {
-      describe("qux", function () {
-        describe("quxx", function () {
-          describe("too many", function () {
+describe("foo", function() {
+  describe("bar", function() {
+    describe("baz", function() {
+      describe("qux", function() {
+        describe("quxx", function() {
+          describe("too many", function() {
             it("should get something", () => {
               expect(getSomething()).toBe("Something");
             });
@@ -70,17 +70,17 @@ describe("foo", () => {
   });
 });
 
-describe("foo2", function () {
+describe("foo2", function() {
   it("should get something", () => {
     expect(getSomething()).toBe("Something");
   });
 });
 
-describe("foo", function () {
-  describe("bar", function () {
-    describe("baz", function () {
-      describe("qux", function () {
-        describe("this is the limit", function () {
+describe("foo", function() {
+  describe("bar", function() {
+    describe("baz", function() {
+      describe("qux", function() {
+        describe("this is the limit", function() {
           it("should get something", () => {
             expect(getSomething()).toBe("Something");
           });

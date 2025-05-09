@@ -21,9 +21,9 @@ Examples of **incorrect** code for this rule:
 ```javascript
 new Person();
 
-() => {
+(() => {
   new Date();
-};
+});
 ```
 
 Examples of **correct** code for this rule:

@@ -20,7 +20,6 @@ Prevent page-only custom fonts.
 ### Example
 
 ```javascript
-
 ```
 
 ## How to use

@@ -23,7 +23,7 @@ Examples of **incorrect** code for this rule:
 ```javascript
 doThing().then(() => a.then());
 
-doThing().then(function () {
+doThing().then(function() {
   a.then();
 });
 
@@ -39,7 +39,7 @@ Examples of **correct** code for this rule:
 ```javascript
 doThing().then(() => 4);
 
-doThing().then(function () {
+doThing().then(function() {
   return 4;
 });
 

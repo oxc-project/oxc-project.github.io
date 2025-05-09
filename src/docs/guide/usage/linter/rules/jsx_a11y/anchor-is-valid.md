@@ -34,13 +34,13 @@ Consider the following:
     Perform action
   </a>
   <a onClick={foo}>Perform action</a>
-</>
+</>;
 ```
 
 All these anchor implementations indicate that the element is only used to execute JavaScript code. All the above should be replaced with:
 
 ```jsx
-<button onClick={foo}>Perform action</button>
+<button onClick={foo}>Perform action</button>;
 ```
 
 `
@@ -62,7 +62,7 @@ There are **many reasons** why an anchor should not have a logic and have a corr
   <a href={`https://www.javascript.com`}>navigate here</a>
   <a href={somewhere}>navigate here</a>
   <a {...spread}>navigate here</a>
-</>
+</>;
 ```
 
 #### Invalid
@@ -76,7 +76,7 @@ There are **many reasons** why an anchor should not have a logic and have a corr
   <a href="https://example.com" onClick={something}>
     navigate here
   </a>
-</>
+</>;
 ```
 
 ### Reference

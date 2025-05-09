@@ -27,7 +27,7 @@ disrupting the logical order of content.
 Examples of **incorrect** code for this rule:
 
 ```jsx
-<span tabIndex="1">foo</span>
+<span tabIndex="1">foo</span>;
 ```
 
 Examples of **correct** code for this rule:

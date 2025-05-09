@@ -38,8 +38,7 @@ app.get("/", async (req, res) => {
 });
 ```
 
-See [Express' Error Handling
-Guide](https://expressjs.com/en/guide/error-handling.html) for more
+See [Express' Error Handling Guide](https://expressjs.com/en/guide/error-handling.html) for more
 information.
 
 ### Examples

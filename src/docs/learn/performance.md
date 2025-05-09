@@ -516,25 +516,25 @@ As it turns out, [LLVM already optimized our code](https://github.com/Boshen/oxc
 By using `--emit=llvm-ir` on `rustc`, we find the relevant code:
 
 ```
-  switch i64 %s.1, label %bb6 [
-    i64 2, label %"_ZN4core5slice3cmp81_$LT$impl$u20$core..cmp..PartialEq$LT$$u5b$B$u5d$$GT$$u20$for$u20$$u5b$A$u5d$$GT$2eq17h46d405acb5da4997E.exit.i"
-    i64 3, label %"_ZN4core5slice3cmp81_$LT$impl$u20$core..cmp..PartialEq$LT$$u5b$B$u5d$$GT$$u20$for$u20$$u5b$A$u5d$$GT$2eq17h46d405acb5da4997E.exit280.i"
-    i64 4, label %"_ZN4core5slice3cmp81_$LT$impl$u20$core..cmp..PartialEq$LT$$u5b$B$u5d$$GT$$u20$for$u20$$u5b$A$u5d$$GT$2eq17h46d405acb5da4997E.exit325.i"
-    i64 5, label %"_ZN4core5slice3cmp81_$LT$impl$u20$core..cmp..PartialEq$LT$$u5b$B$u5d$$GT$$u20$for$u20$$u5b$A$u5d$$GT$2eq17h46d405acb5da4997E.exit380.i"
-    i64 6, label %"_ZN4core5slice3cmp81_$LT$impl$u20$core..cmp..PartialEq$LT$$u5b$B$u5d$$GT$$u20$for$u20$$u5b$A$u5d$$GT$2eq17h46d405acb5da4997E.exit450.i"
-    i64 7, label %"_ZN4core5slice3cmp81_$LT$impl$u20$core..cmp..PartialEq$LT$$u5b$B$u5d$$GT$$u20$for$u20$$u5b$A$u5d$$GT$2eq17h46d405acb5da4997E.exit540.i"
-    i64 8, label %"_ZN4core5slice3cmp81_$LT$impl$u20$core..cmp..PartialEq$LT$$u5b$B$u5d$$GT$$u20$for$u20$$u5b$A$u5d$$GT$2eq17h46d405acb5da4997E.exit590.i"
-    i64 9, label %"_ZN4core5slice3cmp81_$LT$impl$u20$core..cmp..PartialEq$LT$$u5b$B$u5d$$GT$$u20$for$u20$$u5b$A$u5d$$GT$2eq17h46d405acb5da4997E.exit625.i"
-    i64 10, label %"_ZN4core5slice3cmp81_$LT$impl$u20$core..cmp..PartialEq$LT$$u5b$B$u5d$$GT$$u20$for$u20$$u5b$A$u5d$$GT$2eq17h46d405acb5da4997E.exit655.i"
-    i64 11, label %"_ZN4core5slice3cmp81_$LT$impl$u20$core..cmp..PartialEq$LT$$u5b$B$u5d$$GT$$u20$for$u20$$u5b$A$u5d$$GT$2eq17h46d405acb5da4997E.exit665.i"
-  ], !dbg !191362
+switch i64 %s.1, label %bb6 [
+  i64 2, label %"_ZN4core5slice3cmp81_$LT$impl$u20$core..cmp..PartialEq$LT$$u5b$B$u5d$$GT$$u20$for$u20$$u5b$A$u5d$$GT$2eq17h46d405acb5da4997E.exit.i"
+  i64 3, label %"_ZN4core5slice3cmp81_$LT$impl$u20$core..cmp..PartialEq$LT$$u5b$B$u5d$$GT$$u20$for$u20$$u5b$A$u5d$$GT$2eq17h46d405acb5da4997E.exit280.i"
+  i64 4, label %"_ZN4core5slice3cmp81_$LT$impl$u20$core..cmp..PartialEq$LT$$u5b$B$u5d$$GT$$u20$for$u20$$u5b$A$u5d$$GT$2eq17h46d405acb5da4997E.exit325.i"
+  i64 5, label %"_ZN4core5slice3cmp81_$LT$impl$u20$core..cmp..PartialEq$LT$$u5b$B$u5d$$GT$$u20$for$u20$$u5b$A$u5d$$GT$2eq17h46d405acb5da4997E.exit380.i"
+  i64 6, label %"_ZN4core5slice3cmp81_$LT$impl$u20$core..cmp..PartialEq$LT$$u5b$B$u5d$$GT$$u20$for$u20$$u5b$A$u5d$$GT$2eq17h46d405acb5da4997E.exit450.i"
+  i64 7, label %"_ZN4core5slice3cmp81_$LT$impl$u20$core..cmp..PartialEq$LT$$u5b$B$u5d$$GT$$u20$for$u20$$u5b$A$u5d$$GT$2eq17h46d405acb5da4997E.exit540.i"
+  i64 8, label %"_ZN4core5slice3cmp81_$LT$impl$u20$core..cmp..PartialEq$LT$$u5b$B$u5d$$GT$$u20$for$u20$$u5b$A$u5d$$GT$2eq17h46d405acb5da4997E.exit590.i"
+  i64 9, label %"_ZN4core5slice3cmp81_$LT$impl$u20$core..cmp..PartialEq$LT$$u5b$B$u5d$$GT$$u20$for$u20$$u5b$A$u5d$$GT$2eq17h46d405acb5da4997E.exit625.i"
+  i64 10, label %"_ZN4core5slice3cmp81_$LT$impl$u20$core..cmp..PartialEq$LT$$u5b$B$u5d$$GT$$u20$for$u20$$u5b$A$u5d$$GT$2eq17h46d405acb5da4997E.exit655.i"
+  i64 11, label %"_ZN4core5slice3cmp81_$LT$impl$u20$core..cmp..PartialEq$LT$$u5b$B$u5d$$GT$$u20$for$u20$$u5b$A$u5d$$GT$2eq17h46d405acb5da4997E.exit665.i"
+], !dbg !191362
 ```
 
 `%s` is the string, `%s.1` is its length ... it is branching on the string length! The compiler is smarter than us 😃.
 
 (Yes, we got so serious with this so we started looking at LLVM IR and assembly code.)
 
-Later on, [@strager](https://twitter.com/strager) posted a very educational YouTube video [Faster than Rust and C++: the PERFECT hash table ](https://www.youtube.com/watch?v=DMQ_HcNSOAI) on this topic.
+Later on, [@strager](https://twitter.com/strager) posted a very educational YouTube video [Faster than Rust and C++: the PERFECT hash table](https://www.youtube.com/watch?v=DMQ_HcNSOAI) on this topic.
 The video taught us a systematic approach to reasoning about fine-tuning performance problems
 
 In the end, we concluded that the simple keyword match is enough for us since it was only about 1 - 2% of the performance,

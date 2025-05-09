@@ -18,7 +18,7 @@ This rule enforces a consistent React class style.
 
 ```jsx
 var Hello = createReactClass({
-  render: function () {
+  render: function() {
     return <div>Hello {this.props.name}</div>;
   },
 });

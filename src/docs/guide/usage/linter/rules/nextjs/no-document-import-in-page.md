@@ -17,7 +17,6 @@ Prevent importing `next/document` outside of `pages/_document.js`.
 ### Example
 
 ```javascript
-
 ```
 
 ## How to use

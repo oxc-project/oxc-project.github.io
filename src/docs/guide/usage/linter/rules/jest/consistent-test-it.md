@@ -42,12 +42,12 @@ test.only("foo"); // invalid
 ```javascript
 /*eslint jest/consistent-test-it: ["error", {"fn": "it", "withinDescribe": "test"}]*/
 it("foo"); // valid
-describe("foo", function () {
+describe("foo", function() {
   test("bar"); // valid
 });
 
 test("foo"); // invalid
-describe("foo", function () {
+describe("foo", function() {
   it("bar"); // invalid
 });
 ```

@@ -9,8 +9,7 @@ most rules in `recommended` configs already implemented.
 
 :::warning
 Oxlint does not support custom plugins at this time. We have plans to implement
-this in the future. You can track its status on [our
-backlog](https://github.com/oxc-project/backlog/issues/9905) and provide feedback in [this discussion](https://github.com/oxc-project/oxc/discussions/10342).
+this in the future. You can track its status on [our backlog](https://github.com/oxc-project/backlog/issues/9905) and provide feedback in [this discussion](https://github.com/oxc-project/oxc/discussions/10342).
 :::
 
 ## Enabling Plugins
@@ -100,8 +99,7 @@ plan`](https://github.com/oxc-project/oxc/issues/481) issue on GitHub.
 ## Adding New Plugins
 
 Do you have a favorite ESLint plugin that you'd like to see supported in Oxlint?
-Please open [a feature
-request](https://github.com/oxc-project/oxc/issues/new?assignees=&labels=C-enhancement%2CA-linter&projects=&template=feature_request.md&title=linter:%20support%20my%20favorite%20plugin).
+Please open [a feature request](https://github.com/oxc-project/oxc/issues/new?assignees=&labels=C-enhancement%2CA-linter&projects=&template=feature_request.md&title=linter:%20support%20my%20favorite%20plugin).
 Please be aware that we have no plans on supporting rules in plugins that require special
 parsers, such as `eslint-plugin-vue` and `eslint-plugin-svelte`, though we are
 open to supporting rules in these plugins that only affect script tags in their
