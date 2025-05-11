@@ -33,7 +33,7 @@
   "lint-staged": {
     "*": "dprint fmt --allow-no-files"
   },
-  "packageManager": "pnpm@10.8.0",
+  "packageManager": "pnpm@10.10.0",
   "volta": {
     "node": "22.14.0"
   }
