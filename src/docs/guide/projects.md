@@ -39,7 +39,3 @@ outline: deep
 
 - [unplugin-isolated-decl](https://www.npmjs.com/package/unplugin-isolated-decl) - A blazing-fast tool for generating isolated declarations
 - [stc](https://github.com/long-woo/stc) - A tool for converting OpenApi/Swagger/Apifox into code
-
-## Media
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/7VctnNVXe2A?si=3laDGbv4vNVbgvsg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>

@@ -83,6 +83,7 @@ export const enConfig = defineLocaleConfig("root", {
           items: [
             { text: "All benchmarks", link: "/docs/guide/benchmarks" },
             { text: "Projects using Oxc", link: "/docs/guide/projects" },
+            { text: "On media", link: "/docs/guide/media" },
           ],
         },
       ],
