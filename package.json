@@ -4,9 +4,10 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "dev": "vitepress dev",
-    "build": "pnpm run sponsors && vitepress build",
-    "preview": "vitepress preview",
+    "dev": "ROLLDOWN_OPTIONS_VALIDATION=loose vitepress dev",
+    "prebuild": "pnpm run sponsors",
+    "build": "ROLLDOWN_OPTIONS_VALIDATION=loose vitepress build",
+    "preview": "ROLLDOWN_OPTIONS_VALIDATION=loose vitepress preview",
     "lint": "oxlint -W correctness -W no-unused-vars --deny-warnings",
     "lint:fix": "pnpm lint --fix && typos -w && pnpm fmt --write .",
     "typecheck": "tsc",
@@ -18,6 +19,7 @@
     "@vueuse/core": "^13.0.0",
     "degit": "^2.8.4",
     "dprint": "^0.49.1",
+    "esbuild": "0.25.0",
     "feed": "^5.0.0",
     "lint-staged": "16.0.0",
     "oxlint": "^0.16.0",
@@ -36,5 +38,13 @@
   "packageManager": "pnpm@10.10.0",
   "volta": {
     "node": "22.14.0"
+  },
+  "pnpm": {
+    "overrides": {
+      "vitepress>vite": "npm:rolldown-vite@latest"
+    },
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
   }
 }
