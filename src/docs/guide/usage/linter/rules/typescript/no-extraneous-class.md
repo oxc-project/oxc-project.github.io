@@ -8,30 +8,39 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 # typescript/no-extraneous-class <Badge type="info" text="Suspicious" />
 
 <div class="rule-meta">
+<Alert class="fix" type="info">
+<span class="emoji">⚠️💡</span> A dangerous suggestion is available for this rule.
+</Alert>
 </div>
 
 ### What it does
 
-This rule reports when a class has no non-static members,
-such as for a class used exclusively as a static namespace.
-This rule also reports classes that have only a constructor and no fields.
-Those classes can generally be replaced with a standalone function.
+This rule reports when a class has no non-static members, such as for a
+class used exclusively as a static namespace. This rule also reports
+classes that have only a constructor and no fields. Those classes can
+generally be replaced with a standalone function.
 
 ### Why is this bad?
 
-Users who come from a OOP paradigm may wrap their utility functions in an extra class,
-instead of putting them at the top level of an ECMAScript module.
-Doing so is generally unnecessary in JavaScript and TypeScript projects.
+Users who come from a OOP paradigm may wrap their utility functions in
+an extra class, instead of putting them at the top level of an
+ECMAScript module. Doing so is generally unnecessary in JavaScript and
+TypeScript projects.
 
-Wrapper classes add extra cognitive complexity to code without adding any structural improvements
+- Wrapper classes add extra cognitive complexity to code without adding
+  any structural improvements
+  - Whatever would be put on them, such as utility functions, are already
+    organized by virtue of being in a module.
+  - As an alternative, you can `import * as ...` the module to get all of them
+    in a single object.
+- IDEs can't provide as good suggestions for static class or namespace
+  imported properties when you start typing property names
+- It's more difficult to statically analyze code for unused variables,
+  etc. when they're all on the class (see: [Finding dead code (and dead types) in TypeScript](https://effectivetypescript.com/2020/10/20/tsprune/)).
 
-Whatever would be put on them, such as utility functions, are already organized by virtue of being in a module.
-
-As an alternative, you can import * as ... the module to get all of them in a single object.
-IDEs can't provide as good suggestions for static class or namespace imported properties when you start typing property names
-
-It's more difficult to statically analyze code for unused variables, etc.
-when they're all on the class (see: Finding dead code (and dead types) in TypeScript).
+This rule also reports classes that have only a constructor and no
+fields. Those classes can generally be replaced with a standalone
+function.
 
 ### Example
 

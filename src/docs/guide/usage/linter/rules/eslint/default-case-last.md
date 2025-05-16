@@ -23,6 +23,8 @@ If a switch statement should have a default clause, it’s considered a best pra
 
 ### Example
 
+Examples of **incorrect** code for this rule:
+
 ```javascript
 switch (foo) {
   default:
@@ -42,6 +44,22 @@ switch (foo) {
     break;
   case 2:
     qux();
+    break;
+}
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
+switch (foo) {
+  case 1:
+    bar();
+    break;
+  case 2:
+    qux();
+    break;
+  default:
+    baz();
     break;
 }
 ```

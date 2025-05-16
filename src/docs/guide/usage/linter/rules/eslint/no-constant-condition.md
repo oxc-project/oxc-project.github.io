@@ -27,7 +27,7 @@ This rule disallows constant expressions in the test condition of:
 - `if`, `for`, `while`, or `do...while` statement
 - `?`: ternary expression
 
-### Example
+### Examples
 
 Examples of **incorrect** code for this rule:
 
@@ -59,6 +59,16 @@ while (typeof x === "undefined") {
   doSomething();
 }
 ```
+
+### Options
+
+#### checkLoops
+
+`{ type: "all" | "allExceptWhileTrue" | "none" | boolean, default: "allExceptWhileTrue" }`
+
+- `"all"` or `true` disallows constant expressions in loops
+- `"allExceptWhileTrue"` disallows constant expressions in loops except while loops with expression `true`
+- `"none"` or `false` allows constant expressions in loops
 
 ## How to use
 

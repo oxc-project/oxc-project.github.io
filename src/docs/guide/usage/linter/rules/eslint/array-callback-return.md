@@ -23,10 +23,22 @@ consider using .forEach instead.
 
 ### Example
 
+Examples of **incorrect** code for this rule:
+
 ```javascript
 let foo = [1, 2, 3, 4];
 foo.map((a) => {
   console.log(a);
+});
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
+let foo = [1, 2, 3, 4];
+foo.map((a) => {
+  console.log(a);
+  return a;
 });
 ```
 
