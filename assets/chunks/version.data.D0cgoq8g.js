@@ -1,0 +1,1 @@
+const e=JSON.parse(`"f524552e06a4caf6783bce73bb5fecfed329d3ae"`);export{e as data};
