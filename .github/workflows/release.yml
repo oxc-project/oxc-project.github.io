@@ -57,5 +57,5 @@ jobs:
           branch-suffix: timestamp
           title: Release ${{ inputs.version }}
           body: From https://github.com/oxc-project/oxc/pull/${{ inputs.issue-number }}
-          assignees: Boshen
+          assignees: camc314
           base: main
