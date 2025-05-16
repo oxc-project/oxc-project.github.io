@@ -20,14 +20,19 @@ Putting default parameter at last allows function calls to omit optional tail ar
 
 ### Example
 
-```javascript
-// Correct: optional argument can be omitted
-function createUser(id, isAdmin = false) {}
-createUser("tabby");
+Examples of **incorrect** code for this rule:
 
+```javascript
 // Incorrect: optional argument can **not** be omitted
 function createUser(isAdmin = false, id) {}
 createUser(undefined, "tabby");
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
+function createUser(id, isAdmin = false) {}
+createUser("tabby");
 ```
 
 ## How to use

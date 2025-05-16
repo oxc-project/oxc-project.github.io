@@ -2,7 +2,7 @@
 
 The progress of all rule implementations is tracked [here](https://github.com/oxc-project/oxc/issues/481).
 
-- Total number of rules: 509
+- Total number of rules: 512
 - Rules turned on by default: 123
 
 **Legend for 'Fixable?' column:**
@@ -130,7 +130,7 @@ Code that is outright wrong or useless.
 | [no-duplicate-head](/docs/guide/usage/linter/rules/nextjs/no-duplicate-head.html)                                                                     | nextjs     | ✅      |          |
 | [no-head-element](/docs/guide/usage/linter/rules/nextjs/no-head-element.html)                                                                         | nextjs     | ✅      |          |
 | [no-head-import-in-document](/docs/guide/usage/linter/rules/nextjs/no-head-import-in-document.html)                                                   | nextjs     | ✅      |          |
-| [no-img-element](/docs/guide/usage/linter/rules/nextjs/no-img-element.html)                                                                           | nextjs     | ✅      |          |
+| [no-img-element](/docs/guide/usage/linter/rules/nextjs/no-img-element.html)                                                                           | nextjs     | ✅      | 🚧       |
 | [no-page-custom-font](/docs/guide/usage/linter/rules/nextjs/no-page-custom-font.html)                                                                 | nextjs     | ✅      |          |
 | [no-script-component-in-head](/docs/guide/usage/linter/rules/nextjs/no-script-component-in-head.html)                                                 | nextjs     | ✅      |          |
 | [no-styled-jsx-in-document](/docs/guide/usage/linter/rules/nextjs/no-styled-jsx-in-document.html)                                                     | nextjs     | ✅      |          |
@@ -211,7 +211,7 @@ Code that can be written to run faster.
 | [jsx-no-new-object-as-prop](/docs/guide/usage/linter/rules/react_perf/jsx-no-new-object-as-prop.html)     | react_perf |         |          |
 | [prefer-set-has](/docs/guide/usage/linter/rules/unicorn/prefer-set-has.html)                              | unicorn    |         | ⚠️🛠️️       |
 
-## Restriction (65):
+## Restriction (66):
 
 Lints which prevent the use of language and library features. Must not be enabled as a whole, should be considered on a case-by-case basis before enabling.
 
@@ -256,6 +256,7 @@ Lints which prevent the use of language and library features. Must not be enable
 | [catch-or-return](/docs/guide/usage/linter/rules/promise/catch-or-return.html)                                                    | promise    |         |          |
 | [spec-only](/docs/guide/usage/linter/rules/promise/spec-only.html)                                                                | promise    |         |          |
 | [button-has-type](/docs/guide/usage/linter/rules/react/button-has-type.html)                                                      | react      |         |          |
+| [forbid-elements](/docs/guide/usage/linter/rules/react/forbid-elements.html)                                                      | react      |         |          |
 | [jsx-filename-extension](/docs/guide/usage/linter/rules/react/jsx-filename-extension.html)                                        | react      |         | 🚧       |
 | [no-danger](/docs/guide/usage/linter/rules/react/no-danger.html)                                                                  | react      |         |          |
 | [no-unknown-property](/docs/guide/usage/linter/rules/react/no-unknown-property.html)                                              | react      |         | 🚧       |
@@ -283,7 +284,7 @@ Lints which prevent the use of language and library features. Must not be enable
 | [prefer-node-protocol](/docs/guide/usage/linter/rules/unicorn/prefer-node-protocol.html)                                          | unicorn    |         | 🛠️        |
 | [prefer-number-properties](/docs/guide/usage/linter/rules/unicorn/prefer-number-properties.html)                                  | unicorn    |         | ⚠️🛠️️       |
 
-## Suspicious (31):
+## Suspicious (32):
 
 code that is most likely wrong or useless.
 
@@ -302,6 +303,7 @@ code that is most likely wrong or useless.
 | [no-named-as-default](/docs/guide/usage/linter/rules/import/no-named-as-default.html)                                | import     |         |          |
 | [no-named-as-default-member](/docs/guide/usage/linter/rules/import/no-named-as-default-member.html)                  | import     |         |          |
 | [no-self-import](/docs/guide/usage/linter/rules/import/no-self-import.html)                                          | import     |         |          |
+| [no-unassigned-import](/docs/guide/usage/linter/rules/import/no-unassigned-import.html)                              | import     |         |          |
 | [no-commented-out-tests](/docs/guide/usage/linter/rules/jest/no-commented-out-tests.html)                            | jest       |         |          |
 | [approx-constant](/docs/guide/usage/linter/rules/oxc/approx-constant.html)                                           | oxc        |         |          |
 | [misrefactored-assign-op](/docs/guide/usage/linter/rules/oxc/misrefactored-assign-op.html)                           | oxc        |         | 🚧       |
@@ -314,7 +316,7 @@ code that is most likely wrong or useless.
 | [react-in-jsx-scope](/docs/guide/usage/linter/rules/react/react-in-jsx-scope.html)                                   | react      |         |          |
 | [style-prop-object](/docs/guide/usage/linter/rules/react/style-prop-object.html)                                     | react      |         |          |
 | [no-confusing-non-null-assertion](/docs/guide/usage/linter/rules/typescript/no-confusing-non-null-assertion.html)    | typescript |         | 🚧       |
-| [no-extraneous-class](/docs/guide/usage/linter/rules/typescript/no-extraneous-class.html)                            | typescript |         |          |
+| [no-extraneous-class](/docs/guide/usage/linter/rules/typescript/no-extraneous-class.html)                            | typescript |         | ⚠️💡      |
 | [no-unnecessary-type-constraint](/docs/guide/usage/linter/rules/typescript/no-unnecessary-type-constraint.html)      | typescript |         |          |
 | [consistent-function-scoping](/docs/guide/usage/linter/rules/unicorn/consistent-function-scoping.html)               | unicorn    |         | 🚧       |
 | [no-accessor-recursion](/docs/guide/usage/linter/rules/unicorn/no-accessor-recursion.html)                           | unicorn    |         |          |
@@ -409,7 +411,7 @@ Lints which are rather strict or have occasional false positives.
 | [prefer-type-error](/docs/guide/usage/linter/rules/unicorn/prefer-type-error.html)                                             | unicorn    |         | 🛠️        |
 | [require-number-to-fixed-digits-argument](/docs/guide/usage/linter/rules/unicorn/require-number-to-fixed-digits-argument.html) | unicorn    |         | 🛠️        |
 
-## Style (138):
+## Style (140):
 
 Code that should be written in a more idiomatic way.
 
@@ -452,6 +454,7 @@ Code that should be written in a more idiomatic way.
 | [sort-keys](/docs/guide/usage/linter/rules/eslint/sort-keys.html)                                                        | eslint     |         | 🚧       |
 | [vars-on-top](/docs/guide/usage/linter/rules/eslint/vars-on-top.html)                                                    | eslint     |         |          |
 | [yoda](/docs/guide/usage/linter/rules/eslint/yoda.html)                                                                  | eslint     |         | 🛠️        |
+| [consistent-type-specifier-style](/docs/guide/usage/linter/rules/import/consistent-type-specifier-style.html)            | import     |         | 🛠️        |
 | [exports-last](/docs/guide/usage/linter/rules/import/exports-last.html)                                                  | import     |         |          |
 | [first](/docs/guide/usage/linter/rules/import/first.html)                                                                | import     |         | 🚧       |
 | [group-exports](/docs/guide/usage/linter/rules/import/group-exports.html)                                                | import     |         |          |
@@ -515,6 +518,7 @@ Code that should be written in a more idiomatic way.
 | [consistent-generic-constructors](/docs/guide/usage/linter/rules/typescript/consistent-generic-constructors.html)        | typescript |         | 🚧       |
 | [consistent-indexed-object-style](/docs/guide/usage/linter/rules/typescript/consistent-indexed-object-style.html)        | typescript |         | 🛠️        |
 | [consistent-type-definitions](/docs/guide/usage/linter/rules/typescript/consistent-type-definitions.html)                | typescript |         | 🛠️        |
+| [consistent-type-imports](/docs/guide/usage/linter/rules/typescript/consistent-type-imports.html)                        | typescript |         | 🛠️        |
 | [no-empty-interface](/docs/guide/usage/linter/rules/typescript/no-empty-interface.html)                                  | typescript |         |          |
 | [no-inferrable-types](/docs/guide/usage/linter/rules/typescript/no-inferrable-types.html)                                | typescript |         | 🚧       |
 | [prefer-for-of](/docs/guide/usage/linter/rules/typescript/prefer-for-of.html)                                            | typescript |         | 🚧       |
@@ -554,19 +558,18 @@ Code that should be written in a more idiomatic way.
 | [prefer-to-be-object](/docs/guide/usage/linter/rules/vitest/prefer-to-be-object.html)                                    | vitest     |         | 🛠️        |
 | [prefer-to-be-truthy](/docs/guide/usage/linter/rules/vitest/prefer-to-be-truthy.html)                                    | vitest     |         | 🛠️        |
 
-## Nursery (10):
+## Nursery (9):
 
 New lints that are still under development.
 
-| Rule name                                                                                         | Source     | Default | Fixable? |
-| ------------------------------------------------------------------------------------------------- | ---------- | ------- | -------- |
-| [getter-return](/docs/guide/usage/linter/rules/eslint/getter-return.html)                         | eslint     |         |          |
-| [no-undef](/docs/guide/usage/linter/rules/eslint/no-undef.html)                                   | eslint     |         |          |
-| [no-unreachable](/docs/guide/usage/linter/rules/eslint/no-unreachable.html)                       | eslint     |         |          |
-| [export](/docs/guide/usage/linter/rules/import/export.html)                                       | import     |         |          |
-| [named](/docs/guide/usage/linter/rules/import/named.html)                                         | import     |         |          |
-| [no-map-spread](/docs/guide/usage/linter/rules/oxc/no-map-spread.html)                            | oxc        |         | 🛠️💡      |
-| [no-return-in-finally](/docs/guide/usage/linter/rules/promise/no-return-in-finally.html)          | promise    |         |          |
-| [exhaustive-deps](/docs/guide/usage/linter/rules/react/exhaustive-deps.html)                      | react      |         |          |
-| [require-render-return](/docs/guide/usage/linter/rules/react/require-render-return.html)          | react      |         |          |
-| [consistent-type-imports](/docs/guide/usage/linter/rules/typescript/consistent-type-imports.html) | typescript |         | 🛠️        |
+| Rule name                                                                                | Source  | Default | Fixable? |
+| ---------------------------------------------------------------------------------------- | ------- | ------- | -------- |
+| [getter-return](/docs/guide/usage/linter/rules/eslint/getter-return.html)                | eslint  |         |          |
+| [no-undef](/docs/guide/usage/linter/rules/eslint/no-undef.html)                          | eslint  |         |          |
+| [no-unreachable](/docs/guide/usage/linter/rules/eslint/no-unreachable.html)              | eslint  |         |          |
+| [export](/docs/guide/usage/linter/rules/import/export.html)                              | import  |         |          |
+| [named](/docs/guide/usage/linter/rules/import/named.html)                                | import  |         |          |
+| [no-map-spread](/docs/guide/usage/linter/rules/oxc/no-map-spread.html)                   | oxc     |         | 🛠️💡      |
+| [no-return-in-finally](/docs/guide/usage/linter/rules/promise/no-return-in-finally.html) | promise |         |          |
+| [exhaustive-deps](/docs/guide/usage/linter/rules/react/exhaustive-deps.html)             | react   |         |          |
+| [require-render-return](/docs/guide/usage/linter/rules/react/require-render-return.html) | react   |         |          |

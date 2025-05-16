@@ -40,7 +40,7 @@ a = 10;
 
 #### builtinGlobals
 
-`{ type: bool, default: false }`
+`{ type: bool, default: true }`
 
 When set `true`, it flags redeclaring built-in globals (e.g., `let Object = 1;`).
 

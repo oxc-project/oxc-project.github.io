@@ -5,7 +5,7 @@ import { data } from '../version.data.js';
 const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_linter/src/rules/typescript/consistent_type_imports.rs`;
 </script>
 
-# typescript/consistent-type-imports <Badge type="info" text="Nursery" />
+# typescript/consistent-type-imports <Badge type="info" text="Style" />
 
 <div class="rule-meta">
 <Alert class="fix" type="info">

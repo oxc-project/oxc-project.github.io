@@ -44,8 +44,6 @@ All these anchor implementations indicate that the element is only used to execu
 <button onClick={foo}>Perform action</button>;
 ```
 
-`
-
 ### Why is this bad?
 
 There are **many reasons** why an anchor should not have a logic and have a correct `href` attribute:
