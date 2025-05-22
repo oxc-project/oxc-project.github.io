@@ -9,7 +9,7 @@ most rules in `recommended` configs already implemented.
 
 :::warning
 Oxlint does not support custom plugins at this time. We have plans to implement
-this in the future. You can track its status on [our backlog](https://github.com/oxc-project/backlog/issues/9905) and provide feedback in [this discussion](https://github.com/oxc-project/oxc/discussions/10342).
+this in the future. You can track its status on [our backlog](https://github.com/oxc-project/oxc/issues/9905) and provide feedback in [this discussion](https://github.com/oxc-project/oxc/discussions/10342).
 :::
 
 ## Enabling Plugins
