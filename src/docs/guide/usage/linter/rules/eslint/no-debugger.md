@@ -25,7 +25,7 @@ Checks for usage of the `debugger` statement
 `debugger` statements do not affect functionality when a debugger isn't attached.
 They're most commonly an accidental debugging leftover.
 
-### Example
+### Examples
 
 Examples of **incorrect** code for this rule:
 

@@ -14,7 +14,9 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 Disallows the use of async/await.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
 async function foo() {

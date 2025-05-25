@@ -46,7 +46,7 @@ generators yield rather than return a value and async generators might
 yield all the values of another async generator without ever actually
 needing to use await.
 
-### Example
+### Examples
 
 Examples of **incorrect** code for this rule:
 

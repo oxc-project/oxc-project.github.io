@@ -21,7 +21,7 @@ Enforce `key` prop for elements in array
 
 React requires a `key` prop for elements in an array to help identify which items have changed, are added, or are removed.
 
-### Example
+### Examples
 
 Examples of **incorrect** code for this rule:
 

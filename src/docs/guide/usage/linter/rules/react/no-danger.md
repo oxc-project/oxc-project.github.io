@@ -20,7 +20,7 @@ This rule prevents the use of `dangerouslySetInnerHTML` prop.
 component. This is dangerous because it can easily lead to XSS
 vulnerabilities.
 
-### Example
+### Examples
 
 Examples of **incorrect** code for this rule:
 

@@ -22,10 +22,20 @@ Disallows empty block statements
 Empty block statements, while not technically errors, usually occur due to refactoring that wasn’t completed.
 They can cause confusion when reading code.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
 if (condition) {
+}
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
+if (condition) {
+  throw new Error("condition should be false");
 }
 ```
 

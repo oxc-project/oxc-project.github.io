@@ -52,7 +52,9 @@ This function was renamed to `createMockFromModule` in Jest 26, and is scheduled
 While typically these deprecated functions are kept in the codebase for a number
 of majors, eventually they are removed completely.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
 jest.resetModuleRegistry; // since Jest 15

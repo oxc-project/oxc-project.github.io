@@ -27,7 +27,7 @@ always resolves to `true` even when its actual value is `false`.
 
 https://eslint.org/docs/latest/rules/no-new-wrappers
 
-### Example
+### Examples
 
 Examples of **incorrect** code for this rule:
 

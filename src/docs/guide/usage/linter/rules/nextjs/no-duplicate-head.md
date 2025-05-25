@@ -21,7 +21,32 @@ Prevent duplicate usage of `<Head>` in `pages/_document.js``.
 
 This can cause unexpected behavior in your application.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```jsx
+import Document, { Head, Html, Main, NextScript } from "next/document";
+class MyDocument extends Document {
+  static async getInitialProps(ctx) {
+  }
+  render() {
+    return (
+      <Html>
+        <Head />
+        <Head />
+        <body>
+          <Main />
+          <NextScript />
+        </body>
+      </Html>
+    );
+  }
+}
+export default MyDocument;
+```
+
+Examples of **correct** code for this rule:
 
 ```jsx
 import Document, { Head, Html, Main, NextScript } from "next/document";

@@ -21,7 +21,9 @@ the maximum number of assertions is exceeded.
 This rule enforces a maximum number of `expect()` calls.
 The following patterns are considered warnings (with the default option of `{ "max": 5 }`):
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
 test("should not pass", () => {

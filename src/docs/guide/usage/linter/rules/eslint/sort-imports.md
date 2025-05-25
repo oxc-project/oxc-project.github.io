@@ -23,7 +23,9 @@ the code and find necessary imports later.
 
 ### Why is this bad?
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
 import { a, b, c } from "foo.js";

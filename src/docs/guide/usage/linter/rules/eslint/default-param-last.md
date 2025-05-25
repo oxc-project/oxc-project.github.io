@@ -18,7 +18,7 @@ Enforce default parameters to be last
 
 Putting default parameter at last allows function calls to omit optional tail arguments.
 
-### Example
+### Examples
 
 Examples of **incorrect** code for this rule:
 

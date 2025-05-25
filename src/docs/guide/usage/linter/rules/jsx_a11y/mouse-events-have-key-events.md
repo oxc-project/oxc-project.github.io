@@ -22,7 +22,7 @@ Enforce onmouseover/onmouseout are accompanied by onfocus/onblur.
 Coding for the keyboard is important for users with physical disabilities who cannot use a mouse,
 AT compatibility, and screenreader users.
 
-### Example
+### Examples
 
 Examples of **incorrect** code for this rule:
 

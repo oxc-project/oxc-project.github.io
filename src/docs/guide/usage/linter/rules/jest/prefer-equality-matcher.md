@@ -15,15 +15,19 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 Jest has built-in matchers for expecting equality, which allow for more readable
 tests and error messages if an expectation fails.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
-// invalid
 expect(x === 5).toBe(true);
 expect(name === "Carl").not.toEqual(true);
 expect(myObj !== thatObj).toStrictEqual(true);
+```
 
-// valid
+Examples of **correct** code for this rule:
+
+```javascript
 expect(x).toBe(5);
 expect(name).not.toEqual("Carl");
 expect(myObj).toStrictEqual(thatObj);

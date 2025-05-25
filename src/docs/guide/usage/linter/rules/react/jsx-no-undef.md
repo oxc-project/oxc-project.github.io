@@ -21,7 +21,9 @@ Disallow undeclared variables in JSX
 
 It is most likely a potential ReferenceError caused by a misspelling of a variable or parameter name.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```jsx
 const A = () => <App />;

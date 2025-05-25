@@ -140,6 +140,22 @@ export function baz() {
 }
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### allowArrowFunctions
+
+type: `boolean`
+
+default: `false`
+
+### style
+
+type: `"expression" | "declaration"`
+
+default: `"expression"`
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

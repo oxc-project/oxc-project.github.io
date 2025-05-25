@@ -20,7 +20,7 @@ The default value of `type` attribute for `button` HTML element is
 `"submit"` which is often not the desired behavior and may lead to
 unexpected page reloads.
 
-### Example
+### Examples
 
 Examples of **incorrect** code for this rule:
 

@@ -28,7 +28,7 @@ slower LCP and higher bandwidth. Using [`<Image />`](https://nextjs.org/docs/pag
 from `next/image` will automatically optimize images and serve them as
 static assets.
 
-### Example
+### Examples
 
 Examples of **incorrect** code for this rule:
 

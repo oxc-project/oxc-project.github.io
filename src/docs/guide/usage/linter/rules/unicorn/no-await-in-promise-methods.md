@@ -23,7 +23,7 @@ Using `await` on promises passed as arguments to `Promise.all()`,
 `Promise.allSettled()`, `Promise.any()`, or `Promise.race()` is likely a
 mistake.
 
-### Example
+### Examples
 
 Examples of **incorrect** code for this rule:
 

@@ -24,7 +24,9 @@ separated with a _, is important to keep your code clear. This rule also enforce
 a proper usage of the numeric separator, by checking if the groups of digits are
 of the correct size.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
 const invalid = [
@@ -35,6 +37,11 @@ const invalid = [
   0o1_0_44_21,
   1_294_28771_2n,
 ];
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
 const valid = [
   1_234_567,
   1_234.567_89,

@@ -25,7 +25,7 @@ There are some reasons for using `undefined` instead of `null`.
 - Supporting both `null` and `undefined` complicates input validation.
 - Using `null` makes TypeScript types more verbose: `type A = {foo?: string | null}` vs `type A = {foo?: string}`.
 
-### Example
+### Examples
 
 Examples of **incorrect** code for this rule:
 

@@ -27,7 +27,9 @@ This rule reports for the following function calls:
 - `afterAll`
 - `afterEach`
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
 function setupFoo(options) {/* ... */}

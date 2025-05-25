@@ -23,7 +23,7 @@ and how it can be used from a quick glance.
 Another benefit of explicit return types is the potential for a speed up of type
 checking in large codebases with many large functions.
 
-### Example
+### Examples
 
 Examples of **incorrect** code for this rule:
 

@@ -14,7 +14,9 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 Ban specific matchers & modifiers from being used, and can suggest alternatives.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
 it("is false", () => {

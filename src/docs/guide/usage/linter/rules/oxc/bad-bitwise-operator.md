@@ -27,7 +27,9 @@ e || {};
 e || "";
 ```
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
 if (obj & obj.prop) {
@@ -35,6 +37,16 @@ if (obj & obj.prop) {
 }
 options = options | {};
 input |= "";
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
+if (obj && obj.prop) {
+  console.log(obj.prop);
+}
+options = options || {};
+input ||= "";
 ```
 
 ## How to use

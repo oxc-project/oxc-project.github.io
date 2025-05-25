@@ -24,7 +24,7 @@ Checks whether the `throw` keyword is missing in front of a `new` expression.
 
 The `throw` keyword is required in front of a `new` expression to throw an error. Omitting it is usually a mistake.
 
-### Example
+### Examples
 
 Examples of **incorrect** code for this rule:
 

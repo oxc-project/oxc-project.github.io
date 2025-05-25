@@ -18,7 +18,7 @@ This rule reports imports from a path containing a **mocks** component.
 
 Manually importing mocks from a `__mocks__` directory can lead to unexpected behavior.
 
-### Example
+### Examples
 
 Examples of **incorrect** code for this rule:
 

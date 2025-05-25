@@ -21,7 +21,9 @@ When using an architecture that separates your application state from your UI co
 especially helpful in read-only applications (that don't use forms), since local component
 state should rarely be necessary in such cases.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```jsx
 var Hello = createReactClass({

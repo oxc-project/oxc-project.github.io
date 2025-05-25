@@ -22,13 +22,19 @@ will be highlighted in the summary output.
 
 This rule triggers a warning if empty test cases are used without 'test.todo'.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
 test("i need to write this test"); // invalid
 test("i need to write this test", () => {}); // invalid
 test.skip("i need to write this test", () => {}); // invalid
+```
 
+Examples of **correct** code for this rule:
+
+```javascript
 test.todo("i need to write this test");
 ```
 

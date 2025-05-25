@@ -27,7 +27,9 @@ then specify how many spaces are expected using a quantifier.
 var re = /foo {3}bar/;
 ```
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
 var re = /foo   bar/;

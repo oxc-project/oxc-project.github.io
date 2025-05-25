@@ -30,10 +30,23 @@ behaviour and output from `jest`.
 Additionally, favoring the first style ensures consistency with its `rejects`
 counterpart, as there is no way of "awaiting" a rejection.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
-// valid
+it("passes", async () => {
+  expect(await someValue()).toBe(true);
+});
+it("is true", async () => {
+  const myPromise = Promise.resolve(true);
+  expect(await myPromise).toBe(true);
+});
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
 it("passes", async () => {
   await expect(someValue()).resolves.toBe(true);
 });
@@ -42,20 +55,10 @@ it("is true", async () => {
 
   await expect(myPromise).resolves.toBe(true);
 });
-
 it("errors", async () => {
   await expect(Promise.reject(new Error("oh noes!"))).rejects.toThrowError(
     "oh noes!",
   );
-});
-
-// invalid
-it("passes", async () => {
-  expect(await someValue()).toBe(true);
-});
-it("is true", async () => {
-  const myPromise = Promise.resolve(true);
-  expect(await myPromise).toBe(true);
 });
 ```
 

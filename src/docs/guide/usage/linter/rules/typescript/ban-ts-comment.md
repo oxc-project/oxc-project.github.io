@@ -22,7 +22,9 @@ This rule lets you set which directive comments you want to allow in your codeba
 Using TypeScript directives to suppress TypeScript compiler errors
 reduces the effectiveness of TypeScript overall.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```ts
 if (false) {

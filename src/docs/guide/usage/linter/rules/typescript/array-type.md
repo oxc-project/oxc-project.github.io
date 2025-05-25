@@ -21,11 +21,30 @@ Require consistently using either `T[]` or `Array<T>` for arrays.
 
 Using the `Array` type directly is not idiomatic. Instead, use the array type `T[]` or `Array<T>`.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```typescript
+/*oxlint array-type: ["error", { "default": "array" }] */
 const arr: Array<number> = new Array<number>();
+```
+
+```typescript
+/*oxlint array-type: ["error", { "default": "generic" }] */
 const arr: number[] = new Array<number>();
+```
+
+Examples of **correct** code for this rule:
+
+```typescript
+/*oxlint array-type: ["error", { "default": "array" }] */
+const arr: number[] = new Array<number>();
+```
+
+```typescript
+/*oxlint array-type: ["error", { "default": "generic" }] */
+const arr: Array<number> = new Array<number>();
 ```
 
 ## How to use

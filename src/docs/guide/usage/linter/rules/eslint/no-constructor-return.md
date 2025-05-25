@@ -19,21 +19,25 @@ Disallow returning value from constructor
 In JavaScript, returning a value in the constructor of a class may be a mistake.
 Forbidding this pattern prevents mistakes resulting from unfamiliarity with the language or a copy-paste error.
 
-### Example
+### Examples
 
 Examples of **incorrect** code for this rule:
 
-```rust
+```js
 class C {
-    constructor() { return 42; }
+  constructor() {
+    return 42;
+  }
 }
 ```
 
 Examples of **correct** code for this rule:
 
-```rust
+```js
 class C {
-    constructor() { this.value = 42; }
+  constructor() {
+    this.value = 42;
+  }
 }
 ```
 

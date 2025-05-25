@@ -21,7 +21,9 @@ Disallow modifications to read-only global variables.
 
 In almost all cases, you don’t want to assign a value to these global variables as doing so could result in losing access to important functionality.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
 Object = null;

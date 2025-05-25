@@ -19,10 +19,11 @@ When working with mocks of functions that return promises, Jest provides some
 API sugar functions to reduce the amount of boilerplate you have to write.
 These methods should be preferred when possible.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
-// invalid
 jest.fn().mockImplementation(() => Promise.resolve(123));
 jest
   .spyOn(fs.promises, "readFile")
@@ -34,7 +35,7 @@ myFunction
   .mockReturnValue(Promise.reject(new Error("too many calls!")));
 ```
 
-// valid
+Examples of **correct** code for this rule:
 
 ```javascript
 jest.fn().mockResolvedValue(123);

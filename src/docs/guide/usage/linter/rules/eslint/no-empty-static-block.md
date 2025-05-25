@@ -26,7 +26,7 @@ Empty block statements, while not technically errors, usually occur due
 to refactoring that wasn’t completed. They can cause confusion when
 reading code.
 
-### Example
+### Examples
 
 Examples of **incorrect** code for this rule:
 

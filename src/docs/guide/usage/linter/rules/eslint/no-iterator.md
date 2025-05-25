@@ -31,7 +31,7 @@ Foo.prototype.__iterator__ = function() {
 };
 ```
 
-### Example
+### Examples
 
 Examples of **incorrect** code for this rule:
 

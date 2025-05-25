@@ -44,13 +44,24 @@ For the rare case of needing to import for side effects, this may be
 desirable - but for most cases you will not want to leave behind an
 unnecessary side effect import.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```ts
 import { type A } from "mod";
 import { type A as AA } from "mod";
 import { type A, type B } from "mod";
 import { type A as AA, type B as BB } from "mod";
+```
+
+Examples of **correct** code for this rule:
+
+```ts
+import type { A } from "mod";
+import type { A as AA } from "mod";
+import type { A, B } from "mod";
+import type { A as AA, B as BB } from "mod";
 ```
 
 ## How to use

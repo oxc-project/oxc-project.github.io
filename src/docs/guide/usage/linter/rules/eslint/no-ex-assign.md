@@ -25,13 +25,25 @@ it is impossible to refer to the error from that point on.
 Since there is no arguments object to offer alternative access to this data,
 assignment of the parameter is absolutely destructive.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
 try {
   // code
 } catch (e) {
   e = 10;
+}
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
+try {
+  // code
+} catch (e) {
+  let val = 10;
 }
 ```
 

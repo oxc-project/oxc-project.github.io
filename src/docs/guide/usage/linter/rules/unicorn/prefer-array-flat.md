@@ -23,7 +23,7 @@ ES2019 introduced a new method [`Array#flat()`](https://developer.mozilla.org/en
 
 This rule aims to standardize the use of `Array#flat()` over legacy techniques to flatten arrays.
 
-### Example
+### Examples
 
 Examples of **incorrect** code for this rule:
 

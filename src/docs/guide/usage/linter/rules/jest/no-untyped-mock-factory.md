@@ -26,9 +26,9 @@ returns an object with the same shape as the original module, or some other
 strict type. Requiring a type makes it easier to use TypeScript to catch changes
 needed in test mocks when the source module changes.
 
-### Example
+### Examples
 
-// invalid
+Examples of **incorrect** code for this rule:
 
 ```typescript
 jest.mock("../moduleName", () => {
@@ -45,7 +45,7 @@ jest.mock("random-num", () => {
 });
 ```
 
-// valid
+Examples of **correct** code for this rule:
 
 ```typescript
 // Uses typeof import()

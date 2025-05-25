@@ -17,7 +17,9 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 This rule reports on any usage of Jasmine globals, which is not ported to Jest, and suggests alternatives from Jest's own API.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
 jasmine.DEFAULT_TIMEOUT_INTERVAL = 5000;

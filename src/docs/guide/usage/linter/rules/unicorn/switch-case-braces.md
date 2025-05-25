@@ -21,7 +21,9 @@ Require empty switch cases to not have braces. Non-empty braces are required to 
 
 There is less visual clutter for empty cases and proper scope for non-empty cases.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
 switch (num) {
@@ -30,6 +32,19 @@ switch (num) {
   case 2:
     console.log("Case 2");
     break;
+}
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
+switch (num) {
+  case 1: {
+  }
+  case 2: {
+    console.log("Case 2");
+    break;
+  }
 }
 ```
 

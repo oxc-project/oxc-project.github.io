@@ -20,7 +20,9 @@ Interpolation prevents snapshots from being updated. Instead, properties should
 be overloaded with a matcher by using
 [property matchers](https://jestjs.io/docs/en/snapshot-testing#property-matchers).
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
 expect(something).toMatchInlineSnapshot(

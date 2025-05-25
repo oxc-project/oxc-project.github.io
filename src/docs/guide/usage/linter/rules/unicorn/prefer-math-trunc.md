@@ -29,7 +29,7 @@ It prevents the use of the following bitwise operations:
 
 Using bitwise operations to truncate numbers is not clear and do not work in [some cases](https://stackoverflow.com/a/34706108/11687747).
 
-### Example
+### Examples
 
 Examples of **incorrect** code for this rule:
 

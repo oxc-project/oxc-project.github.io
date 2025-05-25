@@ -28,15 +28,19 @@ Restricted types:
 
 ### Examples
 
+Examples of **incorrect** code for this rule:
+
 ```typescript
-// invalid
 (foo as jest.Mock).mockReturnValue(1);
 const mock = (foo as jest.Mock).mockReturnValue(1);
 (foo as unknown as jest.Mock).mockReturnValue(1);
 (Obj.foo as jest.Mock).mockReturnValue(1);
 ([].foo as jest.Mock).mockReturnValue(1);
+```
 
-// valid
+Examples of **correct** code for this rule:
+
+```typescript
 jest.mocked(foo).mockReturnValue(1);
 const mock = jest.mocked(foo).mockReturnValue(1);
 jest.mocked(Obj.foo).mockReturnValue(1);

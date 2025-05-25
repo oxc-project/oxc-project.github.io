@@ -21,7 +21,9 @@ This rule generates warnings for generator functions that do not have the yield 
 
 Probably a mistake.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
 function* foo() {

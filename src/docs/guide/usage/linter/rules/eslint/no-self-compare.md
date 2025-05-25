@@ -19,7 +19,7 @@ Disallow comparisons where both sides are exactly the same
 Comparing a variable against itself is usually an error, either a typo or refactoring error.
 It is confusing to the reader and may potentially introduce a runtime error.
 
-### Example
+### Examples
 
 Examples of **incorrect** code for this rule:
 

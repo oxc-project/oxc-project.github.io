@@ -25,7 +25,7 @@ Disallow passing single-element arrays to Promise methods
 Passing a single-element array to `Promise.all()`, `Promise.any()`, or
 `Promise.race()` is likely a mistake.
 
-### Example
+### Examples
 
 Examples of **incorrect** code for this rule:
 

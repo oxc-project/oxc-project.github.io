@@ -50,7 +50,7 @@ For example:
 - `"decoratedFunctions"`
 - `"overrideMethods"`
 
-### Example
+### Examples
 
 Examples of **incorrect** code for this rule:
 

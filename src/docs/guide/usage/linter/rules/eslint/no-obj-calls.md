@@ -22,7 +22,7 @@ Disallow calling some global objects as functions
 Some global objects are not intended to be called as functions.
 Calling them as functions will usually result in a TypeError being thrown.
 
-### Example
+### Examples
 
 Examples of **incorrect** code for this rule:
 

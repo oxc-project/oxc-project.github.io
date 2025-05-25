@@ -22,11 +22,21 @@ Disallow equal signs explicitly at the beginning of regular expressions.
 Characters /= at the beginning of a regular expression literal can be confused with a
 division assignment operator.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
 function bar() {
   return /=foo/;
+}
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
+function bar() {
+  return /[=]foo/;
 }
 ```
 

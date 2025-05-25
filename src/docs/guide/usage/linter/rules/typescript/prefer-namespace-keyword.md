@@ -23,10 +23,18 @@ This rule does not report on the use of TypeScript module declarations to descri
 Namespaces are an outdated way to organize TypeScript code. ES2015 module syntax is now preferred (import/export).
 For projects still using custom modules / namespaces, it's preferred to refer to them as namespaces.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```typescript
 module Example {}
+```
+
+Examples of **correct** code for this rule:
+
+```typescript
+namespace Example {}
 ```
 
 ## How to use

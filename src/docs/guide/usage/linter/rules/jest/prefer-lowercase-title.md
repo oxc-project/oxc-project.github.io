@@ -19,21 +19,25 @@ Enforce `it`, `test`, `describe`, and `bench` to have descriptions that begin wi
 lowercase letter. This provides more readable test failures. This rule is not
 enabled by default.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
-// invalid
 it("Adds 1 + 2 to equal 3", () => {
   expect(sum(1, 2)).toBe(3);
 });
+```
 
-// valid
+Examples of **correct** code for this rule:
+
+```javascript
 it("adds 1 + 2 to equal 3", () => {
   expect(sum(1, 2)).toBe(3);
 });
 ```
 
-## Options
+### Options
 
 ```json
 {
@@ -46,7 +50,7 @@ it("adds 1 + 2 to equal 3", () => {
 }
 ```
 
-### `ignore`
+#### `ignore`
 
 This array option controls which Jest or Vitest functions are checked by this rule. There
 are four possible values:
@@ -80,7 +84,7 @@ Example of **correct** code for the `{ "ignore": ["it"] }` option:
 it("Uppercase description");
 ```
 
-### `allowedPrefixes`
+#### `allowedPrefixes`
 
 This array option allows specifying prefixes, which contain capitals that titles
 can start with. This can be useful when writing tests for API endpoints, where
@@ -94,10 +98,11 @@ Example of **correct** code for the `{ "allowedPrefixes": ["GET"] }` option:
 describe("GET /live");
 ```
 
-### `ignoreTopLevelDescribe`
+#### `ignoreTopLevelDescribe`
 
 This option can be set to allow only the top-level `describe` blocks to have a
 title starting with an upper-case letter.
+
 Example of **correct** code for the `{ "ignoreTopLevelDescribe": true }` option:
 
 ```js
@@ -111,7 +116,7 @@ describe("MyClass", () => {
 });
 ```
 
-### `lowercaseFirstCharacterOnly`
+#### `lowercaseFirstCharacterOnly`
 
 This option can be set to only validate that the first character of a test name is lowercased.
 

@@ -21,7 +21,9 @@ Prevent duplicate polyfills from Polyfill.io.
 
 You are using polyfills from Polyfill.io and including polyfills already shipped with Next.js. This unnecessarily increases page weight which can affect loading performance.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
 <script src='https://polyfill.io/v3/polyfill.min.js?features=Array.prototype.copyWithin'></script>

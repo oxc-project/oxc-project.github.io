@@ -18,11 +18,11 @@ This rule prevents comment strings (e.g. beginning with `//` or `/*`) from being
 
 In JSX, any text node that is not wrapped in curly braces is considered a literal string to be rendered. This can lead to unexpected behavior when the text contains a comment.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```jsx
-// Incorrect:
-
 const Hello = () => {
   return <div>// empty div</div>;
 };
@@ -30,13 +30,11 @@ const Hello = () => {
 const Hello = () => {
   return <div>/* empty div */</div>;
 };
+```
 
-// Correct:
+Examples of **correct** code for this rule:
 
-const Hello = () => {
-  return <div>// empty div</div>;
-};
-
+```jsx
 const Hello = () => {
   return <div>{/* empty div */}</div>;
 };

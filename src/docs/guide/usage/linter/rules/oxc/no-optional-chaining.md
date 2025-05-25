@@ -14,7 +14,9 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 Disallow [optional chaining](https://github.com/tc39/proposal-optional-chaining).
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
 const foo = obj?.foo;

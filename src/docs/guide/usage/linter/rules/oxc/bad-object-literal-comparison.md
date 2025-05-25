@@ -23,7 +23,7 @@ Comparing a variable to an object or array literal will always return false as o
 
 If you want to check if an object or array is empty, use `Object.entries()` or `Object.keys()` and their lengths.
 
-### Example
+### Examples
 
 Examples of **incorrect** code for this rule:
 

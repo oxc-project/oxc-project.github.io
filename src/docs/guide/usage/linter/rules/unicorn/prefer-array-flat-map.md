@@ -21,12 +21,18 @@ Prefers the use of `.flatMap()` when `map().flat()` are used together.
 
 It is slightly more efficient to use `.flatMap(…)` instead of `.map(…).flat()`.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
-const bar = [1, 2, 3].map(i => [i]).flat(); // ✗ fail
+const bar = [1, 2, 3].map(i => [i]).flat();
+```
 
-const bar = [1, 2, 3].flatMap(i => [i]); // ✓ pass
+Examples of **correct** code for this rule:
+
+```javascript
+const bar = [1, 2, 3].flatMap(i => [i]);
 ```
 
 ## How to use

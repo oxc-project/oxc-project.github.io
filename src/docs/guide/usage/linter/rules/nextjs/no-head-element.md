@@ -19,7 +19,14 @@ Prevent usage of `<head>` element.
 
 ### Why is this bad?
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```javascript
+```
+
+Examples of **correct** code for this rule:
 
 ```javascript
 ```

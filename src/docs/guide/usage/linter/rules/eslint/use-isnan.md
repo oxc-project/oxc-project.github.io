@@ -35,7 +35,9 @@ the results of comparisons to NaN are confusing:
 
 Therefore, use Number.isNaN() or global isNaN() functions to test whether a value is NaN.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
 foo == NaN;

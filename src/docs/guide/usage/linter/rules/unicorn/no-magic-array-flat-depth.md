@@ -18,7 +18,7 @@ Disallow magic numbers for `Array.prototype.flat` depth.
 
 Magic numbers are hard to understand and maintain. When calling `Array.prototype.flat`, it is usually called with `1` or infinity. If you are using a different number, it is better to add a comment explaining the depth.
 
-### Example
+### Examples
 
 Examples of **incorrect** code for this rule:
 

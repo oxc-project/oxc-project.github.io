@@ -23,7 +23,7 @@ constant result because the arguments are in the wrong order.
 The `Math.min(Math.max(x, y), z)` function is used to clamp a value between two other values.
 If the arguments are in the wrong order, the function will always evaluate to a constant result.
 
-### Example
+### Examples
 
 Examples of **incorrect** code for this rule:
 

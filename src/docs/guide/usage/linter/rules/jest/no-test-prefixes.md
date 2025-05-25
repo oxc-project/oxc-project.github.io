@@ -27,7 +27,9 @@ with multiple permutations for each:
 
 This rule enforces usages from the only & skip list.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
 fit("foo"); // invalid

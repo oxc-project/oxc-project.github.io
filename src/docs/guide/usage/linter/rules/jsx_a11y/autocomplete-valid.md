@@ -21,7 +21,7 @@ Enforces that an element's autocomplete attribute must be a valid value.
 
 Incorrectly using the autocomplete attribute may decrease the accessibility of the website for users.
 
-### Example
+### Examples
 
 Examples of **incorrect** code for this rule:
 

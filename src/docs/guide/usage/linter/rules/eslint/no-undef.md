@@ -18,7 +18,9 @@ Disallow the use of undeclared variables.
 
 It is most likely a potential ReferenceError caused by a misspelling of a variable or parameter name.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
 var foo = someFunction();

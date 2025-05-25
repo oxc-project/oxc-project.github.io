@@ -23,7 +23,9 @@ This rule aims to eliminate duplicate runs of tests by exporting things from tes
 If you import from a test file, then all the tests in that file will be run in each imported instance.
 so bottom line, don't export from a test, but instead move helper functions into a separate file when they need to be shared across tests.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
 export function myHelper() {}

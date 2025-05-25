@@ -21,7 +21,9 @@ Recommends using `Blob#text()` and `Blob#arrayBuffer()` over `FileReader#readAsT
 
 `FileReader` predates promises, and the newer [`Blob#arrayBuffer()`](https://developer.mozilla.org/en-US/docs/Web/API/Blob/arrayBuffer) and [`Blob#text()`](https://developer.mozilla.org/en-US/docs/Web/API/Blob/text) methods are much cleaner and easier to use.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
 async function bad() {
@@ -36,7 +38,11 @@ async function bad() {
     fileReader.readAsArrayBuffer(blob);
   });
 }
+```
 
+Examples of **correct** code for this rule:
+
+```javascript
 async function good() {
   const arrayBuffer = await blob.arrayBuffer();
 }

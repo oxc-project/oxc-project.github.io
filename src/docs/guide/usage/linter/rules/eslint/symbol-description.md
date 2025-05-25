@@ -34,10 +34,18 @@ console.log(foo);
 // prints - Symbol(some description)
 ```
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
 var foo = Symbol();
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
+var foo = Symbol("some description");
 ```
 
 ## How to use

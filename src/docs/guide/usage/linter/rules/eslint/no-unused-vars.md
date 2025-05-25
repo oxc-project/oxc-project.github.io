@@ -83,7 +83,7 @@ comments as a way to indicate that a variable is used in another script
 and should not be considered unused. Since ES6 modules are now a TC39
 standard, Oxlint does not support this feature.
 
-### Example
+### Examples
 
 Examples of **incorrect** code for this rule:
 

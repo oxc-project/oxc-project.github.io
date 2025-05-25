@@ -21,7 +21,7 @@ Use [`.dataset`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/da
 
 The `dataset` property is a map of strings that contains all the `data-*` attributes from the element. It is a convenient way to access all of them at once.
 
-### Example
+### Examples
 
 Examples of **incorrect** code for this rule:
 

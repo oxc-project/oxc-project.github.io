@@ -20,11 +20,24 @@ An empty interface in TypeScript does very little: any non-nullable value is ass
 Using an empty interface is often a sign of programmer error, such as misunderstanding the concept of {} or forgetting to fill in fields.
 This rule aims to ensure that only meaningful interfaces are declared in the code.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```ts
 interface Foo {}
 interface Bar extends Foo {}
+```
+
+Examples of **correct** code for this rule:
+
+```ts
+interface Foo {
+  member: string;
+}
+interface Bar extends Foo {
+  member: string;
+}
 ```
 
 ## How to use
