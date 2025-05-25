@@ -15,16 +15,15 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 ### What it does
 
-Disallow unnecessary constructors
+Disallow constructors that can be safely removed without changing how the class works.
 
-This rule flags class constructors that can be safely removed without
-changing how the class works.
+### Why is this bad?
 
 ES2015 provides a default class constructor if one is not specified. As
 such, it is unnecessary to provide an empty constructor or one that
-simply delegates into its parent class, as in the following examples:
+simply delegates into its parent class.
 
-### Example
+### Examples
 
 Examples of **incorrect** code for this rule:
 

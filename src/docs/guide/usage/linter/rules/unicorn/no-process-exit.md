@@ -21,7 +21,7 @@ Disallow `process.exit()`.
 
 Only use `process.exit()` in CLI apps. Throw an error instead.
 
-### Example
+### Examples
 
 Examples of **incorrect** code for this rule:
 

@@ -22,7 +22,9 @@ Disallow duplicate class members
 If there are declarations of the same name in class members,
 the last declaration overwrites other declarations silently. It can cause unexpected behaviors.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
 class A {
@@ -33,6 +35,18 @@ class A {
 }
 let a = new A();
 a.foo(); // Uncaught TypeError: a.foo is not a function
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
+class A {
+  foo() {
+    console.log("foo");
+  }
+}
+let a = new A();
+a.foo();
 ```
 
 ## How to use

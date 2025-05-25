@@ -22,10 +22,18 @@ This rule disallows `tslint:<rule-flag>` comments
 Useful when migrating from TSLint to ESLint. Once TSLint has been
 removed, this rule helps locate TSLint annotations
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```ts
 // tslint:disable-next-line
+someCode();
+```
+
+Examples of **correct** code for this rule:
+
+```ts
 someCode();
 ```
 

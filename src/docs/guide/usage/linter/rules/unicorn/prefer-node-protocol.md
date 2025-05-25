@@ -21,7 +21,7 @@ Prefer using the `node:protocol` when importing Node.js builtin modules
 
 Node.js builtin modules should be imported using the `node:` protocol to avoid ambiguity with local modules.
 
-### Example
+### Examples
 
 Examples of **incorrect** code for this rule:
 

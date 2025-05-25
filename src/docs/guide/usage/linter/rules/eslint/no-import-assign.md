@@ -21,7 +21,9 @@ Disallow assigning to imported bindings
 
 The updates of imported bindings by ES Modules cause runtime errors.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
 import mod, { named } from "./mod.mjs";

@@ -20,11 +20,21 @@ Tests in Jest should be void and not return values.
 If you are returning Promises then you should update the test to use
 `async/await`.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
 test("one", () => {
   return expect(1).toBe(1);
+});
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
+test("one", () => {
+  expect(1).toBe(1);
 });
 ```
 

@@ -25,7 +25,7 @@ Enforces that the `accessKey` prop is not used on any element to avoid complicat
 Access keys are HTML attributes that allow web developers to assign keyboard shortcuts to elements.
 Inconsistencies between keyboard shortcuts and keyboard commands used by screenreaders and keyboard-only users create accessibility complications so to avoid complications, access keys should not be used.
 
-### Example
+### Examples
 
 Examples of **incorrect** code for this rule:
 

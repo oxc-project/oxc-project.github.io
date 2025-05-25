@@ -21,7 +21,7 @@ If we forget to write return statement in a callback of those, it’s probably a
 If you don’t want to use a return or don’t need the returned results,
 consider using .forEach instead.
 
-### Example
+### Examples
 
 Examples of **incorrect** code for this rule:
 
@@ -41,6 +41,27 @@ foo.map((a) => {
   return a;
 });
 ```
+
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### allowImplicitReturn
+
+type: `boolean`
+
+default: `false`
+
+When set to true, allows callbacks of methods that require a return value to
+implicitly return undefined with a return statement containing no expression.
+
+### checkForEach
+
+type: `boolean`
+
+default: `false`
+
+When set to true, rule will also report forEach callbacks that return a value.
 
 ## How to use
 

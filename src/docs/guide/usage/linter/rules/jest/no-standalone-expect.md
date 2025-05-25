@@ -22,7 +22,9 @@ trigger this rule.
 Statements like `expect.hasAssertions()` will NOT trigger this rule since these
 calls will execute if they are not in a test block.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
 describe("a test", () => {

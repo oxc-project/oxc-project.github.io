@@ -25,7 +25,7 @@ the `test` keywords, with multiple permutations for each:
 
 It's a good practice to be consistent in your test suite, so that all tests are written in the same way.
 
-### Example
+### Examples
 
 ```javascript
 /*eslint jest/consistent-test-it: ["error", {"fn": "test"}]*/

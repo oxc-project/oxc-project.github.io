@@ -22,7 +22,7 @@ Disallow unnecessary escape characters
 
 ### Why is this bad?
 
-### Example
+### Examples
 
 Examples of **incorrect** code for this rule:
 

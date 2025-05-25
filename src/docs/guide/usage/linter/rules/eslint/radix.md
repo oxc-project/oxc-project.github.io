@@ -21,13 +21,17 @@ Enforce the consistent use of the radix argument when using `parseInt()`.
 
 Using the `parseInt()` function without specifying the radix can lead to unexpected results.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
-// error
 var num = parseInt("071"); // 57
+```
 
-// success
+Examples of **correct** code for this rule:
+
+```javascript
 var num = parseInt("071", 10); // 71
 ```
 

@@ -14,7 +14,9 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 Restrict the use of specific `jest` and `vi` methods.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
 jest.useFakeTimers();

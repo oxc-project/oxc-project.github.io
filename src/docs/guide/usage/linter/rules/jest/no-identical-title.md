@@ -20,7 +20,9 @@ It will report when two test suites or two test cases at the same level of a tes
 Having identical titles for two different tests or test suites may create confusion.
 For example, when a test with the same title as another test in the same test suite fails, it is harder to know which one failed and thus harder to fix.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
 describe("baz", () => {

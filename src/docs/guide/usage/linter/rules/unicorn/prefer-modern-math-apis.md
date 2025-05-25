@@ -26,7 +26,7 @@ Currently, the following cases are checked:
 - Prefer `Math.log10(x)` over alternatives
 - Prefer `Math.hypot(…)` over alternatives
 
-### Example
+### Examples
 
 Examples of **incorrect** code for this rule:
 

@@ -25,7 +25,9 @@ hexadecimal strings into integers. As binary, octal, and hexadecimal literals ar
 in ES6, this rule encourages use of those numeric literals instead of parseInt() or
 Number.parseInt().
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
 parseInt("111110111", 2) === 503;

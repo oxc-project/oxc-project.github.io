@@ -17,18 +17,22 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 This rule triggers a warning if `toThrow()` or `toThrowError()` is used without an error message.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
-// invalid
 test("all the things", async () => {
   expect(() => a()).toThrow();
   expect(() => a()).toThrowError();
   await expect(a()).rejects.toThrow();
   await expect(a()).rejects.toThrowError();
 });
+```
 
-// valid
+Examples of **correct** code for this rule:
+
+```javascript
 test("all the things", async () => {
   expect(() => a()).toThrow("a");
   expect(() => a()).toThrowError("a");

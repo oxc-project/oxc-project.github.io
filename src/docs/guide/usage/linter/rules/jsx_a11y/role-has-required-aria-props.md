@@ -23,7 +23,7 @@ for that role.
 Certain ARIA roles require specific attributes to express necessary
 semantics for assistive technology.
 
-### Example
+### Examples
 
 Examples of **incorrect** code for this rule:
 

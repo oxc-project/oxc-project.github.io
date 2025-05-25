@@ -19,7 +19,7 @@ Disallow missing React when using JSX
 When using JSX, `<a />` expands to `React.createElement("a")`. Therefore
 the `React` variable must be in scope.
 
-### Example
+### Examples
 
 Examples of **incorrect** code for this rule:
 

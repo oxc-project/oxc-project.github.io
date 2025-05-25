@@ -16,10 +16,11 @@ While hooks can be setup anywhere in a test file, they are always called in a
 specific order, which means it can be confusing if they're intermixed with test
 cases.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
-// invalid
 describe("foo", () => {
   beforeEach(() => {
     seedMyDatabase();
@@ -68,8 +69,11 @@ describe("foo", () => {
     removeMyDatabase();
   });
 });
+```
 
-// valid
+Examples of **correct** code for this rule:
+
+```javascript
 describe("foo", () => {
   beforeAll(() => {
     createMyDatabase();

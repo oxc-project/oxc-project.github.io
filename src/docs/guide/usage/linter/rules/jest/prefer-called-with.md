@@ -14,18 +14,22 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 Suggest using `toBeCalledWith()` or `toHaveBeenCalledWith()`
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
-// valid
+expect(someFunction).toBeCalled();
+expect(someFunction).toHaveBeenCalled();
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
 expect(noArgsFunction).toBeCalledWith();
 expect(roughArgsFunction).toBeCalledWith(expect.anything(), expect.any(Date));
 expect(anyArgsFunction).toBeCalledTimes(1);
 expect(uncalledFunction).not.toBeCalled();
-
-// invalid
-expect(someFunction).toBeCalled();
-expect(someFunction).toHaveBeenCalled();
 ```
 
 ## How to use

@@ -19,7 +19,9 @@ create-react-class module or the new ES6 class system.
 
 This rule enforces a consistent React class style.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```jsx
 var Hello = createReactClass({

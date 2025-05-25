@@ -36,7 +36,9 @@ test("the data is peanut butter", done => {
 
 This can be very error-prone however, as it requires careful understanding of how assertions work in tests or otherwise tests won't behave as expected.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
 beforeEach(done => {

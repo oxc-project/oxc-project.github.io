@@ -25,7 +25,7 @@ The function type form is generally preferred when possible for being more succi
 
 This rule suggests using a function type instead of an interface or object type literal with a single call signature.
 
-### Example
+### Examples
 
 ```ts
 // error

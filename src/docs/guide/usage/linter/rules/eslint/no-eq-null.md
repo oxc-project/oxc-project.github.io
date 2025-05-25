@@ -23,7 +23,7 @@ Comparing to `null` without a type-checking operator (`==` or `!=`), can
 have unintended results as the comparison will evaluate to `true` when
 comparing to not just a `null`, but also an `undefined` value.
 
-### Example
+### Examples
 
 Examples of **incorrect** code for this rule:
 

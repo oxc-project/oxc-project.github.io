@@ -17,7 +17,15 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 Enforce elements with aria-activedescendant are tabbable.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```jsx
+const Bad = <div aria-activedescendant={someID} />;
+```
+
+Examples of **correct** code for this rule:
 
 ```jsx
 const Good = (
@@ -39,8 +47,6 @@ const Good = (
     <input aria-activedescendant={someID} tabIndex={-1} />
   </>
 );
-
-const Bad = <div aria-activedescendant={someID} />;
 ```
 
 ## How to use

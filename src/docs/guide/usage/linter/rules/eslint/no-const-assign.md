@@ -22,7 +22,7 @@ Disallow reassigning `const` variables.
 We cannot modify variables that are declared using const keyword.
 It will raise a runtime error.
 
-### Example
+### Examples
 
 Examples of **incorrect** code for this rule:
 

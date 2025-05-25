@@ -42,7 +42,9 @@ This rule also reports classes that have only a constructor and no
 fields. Those classes can generally be replaced with a standalone
 function.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```ts
 class StaticConstants {
@@ -60,6 +62,13 @@ class HelloWorldLogger {
 }
 
 abstract class Foo {}
+```
+
+Examples of **correct** code for this rule:
+
+```ts
+const version = 42;
+const isProduction = () => process.env.NODE_ENV === "production";
 ```
 
 ## How to use

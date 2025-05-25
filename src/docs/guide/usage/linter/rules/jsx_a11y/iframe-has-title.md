@@ -26,7 +26,7 @@ Navigating through iframe and iframe elements quickly becomes difficult and conf
 
 This rule checks for title property on iframe element.
 
-### Example
+### Examples
 
 Examples of **incorrect** code for this rule:
 

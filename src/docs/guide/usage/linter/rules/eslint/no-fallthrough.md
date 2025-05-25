@@ -102,7 +102,7 @@ In this example, there is no confusion as to the expected behavior. It
 is clear that the first case is meant to fall through to the second
 case.
 
-### Example
+### Examples
 
 Examples of **incorrect** code for this rule:
 

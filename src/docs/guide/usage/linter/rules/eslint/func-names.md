@@ -36,7 +36,7 @@ This rule has a string option:
 - `"never"` requires a function expression to not have a name under any
   circumstances.
 
-### Example
+### Examples
 
 Examples of **incorrect** code for this rule:
 

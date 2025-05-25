@@ -21,7 +21,7 @@ This rule prevents using string literals in ref attributes.
 
 Using string literals in ref attributes is deprecated in React.
 
-### Example
+### Examples
 
 Examples of **incorrect** code for this rule:
 

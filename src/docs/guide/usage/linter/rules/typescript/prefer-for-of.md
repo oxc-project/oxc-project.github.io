@@ -23,7 +23,7 @@ Using a for loop with a simple iteration over an array can be replaced with a mo
 and readable for-of loop. For-of loops are easier to read and less error-prone, as they
 eliminate the need for an index variable and manual array access.
 
-### Example
+### Examples
 
 Examples of **incorrect** code for this rule:
 

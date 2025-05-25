@@ -23,7 +23,9 @@ The `__proto__` property has been deprecated as of ECMAScript 3.1 and
 shouldn’t be used in new code. Use `Object.getPrototypeOf` and
 `Object.setPrototypeOf` instead.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
 /*eslint no-proto: "error"*/

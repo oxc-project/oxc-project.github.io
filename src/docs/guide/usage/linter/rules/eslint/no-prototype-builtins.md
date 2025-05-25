@@ -24,7 +24,9 @@ For example, it would be unsafe for a webserver to parse JSON input from a clien
 
 To avoid subtle bugs like this, it’s better to always call these methods from Object.prototype. For example, foo.hasOwnProperty("bar") should be replaced with Object.prototype.hasOwnProperty.call(foo, "bar").
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
 var hasBarProperty = foo.hasOwnProperty("bar");

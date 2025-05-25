@@ -17,13 +17,17 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 This rule triggers a warning if `toEqual()` is used to assert equality.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
-// invalid
 expect({ a: "a", b: undefined }).toEqual({ a: "a" });
+```
 
-// valid
+Examples of **correct** code for this rule:
+
+```javascript
 expect({ a: "a", b: undefined }).toStrictEqual({ a: "a" });
 ```
 

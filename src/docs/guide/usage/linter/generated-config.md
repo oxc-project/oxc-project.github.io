@@ -95,13 +95,17 @@ type: `Record<string, boolean>`
 
 Predefine global variables.
 
-Environments specify what global variables are predefined. See [ESLint's list of environments](https://eslint.org/docs/v8.x/use/configure/language-options#specifying-environments) for what environments are available and what each one provides.
+Environments specify what global variables are predefined. See [ESLint's list of environments](https://eslint.org/docs/v8.x/use/configure/language-options#specifying-environments)
+for what environments are available and what each one provides.
 
 ## extends
 
 type: `string[]`
 
-Paths of configuration files that this configuration file extends (inherits from). The files are resolved relative to the location of the configuration file that contains the `extends` property. The configuration files are merged from the first to the last, with the last file overriding the previous ones.
+Paths of configuration files that this configuration file extends (inherits from). The files
+are resolved relative to the location of the configuration file that contains the `extends`
+property. The configuration files are merged from the first to the last, with the last file
+overriding the previous ones.
 
 ## globals
 
@@ -109,9 +113,12 @@ type: `Record<string, string>`
 
 Add or remove global variables.
 
-For each global variable, set the corresponding value equal to `"writable"` to allow the variable to be overwritten or `"readonly"` to disallow overwriting.
+For each global variable, set the corresponding value equal to `"writable"`
+to allow the variable to be overwritten or `"readonly"` to disallow overwriting.
 
-Globals can be disabled by setting their value to `"off"`. For example, in an environment where most Es2015 globals are available but `Promise` is unavailable, you might use this config:
+Globals can be disabled by setting their value to `"off"`. For example, in
+an environment where most Es2015 globals are available but `Promise` is unavailable,
+you might use this config:
 
 ```json
 {
@@ -125,7 +132,8 @@ Globals can be disabled by setting their value to `"off"`. For example, in an en
 }
 ```
 
-You may also use `"readable"` or `false` to represent `"readonly"`, and `"writeable"` or `true` to represent `"writable"`.
+You may also use `"readable"` or `false` to represent `"readonly"`, and
+`"writeable"` or `true` to represent `"writable"`.
 
 ## ignorePatterns
 
@@ -152,12 +160,6 @@ type: `string[]`
 type: `object`
 
 See [Oxlint Rules](https://oxc.rs/docs/guide/usage/linter/rules.html)
-
-## plugins
-
-type: `string[]`
-
-default: `["react", "unicorn", "typescript", "oxc"]`
 
 ## rules
 
@@ -269,7 +271,9 @@ type: `object`
 
 Configure JSX A11y plugin rules.
 
-See [eslint-plugin-jsx-a11y](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y#configurations)'s configuration for a full reference.
+See
+[eslint-plugin-jsx-a11y](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y#configurations)'s
+configuration for a full reference.
 
 #### settings.jsx-a11y.components
 
@@ -277,11 +281,23 @@ type: `Record<string, string>`
 
 default: `{}`
 
-To have your custom components be checked as DOM elements, you can provide a mapping of your component names to the DOM element name.
+To have your custom components be checked as DOM elements, you can
+provide a mapping of your component names to the DOM element name.
 
 Example:
 
-`json { "settings": { "jsx-a11y": { "components": { "Link": "a", "IconButton": "button" } } } }`
+```json
+{
+  "settings": {
+    "jsx-a11y": {
+      "components": {
+        "Link": "a",
+        "IconButton": "button"
+      }
+    }
+  }
+}
+```
 
 #### settings.jsx-a11y.polymorphicPropName
 
@@ -290,13 +306,18 @@ type: `[
   null
 ]`
 
-An optional setting that define the prop your code uses to create polymorphic components. This setting will be used to determine the element type in rules that require semantic context.
+An optional setting that define the prop your code uses to create polymorphic components.
+This setting will be used to determine the element type in rules that
+require semantic context.
 
 For example, if you set the `polymorphicPropName` to `as`, then this element:
 
-`jsx <Box as="h3">Hello</Box>`
+```jsx
+<Box as="h3">Hello</Box>;
+```
 
-Will be treated as an `h3`. If not set, this component will be treated as a `Box`.
+Will be treated as an `h3`. If not set, this component will be treated
+as a `Box`.
 
 ### settings.next
 
@@ -324,7 +345,21 @@ Components used as alternatives to `<form>` for forms, such as `<Formik>`.
 
 Example:
 
-`jsonc { "settings": { "react": { "formComponents": [ "CustomForm", // OtherForm is considered a form component and has an endpoint attribute { "name": "OtherForm", "formAttribute": "endpoint" }, // allows specifying multiple properties if necessary { "name": "Form", "formAttribute": ["registerEndpoint", "loginEndpoint"] } ] } } }`
+```jsonc
+{
+  "settings": {
+    "react": {
+      "formComponents": [
+        "CustomForm",
+        // OtherForm is considered a form component and has an endpoint attribute
+        { "name": "OtherForm", "formAttribute": "endpoint" },
+        // allows specifying multiple properties if necessary
+        { "name": "Form", "formAttribute": ["registerEndpoint", "loginEndpoint"] }
+      ]
+    }
+  }
+}
+```
 
 ##### settings.react.formComponents[n]
 
@@ -338,6 +373,21 @@ Components used as alternatives to `<a>` for linking, such as `<Link>`.
 
 Example:
 
-``jsonc { "settings": { "react": { "linkComponents": [ "HyperLink", // Use `linkAttribute` for components that use a different prop name // than `href`. { "name": "MyLink", "linkAttribute": "to" }, // allows specifying multiple properties if necessary { "name": "Link", "linkAttribute": ["to", "href"] } ] } } }``
+```jsonc
+{
+  "settings": {
+    "react": {
+      "linkComponents": [
+        "HyperLink",
+        // Use `linkAttribute` for components that use a different prop name
+        // than `href`.
+        { "name": "MyLink", "linkAttribute": "to" },
+        // allows specifying multiple properties if necessary
+        { "name": "Link", "linkAttribute": ["to", "href"] }
+      ]
+    }
+  }
+}
+```
 
 ##### settings.react.linkComponents[n]

@@ -25,15 +25,17 @@ following built-in comparison matchers:
 
 ### Examples
 
+Examples of **incorrect** code for this rule:
+
 ```js
-// invalid
 expect(x > 5).toBe(true);
 expect(x < 7).not.toEqual(true);
 expect(x <= y).toStrictEqual(true);
 ```
 
-```js ///
-// valid
+Examples of **correct** code for this rule:
+
+```js
 expect(x).toBeGreaterThan(5);
 expect(x).not.toBeLessThanOrEqual(7);
 expect(x).toBeLessThanOrEqual(y);

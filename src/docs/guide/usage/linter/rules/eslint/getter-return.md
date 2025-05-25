@@ -21,7 +21,7 @@ Getters should always return a value. If they don't, it's probably a mistake.
 This rule does not run on TypeScript files, since type checking will
 catch getters that do not return a value.
 
-### Example
+### Examples
 
 Examples of **incorrect** code for this rule:
 

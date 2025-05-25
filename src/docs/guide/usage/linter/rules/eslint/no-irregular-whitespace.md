@@ -22,7 +22,17 @@ Disallows the use of irregular whitespaces in the code.
 The use of irregular whitespaces can hinder code readability and
 create inconsistencies, making maintenance and collaboration more challenging.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```javascript
+function invalidExample() {
+  return 42;
+}
+```
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
 function invalidExample() {

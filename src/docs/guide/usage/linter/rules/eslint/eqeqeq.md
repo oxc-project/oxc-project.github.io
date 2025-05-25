@@ -81,6 +81,18 @@ typeof foo == "undefined";
 foo == null;
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### compareType
+
+type: `"always" | "smart"`
+
+### nullType
+
+type: `"always" | "never" | "ignore"`
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

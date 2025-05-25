@@ -26,7 +26,16 @@ When creating a JSX element that has an `a` tag, it is often desired to have the
 vulnerability (see [`noreferrer` docs] and [`noopener` docs] for more details).
 This rules requires that you accompany `target='_blank'` attributes with `rel='noreferrer'`.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```jsx
+var Hello = <a target="_blank" href="https://example.com/"></a>;
+var Hello = <a target="_blank" href={dynamicLink}></a>;
+```
+
+Examples of **correct** code for this rule:
 
 ```jsx
 /// correct
@@ -36,9 +45,6 @@ var Hello = <a target="_blank" rel="noopener noreferrer" href="https://example.c
 var Hello = <a target="_blank" href="relative/path/in/the/host"></a>;
 var Hello = <a target="_blank" href="/absolute/path/in/the/host"></a>;
 var Hello = <a></a>;
-/// incorrect
-var Hello = <a target="_blank" href="https://example.com/"></a>;
-var Hello = <a target="_blank" href={dynamicLink}></a>;
 ```
 
 [`noreferrer` docs]: https://html.spec.whatwg.org/multipage/links.html#link-type-noreferrer

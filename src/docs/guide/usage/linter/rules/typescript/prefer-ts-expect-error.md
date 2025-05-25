@@ -25,7 +25,9 @@ The two directives work the same, except @ts-expect-error causes a type error if
 This means it's easy for @ts-ignores to be forgotten about, and remain in code even after the error they were suppressing is fixed.
 This is dangerous, as if a new error arises on that line it'll be suppressed by the forgotten about @ts-ignore, and so be missed.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```ts
 // @ts-ignore
@@ -35,6 +37,16 @@ const str: string = 1;
  * Explaining comment
  *
  * @ts-ignore */
+const multiLine: number = "value";
+```
+
+Examples of **incorrect** code for this rule:
+
+```ts
+/**
+ * Explaining comment
+ *
+ * @ts-expect-error */
 const multiLine: number = "value";
 ```
 

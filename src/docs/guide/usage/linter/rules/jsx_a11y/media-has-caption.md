@@ -23,7 +23,7 @@ This ensures media content is accessible to all users, including those with hear
 Without captions, audio and video content is not accessible to users who are deaf or hard of hearing.
 Captions are also useful for users in noisy environments or where audio is not available.
 
-### Example
+### Examples
 
 Examples of **incorrect** code for this rule:
 

@@ -23,7 +23,7 @@ Checks for `a op= a op b` or `a op= b op a` patterns.
 
 Most likely these are bugs where one meant to write `a op= b`.
 
-### Example
+### Examples
 
 Examples of **incorrect** code for this rule:
 

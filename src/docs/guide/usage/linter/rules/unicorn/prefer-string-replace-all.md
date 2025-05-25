@@ -21,7 +21,7 @@ Prefers [`String#replaceAll()`](https://developer.mozilla.org/en-US/docs/Web/Jav
 
 The [`String#replaceAll()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replaceAll) method is both faster and safer as you don't have to use a regex and remember to escape it if the string is not a literal. And when used with a regex, it makes the intent clearer.
 
-### Example
+### Examples
 
 Examples of **incorrect** code for this rule:
 

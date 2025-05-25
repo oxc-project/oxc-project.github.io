@@ -2,7 +2,7 @@
 
 The progress of all rule implementations is tracked [here](https://github.com/oxc-project/oxc/issues/481).
 
-- Total number of rules: 512
+- Total number of rules: 520
 - Rules turned on by default: 123
 
 **Legend for 'Fixable?' column:**
@@ -195,7 +195,7 @@ Code that is outright wrong or useless.
 | [no-conditional-tests](/docs/guide/usage/linter/rules/vitest/no-conditional-tests.html)                                                               | vitest     | ✅      |          |
 | [require-local-test-context-for-concurrent-snapshots](/docs/guide/usage/linter/rules/vitest/require-local-test-context-for-concurrent-snapshots.html) | vitest     | ✅      | 🚧       |
 
-## Perf (9):
+## Perf (10):
 
 Code that can be written to run faster.
 
@@ -209,6 +209,7 @@ Code that can be written to run faster.
 | [jsx-no-new-array-as-prop](/docs/guide/usage/linter/rules/react_perf/jsx-no-new-array-as-prop.html)       | react_perf |         |          |
 | [jsx-no-new-function-as-prop](/docs/guide/usage/linter/rules/react_perf/jsx-no-new-function-as-prop.html) | react_perf |         |          |
 | [jsx-no-new-object-as-prop](/docs/guide/usage/linter/rules/react_perf/jsx-no-new-object-as-prop.html)     | react_perf |         |          |
+| [prefer-array-find](/docs/guide/usage/linter/rules/unicorn/prefer-array-find.html)                        | unicorn    |         | 🚧       |
 | [prefer-set-has](/docs/guide/usage/linter/rules/unicorn/prefer-set-has.html)                              | unicorn    |         | ⚠️🛠️️       |
 
 ## Restriction (66):
@@ -284,7 +285,7 @@ Lints which prevent the use of language and library features. Must not be enable
 | [prefer-node-protocol](/docs/guide/usage/linter/rules/unicorn/prefer-node-protocol.html)                                          | unicorn    |         | 🛠️        |
 | [prefer-number-properties](/docs/guide/usage/linter/rules/unicorn/prefer-number-properties.html)                                  | unicorn    |         | ⚠️🛠️️       |
 
-## Suspicious (32):
+## Suspicious (33):
 
 code that is most likely wrong or useless.
 
@@ -294,7 +295,7 @@ code that is most likely wrong or useless.
 | [no-extend-native](/docs/guide/usage/linter/rules/eslint/no-extend-native.html)                                      | eslint     |         |          |
 | [no-new](/docs/guide/usage/linter/rules/eslint/no-new.html)                                                          | eslint     |         |          |
 | [no-unexpected-multiline](/docs/guide/usage/linter/rules/eslint/no-unexpected-multiline.html)                        | eslint     |         | ⚠️🛠️️       |
-| [no-unneeded-ternary](/docs/guide/usage/linter/rules/eslint/no-unneeded-ternary.html)                                | eslint     |         | 🚧       |
+| [no-unneeded-ternary](/docs/guide/usage/linter/rules/eslint/no-unneeded-ternary.html)                                | eslint     |         | ⚠️🛠️️       |
 | [no-useless-concat](/docs/guide/usage/linter/rules/eslint/no-useless-concat.html)                                    | eslint     |         |          |
 | [no-useless-constructor](/docs/guide/usage/linter/rules/eslint/no-useless-constructor.html)                          | eslint     |         | 🛠️        |
 | [no-absolute-path](/docs/guide/usage/linter/rules/import/no-absolute-path.html)                                      | import     |         | 🚧       |
@@ -320,10 +321,11 @@ code that is most likely wrong or useless.
 | [no-unnecessary-type-constraint](/docs/guide/usage/linter/rules/typescript/no-unnecessary-type-constraint.html)      | typescript |         |          |
 | [consistent-function-scoping](/docs/guide/usage/linter/rules/unicorn/consistent-function-scoping.html)               | unicorn    |         | 🚧       |
 | [no-accessor-recursion](/docs/guide/usage/linter/rules/unicorn/no-accessor-recursion.html)                           | unicorn    |         |          |
+| [no-instanceof-builtins](/docs/guide/usage/linter/rules/unicorn/no-instanceof-builtins.html)                         | unicorn    |         | 🚧       |
 | [prefer-add-event-listener](/docs/guide/usage/linter/rules/unicorn/prefer-add-event-listener.html)                   | unicorn    |         | 🚧       |
 | [require-post-message-target-origin](/docs/guide/usage/linter/rules/unicorn/require-post-message-target-origin.html) | unicorn    |         | 💡       |
 
-## Pedantic (81):
+## Pedantic (82):
 
 Lints which are rather strict or have occasional false positives.
 
@@ -336,7 +338,7 @@ Lints which are rather strict or have occasional false positives.
 | [max-lines](/docs/guide/usage/linter/rules/eslint/max-lines.html)                                                              | eslint     |         |          |
 | [max-lines-per-function](/docs/guide/usage/linter/rules/eslint/max-lines-per-function.html)                                    | eslint     |         |          |
 | [max-nested-callbacks](/docs/guide/usage/linter/rules/eslint/max-nested-callbacks.html)                                        | eslint     |         |          |
-| [no-array-constructor](/docs/guide/usage/linter/rules/eslint/no-array-constructor.html)                                        | eslint     |         | 🚧       |
+| [no-array-constructor](/docs/guide/usage/linter/rules/eslint/no-array-constructor.html)                                        | eslint     |         | 🛠️        |
 | [no-case-declarations](/docs/guide/usage/linter/rules/eslint/no-case-declarations.html)                                        | eslint     |         |          |
 | [no-constructor-return](/docs/guide/usage/linter/rules/eslint/no-constructor-return.html)                                      | eslint     |         |          |
 | [no-else-return](/docs/guide/usage/linter/rules/eslint/no-else-return.html)                                                    | eslint     |         | 🛠️        |
@@ -383,9 +385,10 @@ Lints which are rather strict or have occasional false positives.
 | [no-negation-in-equality-check](/docs/guide/usage/linter/rules/unicorn/no-negation-in-equality-check.html)                     | unicorn    |         | 🚧       |
 | [no-new-buffer](/docs/guide/usage/linter/rules/unicorn/no-new-buffer.html)                                                     | unicorn    |         | 🚧       |
 | [no-object-as-default-parameter](/docs/guide/usage/linter/rules/unicorn/no-object-as-default-parameter.html)                   | unicorn    |         |          |
-| [no-static-only-class](/docs/guide/usage/linter/rules/unicorn/no-static-only-class.html)                                       | unicorn    |         | 🚧       |
+| [no-static-only-class](/docs/guide/usage/linter/rules/unicorn/no-static-only-class.html)                                       | unicorn    |         | ⚠️🛠️️       |
 | [no-this-assignment](/docs/guide/usage/linter/rules/unicorn/no-this-assignment.html)                                           | unicorn    |         |          |
 | [no-typeof-undefined](/docs/guide/usage/linter/rules/unicorn/no-typeof-undefined.html)                                         | unicorn    |         | 🚧       |
+| [no-unnecessary-array-flat-depth](/docs/guide/usage/linter/rules/unicorn/no-unnecessary-array-flat-depth.html)                 | unicorn    |         | 🚧       |
 | [no-unnecessary-slice-end](/docs/guide/usage/linter/rules/unicorn/no-unnecessary-slice-end.html)                               | unicorn    |         | 🛠️        |
 | [no-unreadable-iife](/docs/guide/usage/linter/rules/unicorn/no-unreadable-iife.html)                                           | unicorn    |         |          |
 | [no-useless-promise-resolve-reject](/docs/guide/usage/linter/rules/unicorn/no-useless-promise-resolve-reject.html)             | unicorn    |         | 🛠️        |
@@ -411,7 +414,7 @@ Lints which are rather strict or have occasional false positives.
 | [prefer-type-error](/docs/guide/usage/linter/rules/unicorn/prefer-type-error.html)                                             | unicorn    |         | 🛠️        |
 | [require-number-to-fixed-digits-argument](/docs/guide/usage/linter/rules/unicorn/require-number-to-fixed-digits-argument.html) | unicorn    |         | 🛠️        |
 
-## Style (140):
+## Style (145):
 
 Code that should be written in a more idiomatic way.
 
@@ -530,19 +533,24 @@ Code that should be written in a more idiomatic way.
 | [empty-brace-spaces](/docs/guide/usage/linter/rules/unicorn/empty-brace-spaces.html)                                     | unicorn    |         | 🛠️        |
 | [error-message](/docs/guide/usage/linter/rules/unicorn/error-message.html)                                               | unicorn    |         |          |
 | [filename-case](/docs/guide/usage/linter/rules/unicorn/filename-case.html)                                               | unicorn    |         |          |
+| [no-array-method-this-argument](/docs/guide/usage/linter/rules/unicorn/no-array-method-this-argument.html)               | unicorn    |         | 🚧       |
 | [no-await-expression-member](/docs/guide/usage/linter/rules/unicorn/no-await-expression-member.html)                     | unicorn    |         | 🚧       |
 | [no-console-spaces](/docs/guide/usage/linter/rules/unicorn/no-console-spaces.html)                                       | unicorn    |         | 🛠️        |
+| [no-for-loop](/docs/guide/usage/linter/rules/unicorn/no-for-loop.html)                                                   | unicorn    |         | 🚧       |
 | [no-null](/docs/guide/usage/linter/rules/unicorn/no-null.html)                                                           | unicorn    |         | 🛠️        |
 | [no-unreadable-array-destructuring](/docs/guide/usage/linter/rules/unicorn/no-unreadable-array-destructuring.html)       | unicorn    |         |          |
 | [no-zero-fractions](/docs/guide/usage/linter/rules/unicorn/no-zero-fractions.html)                                       | unicorn    |         | 🛠️        |
 | [number-literal-case](/docs/guide/usage/linter/rules/unicorn/number-literal-case.html)                                   | unicorn    |         | 🛠️        |
 | [numeric-separators-style](/docs/guide/usage/linter/rules/unicorn/numeric-separators-style.html)                         | unicorn    |         | 🛠️        |
 | [prefer-array-flat-map](/docs/guide/usage/linter/rules/unicorn/prefer-array-flat-map.html)                               | unicorn    |         | 🛠️        |
+| [prefer-array-index-of](/docs/guide/usage/linter/rules/unicorn/prefer-array-index-of.html)                               | unicorn    |         | 🚧       |
 | [prefer-dom-node-text-content](/docs/guide/usage/linter/rules/unicorn/prefer-dom-node-text-content.html)                 | unicorn    |         | 🛠️        |
+| [prefer-global-this](/docs/guide/usage/linter/rules/unicorn/prefer-global-this.html)                                     | unicorn    |         | 🚧       |
 | [prefer-includes](/docs/guide/usage/linter/rules/unicorn/prefer-includes.html)                                           | unicorn    |         | 🚧       |
 | [prefer-logical-operator-over-ternary](/docs/guide/usage/linter/rules/unicorn/prefer-logical-operator-over-ternary.html) | unicorn    |         | 🚧       |
 | [prefer-modern-dom-apis](/docs/guide/usage/linter/rules/unicorn/prefer-modern-dom-apis.html)                             | unicorn    |         | 🚧       |
 | [prefer-negative-index](/docs/guide/usage/linter/rules/unicorn/prefer-negative-index.html)                               | unicorn    |         | 🛠️        |
+| [prefer-object-from-entries](/docs/guide/usage/linter/rules/unicorn/prefer-object-from-entries.html)                     | unicorn    |         | 🚧       |
 | [prefer-optional-catch-binding](/docs/guide/usage/linter/rules/unicorn/prefer-optional-catch-binding.html)               | unicorn    |         | 🛠️        |
 | [prefer-reflect-apply](/docs/guide/usage/linter/rules/unicorn/prefer-reflect-apply.html)                                 | unicorn    |         |          |
 | [prefer-spread](/docs/guide/usage/linter/rules/unicorn/prefer-spread.html)                                               | unicorn    |         | 🛠️        |

@@ -21,7 +21,7 @@ This rule will warn you if you try to use the ReactDOM.render() return value.
 
 Using the return value from ReactDOM.render() is a legacy feature and should not be used.
 
-### Example
+### Examples
 
 Examples of **incorrect** code for this rule:
 

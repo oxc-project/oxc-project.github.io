@@ -21,7 +21,7 @@ Disallow negated conditions.
 
 Negated conditions are more difficult to understand. Code can be made more readable by inverting the condition.
 
-### Example
+### Examples
 
 Examples of **incorrect** code for this rule:
 

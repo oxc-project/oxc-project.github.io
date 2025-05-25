@@ -21,7 +21,9 @@ Disallow certain triple slash directives in favor of ES6-style import declaratio
 
 Use of triple-slash reference type directives is generally discouraged in favor of ECMAScript Module imports.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```ts
 /// <reference lib="code" />

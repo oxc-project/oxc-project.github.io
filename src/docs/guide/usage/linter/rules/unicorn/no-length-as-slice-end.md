@@ -21,7 +21,7 @@ Disallow using `length` as the end argument of a `slice` call.
 
 Passing `length` as the end argument of a `slice` call is unnecessary and can be confusing.
 
-### Example
+### Examples
 
 Examples of **incorrect** code for this rule:
 

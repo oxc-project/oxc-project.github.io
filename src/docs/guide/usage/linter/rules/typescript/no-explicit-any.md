@@ -27,7 +27,7 @@ annotation.
 > TypeScript's `--noImplicitAny` compiler option prevents an implied `any`, but doesn't
 > prevent `any` from being explicitly used the way this rule does.
 
-### Example
+### Examples
 
 Examples of **incorrect** code for this rule:
 
@@ -57,16 +57,14 @@ function greet(param: Array<string>): string {}
 function greet(param: Array<string>): Array<string> {}
 ```
 
-## Options
+### Options
 
-This rule accepts the following options:
-
-### `ignoreRestArgs`
+#### `ignoreRestArgs`
 
 A boolean to specify if arrays from the rest operator are considered ok. `false` by
 default.
 
-### `fixToUnknown`
+#### `fixToUnknown`
 
 Whether to enable auto-fixing in which the `any` type is converted to the `unknown` type.
 `false` by default.

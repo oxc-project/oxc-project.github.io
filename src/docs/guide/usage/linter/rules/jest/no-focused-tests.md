@@ -29,7 +29,9 @@ debug a failing test, so you don’t have to execute all of your tests. After yo
 have fixed your test and before committing the changes you have to remove
 `.only` to ensure all tests are executed on your build system.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
 describe.only("foo", () => {});

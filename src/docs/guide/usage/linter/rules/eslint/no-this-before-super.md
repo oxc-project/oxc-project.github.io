@@ -22,7 +22,9 @@ Requires calling `super()` before using `this` or `super`.
 Getters should always return a value.
 If they don't, it's probably a mistake.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
 class A1 extends B {

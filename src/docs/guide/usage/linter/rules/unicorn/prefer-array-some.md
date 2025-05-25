@@ -23,7 +23,7 @@ and a non-zero length check on the result of [`Array#filter()`](https://develope
 
 Using `.some()` is more idiomatic and easier to read.
 
-### Example
+### Examples
 
 Examples of **incorrect** code for this rule:
 

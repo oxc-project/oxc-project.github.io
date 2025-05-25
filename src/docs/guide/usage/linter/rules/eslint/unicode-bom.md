@@ -25,7 +25,9 @@ UTF-8 does not require a BOM because byte ordering does not matter when characte
 single byte. Since UTF-8 is the dominant encoding of the web, we make "never" the default
 option.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
 var a = 123;

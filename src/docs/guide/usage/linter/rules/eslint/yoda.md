@@ -13,12 +13,12 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 </Alert>
 </div>
 
-## What it does
+### What it does
 
 Require or disallow "Yoda" conditions.
 This rule aims to enforce consistent style of conditions which compare a variable to a literal value.
 
-## Why is this bad?
+### Why is this bad?
 
 Yoda conditions are so named because the literal value of the condition comes first while the variable comes second. For example, the following is a Yoda condition:
 
@@ -39,7 +39,7 @@ This typically reads, "if the color equals red", which is arguably a more natura
 Proponents of Yoda conditions highlight that it is impossible to mistakenly use `=` instead of `==` because you cannot assign to a literal value. Doing so will cause a syntax error and you will be informed of the mistake early on. This practice was therefore very common in early programming where tools were not yet available.
 Opponents of Yoda conditions point out that tooling has made us better programmers because tools will catch the mistaken use of `=` instead of `==` (ESLint will catch this for you). Therefore, they argue, the utility of the pattern doesn't outweigh the readability hit the code takes while using Yoda conditions.
 
-## Options
+### Options
 
 This rule can take a string option:
 
@@ -50,7 +50,7 @@ This rule can take a string option:
 - If the `"onlyEquality"` property is `true`, the rule reports yoda conditions _only_ for the equality operators `==` and `===`. The default value is `false`.
   The `onlyEquality` option allows a superset of the exceptions which `exceptRange` allows, thus both options are not useful together.
 
-### never
+#### never
 
 Examples of **incorrect** code for the default `"never"` option:
 
@@ -93,7 +93,7 @@ if (`${value}` === `red`) {
 }
 ```
 
-### exceptRange
+#### exceptRange
 
 Examples of **correct** code for the `"never", { "exceptRange": true }` options:
 
@@ -119,7 +119,7 @@ function howLong(arr) {
 }
 ```
 
-### onlyEquality
+#### onlyEquality
 
 Examples of **correct** code for the `"never", { "onlyEquality": true }` options:
 
@@ -134,7 +134,7 @@ if (x !== `foo` && `bar` != x) {
 }
 ```
 
-### always
+#### always
 
 Examples of **incorrect** code for the `"always"` option:
 

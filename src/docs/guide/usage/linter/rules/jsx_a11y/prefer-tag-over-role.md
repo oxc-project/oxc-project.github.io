@@ -21,7 +21,7 @@ Enforces using semantic HTML tags over `role` attribute.
 
 Using semantic HTML tags can improve accessibility and readability of the code.
 
-### Example
+### Examples
 
 Examples of **incorrect** code for this rule:
 

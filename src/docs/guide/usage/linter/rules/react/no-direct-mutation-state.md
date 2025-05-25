@@ -21,7 +21,7 @@ The restriction coder cannot directly change the value of this.state
 
 calling setState() afterwards may replace the mutation you made
 
-### Example
+### Examples
 
 ```jsx
  // error

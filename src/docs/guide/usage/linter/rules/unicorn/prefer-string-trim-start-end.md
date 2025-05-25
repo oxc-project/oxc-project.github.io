@@ -21,7 +21,7 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 The `trimLeft` and `trimRight` names are confusing and inconsistent with the rest of the language.
 
-### Example
+### Examples
 
 Examples of **incorrect** code for this rule:
 

@@ -21,7 +21,7 @@ This rule finds ternary expressions that can be simplified to a logical operator
 
 Using a logical operator is shorter and simpler than a ternary expression.
 
-### Example
+### Examples
 
 Examples of **incorrect** code for this rule:
 

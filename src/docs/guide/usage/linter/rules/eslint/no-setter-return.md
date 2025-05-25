@@ -23,7 +23,9 @@ While returning a value from a setter does not produce an error, the returned va
 being ignored. Therefore, returning a value from a setter is either unnecessary or a
 possible error, since the returned value cannot be used.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
 class URL {

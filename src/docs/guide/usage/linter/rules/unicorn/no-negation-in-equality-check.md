@@ -21,7 +21,7 @@ Disallow negated expressions on the left of (in)equality checks.
 
 A negated expression on the left of an (in)equality check is likely a mistake from trying to negate the whole condition.
 
-### Example
+### Examples
 
 Examples of **incorrect** code for this rule:
 

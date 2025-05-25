@@ -25,7 +25,9 @@ This rule disallows unnecessary boolean casts.
 In contexts such as an if statement's test where the result of the expression will already be coerced to a Boolean,
 casting to a Boolean via double negation (!!) or a Boolean call is unnecessary.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
 var foo = !!!bar;
@@ -36,6 +38,19 @@ if (Boolean(foo)) {}
 
 // with "enforceForLogicalOperands" option enabled
 if (!!foo || bar) {}
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
+var foo = !bar;
+var foo = Boolean(bar);
+
+if (foo) {}
+if (foo) {}
+
+// with "enforceForLogicalOperands" option enabled
+if (foo || bar) {}
 ```
 
 ## How to use

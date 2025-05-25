@@ -15,7 +15,7 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 This rule enforces onChange or readonly attribute for checked property of input elements.
 It also warns when checked and defaultChecked properties are used together.
 
-### Example
+### Examples
 
 Examples of **incorrect** code for this rule:
 

@@ -23,7 +23,7 @@ The radix argument of `Number.prototype.toString` should be between 2 and 36.
 The precision argument of `Number.prototype.toFixed` and `Number.prototype.toExponential` should be between 0 and 20.
 The precision argument of `Number.prototype.toPrecision` should be between 1 and 21.
 
-### Example
+### Examples
 
 Examples of **incorrect** code for this rule:
 

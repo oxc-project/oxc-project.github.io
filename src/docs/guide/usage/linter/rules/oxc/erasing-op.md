@@ -26,7 +26,7 @@ Based on https://rust-lang.github.io/rust-clippy/master/#/erasing_op
 
 The whole expression can be replaced by zero. This is most likely not the intended outcome and should probably be corrected.
 
-### Example
+### Examples
 
 Examples of **incorrect** code for this rule:
 

@@ -23,7 +23,7 @@ Specifying display=optional minimizes the risk of invisible text or
 layout shift. If swapping to the custom font after it has loaded is
 important to you, then use `display=swap`` instead.
 
-### Example
+### Examples
 
 Examples of **incorrect** code for this rule:
 

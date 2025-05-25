@@ -21,7 +21,7 @@ Enforce throwing a `TypeError` instead of a generic `Error` after a type checkin
 
 Throwing a `TypeError` instead of a generic `Error` after a type checking if-statement is more specific and helps to catch bugs.
 
-### Example
+### Examples
 
 Examples of **incorrect** code for this rule:
 

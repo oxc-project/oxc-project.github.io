@@ -22,10 +22,11 @@ directly within the body of a `describe`, _except_ for the following:
 - Types
 - Calls to the standard Jest globals
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
-// invalid
 import { Logger } from "../../../src/Logger";
 import { loadCities } from "../api";
 import { database, isCity } from "../database";
@@ -65,8 +66,11 @@ describe("when loading cities from the api", () => {
   });
 });
 clearCityDatabase();
+```
 
-// valid
+Examples of **correct** code for this rule:
+
+```javascript
 import { Logger } from "../../../src/Logger";
 import { loadCities } from "../api";
 import { database, isCity } from "../database";

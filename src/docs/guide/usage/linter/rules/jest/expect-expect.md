@@ -21,7 +21,9 @@ This rule triggers when there is no call made to `expect` in a test, ensure that
 
 People may forget to add assertions.
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
 it("should be a test", () => {

@@ -24,7 +24,7 @@ Enforces that `aria-hidden="true"` is not set on focusable elements.
 
 `aria-hidden="true"` on focusable elements can lead to confusion or unexpected behavior for screen reader users.
 
-### Example
+### Examples
 
 Examples of **incorrect** code for this rule:
 

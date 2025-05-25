@@ -27,7 +27,7 @@ Using `tabIndex` values greater than `0` can make navigation and
 interaction difficult for keyboard and assistive technology users,
 disrupting the logical order of content.
 
-### Example
+### Examples
 
 Examples of **incorrect** code for this rule:
 

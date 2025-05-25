@@ -28,7 +28,7 @@ for users with disabilities to use the site effectively.
 
 This rule includes fixes for some common typos.
 
-### Example
+### Examples
 
 Examples of **incorrect** code for this rule:
 

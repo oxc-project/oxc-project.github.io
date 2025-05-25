@@ -25,7 +25,7 @@ Control characters are special, invisible characters in the ASCII range
 regular expression containing elements that explicitly match these
 characters is most likely a mistake.
 
-### Example
+### Examples
 
 Examples of **incorrect** code for this rule:
 

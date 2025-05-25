@@ -23,7 +23,9 @@ This rule disallows the use of `findDOMNode`.
 In most cases, use of this escape hatch is discouraged because it pierces the component abstraction.
 [It has been deprecated in `StrictMode`.](https://legacy.reactjs.org/docs/strict-mode.html#warning-about-deprecated-finddomnode-usage)
 
-### Example
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```jsx
 class MyComponent extends Component {

@@ -34,7 +34,7 @@ counter variable is increasing (i.e. `i++`) and the stop condition tests
 that the counter is greater than zero (`i >= 0`) then the loop will never
 exit.
 
-### Example
+### Examples
 
 Examples of **incorrect** code for this rule:
 

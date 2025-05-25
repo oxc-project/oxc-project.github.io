@@ -22,7 +22,7 @@ Enforce onClick is accompanied by at least one of the following: onKeyUp, onKeyD
 Coding for the keyboard is important for users with physical disabilities who cannot use a mouse, AT compatibility, and screenreader users.
 This does not apply for interactive or hidden elements.
 
-### Example
+### Examples
 
 Examples of **incorrect** code for this rule:
 

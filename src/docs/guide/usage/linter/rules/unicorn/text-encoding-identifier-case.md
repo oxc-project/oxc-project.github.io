@@ -25,7 +25,7 @@ Enforces `'ascii'` for ASCII encoding.
 - Inconsistency in text encoding identifiers can make the code harder to read and understand.
 - The ECMAScript specification does not define the case sensitivity of text encoding identifiers, but it is common practice to use lowercase.
 
-### Example
+### Examples
 
 Examples of **incorrect** code for this rule:
 

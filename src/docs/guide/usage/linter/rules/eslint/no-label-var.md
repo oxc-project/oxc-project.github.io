@@ -19,7 +19,7 @@ Disallow labels that share a name with a variable.
 This rule aims to create clearer code by disallowing the bad practice of creating a label
 that shares a name with a variable that is in scope.
 
-### Example
+### Examples
 
 Examples of **incorrect** code for this rule:
 
