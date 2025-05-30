@@ -60,6 +60,7 @@ oxlint --deny jsdoc/check-tag-names --jsdoc-plugin
   }
 }
 ```
+:::
 
 ### Options
 
@@ -85,6 +86,7 @@ You can add custom tags by adding a key-value pair where both match the name of 
   }
 }
 ```
+:::
 
 Examples of correct code for the is rule with the above configuration, adding the `customTagName` tag :
 
@@ -93,7 +95,7 @@ Examples of correct code for the is rule with the above configuration, adding th
  * @customTagName
  */
 ```
-:::
+
 ## References
 
 - <a v-bind:href="source" target="_blank" rel="noreferrer">Rule Source</a>
