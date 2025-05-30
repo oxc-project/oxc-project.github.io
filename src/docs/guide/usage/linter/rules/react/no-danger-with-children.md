@@ -48,11 +48,12 @@ To **enable** this rule in the CLI or using the config file, you can use:
 ::: code-group
 
 ```bash [CLI]
-oxlint --deny react/no-danger-with-children
+oxlint --deny react/no-danger-with-children --react-plugin
 ```
 
 ```json [Config (.oxlintrc.json)]
 {
+  "plugins": ["react"],
   "rules": {
     "react/no-danger-with-children": "error"
   }

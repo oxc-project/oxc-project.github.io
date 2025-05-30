@@ -74,11 +74,12 @@ To **enable** this rule in the CLI or using the config file, you can use:
 ::: code-group
 
 ```bash [CLI]
-oxlint --deny react/no-direct-mutation-state
+oxlint --deny react/no-direct-mutation-state --react-plugin
 ```
 
 ```json [Config (.oxlintrc.json)]
 {
+  "plugins": ["react"],
   "rules": {
     "react/no-direct-mutation-state": "error"
   }

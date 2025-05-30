@@ -43,11 +43,12 @@ To **enable** this rule in the CLI or using the config file, you can use:
 ::: code-group
 
 ```bash [CLI]
-oxlint --deny react/no-unescaped-entities
+oxlint --deny react/no-unescaped-entities --react-plugin
 ```
 
 ```json [Config (.oxlintrc.json)]
 {
+  "plugins": ["react"],
   "rules": {
     "react/no-unescaped-entities": "error"
   }

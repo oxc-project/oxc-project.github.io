@@ -5,9 +5,12 @@ import { data } from '../version.data.js';
 const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_linter/src/rules/react/exhaustive_deps.rs`;
 </script>
 
-# react/exhaustive-deps <Badge type="info" text="Nursery" />
+# react/exhaustive-deps <Badge type="info" text="Correctness" />
 
 <div class="rule-meta">
+<Alert class="default-on" type="success">
+<span class="emoji">✅</span> This rule is turned on by default.
+</Alert>
 </div>
 
 ### What it does
@@ -50,11 +53,12 @@ To **enable** this rule in the CLI or using the config file, you can use:
 ::: code-group
 
 ```bash [CLI]
-oxlint --deny react/exhaustive-deps
+oxlint --deny react/exhaustive-deps --react-plugin
 ```
 
 ```json [Config (.oxlintrc.json)]
 {
+  "plugins": ["react"],
   "rules": {
     "react/exhaustive-deps": "error"
   }

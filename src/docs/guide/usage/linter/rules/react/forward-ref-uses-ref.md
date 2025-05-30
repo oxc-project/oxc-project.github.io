@@ -12,7 +12,7 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 <span class="emoji">✅</span> This rule is turned on by default.
 </Alert>
 <Alert class="fix" type="info">
-<span class="emoji">🚧</span> An auto-fix is still under development.
+<span class="emoji">💡</span> A suggestion is available for this rule.
 </Alert>
 </div>
 
@@ -58,11 +58,12 @@ To **enable** this rule in the CLI or using the config file, you can use:
 ::: code-group
 
 ```bash [CLI]
-oxlint --deny react/forward-ref-uses-ref
+oxlint --deny react/forward-ref-uses-ref --react-plugin
 ```
 
 ```json [Config (.oxlintrc.json)]
 {
+  "plugins": ["react"],
   "rules": {
     "react/forward-ref-uses-ref": "error"
   }

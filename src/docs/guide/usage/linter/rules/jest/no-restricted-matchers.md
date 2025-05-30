@@ -16,7 +16,33 @@ Ban specific matchers & modifiers from being used, and can suggest alternatives.
 
 ### Examples
 
-Examples of **incorrect** code for this rule:
+Bans are expressed in the form of a map, with the value being either a string message to be shown,
+or null if only the default rule message should be used. Bans are checked against the start of
+the expect chain - this means that to ban a specific matcher entirely you must specify all
+six permutations, but allows you to ban modifiers as well. By default, this map is empty, meaning
+no matchers or modifiers are banned.
+
+Example configuration:
+
+```json
+{
+  "jest/no-restricted-matchers": [
+    "error",
+    {
+      "toBeFalsy": null,
+      "resolves": "Use `expect(await promise)` instead.",
+      "toHaveBeenCalledWith": null,
+      "not.toHaveBeenCalledWith": null,
+      "resolves.toHaveBeenCalledWith": null,
+      "rejects.toHaveBeenCalledWith": null,
+      "resolves.not.toHaveBeenCalledWith": null,
+      "rejects.not.toHaveBeenCalledWith": null
+    }
+  ]
+}
+```
+
+Examples of **incorrect** code for this rule with the above configuration:
 
 ```javascript
 it("is false", () => {

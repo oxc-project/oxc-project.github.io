@@ -47,11 +47,12 @@ To **enable** this rule in the CLI or using the config file, you can use:
 ::: code-group
 
 ```bash [CLI]
-oxlint --deny react/jsx-props-no-spread-multi
+oxlint --deny react/jsx-props-no-spread-multi --react-plugin
 ```
 
 ```json [Config (.oxlintrc.json)]
 {
+  "plugins": ["react"],
   "rules": {
     "react/jsx-props-no-spread-multi": "error"
   }

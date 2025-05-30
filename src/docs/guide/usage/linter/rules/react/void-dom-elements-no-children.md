@@ -53,11 +53,12 @@ To **enable** this rule in the CLI or using the config file, you can use:
 ::: code-group
 
 ```bash [CLI]
-oxlint --deny react/void-dom-elements-no-children
+oxlint --deny react/void-dom-elements-no-children --react-plugin
 ```
 
 ```json [Config (.oxlintrc.json)]
 {
+  "plugins": ["react"],
   "rules": {
     "react/void-dom-elements-no-children": "error"
   }

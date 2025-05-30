@@ -15,18 +15,22 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 ### What it does
 
-Disallows any files only containing the following:
+Disallows files that do not contain any meaningful code.
+
+This includes files that consist only of:
 
 - Whitespace
 - Comments
-- Directives
-- Empty statements
-- Empty blocks
-- Hashbang
+- Directives (e.g., `"use strict"`)
+- Empty statements (`;`)
+- Empty blocks (`{}`)
+- Hashbangs (`#!/usr/bin/env node`)
 
 ### Why is this bad?
 
-Meaningless files clutter a codebase.
+Files with no executable or exportable content are typically unintentional
+or left over from refactoring. They clutter the codebase and may confuse
+tooling or developers by appearing to serve a purpose when they do not.
 
 ## How to use
 

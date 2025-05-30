@@ -15,15 +15,17 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 ### What it does
 
-This rule aims to enforce consistent case for text encoding identifiers.
+This rule enforces consistent casing for text encoding identifiers, specifically:
 
-Enforces `'utf8'` for UTF-8 encoding
-Enforces `'ascii'` for ASCII encoding.
+- `'utf8'` instead of `'UTF-8'` or `'utf-8'`
+- `'ascii'` instead of `'ASCII'`
 
 ### Why is this bad?
 
-- Inconsistency in text encoding identifiers can make the code harder to read and understand.
-- The ECMAScript specification does not define the case sensitivity of text encoding identifiers, but it is common practice to use lowercase.
+Inconsistent casing of encoding identifiers reduces code readability and
+can lead to subtle confusion across a codebase. Although casing is not
+strictly enforced by ECMAScript or Node.js, using lowercase is the
+conventional and widely recognized style.
 
 ### Examples
 
@@ -33,9 +35,7 @@ Examples of **incorrect** code for this rule:
 import fs from "node:fs/promises";
 async function bad() {
   await fs.readFile(file, "UTF-8");
-
   await fs.readFile(file, "ASCII");
-
   const string = buffer.toString("utf-8");
 }
 ```
@@ -43,11 +43,10 @@ async function bad() {
 Examples of **correct** code for this rule:
 
 ```javascript
+import fs from "node:fs/promises";
 async function good() {
   await fs.readFile(file, "utf8");
-
   await fs.readFile(file, "ascii");
-
   const string = buffer.toString("utf8");
 }
 ```
