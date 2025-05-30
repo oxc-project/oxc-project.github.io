@@ -33,7 +33,7 @@
     "pre-commit": "npx lint-staged"
   },
   "lint-staged": {
-    "*": "dprint fmt --allow-no-files"
+    "*": "dprint fmt --staged"
   },
   "packageManager": "pnpm@10.11.0",
   "volta": {
