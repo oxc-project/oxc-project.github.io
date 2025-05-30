@@ -1,5 +1,5 @@
 ---
-title: Oxlint 1.0 Stable
+title: Oxlint v1.0
 outline: deep
 authors:
   - boshen
@@ -8,11 +8,30 @@ authors:
 
 <AppBlogPostHeader />
 
-Oxlint 1.0 is fully stable. After eighteen months of dedicated development and hundreds of contributions from the community, Oxlint 1.0 is here! We now have a dedicated full-time maintainer (me) and a growing core team working on maintaining and improving the linter.
+Oxlint is finally stable since its first announcement back in December 2023.
 
-If you haven’t already, we encourage you to try Oxlint in your codebase. If you run into any issues or have feedback, please reach out - we’re actively listening and ready to respond.
+Oxlint is a Rust-powered linter for JavaScript and TypeScript that ships with 500+ built-in rules and is designed to be fast and simple to adopt.
 
-Oxlint a Rust-powered linter for JavaScript and TypeScript that ships with 500+ built-in rules and is designed to be fast and simple to adopt.
+We now have a dedicated full-time maintainer ([@cameron](https://github.com/camc314)) and a growing core team working on maintaining and improving the linter.
+
+## Real-World Impact
+
+We are extremely proud of the performance of Oxlint and its impact on real large codebases, which has led to reduced CI costs.
+
+We are thankful for the [5.2k early adopters](https://github.com/oxc-project/oxc/network/dependents), and also companies such as:
+
+- _Shopify_'s Front-End Platform team uses oxlint in the Shopify Admin.
+- _Airbnb_ uses to enforce rules such as `oxc/no-barrel-file` and `import/no-cycle` on their 11 million lines of code. ESLint's implementation of these rules times out.
+- _Mercedes-Benz_ observed a 71% decrease in lint time when swapping ESLint to oxlint, with some project seeing up to a 97% speed up.
+
+On the largest repository we found, Oxlint reported
+
+```
+Finished in 22.5s on 264925 files with 101 rules using 10 threads.
+```
+
+Sampling real world cases posted on [x](https://x.com/boshen_c/status/1928264877115597053) and [bluesky](https://bsky.app/profile/boshen.github.io/post/3lqe47xi47c2e),
+Oxlint is approximated to run 10,000 files per second, depending on the total number of threads used.
 
 ## Quick Start
 
@@ -45,10 +64,15 @@ $ deno run npm:oxlint@latest
 :::
 
 For small or new projects, Oxlint can be run without any configuration, using a default set of rules that catch code that is clearly incorrect or unnecessary.
+This allows you to get immediate value with zero setup.
 
-For larger projects or projects that require more customization, Oxlint is configurable via an `.oxlintrc.json` file. This configuration format is based on ESLint v8’s flat config, making migration easy and familiar. Each source file is linted with the nearest applicable configuration, and you can use overrides to target specific glob patterns. You can also extend shared configs to keep teams consistent.
+For larger projects or projects that require more customization, Oxlint is configurable via an `.oxlintrc.json` file.
+This configuration format is based on ESLint v8’s flat config, making migration easy and familiar.
+Each source file is linted with the nearest applicable configuration, and you can use overrides to target specific glob patterns.
+You can also extend shared configs to keep teams consistent.
 
-For projects already using ESLint, [oxlint-migrate](https://github.com/oxc-project/oxlint-migrate) can be used to migrate an existing ESLint flat-config file to Oxlint. Additionally, eslint-plugin-oxlint can disable overlapping ESLint rules while both linters are used together. It’s recommended to run `oxlint && eslint` to benefit from Oxlint's faster feedback cycle.
+For projects already using ESLint, [oxlint-migrate](https://github.com/oxc-project/oxlint-migrate) can be used to migrate an existing ESLint flat-config file to Oxlint. Additionally, eslint-plugin-oxlint can disable overlapping ESLint rules while both linters are used together.
+It is recommended to run `oxlint && eslint` to benefit from Oxlint's faster feedback cycle.
 
 For more detailed instructions on how to use Oxlint and integrate it with your project or editor, check out the [installation guide](/docs/guide/usage/linter).
 
@@ -86,49 +110,15 @@ Oxlint is built to deliver clear, actionable error messages - not just describin
 ![CLI Demo](https://github.com/oxc-project/oxc/assets/1430279/094a3b24-0433-42ae-aad2-48a7dec2b985)
 _Oxlint running in the terminal with detailed error reporting_
 
-## Adoption
+## Benchmark
 
-**From ESLint**: Migrating from ESLint is designed to be seamless. [oxlint-migrate](https://github.com/oxc-project/oxlint-migrate) can be used to migrate an existing ESLint flat-config file to Oxlint.
-Oxlint uses familiar configuration patterns and rule names, making the transition smooth for existing projects.
-
-**In combination with ESLint**: Run `oxlint && eslint` for a faster feedback loop, in combination with [eslint-plugin-oxlint](https://github.com/oxc-project/eslint-plugin-oxlint) to disable overlapping ESLint rules.
-
-**For New Projects**: Start fresh with sensible defaults. Oxlint's built-in rule set covers common patterns and best practices out of the box.
-
-**In CI/CD**: Integrate Oxlint into your build pipeline for fast, reliable code quality checks that won't slow down your deployment process.
-
-**For Large Codebases**: Scale confidently with Oxlint's performance-first architecture that handles monorepos and large JavaScript applications efficiently.
-
-For detailed adoption guidance, see our [installation guide](/docs/guide/usage/linter).
-
-## Performance
-
-Oxlint was benchmarked on large, real-world codebases using its default set of correctness rules.
-
-All benchmarks were run on a 2023 MacBook Pro M2 Max with 96 GB of RAM.
-
-### Repository Benchmark Summary
-
-| Repository         | File count | Lint time | Commit Hash                                  |
-| ------------------ | ---------- | --------- | -------------------------------------------- |
-| `microsoft/vscode` | 5,955      | 0.356s    | (`1a99a26db899152df71fcfd1914e63804d5d0d57`) |
-| `elastic/kibana`   | 71,160     | 1.948 s   | (`f635e2a3b06526195d393b67f0d4534ce792815e`) |
-
-### Linting Visual Studio Code
-
-For a more direct comparison, Oxlint and ESLint were run on the Visual Studio Code codebase using exactly the same enabled rules and configurations.
-
-For more details on this comparison, see https://github.com/oxc-project/bench-javascript-linter.
-
-Oxlint was compiled in release mode at commit e2f0f0a.
+Our [benchmark](https://github.com/oxc-project/bench-javascript-linter) reveals that Oxlint is around 50 - 100 times faster than ESLint with the same setup.
 
 | Tool                   | Time     |
 | ---------------------- | -------- |
-| oxlint                 | 615.3 ms |
+| oxlint (multi thread)  | 615.3 ms |
 | oxlint (single thread) | 1.840 s  |
 | eslint                 | 33.481 s |
-
-Oxlint ran ~55x faster than ESLint on the same codebase and configuration.
 
 ## Roadmap
 
@@ -138,7 +128,7 @@ Oxlint ran ~55x faster than ESLint on the same codebase and configuration.
 
 ## Acknowledgements
 
-Oxlint 1.0 represents the collective effort of over 200 contributors who have shaped this project. We're grateful for every bug report, feature request, and code contribution.
+Oxlint 1.0 represents the collective effort of [over 200 contributors](https://github.com/oxc-project/oxc/graphs/contributors) who have shaped this project. We're grateful for every bug report, feature request, and code contribution.
 
 Special recognition goes to:
 
@@ -161,3 +151,8 @@ We're excited to see how Oxlint helps improve your development workflow. Connect
 - **Issues**: Report bugs or request features on our [issue tracker](https://github.com/oxc-project/oxc/issues)
 
 Your feedback drives Oxlint's evolution.
+
+## Give It a Try
+
+To get started, follow the [installation guide](/docs/guide/usage/linter),
+or learn more about the [oxc project](/docs/guide/introduction.html).
