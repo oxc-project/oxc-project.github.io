@@ -2,6 +2,7 @@
 title: Oxlint 1.0 Stable
 outline: deep
 authors:
+  - boshen
   - cameron
 ---
 
