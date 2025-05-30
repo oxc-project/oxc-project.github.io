@@ -81,11 +81,12 @@ To **enable** this rule in the CLI or using the config file, you can use:
 ::: code-group
 
 ```bash [CLI]
-oxlint --deny react/jsx-filename-extension
+oxlint --deny react/jsx-filename-extension --react-plugin
 ```
 
 ```json [Config (.oxlintrc.json)]
 {
+  "plugins": ["react"],
   "rules": {
     "react/jsx-filename-extension": "error"
   }

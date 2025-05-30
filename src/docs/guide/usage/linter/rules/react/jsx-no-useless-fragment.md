@@ -8,6 +8,9 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 # react/jsx-no-useless-fragment <Badge type="info" text="Pedantic" />
 
 <div class="rule-meta">
+<Alert class="fix" type="info">
+<span class="emoji">💡</span> A suggestion is available for this rule.
+</Alert>
 </div>
 
 ### What it does
@@ -41,11 +44,12 @@ To **enable** this rule in the CLI or using the config file, you can use:
 ::: code-group
 
 ```bash [CLI]
-oxlint --deny react/jsx-no-useless-fragment
+oxlint --deny react/jsx-no-useless-fragment --react-plugin
 ```
 
 ```json [Config (.oxlintrc.json)]
 {
+  "plugins": ["react"],
   "rules": {
     "react/jsx-no-useless-fragment": "error"
   }

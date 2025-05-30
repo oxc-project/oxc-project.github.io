@@ -45,11 +45,12 @@ To **enable** this rule in the CLI or using the config file, you can use:
 ::: code-group
 
 ```bash [CLI]
-oxlint --deny react/no-find-dom-node
+oxlint --deny react/no-find-dom-node --react-plugin
 ```
 
 ```json [Config (.oxlintrc.json)]
 {
+  "plugins": ["react"],
   "rules": {
     "react/no-find-dom-node": "error"
   }

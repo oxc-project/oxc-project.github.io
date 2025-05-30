@@ -107,8 +107,6 @@ case.
 Examples of **incorrect** code for this rule:
 
 ```js
-/*oxlint no-fallthrough: "error"*/
-
 switch (foo) {
   case 1:
     doSomething();
@@ -121,8 +119,6 @@ switch (foo) {
 Examples of **correct** code for this rule:
 
 ```js
-/*oxlint no-fallthrough: "error"*/
-
 switch (foo) {
   case 1:
     doSomething();

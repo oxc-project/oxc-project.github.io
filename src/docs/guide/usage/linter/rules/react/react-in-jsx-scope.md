@@ -41,11 +41,12 @@ To **enable** this rule in the CLI or using the config file, you can use:
 ::: code-group
 
 ```bash [CLI]
-oxlint --deny react/react-in-jsx-scope
+oxlint --deny react/react-in-jsx-scope --react-plugin
 ```
 
 ```json [Config (.oxlintrc.json)]
 {
+  "plugins": ["react"],
   "rules": {
     "react/react-in-jsx-scope": "error"
   }

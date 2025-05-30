@@ -46,14 +46,14 @@ import { find, merge } from "module";
 
 #### includeExports
 
-`{ "includeExports": boolean }`
+`{ type: boolean, default: false }`
 
 When `true` this rule will also look at exports to see if there is both a re-export of a
 module as in `export ... from 'module'` and also a standard import statement for the same
 module. This would count as a rule violation because there are in a sense two statements
 importing from the same module.
 
-Examples of **incorrect** when this rule is set to `true`
+Examples of **incorrect** code when `includeExports` is set to `true`:
 
 ```js
 import { merge } from "module";
@@ -61,7 +61,7 @@ import { merge } from "module";
 export { find } from "module"; // re-export which is an import and an export.
 ```
 
-Examples of **correct** when this rule is set to `true`
+Examples of **correct** code when `includeExports` is set to `true`:
 
 If re-exporting from an imported module, you should add the imports to the
 `import` statement, and export that directly, not use `export ... from`.

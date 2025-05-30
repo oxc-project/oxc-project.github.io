@@ -45,11 +45,12 @@ To **enable** this rule in the CLI or using the config file, you can use:
 ::: code-group
 
 ```bash [CLI]
-oxlint --deny react/jsx-no-duplicate-props
+oxlint --deny react/jsx-no-duplicate-props --react-plugin
 ```
 
 ```json [Config (.oxlintrc.json)]
 {
+  "plugins": ["react"],
   "rules": {
     "react/jsx-no-duplicate-props": "error"
   }

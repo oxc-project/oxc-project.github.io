@@ -38,11 +38,12 @@ To **enable** this rule in the CLI or using the config file, you can use:
 ::: code-group
 
 ```bash [CLI]
-oxlint --deny react/prefer-es6-class
+oxlint --deny react/prefer-es6-class --react-plugin
 ```
 
 ```json [Config (.oxlintrc.json)]
 {
+  "plugins": ["react"],
   "rules": {
     "react/prefer-es6-class": "error"
   }

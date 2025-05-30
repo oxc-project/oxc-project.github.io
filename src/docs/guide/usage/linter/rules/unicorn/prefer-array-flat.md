@@ -9,7 +9,7 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 <div class="rule-meta">
 <Alert class="fix" type="info">
-<span class="emoji">🛠️</span> An auto-fix is available for this rule for some violations.
+<span class="emoji">⚠️🛠️️</span> A dangerous auto-fix is available for this rule for some violations.
 </Alert>
 </div>
 

@@ -2,7 +2,7 @@
 
 The progress of all rule implementations is tracked [here](https://github.com/oxc-project/oxc/issues/481).
 
-- Total number of rules: 520
+- Total number of rules: 519
 - Rules turned on by default: 123
 
 **Legend for 'Fixable?' column:**
@@ -13,7 +13,7 @@ The progress of all rule implementations is tracked [here](https://github.com/ox
 - ⚠️💡: a dangerous suggestion is available for this rule
 - 🚧: an auto-fix or suggestion is possible, but currently not implemented
 
-## Correctness (175):
+## Correctness (176):
 
 Code that is outright wrong or useless.
 
@@ -154,7 +154,8 @@ Code that is outright wrong or useless.
 | [no-callback-in-promise](/docs/guide/usage/linter/rules/promise/no-callback-in-promise.html)                                                          | promise    | ✅      |          |
 | [no-new-statics](/docs/guide/usage/linter/rules/promise/no-new-statics.html)                                                                          | promise    | ✅      | 🛠️        |
 | [valid-params](/docs/guide/usage/linter/rules/promise/valid-params.html)                                                                              | promise    | ✅      |          |
-| [forward-ref-uses-ref](/docs/guide/usage/linter/rules/react/forward-ref-uses-ref.html)                                                                | react      | ✅      | 🚧       |
+| [exhaustive-deps](/docs/guide/usage/linter/rules/react/exhaustive-deps.html)                                                                          | react      | ✅      |          |
+| [forward-ref-uses-ref](/docs/guide/usage/linter/rules/react/forward-ref-uses-ref.html)                                                                | react      | ✅      | 💡       |
 | [jsx-key](/docs/guide/usage/linter/rules/react/jsx-key.html)                                                                                          | react      | ✅      |          |
 | [jsx-no-duplicate-props](/docs/guide/usage/linter/rules/react/jsx-no-duplicate-props.html)                                                            | react      | ✅      |          |
 | [jsx-no-target-blank](/docs/guide/usage/linter/rules/react/jsx-no-target-blank.html)                                                                  | react      | ✅      |          |
@@ -235,7 +236,7 @@ Lints which prevent the use of language and library features. Must not be enable
 | [no-undefined](/docs/guide/usage/linter/rules/eslint/no-undefined.html)                                                           | eslint     |         |          |
 | [no-unused-expressions](/docs/guide/usage/linter/rules/eslint/no-unused-expressions.html)                                         | eslint     |         |          |
 | [no-var](/docs/guide/usage/linter/rules/eslint/no-var.html)                                                                       | eslint     |         | 🛠️        |
-| [no-void](/docs/guide/usage/linter/rules/eslint/no-void.html)                                                                     | eslint     |         | 🚧       |
+| [no-void](/docs/guide/usage/linter/rules/eslint/no-void.html)                                                                     | eslint     |         | 💡       |
 | [unicode-bom](/docs/guide/usage/linter/rules/eslint/unicode-bom.html)                                                             | eslint     |         | 🛠️        |
 | [no-amd](/docs/guide/usage/linter/rules/import/no-amd.html)                                                                       | import     |         |          |
 | [no-commonjs](/docs/guide/usage/linter/rules/import/no-commonjs.html)                                                             | import     |         |          |
@@ -366,7 +367,7 @@ Lints which are rather strict or have occasional false positives.
 | [require-returns-description](/docs/guide/usage/linter/rules/jsdoc/require-returns-description.html)                           | jsdoc      |         |          |
 | [require-returns-type](/docs/guide/usage/linter/rules/jsdoc/require-returns-type.html)                                         | jsdoc      |         |          |
 | [checked-requires-onchange-or-readonly](/docs/guide/usage/linter/rules/react/checked-requires-onchange-or-readonly.html)       | react      |         |          |
-| [jsx-no-useless-fragment](/docs/guide/usage/linter/rules/react/jsx-no-useless-fragment.html)                                   | react      |         |          |
+| [jsx-no-useless-fragment](/docs/guide/usage/linter/rules/react/jsx-no-useless-fragment.html)                                   | react      |         | 💡       |
 | [no-unescaped-entities](/docs/guide/usage/linter/rules/react/no-unescaped-entities.html)                                       | react      |         |          |
 | [rules-of-hooks](/docs/guide/usage/linter/rules/react/rules-of-hooks.html)                                                     | react      |         |          |
 | [ban-ts-comment](/docs/guide/usage/linter/rules/typescript/ban-ts-comment.html)                                                | typescript |         | 🛠️        |
@@ -394,7 +395,7 @@ Lints which are rather strict or have occasional false positives.
 | [no-useless-promise-resolve-reject](/docs/guide/usage/linter/rules/unicorn/no-useless-promise-resolve-reject.html)             | unicorn    |         | 🛠️        |
 | [no-useless-switch-case](/docs/guide/usage/linter/rules/unicorn/no-useless-switch-case.html)                                   | unicorn    |         | 🚧       |
 | [no-useless-undefined](/docs/guide/usage/linter/rules/unicorn/no-useless-undefined.html)                                       | unicorn    |         | 🛠️        |
-| [prefer-array-flat](/docs/guide/usage/linter/rules/unicorn/prefer-array-flat.html)                                             | unicorn    |         | 🛠️        |
+| [prefer-array-flat](/docs/guide/usage/linter/rules/unicorn/prefer-array-flat.html)                                             | unicorn    |         | ⚠️🛠️️       |
 | [prefer-array-some](/docs/guide/usage/linter/rules/unicorn/prefer-array-some.html)                                             | unicorn    |         | 🛠️        |
 | [prefer-blob-reading-methods](/docs/guide/usage/linter/rules/unicorn/prefer-blob-reading-methods.html)                         | unicorn    |         | 🚧       |
 | [prefer-code-point](/docs/guide/usage/linter/rules/unicorn/prefer-code-point.html)                                             | unicorn    |         | 🛠️        |
@@ -414,7 +415,7 @@ Lints which are rather strict or have occasional false positives.
 | [prefer-type-error](/docs/guide/usage/linter/rules/unicorn/prefer-type-error.html)                                             | unicorn    |         | 🛠️        |
 | [require-number-to-fixed-digits-argument](/docs/guide/usage/linter/rules/unicorn/require-number-to-fixed-digits-argument.html) | unicorn    |         | 🛠️        |
 
-## Style (145):
+## Style (144):
 
 Code that should be written in a more idiomatic way.
 
@@ -534,9 +535,8 @@ Code that should be written in a more idiomatic way.
 | [error-message](/docs/guide/usage/linter/rules/unicorn/error-message.html)                                               | unicorn    |         |          |
 | [filename-case](/docs/guide/usage/linter/rules/unicorn/filename-case.html)                                               | unicorn    |         |          |
 | [no-array-method-this-argument](/docs/guide/usage/linter/rules/unicorn/no-array-method-this-argument.html)               | unicorn    |         | 🚧       |
-| [no-await-expression-member](/docs/guide/usage/linter/rules/unicorn/no-await-expression-member.html)                     | unicorn    |         | 🚧       |
+| [no-await-expression-member](/docs/guide/usage/linter/rules/unicorn/no-await-expression-member.html)                     | unicorn    |         | ⚠️🛠️️       |
 | [no-console-spaces](/docs/guide/usage/linter/rules/unicorn/no-console-spaces.html)                                       | unicorn    |         | 🛠️        |
-| [no-for-loop](/docs/guide/usage/linter/rules/unicorn/no-for-loop.html)                                                   | unicorn    |         | 🚧       |
 | [no-null](/docs/guide/usage/linter/rules/unicorn/no-null.html)                                                           | unicorn    |         | 🛠️        |
 | [no-unreadable-array-destructuring](/docs/guide/usage/linter/rules/unicorn/no-unreadable-array-destructuring.html)       | unicorn    |         |          |
 | [no-zero-fractions](/docs/guide/usage/linter/rules/unicorn/no-zero-fractions.html)                                       | unicorn    |         | 🛠️        |
@@ -566,7 +566,7 @@ Code that should be written in a more idiomatic way.
 | [prefer-to-be-object](/docs/guide/usage/linter/rules/vitest/prefer-to-be-object.html)                                    | vitest     |         | 🛠️        |
 | [prefer-to-be-truthy](/docs/guide/usage/linter/rules/vitest/prefer-to-be-truthy.html)                                    | vitest     |         | 🛠️        |
 
-## Nursery (9):
+## Nursery (8):
 
 New lints that are still under development.
 
@@ -579,5 +579,4 @@ New lints that are still under development.
 | [named](/docs/guide/usage/linter/rules/import/named.html)                                | import  |         |          |
 | [no-map-spread](/docs/guide/usage/linter/rules/oxc/no-map-spread.html)                   | oxc     |         | 🛠️💡      |
 | [no-return-in-finally](/docs/guide/usage/linter/rules/promise/no-return-in-finally.html) | promise |         |          |
-| [exhaustive-deps](/docs/guide/usage/linter/rules/react/exhaustive-deps.html)             | react   |         |          |
 | [require-render-return](/docs/guide/usage/linter/rules/react/require-render-return.html) | react   |         |          |

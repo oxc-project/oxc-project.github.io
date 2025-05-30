@@ -42,11 +42,12 @@ To **enable** this rule in the CLI or using the config file, you can use:
 ::: code-group
 
 ```bash [CLI]
-oxlint --deny react/jsx-boolean-value
+oxlint --deny react/jsx-boolean-value --react-plugin
 ```
 
 ```json [Config (.oxlintrc.json)]
 {
+  "plugins": ["react"],
   "rules": {
     "react/jsx-boolean-value": "error"
   }

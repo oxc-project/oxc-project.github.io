@@ -9,17 +9,18 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 <div class="rule-meta">
 <Alert class="fix" type="info">
-<span class="emoji">🚧</span> An auto-fix is still under development.
+<span class="emoji">💡</span> A suggestion is available for this rule.
 </Alert>
 </div>
 
 ### What it does
 
-Disallow `void` operators.
+Disallows the use of the `void` operator.
 
 Why is this bad
 
-The `void` operator is often used to obtain the `undefined` primitive value, but it is unnecessary. You can use `undefined` directly instead.
+The `void` operator is often used to get `undefined`,
+but this is unnecessary because `undefined` can be used directly instead.
 
 ### Examples
 
@@ -37,6 +38,14 @@ Examples of **correct** code for this rule:
 "foo.void()";
 "foo.void = bar";
 ```
+
+### Options
+
+#### allowAsStatement
+
+`{ type: boolean, default: false }`
+
+If set to `true`, using `void` as a standalone statement is allowed.
 
 ## How to use
 

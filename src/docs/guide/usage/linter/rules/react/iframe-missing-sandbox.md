@@ -54,11 +54,12 @@ To **enable** this rule in the CLI or using the config file, you can use:
 ::: code-group
 
 ```bash [CLI]
-oxlint --deny react/iframe-missing-sandbox
+oxlint --deny react/iframe-missing-sandbox --react-plugin
 ```
 
 ```json [Config (.oxlintrc.json)]
 {
+  "plugins": ["react"],
   "rules": {
     "react/iframe-missing-sandbox": "error"
   }

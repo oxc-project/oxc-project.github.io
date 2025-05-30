@@ -15,11 +15,14 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 ### What it does
 
-Require `new` when throwing an error.`
+This rule makes sure you always use `new` when throwing an error.
 
 ### Why is this bad?
 
-While it's possible to create a new error without using the `new` keyword, it's better to be explicit.
+In JavaScript, omitting `new` (e.g., `throw Error('message')`) is allowed,
+but it does not properly initialize the error object. This can lead to missing
+stack traces or incorrect prototype chains. Using `new` makes the intent clear,
+ensures consistent behavior, and helps avoid subtle bugs.
 
 ### Examples
 
