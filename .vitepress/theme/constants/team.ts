@@ -32,8 +32,8 @@ export const CORE_MEMBERS: TeamMember[] = [
     avatar: "https://www.github.com/Boshen.png",
     links: [
       { icon: "github", link: "https://github.com/Boshen" },
+      { icon: "x", link: "https://x.com/boshen_c" },
       { icon: "bluesky", link: "https://bsky.app/profile/boshen.github.io" },
-      { icon: "twitter", link: "https://twitter.com/boshen_c" },
     ],
   },
   {
@@ -44,7 +44,7 @@ export const CORE_MEMBERS: TeamMember[] = [
     avatar: "https://www.github.com/dunqing.png",
     links: [
       { icon: "github", link: "https://github.com/dunqing" },
-      { icon: "twitter", link: "https://twitter.com/Dunqingg" },
+      { icon: "x", link: "https://x.com/Dunqingg" },
     ],
   },
   {
@@ -55,14 +55,14 @@ export const CORE_MEMBERS: TeamMember[] = [
     avatar: "https://www.github.com/overlookmotel.png",
     links: [
       { icon: "github", link: "https://github.com/overlookmotel" },
-      { icon: "twitter", link: "https://twitter.com/overlook_motel" },
+      { icon: "x", link: "https://x.com/overlook_motel" },
     ],
   },
   {
     id: "cameron",
     type: "core",
     name: "Cameron",
-    title: "Member",
+    title: "Core",
     avatar: "https://www.github.com/camc314.png",
     links: [{ icon: "github", link: "https://github.com/camc314" }],
   },
@@ -74,7 +74,7 @@ export const CORE_MEMBERS: TeamMember[] = [
     avatar: "https://www.github.com/leaysgur.png",
     links: [
       { icon: "github", link: "https://github.com/leaysgur" },
-      { icon: "twitter", link: "https://x.com/leaysgur" },
+      { icon: "x", link: "https://x.com/leaysgur" },
     ],
   },
   {
@@ -85,7 +85,7 @@ export const CORE_MEMBERS: TeamMember[] = [
     avatar: "https://www.github.com/camchenry.png",
     links: [
       { icon: "github", link: "https://github.com/camchenry" },
-      { icon: "twitter", link: "https://x.com/cammchenry" },
+      { icon: "x", link: "https://x.com/cammchenry" },
     ],
   },
   {
@@ -103,7 +103,7 @@ export const CORE_MEMBERS: TeamMember[] = [
     avatar: "https://www.github.com/mysteryven.png",
     links: [
       { icon: "github", link: "https://github.com/mysteryven" },
-      { icon: "twitter", link: "https://twitter.com/mysteryven" },
+      { icon: "x", link: "https://x.com/mysteryven" },
     ],
   },
   {
@@ -113,7 +113,7 @@ export const CORE_MEMBERS: TeamMember[] = [
     avatar: "https://www.github.com/donisaac.png",
     links: [
       { icon: "github", link: "https://github.com/donisaac" },
-      { icon: "twitter", link: "https://twitter.com/Don_dev_" },
+      { icon: "x", link: "https://x.com/Don_dev_" },
     ],
   },
   {
@@ -123,7 +123,7 @@ export const CORE_MEMBERS: TeamMember[] = [
     avatar: "https://www.github.com/rzvxa.png",
     links: [
       { icon: "github", link: "https://github.com/rzvxa" },
-      { icon: "twitter", link: "https://twitter.com/rzvxa" },
+      { icon: "x", link: "https://x.com/rzvxa" },
     ],
   },
   {
@@ -136,7 +136,7 @@ export const CORE_MEMBERS: TeamMember[] = [
     orgLink: "https://github.com/biomejs",
     links: [
       { icon: "github", link: "https://github.com/ematipico" },
-      { icon: "twitter", link: "https://twitter.com/ematipico" },
+      { icon: "x", link: "https://x.com/ematipico" },
     ],
   },
   {
@@ -149,7 +149,7 @@ export const CORE_MEMBERS: TeamMember[] = [
     orgLink: "https://github.com/cloudflare",
     links: [
       { icon: "github", link: "https://github.com/anonrig" },
-      { icon: "twitter", link: "https://twitter.com/yagiznizipli" },
+      { icon: "x", link: "https://x.com/yagiznizipli" },
     ],
   },
 ];
