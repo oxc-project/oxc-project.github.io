@@ -1,5 +1,5 @@
 ---
-title: Oxlint v1.0
+title: Oxlint v1.0 Stable
 outline: deep
 authors:
   - boshen
@@ -16,22 +16,22 @@ We now have a dedicated full-time maintainer ([@cameron](https://github.com/camc
 
 ## Real-World Impact
 
-We are extremely proud of the performance of Oxlint and its impact on real large codebases, which has led to reduced CI costs.
+We are extremely proud of the performance of Oxlint and its impact on real, large-scale codebases, which has led to reduced CI costs.
 
-We are thankful for the [5.2k early adopters](https://github.com/oxc-project/oxc/network/dependents), and also companies such as:
+We are thankful for our [5,200 early adopters](https://github.com/oxc-project/oxc/network/dependents) and for companies such as:
 
-- _Shopify_'s Front-End Platform team uses oxlint in the Shopify Admin.
-- _Airbnb_ uses to enforce rules such as `oxc/no-barrel-file` and `import/no-cycle` on their 11 million lines of code. ESLint's implementation of these rules times out.
-- _Mercedes-Benz_ observed a 71% decrease in lint time when swapping ESLint to oxlint, with some project seeing up to a 97% speed up.
+- **Shopify**, where the front-end platform team uses Oxlint in the Shopify admin console.
+- **Airbnb**, where they use multi-file analysis `oxc/no-barrel-file` and `import/no-cycle` on their 126,000+ files, which completes in 7s on CI. ESLint's implementation of these rules times out.
+- **Mercedes-Benz**, where they observed a 71% decrease in lint time when swapping ESLint to Oxlint, with some project seeing up to a 97% speedup.
 
-On the largest repository we found, Oxlint reported
+On the largest repository we found, Oxlint reported:
 
 ```
 Finished in 22.5s on 264925 files with 101 rules using 10 threads.
 ```
 
-Sampling real world cases posted on [x](https://x.com/boshen_c/status/1928264877115597053) and [bluesky](https://bsky.app/profile/boshen.github.io/post/3lqe47xi47c2e),
-Oxlint is approximated to run 10,000 files per second, depending on the total number of threads used.
+Based on real-world cases posted on [X](https://x.com/boshen_c/status/1928264877115597053) and [Bluesky](https://bsky.app/profile/boshen.github.io/post/3lqe47xi47c2e),
+Oxlint runs at approximately 10,000 files per second, depending on the total number of threads used.
 
 ## Quick Start
 
