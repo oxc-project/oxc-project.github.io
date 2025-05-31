@@ -18,11 +18,13 @@ We now have a dedicated full-time maintainer ([@cameron](https://github.com/camc
 
 We are extremely proud of the performance of Oxlint and its impact on real, large-scale codebases, which has led to reduced CI costs.
 
-We are thankful for our [5,200 early adopters](https://github.com/oxc-project/oxc/network/dependents) and for companies such as:
+We are thankful for our [5,200 early adopters](https://github.com/oxc-project/oxc/network/dependents) and for companies and projects such as:
 
 - **Shopify**, where the front-end platform team uses Oxlint in the Shopify admin console.
 - **Airbnb**, where they use multi-file analysis `oxc/no-barrel-file` and `import/no-cycle` on their 126,000+ files, which completes in 7s on CI. ESLint's implementation of these rules times out.
-- **Mercedes-Benz**, where they observed a 71% decrease in lint time when swapping ESLint to Oxlint, with some project seeing up to a 97% speedup.
+- [**Mercedes-Benz**](https://www.mercedes-benz.io/blog/2025-05-16-how-can-modern-tooling-save-mercedes-benz-io-engineering-time), where they observed a 71% decrease in lint time when swapping ESLint to Oxlint, with some project seeing up to a 97% speedup.
+- [bun](https://github.com/oven-sh/bun/blob/main/oxlint.json)
+- [preact](https://github.com/preactjs/preact/blob/main/oxlint.json)
 
 On the largest repository we found, Oxlint reported:
 
@@ -71,7 +73,8 @@ This configuration format is based on ESLint v8’s flat config, making migratio
 Each source file is linted with the nearest applicable configuration, and you can use overrides to target specific glob patterns.
 You can also extend shared configs to keep teams consistent.
 
-For projects already using ESLint, [oxlint-migrate](https://github.com/oxc-project/oxlint-migrate) can be used to migrate an existing ESLint flat-config file to Oxlint. Additionally, eslint-plugin-oxlint can disable overlapping ESLint rules while both linters are used together.
+For projects already using ESLint, [oxlint-migrate](https://github.com/oxc-project/oxlint-migrate) can be used to migrate an existing ESLint flat-config file to Oxlint.
+Additionally, [eslint-plugin-oxlint](https://github.com/oxc-project/eslint-plugin-oxlint) can disable overlapping ESLint rules while both linters are used together.
 It is recommended to run `oxlint && eslint` to benefit from Oxlint's faster feedback cycle.
 
 For more detailed instructions on how to use Oxlint and integrate it with your project or editor, check out the [installation guide](/docs/guide/usage/linter).
@@ -82,7 +85,7 @@ For more detailed instructions on how to use Oxlint and integrate it with your p
 
 Oxlint includes over 500 rules from various sources:
 
-- Complete ESLint rule set, including TypeScript-specific rules from typescript-eslint (Excluding type checked rules.)
+- Complete ESLint rule set, including TypeScript-specific rules from `typescript-eslint` (excluding type checked rules).
 - Popular plugin rules from `eslint-plugin-unicorn`, `eslint-plugin-jsdoc`, `eslint-plugin-react`, `eslint-plugin-react-hooks`, `eslint-plugin-jest`, and `eslint-plugin-import`
 - Unique Oxlint rules like [bad comparison sequence](../docs/guide/usage/linter/rules/oxc/bad-comparison-sequence), [const comparisons](../docs/guide/usage/linter/rules/oxc/const-comparisons), and [only used in recursion](../docs/guide/usage/linter/rules/oxc/only-used-in-recursion)
 
@@ -112,7 +115,7 @@ _Oxlint running in the terminal with detailed error reporting_
 
 ## Benchmark
 
-Our [benchmark](https://github.com/oxc-project/bench-javascript-linter) reveals that Oxlint is around 50 - 100 times faster than ESLint with the same setup.
+Our [benchmark](https://github.com/oxc-project/bench-javascript-linter) reveals that Oxlint is around 50~100 times faster than ESLint with the same setup.
 
 | Tool                   | Time     |
 | ---------------------- | -------- |
@@ -125,6 +128,8 @@ Our [benchmark](https://github.com/oxc-project/bench-javascript-linter) reveals 
 **Custom Rules** – JavaScript plugin support is coming soon, enabling teams to write custom rules that integrate seamlessly with Oxlint's architecture.
 
 **Performance Optimizations** – Continued improvements to parsing and analysis speed.
+
+**Fine-grained (per-glob) configuration** - ESLint v9 configuration
 
 ## Acknowledgements
 
