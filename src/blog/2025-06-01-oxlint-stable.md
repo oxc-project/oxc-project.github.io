@@ -86,7 +86,7 @@ Unlike libraries that ship runtime code, a linter only changes the diagnostics i
 - Patch releases: bug fixes only.
 - Minor releases: expand rule coverage and diagnostics, without requiring configuration changes.
 - Major releases: CLI or configuration changes, that may require migration.
-  Note that minor releases can still break your CI if newly added rules uncover previously hidden issues. Learn more in our [Versioning guide](https://github.com/oxc-project/oxc-project.github.io/pull/docs/guide/usage/linter/versioning).
+  Note that minor releases can still break your CI if newly added rules uncover previously hidden issues. Learn more in our [Versioning guide](..//docs/guide/usage/linter/versioning).
 
 ## Highlights
 
