@@ -15,11 +15,13 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 ### What it does
 
-Require empty switch cases to not have braces. Non-empty braces are required to have braces around them.
+Requires empty switch cases to omit braces, while non-empty cases must use braces.
+This reduces visual clutter for empty cases and enforces proper scoping for non-empty ones.
 
 ### Why is this bad?
 
-There is less visual clutter for empty cases and proper scope for non-empty cases.
+Using braces unnecessarily for empty cases adds visual noise,
+while omitting braces in non-empty cases can lead to scoping issues.
 
 ### Examples
 
@@ -27,8 +29,7 @@ Examples of **incorrect** code for this rule:
 
 ```javascript
 switch (num) {
-  case 1: {
-  }
+  case 1: {}
   case 2:
     console.log("Case 2");
     break;
@@ -39,13 +40,28 @@ Examples of **correct** code for this rule:
 
 ```javascript
 switch (num) {
-  case 1: {
-  }
+  case 1:
   case 2: {
     console.log("Case 2");
     break;
   }
 }
+```
+
+### Options
+
+`{ type: "always" | "avoid", default: "always" }`
+
+- `"always"`
+  Always report when clause is not a `BlockStatement`.
+
+- `"avoid"`
+  Allows braces only when needed for scoping (e.g., variable or function declarations).
+
+Example:
+
+```json
+"unicorn/switch-case-braces": ["error", "avoid"]
 ```
 
 ## How to use
