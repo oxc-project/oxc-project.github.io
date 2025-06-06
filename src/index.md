@@ -27,13 +27,13 @@ features:
     details: 28x faster than enhanced-resolve
     link: /docs/guide/usage/resolver
     linkText: Usage guide
-  - title: Transformer 🚧
+  - title: Transformer ✅
     details: Babel compatible<br/>✓ TypeScript / React JSX<br/>✓ Isolated Declarations DTS Emit
     link: /docs/guide/usage/transformer
     linkText: Usage guide
-  - title: Minifier
+  - title: Minifier 🚧
     details: Faster and better at compression<br/>Prototype is complete
-  - title: Formatter
+  - title: Formatter 🚧
     details: Prettier compatible<br/>Prototype is complete
   - title: Rolldown Bundler 🚧
     details: Rollup compatible<br/>Designed for Vite
