@@ -9,7 +9,8 @@ We recommend thoroughly testing its output before deploying to production enviro
 
 ### Node.js
 
-Use the node binding [oxc-minify][url-oxc-minify-npm].
+- Use the node binding [oxc-minify][url-oxc-minify-npm].
+- Try on [stackblitz](https://stackblitz.com/edit/oxc-minify).
 
 ### Rust
 

@@ -19,15 +19,16 @@ This is production ready.
 
 ## Installation
 
+### Node.js
+
+- Use the node binding [oxc-parser][url-oxc-parser-npm].
+- Try on [stackblitz](https://stackblitz.com/edit/oxc-parser).
+
 ### Rust
 
 Use the umbrella crate [oxc][url-oxc-crate] or the individual [oxc_ast][url-oxc-ast-crate] and [oxc_parser][url-oxc-parser-crate] crates.
 
 Rust usage example can be found [here](https://github.com/oxc-project/oxc/blob/main/crates/oxc_parser/examples/parser.rs).
-
-### Node.js (NAPI)
-
-Try the node binding [oxc-parser][url-oxc-parser-npm].
 
 <!-- Links -->
 

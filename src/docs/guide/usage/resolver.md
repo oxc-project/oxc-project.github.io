@@ -20,13 +20,14 @@ Node.js cjs and esm path resolution.
 
 ## Installation
 
+### Node.js
+
+- Use the node binding [oxc-resolver][url-oxc-resolver-npm].
+- Try on [stackblitz](https://stackblitz.com/edit/oxc-resolver).
+
 ### Rust
 
 See [https://crates.io/crates/oxc_resolver][url-oxc-resolver-crate] and its documentation [https://docs.rs/oxc_resolver][url-oxc-resolver-docs].
-
-### Node.js
-
-See [oxc-resolver][url-oxc-resolver-npm] for node binding via napi.
 
 <!-- Links -->
 
