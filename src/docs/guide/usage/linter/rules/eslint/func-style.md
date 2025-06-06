@@ -150,6 +150,12 @@ type: `boolean`
 
 default: `false`
 
+### allowTypeAnnotation
+
+type: `boolean`
+
+default: `false`
+
 ### style
 
 type: `"expression" | "declaration"`
