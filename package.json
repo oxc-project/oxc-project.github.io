@@ -22,7 +22,7 @@
     "esbuild": "0.25.5",
     "feed": "^5.0.0",
     "lint-staged": "16.1.0",
-    "oxlint": "^0.17.0",
+    "oxlint": "^0.18.0",
     "simple-git-hooks": "^2.11.1",
     "typescript": "~5.8.0",
     "vitepress": "^1.5.0",
@@ -35,7 +35,7 @@
   "lint-staged": {
     "*": "dprint fmt --staged"
   },
-  "packageManager": "pnpm@10.11.0",
+  "packageManager": "pnpm@10.12.1",
   "volta": {
     "node": "22.14.0"
   },
