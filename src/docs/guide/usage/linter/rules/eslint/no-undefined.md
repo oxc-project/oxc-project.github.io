@@ -16,7 +16,12 @@ Disallow the use of `undefined` as an identifier
 
 ### Why is this bad?
 
-### Example of bad code
+Using undefined directly can lead to bugs, since it can be shadowed or overwritten in JavaScript.
+It's safer and more intentional to use null or rely on implicit undefined (e.g., missing return) to avoid accidental issues.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
 
 ```javascript
 var foo = undefined;
@@ -34,7 +39,7 @@ function baz(undefined) {
 bar(undefined, "lorem");
 ```
 
-### Example of good code
+Examples of **correct** code for this rule:
 
 ```javascript
 var foo = void 0;

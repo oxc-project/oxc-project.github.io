@@ -15,7 +15,7 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 ### What it does
 
-The no-magic-numbers rule aims to make code more readable and refactoring easier by ensuring that special numbers are declared as constants to make their meaning explicit.
+This rule aims to make code more readable and refactoring easier by ensuring that special numbers are declared as constants to make their meaning explicit.
 The current implementation does not support BigInt numbers inside array indexes.
 
 ### Why is this bad?

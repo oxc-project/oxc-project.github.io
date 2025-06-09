@@ -40,12 +40,12 @@ typeof bar !== "fucntion"; // spellchecker:disable-line
 
 Examples of **correct** code for this rule:
 
-````js
-typeof foo === "string"
-typeof bar == "undefined"
-typeof foo === baz
-typeof bar === typeof qux
 ```js
+typeof foo === "string";
+typeof bar == "undefined";
+typeof foo === baz;
+typeof bar === typeof qux;
+```
 
 ### Options
 
@@ -58,14 +58,15 @@ expressions with only string literals or other `typeof` expressions, and disallo
 comparisons to any other value. Default is `false`.
 
 With `requireStringLiterals` set to `true` the following are examples of incorrect code:
+
 ```js
-typeof foo === undefined
-typeof bar == Object
-typeof baz === "strnig"
-typeof qux === "some invalid type"
-typeof baz === anotherVariable
-typeof foo == 5
-````
+typeof foo === undefined;
+typeof bar == Object;
+typeof baz === "strnig";
+typeof qux === "some invalid type";
+typeof baz === anotherVariable;
+typeof foo == 5;
+```
 
 With `requireStringLiterals` set to `true` the following are examples of correct code:
 
