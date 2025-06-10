@@ -4,7 +4,7 @@ outline: deep
 authors:
   - boshen
   - cameron
-canonical: https://voidzero.com/posts/announcing-oxlint-1-stable
+canonical: https://voidzero.dev/posts/announcing-oxlint-1-stable
 ---
 
 <AppBlogPostHeader />
@@ -13,7 +13,7 @@ canonical: https://voidzero.com/posts/announcing-oxlint-1-stable
 
 :::info
 
-This blog post was [originally published on the VoidZero website](https://voidzero.com/posts/announcing-oxlint-1-stable).
+This blog post was [originally published on the VoidZero website](https://voidzero.dev/posts/announcing-oxlint-1-stable).
 
 :::
 
