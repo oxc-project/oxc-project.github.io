@@ -54,6 +54,21 @@ export const sharedConfig = defineConfig({
   base: "/",
   head,
   lastUpdated: false,
+  transformHead: ({ pageData }) => {
+    const head: HeadConfig[] = [];
+
+    if (pageData.frontmatter.canonical) {
+      head.push([
+        "link",
+        {
+          rel: "canonical",
+          href: pageData.frontmatter.canonical,
+        },
+      ]);
+    }
+
+    return head;
+  },
   themeConfig: {
     siteTitle: "Oxc",
     logo: "https://cdn.jsdelivr.net/gh/oxc-project/oxc-assets/round.svg",
