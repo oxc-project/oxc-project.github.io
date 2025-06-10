@@ -1,10 +1,14 @@
 [
   {
+    "text": "Oxlint v1.0 Stable",
+    "link": "/blog/2025-06-10-oxlint-stable"
+  },
+  {
     "text": "Oxlint Beta",
     "link": "/blog/2025-03-15-oxlint-beta"
   },
   {
-    "text": "Oxc Minifier Alpha",
+    "text": "Minifier Alpha",
     "link": "/blog/2025-03-13-minifier-alpha"
   },
   {
@@ -12,7 +16,7 @@
     "link": "/blog/2024-10-18-oxlint-v0.10-release"
   },
   {
-    "text": "Oxc Transformer Alpha",
+    "text": "Transformer Alpha",
     "link": "/blog/2024-09-29-transformer-alpha"
   },
   {
