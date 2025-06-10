@@ -33,7 +33,7 @@ We are extremely proud of the performance of Oxlint and its impact on real, larg
 We are thankful for our [5,200 early adopters](https://github.com/oxc-project/oxc/network/dependents) and for companies and projects such as:
 
 - **Shopify**, where the front-end platform team uses Oxlint in the Shopify admin console.
-- **Airbnb**, where they use multi-file analysis `oxc/no-barrel-file` and `import/no-cycle` on their 126,000+ files, which completes in 7s on CI. ESLint's implementation of these rules times out.
+- **Airbnb**, where they use multi-file analysis [oxc/no-barrel-file](https://oxc.rs/docs/guide/usage/linter/rules/oxc/no-barrel-file.html) and [import/no-cycle](https://oxc.rs/docs/guide/usage/linter/rules/import/no-cycle.html) on their 126,000+ files, which completes in 7s on CI. ESLint's implementation of these rules times out.
 - [**Mercedes-Benz**](https://www.mercedes-benz.io/blog/2025-05-16-how-can-modern-tooling-save-mercedes-benz-io-engineering-time), where they observed a 71% decrease in lint time when swapping ESLint to Oxlint, with some project seeing up to a 97% speedup.
 - Large Open Source projects, from runtimes like [Bun](https://github.com/oven-sh/bun/blob/main/oxlint.json) to frameworks like [Preact](https://github.com/preactjs/preact/blob/main/oxlint.json).
 
