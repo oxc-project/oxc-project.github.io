@@ -56,17 +56,17 @@ export const sharedConfig = defineConfig({
   lastUpdated: false,
   transformHead: ({ pageData }) => {
     const head: HeadConfig[] = [];
-    
+
     if (pageData.frontmatter.canonical) {
       head.push([
-        'link',
+        "link",
         {
-          rel: 'canonical',
-          href: pageData.frontmatter.canonical
-        }
+          rel: "canonical",
+          href: pageData.frontmatter.canonical,
+        },
       ]);
     }
-    
+
     return head;
   },
   themeConfig: {
