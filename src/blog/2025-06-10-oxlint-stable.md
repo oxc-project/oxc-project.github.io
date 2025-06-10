@@ -8,6 +8,16 @@ authors:
 
 <AppBlogPostHeader />
 
+<br>
+
+:::info
+
+This blog post was [originally published on the VoidZero website](https://voidzero.com/posts/announcing-oxlint-1-stable).
+
+:::
+
+<br>
+
 TL;DR: The first stable version Oxlint has been released! With a [50~100x](#benchmark) performance improvement over ESLint, support for over 500 ESLint rules, and [usage in major companies](#real-world-impact) like Shopify, Airbnb, and Mercedes-Benz, you should give it a try. [Get started now](#quick-start).
 
 ---
