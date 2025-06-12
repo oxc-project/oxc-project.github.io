@@ -46,6 +46,20 @@ function MyComponent(props) {
 }
 ```
 
+### Options
+
+#### additionalHooks
+
+`{ type: string }`
+
+Optionally provide a regex of additional hooks to check.
+
+Example:
+
+```json
+{ "react/exhaustive-deps": ["error", { "additionalHooks": "useSpecialEffect" }] }
+```
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

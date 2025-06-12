@@ -2,7 +2,7 @@
 
 The progress of all rule implementations is tracked [here](https://github.com/oxc-project/oxc/issues/481).
 
-- Total number of rules: 519
+- Total number of rules: 520
 - Rules turned on by default: 123
 
 **Legend for 'Fixable?' column:**
@@ -286,7 +286,7 @@ Lints which prevent the use of language and library features. Must not be enable
 | [prefer-node-protocol](/docs/guide/usage/linter/rules/unicorn/prefer-node-protocol.html)                                          | unicorn    |         | 🛠️        |
 | [prefer-number-properties](/docs/guide/usage/linter/rules/unicorn/prefer-number-properties.html)                                  | unicorn    |         | ⚠️🛠️️       |
 
-## Suspicious (33):
+## Suspicious (34):
 
 code that is most likely wrong or useless.
 
@@ -294,6 +294,7 @@ code that is most likely wrong or useless.
 | -------------------------------------------------------------------------------------------------------------------- | ---------- | ------- | -------- |
 | [block-scoped-var](/docs/guide/usage/linter/rules/eslint/block-scoped-var.html)                                      | eslint     |         |          |
 | [no-extend-native](/docs/guide/usage/linter/rules/eslint/no-extend-native.html)                                      | eslint     |         |          |
+| [no-extra-bind](/docs/guide/usage/linter/rules/eslint/no-extra-bind.html)                                            | eslint     |         | 🚧       |
 | [no-new](/docs/guide/usage/linter/rules/eslint/no-new.html)                                                          | eslint     |         |          |
 | [no-unexpected-multiline](/docs/guide/usage/linter/rules/eslint/no-unexpected-multiline.html)                        | eslint     |         | ⚠️🛠️️       |
 | [no-unneeded-ternary](/docs/guide/usage/linter/rules/eslint/no-unneeded-ternary.html)                                | eslint     |         | ⚠️🛠️️       |
