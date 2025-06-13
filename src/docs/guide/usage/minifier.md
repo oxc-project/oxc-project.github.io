@@ -7,6 +7,10 @@ We recommend thoroughly testing its output before deploying to production enviro
 
 ## Installation
 
+### With Rolldown
+
+If you are using [Rolldown][url-rolldown], `oxc-minify` will be used for minification by default. No extra installation is required.
+
 ### Node.js
 
 - Use the node binding [oxc-minify][url-oxc-minify-npm].
@@ -22,3 +26,4 @@ Rust usage example can be found [here](https://github.com/oxc-project/oxc/blob/m
 
 [url-oxc-crate]: https://docs.rs/oxc
 [url-oxc-minify-npm]: https://www.npmjs.com/package/oxc-minify
+[url-rolldown]: https://rolldown.rs
