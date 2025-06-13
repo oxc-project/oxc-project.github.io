@@ -32,7 +32,7 @@ features:
     link: /docs/guide/usage/transformer
     linkText: Usage guide
   - title: Minifier 🚧
-    details: Faster and better at compression<br/>Prototype is complete
+    details: Faster and better at compression<br/>In Alpha Stage
   - title: Formatter 🚧
     details: Prettier compatible<br/>Prototype is complete
   - title: Rolldown Bundler 🚧
