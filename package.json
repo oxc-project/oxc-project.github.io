@@ -21,7 +21,7 @@
     "dprint": "^0.50.0",
     "esbuild": "0.25.5",
     "feed": "^5.0.0",
-    "lint-staged": "16.1.0",
+    "lint-staged": "16.1.2",
     "oxlint": "^1.0.0",
     "simple-git-hooks": "^2.11.1",
     "typescript": "~5.8.0",
