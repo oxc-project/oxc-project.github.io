@@ -2,7 +2,7 @@
 
 The progress of all rule implementations is tracked [here](https://github.com/oxc-project/oxc/issues/481).
 
-- Total number of rules: 520
+- Total number of rules: 521
 - Rules turned on by default: 123
 
 **Legend for 'Fixable?' column:**
@@ -213,7 +213,7 @@ Code that can be written to run faster.
 | [prefer-array-find](/docs/guide/usage/linter/rules/unicorn/prefer-array-find.html)                        | unicorn    |         | 🚧       |
 | [prefer-set-has](/docs/guide/usage/linter/rules/unicorn/prefer-set-has.html)                              | unicorn    |         | ⚠️🛠️️       |
 
-## Restriction (66):
+## Restriction (67):
 
 Lints which prevent the use of language and library features. Must not be enabled as a whole, should be considered on a case-by-case basis before enabling.
 
@@ -238,6 +238,7 @@ Lints which prevent the use of language and library features. Must not be enable
 | [no-var](/docs/guide/usage/linter/rules/eslint/no-var.html)                                                                       | eslint     |         | 🛠️        |
 | [no-void](/docs/guide/usage/linter/rules/eslint/no-void.html)                                                                     | eslint     |         | 💡       |
 | [unicode-bom](/docs/guide/usage/linter/rules/eslint/unicode-bom.html)                                                             | eslint     |         | 🛠️        |
+| [extensions](/docs/guide/usage/linter/rules/import/extensions.html)                                                               | import     |         |          |
 | [no-amd](/docs/guide/usage/linter/rules/import/no-amd.html)                                                                       | import     |         |          |
 | [no-commonjs](/docs/guide/usage/linter/rules/import/no-commonjs.html)                                                             | import     |         |          |
 | [no-cycle](/docs/guide/usage/linter/rules/import/no-cycle.html)                                                                   | import     |         |          |
