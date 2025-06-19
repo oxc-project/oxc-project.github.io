@@ -42,7 +42,7 @@ Namespaced imports, while sometimes used, are generally considered less ideal in
 
 ```json
 {
-  "ignores": ["*.json"]
+  "ignore": ["*.json"]
 }
 ```
 

@@ -19,7 +19,9 @@ Checks that `expect()` is called correctly.
 
 ### Why is this bad?
 
-`expect()` is a function that is used to assert values in tests. It should be called with a single argument, which is the value to be tested. If you call `expect()` with no arguments, or with more than one argument, it will not work as expected.
+`expect()` is a function that is used to assert values in tests.
+It should be called with a single argument, which is the value to be tested.
+If you call `expect()` with no arguments, or with more than one argument, it will not work as expected.
 
 ### Examples
 
