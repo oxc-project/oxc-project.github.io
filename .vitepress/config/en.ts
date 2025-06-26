@@ -80,6 +80,7 @@ export const enConfig = defineLocaleConfig("root", {
             },
             { text: "Parser", link: "/docs/guide/usage/parser" },
             { text: "Transformer", link: "/docs/guide/usage/transformer" },
+            { text: "Formatter", link: "/docs/guide/usage/formatter" },
             { text: "Minifier", link: "/docs/guide/usage/minifier" },
             { text: "Resolver", link: "/docs/guide/usage/resolver" },
           ],
