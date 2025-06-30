@@ -26,7 +26,7 @@ The [`String#replaceAll()`](https://developer.mozilla.org/en-US/docs/Web/JavaScr
 Examples of **incorrect** code for this rule:
 
 ```js
-array.reduceRight(reducer, initialValue);
+foo.replace(/a/g, bar);
 ```
 
 Examples of **correct** code for this rule:

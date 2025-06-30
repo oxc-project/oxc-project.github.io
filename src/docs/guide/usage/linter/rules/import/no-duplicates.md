@@ -5,7 +5,7 @@ import { data } from '../version.data.js';
 const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_linter/src/rules/import/no_duplicates.rs`;
 </script>
 
-# import/no-duplicates <Badge type="info" text="Suspicious" />
+# import/no-duplicates <Badge type="info" text="Style" />
 
 <div class="rule-meta">
 </div>

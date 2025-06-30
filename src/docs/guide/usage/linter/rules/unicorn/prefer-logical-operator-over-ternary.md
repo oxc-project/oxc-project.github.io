@@ -31,10 +31,12 @@ console.log(foo ? foo : bar);
 ```
 
 Examples of **correct** code for this rule:
+
+```javascript
 const foo = bar || baz;
 console.log(foo ?? bar);
+```
 
-````
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:
@@ -43,7 +45,7 @@ To **enable** this rule in the CLI or using the config file, you can use:
 
 ```bash [CLI]
 oxlint --deny unicorn/prefer-logical-operator-over-ternary
-````
+```
 
 ```json [Config (.oxlintrc.json)]
 {
