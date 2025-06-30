@@ -21,7 +21,6 @@ Disallow aliasing `this`
 
 Assigning a variable to `this` instead of properly using arrow lambdas may be a symptom of pre-ES6 practices or not managing scope well.
 
-````
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:
@@ -30,7 +29,7 @@ To **enable** this rule in the CLI or using the config file, you can use:
 
 ```bash [CLI]
 oxlint --deny typescript/no-this-alias
-````
+```
 
 ```json [Config (.oxlintrc.json)]
 {

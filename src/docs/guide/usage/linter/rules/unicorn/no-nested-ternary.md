@@ -5,7 +5,7 @@ import { data } from '../version.data.js';
 const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_linter/src/rules/unicorn/no_nested_ternary.rs`;
 </script>
 
-# unicorn/no-nested-ternary <Badge type="info" text="Restriction" />
+# unicorn/no-nested-ternary <Badge type="info" text="Style" />
 
 <div class="rule-meta">
 <Alert class="fix" type="info">

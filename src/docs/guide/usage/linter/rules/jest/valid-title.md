@@ -57,14 +57,16 @@ test("baz", () => {});
 
 ### Options
 
+```typescript
 interface Options {
-ignoreSpaces?: boolean;
-ignoreTypeOfTestName?: boolean;
-ignoreTypeOfDescribeName?: boolean;
-disallowedWords?: string[];
-mustNotMatch?: Partial<Record<'describe' | 'test' | 'it', string>> | string;
-mustMatch?: Partial<Record<'describe' | 'test' | 'it', string>> | string;
+  ignoreSpaces?: boolean;
+  ignoreTypeOfTestName?: boolean;
+  ignoreTypeOfDescribeName?: boolean;
+  disallowedWords?: string[];
+  mustNotMatch?: Partial<Record<"describe" | "test" | "it", string>> | string;
+  mustMatch?: Partial<Record<"describe" | "test" | "it", string>> | string;
 }
+```
 
 ## How to use
 
