@@ -15,18 +15,47 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 ### What it does
 
+Prevent usage of `next/script` in `next/head` component.
+
 ### Why is this bad?
+
+The `next/script` component should not be used in a `next/head component.
+Instead move the`<Script />`component outside of`<Head>` instead.
 
 ### Examples
 
 Examples of **incorrect** code for this rule:
 
-```javascript
+```jsx
+import Head from "next/head";
+import Script from "next/script";
+
+export default function Index() {
+  return (
+    <Head>
+      <title>Next.js</title>
+      <Script src="/my-script.js" />
+    </Head>
+  );
+}
 ```
 
 Examples of **correct** code for this rule:
 
-```javascript
+```jsx
+import Head from "next/head";
+import Script from "next/script";
+
+export default function Index() {
+  return (
+    <>
+      <Head>
+        <title>Next.js</title>
+      </Head>
+      <Script src="/my-script.js" />
+    </>
+  );
+}
 ```
 
 ## How to use
