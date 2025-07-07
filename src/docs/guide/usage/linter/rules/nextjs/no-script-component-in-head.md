@@ -19,7 +19,7 @@ Prevent usage of `next/script` in `next/head` component.
 
 ### Why is this bad?
 
-The `next/script` component should not be used in a `next/head component.
+The `next/script` component should not be used in a `next/head` component.
 Instead move the`<Script />`component outside of`<Head>` instead.
 
 ### Examples
