@@ -15,7 +15,7 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 ### What it does
 
-Require or disallow the `Record` type.
+Choose between requiring either `Record` type or indexed signature types.
 
 ### Why is this bad?
 
@@ -23,9 +23,11 @@ Inconsistent style for indexed object types can harm readability in a project.
 
 ### Examples
 
-Examples of **incorrect** code for this rule:
+Examples of **incorrect** code for this rule with the default "record":
 
 ```ts
+/*eslint consistent-indexed-object-style: ["error", "record"]*/
+
 interface Foo {
   [key: string]: unknown;
 }
@@ -37,7 +39,30 @@ type Foo = {
 Examples of **correct** code for this rule:
 
 ```ts
+/*eslint consistent-indexed-object-style: ["error", "record"]*/
+
 type Foo = Record<string, unknown>;
+```
+
+Examples of **incorrect** code for this rule with "index-signature":
+
+```ts
+/*eslint consistent-indexed-object-style: ["error", "index-signature"]*/
+
+type Foo = Record<string, unknown>;
+```
+
+Examples of **correct** code for this rule:
+
+```ts
+/*eslint consistent-indexed-object-style: ["error", "index-signature"]*/
+
+interface Foo {
+  [key: string]: unknown;
+}
+type Foo = {
+  [key: string]: unknown;
+};
 ```
 
 ## How to use

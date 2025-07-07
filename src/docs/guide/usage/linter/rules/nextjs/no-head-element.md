@@ -15,20 +15,49 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 ### What it does
 
-Prevent usage of `<head>` element.
+Prevents the usage of the native `<head>` element inside a Next.js application.
 
 ### Why is this bad?
+
+A `<head>` element can cause unexpected behavior in a Next.js application.
+Use Next.js' built-in `next/head` component instead.
 
 ### Examples
 
 Examples of **incorrect** code for this rule:
 
-```javascript
+```jsx
+function Index() {
+  return (
+    <>
+      <head>
+        <title>My page title</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </head>
+    </>
+  );
+}
+
+export default Index;
 ```
 
 Examples of **correct** code for this rule:
 
-```javascript
+```jsx
+import Head from "next/head";
+
+function Index() {
+  return (
+    <>
+      <Head>
+        <title>My page title</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
+    </>
+  );
+}
+
+export default Index;
 ```
 
 ## How to use

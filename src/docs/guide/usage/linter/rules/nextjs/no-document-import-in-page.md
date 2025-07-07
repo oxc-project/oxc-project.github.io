@@ -19,16 +19,35 @@ Prevent importing `next/document` outside of `pages/_document.js`.
 
 ### Why is this bad?
 
+Importing `next/document` outside of `pages/_document.js` can cause
+unexpected issues in your Next.js application.
+
 ### Examples
 
 Examples of **incorrect** code for this rule:
 
-```javascript
+```jsx
+// `components/MyDocument.jsx`
+import Document from "next/document";
+
+class MyDocument extends Document {
+  // ...
+}
+
+export default MyDocument;
 ```
 
 Examples of **correct** code for this rule:
 
-```javascript
+```jsx
+// `pages/_document.jsx`
+import Document from "next/document";
+
+class MyDocument extends Document {
+  // ...
+}
+
+export default MyDocument;
 ```
 
 ## How to use
