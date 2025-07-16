@@ -2,7 +2,7 @@
 
 The progress of all rule implementations is tracked [here](https://github.com/oxc-project/oxc/issues/481).
 
-- Total number of rules: 524
+- Total number of rules: 525
 - Rules turned on by default: 123
 
 **Legend for 'Fixable?' column:**
@@ -13,7 +13,7 @@ The progress of all rule implementations is tracked [here](https://github.com/ox
 - ⚠️💡: a dangerous suggestion is available for this rule
 - 🚧: an auto-fix or suggestion is possible, but currently not implemented
 
-## Correctness (176):
+## Correctness (177):
 
 Code that is outright wrong or useless.
 
@@ -130,6 +130,7 @@ Code that is outright wrong or useless.
 | [no-duplicate-head](/docs/guide/usage/linter/rules/nextjs/no-duplicate-head.html)                                                                     | nextjs     | ✅      |          |
 | [no-head-element](/docs/guide/usage/linter/rules/nextjs/no-head-element.html)                                                                         | nextjs     | ✅      |          |
 | [no-head-import-in-document](/docs/guide/usage/linter/rules/nextjs/no-head-import-in-document.html)                                                   | nextjs     | ✅      |          |
+| [no-html-link-for-pages](/docs/guide/usage/linter/rules/nextjs/no-html-link-for-pages.html)                                                           | nextjs     | ✅      |          |
 | [no-img-element](/docs/guide/usage/linter/rules/nextjs/no-img-element.html)                                                                           | nextjs     | ✅      | 🚧       |
 | [no-page-custom-font](/docs/guide/usage/linter/rules/nextjs/no-page-custom-font.html)                                                                 | nextjs     | ✅      |          |
 | [no-script-component-in-head](/docs/guide/usage/linter/rules/nextjs/no-script-component-in-head.html)                                                 | nextjs     | ✅      |          |
