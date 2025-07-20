@@ -19,7 +19,7 @@
     "@vueuse/core": "^13.4.0",
     "degit": "^2.8.4",
     "dprint": "^0.50.1",
-    "esbuild": "0.25.6",
+    "esbuild": "0.25.8",
     "feed": "^5.1.0",
     "lint-staged": "16.1.2",
     "oxc-minify": "^0.77.0",
