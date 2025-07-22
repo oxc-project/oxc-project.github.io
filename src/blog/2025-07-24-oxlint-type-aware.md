@@ -29,8 +29,8 @@ oxlint --tsconfig tsconfig.json
 
 You'll then see two of our most requested type-aware rules in action:
 
-- no-floating-promises
-- no-misused-promises
+- `no-floating-promises`
+- `no-misused-promises`
 
 The next version will enable all type-aware rules.
 
@@ -84,7 +84,7 @@ Instead, it compiles `typescript-go` by [shimming its internal APIs to make them
 
 All type-aware rules are written directly against these shimmed APIs.
 
-While this isn't the recommended approach, it works!
+While this isn't the recommended approach for accessing internals, it works!
 
 ## Decision Process
 
@@ -101,8 +101,8 @@ Additionally, there's the work-in-progress:
 
 - [Biome 2.0](https://biomejs.dev/blog/biome-v2/) with its own type inference implementation.
 
-We determined that writing our own type inferencer or type checker was not feasible due to budget and time constraints,
-implementation details, and the challenge of keeping up with a fast-moving target like TypeScript.
+We determined that writing our own type inferencer or type checker was not feasible due to
+the challenge of keeping up with a fast-moving target like TypeScript.
 
 ### Communication with TypeScript
 
@@ -136,7 +136,6 @@ The downside of this approach is that you may need to upgrade TypeScript if `oxl
 ### Maintenance cost of `tsgolint`
 
 Shimming TypeScript's internal APIs carries some risk. However, the TypeScript AST and its visitor are actually quite stable.
-
 We accept this risk and will fix breaking changes when upgrading `typescript-go`.
 
 Our `typescript-go` version is synced three times a week.
