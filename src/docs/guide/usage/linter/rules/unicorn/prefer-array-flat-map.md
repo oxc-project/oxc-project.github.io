@@ -5,7 +5,7 @@ import { data } from '../version.data.js';
 const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_linter/src/rules/unicorn/prefer_array_flat_map.rs`;
 </script>
 
-# unicorn/prefer-array-flat-map <Badge type="info" text="Style" />
+# unicorn/prefer-array-flat-map <Badge type="info" text="Perf" />
 
 <div class="rule-meta">
 <Alert class="fix" type="info">

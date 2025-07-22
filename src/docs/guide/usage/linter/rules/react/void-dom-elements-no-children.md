@@ -8,9 +8,6 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 # react/void-dom-elements-no-children <Badge type="info" text="Correctness" />
 
 <div class="rule-meta">
-<Alert class="default-on" type="success">
-<span class="emoji">✅</span> This rule is turned on by default.
-</Alert>
 </div>
 
 ### What it does
