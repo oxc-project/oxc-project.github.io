@@ -3,7 +3,7 @@
 The progress of all rule implementations is tracked [here](https://github.com/oxc-project/oxc/issues/481).
 
 - Total number of rules: 525
-- Rules turned on by default: 123
+- Rules turned on by default: 87
 
 **Legend for 'Fixable?' column:**
 
@@ -69,76 +69,76 @@ Code that is outright wrong or useless.
 | [require-yield](/docs/guide/usage/linter/rules/eslint/require-yield.html)                                                                             | eslint     | ✅      |          |
 | [use-isnan](/docs/guide/usage/linter/rules/eslint/use-isnan.html)                                                                                     | eslint     | ✅      | 🛠️        |
 | [valid-typeof](/docs/guide/usage/linter/rules/eslint/valid-typeof.html)                                                                               | eslint     | ✅      | 🛠️        |
-| [default](/docs/guide/usage/linter/rules/import/default.html)                                                                                         | import     | ✅      |          |
-| [namespace](/docs/guide/usage/linter/rules/import/namespace.html)                                                                                     | import     | ✅      |          |
-| [expect-expect](/docs/guide/usage/linter/rules/jest/expect-expect.html)                                                                               | jest       | ✅      |          |
-| [no-conditional-expect](/docs/guide/usage/linter/rules/jest/no-conditional-expect.html)                                                               | jest       | ✅      |          |
-| [no-disabled-tests](/docs/guide/usage/linter/rules/jest/no-disabled-tests.html)                                                                       | jest       | ✅      |          |
-| [no-export](/docs/guide/usage/linter/rules/jest/no-export.html)                                                                                       | jest       | ✅      |          |
-| [no-focused-tests](/docs/guide/usage/linter/rules/jest/no-focused-tests.html)                                                                         | jest       | ✅      | 🛠️        |
-| [no-standalone-expect](/docs/guide/usage/linter/rules/jest/no-standalone-expect.html)                                                                 | jest       | ✅      |          |
-| [require-to-throw-message](/docs/guide/usage/linter/rules/jest/require-to-throw-message.html)                                                         | jest       | ✅      |          |
-| [valid-describe-callback](/docs/guide/usage/linter/rules/jest/valid-describe-callback.html)                                                           | jest       | ✅      |          |
-| [valid-expect](/docs/guide/usage/linter/rules/jest/valid-expect.html)                                                                                 | jest       | ✅      |          |
-| [valid-title](/docs/guide/usage/linter/rules/jest/valid-title.html)                                                                                   | jest       | ✅      | 🛠️        |
-| [check-property-names](/docs/guide/usage/linter/rules/jsdoc/check-property-names.html)                                                                | jsdoc      | ✅      |          |
-| [check-tag-names](/docs/guide/usage/linter/rules/jsdoc/check-tag-names.html)                                                                          | jsdoc      | ✅      |          |
-| [implements-on-classes](/docs/guide/usage/linter/rules/jsdoc/implements-on-classes.html)                                                              | jsdoc      | ✅      |          |
-| [no-defaults](/docs/guide/usage/linter/rules/jsdoc/no-defaults.html)                                                                                  | jsdoc      | ✅      |          |
-| [require-property](/docs/guide/usage/linter/rules/jsdoc/require-property.html)                                                                        | jsdoc      | ✅      |          |
-| [require-property-description](/docs/guide/usage/linter/rules/jsdoc/require-property-description.html)                                                | jsdoc      | ✅      |          |
-| [require-property-name](/docs/guide/usage/linter/rules/jsdoc/require-property-name.html)                                                              | jsdoc      | ✅      |          |
-| [require-property-type](/docs/guide/usage/linter/rules/jsdoc/require-property-type.html)                                                              | jsdoc      | ✅      |          |
-| [require-yields](/docs/guide/usage/linter/rules/jsdoc/require-yields.html)                                                                            | jsdoc      | ✅      |          |
-| [alt-text](/docs/guide/usage/linter/rules/jsx_a11y/alt-text.html)                                                                                     | jsx_a11y   | ✅      |          |
-| [anchor-has-content](/docs/guide/usage/linter/rules/jsx_a11y/anchor-has-content.html)                                                                 | jsx_a11y   | ✅      | 💡       |
-| [anchor-is-valid](/docs/guide/usage/linter/rules/jsx_a11y/anchor-is-valid.html)                                                                       | jsx_a11y   | ✅      |          |
-| [aria-activedescendant-has-tabindex](/docs/guide/usage/linter/rules/jsx_a11y/aria-activedescendant-has-tabindex.html)                                 | jsx_a11y   | ✅      |          |
-| [aria-props](/docs/guide/usage/linter/rules/jsx_a11y/aria-props.html)                                                                                 | jsx_a11y   | ✅      | 🛠️        |
-| [aria-role](/docs/guide/usage/linter/rules/jsx_a11y/aria-role.html)                                                                                   | jsx_a11y   | ✅      |          |
-| [aria-unsupported-elements](/docs/guide/usage/linter/rules/jsx_a11y/aria-unsupported-elements.html)                                                   | jsx_a11y   | ✅      | 🛠️        |
-| [autocomplete-valid](/docs/guide/usage/linter/rules/jsx_a11y/autocomplete-valid.html)                                                                 | jsx_a11y   | ✅      |          |
-| [click-events-have-key-events](/docs/guide/usage/linter/rules/jsx_a11y/click-events-have-key-events.html)                                             | jsx_a11y   | ✅      |          |
-| [heading-has-content](/docs/guide/usage/linter/rules/jsx_a11y/heading-has-content.html)                                                               | jsx_a11y   | ✅      |          |
-| [html-has-lang](/docs/guide/usage/linter/rules/jsx_a11y/html-has-lang.html)                                                                           | jsx_a11y   | ✅      |          |
-| [iframe-has-title](/docs/guide/usage/linter/rules/jsx_a11y/iframe-has-title.html)                                                                     | jsx_a11y   | ✅      |          |
-| [img-redundant-alt](/docs/guide/usage/linter/rules/jsx_a11y/img-redundant-alt.html)                                                                   | jsx_a11y   | ✅      |          |
-| [label-has-associated-control](/docs/guide/usage/linter/rules/jsx_a11y/label-has-associated-control.html)                                             | jsx_a11y   | ✅      |          |
-| [lang](/docs/guide/usage/linter/rules/jsx_a11y/lang.html)                                                                                             | jsx_a11y   | ✅      |          |
-| [media-has-caption](/docs/guide/usage/linter/rules/jsx_a11y/media-has-caption.html)                                                                   | jsx_a11y   | ✅      |          |
-| [mouse-events-have-key-events](/docs/guide/usage/linter/rules/jsx_a11y/mouse-events-have-key-events.html)                                             | jsx_a11y   | ✅      |          |
-| [no-access-key](/docs/guide/usage/linter/rules/jsx_a11y/no-access-key.html)                                                                           | jsx_a11y   | ✅      | 💡       |
-| [no-aria-hidden-on-focusable](/docs/guide/usage/linter/rules/jsx_a11y/no-aria-hidden-on-focusable.html)                                               | jsx_a11y   | ✅      | 🛠️        |
-| [no-autofocus](/docs/guide/usage/linter/rules/jsx_a11y/no-autofocus.html)                                                                             | jsx_a11y   | ✅      | 🛠️        |
-| [no-distracting-elements](/docs/guide/usage/linter/rules/jsx_a11y/no-distracting-elements.html)                                                       | jsx_a11y   | ✅      |          |
-| [no-noninteractive-tabindex](/docs/guide/usage/linter/rules/jsx_a11y/no-noninteractive-tabindex.html)                                                 | jsx_a11y   | ✅      |          |
-| [no-redundant-roles](/docs/guide/usage/linter/rules/jsx_a11y/no-redundant-roles.html)                                                                 | jsx_a11y   | ✅      | 🛠️        |
-| [prefer-tag-over-role](/docs/guide/usage/linter/rules/jsx_a11y/prefer-tag-over-role.html)                                                             | jsx_a11y   | ✅      |          |
-| [role-has-required-aria-props](/docs/guide/usage/linter/rules/jsx_a11y/role-has-required-aria-props.html)                                             | jsx_a11y   | ✅      |          |
-| [role-supports-aria-props](/docs/guide/usage/linter/rules/jsx_a11y/role-supports-aria-props.html)                                                     | jsx_a11y   | ✅      |          |
-| [scope](/docs/guide/usage/linter/rules/jsx_a11y/scope.html)                                                                                           | jsx_a11y   | ✅      | 🛠️        |
-| [tabindex-no-positive](/docs/guide/usage/linter/rules/jsx_a11y/tabindex-no-positive.html)                                                             | jsx_a11y   | ✅      | 🚧       |
-| [google-font-display](/docs/guide/usage/linter/rules/nextjs/google-font-display.html)                                                                 | nextjs     | ✅      |          |
-| [google-font-preconnect](/docs/guide/usage/linter/rules/nextjs/google-font-preconnect.html)                                                           | nextjs     | ✅      |          |
-| [inline-script-id](/docs/guide/usage/linter/rules/nextjs/inline-script-id.html)                                                                       | nextjs     | ✅      |          |
-| [next-script-for-ga](/docs/guide/usage/linter/rules/nextjs/next-script-for-ga.html)                                                                   | nextjs     | ✅      |          |
-| [no-assign-module-variable](/docs/guide/usage/linter/rules/nextjs/no-assign-module-variable.html)                                                     | nextjs     | ✅      |          |
-| [no-async-client-component](/docs/guide/usage/linter/rules/nextjs/no-async-client-component.html)                                                     | nextjs     | ✅      |          |
-| [no-before-interactive-script-outside-document](/docs/guide/usage/linter/rules/nextjs/no-before-interactive-script-outside-document.html)             | nextjs     | ✅      |          |
-| [no-css-tags](/docs/guide/usage/linter/rules/nextjs/no-css-tags.html)                                                                                 | nextjs     | ✅      |          |
-| [no-document-import-in-page](/docs/guide/usage/linter/rules/nextjs/no-document-import-in-page.html)                                                   | nextjs     | ✅      |          |
-| [no-duplicate-head](/docs/guide/usage/linter/rules/nextjs/no-duplicate-head.html)                                                                     | nextjs     | ✅      |          |
-| [no-head-element](/docs/guide/usage/linter/rules/nextjs/no-head-element.html)                                                                         | nextjs     | ✅      |          |
-| [no-head-import-in-document](/docs/guide/usage/linter/rules/nextjs/no-head-import-in-document.html)                                                   | nextjs     | ✅      |          |
-| [no-html-link-for-pages](/docs/guide/usage/linter/rules/nextjs/no-html-link-for-pages.html)                                                           | nextjs     | ✅      |          |
-| [no-img-element](/docs/guide/usage/linter/rules/nextjs/no-img-element.html)                                                                           | nextjs     | ✅      | 🚧       |
-| [no-page-custom-font](/docs/guide/usage/linter/rules/nextjs/no-page-custom-font.html)                                                                 | nextjs     | ✅      |          |
-| [no-script-component-in-head](/docs/guide/usage/linter/rules/nextjs/no-script-component-in-head.html)                                                 | nextjs     | ✅      |          |
-| [no-styled-jsx-in-document](/docs/guide/usage/linter/rules/nextjs/no-styled-jsx-in-document.html)                                                     | nextjs     | ✅      |          |
-| [no-sync-scripts](/docs/guide/usage/linter/rules/nextjs/no-sync-scripts.html)                                                                         | nextjs     | ✅      |          |
-| [no-title-in-document-head](/docs/guide/usage/linter/rules/nextjs/no-title-in-document-head.html)                                                     | nextjs     | ✅      |          |
-| [no-typos](/docs/guide/usage/linter/rules/nextjs/no-typos.html)                                                                                       | nextjs     | ✅      | 🚧       |
-| [no-unwanted-polyfillio](/docs/guide/usage/linter/rules/nextjs/no-unwanted-polyfillio.html)                                                           | nextjs     | ✅      |          |
+| [default](/docs/guide/usage/linter/rules/import/default.html)                                                                                         | import     |         |          |
+| [namespace](/docs/guide/usage/linter/rules/import/namespace.html)                                                                                     | import     |         |          |
+| [expect-expect](/docs/guide/usage/linter/rules/jest/expect-expect.html)                                                                               | jest       |         |          |
+| [no-conditional-expect](/docs/guide/usage/linter/rules/jest/no-conditional-expect.html)                                                               | jest       |         |          |
+| [no-disabled-tests](/docs/guide/usage/linter/rules/jest/no-disabled-tests.html)                                                                       | jest       |         |          |
+| [no-export](/docs/guide/usage/linter/rules/jest/no-export.html)                                                                                       | jest       |         |          |
+| [no-focused-tests](/docs/guide/usage/linter/rules/jest/no-focused-tests.html)                                                                         | jest       |         | 🛠️        |
+| [no-standalone-expect](/docs/guide/usage/linter/rules/jest/no-standalone-expect.html)                                                                 | jest       |         |          |
+| [require-to-throw-message](/docs/guide/usage/linter/rules/jest/require-to-throw-message.html)                                                         | jest       |         |          |
+| [valid-describe-callback](/docs/guide/usage/linter/rules/jest/valid-describe-callback.html)                                                           | jest       |         |          |
+| [valid-expect](/docs/guide/usage/linter/rules/jest/valid-expect.html)                                                                                 | jest       |         |          |
+| [valid-title](/docs/guide/usage/linter/rules/jest/valid-title.html)                                                                                   | jest       |         | 🛠️        |
+| [check-property-names](/docs/guide/usage/linter/rules/jsdoc/check-property-names.html)                                                                | jsdoc      |         |          |
+| [check-tag-names](/docs/guide/usage/linter/rules/jsdoc/check-tag-names.html)                                                                          | jsdoc      |         |          |
+| [implements-on-classes](/docs/guide/usage/linter/rules/jsdoc/implements-on-classes.html)                                                              | jsdoc      |         |          |
+| [no-defaults](/docs/guide/usage/linter/rules/jsdoc/no-defaults.html)                                                                                  | jsdoc      |         |          |
+| [require-property](/docs/guide/usage/linter/rules/jsdoc/require-property.html)                                                                        | jsdoc      |         |          |
+| [require-property-description](/docs/guide/usage/linter/rules/jsdoc/require-property-description.html)                                                | jsdoc      |         |          |
+| [require-property-name](/docs/guide/usage/linter/rules/jsdoc/require-property-name.html)                                                              | jsdoc      |         |          |
+| [require-property-type](/docs/guide/usage/linter/rules/jsdoc/require-property-type.html)                                                              | jsdoc      |         |          |
+| [require-yields](/docs/guide/usage/linter/rules/jsdoc/require-yields.html)                                                                            | jsdoc      |         |          |
+| [alt-text](/docs/guide/usage/linter/rules/jsx_a11y/alt-text.html)                                                                                     | jsx_a11y   |         |          |
+| [anchor-has-content](/docs/guide/usage/linter/rules/jsx_a11y/anchor-has-content.html)                                                                 | jsx_a11y   |         | 💡       |
+| [anchor-is-valid](/docs/guide/usage/linter/rules/jsx_a11y/anchor-is-valid.html)                                                                       | jsx_a11y   |         |          |
+| [aria-activedescendant-has-tabindex](/docs/guide/usage/linter/rules/jsx_a11y/aria-activedescendant-has-tabindex.html)                                 | jsx_a11y   |         |          |
+| [aria-props](/docs/guide/usage/linter/rules/jsx_a11y/aria-props.html)                                                                                 | jsx_a11y   |         | 🛠️        |
+| [aria-role](/docs/guide/usage/linter/rules/jsx_a11y/aria-role.html)                                                                                   | jsx_a11y   |         |          |
+| [aria-unsupported-elements](/docs/guide/usage/linter/rules/jsx_a11y/aria-unsupported-elements.html)                                                   | jsx_a11y   |         | 🛠️        |
+| [autocomplete-valid](/docs/guide/usage/linter/rules/jsx_a11y/autocomplete-valid.html)                                                                 | jsx_a11y   |         |          |
+| [click-events-have-key-events](/docs/guide/usage/linter/rules/jsx_a11y/click-events-have-key-events.html)                                             | jsx_a11y   |         |          |
+| [heading-has-content](/docs/guide/usage/linter/rules/jsx_a11y/heading-has-content.html)                                                               | jsx_a11y   |         |          |
+| [html-has-lang](/docs/guide/usage/linter/rules/jsx_a11y/html-has-lang.html)                                                                           | jsx_a11y   |         |          |
+| [iframe-has-title](/docs/guide/usage/linter/rules/jsx_a11y/iframe-has-title.html)                                                                     | jsx_a11y   |         |          |
+| [img-redundant-alt](/docs/guide/usage/linter/rules/jsx_a11y/img-redundant-alt.html)                                                                   | jsx_a11y   |         |          |
+| [label-has-associated-control](/docs/guide/usage/linter/rules/jsx_a11y/label-has-associated-control.html)                                             | jsx_a11y   |         |          |
+| [lang](/docs/guide/usage/linter/rules/jsx_a11y/lang.html)                                                                                             | jsx_a11y   |         |          |
+| [media-has-caption](/docs/guide/usage/linter/rules/jsx_a11y/media-has-caption.html)                                                                   | jsx_a11y   |         |          |
+| [mouse-events-have-key-events](/docs/guide/usage/linter/rules/jsx_a11y/mouse-events-have-key-events.html)                                             | jsx_a11y   |         |          |
+| [no-access-key](/docs/guide/usage/linter/rules/jsx_a11y/no-access-key.html)                                                                           | jsx_a11y   |         | 💡       |
+| [no-aria-hidden-on-focusable](/docs/guide/usage/linter/rules/jsx_a11y/no-aria-hidden-on-focusable.html)                                               | jsx_a11y   |         | 🛠️        |
+| [no-autofocus](/docs/guide/usage/linter/rules/jsx_a11y/no-autofocus.html)                                                                             | jsx_a11y   |         | 🛠️        |
+| [no-distracting-elements](/docs/guide/usage/linter/rules/jsx_a11y/no-distracting-elements.html)                                                       | jsx_a11y   |         |          |
+| [no-noninteractive-tabindex](/docs/guide/usage/linter/rules/jsx_a11y/no-noninteractive-tabindex.html)                                                 | jsx_a11y   |         |          |
+| [no-redundant-roles](/docs/guide/usage/linter/rules/jsx_a11y/no-redundant-roles.html)                                                                 | jsx_a11y   |         | 🛠️        |
+| [prefer-tag-over-role](/docs/guide/usage/linter/rules/jsx_a11y/prefer-tag-over-role.html)                                                             | jsx_a11y   |         |          |
+| [role-has-required-aria-props](/docs/guide/usage/linter/rules/jsx_a11y/role-has-required-aria-props.html)                                             | jsx_a11y   |         |          |
+| [role-supports-aria-props](/docs/guide/usage/linter/rules/jsx_a11y/role-supports-aria-props.html)                                                     | jsx_a11y   |         |          |
+| [scope](/docs/guide/usage/linter/rules/jsx_a11y/scope.html)                                                                                           | jsx_a11y   |         | 🛠️        |
+| [tabindex-no-positive](/docs/guide/usage/linter/rules/jsx_a11y/tabindex-no-positive.html)                                                             | jsx_a11y   |         | 🚧       |
+| [google-font-display](/docs/guide/usage/linter/rules/nextjs/google-font-display.html)                                                                 | nextjs     |         |          |
+| [google-font-preconnect](/docs/guide/usage/linter/rules/nextjs/google-font-preconnect.html)                                                           | nextjs     |         |          |
+| [inline-script-id](/docs/guide/usage/linter/rules/nextjs/inline-script-id.html)                                                                       | nextjs     |         |          |
+| [next-script-for-ga](/docs/guide/usage/linter/rules/nextjs/next-script-for-ga.html)                                                                   | nextjs     |         |          |
+| [no-assign-module-variable](/docs/guide/usage/linter/rules/nextjs/no-assign-module-variable.html)                                                     | nextjs     |         |          |
+| [no-async-client-component](/docs/guide/usage/linter/rules/nextjs/no-async-client-component.html)                                                     | nextjs     |         |          |
+| [no-before-interactive-script-outside-document](/docs/guide/usage/linter/rules/nextjs/no-before-interactive-script-outside-document.html)             | nextjs     |         |          |
+| [no-css-tags](/docs/guide/usage/linter/rules/nextjs/no-css-tags.html)                                                                                 | nextjs     |         |          |
+| [no-document-import-in-page](/docs/guide/usage/linter/rules/nextjs/no-document-import-in-page.html)                                                   | nextjs     |         |          |
+| [no-duplicate-head](/docs/guide/usage/linter/rules/nextjs/no-duplicate-head.html)                                                                     | nextjs     |         |          |
+| [no-head-element](/docs/guide/usage/linter/rules/nextjs/no-head-element.html)                                                                         | nextjs     |         |          |
+| [no-head-import-in-document](/docs/guide/usage/linter/rules/nextjs/no-head-import-in-document.html)                                                   | nextjs     |         |          |
+| [no-html-link-for-pages](/docs/guide/usage/linter/rules/nextjs/no-html-link-for-pages.html)                                                           | nextjs     |         |          |
+| [no-img-element](/docs/guide/usage/linter/rules/nextjs/no-img-element.html)                                                                           | nextjs     |         | 🚧       |
+| [no-page-custom-font](/docs/guide/usage/linter/rules/nextjs/no-page-custom-font.html)                                                                 | nextjs     |         |          |
+| [no-script-component-in-head](/docs/guide/usage/linter/rules/nextjs/no-script-component-in-head.html)                                                 | nextjs     |         |          |
+| [no-styled-jsx-in-document](/docs/guide/usage/linter/rules/nextjs/no-styled-jsx-in-document.html)                                                     | nextjs     |         |          |
+| [no-sync-scripts](/docs/guide/usage/linter/rules/nextjs/no-sync-scripts.html)                                                                         | nextjs     |         |          |
+| [no-title-in-document-head](/docs/guide/usage/linter/rules/nextjs/no-title-in-document-head.html)                                                     | nextjs     |         |          |
+| [no-typos](/docs/guide/usage/linter/rules/nextjs/no-typos.html)                                                                                       | nextjs     |         | 🚧       |
+| [no-unwanted-polyfillio](/docs/guide/usage/linter/rules/nextjs/no-unwanted-polyfillio.html)                                                           | nextjs     |         |          |
 | [bad-array-method-on-arguments](/docs/guide/usage/linter/rules/oxc/bad-array-method-on-arguments.html)                                                | oxc        | ✅      |          |
 | [bad-char-at-comparison](/docs/guide/usage/linter/rules/oxc/bad-char-at-comparison.html)                                                              | oxc        | ✅      |          |
 | [bad-comparison-sequence](/docs/guide/usage/linter/rules/oxc/bad-comparison-sequence.html)                                                            | oxc        | ✅      |          |
@@ -152,24 +152,24 @@ Code that is outright wrong or useless.
 | [number-arg-out-of-range](/docs/guide/usage/linter/rules/oxc/number-arg-out-of-range.html)                                                            | oxc        | ✅      |          |
 | [only-used-in-recursion](/docs/guide/usage/linter/rules/oxc/only-used-in-recursion.html)                                                              | oxc        | ✅      | ⚠️🛠️️       |
 | [uninvoked-array-callback](/docs/guide/usage/linter/rules/oxc/uninvoked-array-callback.html)                                                          | oxc        | ✅      |          |
-| [no-callback-in-promise](/docs/guide/usage/linter/rules/promise/no-callback-in-promise.html)                                                          | promise    | ✅      |          |
-| [no-new-statics](/docs/guide/usage/linter/rules/promise/no-new-statics.html)                                                                          | promise    | ✅      | 🛠️        |
-| [valid-params](/docs/guide/usage/linter/rules/promise/valid-params.html)                                                                              | promise    | ✅      |          |
-| [exhaustive-deps](/docs/guide/usage/linter/rules/react/exhaustive-deps.html)                                                                          | react      | ✅      |          |
-| [forward-ref-uses-ref](/docs/guide/usage/linter/rules/react/forward-ref-uses-ref.html)                                                                | react      | ✅      | 💡       |
-| [jsx-key](/docs/guide/usage/linter/rules/react/jsx-key.html)                                                                                          | react      | ✅      |          |
-| [jsx-no-duplicate-props](/docs/guide/usage/linter/rules/react/jsx-no-duplicate-props.html)                                                            | react      | ✅      |          |
-| [jsx-no-target-blank](/docs/guide/usage/linter/rules/react/jsx-no-target-blank.html)                                                                  | react      | ✅      |          |
-| [jsx-no-undef](/docs/guide/usage/linter/rules/react/jsx-no-undef.html)                                                                                | react      | ✅      |          |
-| [jsx-props-no-spread-multi](/docs/guide/usage/linter/rules/react/jsx-props-no-spread-multi.html)                                                      | react      | ✅      | 🛠️        |
-| [no-children-prop](/docs/guide/usage/linter/rules/react/no-children-prop.html)                                                                        | react      | ✅      |          |
-| [no-danger-with-children](/docs/guide/usage/linter/rules/react/no-danger-with-children.html)                                                          | react      | ✅      |          |
-| [no-direct-mutation-state](/docs/guide/usage/linter/rules/react/no-direct-mutation-state.html)                                                        | react      | ✅      |          |
-| [no-find-dom-node](/docs/guide/usage/linter/rules/react/no-find-dom-node.html)                                                                        | react      | ✅      |          |
-| [no-is-mounted](/docs/guide/usage/linter/rules/react/no-is-mounted.html)                                                                              | react      | ✅      |          |
-| [no-render-return-value](/docs/guide/usage/linter/rules/react/no-render-return-value.html)                                                            | react      | ✅      |          |
-| [no-string-refs](/docs/guide/usage/linter/rules/react/no-string-refs.html)                                                                            | react      | ✅      |          |
-| [void-dom-elements-no-children](/docs/guide/usage/linter/rules/react/void-dom-elements-no-children.html)                                              | react      | ✅      |          |
+| [no-callback-in-promise](/docs/guide/usage/linter/rules/promise/no-callback-in-promise.html)                                                          | promise    |         |          |
+| [no-new-statics](/docs/guide/usage/linter/rules/promise/no-new-statics.html)                                                                          | promise    |         | 🛠️        |
+| [valid-params](/docs/guide/usage/linter/rules/promise/valid-params.html)                                                                              | promise    |         |          |
+| [exhaustive-deps](/docs/guide/usage/linter/rules/react/exhaustive-deps.html)                                                                          | react      |         | ⚠️🛠️️💡     |
+| [forward-ref-uses-ref](/docs/guide/usage/linter/rules/react/forward-ref-uses-ref.html)                                                                | react      |         | 💡       |
+| [jsx-key](/docs/guide/usage/linter/rules/react/jsx-key.html)                                                                                          | react      |         |          |
+| [jsx-no-duplicate-props](/docs/guide/usage/linter/rules/react/jsx-no-duplicate-props.html)                                                            | react      |         |          |
+| [jsx-no-target-blank](/docs/guide/usage/linter/rules/react/jsx-no-target-blank.html)                                                                  | react      |         |          |
+| [jsx-no-undef](/docs/guide/usage/linter/rules/react/jsx-no-undef.html)                                                                                | react      |         |          |
+| [jsx-props-no-spread-multi](/docs/guide/usage/linter/rules/react/jsx-props-no-spread-multi.html)                                                      | react      |         | 🛠️        |
+| [no-children-prop](/docs/guide/usage/linter/rules/react/no-children-prop.html)                                                                        | react      |         |          |
+| [no-danger-with-children](/docs/guide/usage/linter/rules/react/no-danger-with-children.html)                                                          | react      |         |          |
+| [no-direct-mutation-state](/docs/guide/usage/linter/rules/react/no-direct-mutation-state.html)                                                        | react      |         |          |
+| [no-find-dom-node](/docs/guide/usage/linter/rules/react/no-find-dom-node.html)                                                                        | react      |         |          |
+| [no-is-mounted](/docs/guide/usage/linter/rules/react/no-is-mounted.html)                                                                              | react      |         |          |
+| [no-render-return-value](/docs/guide/usage/linter/rules/react/no-render-return-value.html)                                                            | react      |         |          |
+| [no-string-refs](/docs/guide/usage/linter/rules/react/no-string-refs.html)                                                                            | react      |         |          |
+| [void-dom-elements-no-children](/docs/guide/usage/linter/rules/react/void-dom-elements-no-children.html)                                              | react      |         |          |
 | [no-duplicate-enum-values](/docs/guide/usage/linter/rules/typescript/no-duplicate-enum-values.html)                                                   | typescript | ✅      |          |
 | [no-extra-non-null-assertion](/docs/guide/usage/linter/rules/typescript/no-extra-non-null-assertion.html)                                             | typescript | ✅      |          |
 | [no-misused-new](/docs/guide/usage/linter/rules/typescript/no-misused-new.html)                                                                       | typescript | ✅      |          |
@@ -194,10 +194,10 @@ Code that is outright wrong or useless.
 | [no-useless-spread](/docs/guide/usage/linter/rules/unicorn/no-useless-spread.html)                                                                    | unicorn    | ✅      | ⚠️🛠️️       |
 | [prefer-set-size](/docs/guide/usage/linter/rules/unicorn/prefer-set-size.html)                                                                        | unicorn    | ✅      | 🛠️        |
 | [prefer-string-starts-ends-with](/docs/guide/usage/linter/rules/unicorn/prefer-string-starts-ends-with.html)                                          | unicorn    | ✅      | 🛠️        |
-| [no-conditional-tests](/docs/guide/usage/linter/rules/vitest/no-conditional-tests.html)                                                               | vitest     | ✅      |          |
-| [require-local-test-context-for-concurrent-snapshots](/docs/guide/usage/linter/rules/vitest/require-local-test-context-for-concurrent-snapshots.html) | vitest     | ✅      | 🚧       |
+| [no-conditional-tests](/docs/guide/usage/linter/rules/vitest/no-conditional-tests.html)                                                               | vitest     |         |          |
+| [require-local-test-context-for-concurrent-snapshots](/docs/guide/usage/linter/rules/vitest/require-local-test-context-for-concurrent-snapshots.html) | vitest     |         | 🚧       |
 
-## Perf (10):
+## Perf (11):
 
 Code that can be written to run faster.
 
@@ -212,6 +212,7 @@ Code that can be written to run faster.
 | [jsx-no-new-function-as-prop](/docs/guide/usage/linter/rules/react_perf/jsx-no-new-function-as-prop.html) | react_perf |         |          |
 | [jsx-no-new-object-as-prop](/docs/guide/usage/linter/rules/react_perf/jsx-no-new-object-as-prop.html)     | react_perf |         |          |
 | [prefer-array-find](/docs/guide/usage/linter/rules/unicorn/prefer-array-find.html)                        | unicorn    |         | 🚧       |
+| [prefer-array-flat-map](/docs/guide/usage/linter/rules/unicorn/prefer-array-flat-map.html)                | unicorn    |         | 🛠️        |
 | [prefer-set-has](/docs/guide/usage/linter/rules/unicorn/prefer-set-has.html)                              | unicorn    |         | ⚠️🛠️️       |
 
 ## Restriction (66):
@@ -416,7 +417,7 @@ Lints which are rather strict or have occasional false positives.
 | [prefer-type-error](/docs/guide/usage/linter/rules/unicorn/prefer-type-error.html)                                             | unicorn    |         | 🛠️        |
 | [require-number-to-fixed-digits-argument](/docs/guide/usage/linter/rules/unicorn/require-number-to-fixed-digits-argument.html) | unicorn    |         | 🛠️        |
 
-## Style (149):
+## Style (148):
 
 Code that should be written in a more idiomatic way.
 
@@ -548,7 +549,6 @@ Code that should be written in a more idiomatic way.
 | [no-zero-fractions](/docs/guide/usage/linter/rules/unicorn/no-zero-fractions.html)                                       | unicorn    |         | 🛠️        |
 | [number-literal-case](/docs/guide/usage/linter/rules/unicorn/number-literal-case.html)                                   | unicorn    |         | 🛠️        |
 | [numeric-separators-style](/docs/guide/usage/linter/rules/unicorn/numeric-separators-style.html)                         | unicorn    |         | 🛠️        |
-| [prefer-array-flat-map](/docs/guide/usage/linter/rules/unicorn/prefer-array-flat-map.html)                               | unicorn    |         | 🛠️        |
 | [prefer-array-index-of](/docs/guide/usage/linter/rules/unicorn/prefer-array-index-of.html)                               | unicorn    |         | 🚧       |
 | [prefer-dom-node-text-content](/docs/guide/usage/linter/rules/unicorn/prefer-dom-node-text-content.html)                 | unicorn    |         | 🛠️        |
 | [prefer-global-this](/docs/guide/usage/linter/rules/unicorn/prefer-global-this.html)                                     | unicorn    |         | 🚧       |

@@ -8,9 +8,6 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 # jsx_a11y/no-redundant-roles <Badge type="info" text="Correctness" />
 
 <div class="rule-meta">
-<Alert class="default-on" type="success">
-<span class="emoji">✅</span> This rule is turned on by default.
-</Alert>
 <Alert class="fix" type="info">
 <span class="emoji">🛠️</span> An auto-fix is available for this rule.
 </Alert>
