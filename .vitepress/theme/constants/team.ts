@@ -152,6 +152,18 @@ export const CORE_MEMBERS: TeamMember[] = [
       { icon: "x", link: "https://x.com/yagiznizipli" },
     ],
   },
+  {
+    id: "auvred",
+    type: "consultant",
+    name: "auvred",
+    title: "tsgolint",
+    avatar: "https://www.github.com/auvred.png",
+    org: "typescript-eslint",
+    orgLink: "https://github.com/typescript-eslint",
+    links: [
+      { icon: "github", link: "https://github.com/auvred" },
+    ],
+  },
 ];
 
 export const CORE_TEAM_MEMBERS = CORE_MEMBERS.filter(({ type }) => type === "core") as CoreTeamMember[];
