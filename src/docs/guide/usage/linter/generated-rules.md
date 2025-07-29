@@ -2,7 +2,7 @@
 
 The progress of all rule implementations is tracked [here](https://github.com/oxc-project/oxc/issues/481).
 
-- Total number of rules: 525
+- Total number of rules: 526
 - Rules turned on by default: 87
 
 **Legend for 'Fixable?' column:**
@@ -215,7 +215,7 @@ Code that can be written to run faster.
 | [prefer-array-flat-map](/docs/guide/usage/linter/rules/unicorn/prefer-array-flat-map.html)                | unicorn    |         | 🛠️        |
 | [prefer-set-has](/docs/guide/usage/linter/rules/unicorn/prefer-set-has.html)                              | unicorn    |         | ⚠️🛠️️       |
 
-## Restriction (66):
+## Restriction (67):
 
 Lints which prevent the use of language and library features. Must not be enabled as a whole, should be considered on a case-by-case basis before enabling.
 
@@ -266,6 +266,7 @@ Lints which prevent the use of language and library features. Must not be enable
 | [no-danger](/docs/guide/usage/linter/rules/react/no-danger.html)                                                                  | react      |         |          |
 | [no-unknown-property](/docs/guide/usage/linter/rules/react/no-unknown-property.html)                                              | react      |         | 🚧       |
 | [explicit-function-return-type](/docs/guide/usage/linter/rules/typescript/explicit-function-return-type.html)                     | typescript |         |          |
+| [explicit-module-boundary-types](/docs/guide/usage/linter/rules/typescript/explicit-module-boundary-types.html)                   | typescript |         |          |
 | [no-dynamic-delete](/docs/guide/usage/linter/rules/typescript/no-dynamic-delete.html)                                             | typescript |         |          |
 | [no-empty-object-type](/docs/guide/usage/linter/rules/typescript/no-empty-object-type.html)                                       | typescript |         |          |
 | [no-explicit-any](/docs/guide/usage/linter/rules/typescript/no-explicit-any.html)                                                 | typescript |         | 🛠️        |
