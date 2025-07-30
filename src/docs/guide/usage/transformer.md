@@ -20,6 +20,10 @@ Use the umbrella crate [oxc][url-oxc-crate] with the `transformer` feature.
 
 Rust usage example can be found [here](https://github.com/oxc-project/oxc/blob/main/crates/oxc_transformer/examples/transformer.rs).
 
+## Isolated Declarations
+
+- [`unplugin-isolated-decl`](https://github.com/unplugin/unplugin-isolated-decl)
+
 ## Built-in Plugins
 
 Oxc transformer includes built-in support for popular transformation plugins to improve developer experience and build performance.
@@ -139,7 +143,7 @@ The plugin works with various styled-components import patterns:
 // Default import
 import styled from 'styled-components';
 
-// Namespace import  
+// Namespace import
 import * as styled from 'styled-components';
 
 // Named imports
@@ -167,10 +171,6 @@ import styled from 'styled-components/primitives';
 **❌ Not Yet Implemented:**
 - JSX css prop transformation
 - Custom import path handling
-
-## Isolated Declarations
-
-- [`unplugin-isolated-decl`](https://github.com/unplugin/unplugin-isolated-decl)
 
 <!-- Links -->
 
