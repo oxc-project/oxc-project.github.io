@@ -77,8 +77,9 @@ const result = transform("Component.jsx", sourceCode, {
 });
 ```
 
-#### Input Example
+#### Example
 
+**Input:**
 ```jsx
 import styled from 'styled-components';
 
@@ -88,8 +89,7 @@ const Button = styled.div`
 `;
 ```
 
-#### Output Example (with default options)
-
+**Output (with default options):**
 ```jsx
 import styled from 'styled-components';
 
@@ -131,39 +131,6 @@ const Button = styled.div.withConfig({
 | `cssProp` | `boolean` | `true` | JSX css prop transformation (planned) |
 | `topLevelImportPaths` | `string[]` | `[]` | Custom import path handling (planned) |
 
-#### Development vs Production
-
-The plugin automatically optimizes for different environments:
-
-**Development Configuration:**
-```javascript
-{
-  plugins: {
-    styledComponents: {
-      displayName: true,
-      fileName: true,
-      ssr: false,
-      minify: false,
-    },
-  },
-}
-```
-
-**Production Configuration:**
-```javascript
-{
-  plugins: {
-    styledComponents: {
-      displayName: false,
-      fileName: false,
-      ssr: true,
-      minify: true,
-      pure: true,
-    },
-  },
-}
-```
-
 #### Supported Import Patterns
 
 The plugin works with various styled-components import patterns:
@@ -200,13 +167,6 @@ import styled from 'styled-components/primitives';
 **❌ Not Yet Implemented:**
 - JSX css prop transformation
 - Custom import path handling
-
-#### Performance Benefits
-
-- **Bundle Size**: Template literal transpilation reduces bundle size compared to standard Babel transformation
-- **Runtime Performance**: Minified CSS reduces parsing overhead
-- **Tree Shaking**: Pure annotations help bundlers eliminate unused code
-- **Development Experience**: Display names improve debugging in React DevTools
 
 ## Isolated Declarations
 
