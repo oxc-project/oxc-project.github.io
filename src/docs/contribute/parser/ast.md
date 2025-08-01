@@ -18,26 +18,6 @@ The Oxc AST is designed with the following principles:
 3. **Spec Compliance**: Closely follows ECMAScript specification
 4. **Clear Semantics**: Removes ambiguity present in other AST formats
 
-### Key Differences from ESTree
-
-Unlike the generic ESTree format, Oxc AST provides specific types:
-
-```rust
-// ESTree (ambiguous)
-struct Identifier {
-    name: String,
-}
-
-// Oxc AST (specific)
-enum IdentifierType {
-    BindingIdentifier(BindingIdentifier),     // let x = ...
-    IdentifierReference(IdentifierReference), // console.log(x)
-    IdentifierName(IdentifierName),           // obj.property
-}
-```
-
-This distinction helps tools understand the semantic meaning of each identifier.
-
 ## Working with the AST
 
 ### Generate AST Related Code
@@ -49,6 +29,7 @@ just ast
 ```
 
 This generates:
+
 - **Visitor patterns**: For traversing the AST
 - **Builder methods**: For constructing AST nodes
 - **Trait implementations**: For common operations
@@ -73,6 +54,7 @@ pub struct FunctionDeclaration<'a> {
 ```
 
 Key components:
+
 - **`span`**: Source location information
 - **`#[ast(visit)]`**: Generates visitor methods
 - **Lifetime `'a`**: References to arena-allocated memory
@@ -89,6 +71,7 @@ let ast = parser.parse(&allocator, source_text, source_type)?;
 ```
 
 Benefits:
+
 - **Fast allocation**: No individual malloc calls
 - **Fast deallocation**: Drop entire arena at once
 - **Cache friendly**: Linear memory layout
@@ -124,35 +107,15 @@ For transformations, use the mutable visitor:
 ```rust
 use oxc_ast::visit::{VisitMut, walk_mut};
 
-struct MyTransformer<'a> {
-    ctx: &'a mut TraverseCtx<'a>,
-}
+struct MyTransformer;
 
-impl<'a> VisitMut<'a> for MyTransformer<'a> {
+impl<'a> VisitMut<'a> for MyTransformer {
     fn visit_binary_expression(&mut self, expr: &mut BinaryExpression<'a>) {
         // Transform the expression
         if expr.operator == BinaryOperator::Addition {
             // Modify the AST node
         }
         walk_mut::walk_binary_expression_mut(self, expr);
-    }
-}
-```
-
-### Traverse Context
-
-For complex transformations, use `TraverseCtx`:
-
-```rust
-use oxc_traverse::{traverse_mut, TraverseCtx};
-
-impl<'a> VisitMut<'a> for MyTransformer<'a> {
-    fn visit_identifier_reference(&mut self, ident: &mut IdentifierReference<'a>) {
-        // Access semantic information
-        if let Some(symbol_id) = ident.reference_id.get() {
-            let symbol = self.ctx.semantic().symbols().get_symbol(symbol_id);
-            // Use symbol information for transformation
-        }
     }
 }
 ```
@@ -229,19 +192,6 @@ impl<'a> AstBuilder<'a> {
    }
    ```
 
-### Testing AST Changes
-
-```bash
-# Test parser changes
-cargo test -p oxc_parser
-
-# Test AST code generation
-cargo test -p oxc_ast
-
-# Test generated code
-just test-ast
-```
-
 ## Comparing AST Formats
 
 ### Use AST Explorer
@@ -252,40 +202,6 @@ For comparing with other parsers, use [ast-explorer.dev](https://ast-explorer.de
 2. **Up-to-date**: Latest parser versions
 3. **Multiple parsers**: Compare Oxc, Babel, TypeScript, etc.
 4. **Export formats**: JSON, code generation
-
-### Example Comparison
-
-Input JavaScript:
-```javascript
-const x = 42;
-```
-
-ESTree format:
-```json
-{
-  "type": "VariableDeclaration",
-  "declarations": [{
-    "type": "VariableDeclarator",
-    "id": { "type": "Identifier", "name": "x" },
-    "init": { "type": "Literal", "value": 42 }
-  }]
-}
-```
-
-Oxc AST (simplified):
-```rust
-VariableDeclaration {
-    declarations: vec![VariableDeclarator {
-        id: BindingPattern::BindingIdentifier(
-            BindingIdentifier { name: "x" }
-        ),
-        init: Some(Expression::NumericLiteral(
-            NumericLiteral { value: 42.0 }
-        )),
-    }],
-    kind: VariableDeclarationKind::Const,
-}
-```
 
 ## Performance Considerations
 
@@ -351,19 +267,6 @@ pub struct MyNode<'a> {
 }
 ```
 
-### Conditional Compilation
-
-Support different feature sets:
-
-```rust
-#[ast(visit)]
-pub struct TypeScriptNode<'a> {
-    pub span: Span,
-    #[cfg(feature = "typescript")]
-    pub type_annotation: Option<TSTypeAnnotation<'a>>,
-}
-```
-
 ### Integration with Semantic Analysis
 
 Link AST nodes with semantic information:
@@ -397,15 +300,4 @@ Track source locations for error reporting:
 ```rust
 let span = node.span();
 println!("Error at {}:{}", span.start, span.end);
-```
-
-### Memory Usage
-
-Monitor arena usage:
-
-```rust
-let initial_size = allocator.len();
-// ... create AST
-let final_size = allocator.len();
-println!("AST used {} bytes", final_size - initial_size);
 ```

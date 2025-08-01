@@ -47,6 +47,7 @@ pub struct IdentifierName<'a> {
 ### Semantic Clarity
 
 This approach provides semantic clarity:
+
 - **`BindingIdentifier`**: Variable declarations (`let x = 1`)
 - **`IdentifierReference`**: Variable usage (`console.log(x)`)
 - **`IdentifierName`**: Property names (`obj.property`)
@@ -75,6 +76,7 @@ let ast_node = allocator.alloc(Expression::NumericLiteral(
 ```
 
 Benefits:
+
 - **O(1) allocation**: Simple pointer bump
 - **O(1) deallocation**: Drop entire arena at once
 - **Cache-friendly**: Linear memory layout
@@ -112,16 +114,19 @@ let semantic_result = SemanticBuilder::new(source_text, source_type)
 ### Parser Components
 
 #### Lexer
+
 - **Token generation**: Converts source text to structured tokens
 - **SIMD optimization**: Uses SIMD instructions for whitespace skipping
 - **Context-aware**: Handles regex vs division operator disambiguation
 
 #### Recursive Descent Parser
+
 - **Hand-written**: Custom implementation for maximum performance
 - **Error recovery**: Advanced error handling with meaningful messages
 - **Grammar compliance**: Follows ECMAScript specification precisely
 
 #### AST Builder
+
 - **Type safety**: Leverages Rust's type system for correctness
 - **Memory efficiency**: Direct arena allocation
 - **Builder pattern**: Convenient node construction methods
@@ -131,7 +136,7 @@ let semantic_result = SemanticBuilder::new(source_text, source_type)
 ### Test Suite Coverage
 
 - **Test262**: 100% pass rate on ECMAScript conformance tests
-- **Babel**: 99.62% compatibility with Babel parser tests  
+- **Babel**: 99.62% compatibility with Babel parser tests
 - **TypeScript**: 99.86% compatibility with TypeScript compiler tests
 
 ### Error Handling Philosophy
@@ -147,42 +152,10 @@ pub struct OxcDiagnostic {
 ```
 
 The parser provides:
+
 - **Precise error locations**: Exact source positions
 - **Recovery strategies**: Continue parsing after errors
 - **Helpful suggestions**: Actionable error messages
-
-## Integration with Tools
-
-### Linter Integration
-
-```rust
-// Parser provides structured AST for linting
-let parse_result = Parser::new(&allocator, source, source_type).parse();
-let semantic = SemanticBuilder::new(source, source_type)
-    .build(&parse_result.program);
-
-// Linter uses both AST and semantic information
-let linter = Linter::new();
-let diagnostics = linter.run(&parse_result.program, &semantic);
-```
-
-### Transformer Integration
-
-```rust
-// AST is mutable for transformations
-let mut program = parser_result.program;
-let transformer = Transformer::new(&allocator, options);
-transformer.build(&mut program);
-```
-
-### Minifier Integration
-
-```rust
-// Semantic information guides safe optimizations
-let semantic_result = semantic_builder.build(&program);
-let minifier = Minifier::new(&allocator);
-let optimized = minifier.build(&program, &semantic_result);
-```
 
 ## Advanced Features
 
@@ -192,55 +165,6 @@ let optimized = minifier.build(&program, &semantic_result);
 - **Decorator parsing**: Handles experimental decorators
 - **Namespace support**: Full module and namespace parsing
 - **JSX integration**: TypeScript + JSX (TSX) support
-
-### JSX Processing
-
-```rust
-// JSX elements become method calls
-// <div className="foo">Hello</div>
-// becomes
-// React.createElement("div", { className: "foo" }, "Hello")
-```
-
-### Error Recovery
-
-The parser implements sophisticated error recovery:
-
-```rust
-impl<'a> Parser<'a> {
-    fn recover_from_error(&mut self, expected: &str) {
-        self.add_diagnostic(OxcDiagnostic::error(
-            format!("Expected {}", expected),
-            self.cur_token().span(),
-        ));
-        
-        // Skip tokens until we find a recovery point
-        self.skip_to_next_statement();
-    }
-}
-```
-
-## Performance Benchmarks
-
-Current performance compared to other parsers:
-
-| Parser | Speed | Memory Usage |
-|--------|-------|--------------|
-| Oxc | **1.0x** (baseline) | **1.0x** (baseline) |
-| SWC | 3.2x slower | 1.8x more memory |
-| Biome | 5.1x slower | 2.3x more memory |
-| Babel | 25x slower | 8.2x more memory |
-
-*Benchmarks run on TypeScript codebase parsing*
-
-## Future Optimizations
-
-### Planned Improvements
-
-- **Parallel parsing**: Multi-threaded parsing for large files
-- **Incremental parsing**: Only re-parse changed sections
-- **WASM compilation**: Browser-native parsing performance
-- **Custom allocators**: Specialized memory management
 
 ### Research Areas
 

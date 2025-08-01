@@ -18,52 +18,38 @@ Need guidance? Join our [Discord community](https://discord.gg/9uXCAwqQZW) where
 We welcome and appreciate any form of contributions:
 
 ### 🐛 Bug Reports
+
 - Report parsing errors or incorrect linting behavior
 - Share performance issues or regressions
 - Document edge cases we haven't considered
 
 ### 🚀 Feature Development
+
 - Add new linting rules
 - Improve parser conformance
 - Enhance transformer capabilities
 - Build new tools in the Oxc ecosystem
 
 ### 📚 Documentation
+
 - Improve getting started guides
 - Add examples and tutorials
 - Document architecture decisions
 - Translate content to other languages
 
 ### 🧪 Testing
+
 - Add test cases from real-world codebases
 - Improve test coverage
 - Create performance benchmarks
 - Test against ecosystem projects
 
 ### 🔧 Infrastructure
+
 - Improve build and CI systems
 - Enhance development tooling
 - Optimize performance critical paths
 - Maintain compatibility with other tools
-
-## Getting Started
-
-### Development Environment
-
-1. **Install Rust**: Follow the [official Rust installation guide](https://rustup.rs/)
-2. **Clone the Repository**:
-   ```bash
-   git clone https://github.com/oxc-project/oxc
-   cd oxc
-   ```
-3. **Build the Project**:
-   ```bash
-   cargo build
-   ```
-4. **Run Tests**:
-   ```bash
-   cargo test
-   ```
 
 ### Understanding the Codebase
 
@@ -74,7 +60,6 @@ Oxc is organized into several crates:
 - **`oxc_transformer`**: TypeScript and JSX transformation
 - **`oxc_minifier`**: JavaScript minification (in development)
 - **`oxc_formatter`**: Code formatting (in development)
-- **`oxc_resolver`**: Module resolution
 
 ### Your First Contribution
 
@@ -95,14 +80,6 @@ Oxc is organized into several crates:
 ### Code of Conduct
 
 We are committed to providing a welcoming and inclusive experience for everyone. Please read our [Code of Conduct](https://github.com/oxc-project/oxc/blob/main/CODE_OF_CONDUCT.md) before participating.
-
-### Recognition
-
-We appreciate all contributions! Contributors are:
-- Listed in our release notes
-- Added to our [contributors page](https://github.com/oxc-project/oxc/graphs/contributors)
-- Eligible for Oxc contributor swag
-- Invited to join our private contributor Discord channels
 
 ## Next Steps
 
