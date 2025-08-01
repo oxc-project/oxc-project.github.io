@@ -65,8 +65,6 @@ Key strategies for maintaining performance:
 ### Documentation
 
 - [Minifier API Documentation](https://docs.rs/oxc_minifier)
-- [Optimization Techniques Guide](./optimization-techniques.md)
-- [Performance Best Practices](./performance.md)
 
 ### External References
 

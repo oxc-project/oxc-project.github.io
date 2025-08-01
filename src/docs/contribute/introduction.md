@@ -88,6 +88,6 @@ Ready to contribute? Here are some great places to start:
 - 📖 **Learn More**: Check out our [development guide](./development.md)
 - 🔍 **Find an Issue**: Browse our [good first issues](https://github.com/oxc-project/oxc/contribute)
 - 💬 **Join the Community**: Connect with us on [Discord](https://discord.gg/9uXCAwqQZW)
-- 🛠️ **Pick a Tool**: Dive into [parser](./parser.md), [linter](./linter/), [transformer](./transformer.md), or [other tools](./formatter.md)
+- 🛠️ **Pick a Tool**: Dive into [parser](./parser.md), [linter](./linter.md), [transformer](./transformer.md), or [other tools](./formatter.md)
 
 We can't wait to see what you'll build with us! 🚀
