@@ -5,8 +5,21 @@ outline: deep
 
 # Transformer
 
-A transformer is responsible for turning higher versions of ECMAScript to a lower version that can be used in older browsers.
+The Oxc transformer is responsible for converting higher versions of ECMAScript and TypeScript to lower versions that can run in older browsers and environments.
 
-We are currently focusing on an esnext to es2015 transpiler.
+### Repository Structure
 
-See the [umbrella issue](https://github.com/oxc-project/oxc/issues/974) for details.
+```
+crates/oxc_transformer/
+├── src/
+│   ├── lib.rs                    # Main transformer interface
+│   ├── transformer.rs            # Core transformation logic
+│   ├── typescript/               # TypeScript transformations
+│   ├── jsx/                      # JSX transformations
+│   ├── es2015/                   # ES2015+ transformations
+│   ├── isolated_declarations/    # .d.ts generation
+│   └── helpers/                  # Utility functions
+├── tests/                        # Integration tests
+├── examples/                     # Usage examples
+└── benches/                      # Performance benchmarks
+```
