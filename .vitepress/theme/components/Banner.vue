@@ -16,7 +16,7 @@ const hide = () => {
   document.documentElement.classList.add("banner-dismissed");
 };
 
-const slug = "/blog/2025-06-10-oxlint-stable";
+const slug = "/blog/2025-07-24-oxlint-type-aware";
 
 const bannerDismissed = useLocalStorage<boolean>(`oxc-banner-dismissed-${slug}`, false);
 
@@ -45,7 +45,7 @@ const dismiss = () => {
 
 <template>
   <div ref="el" class="banner banner-dismissed">
-    <div class="text"><a :href="slug">Announcing Oxlint v1.0 Stable</a> 🎉</div>
+    <div class="text"><a :href="slug">Announcing Oxlint Type-Aware Preview</a> 🎉</div>
 
     <button type="button" @click="dismiss">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
