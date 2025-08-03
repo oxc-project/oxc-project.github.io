@@ -21,11 +21,11 @@
     "dprint": "^0.50.1",
     "esbuild": "0.25.8",
     "feed": "^5.1.0",
-    "lint-staged": "16.1.2",
-    "oxc-minify": "^0.78.0",
+    "lint-staged": "16.1.4",
+    "oxc-minify": "^0.80.0",
     "oxlint": "^1.5.0",
     "simple-git-hooks": "^2.13.0",
-    "typescript": "~5.8.3",
+    "typescript": "~5.9.0",
     "vitepress": "2.0.0-alpha.9",
     "vitepress-plugin-group-icons": "^1.6.1",
     "vue": "^3.5.17"
@@ -36,7 +36,7 @@
   "lint-staged": {
     "*": "dprint fmt --staged"
   },
-  "packageManager": "pnpm@10.13.1",
+  "packageManager": "pnpm@10.14.0",
   "volta": {
     "node": "22.14.0"
   },
