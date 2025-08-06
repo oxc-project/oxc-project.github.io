@@ -23,7 +23,11 @@ Also reports:
 
 ### Why is this bad?
 
-It is important to have a consistent way of specifying access levels.
+It is important to have a consistent way of specifying access levels in JSDoc
+comments. Using invalid or multiple access level tags creates confusion about
+the intended visibility of documented elements and can lead to inconsistencies
+in API documentation generation. Mixing different access tags or using invalid
+values makes the documentation unclear and potentially misleading.
 
 ### Examples
 

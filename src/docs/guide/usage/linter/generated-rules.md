@@ -2,8 +2,8 @@
 
 The progress of all rule implementations is tracked [here](https://github.com/oxc-project/oxc/issues/481).
 
-- Total number of rules: 526
-- Rules turned on by default: 87
+- Total number of rules: 528
+- Rules turned on by default: 88
 
 **Legend for 'Fixable?' column:**
 
@@ -13,7 +13,7 @@ The progress of all rule implementations is tracked [here](https://github.com/ox
 - ⚠️💡: a dangerous suggestion is available for this rule
 - 🚧: an auto-fix or suggestion is possible, but currently not implemented
 
-## Correctness (177):
+## Correctness (178):
 
 Code that is outright wrong or useless.
 
@@ -55,6 +55,7 @@ Code that is outright wrong or useless.
 | [no-shadow-restricted-names](/docs/guide/usage/linter/rules/eslint/no-shadow-restricted-names.html)                                                   | eslint     | ✅      |          |
 | [no-sparse-arrays](/docs/guide/usage/linter/rules/eslint/no-sparse-arrays.html)                                                                       | eslint     | ✅      |          |
 | [no-this-before-super](/docs/guide/usage/linter/rules/eslint/no-this-before-super.html)                                                               | eslint     | ✅      |          |
+| [no-unassigned-vars](/docs/guide/usage/linter/rules/eslint/no-unassigned-vars.html)                                                                   | eslint     | ✅      |          |
 | [no-unsafe-finally](/docs/guide/usage/linter/rules/eslint/no-unsafe-finally.html)                                                                     | eslint     | ✅      |          |
 | [no-unsafe-negation](/docs/guide/usage/linter/rules/eslint/no-unsafe-negation.html)                                                                   | eslint     | ✅      | 🛠️        |
 | [no-unsafe-optional-chaining](/docs/guide/usage/linter/rules/eslint/no-unsafe-optional-chaining.html)                                                 | eslint     | ✅      |          |
@@ -418,7 +419,7 @@ Lints which are rather strict or have occasional false positives.
 | [prefer-type-error](/docs/guide/usage/linter/rules/unicorn/prefer-type-error.html)                                             | unicorn    |         | 🛠️        |
 | [require-number-to-fixed-digits-argument](/docs/guide/usage/linter/rules/unicorn/require-number-to-fixed-digits-argument.html) | unicorn    |         | 🛠️        |
 
-## Style (148):
+## Style (149):
 
 Code that should be written in a more idiomatic way.
 
@@ -452,6 +453,7 @@ Code that should be written in a more idiomatic way.
 | [no-template-curly-in-string](/docs/guide/usage/linter/rules/eslint/no-template-curly-in-string.html)                    | eslint     |         | ⚠️🛠️️       |
 | [no-ternary](/docs/guide/usage/linter/rules/eslint/no-ternary.html)                                                      | eslint     |         |          |
 | [operator-assignment](/docs/guide/usage/linter/rules/eslint/operator-assignment.html)                                    | eslint     |         | ⚠️🛠️️       |
+| [prefer-destructuring](/docs/guide/usage/linter/rules/eslint/prefer-destructuring.html)                                  | eslint     |         | 🚧       |
 | [prefer-exponentiation-operator](/docs/guide/usage/linter/rules/eslint/prefer-exponentiation-operator.html)              | eslint     |         |          |
 | [prefer-numeric-literals](/docs/guide/usage/linter/rules/eslint/prefer-numeric-literals.html)                            | eslint     |         | 🛠️        |
 | [prefer-object-has-own](/docs/guide/usage/linter/rules/eslint/prefer-object-has-own.html)                                | eslint     |         | 🛠️        |

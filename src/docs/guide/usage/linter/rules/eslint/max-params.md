@@ -64,6 +64,15 @@ This option is for changing the maximum allowed number of function parameters.
 For example `{ "max": 4 }` would mean that having a function take four
 parameters is allowed which overrides the default of three.
 
+### countVoidThis
+
+`{ "countVoidThis": boolean }`
+
+This option is for counting the `this` parameter if it is of type `void`.
+
+For example `{ "countVoidThis": true }` would mean that having a function
+take a `this` parameter of type `void` is counted towards the maximum number of parameters.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

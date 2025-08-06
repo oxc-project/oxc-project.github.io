@@ -15,10 +15,15 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 ### What it does
 
+Enforces that reserved DOM elements do not contain ARIA roles, states,
+or properties.
+
+### Why is this bad?
+
 Certain reserved DOM elements do not support ARIA roles, states and
 properties. This is often because they are not visible, for example
-`meta`, `html`, `script`, `style`. This rule enforces that these DOM
-elements do not contain the `role` and/or `aria-*` props.
+`meta`, `html`, `script`, `style`. Adding ARIA attributes to these
+elements is meaningless and can create confusion for screen readers.
 
 ### Examples
 
