@@ -15,30 +15,32 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 ### What it does
 
-Disallows the use of irregular whitespaces in the code.
+Disallows the use of irregular whitespace characters in the code.
 
-### Why is this bad
+### Why is this bad?
 
-The use of irregular whitespaces can hinder code readability and
-create inconsistencies, making maintenance and collaboration more challenging.
+Irregular whitespace characters are invisible to most editors and can
+cause unexpected behavior, making code harder to debug and maintain.
+They can also cause issues with code formatting and parsing.
 
 ### Examples
 
 Examples of **incorrect** code for this rule:
 
 ```javascript
-function invalidExample() {
-  return 42;
+// Contains irregular whitespace characters (invisible)
+function example() {
+  var foo = "bar"; // irregular whitespace before 'bar'
 }
 ```
 
-Examples of **incorrect** code for this rule:
+Examples of **correct** code for this rule:
 
-```javascript
-function invalidExample() {
-  return 42;
+````javascript
+function example() {
+  var foo = 'bar'; // regular spaces only
 }
-```
+
 
 ## How to use
 
@@ -48,7 +50,7 @@ To **enable** this rule in the CLI or using the config file, you can use:
 
 ```bash [CLI]
 oxlint --deny no-irregular-whitespace
-```
+````
 
 ```json [Config (.oxlintrc.json)]
 {

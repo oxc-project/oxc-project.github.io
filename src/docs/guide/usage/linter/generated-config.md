@@ -275,6 +275,29 @@ See
 [eslint-plugin-jsx-a11y](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y#configurations)'s
 configuration for a full reference.
 
+#### settings.jsx-a11y.attributes
+
+type: `Record<string, array>`
+
+default: `{}`
+
+Map of attribute names to their DOM equivalents.
+This is useful for non-React frameworks that use different attribute names.
+
+Example:
+
+```json
+{
+  "settings": {
+    "jsx-a11y": {
+      "attributes": {
+        "for": ["htmlFor", "for"]
+      }
+    }
+  }
+}
+```
+
 #### settings.jsx-a11y.components
 
 type: `Record<string, string>`

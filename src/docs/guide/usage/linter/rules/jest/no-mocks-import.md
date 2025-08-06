@@ -16,7 +16,11 @@ This rule reports imports from a path containing a **mocks** component.
 
 ### Why is this bad?
 
-Manually importing mocks from a `__mocks__` directory can lead to unexpected behavior.
+Manually importing mocks from a `__mocks__` directory can lead to unexpected behavior
+and breaks Jest's automatic mocking system. Jest is designed to automatically resolve
+and use mocks from `__mocks__` directories when `jest.mock()` is called. Directly
+importing from these directories bypasses Jest's module resolution system and can cause
+inconsistencies between test and production environments.
 
 ### Examples
 
