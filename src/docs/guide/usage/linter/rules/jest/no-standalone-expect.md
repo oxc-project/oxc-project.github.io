@@ -19,6 +19,13 @@ trigger this rule.
 Statements like `expect.hasAssertions()` will NOT trigger this rule since these
 calls will execute if they are not in a test block.
 
+### Why is this bad?
+
+`expect` statements outside of test blocks will not be executed by the Jest
+test runner, which means they won't actually test anything. This can lead to
+false confidence in test coverage and may hide bugs that would otherwise be
+caught by proper testing.
+
 ### Examples
 
 Examples of **incorrect** code for this rule:

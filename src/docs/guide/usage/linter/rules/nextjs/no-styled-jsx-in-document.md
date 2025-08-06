@@ -23,11 +23,50 @@ Custom CSS like styled-jsx is not allowed in a [Custom Document](https://nextjs.
 Examples of **incorrect** code for this rule:
 
 ```javascript
+// pages/_document.js
+import Document, { Head, Html, Main, NextScript } from "next/document";
+
+class MyDocument extends Document {
+  render() {
+    return (
+      <Html>
+        <Head />
+        <body>
+          <Main />
+          <NextScript />
+          <style jsx>
+            {`
+            body {
+              background: hotpink;
+            }
+          `}
+          </style>
+        </body>
+      </Html>
+    );
+  }
+}
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
+// pages/_document.js
+import Document, { Head, Html, Main, NextScript } from "next/document";
+
+class MyDocument extends Document {
+  render() {
+    return (
+      <Html>
+        <Head />
+        <body>
+          <Main />
+          <NextScript />
+        </body>
+      </Html>
+    );
+  }
+}
 ```
 
 ## How to use

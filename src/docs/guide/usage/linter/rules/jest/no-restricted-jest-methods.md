@@ -14,6 +14,12 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 Restrict the use of specific `jest` and `vi` methods.
 
+### Why is this bad?
+
+Certain Jest methods may be deprecated, discouraged in specific
+contexts, or incompatible with your testing environment. Restricting
+them helps maintain consistent and reliable test practices.
+
 ### Examples
 
 Examples of **incorrect** code for this rule:
