@@ -2,7 +2,7 @@
 
 The progress of all rule implementations is tracked [here](https://github.com/oxc-project/oxc/issues/481).
 
-- Total number of rules: 528
+- Total number of rules: 530
 - Rules turned on by default: 88
 
 **Legend for 'Fixable?' column:**
@@ -290,7 +290,7 @@ Lints which prevent the use of language and library features. Must not be enable
 | [prefer-node-protocol](/docs/guide/usage/linter/rules/unicorn/prefer-node-protocol.html)                                          | unicorn    |         | 🛠️        |
 | [prefer-number-properties](/docs/guide/usage/linter/rules/unicorn/prefer-number-properties.html)                                  | unicorn    |         | ⚠️🛠️️       |
 
-## Suspicious (33):
+## Suspicious (35):
 
 code that is most likely wrong or useless.
 
@@ -323,6 +323,8 @@ code that is most likely wrong or useless.
 | [style-prop-object](/docs/guide/usage/linter/rules/react/style-prop-object.html)                                     | react      |         |          |
 | [no-confusing-non-null-assertion](/docs/guide/usage/linter/rules/typescript/no-confusing-non-null-assertion.html)    | typescript |         | 🚧       |
 | [no-extraneous-class](/docs/guide/usage/linter/rules/typescript/no-extraneous-class.html)                            | typescript |         | ⚠️💡      |
+| [no-floating-promises](/docs/guide/usage/linter/rules/typescript/no-floating-promises.html)                          | typescript |         | 🚧       |
+| [no-misused-promises](/docs/guide/usage/linter/rules/typescript/no-misused-promises.html)                            | typescript |         | 🚧       |
 | [no-unnecessary-type-constraint](/docs/guide/usage/linter/rules/typescript/no-unnecessary-type-constraint.html)      | typescript |         |          |
 | [consistent-function-scoping](/docs/guide/usage/linter/rules/unicorn/consistent-function-scoping.html)               | unicorn    |         | 🚧       |
 | [no-accessor-recursion](/docs/guide/usage/linter/rules/unicorn/no-accessor-recursion.html)                           | unicorn    |         |          |
