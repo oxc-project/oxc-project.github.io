@@ -29,7 +29,7 @@ jobs:
       - run: pnpm run lint --format github
       - run: pnpm run fmt
       - run: git diff --exit-code # Must commit everything
-      - uses: crate-ci/typos@f1231bc2bcc92b2b18da70a877cf89afce08dd42 # v1.35.2
+      - uses: crate-ci/typos@52bd719c2c91f9d676e2aa359fc8e0db8925e6d8 # v1.35.3
         with:
           files: .
 
