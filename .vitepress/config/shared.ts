@@ -1,7 +1,16 @@
+import { readFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { defineConfig, HeadConfig } from "vitepress";
 import { groupIconMdPlugin, groupIconVitePlugin } from "vitepress-plugin-group-icons";
+
+function inlineScript(file: string): HeadConfig {
+  return [
+    "script",
+    {},
+    readFileSync(resolve(__dirname, `./inlined-scripts/${file}`), "utf-8"),
+  ];
+}
 
 const head: HeadConfig[] = [
   [
@@ -31,6 +40,8 @@ const head: HeadConfig[] = [
       content: "https://cdn.jsdelivr.net/gh/oxc-project/oxc-assets/preview-universal.png",
     },
   ],
+  // banner
+  inlineScript("banner.js"),
   // Google Analytics
   ["script", { async: "", src: "https://www.googletagmanager.com/gtag/js?id=G-X7WQ091KL7" }],
   [

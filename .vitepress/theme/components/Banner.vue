@@ -16,6 +16,7 @@ const hide = () => {
   document.documentElement.classList.add("banner-dismissed");
 };
 
+// Sync with inlined-scripts/banner.js
 const slug = "/blog/2025-06-10-oxlint-stable";
 
 const bannerDismissed = useLocalStorage<boolean>(`oxc-banner-dismissed-${slug}`, false);
