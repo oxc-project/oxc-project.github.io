@@ -4,10 +4,10 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "dev": "ROLLDOWN_OPTIONS_VALIDATION=loose vitepress dev",
+    "dev": "vitepress dev",
     "prebuild": "pnpm run sponsors",
-    "build": "ROLLDOWN_OPTIONS_VALIDATION=loose vitepress build",
-    "preview": "ROLLDOWN_OPTIONS_VALIDATION=loose vitepress preview",
+    "build": "vitepress build",
+    "preview": "vitepress preview",
     "lint": "oxlint -W correctness -W no-unused-vars --deny-warnings",
     "lint:fix": "pnpm lint --fix && typos -w && pnpm fmt --write .",
     "typecheck": "tsc",
