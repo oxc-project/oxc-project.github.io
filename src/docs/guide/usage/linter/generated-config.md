@@ -155,6 +155,8 @@ type: `object`
 
 type: `string[]`
 
+A set of glob patterns.
+
 #### overrides[n].rules
 
 type: `object`
