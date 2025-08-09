@@ -6,10 +6,10 @@ import { groupIconMdPlugin, groupIconVitePlugin } from "vitepress-plugin-group-i
 
 function inlineScript(file: string): HeadConfig {
   return [
-    'script',
+    "script",
     {},
-    readFileSync(resolve(__dirname, `./inlined-scripts/${file}`), 'utf-8'),
-  ]
+    readFileSync(resolve(__dirname, `./inlined-scripts/${file}`), "utf-8"),
+  ];
 }
 
 const head: HeadConfig[] = [
@@ -41,7 +41,7 @@ const head: HeadConfig[] = [
     },
   ],
   // banner
-  inlineScript('banner.js'),
+  inlineScript("banner.js"),
   // Google Analytics
   ["script", { async: "", src: "https://www.googletagmanager.com/gtag/js?id=G-X7WQ091KL7" }],
   [
