@@ -3,15 +3,16 @@ title: Oxlint Type-Aware Preview
 outline: deep
 authors:
   - boshen
-  - camchenry
   - auvred
+  - camchenry
+  - cameron
 ---
 
 <AppBlogPostHeader />
 
 <br>
 
-We're thrilled to announce type-aware rules support in Oxlint!
+We're thrilled to announce type-aware rules support in oxlint!
 
 This preview release aims to engage with the community for collaboration and
 discussion by documenting our decision process and technical details.
@@ -23,26 +24,38 @@ If oxlint isn't already installed, please visit our [usage guide](https://oxc.rs
 To get started, run:
 
 ```bash
-pnpm add -D oxlint-tsgolint
-oxlint --tsconfig tsconfig.json
+pnpm add -D oxlint-tsgolint@latest
+pnpx oxlint --type-aware
 ```
 
-You'll then see two of our most requested type-aware rules in action:
+Or if you only want to see `no-floating-promises` in action:
 
-- `no-floating-promises`
-- `no-misused-promises`
+```bash
+pnpm add -D oxlint-tsgolint@latest
+pnpx oxlint --type-aware -A all -D typescript/no-floating-promises
+```
 
-The next version will enable all type-aware rules.
+And expect to see, for example:
+
+```js
+  × typescript-eslint(no-floating-promises): Promises must be awaited, end with a call to .catch, end with a call to .then with a rejection handler or be explicitly marked as ignored with the `void` operator.
+    ╭─[packages/rolldown/src/api/watch/watcher.ts:30:7]
+ 29 │       await this.close();
+ 30 │       originClose();
+    ·       ──────────────
+ 31 │     };
+    ╰────
+```
 
 ## Performance
 
 Our testing shows that large repositories, which previously took several minutes to run with `typescript-eslint`,
 now complete in less than 10 seconds.
 
-We achieved this by leveraging [`typescript-go`](https://github.com/microsoft/typescript-go),
+This is achieved by leveraging [`typescript-go`](https://github.com/microsoft/typescript-go),
 the [10x faster TypeScript](https://devblogs.microsoft.com/typescript/typescript-native-port) written in Go.
 
-## Type-Aware linting
+## Type-Aware Linting
 
 Please refer to
 [Rust-Based JavaScript Linters: Fast, But No Typed Linting Right Now](https://www.joshuakgoldberg.com/blog/rust-based-javascript-linters-fast-but-no-typed-linting-right-now)
@@ -55,10 +68,10 @@ The core of this new functionality is [oxc-project/tsgolint](https://github.com/
 The tsgolint project was initially prototyped as [typescript-eslint/tsgolint](https://github.com/typescript-eslint/tsgolint).
 However, the `typescript-eslint` team decided not to allocate development resources to this prototype, as they plan to continue their work on `typescript-eslint` for typed linting with ESLint.
 
-@boshen then reached out to @auvred for a forked, scoped-down version adapted for oxlint.
+[@boshen](https://github.com/Boshen) reached out to [@auvred](https://github.com/auvred) for a forked, scoped-down version adapted for oxlint.
 This version would only contain type-aware rules without the sophisticated configuration resolution a full linter would require.
 
-@auvred generously offered to continue its development under the Oxc organization.
+[@auvred](https://github.com/auvred) generously offered to continue its development under the Oxc organization.
 
 ### Architecture
 
@@ -71,9 +84,9 @@ This version would only contain type-aware rules without the sophisticated confi
 This creates a simple pipeline:
 
 ```
-Oxlint CLI (returns paths + rules + configuration)
+oxlint CLI (returns paths + rules + configuration)
   -> tsgolint (returns diagnostics)
-  -> Oxlint CLI
+  -> oxlint CLI
 ```
 
 ### `tsgolint`
@@ -90,21 +103,19 @@ While this isn't the recommended approach for accessing internals, it works!
 
 ### Write our own type checker
 
-Previous abandoned attempts to implement a type checker included:
+Previous abandoned attempts to implement a type-checker included:
 
 - My own attempt at [writing type inference](https://gist.github.com/Boshen/d189de0fe0720a30c5182cb666e3e9a5)
-- [Integrate](https://github.com/oxc-project/oxc/pull/413) [ezno type checker](https://github.com/kaleidawave/ezno) by @kaleidawave
-- [stc](https://github.com/dudykr/stc) by @kdy1
+- [Integrate](https://github.com/oxc-project/oxc/pull/413) [ezno type checker](https://github.com/kaleidawave/ezno) by [@kaleidawave](https://github.com/kaleidawave)
+- [stc](https://github.com/dudykr/stc) by [@kdy1](https://github.com/kdy1)
 - (There are also many attempts in the community that did not go far).
 
-Additionally, there's the work-in-progress:
+Additionally, there's the work-in-progress [Biome 2.0](https://biomejs.dev/blog/biome-v2/) with its own type-inference implementation.
 
-- [Biome 2.0](https://biomejs.dev/blog/biome-v2/) with its own type inference implementation.
-
-We determined that writing our own type inferencer or type checker was not feasible due to
+We determined that writing our own type-inferencer or type-checker was not feasible due to
 the challenge of keeping up with a fast-moving target like TypeScript.
 
-### Communication with TypeScript
+### Communication with TypeScript Compiler
 
 Prior to `typescript-go`, projects added plugin interfaces to TypeScript's public API by either mapping its AST to `estree` or directly traversing the TypeScript AST. Examples include:
 
@@ -112,14 +123,14 @@ Prior to `typescript-go`, projects added plugin interfaces to TypeScript's publi
 - [tsslint](https://github.com/johnsoncodehk/tsslint)
 - [tsl](https://github.com/ArnaudBarre/tsl)
 
-We also explored [inter-process communication with Oxlint](https://github.com/oxc-project/oxc/discussions/2855) but abandoned the idea.
+We also explored [inter-process communication with oxlint](https://github.com/oxc-project/oxc/discussions/2855) but abandoned the idea.
 
 With `typescript-go`, the TypeScript team is [leaning towards](https://github.com/microsoft/typescript-go/discussions/455)
 encoding the TypeScript AST and decoding it on the JavaScript side through inter-process communication.
 
 While these approaches work, they still incur:
 
-- Performance issues of varying degrees that don't suit Oxlint's performance characteristics.
+- Performance issues of varying degrees that don't suit oxlint's performance characteristics.
 - The cost of maintaining an AST mapping from TypeScript's AST.
 
 ## Considerations
@@ -138,20 +149,32 @@ The downside of this approach is that you may need to upgrade TypeScript if `oxl
 Shimming TypeScript's internal APIs carries some risk. However, the TypeScript AST and its visitor are actually quite stable.
 We accept this risk and will fix breaking changes when upgrading `typescript-go`.
 
-Our `typescript-go` version is synced three times a week.
+Our `typescript-go` version is synced many times a week.
+
+## Performance Issues
+
+`tsgolint` currently does not perform well on large monorepos with hundreds of projects or lots of project references.
+
+It may hang or drain memory if a bug is encountered.
+
+We are actively profiling and submitting improves to `typescript-go`, benefiting all `typescript-go` users.
+
+Our core team member [@camc314](https://github.com/camc314) has already submitted [many PRs](https://github.com/microsoft/typescript-go/pulls?q=is%3Apr+author%3Acamc314+) that made several code paths significantly faster.
 
 ## Acknowledgements
 
 We'd like to extend our gratitude to:
 
 - The TypeScript team for creating `typescript-go`.
-- [@auvred](https://github.com/auvred) for creaging `tsgolint`.
-- [@camchenry](https://github.com/camchenry) for the `oxlint` + `tsgolint` integration.
 - The `typescript-eslint` team for their heartwarming support.
+- [@auvred](https://github.com/auvred) for creating `tsgolint`.
+- [@camchenry](https://github.com/camchenry) for the `oxlint` + `tsgolint` integration.
+- [@camc314](https://github.com/camc314) for triaging performance issues.
 
 ## Join the Community
 
-We'd love to hear your feedback on Oxlint and type-aware linting and are excited to see how it helps improve your development workflow.
+We'd love to hear your feedback on oxlint and type-aware linting and are excited to see how it helps improve your development workflow.
+
 Connect with us:
 
 - **Discord**: Join our [community server](https://discord.gg/9uXCAwqQZW) for real-time discussions
@@ -161,3 +184,5 @@ Connect with us:
 ## Give It a Try
 
 To get started, follow the [installation guide](https://oxc.rs/docs/guide/usage/linter), or learn more about the [Oxc project](https://oxc.rs/docs/guide/introduction).
+
+Use the `--type-aware` CLI flag if oxlint is already installed.

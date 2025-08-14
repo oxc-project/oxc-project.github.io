@@ -16,7 +16,7 @@ const hide = () => {
   document.documentElement.classList.add("banner-dismissed");
 };
 
-const slug = "/blog/2025-07-24-oxlint-type-aware";
+const slug = "/blog/2025-08-18-oxlint-type-aware";
 
 const bannerDismissed = useLocalStorage<boolean>(`oxc-banner-dismissed-${slug}`, false);
 
