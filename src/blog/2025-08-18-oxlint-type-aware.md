@@ -164,11 +164,20 @@ Our `typescript-go` version is synced many times a week.
 
 `tsgolint` currently does not perform well on large monorepos with hundreds of projects or lots of project references.
 
-It may hang or drain memory if a bug is encountered.
+It may hang or cause out-of-memory if a bug is encountered.
 
 We are actively profiling and submitting improves to `typescript-go`, benefiting all `typescript-go` users.
 
 Our core team member [@camc314](https://github.com/camc314) has already submitted [many PRs](https://github.com/microsoft/typescript-go/pulls?q=is%3Apr+author%3Acamc314+) that made several code paths significantly faster.
+
+## v1.0 Release
+
+For `tsgolint` v1.0, we will address:
+
+* performance issue for large monorepos
+* be able to configure individual rules
+* correctness of each individual rules
+* overall stability
 
 ## Acknowledgements
 
