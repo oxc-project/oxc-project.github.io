@@ -178,7 +178,7 @@ We'd like to extend our gratitude to:
 - The `typescript-eslint` team for their heartwarming support.
 - [@auvred](https://github.com/auvred) for creating `tsgolint`.
 - [@camchenry](https://github.com/camchenry) for the `oxlint` + `tsgolint` integration.
-- [@camc314](https://github.com/camc314) for triaging performance issues.
+- [@camc314](https://github.com/camc314) for work on performance issues.
 
 ## Join the Community
 
