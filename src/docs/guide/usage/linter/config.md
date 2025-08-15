@@ -161,7 +161,7 @@ Plugins can be enabled with the `plugins` property in a configuration file. The 
 ```jsonc
 {
   // Enable all of these plugins (which are enabled by default):
-  "plugins": ["react", "unicorn", "typescript", "oxc"]
+  "plugins": ["unicorn", "typescript", "oxc"]
 }
 ```
 
