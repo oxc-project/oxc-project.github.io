@@ -12,14 +12,14 @@ authors:
 
 <br>
 
-We're thrilled to announce type-aware rules support in oxlint!
+We're thrilled to announce type-aware rules support in `oxlint`!
 
 This preview release aims to engage with the community for collaboration and
 discussion by documenting our decision process and technical details.
 
 ## Quick Start
 
-If oxlint isn't already installed, please visit our [usage guide](https://oxc.rs/docs/guide/usage/linter.html).
+If `oxlint` isn't already installed, please visit our [usage guide](https://oxc.rs/docs/guide/usage/linter.html).
 
 To get started, run:
 
@@ -28,23 +28,23 @@ pnpm add -D oxlint-tsgolint@latest
 pnpx oxlint --type-aware
 ```
 
-Or if you only want to see `no-floating-promises` in action:
+Or only `no-floating-promises` in action:
 
 ```bash
 pnpm add -D oxlint-tsgolint@latest
 pnpx oxlint --type-aware -A all -D typescript/no-floating-promises
 ```
 
-And expect to see, for example:
+We expect to see, for example:
 
 ```js
-  × typescript-eslint(no-floating-promises): Promises must be awaited, end with a call to .catch, end with a call to .then with a rejection handler or be explicitly marked as ignored with the `void` operator.
-    ╭─[packages/rolldown/src/api/watch/watcher.ts:30:7]
- 29 │       await this.close();
- 30 │       originClose();
-    ·       ──────────────
- 31 │     };
-    ╰────
+ × typescript-eslint(no-floating-promises): Promises must be awaited, end with a call to .catch, end with a call to .then with a rejection handler or be explicitly marked as ignored with the `void` operator.
+   ╭─[packages/rolldown/src/api/watch/watcher.ts:30:7]
+29 │       await this.close();
+30 │       originClose();
+   ·       ──────────────
+31 │     };
+   ╰────
 ```
 
 ## Performance
@@ -54,6 +54,15 @@ now complete in less than 10 seconds.
 
 This is achieved by leveraging [`typescript-go`](https://github.com/microsoft/typescript-go),
 the [10x faster TypeScript](https://devblogs.microsoft.com/typescript/typescript-native-port) written in Go.
+
+Using projects from [oxlint-ecosystem-ci](https://github.com/oxc-project/oxlint-ecosystem-ci):
+
+| Project  | Files | Time |
+| -------- | ----- | ---- |
+| napi-rs  | 144   | 1.0s |
+| preact   | 245   | 2.7s |
+| rolldown | 314   | 1.5s |
+| bluesky  | 1152  | 7.0s |
 
 ## Type-Aware Linting
 
@@ -183,6 +192,67 @@ Connect with us:
 
 ## Give It a Try
 
-To get started, follow the [installation guide](https://oxc.rs/docs/guide/usage/linter), or learn more about the [Oxc project](https://oxc.rs/docs/guide/introduction).
+To get started, install `oxlint`:
 
-Use the `--type-aware` CLI flag if oxlint is already installed.
+```bash
+pnpm add -D oxlint@latest oxlint-tsgolint@latest
+pnpx oxlint --init # generate .oxlintrc.json
+```
+
+or follow the [installation guide](https://oxc.rs/docs/guide/usage/linter).
+
+Use the `--type-aware` CLI flag.
+
+```
+pnpx oxlint --type-aware
+```
+
+Or play around with any of the type-aware rules in `.oxlintrc.json`:
+
+```json
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "rules": {
+    "typescript/await-thenable": "error",
+    "typescript/no-array-delete": "error",
+    "typescript/no-base-to-string": "error",
+    "typescript/no-confusing-void-expression": "error",
+    "typescript/no-duplicate-type-constituents": "error",
+    "typescript/no-floating-promises": "error",
+    "typescript/no-for-in-array": "error",
+    "typescript/no-implied-eval": "error",
+    "typescript/no-meaningless-void-operator": "error",
+    "typescript/no-misused-promises": "error",
+    "typescript/no-misused-spread": "error",
+    "typescript/no-mixed-enums": "error",
+    "typescript/no-redundant-type-constituents": "error",
+    "typescript/no-unnecessary-boolean-literal-compare": "error",
+    "typescript/no-unnecessary-template-expression": "error",
+    "typescript/no-unnecessary-type-arguments": "error",
+    "typescript/no-unnecessary-type-assertion": "error",
+    "typescript/no-unsafe-argument": "error",
+    "typescript/no-unsafe-assignment": "error",
+    "typescript/no-unsafe-call": "error",
+    "typescript/no-unsafe-enum-comparison": "error",
+    "typescript/no-unsafe-member-access": "error",
+    "typescript/no-unsafe-return": "error",
+    "typescript/no-unsafe-type-assertion": "error",
+    "typescript/no-unsafe-unary-minus": "error",
+    "typescript/non-nullable-type-assertion-style": "error",
+    "typescript/only-throw-error": "error",
+    "typescript/prefer-promise-reject-errors": "error",
+    "typescript/prefer-reduce-type-parameter": "error",
+    "typescript/prefer-return-this-type": "error",
+    "typescript/promise-function-async": "error",
+    "typescript/related-getter-setter-pairs": "error",
+    "typescript/require-array-sort-compare": "error",
+    "typescript/require-await": "error",
+    "typescript/restrict-plus-operands": "error",
+    "typescript/restrict-template-expressions": "error",
+    "typescript/return-await": "error",
+    "typescript/switch-exhaustiveness-check": "error",
+    "typescript/unbound-method": "error",
+    "typescript/use-unknown-in-catch-callback-variable": "error"
+  }
+}
+```
