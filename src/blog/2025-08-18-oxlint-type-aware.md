@@ -25,14 +25,14 @@ To get started, run:
 
 ```bash
 pnpm add -D oxlint-tsgolint@latest
-pnpx oxlint --type-aware
+pnpm dlx oxlint --type-aware
 ```
 
 Or only `no-floating-promises` in action:
 
 ```bash
 pnpm add -D oxlint-tsgolint@latest
-pnpx oxlint --type-aware -A all -D typescript/no-floating-promises
+pnpm dlx oxlint --type-aware -A all -D typescript/no-floating-promises
 ```
 
 We expect to see, for example:
@@ -196,7 +196,7 @@ To get started, install `oxlint`:
 
 ```bash
 pnpm add -D oxlint@latest oxlint-tsgolint@latest
-pnpx oxlint --init # generate .oxlintrc.json
+pnpm dlx oxlint --init # generate .oxlintrc.json
 ```
 
 or follow the [installation guide](https://oxc.rs/docs/guide/usage/linter).
@@ -204,7 +204,7 @@ or follow the [installation guide](https://oxc.rs/docs/guide/usage/linter).
 Use the `--type-aware` CLI flag.
 
 ```
-pnpx oxlint --type-aware
+pnpm dlx oxlint --type-aware
 ```
 
 Or play around with any of the type-aware rules in `.oxlintrc.json`:
