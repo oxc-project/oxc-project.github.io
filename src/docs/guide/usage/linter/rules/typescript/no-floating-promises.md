@@ -5,9 +5,12 @@ import { data } from '../version.data.js';
 const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_linter/src/rules/typescript/no_floating_promises.rs`;
 </script>
 
-# typescript/no-floating-promises <Badge type="info" text="Suspicious" />
+# typescript/no-floating-promises <Badge type="info" text="Correctness" />
 
 <div class="rule-meta">
+<Alert class="default-on" type="success">
+<span class="emoji">✅</span> This rule is turned on by default.
+</Alert>
 <Alert class="fix" type="info">
 <span class="emoji">🚧</span> An auto-fix is still under development.
 </Alert>

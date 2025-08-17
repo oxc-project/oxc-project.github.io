@@ -2,8 +2,8 @@
 
 The progress of all rule implementations is tracked [here](https://github.com/oxc-project/oxc/issues/481).
 
-- Total number of rules: 530
-- Rules turned on by default: 88
+- Total number of rules: 570
+- Rules turned on by default: 103
 
 **Legend for 'Fixable?' column:**
 
@@ -13,7 +13,7 @@ The progress of all rule implementations is tracked [here](https://github.com/ox
 - ⚠️💡: a dangerous suggestion is available for this rule
 - 🚧: an auto-fix or suggestion is possible, but currently not implemented
 
-## Correctness (178):
+## Correctness (193):
 
 Code that is outright wrong or useless.
 
@@ -118,7 +118,7 @@ Code that is outright wrong or useless.
 | [role-has-required-aria-props](/docs/guide/usage/linter/rules/jsx_a11y/role-has-required-aria-props.html)                                             | jsx_a11y   |         |          |
 | [role-supports-aria-props](/docs/guide/usage/linter/rules/jsx_a11y/role-supports-aria-props.html)                                                     | jsx_a11y   |         |          |
 | [scope](/docs/guide/usage/linter/rules/jsx_a11y/scope.html)                                                                                           | jsx_a11y   |         | 🛠️        |
-| [tabindex-no-positive](/docs/guide/usage/linter/rules/jsx_a11y/tabindex-no-positive.html)                                                             | jsx_a11y   |         | 🚧       |
+| [tabindex-no-positive](/docs/guide/usage/linter/rules/jsx_a11y/tabindex-no-positive.html)                                                             | jsx_a11y   |         | ⚠️💡      |
 | [google-font-display](/docs/guide/usage/linter/rules/nextjs/google-font-display.html)                                                                 | nextjs     |         |          |
 | [google-font-preconnect](/docs/guide/usage/linter/rules/nextjs/google-font-preconnect.html)                                                           | nextjs     |         |          |
 | [inline-script-id](/docs/guide/usage/linter/rules/nextjs/inline-script-id.html)                                                                       | nextjs     |         |          |
@@ -171,17 +171,32 @@ Code that is outright wrong or useless.
 | [no-render-return-value](/docs/guide/usage/linter/rules/react/no-render-return-value.html)                                                            | react      |         |          |
 | [no-string-refs](/docs/guide/usage/linter/rules/react/no-string-refs.html)                                                                            | react      |         |          |
 | [void-dom-elements-no-children](/docs/guide/usage/linter/rules/react/void-dom-elements-no-children.html)                                              | react      |         |          |
+| [await-thenable](/docs/guide/usage/linter/rules/typescript/await-thenable.html)                                                                       | typescript | ✅      | 🚧       |
+| [no-array-delete](/docs/guide/usage/linter/rules/typescript/no-array-delete.html)                                                                     | typescript | ✅      | 🚧       |
+| [no-base-to-string](/docs/guide/usage/linter/rules/typescript/no-base-to-string.html)                                                                 | typescript | ✅      | 🚧       |
+| [no-confusing-void-expression](/docs/guide/usage/linter/rules/typescript/no-confusing-void-expression.html)                                           | typescript | ✅      | 🚧       |
 | [no-duplicate-enum-values](/docs/guide/usage/linter/rules/typescript/no-duplicate-enum-values.html)                                                   | typescript | ✅      |          |
+| [no-duplicate-type-constituents](/docs/guide/usage/linter/rules/typescript/no-duplicate-type-constituents.html)                                       | typescript | ✅      | 🚧       |
 | [no-extra-non-null-assertion](/docs/guide/usage/linter/rules/typescript/no-extra-non-null-assertion.html)                                             | typescript | ✅      |          |
+| [no-floating-promises](/docs/guide/usage/linter/rules/typescript/no-floating-promises.html)                                                           | typescript | ✅      | 🚧       |
+| [no-for-in-array](/docs/guide/usage/linter/rules/typescript/no-for-in-array.html)                                                                     | typescript | ✅      | 🚧       |
+| [no-implied-eval](/docs/guide/usage/linter/rules/typescript/no-implied-eval.html)                                                                     | typescript | ✅      | 🚧       |
+| [no-meaningless-void-operator](/docs/guide/usage/linter/rules/typescript/no-meaningless-void-operator.html)                                           | typescript | ✅      | 🚧       |
 | [no-misused-new](/docs/guide/usage/linter/rules/typescript/no-misused-new.html)                                                                       | typescript | ✅      |          |
+| [no-misused-spread](/docs/guide/usage/linter/rules/typescript/no-misused-spread.html)                                                                 | typescript | ✅      | 🚧       |
 | [no-non-null-asserted-optional-chain](/docs/guide/usage/linter/rules/typescript/no-non-null-asserted-optional-chain.html)                             | typescript | ✅      | 🛠️        |
+| [no-redundant-type-constituents](/docs/guide/usage/linter/rules/typescript/no-redundant-type-constituents.html)                                       | typescript | ✅      | 🚧       |
 | [no-this-alias](/docs/guide/usage/linter/rules/typescript/no-this-alias.html)                                                                         | typescript | ✅      |          |
 | [no-unnecessary-parameter-property-assignment](/docs/guide/usage/linter/rules/typescript/no-unnecessary-parameter-property-assignment.html)           | typescript | ✅      | 💡       |
 | [no-unsafe-declaration-merging](/docs/guide/usage/linter/rules/typescript/no-unsafe-declaration-merging.html)                                         | typescript | ✅      |          |
+| [no-unsafe-unary-minus](/docs/guide/usage/linter/rules/typescript/no-unsafe-unary-minus.html)                                                         | typescript | ✅      | 🚧       |
 | [no-useless-empty-export](/docs/guide/usage/linter/rules/typescript/no-useless-empty-export.html)                                                     | typescript | ✅      | 🛠️        |
 | [no-wrapper-object-types](/docs/guide/usage/linter/rules/typescript/no-wrapper-object-types.html)                                                     | typescript | ✅      | 🛠️        |
 | [prefer-as-const](/docs/guide/usage/linter/rules/typescript/prefer-as-const.html)                                                                     | typescript | ✅      | 🛠️        |
+| [require-array-sort-compare](/docs/guide/usage/linter/rules/typescript/require-array-sort-compare.html)                                               | typescript | ✅      | 🚧       |
+| [restrict-template-expressions](/docs/guide/usage/linter/rules/typescript/restrict-template-expressions.html)                                         | typescript | ✅      | 🚧       |
 | [triple-slash-reference](/docs/guide/usage/linter/rules/typescript/triple-slash-reference.html)                                                       | typescript | ✅      |          |
+| [unbound-method](/docs/guide/usage/linter/rules/typescript/unbound-method.html)                                                                       | typescript | ✅      | 🚧       |
 | [no-await-in-promise-methods](/docs/guide/usage/linter/rules/unicorn/no-await-in-promise-methods.html)                                                | unicorn    | ✅      |          |
 | [no-empty-file](/docs/guide/usage/linter/rules/unicorn/no-empty-file.html)                                                                            | unicorn    | ✅      |          |
 | [no-invalid-fetch-options](/docs/guide/usage/linter/rules/unicorn/no-invalid-fetch-options.html)                                                      | unicorn    | ✅      |          |
@@ -216,7 +231,7 @@ Code that can be written to run faster.
 | [prefer-array-flat-map](/docs/guide/usage/linter/rules/unicorn/prefer-array-flat-map.html)                | unicorn    |         | 🛠️        |
 | [prefer-set-has](/docs/guide/usage/linter/rules/unicorn/prefer-set-has.html)                              | unicorn    |         | ⚠️🛠️️       |
 
-## Restriction (67):
+## Restriction (70):
 
 Lints which prevent the use of language and library features. Must not be enabled as a whole, should be considered on a case-by-case basis before enabling.
 
@@ -277,7 +292,10 @@ Lints which prevent the use of language and library features. Must not be enable
 | [no-non-null-assertion](/docs/guide/usage/linter/rules/typescript/no-non-null-assertion.html)                                     | typescript |         |          |
 | [no-require-imports](/docs/guide/usage/linter/rules/typescript/no-require-imports.html)                                           | typescript |         | 🚧       |
 | [no-var-requires](/docs/guide/usage/linter/rules/typescript/no-var-requires.html)                                                 | typescript |         |          |
+| [non-nullable-type-assertion-style](/docs/guide/usage/linter/rules/typescript/non-nullable-type-assertion-style.html)             | typescript |         | 🚧       |
 | [prefer-literal-enum-member](/docs/guide/usage/linter/rules/typescript/prefer-literal-enum-member.html)                           | typescript |         |          |
+| [promise-function-async](/docs/guide/usage/linter/rules/typescript/promise-function-async.html)                                   | typescript |         | 🚧       |
+| [use-unknown-in-catch-callback-variable](/docs/guide/usage/linter/rules/typescript/use-unknown-in-catch-callback-variable.html)   | typescript |         | 🚧       |
 | [no-abusive-eslint-disable](/docs/guide/usage/linter/rules/unicorn/no-abusive-eslint-disable.html)                                | unicorn    |         |          |
 | [no-anonymous-default-export](/docs/guide/usage/linter/rules/unicorn/no-anonymous-default-export.html)                            | unicorn    |         |          |
 | [no-array-for-each](/docs/guide/usage/linter/rules/unicorn/no-array-for-each.html)                                                | unicorn    |         | 🚧       |
@@ -290,49 +308,53 @@ Lints which prevent the use of language and library features. Must not be enable
 | [prefer-node-protocol](/docs/guide/usage/linter/rules/unicorn/prefer-node-protocol.html)                                          | unicorn    |         | 🛠️        |
 | [prefer-number-properties](/docs/guide/usage/linter/rules/unicorn/prefer-number-properties.html)                                  | unicorn    |         | ⚠️🛠️️       |
 
-## Suspicious (35):
+## Suspicious (39):
 
 code that is most likely wrong or useless.
 
-| Rule name                                                                                                            | Source     | Default | Fixable? |
-| -------------------------------------------------------------------------------------------------------------------- | ---------- | ------- | -------- |
-| [block-scoped-var](/docs/guide/usage/linter/rules/eslint/block-scoped-var.html)                                      | eslint     |         |          |
-| [no-extend-native](/docs/guide/usage/linter/rules/eslint/no-extend-native.html)                                      | eslint     |         |          |
-| [no-extra-bind](/docs/guide/usage/linter/rules/eslint/no-extra-bind.html)                                            | eslint     |         | 🚧       |
-| [no-new](/docs/guide/usage/linter/rules/eslint/no-new.html)                                                          | eslint     |         |          |
-| [no-unexpected-multiline](/docs/guide/usage/linter/rules/eslint/no-unexpected-multiline.html)                        | eslint     |         | ⚠️🛠️️       |
-| [no-unneeded-ternary](/docs/guide/usage/linter/rules/eslint/no-unneeded-ternary.html)                                | eslint     |         | ⚠️🛠️️       |
-| [no-useless-concat](/docs/guide/usage/linter/rules/eslint/no-useless-concat.html)                                    | eslint     |         |          |
-| [no-useless-constructor](/docs/guide/usage/linter/rules/eslint/no-useless-constructor.html)                          | eslint     |         | 🛠️        |
-| [no-absolute-path](/docs/guide/usage/linter/rules/import/no-absolute-path.html)                                      | import     |         | 🚧       |
-| [no-empty-named-blocks](/docs/guide/usage/linter/rules/import/no-empty-named-blocks.html)                            | import     |         | 🛠️        |
-| [no-named-as-default](/docs/guide/usage/linter/rules/import/no-named-as-default.html)                                | import     |         |          |
-| [no-named-as-default-member](/docs/guide/usage/linter/rules/import/no-named-as-default-member.html)                  | import     |         |          |
-| [no-self-import](/docs/guide/usage/linter/rules/import/no-self-import.html)                                          | import     |         |          |
-| [no-unassigned-import](/docs/guide/usage/linter/rules/import/no-unassigned-import.html)                              | import     |         |          |
-| [no-commented-out-tests](/docs/guide/usage/linter/rules/jest/no-commented-out-tests.html)                            | jest       |         |          |
-| [approx-constant](/docs/guide/usage/linter/rules/oxc/approx-constant.html)                                           | oxc        |         |          |
-| [misrefactored-assign-op](/docs/guide/usage/linter/rules/oxc/misrefactored-assign-op.html)                           | oxc        |         | 🚧       |
-| [no-async-endpoint-handlers](/docs/guide/usage/linter/rules/oxc/no-async-endpoint-handlers.html)                     | oxc        |         |          |
-| [no-promise-in-callback](/docs/guide/usage/linter/rules/promise/no-promise-in-callback.html)                         | promise    |         |          |
-| [iframe-missing-sandbox](/docs/guide/usage/linter/rules/react/iframe-missing-sandbox.html)                           | react      |         | 🚧       |
-| [jsx-no-comment-textnodes](/docs/guide/usage/linter/rules/react/jsx-no-comment-textnodes.html)                       | react      |         |          |
-| [jsx-no-script-url](/docs/guide/usage/linter/rules/react/jsx-no-script-url.html)                                     | react      |         | 🚧       |
-| [no-namespace](/docs/guide/usage/linter/rules/react/no-namespace.html)                                               | react      |         |          |
-| [react-in-jsx-scope](/docs/guide/usage/linter/rules/react/react-in-jsx-scope.html)                                   | react      |         |          |
-| [style-prop-object](/docs/guide/usage/linter/rules/react/style-prop-object.html)                                     | react      |         |          |
-| [no-confusing-non-null-assertion](/docs/guide/usage/linter/rules/typescript/no-confusing-non-null-assertion.html)    | typescript |         | 🚧       |
-| [no-extraneous-class](/docs/guide/usage/linter/rules/typescript/no-extraneous-class.html)                            | typescript |         | ⚠️💡      |
-| [no-floating-promises](/docs/guide/usage/linter/rules/typescript/no-floating-promises.html)                          | typescript |         | 🚧       |
-| [no-misused-promises](/docs/guide/usage/linter/rules/typescript/no-misused-promises.html)                            | typescript |         | 🚧       |
-| [no-unnecessary-type-constraint](/docs/guide/usage/linter/rules/typescript/no-unnecessary-type-constraint.html)      | typescript |         |          |
-| [consistent-function-scoping](/docs/guide/usage/linter/rules/unicorn/consistent-function-scoping.html)               | unicorn    |         | 🚧       |
-| [no-accessor-recursion](/docs/guide/usage/linter/rules/unicorn/no-accessor-recursion.html)                           | unicorn    |         |          |
-| [no-instanceof-builtins](/docs/guide/usage/linter/rules/unicorn/no-instanceof-builtins.html)                         | unicorn    |         | 🚧       |
-| [prefer-add-event-listener](/docs/guide/usage/linter/rules/unicorn/prefer-add-event-listener.html)                   | unicorn    |         | 🚧       |
-| [require-post-message-target-origin](/docs/guide/usage/linter/rules/unicorn/require-post-message-target-origin.html) | unicorn    |         | 💡       |
+| Rule name                                                                                                                       | Source     | Default | Fixable? |
+| ------------------------------------------------------------------------------------------------------------------------------- | ---------- | ------- | -------- |
+| [block-scoped-var](/docs/guide/usage/linter/rules/eslint/block-scoped-var.html)                                                 | eslint     |         |          |
+| [no-extend-native](/docs/guide/usage/linter/rules/eslint/no-extend-native.html)                                                 | eslint     |         |          |
+| [no-extra-bind](/docs/guide/usage/linter/rules/eslint/no-extra-bind.html)                                                       | eslint     |         | 🚧       |
+| [no-new](/docs/guide/usage/linter/rules/eslint/no-new.html)                                                                     | eslint     |         |          |
+| [no-unexpected-multiline](/docs/guide/usage/linter/rules/eslint/no-unexpected-multiline.html)                                   | eslint     |         | ⚠️🛠️️       |
+| [no-unneeded-ternary](/docs/guide/usage/linter/rules/eslint/no-unneeded-ternary.html)                                           | eslint     |         | ⚠️🛠️️       |
+| [no-useless-concat](/docs/guide/usage/linter/rules/eslint/no-useless-concat.html)                                               | eslint     |         |          |
+| [no-useless-constructor](/docs/guide/usage/linter/rules/eslint/no-useless-constructor.html)                                     | eslint     |         | 🛠️        |
+| [no-absolute-path](/docs/guide/usage/linter/rules/import/no-absolute-path.html)                                                 | import     |         | 🚧       |
+| [no-empty-named-blocks](/docs/guide/usage/linter/rules/import/no-empty-named-blocks.html)                                       | import     |         | 🛠️        |
+| [no-named-as-default](/docs/guide/usage/linter/rules/import/no-named-as-default.html)                                           | import     |         |          |
+| [no-named-as-default-member](/docs/guide/usage/linter/rules/import/no-named-as-default-member.html)                             | import     |         |          |
+| [no-self-import](/docs/guide/usage/linter/rules/import/no-self-import.html)                                                     | import     |         |          |
+| [no-unassigned-import](/docs/guide/usage/linter/rules/import/no-unassigned-import.html)                                         | import     |         |          |
+| [no-commented-out-tests](/docs/guide/usage/linter/rules/jest/no-commented-out-tests.html)                                       | jest       |         |          |
+| [approx-constant](/docs/guide/usage/linter/rules/oxc/approx-constant.html)                                                      | oxc        |         |          |
+| [misrefactored-assign-op](/docs/guide/usage/linter/rules/oxc/misrefactored-assign-op.html)                                      | oxc        |         | 🚧       |
+| [no-async-endpoint-handlers](/docs/guide/usage/linter/rules/oxc/no-async-endpoint-handlers.html)                                | oxc        |         |          |
+| [no-promise-in-callback](/docs/guide/usage/linter/rules/promise/no-promise-in-callback.html)                                    | promise    |         |          |
+| [iframe-missing-sandbox](/docs/guide/usage/linter/rules/react/iframe-missing-sandbox.html)                                      | react      |         | 🚧       |
+| [jsx-no-comment-textnodes](/docs/guide/usage/linter/rules/react/jsx-no-comment-textnodes.html)                                  | react      |         |          |
+| [jsx-no-script-url](/docs/guide/usage/linter/rules/react/jsx-no-script-url.html)                                                | react      |         | 🚧       |
+| [no-namespace](/docs/guide/usage/linter/rules/react/no-namespace.html)                                                          | react      |         |          |
+| [react-in-jsx-scope](/docs/guide/usage/linter/rules/react/react-in-jsx-scope.html)                                              | react      |         |          |
+| [style-prop-object](/docs/guide/usage/linter/rules/react/style-prop-object.html)                                                | react      |         |          |
+| [no-confusing-non-null-assertion](/docs/guide/usage/linter/rules/typescript/no-confusing-non-null-assertion.html)               | typescript |         | 🚧       |
+| [no-extraneous-class](/docs/guide/usage/linter/rules/typescript/no-extraneous-class.html)                                       | typescript |         | ⚠️💡      |
+| [no-unnecessary-boolean-literal-compare](/docs/guide/usage/linter/rules/typescript/no-unnecessary-boolean-literal-compare.html) | typescript |         | 🚧       |
+| [no-unnecessary-template-expression](/docs/guide/usage/linter/rules/typescript/no-unnecessary-template-expression.html)         | typescript |         | 🚧       |
+| [no-unnecessary-type-arguments](/docs/guide/usage/linter/rules/typescript/no-unnecessary-type-arguments.html)                   | typescript |         | 🚧       |
+| [no-unnecessary-type-assertion](/docs/guide/usage/linter/rules/typescript/no-unnecessary-type-assertion.html)                   | typescript |         | 🚧       |
+| [no-unnecessary-type-constraint](/docs/guide/usage/linter/rules/typescript/no-unnecessary-type-constraint.html)                 | typescript |         |          |
+| [no-unsafe-enum-comparison](/docs/guide/usage/linter/rules/typescript/no-unsafe-enum-comparison.html)                           | typescript |         | 🚧       |
+| [no-unsafe-type-assertion](/docs/guide/usage/linter/rules/typescript/no-unsafe-type-assertion.html)                             | typescript |         | 🚧       |
+| [consistent-function-scoping](/docs/guide/usage/linter/rules/unicorn/consistent-function-scoping.html)                          | unicorn    |         | 🚧       |
+| [no-accessor-recursion](/docs/guide/usage/linter/rules/unicorn/no-accessor-recursion.html)                                      | unicorn    |         |          |
+| [no-instanceof-builtins](/docs/guide/usage/linter/rules/unicorn/no-instanceof-builtins.html)                                    | unicorn    |         | 🚧       |
+| [prefer-add-event-listener](/docs/guide/usage/linter/rules/unicorn/prefer-add-event-listener.html)                              | unicorn    |         | 🚧       |
+| [require-post-message-target-origin](/docs/guide/usage/linter/rules/unicorn/require-post-message-target-origin.html)            | unicorn    |         | 💡       |
 
-## Pedantic (82):
+## Pedantic (96):
 
 Lints which are rather strict or have occasional false positives.
 
@@ -378,9 +400,23 @@ Lints which are rather strict or have occasional false positives.
 | [rules-of-hooks](/docs/guide/usage/linter/rules/react/rules-of-hooks.html)                                                     | react      |         |          |
 | [ban-ts-comment](/docs/guide/usage/linter/rules/typescript/ban-ts-comment.html)                                                | typescript |         | 🛠️        |
 | [ban-types](/docs/guide/usage/linter/rules/typescript/ban-types.html)                                                          | typescript |         | 🚧       |
+| [no-misused-promises](/docs/guide/usage/linter/rules/typescript/no-misused-promises.html)                                      | typescript |         | 🚧       |
+| [no-mixed-enums](/docs/guide/usage/linter/rules/typescript/no-mixed-enums.html)                                                | typescript |         | 🚧       |
+| [no-unsafe-argument](/docs/guide/usage/linter/rules/typescript/no-unsafe-argument.html)                                        | typescript |         | 🚧       |
+| [no-unsafe-assignment](/docs/guide/usage/linter/rules/typescript/no-unsafe-assignment.html)                                    | typescript |         | 🚧       |
+| [no-unsafe-call](/docs/guide/usage/linter/rules/typescript/no-unsafe-call.html)                                                | typescript |         | 🚧       |
 | [no-unsafe-function-type](/docs/guide/usage/linter/rules/typescript/no-unsafe-function-type.html)                              | typescript |         |          |
+| [no-unsafe-member-access](/docs/guide/usage/linter/rules/typescript/no-unsafe-member-access.html)                              | typescript |         | 🚧       |
+| [no-unsafe-return](/docs/guide/usage/linter/rules/typescript/no-unsafe-return.html)                                            | typescript |         | 🚧       |
+| [only-throw-error](/docs/guide/usage/linter/rules/typescript/only-throw-error.html)                                            | typescript |         | 🚧       |
 | [prefer-enum-initializers](/docs/guide/usage/linter/rules/typescript/prefer-enum-initializers.html)                            | typescript |         | 🚧       |
+| [prefer-promise-reject-errors](/docs/guide/usage/linter/rules/typescript/prefer-promise-reject-errors.html)                    | typescript |         | 🚧       |
 | [prefer-ts-expect-error](/docs/guide/usage/linter/rules/typescript/prefer-ts-expect-error.html)                                | typescript |         | 🛠️        |
+| [related-getter-setter-pairs](/docs/guide/usage/linter/rules/typescript/related-getter-setter-pairs.html)                      | typescript |         | 🚧       |
+| [require-await](/docs/guide/usage/linter/rules/typescript/require-await.html)                                                  | typescript |         | 🚧       |
+| [restrict-plus-operands](/docs/guide/usage/linter/rules/typescript/restrict-plus-operands.html)                                | typescript |         | 🚧       |
+| [return-await](/docs/guide/usage/linter/rules/typescript/return-await.html)                                                    | typescript |         | 🚧       |
+| [switch-exhaustiveness-check](/docs/guide/usage/linter/rules/typescript/switch-exhaustiveness-check.html)                      | typescript |         | 🚧       |
 | [consistent-assert](/docs/guide/usage/linter/rules/unicorn/consistent-assert.html)                                             | unicorn    |         | 🛠️        |
 | [consistent-empty-array-spread](/docs/guide/usage/linter/rules/unicorn/consistent-empty-array-spread.html)                     | unicorn    |         | 💡       |
 | [escape-case](/docs/guide/usage/linter/rules/unicorn/escape-case.html)                                                         | unicorn    |         | 🛠️        |
@@ -421,7 +457,7 @@ Lints which are rather strict or have occasional false positives.
 | [prefer-type-error](/docs/guide/usage/linter/rules/unicorn/prefer-type-error.html)                                             | unicorn    |         | 🛠️        |
 | [require-number-to-fixed-digits-argument](/docs/guide/usage/linter/rules/unicorn/require-number-to-fixed-digits-argument.html) | unicorn    |         | 🛠️        |
 
-## Style (149):
+## Style (153):
 
 Code that should be written in a more idiomatic way.
 
@@ -463,6 +499,7 @@ Code that should be written in a more idiomatic way.
 | [prefer-promise-reject-errors](/docs/guide/usage/linter/rules/eslint/prefer-promise-reject-errors.html)                  | eslint     |         |          |
 | [prefer-rest-params](/docs/guide/usage/linter/rules/eslint/prefer-rest-params.html)                                      | eslint     |         |          |
 | [prefer-spread](/docs/guide/usage/linter/rules/eslint/prefer-spread.html)                                                | eslint     |         |          |
+| [prefer-template](/docs/guide/usage/linter/rules/eslint/prefer-template.html)                                            | eslint     |         | 🚧       |
 | [sort-imports](/docs/guide/usage/linter/rules/eslint/sort-imports.html)                                                  | eslint     |         | 🛠️        |
 | [sort-keys](/docs/guide/usage/linter/rules/eslint/sort-keys.html)                                                        | eslint     |         | 🚧       |
 | [vars-on-top](/docs/guide/usage/linter/rules/eslint/vars-on-top.html)                                                    | eslint     |         |          |
@@ -523,7 +560,8 @@ Code that should be written in a more idiomatic way.
 | [prefer-await-to-then](/docs/guide/usage/linter/rules/promise/prefer-await-to-then.html)                                 | promise    |         |          |
 | [prefer-catch](/docs/guide/usage/linter/rules/promise/prefer-catch.html)                                                 | promise    |         | 🚧       |
 | [jsx-boolean-value](/docs/guide/usage/linter/rules/react/jsx-boolean-value.html)                                         | react      |         | 🛠️        |
-| [jsx-curly-brace-presence](/docs/guide/usage/linter/rules/react/jsx-curly-brace-presence.html)                           | react      |         | 🚧       |
+| [jsx-curly-brace-presence](/docs/guide/usage/linter/rules/react/jsx-curly-brace-presence.html)                           | react      |         | 🛠️        |
+| [jsx-fragments](/docs/guide/usage/linter/rules/react/jsx-fragments.html)                                                 | react      |         | 🛠️        |
 | [no-set-state](/docs/guide/usage/linter/rules/react/no-set-state.html)                                                   | react      |         |          |
 | [prefer-es6-class](/docs/guide/usage/linter/rules/react/prefer-es6-class.html)                                           | react      |         |          |
 | [self-closing-comp](/docs/guide/usage/linter/rules/react/self-closing-comp.html)                                         | react      |         | 🛠️        |
@@ -539,6 +577,8 @@ Code that should be written in a more idiomatic way.
 | [prefer-for-of](/docs/guide/usage/linter/rules/typescript/prefer-for-of.html)                                            | typescript |         | 🚧       |
 | [prefer-function-type](/docs/guide/usage/linter/rules/typescript/prefer-function-type.html)                              | typescript |         | 🛠️        |
 | [prefer-namespace-keyword](/docs/guide/usage/linter/rules/typescript/prefer-namespace-keyword.html)                      | typescript |         | 🛠️        |
+| [prefer-reduce-type-parameter](/docs/guide/usage/linter/rules/typescript/prefer-reduce-type-parameter.html)              | typescript |         | 🚧       |
+| [prefer-return-this-type](/docs/guide/usage/linter/rules/typescript/prefer-return-this-type.html)                        | typescript |         | 🚧       |
 | [catch-error-name](/docs/guide/usage/linter/rules/unicorn/catch-error-name.html)                                         | unicorn    |         | 🛠️        |
 | [consistent-date-clone](/docs/guide/usage/linter/rules/unicorn/consistent-date-clone.html)                               | unicorn    |         | 🛠️        |
 | [consistent-existence-index-check](/docs/guide/usage/linter/rules/unicorn/consistent-existence-index-check.html)         | unicorn    |         | 🛠️        |
