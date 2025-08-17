@@ -5,7 +5,7 @@ import { data } from '../version.data.js';
 const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_linter/src/rules/typescript/no_misused_promises.rs`;
 </script>
 
-# typescript/no-misused-promises <Badge type="info" text="Suspicious" />
+# typescript/no-misused-promises <Badge type="info" text="Pedantic" />
 
 <div class="rule-meta">
 <Alert class="fix" type="info">
