@@ -65,7 +65,7 @@ export const sharedConfig = defineConfig({
   head,
   lastUpdated: false,
   transformPageData(pageData) {
-    pageData.frontmatter.head ??= []
+    pageData.frontmatter.head ??= [];
 
     if (pageData.frontmatter.canonical) {
       pageData.frontmatter.head.push([
@@ -79,14 +79,15 @@ export const sharedConfig = defineConfig({
 
     // Add page-specific Open Graph and Twitter meta tags
     const title = pageData.frontmatter.title || pageData.title;
-    const description = pageData.frontmatter.description || pageData.description || "A collection of high-performance JavaScript tools written in Rust";
+    const description = pageData.frontmatter.description || pageData.description
+      || "A collection of high-performance JavaScript tools written in Rust";
 
     // Construct the canonical URL for the page
     let url = "https://oxc.rs";
     if (pageData.relativePath !== "index.md") {
-      const path = pageData.relativePath.replace(/\.md$/, '.html').replace(/\/index\.html$/, '/');
+      const path = pageData.relativePath.replace(/\.md$/, ".html").replace(/\/index\.html$/, "/");
       if (path !== "index.html") {
-        url += "/" + path.replace(/^\/+/, '');
+        url += "/" + path.replace(/^\/+/, "");
       }
     }
 
@@ -101,7 +102,6 @@ export const sharedConfig = defineConfig({
     }
 
     pageData.frontmatter.head.push(["meta", { property: "og:url", content: url }]);
-
   },
   themeConfig: {
     siteTitle: "Oxc",
