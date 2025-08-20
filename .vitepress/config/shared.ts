@@ -22,7 +22,6 @@ const head: HeadConfig[] = [
   ],
   // Open Graph
   ["meta", { property: "og:site_name", content: "Oxc" }],
-  ["meta", { property: "og:url", content: "https://github.com/oxc-project" }],
   [
     "meta",
     {
@@ -65,11 +64,11 @@ export const sharedConfig = defineConfig({
   base: "/",
   head,
   lastUpdated: false,
-  transformHead: ({ pageData }) => {
-    const head: HeadConfig[] = [];
+  transformPageData(pageData) {
+    pageData.frontmatter.head ??= [];
 
     if (pageData.frontmatter.canonical) {
-      head.push([
+      pageData.frontmatter.head.push([
         "link",
         {
           rel: "canonical",
@@ -78,7 +77,31 @@ export const sharedConfig = defineConfig({
       ]);
     }
 
-    return head;
+    // Add page-specific Open Graph and Twitter meta tags
+    const title = pageData.frontmatter.title || pageData.title;
+    const description = pageData.frontmatter.description || pageData.description
+      || "A collection of high-performance JavaScript tools written in Rust";
+
+    // Construct the canonical URL for the page
+    let url = "https://oxc.rs";
+    if (pageData.relativePath !== "index.md") {
+      const path = pageData.relativePath.replace(/\.md$/, ".html").replace(/\/index\.html$/, "/");
+      if (path !== "index.html") {
+        url += "/" + path.replace(/^\/+/, "");
+      }
+    }
+
+    if (title) {
+      pageData.frontmatter.head.push(["meta", { property: "og:title", content: title }]);
+      pageData.frontmatter.head.push(["meta", { name: "twitter:title", content: title }]);
+    }
+
+    if (description) {
+      pageData.frontmatter.head.push(["meta", { property: "og:description", content: description }]);
+      pageData.frontmatter.head.push(["meta", { name: "twitter:description", content: description }]);
+    }
+
+    pageData.frontmatter.head.push(["meta", { property: "og:url", content: url }]);
   },
   themeConfig: {
     siteTitle: "Oxc",
