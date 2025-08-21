@@ -34,9 +34,25 @@ and run Oxlint before ESLint in your local or CI setup for a quicker feedback lo
 - Supports:
   - JavaScript and TypeScript by their extensions `js`, `mjs`, `cjs`, `jsx`, `ts`, `mts`, `cts` and `tsx`.
   - `<script>` content of `.vue`, `.astro` and `.svelte` files.
+  - [type-aware rules](https://typescript-eslint.io/getting-started/typed-linting) defined by `typescript-eslint` (preview, requires `--type-aware` flag and `oxlint-tsgolint` package).
 - No support for:
-  - [type-aware rules](https://typescript-eslint.io/getting-started/typed-linting) defined by `typescript-eslint`.
   - [stylistic rules](https://eslint.style).
+
+### Type-Aware Linting (Preview)
+
+Oxlint supports type-aware rules in preview mode. To enable type-aware linting:
+
+1. Install the required dependency:
+   ```bash
+   pnpm add -D oxlint-tsgolint@latest
+   ```
+
+2. Run oxlint with the `--type-aware` flag:
+   ```bash
+   pnpm dlx oxlint --type-aware
+   ```
+
+For more details and the list of supported type-aware rules, see the [type-aware linting announcement](/blog/2025-08-17-oxlint-type-aware).
 
 ## Installation
 
