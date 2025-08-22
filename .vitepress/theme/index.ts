@@ -1,10 +1,11 @@
+import "virtual:group-icons.css";
 import type { Theme } from "vitepress";
 import DefaultTheme from "vitepress/theme";
 import { defineAsyncComponent, h } from "vue";
 import Alert from "./components/Alert.vue";
 import AppBadgeList from "./components/AppBadgeList.vue";
 import AppBlogPostHeader from "./components/AppBlogPostHeader.vue";
-import "virtual:group-icons.css";
+import "./overrides.css";
 
 export default {
   extends: DefaultTheme,
