@@ -34,8 +34,9 @@ and run Oxlint before ESLint in your local or CI setup for a quicker feedback lo
 - Supports:
   - JavaScript and TypeScript by their extensions `js`, `mjs`, `cjs`, `jsx`, `ts`, `mts`, `cts` and `tsx`.
   - `<script>` content of `.vue`, `.astro` and `.svelte` files.
+- Preview support for:
+  - [type-aware rules](https://oxc.rs/blog/2025-08-17-oxlint-type-aware.html) - now in preview!
 - No support for:
-  - [type-aware rules](https://typescript-eslint.io/getting-started/typed-linting) defined by `typescript-eslint`.
   - [stylistic rules](https://eslint.style).
 
 ## Installation
