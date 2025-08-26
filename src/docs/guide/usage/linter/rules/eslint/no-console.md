@@ -60,7 +60,7 @@ Example of **incorrect** code for this option:
 console.log("foo");
 ```
 
-Example of **incorrect** code for this option:
+Example of **correct** code for this option:
 
 ```javascript
 console.info("foo");

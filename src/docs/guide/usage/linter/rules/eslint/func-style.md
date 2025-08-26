@@ -24,20 +24,22 @@ You can specify which you prefer in the configuration.
 
 ### Examples
 
+```js
 // function declaration
 function doSomething() {
-// ...
+  // ...
 }
 
 // arrow function expression assigned to a variable
 const doSomethingElse = () => {
-// ...
+  // ...
 };
 
 // function expression assigned to a variable
 const doSomethingAgain = function() {
-// ...
+  // ...
 };
+```
 
 Examples of incorrect code for this rule with the default "expression" option:
 
@@ -82,23 +84,25 @@ export var bar = () => {};
 
 Examples of correct code for this rule with the default "expression" option:
 
-````js
+```js
 /*eslint func-style: ["error", "expression"]*/
 var foo = function() {
-    // ...
+  // ...
 };
+```
 
 Examples of correct code for this rule with the "declaration" option:
+
 ```js
 /*eslint func-style: ["error", "declaration"]*/
 function foo() {
-    // ...
+  // ...
 }
- // Methods (functions assigned to objects) are not checked by this rule
+// Methods (functions assigned to objects) are not checked by this rule
 SomeObject.foo = function() {
-    // ...
+  // ...
 };
-````
+```
 
 Examples of additional correct code for this rule with the "declaration", { "allowArrowFunctions": true } options:
 
