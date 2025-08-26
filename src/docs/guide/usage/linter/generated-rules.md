@@ -2,7 +2,7 @@
 
 The progress of all rule implementations is tracked [here](https://github.com/oxc-project/oxc/issues/481).
 
-- Total number of rules: 570
+- Total number of rules: 573
 - Rules turned on by default: 103
 
 **Legend for 'Fixable?' column:**
@@ -308,7 +308,7 @@ Lints which prevent the use of language and library features. Must not be enable
 | [prefer-node-protocol](/docs/guide/usage/linter/rules/unicorn/prefer-node-protocol.html)                                          | unicorn    |         | 🛠️        |
 | [prefer-number-properties](/docs/guide/usage/linter/rules/unicorn/prefer-number-properties.html)                                  | unicorn    |         | ⚠️🛠️️       |
 
-## Suspicious (39):
+## Suspicious (40):
 
 code that is most likely wrong or useless.
 
@@ -332,6 +332,7 @@ code that is most likely wrong or useless.
 | [approx-constant](/docs/guide/usage/linter/rules/oxc/approx-constant.html)                                                      | oxc        |         |          |
 | [misrefactored-assign-op](/docs/guide/usage/linter/rules/oxc/misrefactored-assign-op.html)                                      | oxc        |         | 🚧       |
 | [no-async-endpoint-handlers](/docs/guide/usage/linter/rules/oxc/no-async-endpoint-handlers.html)                                | oxc        |         |          |
+| [always-return](/docs/guide/usage/linter/rules/promise/always-return.html)                                                      | promise    |         |          |
 | [no-promise-in-callback](/docs/guide/usage/linter/rules/promise/no-promise-in-callback.html)                                    | promise    |         |          |
 | [iframe-missing-sandbox](/docs/guide/usage/linter/rules/react/iframe-missing-sandbox.html)                                      | react      |         | 🚧       |
 | [jsx-no-comment-textnodes](/docs/guide/usage/linter/rules/react/jsx-no-comment-textnodes.html)                                  | react      |         |          |
@@ -457,7 +458,7 @@ Lints which are rather strict or have occasional false positives.
 | [prefer-type-error](/docs/guide/usage/linter/rules/unicorn/prefer-type-error.html)                                             | unicorn    |         | 🛠️        |
 | [require-number-to-fixed-digits-argument](/docs/guide/usage/linter/rules/unicorn/require-number-to-fixed-digits-argument.html) | unicorn    |         | 🛠️        |
 
-## Style (153):
+## Style (155):
 
 Code that should be written in a more idiomatic way.
 
@@ -533,6 +534,7 @@ Code that should be written in a more idiomatic way.
 | [no-test-prefixes](/docs/guide/usage/linter/rules/jest/no-test-prefixes.html)                                            | jest       |         | 🛠️        |
 | [no-test-return-statement](/docs/guide/usage/linter/rules/jest/no-test-return-statement.html)                            | jest       |         |          |
 | [no-untyped-mock-factory](/docs/guide/usage/linter/rules/jest/no-untyped-mock-factory.html)                              | jest       |         | 🛠️        |
+| [padding-around-test-blocks](/docs/guide/usage/linter/rules/jest/padding-around-test-blocks.html)                        | jest       |         | 🛠️        |
 | [prefer-called-with](/docs/guide/usage/linter/rules/jest/prefer-called-with.html)                                        | jest       |         |          |
 | [prefer-comparison-matcher](/docs/guide/usage/linter/rules/jest/prefer-comparison-matcher.html)                          | jest       |         | 🛠️        |
 | [prefer-each](/docs/guide/usage/linter/rules/jest/prefer-each.html)                                                      | jest       |         |          |
@@ -562,6 +564,7 @@ Code that should be written in a more idiomatic way.
 | [jsx-boolean-value](/docs/guide/usage/linter/rules/react/jsx-boolean-value.html)                                         | react      |         | 🛠️        |
 | [jsx-curly-brace-presence](/docs/guide/usage/linter/rules/react/jsx-curly-brace-presence.html)                           | react      |         | 🛠️        |
 | [jsx-fragments](/docs/guide/usage/linter/rules/react/jsx-fragments.html)                                                 | react      |         | 🛠️        |
+| [jsx-handler-names](/docs/guide/usage/linter/rules/react/jsx-handler-names.html)                                         | react      |         |          |
 | [no-set-state](/docs/guide/usage/linter/rules/react/no-set-state.html)                                                   | react      |         |          |
 | [prefer-es6-class](/docs/guide/usage/linter/rules/react/prefer-es6-class.html)                                           | react      |         |          |
 | [self-closing-comp](/docs/guide/usage/linter/rules/react/self-closing-comp.html)                                         | react      |         | 🛠️        |
