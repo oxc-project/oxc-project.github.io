@@ -14,13 +14,13 @@ See the [adding rules](./linter/adding-rules.md) guide for how to add new rules 
 Create a `./test.ts` and then
 
 ```bash
-just watch "run --bin oxlint -- test.ts"
+just watch "cargo run --bin oxlint -- test.ts"
 ```
 
 Or test and filter against the rule:
 
 ```bash
-just watch "test -p oxc_linter -- rule-name"
+just watch "cargo test -p oxc_linter -- rule-name"
 ```
 
 ### Snapshot Testing
