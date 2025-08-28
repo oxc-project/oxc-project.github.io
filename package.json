@@ -12,7 +12,8 @@
     "lint:fix": "pnpm lint --fix && typos -w && pnpm fmt --write .",
     "typecheck": "tsc",
     "fmt": "dprint fmt",
-    "sponsors": "degit Boshen/sponsors temp --force && mv temp/sponsors.svg public/sponsors.svg"
+    "sponsors": "degit Boshen/sponsors temp --force && mv temp/sponsors.svg public/sponsors.svg",
+    "prepare": "husky"
   },
   "devDependencies": {
     "@types/node": "^24.0.10",
@@ -21,17 +22,14 @@
     "dprint": "^0.50.1",
     "esbuild": "0.25.9",
     "feed": "^5.1.0",
+    "husky": "^9.1.7",
     "lint-staged": "16.1.5",
     "oxc-minify": "^0.82.0",
     "oxlint": "^1.5.0",
-    "simple-git-hooks": "^2.13.0",
     "typescript": "~5.9.0",
     "vitepress": "2.0.0-alpha.12",
     "vitepress-plugin-group-icons": "^1.6.1",
     "vue": "^3.5.17"
-  },
-  "simple-git-hooks": {
-    "pre-commit": "npx lint-staged"
   },
   "lint-staged": {
     "*": "dprint fmt --staged"
