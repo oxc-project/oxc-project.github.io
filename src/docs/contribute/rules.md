@@ -33,12 +33,12 @@ outline: deep
 - Actively monitor and work on reducing the CI time to speed up merging of PRs. The current CI time on GitHub actions is around 3 minutes.
 - Documentation first - documentation should serve as the source of truth. Keep the documentation updated and share the link instead of repeatedly answering the same questions. See GitLab's [handbook-first](https://handbook.gitlab.com/handbook/company/culture/all-remote/handbook-first) approach.
 - Consistent import orders: "furthest away" to "closest".
-    - `std`
-    - External crates
-    - Oxc crates
-    - Local crate (`crate`)
-    - `super`
-    - `mod`
+  - `std`
+  - External crates
+  - Oxc crates
+  - Local crate (`crate`)
+  - `super`
+  - `mod`
 
 ## Conventional Commits
 
