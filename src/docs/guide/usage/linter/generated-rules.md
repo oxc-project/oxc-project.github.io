@@ -2,7 +2,7 @@
 
 The progress of all rule implementations is tracked [here](https://github.com/oxc-project/oxc/issues/481).
 
-- Total number of rules: 573
+- Total number of rules: 574
 - Rules turned on by default: 103
 
 **Legend for 'Fixable?' column:**
@@ -13,7 +13,7 @@ The progress of all rule implementations is tracked [here](https://github.com/ox
 - ⚠️💡: a dangerous suggestion is available for this rule
 - 🚧: an auto-fix or suggestion is possible, but currently not implemented
 
-## Correctness (193):
+## Correctness (194):
 
 Code that is outright wrong or useless.
 
@@ -212,6 +212,7 @@ Code that is outright wrong or useless.
 | [prefer-string-starts-ends-with](/docs/guide/usage/linter/rules/unicorn/prefer-string-starts-ends-with.html)                                          | unicorn    | ✅      | 🛠️        |
 | [no-conditional-tests](/docs/guide/usage/linter/rules/vitest/no-conditional-tests.html)                                                               | vitest     |         |          |
 | [require-local-test-context-for-concurrent-snapshots](/docs/guide/usage/linter/rules/vitest/require-local-test-context-for-concurrent-snapshots.html) | vitest     |         | 🚧       |
+| [valid-define-emits](/docs/guide/usage/linter/rules/vue/valid-define-emits.html)                                                                      | vue        |         | 🚧       |
 
 ## Perf (11):
 

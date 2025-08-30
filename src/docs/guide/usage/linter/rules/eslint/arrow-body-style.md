@@ -16,69 +16,56 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 ### What it does
 
 This rule can enforce or disallow the use of braces around arrow function body.
+Arrow functions can use either:
+
+- a block body `() => { ... }`
+- or a concise body `() => expression` with an implicit return.
 
 ### Why is this bad?
 
-Arrow functions have two syntactic forms for their function bodies.
-They may be defined with a block body (denoted by curly braces) () => { ... }
-or with a single expression () => ..., whose value is implicitly returned.
+Inconsistent use of block vs. concise bodies makes code harder to read.
+Concise bodies are limited to a single expression, whose value is implicitly returned.
+
+### Options
+
+First option:
+
+- Type: `string`
+- Enum: `"always"`, `"as-needed"`, `"never"`
+- Default: `"never"`
+
+Possible values:
+
+- `never` enforces no braces where they can be omitted (default)
+- `always` enforces braces around the function body
+- `as-needed` enforces no braces around the function body (constrains arrow functions to the role of returning an expression)
+
+Second option:
+
+- Type: `object`
+- Properties:
+  - `requireReturnForObjectLiteral`: `boolean` (default: `false`) - requires braces and an explicit return for object literals.
+
+Note: This option only applies when the first option is `"as-needed"`.
+
+Example configuration:
+
+```json
+{
+  "arrow-body-style": ["error", "as-needed", { "requireReturnForObjectLiteral": true }]
+}
+```
 
 ### Examples
 
-Examples of **incorrect** code for this rule with the `always` option:
-
-```js
-const foo = () => 0;
-```
-
-Examples of **correct** code for this rule with the `always` option:
-
-```js
-const foo = () => {
-  return 0;
-};
-```
-
-Examples of **incorrect** code for this rule with the `as-needed` option:
-
-```js
-const foo = () => {
-  return 0;
-};
-```
-
-Examples of **correct** code for this rule with the `as-needed` option:
-
-```js
-const foo1 = () => 0;
-
-const foo2 = (retv, name) => {
-  retv[name] = true;
-  return retv;
-};
-```
-
-Examples of **incorrect** code for this rule with the { "requireReturnForObjectLiteral": true } option:
-
-```js
-/* arrow-body-style: ["error", "as-needed", { "requireReturnForObjectLiteral": true }]*/
-const foo = () => ({});
-const bar = () => ({ bar: 0 });
-```
-
-Examples of **correct** code for this rule with the { "requireReturnForObjectLiteral": true } option:
-
-```js
-/* arrow-body-style: ["error", "as-needed", { "requireReturnForObjectLiteral": true }]*/
-const foo = () => {};
-const bar = () => {
-  return { bar: 0 };
-};
-```
+#### `"never"` (default)
 
 Examples of **incorrect** code for this rule with the `never` option:
 
 ```js
+/* arrow-body-style: ["error", "never"] */
+
+/* ✘ Bad: */
 const foo = () => {
   return 0;
 };
@@ -87,27 +74,88 @@ const foo = () => {
 Examples of **correct** code for this rule with the `never` option:
 
 ```js
+/* arrow-body-style: ["error", "never"] */
+
+/* ✔ Good: */
 const foo = () => 0;
 const bar = () => ({ foo: 0 });
 ```
 
-### Options
+#### `"always"`
 
-The rule takes one or two options. The first is a string, which can be:
+Examples of **incorrect** code for this rule with the `always` option:
 
-- `always` enforces braces around the function body
-- `never` enforces no braces where they can be omitted (default)
-- `as-needed` enforces no braces around the function body (constrains arrow functions to the role of returning an expression)
+```js
+/* arrow-body-style: ["error", "always"] */
 
-The second one is an object for more fine-grained configuration
-when the first option is "as-needed". Currently,
-the only available option is requireReturnForObjectLiteral, a boolean property.
-It’s false by default. If set to true, it requires braces and an explicit return for object literals.
+/* ✘ Bad: */
+const foo = () => 0;
+```
 
-```json
-{
-  "arrow-body-style": ["error", "as-needed", { "requireReturnForObjectLiteral": true }]
-}
+Examples of **correct** code for this rule with the `always` option:
+
+```js
+/* arrow-body-style: ["error", "always"] */
+
+/* ✔ Good: */
+const foo = () => {
+  return 0;
+};
+```
+
+#### `"as-needed"`
+
+Examples of **incorrect** code for this rule with the `as-needed` option:
+
+```js
+/* arrow-body-style: ["error", "as-needed"] */
+
+/* ✘ Bad: */
+const foo = () => {
+  return 0;
+};
+```
+
+Examples of **correct** code for this rule with the `as-needed` option:
+
+```js
+/* arrow-body-style: ["error", "as-needed"] */
+
+/* ✔ Good: */
+const foo1 = () => 0;
+
+const foo2 = (retv, name) => {
+  retv[name] = true;
+  return retv;
+};
+
+const foo3 = () => {
+  bar();
+};
+```
+
+#### `"as-needed"` with `requireReturnForObjectLiteral`
+
+Examples of **incorrect** code for this rule with the `{ "requireReturnForObjectLiteral": true }` option:
+
+```js
+/* arrow-body-style: ["error", "as-needed", { "requireReturnForObjectLiteral": true }]*/
+
+/* ✘ Bad: */
+const foo = () => ({});
+const bar = () => ({ bar: 0 });
+```
+
+Examples of **correct** code for this rule with the `{ "requireReturnForObjectLiteral": true }` option:
+
+```js
+/* arrow-body-style: ["error", "as-needed", { "requireReturnForObjectLiteral": true }]*/
+
+/* ✔ Good: */
+const foo = () => {};
+const bar = () => {
+  return { bar: 0 };
+};
 ```
 
 ## How to use
