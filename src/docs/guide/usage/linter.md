@@ -24,6 +24,7 @@ and run Oxlint before ESLint in your local or CI setup for a quicker feedback lo
 - 50 - 100 times faster than ESLint, and scales with the number of CPU cores ([benchmark](https://github.com/oxc-project/bench-javascript-linter)).
 - Over 520 rules with a growing list from `eslint`, `typescript`, `eslint-plugin-react`, `eslint-plugin-jest`, `eslint-plugin-unicorn`, `eslint-plugin-jsx-a11y` and [many more](https://github.com/oxc-project/oxc/issues/481).
 - Supports
+  - [type-aware rules](https://oxc.rs/blog/2025-08-17-oxlint-type-aware.html).
   - [`.oxlintrc.json` configuration file](./linter/config).
   - [Nested configuration file](./linter/nested-config)
   - [Comment disabling](./linter/config.html#configuring-rules-via-inline-configuration-comments).
@@ -34,8 +35,6 @@ and run Oxlint before ESLint in your local or CI setup for a quicker feedback lo
 - Supports:
   - JavaScript and TypeScript by their extensions `js`, `mjs`, `cjs`, `jsx`, `ts`, `mts`, `cts` and `tsx`.
   - `<script>` content of `.vue`, `.astro` and `.svelte` files.
-- Preview support for:
-  - [type-aware rules](https://oxc.rs/blog/2025-08-17-oxlint-type-aware.html).
 - No support for:
   - [stylistic rules](https://eslint.style).
 
