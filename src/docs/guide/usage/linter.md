@@ -15,14 +15,18 @@ Oxlint is designed to catch erroneous or useless code without requiring any conf
 :::info
 At this stage, Oxlint can be used to fully replace ESLint in small to medium projects.
 
-For larger projects, our advice is to turn off ESLint rules via [eslint-plugin-oxlint](https://www.npmjs.com/package/eslint-plugin-oxlint),
+For larger projects, our advice is to turn off ESLint rules via
+[eslint-plugin-oxlint](https://www.npmjs.com/package/eslint-plugin-oxlint),
 and run Oxlint before ESLint in your local or CI setup for a quicker feedback loop.
 :::
 
 ## Features
 
-- 50 - 100 times faster than ESLint, and scales with the number of CPU cores ([benchmark](https://github.com/oxc-project/bench-javascript-linter)).
-- Over 520 rules with a growing list from `eslint`, `typescript`, `eslint-plugin-react`, `eslint-plugin-jest`, `eslint-plugin-unicorn`, `eslint-plugin-jsx-a11y` and [many more](https://github.com/oxc-project/oxc/issues/481).
+- 50 - 100 times faster than ESLint, and scales with the number of CPU cores
+  ([benchmark](https://github.com/oxc-project/bench-javascript-linter)).
+- Over 520 rules with a growing list from `eslint`, `typescript`, `eslint-plugin-react`,
+  `eslint-plugin-jest`, `eslint-plugin-unicorn`, `eslint-plugin-jsx-a11y` and
+  [many more](https://github.com/oxc-project/oxc/issues/481).
 - Supports
   - [type-aware rules](https://oxc.rs/blog/2025-08-17-oxlint-type-aware.html).
   - [`.oxlintrc.json` configuration file](./linter/config).
@@ -35,8 +39,27 @@ and run Oxlint before ESLint in your local or CI setup for a quicker feedback lo
 - Supports:
   - JavaScript and TypeScript by their extensions `js`, `mjs`, `cjs`, `jsx`, `ts`, `mts`, `cts` and `tsx`.
   - `<script>` content of `.vue`, `.astro` and `.svelte` files.
+  - [type-aware rules](https://typescript-eslint.io/getting-started/typed-linting) defined by
+    `typescript-eslint` (preview, requires `--type-aware` flag and `oxlint-tsgolint` package).
 - No support for:
   - [stylistic rules](https://eslint.style).
+
+### Type-Aware Linting (Preview)
+
+Oxlint supports type-aware rules in preview mode. To enable type-aware linting:
+
+1. Install the required dependency:
+   ```bash
+   pnpm add -D oxlint-tsgolint@latest
+   ```
+
+2. Run oxlint with the `--type-aware` flag:
+   ```bash
+   pnpm dlx oxlint --type-aware
+   ```
+
+For more details and the list of supported type-aware rules, see the
+[type-aware linting announcement](/blog/2025-08-17-oxlint-type-aware).
 
 ## Installation
 
@@ -88,7 +111,8 @@ $ bun add -D oxlint
 
 :::
 
-`oxlint` does not require Node.js, the binaries can be downloaded from the [latest GitHub releases](https://github.com/oxc-project/oxc/releases/latest).
+`oxlint` does not require Node.js, the binaries can be downloaded from the
+[latest GitHub releases](https://github.com/oxc-project/oxc/releases/latest).
 
 ## Command-line Interface
 
@@ -100,13 +124,16 @@ See [Configuration File](./linter/config)
 
 ## Migrate from eslint flat config
 
-If you have an existing `eslint.config.*` file, you can convert it to an `.oxlintrc.json` config with [oxlint-migrate](https://github.com/oxc-project/oxlint-migrate).
+If you have an existing `eslint.config.*` file, you can convert it to an `.oxlintrc.json` config with
+[oxlint-migrate](https://github.com/oxc-project/oxlint-migrate).
 
 ## Integration
 
 ### ESLint
 
-If you are looking for a way to use oxlint in projects that still need ESLint, you can use [eslint-plugin-oxlint](https://github.com/oxc-project/eslint-plugin-oxlint) to turn off ESLint rules that are already supported by oxlint. So you can enjoy the speed of oxlint while still using ESLint.
+If you are looking for a way to use oxlint in projects that still need ESLint, you can use
+[eslint-plugin-oxlint](https://github.com/oxc-project/eslint-plugin-oxlint) to turn off ESLint rules
+that are already supported by oxlint. So you can enjoy the speed of oxlint while still using ESLint.
 
 ### lint-staged
 
