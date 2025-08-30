@@ -24,7 +24,7 @@ and run Oxlint before ESLint in your local or CI setup for a quicker feedback lo
 
 - 50 - 100 times faster than ESLint, and scales with the number of CPU cores
   ([benchmark](https://github.com/oxc-project/bench-javascript-linter)).
-- Over 520 rules with a growing list from `eslint`, `typescript`, `eslint-plugin-react`,
+- Over 570 rules with a growing list from `eslint`, `typescript`, `eslint-plugin-react`,
   `eslint-plugin-jest`, `eslint-plugin-unicorn`, `eslint-plugin-jsx-a11y` and
   [many more](https://github.com/oxc-project/oxc/issues/481).
 - Supports
