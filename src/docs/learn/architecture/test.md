@@ -37,10 +37,13 @@ To ensure that the parser does not panic when encountering random data, three fu
 
 ### Memory Safety
 
-The oxc parser uses [`bumpalo`](https://docs.rs/bumpalo/latest/bumpalo) as the memory allocator for its AST.
-None of the AST nodes have a `drop` implementation.
-Miri [is used](https://github.com/oxc-project/oxc/actions/workflows/miri.yml) to ensure that no heap-allocated data
-is stored on the AST nodes, which would result in memory leaks when the allocator is dropped.
+Oxc uses an arena allocator based around [`bumpalo`](https://docs.rs/bumpalo/latest/bumpalo) as the memory allocator for its AST, and other data.
+None of the AST node types have a `Drop` implementation.
+This is enforced at compile time by Oxc's allocator, which causes a compile-time error if any code attempts to allocate types in the arena which are `Drop`.This statically ensures that types which own heap-allocated data cannot be stored in the arena, which would result in memory leaks.
+
+### Unsafe code
+
+Oxc uses `unsafe` code for performance optimizations. We aim to contain `unsafe` to within self-contained data structures which present safe APIs externally. Miri [is run](https://github.com/oxc-project/oxc/actions/workflows/miri.yml) on the crates containing these structures on every PR.
 
 ## Linter
 
