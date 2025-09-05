@@ -44,6 +44,10 @@ features:
     details: ECMAScript specification with data-oriented design
     link: https://trynova.dev
     external: true
+  - title: Andromeda Javascript Runtime 🚧
+    details: Zero-config TypeScript support, rich Web APIs, and native performance
+    link: https://tryandromeda.dev
+    external: true
 ---
 
 <style>
