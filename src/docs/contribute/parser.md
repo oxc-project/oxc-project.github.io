@@ -102,6 +102,6 @@ The TypeScript conformance tests can be found [here](https://github.com/microsof
 
 Test results are stored in snapshot files for tracking changes:
 
-- [`parser_test262.snap`](https://github.com/oxc-project/oxc/blob/main/tasks/coverage/parser_test262.snap)
-- [`parser_babel.snap`](https://github.com/oxc-project/oxc/blob/main/tasks/coverage/parser_babel.snap)
-- [`parser_typescript.snap`](https://github.com/oxc-project/oxc/blob/main/tasks/coverage/parser_typescript.snap)
+- [`parser_test262.snap`](https://github.com/oxc-project/oxc/blob/main/tasks/coverage/snapshots/parser_test262.snap)
+- [`parser_babel.snap`](https://github.com/oxc-project/oxc/blob/main/tasks/coverage/snapshots/parser_babel.snap)
+- [`parser_typescript.snap`](https://github.com/oxc-project/oxc/blob/main/tasks/coverage/snapshots/parser_typescript.snap)
