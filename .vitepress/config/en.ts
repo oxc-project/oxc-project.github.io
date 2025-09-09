@@ -35,7 +35,11 @@ export const enConfig = defineLocaleConfig("root", {
       "/docs/guide/": [
         {
           text: "Guide",
-          items: [{ text: "Getting Started", link: "/docs/guide/introduction" }],
+          items: [
+            { text: "Getting Started", link: "/docs/guide/introduction" },
+            { text: "Quick Start", link: "/docs/guide/quick-start" },
+            { text: "Tool Comparisons", link: "/docs/guide/comparisons" },
+          ],
         },
         {
           text: "Tools",

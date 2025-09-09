@@ -9,6 +9,9 @@ hero:
     alt: The JavaScript Oxidation Compiler
   actions:
     - theme: brand
+      text: Quick Start
+      link: /docs/guide/quick-start
+    - theme: alt
       text: Get Started
       link: /docs/guide/introduction
     - theme: alt
@@ -21,8 +24,8 @@ features:
     linkText: Usage guide
   - title: Linter ✅
     details: 50~100x faster than ESLint<br/>570+ rules and growing
-    link: /docs/guide/usage/linter
-    linkText: Usage guide
+    link: /docs/guide/quick-start
+    linkText: Try it now
   - title: Resolver ✅
     details: 28x faster than enhanced-resolve
     link: /docs/guide/usage/resolver
