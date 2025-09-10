@@ -16,20 +16,20 @@
     "prepare": "husky"
   },
   "devDependencies": {
-    "@types/node": "^24.0.10",
-    "@vueuse/core": "^13.4.0",
+    "@types/node": "^24.3.1",
+    "@vueuse/core": "^13.9.0",
     "degit": "^2.8.4",
     "dprint": "^0.50.1",
     "esbuild": "0.25.9",
     "feed": "^5.1.0",
     "husky": "^9.1.7",
     "lint-staged": "16.1.6",
-    "oxc-minify": "^0.86.0",
-    "oxlint": "^1.5.0",
-    "typescript": "~5.9.0",
+    "oxc-minify": "^0.87.0",
+    "oxlint": "^1.14.0",
+    "typescript": "~5.9.2",
     "vitepress": "2.0.0-alpha.12",
-    "vitepress-plugin-group-icons": "^1.6.1",
-    "vue": "^3.5.17"
+    "vitepress-plugin-group-icons": "^1.6.3",
+    "vue": "^3.5.21"
   },
   "lint-staged": {
     "*": "dprint fmt --staged"
