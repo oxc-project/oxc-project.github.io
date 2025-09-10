@@ -49,6 +49,10 @@ export const enConfig = defineLocaleConfig("root", {
                   link: "/docs/guide/usage/linter/config",
                 },
                 {
+                  text: "Type-Aware Linting",
+                  link: "/docs/guide/usage/linter/type-aware",
+                },
+                {
                   text: "Nested Configs",
                   link: "/docs/guide/usage/linter/nested-config",
                 },
