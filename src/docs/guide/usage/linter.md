@@ -28,7 +28,7 @@ and run Oxlint before ESLint in your local or CI setup for a quicker feedback lo
   `eslint-plugin-jest`, `eslint-plugin-unicorn`, `eslint-plugin-jsx-a11y` and
   [many more](https://github.com/oxc-project/oxc/issues/481).
 - Supports
-  - [type-aware rules](https://oxc.rs/blog/2025-08-17-oxlint-type-aware.html).
+  - [type-aware rules](./linter/type-aware).
   - [`.oxlintrc.json` configuration file](./linter/config).
   - [Nested configuration file](./linter/nested-config)
   - [Comment disabling](./linter/config.html#configuring-rules-via-inline-configuration-comments).
