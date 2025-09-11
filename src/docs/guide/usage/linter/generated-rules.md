@@ -2,8 +2,8 @@
 
 The progress of all rule implementations is tracked [here](https://github.com/oxc-project/oxc/issues/481).
 
-- Total number of rules: 574
-- Rules turned on by default: 103
+- Total number of rules: 579
+- Rules turned on by default: 102
 
 **Legend for 'Fixable?' column:**
 
@@ -174,7 +174,6 @@ Code that is outright wrong or useless.
 | [await-thenable](/docs/guide/usage/linter/rules/typescript/await-thenable.html)                                                                       | typescript | ✅      | 🚧       |
 | [no-array-delete](/docs/guide/usage/linter/rules/typescript/no-array-delete.html)                                                                     | typescript | ✅      | 🚧       |
 | [no-base-to-string](/docs/guide/usage/linter/rules/typescript/no-base-to-string.html)                                                                 | typescript | ✅      | 🚧       |
-| [no-confusing-void-expression](/docs/guide/usage/linter/rules/typescript/no-confusing-void-expression.html)                                           | typescript | ✅      | 🚧       |
 | [no-duplicate-enum-values](/docs/guide/usage/linter/rules/typescript/no-duplicate-enum-values.html)                                                   | typescript | ✅      |          |
 | [no-duplicate-type-constituents](/docs/guide/usage/linter/rules/typescript/no-duplicate-type-constituents.html)                                       | typescript | ✅      | 🚧       |
 | [no-extra-non-null-assertion](/docs/guide/usage/linter/rules/typescript/no-extra-non-null-assertion.html)                                             | typescript | ✅      |          |
@@ -184,7 +183,7 @@ Code that is outright wrong or useless.
 | [no-meaningless-void-operator](/docs/guide/usage/linter/rules/typescript/no-meaningless-void-operator.html)                                           | typescript | ✅      | 🚧       |
 | [no-misused-new](/docs/guide/usage/linter/rules/typescript/no-misused-new.html)                                                                       | typescript | ✅      |          |
 | [no-misused-spread](/docs/guide/usage/linter/rules/typescript/no-misused-spread.html)                                                                 | typescript | ✅      | 🚧       |
-| [no-non-null-asserted-optional-chain](/docs/guide/usage/linter/rules/typescript/no-non-null-asserted-optional-chain.html)                             | typescript | ✅      | 🛠️        |
+| [no-non-null-asserted-optional-chain](/docs/guide/usage/linter/rules/typescript/no-non-null-asserted-optional-chain.html)                             | typescript | ✅      | 💡       |
 | [no-redundant-type-constituents](/docs/guide/usage/linter/rules/typescript/no-redundant-type-constituents.html)                                       | typescript | ✅      | 🚧       |
 | [no-this-alias](/docs/guide/usage/linter/rules/typescript/no-this-alias.html)                                                                         | typescript | ✅      |          |
 | [no-unnecessary-parameter-property-assignment](/docs/guide/usage/linter/rules/typescript/no-unnecessary-parameter-property-assignment.html)           | typescript | ✅      | 💡       |
@@ -213,6 +212,7 @@ Code that is outright wrong or useless.
 | [no-conditional-tests](/docs/guide/usage/linter/rules/vitest/no-conditional-tests.html)                                                               | vitest     |         |          |
 | [require-local-test-context-for-concurrent-snapshots](/docs/guide/usage/linter/rules/vitest/require-local-test-context-for-concurrent-snapshots.html) | vitest     |         | 🚧       |
 | [valid-define-emits](/docs/guide/usage/linter/rules/vue/valid-define-emits.html)                                                                      | vue        |         | 🚧       |
+| [valid-define-props](/docs/guide/usage/linter/rules/vue/valid-define-props.html)                                                                      | vue        |         | 🚧       |
 
 ## Perf (11):
 
@@ -232,7 +232,7 @@ Code that can be written to run faster.
 | [prefer-array-flat-map](/docs/guide/usage/linter/rules/unicorn/prefer-array-flat-map.html)                | unicorn    |         | 🛠️        |
 | [prefer-set-has](/docs/guide/usage/linter/rules/unicorn/prefer-set-has.html)                              | unicorn    |         | ⚠️🛠️️       |
 
-## Restriction (70):
+## Restriction (71):
 
 Lints which prevent the use of language and library features. Must not be enabled as a whole, should be considered on a case-by-case basis before enabling.
 
@@ -308,8 +308,9 @@ Lints which prevent the use of language and library features. Must not be enable
 | [prefer-modern-math-apis](/docs/guide/usage/linter/rules/unicorn/prefer-modern-math-apis.html)                                    | unicorn    |         | 🚧       |
 | [prefer-node-protocol](/docs/guide/usage/linter/rules/unicorn/prefer-node-protocol.html)                                          | unicorn    |         | 🛠️        |
 | [prefer-number-properties](/docs/guide/usage/linter/rules/unicorn/prefer-number-properties.html)                                  | unicorn    |         | ⚠️🛠️️       |
+| [no-multiple-slot-args](/docs/guide/usage/linter/rules/vue/no-multiple-slot-args.html)                                            | vue        |         | 🚧       |
 
-## Suspicious (40):
+## Suspicious (41):
 
 code that is most likely wrong or useless.
 
@@ -352,11 +353,12 @@ code that is most likely wrong or useless.
 | [no-unsafe-type-assertion](/docs/guide/usage/linter/rules/typescript/no-unsafe-type-assertion.html)                             | typescript |         | 🚧       |
 | [consistent-function-scoping](/docs/guide/usage/linter/rules/unicorn/consistent-function-scoping.html)                          | unicorn    |         | 🚧       |
 | [no-accessor-recursion](/docs/guide/usage/linter/rules/unicorn/no-accessor-recursion.html)                                      | unicorn    |         |          |
+| [no-array-reverse](/docs/guide/usage/linter/rules/unicorn/no-array-reverse.html)                                                | unicorn    |         | 🛠️        |
 | [no-instanceof-builtins](/docs/guide/usage/linter/rules/unicorn/no-instanceof-builtins.html)                                    | unicorn    |         | 🚧       |
 | [prefer-add-event-listener](/docs/guide/usage/linter/rules/unicorn/prefer-add-event-listener.html)                              | unicorn    |         | 🚧       |
 | [require-post-message-target-origin](/docs/guide/usage/linter/rules/unicorn/require-post-message-target-origin.html)            | unicorn    |         | 💡       |
 
-## Pedantic (96):
+## Pedantic (97):
 
 Lints which are rather strict or have occasional false positives.
 
@@ -402,6 +404,7 @@ Lints which are rather strict or have occasional false positives.
 | [rules-of-hooks](/docs/guide/usage/linter/rules/react/rules-of-hooks.html)                                                     | react      |         |          |
 | [ban-ts-comment](/docs/guide/usage/linter/rules/typescript/ban-ts-comment.html)                                                | typescript |         | 🛠️        |
 | [ban-types](/docs/guide/usage/linter/rules/typescript/ban-types.html)                                                          | typescript |         | 🚧       |
+| [no-confusing-void-expression](/docs/guide/usage/linter/rules/typescript/no-confusing-void-expression.html)                    | typescript |         | 🚧       |
 | [no-misused-promises](/docs/guide/usage/linter/rules/typescript/no-misused-promises.html)                                      | typescript |         | 🚧       |
 | [no-mixed-enums](/docs/guide/usage/linter/rules/typescript/no-mixed-enums.html)                                                | typescript |         | 🚧       |
 | [no-unsafe-argument](/docs/guide/usage/linter/rules/typescript/no-unsafe-argument.html)                                        | typescript |         | 🚧       |
@@ -459,7 +462,7 @@ Lints which are rather strict or have occasional false positives.
 | [prefer-type-error](/docs/guide/usage/linter/rules/unicorn/prefer-type-error.html)                                             | unicorn    |         | 🛠️        |
 | [require-number-to-fixed-digits-argument](/docs/guide/usage/linter/rules/unicorn/require-number-to-fixed-digits-argument.html) | unicorn    |         | 🛠️        |
 
-## Style (155):
+## Style (157):
 
 Code that should be written in a more idiomatic way.
 
@@ -620,6 +623,8 @@ Code that should be written in a more idiomatic way.
 | [prefer-to-be-falsy](/docs/guide/usage/linter/rules/vitest/prefer-to-be-falsy.html)                                      | vitest     |         | 🛠️        |
 | [prefer-to-be-object](/docs/guide/usage/linter/rules/vitest/prefer-to-be-object.html)                                    | vitest     |         | 🛠️        |
 | [prefer-to-be-truthy](/docs/guide/usage/linter/rules/vitest/prefer-to-be-truthy.html)                                    | vitest     |         | 🛠️        |
+| [define-emits-declaration](/docs/guide/usage/linter/rules/vue/define-emits-declaration.html)                             | vue        |         | 🚧       |
+| [define-props-declaration](/docs/guide/usage/linter/rules/vue/define-props-declaration.html)                             | vue        |         |          |
 
 ## Nursery (8):
 

@@ -12,37 +12,96 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 ### What it does
 
-Generates warnings when variables are used outside of the block in which they were defined.
-This emulates C-style block scope.
+Enforces that variables are both **declared** and **used** within the same block scope.
+This rule prevents accidental use of variables outside their intended block, mimicking C-style block scoping in JavaScript.
 
 ### Why is this bad?
 
-This rule aims to reduce the usage of variables outside of their binding context
-and emulate traditional block scope from other languages.
-This is to help newcomers to the language avoid difficult bugs with variable hoisting.
+JavaScript’s `var` declarations are hoisted to the top of their enclosing function, which can cause variables declared in a block (e.g., inside an `if` or `for`) to be accessible outside of it.
+This can lead to hard-to-find bugs.
+By enforcing block scoping, this rule helps avoid hoisting issues and aligns more closely with how other languages treat block variables.
+
+### Options
+
+No options available for this rule.
 
 ### Examples
 
 Examples of **incorrect** code for this rule:
 
 ```js
+/* block-scoped-var: "error" */
+
 function doIf() {
   if (true) {
     var build = true;
   }
   console.log(build);
 }
+
+function doLoop() {
+  for (var i = 0; i < 10; i++) {
+    // do something
+  }
+  console.log(i); // i is accessible here
+}
+
+function doSomething() {
+  if (true) {
+    var foo = 1;
+  }
+  if (false) {
+    foo = 2;
+  }
+}
+
+function doTry() {
+  try {
+    var foo = 1;
+  } catch (e) {
+    console.log(foo);
+  }
+}
 ```
 
 Examples of **correct** code for this rule:
 
 ```js
+/* block-scoped-var: "error" */
+
 function doIf() {
   var build;
   if (true) {
     build = true;
   }
   console.log(build);
+}
+
+function doLoop() {
+  var i;
+  for (i = 0; i < 10; i++) {
+    // do something
+  }
+  console.log(i);
+}
+
+function doSomething() {
+  var foo;
+  if (true) {
+    foo = 1;
+  }
+  if (false) {
+    foo = 2;
+  }
+}
+
+function doTry() {
+  var foo;
+  try {
+    foo = 1;
+  } catch (e) {
+    console.log(foo);
+  }
 }
 ```
 

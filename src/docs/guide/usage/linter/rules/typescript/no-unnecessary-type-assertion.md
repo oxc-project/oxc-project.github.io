@@ -8,6 +8,9 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 # typescript/no-unnecessary-type-assertion <Badge type="info" text="Suspicious" />
 
 <div class="rule-meta">
+<Alert type="info">
+<span class="emoji">💭</span> This rule requires <a href="https://oxc.rs/docs/guide/usage/linter/type-aware.html" target="_blank" rel="noreferrer">type information</a>.
+</Alert>
 <Alert class="fix" type="info">
 <span class="emoji">🚧</span> An auto-fix is still under development.
 </Alert>

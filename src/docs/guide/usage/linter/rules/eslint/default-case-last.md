@@ -12,20 +12,25 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 ### What it does
 
-Enforce default clauses in switch statements to be last
+Requires the `default` clause in `switch` statements to be the last one.
 
 ### Why is this bad?
 
-A switch statement can optionally have a default clause.
-If present, it’s usually the last clause, but it doesn’t need to be. It is also allowed to put the default clause before all case clauses, or anywhere between. The behavior is mostly the same as if it was the last clause. The default block will be still executed only if there is no match in the case clauses (including those defined after the default), but there is also the ability to “fall through” from the default clause to the following clause in the list. However, such flow is not common and it would be confusing to the readers.
-Even if there is no “fall through” logic, it’s still unexpected to see the default clause before or between the case clauses. By convention, it is expected to be the last clause.
-If a switch statement should have a default clause, it’s considered a best practice to define it as the last clause.
+By convention and for readability, the `default` clause should be the last one in a `switch`.
+While it is legal to place it before or between `case` clauses, doing so is confusing and may
+lead to unexpected "fall-through" behavior.
+
+### Options
+
+No options available for this rule
 
 ### Examples
 
 Examples of **incorrect** code for this rule:
 
-```javascript
+```js
+/* default-case-last: "error" */
+
 switch (foo) {
   default:
     bar();
@@ -50,7 +55,9 @@ switch (foo) {
 
 Examples of **correct** code for this rule:
 
-```javascript
+```js
+/* default-case-last: "error" */
+
 switch (foo) {
   case 1:
     bar();
@@ -58,6 +65,16 @@ switch (foo) {
   case 2:
     qux();
     break;
+  default:
+    baz();
+    break;
+}
+
+switch (foo) {
+  case "x":
+    bar();
+    break;
+  case "y":
   default:
     baz();
     break;
