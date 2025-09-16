@@ -2,7 +2,7 @@
 
 The progress of all rule implementations is tracked [here](https://github.com/oxc-project/oxc/issues/481).
 
-- Total number of rules: 579
+- Total number of rules: 582
 - Rules turned on by default: 102
 
 **Legend for 'Fixable?' column:**
@@ -232,12 +232,13 @@ Code that can be written to run faster.
 | [prefer-array-flat-map](/docs/guide/usage/linter/rules/unicorn/prefer-array-flat-map.html)                | unicorn    |         | 🛠️        |
 | [prefer-set-has](/docs/guide/usage/linter/rules/unicorn/prefer-set-has.html)                              | unicorn    |         | ⚠️🛠️️       |
 
-## Restriction (71):
+## Restriction (72):
 
 Lints which prevent the use of language and library features. Must not be enabled as a whole, should be considered on a case-by-case basis before enabling.
 
 | Rule name                                                                                                                         | Source     | Default | Fixable? |
 | --------------------------------------------------------------------------------------------------------------------------------- | ---------- | ------- | -------- |
+| [class-methods-use-this](/docs/guide/usage/linter/rules/eslint/class-methods-use-this.html)                                       | eslint     |         |          |
 | [default-case](/docs/guide/usage/linter/rules/eslint/default-case.html)                                                           | eslint     |         |          |
 | [no-alert](/docs/guide/usage/linter/rules/eslint/no-alert.html)                                                                   | eslint     |         |          |
 | [no-bitwise](/docs/guide/usage/linter/rules/eslint/no-bitwise.html)                                                               | eslint     |         |          |
@@ -310,7 +311,7 @@ Lints which prevent the use of language and library features. Must not be enable
 | [prefer-number-properties](/docs/guide/usage/linter/rules/unicorn/prefer-number-properties.html)                                  | unicorn    |         | ⚠️🛠️️       |
 | [no-multiple-slot-args](/docs/guide/usage/linter/rules/vue/no-multiple-slot-args.html)                                            | vue        |         | 🚧       |
 
-## Suspicious (41):
+## Suspicious (42):
 
 code that is most likely wrong or useless.
 
@@ -324,6 +325,7 @@ code that is most likely wrong or useless.
 | [no-unneeded-ternary](/docs/guide/usage/linter/rules/eslint/no-unneeded-ternary.html)                                           | eslint     |         | ⚠️🛠️️       |
 | [no-useless-concat](/docs/guide/usage/linter/rules/eslint/no-useless-concat.html)                                               | eslint     |         |          |
 | [no-useless-constructor](/docs/guide/usage/linter/rules/eslint/no-useless-constructor.html)                                     | eslint     |         | 🛠️        |
+| [preserve-caught-error](/docs/guide/usage/linter/rules/eslint/preserve-caught-error.html)                                       | eslint     |         | 🚧       |
 | [no-absolute-path](/docs/guide/usage/linter/rules/import/no-absolute-path.html)                                                 | import     |         | 🚧       |
 | [no-empty-named-blocks](/docs/guide/usage/linter/rules/import/no-empty-named-blocks.html)                                       | import     |         | 🛠️        |
 | [no-named-as-default](/docs/guide/usage/linter/rules/import/no-named-as-default.html)                                           | import     |         |          |
@@ -462,7 +464,7 @@ Lints which are rather strict or have occasional false positives.
 | [prefer-type-error](/docs/guide/usage/linter/rules/unicorn/prefer-type-error.html)                                             | unicorn    |         | 🛠️        |
 | [require-number-to-fixed-digits-argument](/docs/guide/usage/linter/rules/unicorn/require-number-to-fixed-digits-argument.html) | unicorn    |         | 🛠️        |
 
-## Style (157):
+## Style (158):
 
 Code that should be written in a more idiomatic way.
 
@@ -495,6 +497,7 @@ Code that should be written in a more idiomatic way.
 | [no-script-url](/docs/guide/usage/linter/rules/eslint/no-script-url.html)                                                | eslint     |         |          |
 | [no-template-curly-in-string](/docs/guide/usage/linter/rules/eslint/no-template-curly-in-string.html)                    | eslint     |         | ⚠️🛠️️       |
 | [no-ternary](/docs/guide/usage/linter/rules/eslint/no-ternary.html)                                                      | eslint     |         |          |
+| [no-useless-computed-key](/docs/guide/usage/linter/rules/eslint/no-useless-computed-key.html)                            | eslint     |         | 🚧       |
 | [operator-assignment](/docs/guide/usage/linter/rules/eslint/operator-assignment.html)                                    | eslint     |         | ⚠️🛠️️       |
 | [prefer-destructuring](/docs/guide/usage/linter/rules/eslint/prefer-destructuring.html)                                  | eslint     |         | 🚧       |
 | [prefer-exponentiation-operator](/docs/guide/usage/linter/rules/eslint/prefer-exponentiation-operator.html)              | eslint     |         |          |
