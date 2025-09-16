@@ -21,66 +21,173 @@ Require or disallow named function expressions.
 
 Leaving the name off a function will cause `<anonymous>` to appear in
 stack traces of errors thrown in it or any function called within it.
-This makes it more difficult to find where an error is thrown. If you
-provide the optional name for a function expression then you will get
-the name of the function expression in the stack trace.
+This makes it more difficult to find where an error is thrown.
+Providing an explicit name also improves readability and consistency.
 
-## Configuration
+### Options
 
-This rule has a string option:
+First option:
 
-- `"always"` requires a function expression to have a name under all
-  circumstances.
-- `"as-needed"` requires a function expression to have a name only when
-  one will not be automatically inferred by the runtime.
-- `"never"` requires a function expression to not have a name under any
-  circumstances.
+- Type: `string`
+- Default: `"always"`
+- Possible values:
+  - `"always"` - requires all function expressions to have a name.
+  - `"as-needed"` - requires a name only if one is not automatically inferred.
+  - `"never"` - disallows names for function expressions.
+
+Second option:
+
+- Type: `object`
+- Properties:
+  - `generators`: `("always" | "as-needed" | "never")` (default: falls back to first option)
+    - `"always"` - require named generator function expressions.
+    - `"as-needed"` - require a name only when not inferred.
+    - `"never"` - disallow names for generator function expressions.
+
+Example configuration:
+
+```json
+{
+  "func-names": ["error", "as-needed", { "generators": "never" }]
+}
+```
 
 ### Examples
 
 Examples of **incorrect** code for this rule:
 
-```javascript
-/*oxlint func-names: "error" */
+```js
+/* func-names: ["error", "always"] */
 
-// default is "always" and there is an anonymous function
 Foo.prototype.bar = function() {};
-
-/*oxlint func-names: ["error", "always"] */
-
-// there is an anonymous function
-Foo.prototype.bar = function() {};
-
-/*oxlint func-names: ["error", "as-needed"] */
-
-// there is an anonymous function
-// where the name isn’t assigned automatically per the ECMAScript specs
-Foo.prototype.bar = function() {};
-
-/*oxlint func-names: ["error", "never"] */
-
-// there is a named function
-Foo.prototype.bar = function bar() {};
+const cat = { meow: function() {} };
+(function() {/* ... */})();
+export default function() {}
 ```
 
-Examples of *_correct_ code for this rule:
+Examples of **correct** code for this rule:
 
-```javascript
-/*oxlint func-names: "error" */
-
-Foo.prototype.bar = function bar() {};
-
-/*oxlint func-names: ["error", "always"] */
+```js
+/* func-names: ["error", "always"] */
 
 Foo.prototype.bar = function bar() {};
+const cat = { meow() {} };
+(function bar() {/* ... */})();
+export default function foo() {}
+```
 
-/*oxlint func-names: ["error", "as-needed"] */
+#### `as-needed`
 
-var foo = function() {};
+Examples of **incorrect** code for this rule with the `"as-needed"` option:
 
-/*oxlint func-names: ["error", "never"] */
+```js
+/* func-names: ["error", "as-needed"] */
 
 Foo.prototype.bar = function() {};
+(function() {/* ... */})();
+export default function() {}
+```
+
+Examples of **correct** code for this rule with the `"as-needed"` option:
+
+```js
+/* func-names: ["error", "as-needed"] */
+
+const bar = function() {};
+const cat = { meow: function() {} };
+class C {
+  #bar = function() {};
+  baz = function() {};
+}
+quux ??= function() {};
+(function bar() {/* ... */})();
+export default function foo() {}
+```
+
+#### `never`
+
+Examples of **incorrect** code for this rule with the `"never"` option:
+
+```js
+/* func-names: ["error", "never"] */
+
+Foo.prototype.bar = function bar() {};
+(function bar() {/* ... */})();
+```
+
+Examples of **correct** code for this rule with the `"never"` option:
+
+```js
+/* func-names: ["error", "never"] */
+
+Foo.prototype.bar = function() {};
+(function() {/* ... */})();
+```
+
+#### `generators`
+
+Examples of **incorrect** code for this rule with the `"always", { "generators": "as-needed" }` options:
+
+```js
+/* func-names: ["error", "always", { "generators": "as-needed" }] */
+
+(function*() {/* ... */})();
+```
+
+Examples of **correct** code for this rule with the `"always", { "generators": "as-needed" }` options:
+
+```js
+/* func-names: ["error", "always", { "generators": "as-needed" }] */
+
+const foo = function*() {};
+```
+
+Examples of **incorrect** code for this rule with the `"always", { "generators": "never" }` options:
+
+```js
+/* func-names: ["error", "always", { "generators": "never" }] */
+
+const foo = bar(function* baz() {});
+```
+
+Examples of **correct** code for this rule with the `"always", { "generators": "never" }` options:
+
+```js
+/* func-names: ["error", "always", { "generators": "never" }] */
+
+const foo = bar(function*() {});
+```
+
+Examples of **incorrect** code for this rule with the `"as-needed", { "generators": "never" }` options:
+
+```js
+/* func-names: ["error", "as-needed", { "generators": "never" }] */
+
+const foo = bar(function* baz() {});
+```
+
+Examples of **correct** code for this rule with the `"as-needed", { "generators": "never" }` options:
+
+```js
+/* func-names: ["error", "as-needed", { "generators": "never" }] */
+
+const foo = bar(function*() {});
+```
+
+Examples of **incorrect** code for this rule with the `"never", { "generators": "always" }` options:
+
+```js
+/* func-names: ["error", "never", { "generators": "always" }] */
+
+const foo = bar(function*() {});
+```
+
+Examples of **correct** code for this rule with the `"never", { "generators": "always" }` options:
+
+```js
+/* func-names: ["error", "never", { "generators": "always" }] */
+
+const foo = bar(function* baz() {});
 ```
 
 ## How to use
