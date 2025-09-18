@@ -23,7 +23,7 @@ export const enConfig = defineLocaleConfig("root", {
       {
         text: "Resources",
         items: [
-          { text: "Blog", link: "/blog/2025-08-17-oxlint-type-aware" },
+          { text: "Blog", link: "/blog/2025-09-18-oxlint-custom-js-plugins-preview" },
           { text: "Team", link: "/team" },
           { text: "Branding", link: "/branding" },
           { text: "Website GitHub", link: "https://github.com/oxc-project/oxc-project.github.io" },

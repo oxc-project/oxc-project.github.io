@@ -33,6 +33,7 @@ and run Oxlint before ESLint in your local or CI setup for a quicker feedback lo
   - [Nested configuration file](./linter/nested-config)
   - [Comment disabling](./linter/config.html#configuring-rules-via-inline-configuration-comments).
   - [Automatic Fixes](./linter/automatic-fixes)
+  - **[Custom JavaScript Plugins (Preview)](/blog/2025-09-18-oxlint-custom-js-plugins-preview)** - Write your own linting rules in JavaScript!
 
 ## Language Support
 

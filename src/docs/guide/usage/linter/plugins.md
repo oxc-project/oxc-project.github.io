@@ -7,9 +7,12 @@ outline: [2, 3]
 Oxlint supports several of the most popular ESLint plugins out of the box with
 most rules in `recommended` configs already implemented.
 
-:::warning
-Oxlint does not support custom plugins at this time. We have plans to implement
-this in the future. You can track its status on [our backlog](https://github.com/oxc-project/oxc/issues/9905) and provide feedback in [this discussion](https://github.com/oxc-project/oxc/discussions/10342).
+:::warning Custom JavaScript Plugins Preview
+Custom JavaScript plugins are now available in preview! While the feature is still being refined, you can try it out today.
+
+**Learn more:** Check out our [announcement blog post](/blog/2025-09-18-oxlint-custom-js-plugins-preview) for details on how to get started with custom JavaScript plugins.
+
+You can track development progress on [our backlog](https://github.com/oxc-project/oxc/issues/9905) and provide feedback in [this discussion](https://github.com/oxc-project/oxc/discussions/10342).
 :::
 
 ## Enabling Plugins
