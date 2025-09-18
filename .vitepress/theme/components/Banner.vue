@@ -17,7 +17,7 @@ const hide = () => {
 };
 
 // Sync with inlined-scripts/banner.js
-const slug = "/blog/2025-08-17-oxlint-type-aware";
+const slug = "/blog/2025-09-18-oxlint-custom-js-plugins-preview";
 
 const bannerDismissed = useLocalStorage<boolean>(`oxc-banner-dismissed-${slug}`, false);
 
@@ -46,7 +46,7 @@ const dismiss = () => {
 
 <template>
   <div ref="el" class="banner banner-dismissed">
-    <div class="text"><a :href="slug">Announcing Oxlint Type-Aware Preview</a> 🎉</div>
+    <div class="text"><a :href="slug">Announcing Custom JavaScript Plugins Preview</a> 🎉</div>
 
     <button type="button" @click="dismiss">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
