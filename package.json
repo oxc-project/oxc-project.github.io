@@ -20,11 +20,11 @@
     "@vueuse/core": "^13.9.0",
     "degit": "^2.8.4",
     "dprint": "^0.50.1",
-    "esbuild": "0.25.9",
+    "esbuild": "0.25.10",
     "feed": "^5.1.0",
     "husky": "^9.1.7",
     "lint-staged": "16.1.6",
-    "oxc-minify": "^0.87.0",
+    "oxc-minify": "^0.91.0",
     "oxlint": "^1.14.0",
     "typescript": "~5.9.2",
     "vitepress": "2.0.0-alpha.12",
@@ -34,7 +34,7 @@
   "lint-staged": {
     "*": "dprint fmt --staged"
   },
-  "packageManager": "pnpm@10.16.1",
+  "packageManager": "pnpm@10.17.0",
   "volta": {
     "node": "22.14.0"
   },
