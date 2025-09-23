@@ -2,7 +2,7 @@
 
 The progress of all rule implementations is tracked [here](https://github.com/oxc-project/oxc/issues/481).
 
-- Total number of rules: 582
+- Total number of rules: 585
 - Rules turned on by default: 102
 
 **Legend for 'Fixable?' column:**
@@ -311,7 +311,7 @@ Lints which prevent the use of language and library features. Must not be enable
 | [prefer-number-properties](/docs/guide/usage/linter/rules/unicorn/prefer-number-properties.html)                                  | unicorn    |         | ⚠️🛠️️       |
 | [no-multiple-slot-args](/docs/guide/usage/linter/rules/vue/no-multiple-slot-args.html)                                            | vue        |         | 🚧       |
 
-## Suspicious (42):
+## Suspicious (43):
 
 code that is most likely wrong or useless.
 
@@ -359,6 +359,7 @@ code that is most likely wrong or useless.
 | [no-instanceof-builtins](/docs/guide/usage/linter/rules/unicorn/no-instanceof-builtins.html)                                    | unicorn    |         | 🚧       |
 | [prefer-add-event-listener](/docs/guide/usage/linter/rules/unicorn/prefer-add-event-listener.html)                              | unicorn    |         | 🚧       |
 | [require-post-message-target-origin](/docs/guide/usage/linter/rules/unicorn/require-post-message-target-origin.html)            | unicorn    |         | 💡       |
+| [no-required-prop-with-default](/docs/guide/usage/linter/rules/vue/no-required-prop-with-default.html)                          | vue        |         | 🚧       |
 
 ## Pedantic (97):
 
@@ -464,7 +465,7 @@ Lints which are rather strict or have occasional false positives.
 | [prefer-type-error](/docs/guide/usage/linter/rules/unicorn/prefer-type-error.html)                                             | unicorn    |         | 🛠️        |
 | [require-number-to-fixed-digits-argument](/docs/guide/usage/linter/rules/unicorn/require-number-to-fixed-digits-argument.html) | unicorn    |         | 🛠️        |
 
-## Style (158):
+## Style (159):
 
 Code that should be written in a more idiomatic way.
 
@@ -628,18 +629,20 @@ Code that should be written in a more idiomatic way.
 | [prefer-to-be-truthy](/docs/guide/usage/linter/rules/vitest/prefer-to-be-truthy.html)                                    | vitest     |         | 🛠️        |
 | [define-emits-declaration](/docs/guide/usage/linter/rules/vue/define-emits-declaration.html)                             | vue        |         | 🚧       |
 | [define-props-declaration](/docs/guide/usage/linter/rules/vue/define-props-declaration.html)                             | vue        |         |          |
+| [require-typed-ref](/docs/guide/usage/linter/rules/vue/require-typed-ref.html)                                           | vue        |         |          |
 
-## Nursery (8):
+## Nursery (9):
 
 New lints that are still under development.
 
-| Rule name                                                                                | Source  | Default | Fixable? |
-| ---------------------------------------------------------------------------------------- | ------- | ------- | -------- |
-| [getter-return](/docs/guide/usage/linter/rules/eslint/getter-return.html)                | eslint  |         |          |
-| [no-undef](/docs/guide/usage/linter/rules/eslint/no-undef.html)                          | eslint  |         |          |
-| [no-unreachable](/docs/guide/usage/linter/rules/eslint/no-unreachable.html)              | eslint  |         |          |
-| [export](/docs/guide/usage/linter/rules/import/export.html)                              | import  |         |          |
-| [named](/docs/guide/usage/linter/rules/import/named.html)                                | import  |         |          |
-| [no-map-spread](/docs/guide/usage/linter/rules/oxc/no-map-spread.html)                   | oxc     |         | 🛠️💡      |
-| [no-return-in-finally](/docs/guide/usage/linter/rules/promise/no-return-in-finally.html) | promise |         |          |
-| [require-render-return](/docs/guide/usage/linter/rules/react/require-render-return.html) | react   |         |          |
+| Rule name                                                                                                 | Source  | Default | Fixable? |
+| --------------------------------------------------------------------------------------------------------- | ------- | ------- | -------- |
+| [getter-return](/docs/guide/usage/linter/rules/eslint/getter-return.html)                                 | eslint  |         |          |
+| [no-misleading-character-class](/docs/guide/usage/linter/rules/eslint/no-misleading-character-class.html) | eslint  |         |          |
+| [no-undef](/docs/guide/usage/linter/rules/eslint/no-undef.html)                                           | eslint  |         |          |
+| [no-unreachable](/docs/guide/usage/linter/rules/eslint/no-unreachable.html)                               | eslint  |         |          |
+| [export](/docs/guide/usage/linter/rules/import/export.html)                                               | import  |         |          |
+| [named](/docs/guide/usage/linter/rules/import/named.html)                                                 | import  |         |          |
+| [no-map-spread](/docs/guide/usage/linter/rules/oxc/no-map-spread.html)                                    | oxc     |         | 🛠️💡      |
+| [no-return-in-finally](/docs/guide/usage/linter/rules/promise/no-return-in-finally.html)                  | promise |         |          |
+| [require-render-return](/docs/guide/usage/linter/rules/react/require-render-return.html)                  | react   |         |          |
