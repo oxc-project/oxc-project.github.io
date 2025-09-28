@@ -23,8 +23,8 @@
     "esbuild": "0.25.10",
     "feed": "^5.1.0",
     "husky": "^9.1.7",
-    "lint-staged": "16.1.6",
-    "oxc-minify": "^0.91.0",
+    "lint-staged": "16.2.3",
+    "oxc-minify": "^0.93.0",
     "oxlint": "^1.14.0",
     "typescript": "~5.9.2",
     "vitepress": "2.0.0-alpha.12",
@@ -34,7 +34,7 @@
   "lint-staged": {
     "*": "dprint fmt --staged"
   },
-  "packageManager": "pnpm@10.17.0",
+  "packageManager": "pnpm@10.17.1",
   "volta": {
     "node": "22.14.0"
   },
