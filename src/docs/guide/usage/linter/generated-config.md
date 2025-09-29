@@ -143,6 +143,14 @@ default: `[]`
 
 Globs to ignore during linting. These are resolved from the configuration file path.
 
+## jsPlugins
+
+type: `string[]`
+
+default: `null`
+
+JS plugins.
+
 ## overrides
 
 type: `array`
@@ -156,6 +164,12 @@ type: `object`
 type: `string[]`
 
 A set of glob patterns.
+
+#### overrides[n].jsPlugins
+
+type: `string[]`
+
+JS plugins for this override.
 
 #### overrides[n].rules
 

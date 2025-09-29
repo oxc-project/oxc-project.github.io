@@ -2,44 +2,41 @@
 
 <script setup>
 import { data } from '../version.data.js';
-const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_linter/src/rules/eslint/sort_keys.rs`;
+const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_linter/src/rules/import/no_named_export.rs`;
 </script>
 
-# eslint/sort-keys <Badge type="info" text="Style" />
+# import/no-named-export <Badge type="info" text="Style" />
 
 <div class="rule-meta">
-<Alert class="fix" type="info">
-<span class="emoji">🛠️</span> An auto-fix is available for this rule for some violations.
-</Alert>
 </div>
 
 ### What it does
 
-When declaring multiple properties, sorting property names alphabetically makes it easier
-to find and/or diff necessary properties at a later time.
+Prohibit named exports.
 
 ### Why is this bad?
 
-Unsorted property keys can make the code harder to read and maintain.
+Named exports require strict identifier matching and can lead to fragile imports,
+while default exports enforce a single, consistent module entry point.
 
 ### Examples
 
 Examples of **incorrect** code for this rule:
 
 ```js
-let myObj = {
-  c: 1,
-  a: 2,
-};
+export const foo = "foo";
+
+const bar = "bar";
+export { bar };
 ```
 
 Examples of **correct** code for this rule:
 
 ```js
-let myObj = {
-  a: 2,
-  c: 1,
-};
+export default "bar";
+
+const foo = "foo";
+export { foo as default };
 ```
 
 ## How to use
@@ -49,13 +46,14 @@ To **enable** this rule in the CLI or using the config file, you can use:
 ::: code-group
 
 ```bash [CLI]
-oxlint --deny sort-keys
+oxlint --deny import/no-named-export --import-plugin
 ```
 
 ```json [Config (.oxlintrc.json)]
 {
+  "plugins": ["import"],
   "rules": {
-    "sort-keys": "error"
+    "import/no-named-export": "error"
   }
 }
 ```

@@ -15,70 +15,149 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 ### What it does
 
-Requires the use of the `===` and `!==` operators.
+Requires the use of the `===` and `!==` operators, disallowing the use of `==` and `!=`.
 
 ### Why is this bad?
 
-Using non-strict equality operators leads to hard to track bugs due to type coercion.
+Using non-strict equality operators leads to unexpected behavior due to type coercion, which can cause hard-to-find bugs.
+
+### Options
+
+First option:
+
+- Type: `string`
+- Default: `"always"`
+
+Possible values:
+
+- `"always"` - always require `===`/`!==`
+- `"smart"` - allow safe comparisons (`typeof`, literals, nullish)
+
+Second option (only used with `"always"`):
+
+- Type: `object`
+- Properties:
+  - `null`: `string` (default: `"always"`) - `"ignore"` allows `== null` and `!= null`.
+
+Possible values for `null`:
+
+- `"always"` - always require `=== null`/`!== null`
+- `"never"` - always require `== null`/`!= null`
+- `"ignore"` - allow both `== null`/`!= null` and `=== null`/`!== null`
+
+Example JSON configuration:
+
+```json
+{
+  "eqeqeq": ["error", "always", { "null": "ignore" }]
+}
+```
 
 ### Examples
+
+#### `"always"` (default)
 
 Examples of **incorrect** code for this rule:
 
 ```js
-const a = [];
-const b = true;
-a == b;
-```
+/* eslint eqeqeq: "error" */
 
-The above will evaluate to `true`, but that is almost surely not what you want.
+if (x == 42) {}
+if ("" == text) {}
+if (obj.getStuff() != undefined) {}
+```
 
 Examples of **correct** code for this rule:
 
 ```js
-const a = [];
-const b = true;
-a === b;
+/* eslint eqeqeq: "error" */
+
+if (x === 42) {}
+if ("" === text) {}
+if (obj.getStuff() !== undefined) {}
 ```
 
-The above will evaluate to `false` (an array is not boolean true).
+#### `"smart"`
 
-### Options
-
-#### null
-
-```json
-"eslint/eqeqeq": ["error", "always", {"null": "ignore"}]
-```
-
-Allow nullish comparison (`foo == null`). The alternative (`foo === null || foo === undefined`) is verbose and has no other benefit.
-
-#### smart
-
-```json
-"eslint/eqeqeq": ["error", "smart"]
-```
-
-Allow `==` when comparing:
-
-- the result from `typeof`
-- literal values
-- nullish
-
-Examples of **incorrect** code for this option:
+Examples of **incorrect** code for this rule with the `"smart"` option:
 
 ```js
-a == b
-[] == true
+/* eslint eqeqeq: ["error", "smart"] */
+
+if (x == 42) {}
+if ("" == text) {}
 ```
 
-Examples of **correct** code for this option:
+Examples of **correct** code for this rule with the `"smart"` option:
 
 ```js
-typeof foo == "undefined";
-"foo" == "bar";
-42 == 42;
-foo == null;
+/* eslint eqeqeq: ["error", "smart"] */
+
+if (typeof foo == "undefined") {}
+if (foo == null) {}
+if (foo != null) {}
+```
+
+#### `{"null": "ignore"}` (with `"always"` first option)
+
+Examples of **incorrect** code for this rule with the `{ "null": "ignore" }` option:
+
+```js
+/* eslint eqeqeq: ["error", "always", { "null": "ignore" }] */
+if (x == 42) {}
+if ("" == text) {}
+```
+
+Examples of **correct** code for this rule with the `{ "null": "ignore" }` option:
+
+```js
+/* eslint eqeqeq: ["error", "always", { "null": "ignore" }] */
+if (foo == null) {}
+if (foo != null) {}
+```
+
+#### `{"null": "always"}` (default - with `"always"` first option)
+
+Examples of **incorrect** code for this rule with the `{ "null": "always" }` option:
+
+```js
+/* eslint eqeqeq: ["error", "always", { "null": "always" }] */
+
+if (foo == null) {}
+if (foo != null) {}
+```
+
+Examples of **correct** code for this rule with the `{ "null": "always" }` option:
+
+```js
+/* eslint eqeqeq: ["error", "always", { "null": "always" }] */
+
+if (foo === null) {}
+if (foo !== null) {}
+```
+
+#### `{"null": "never"}` (with `"always"` first option)
+
+Examples of **incorrect** code for this rule with the `{ "null": "never" }` option:
+
+```js
+/* eslint eqeqeq: ["error", "always", { "null": "never" }] */
+
+if (x == 42) {}
+if ("" == text) {}
+if (foo === null) {}
+if (foo !== null) {}
+```
+
+Examples of **correct** code for this rule with the `{ "null": "never" }` option:
+
+```js
+/* eslint eqeqeq: ["error", "always", { "null": "never" }] */
+
+if (x === 42) {}
+if ("" === text) {}
+if (foo == null) {}
+if (foo != null) {}
 ```
 
 ## Configuration
