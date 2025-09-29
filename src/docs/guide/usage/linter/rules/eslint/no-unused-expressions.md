@@ -5,9 +5,12 @@ import { data } from '../version.data.js';
 const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_linter/src/rules/eslint/no_unused_expressions.rs`;
 </script>
 
-# eslint/no-unused-expressions <Badge type="info" text="Restriction" />
+# eslint/no-unused-expressions <Badge type="info" text="Correctness" />
 
 <div class="rule-meta">
+<Alert class="default-on" type="success">
+<span class="emoji">✅</span> This rule is turned on by default.
+</Alert>
 </div>
 
 ### What it does
@@ -33,6 +36,42 @@ Examples of **correct** code for this rule:
 ```ts
 const foo = new Set<number>();
 ```
+
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### allowShortCircuit
+
+type: `boolean`
+
+default: `false`
+
+When set to `true`, allows short circuit evaluations in expressions.
+
+### allowTaggedTemplates
+
+type: `boolean`
+
+default: `false`
+
+When set to `true`, allows tagged template literals in expressions.
+
+### allowTernary
+
+type: `boolean`
+
+default: `false`
+
+When set to `true`, allows ternary operators in expressions.
+
+### enforceForJsx
+
+type: `boolean`
+
+default: `false`
+
+When set to `true`, enforces the rule for unused JSX expressions also.
 
 ## How to use
 

@@ -2,8 +2,8 @@
 
 The progress of all rule implementations is tracked [here](https://github.com/oxc-project/oxc/issues/481).
 
-- Total number of rules: 585
-- Rules turned on by default: 102
+- Total number of rules: 591
+- Rules turned on by default: 103
 
 **Legend for 'Fixable?' column:**
 
@@ -13,7 +13,7 @@ The progress of all rule implementations is tracked [here](https://github.com/ox
 - ⚠️💡: a dangerous suggestion is available for this rule
 - 🚧: an auto-fix or suggestion is possible, but currently not implemented
 
-## Correctness (194):
+## Correctness (195):
 
 Code that is outright wrong or useless.
 
@@ -59,6 +59,7 @@ Code that is outright wrong or useless.
 | [no-unsafe-finally](/docs/guide/usage/linter/rules/eslint/no-unsafe-finally.html)                                                                     | eslint     | ✅      |          |
 | [no-unsafe-negation](/docs/guide/usage/linter/rules/eslint/no-unsafe-negation.html)                                                                   | eslint     | ✅      | 🛠️        |
 | [no-unsafe-optional-chaining](/docs/guide/usage/linter/rules/eslint/no-unsafe-optional-chaining.html)                                                 | eslint     | ✅      |          |
+| [no-unused-expressions](/docs/guide/usage/linter/rules/eslint/no-unused-expressions.html)                                                             | eslint     | ✅      |          |
 | [no-unused-labels](/docs/guide/usage/linter/rules/eslint/no-unused-labels.html)                                                                       | eslint     | ✅      | 🛠️        |
 | [no-unused-private-class-members](/docs/guide/usage/linter/rules/eslint/no-unused-private-class-members.html)                                         | eslint     | ✅      |          |
 | [no-unused-vars](/docs/guide/usage/linter/rules/eslint/no-unused-vars.html)                                                                           | eslint     | ✅      | ⚠️💡      |
@@ -254,7 +255,6 @@ Lints which prevent the use of language and library features. Must not be enable
 | [no-restricted-globals](/docs/guide/usage/linter/rules/eslint/no-restricted-globals.html)                                         | eslint     |         |          |
 | [no-restricted-imports](/docs/guide/usage/linter/rules/eslint/no-restricted-imports.html)                                         | eslint     |         |          |
 | [no-undefined](/docs/guide/usage/linter/rules/eslint/no-undefined.html)                                                           | eslint     |         |          |
-| [no-unused-expressions](/docs/guide/usage/linter/rules/eslint/no-unused-expressions.html)                                         | eslint     |         |          |
 | [no-var](/docs/guide/usage/linter/rules/eslint/no-var.html)                                                                       | eslint     |         | 🛠️        |
 | [no-void](/docs/guide/usage/linter/rules/eslint/no-void.html)                                                                     | eslint     |         | 💡       |
 | [unicode-bom](/docs/guide/usage/linter/rules/eslint/unicode-bom.html)                                                             | eslint     |         | 🛠️        |
@@ -309,9 +309,10 @@ Lints which prevent the use of language and library features. Must not be enable
 | [prefer-modern-math-apis](/docs/guide/usage/linter/rules/unicorn/prefer-modern-math-apis.html)                                    | unicorn    |         | 🚧       |
 | [prefer-node-protocol](/docs/guide/usage/linter/rules/unicorn/prefer-node-protocol.html)                                          | unicorn    |         | 🛠️        |
 | [prefer-number-properties](/docs/guide/usage/linter/rules/unicorn/prefer-number-properties.html)                                  | unicorn    |         | ⚠️🛠️️       |
+| [max-props](/docs/guide/usage/linter/rules/vue/max-props.html)                                                                    | vue        |         |          |
 | [no-multiple-slot-args](/docs/guide/usage/linter/rules/vue/no-multiple-slot-args.html)                                            | vue        |         | 🚧       |
 
-## Suspicious (43):
+## Suspicious (45):
 
 code that is most likely wrong or useless.
 
@@ -325,7 +326,7 @@ code that is most likely wrong or useless.
 | [no-unneeded-ternary](/docs/guide/usage/linter/rules/eslint/no-unneeded-ternary.html)                                           | eslint     |         | ⚠️🛠️️       |
 | [no-useless-concat](/docs/guide/usage/linter/rules/eslint/no-useless-concat.html)                                               | eslint     |         |          |
 | [no-useless-constructor](/docs/guide/usage/linter/rules/eslint/no-useless-constructor.html)                                     | eslint     |         | 🛠️        |
-| [preserve-caught-error](/docs/guide/usage/linter/rules/eslint/preserve-caught-error.html)                                       | eslint     |         | 🚧       |
+| [preserve-caught-error](/docs/guide/usage/linter/rules/eslint/preserve-caught-error.html)                                       | eslint     |         | 🛠️        |
 | [no-absolute-path](/docs/guide/usage/linter/rules/import/no-absolute-path.html)                                                 | import     |         | 🚧       |
 | [no-empty-named-blocks](/docs/guide/usage/linter/rules/import/no-empty-named-blocks.html)                                       | import     |         | 🛠️        |
 | [no-named-as-default](/docs/guide/usage/linter/rules/import/no-named-as-default.html)                                           | import     |         |          |
@@ -337,6 +338,7 @@ code that is most likely wrong or useless.
 | [misrefactored-assign-op](/docs/guide/usage/linter/rules/oxc/misrefactored-assign-op.html)                                      | oxc        |         | 🚧       |
 | [no-async-endpoint-handlers](/docs/guide/usage/linter/rules/oxc/no-async-endpoint-handlers.html)                                | oxc        |         |          |
 | [always-return](/docs/guide/usage/linter/rules/promise/always-return.html)                                                      | promise    |         |          |
+| [no-multiple-resolved](/docs/guide/usage/linter/rules/promise/no-multiple-resolved.html)                                        | promise    |         |          |
 | [no-promise-in-callback](/docs/guide/usage/linter/rules/promise/no-promise-in-callback.html)                                    | promise    |         |          |
 | [iframe-missing-sandbox](/docs/guide/usage/linter/rules/react/iframe-missing-sandbox.html)                                      | react      |         | 🚧       |
 | [jsx-no-comment-textnodes](/docs/guide/usage/linter/rules/react/jsx-no-comment-textnodes.html)                                  | react      |         |          |
@@ -356,12 +358,13 @@ code that is most likely wrong or useless.
 | [consistent-function-scoping](/docs/guide/usage/linter/rules/unicorn/consistent-function-scoping.html)                          | unicorn    |         | 🚧       |
 | [no-accessor-recursion](/docs/guide/usage/linter/rules/unicorn/no-accessor-recursion.html)                                      | unicorn    |         |          |
 | [no-array-reverse](/docs/guide/usage/linter/rules/unicorn/no-array-reverse.html)                                                | unicorn    |         | 🛠️        |
+| [no-array-sort](/docs/guide/usage/linter/rules/unicorn/no-array-sort.html)                                                      | unicorn    |         | 🛠️        |
 | [no-instanceof-builtins](/docs/guide/usage/linter/rules/unicorn/no-instanceof-builtins.html)                                    | unicorn    |         | 🚧       |
 | [prefer-add-event-listener](/docs/guide/usage/linter/rules/unicorn/prefer-add-event-listener.html)                              | unicorn    |         | 🚧       |
 | [require-post-message-target-origin](/docs/guide/usage/linter/rules/unicorn/require-post-message-target-origin.html)            | unicorn    |         | 💡       |
 | [no-required-prop-with-default](/docs/guide/usage/linter/rules/vue/no-required-prop-with-default.html)                          | vue        |         | 🚧       |
 
-## Pedantic (97):
+## Pedantic (98):
 
 Lints which are rather strict or have occasional false positives.
 
@@ -430,6 +433,7 @@ Lints which are rather strict or have occasional false positives.
 | [escape-case](/docs/guide/usage/linter/rules/unicorn/escape-case.html)                                                         | unicorn    |         | 🛠️        |
 | [explicit-length-check](/docs/guide/usage/linter/rules/unicorn/explicit-length-check.html)                                     | unicorn    |         | 🛠️        |
 | [new-for-builtins](/docs/guide/usage/linter/rules/unicorn/new-for-builtins.html)                                               | unicorn    |         |          |
+| [no-array-callback-reference](/docs/guide/usage/linter/rules/unicorn/no-array-callback-reference.html)                         | unicorn    |         | 🚧       |
 | [no-hex-escape](/docs/guide/usage/linter/rules/unicorn/no-hex-escape.html)                                                     | unicorn    |         | 🛠️        |
 | [no-instanceof-array](/docs/guide/usage/linter/rules/unicorn/no-instanceof-array.html)                                         | unicorn    |         | 🛠️        |
 | [no-lonely-if](/docs/guide/usage/linter/rules/unicorn/no-lonely-if.html)                                                       | unicorn    |         |          |
@@ -465,7 +469,7 @@ Lints which are rather strict or have occasional false positives.
 | [prefer-type-error](/docs/guide/usage/linter/rules/unicorn/prefer-type-error.html)                                             | unicorn    |         | 🛠️        |
 | [require-number-to-fixed-digits-argument](/docs/guide/usage/linter/rules/unicorn/require-number-to-fixed-digits-argument.html) | unicorn    |         | 🛠️        |
 
-## Style (159):
+## Style (161):
 
 Code that should be written in a more idiomatic way.
 
@@ -510,7 +514,7 @@ Code that should be written in a more idiomatic way.
 | [prefer-spread](/docs/guide/usage/linter/rules/eslint/prefer-spread.html)                                                | eslint     |         |          |
 | [prefer-template](/docs/guide/usage/linter/rules/eslint/prefer-template.html)                                            | eslint     |         | 🚧       |
 | [sort-imports](/docs/guide/usage/linter/rules/eslint/sort-imports.html)                                                  | eslint     |         | 🛠️        |
-| [sort-keys](/docs/guide/usage/linter/rules/eslint/sort-keys.html)                                                        | eslint     |         | 🚧       |
+| [sort-keys](/docs/guide/usage/linter/rules/eslint/sort-keys.html)                                                        | eslint     |         | 🛠️        |
 | [vars-on-top](/docs/guide/usage/linter/rules/eslint/vars-on-top.html)                                                    | eslint     |         |          |
 | [yoda](/docs/guide/usage/linter/rules/eslint/yoda.html)                                                                  | eslint     |         | 🛠️        |
 | [consistent-type-specifier-style](/docs/guide/usage/linter/rules/import/consistent-type-specifier-style.html)            | import     |         | 🛠️        |
@@ -521,6 +525,7 @@ Code that should be written in a more idiomatic way.
 | [no-duplicates](/docs/guide/usage/linter/rules/import/no-duplicates.html)                                                | import     |         |          |
 | [no-mutable-exports](/docs/guide/usage/linter/rules/import/no-mutable-exports.html)                                      | import     |         |          |
 | [no-named-default](/docs/guide/usage/linter/rules/import/no-named-default.html)                                          | import     |         |          |
+| [no-named-export](/docs/guide/usage/linter/rules/import/no-named-export.html)                                            | import     |         |          |
 | [no-namespace](/docs/guide/usage/linter/rules/import/no-namespace.html)                                                  | import     |         | 🚧       |
 | [prefer-default-export](/docs/guide/usage/linter/rules/import/prefer-default-export.html)                                | import     |         |          |
 | [consistent-test-it](/docs/guide/usage/linter/rules/jest/consistent-test-it.html)                                        | jest       |         | 🛠️        |
@@ -573,6 +578,7 @@ Code that should be written in a more idiomatic way.
 | [jsx-curly-brace-presence](/docs/guide/usage/linter/rules/react/jsx-curly-brace-presence.html)                           | react      |         | 🛠️        |
 | [jsx-fragments](/docs/guide/usage/linter/rules/react/jsx-fragments.html)                                                 | react      |         | 🛠️        |
 | [jsx-handler-names](/docs/guide/usage/linter/rules/react/jsx-handler-names.html)                                         | react      |         |          |
+| [jsx-pascal-case](/docs/guide/usage/linter/rules/react/jsx-pascal-case.html)                                             | react      |         |          |
 | [no-set-state](/docs/guide/usage/linter/rules/react/no-set-state.html)                                                   | react      |         |          |
 | [prefer-es6-class](/docs/guide/usage/linter/rules/react/prefer-es6-class.html)                                           | react      |         |          |
 | [self-closing-comp](/docs/guide/usage/linter/rules/react/self-closing-comp.html)                                         | react      |         | 🛠️        |

@@ -15,7 +15,8 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 ### What it does
 
-This rule enforces the use of curly braces `{}` for all control statements (`if`, `else`, `for`, `while`, `do`, etc.).
+This rule enforces the use of curly braces `{}` for all control statements
+(`if`, `else`, `for`, `while`, `do`, `with`).
 It ensures that all blocks are enclosed in curly braces to improve code clarity and maintainability.
 
 ### Why is this bad?
@@ -24,31 +25,232 @@ Omitting curly braces can reduce code readability and increase the likelihood of
 It can also lead to bugs if additional statements are added later without properly enclosing them in braces.
 Using curly braces consistently makes the code safer and easier to modify.
 
+### Options
+
+First option:
+
+- Type: `string`
+- Default: `"all"`
+- Possible values:
+  - `"all"`: require braces in all cases
+  - `"multi"`: require braces only for multi-statement blocks
+  - `"multi-line"`: require braces only for multi-line blocks
+  - `"multi-or-nest"`: require braces for multi-line blocks or when nested
+
+Second option:
+
+- Type: `string`
+- Default: `undefined`
+- Possible values:
+- `"consistent"`: require braces if any other branch in the `if-else` chain has braces
+
+Note : The second option can only be used in conjunction with the first option.
+
+Example configuration:
+
+```json
+{
+  "curly": ["error", "multi-or-nest", "consistent"]
+}
+```
+
 ### Examples
+
+#### `"all"` (default)
 
 Examples of **incorrect** code for this rule:
 
 ```js
+/* curly: ["error", "all"] */
+
 if (foo) foo++;
-
-for (let i = 0; i < 10; i++) doSomething(i);
-
 while (bar) bar--;
+do foo(); while (bar);
 ```
 
 Examples of **correct** code for this rule:
 
 ```js
+/* curly: ["error", "all"] */
+
+if (foo) foo++;
+while (bar) bar--;
+do {
+  foo();
+} while (bar);
+```
+
+#### `"multi"`
+
+Examples of **incorrect** code for this rule with the `"multi"` option:
+
+```js
+/* curly: ["error", "multi"] */
+
+if (foo) foo();
+else {
+  bar();
+  baz();
+}
+```
+
+Examples of **correct** code for this rule with the `"multi"` option:
+
+```js
+/* curly: ["error", "multi"] */
+
+if (foo) foo();
+else bar();
+```
+
+#### `"multi-line"`
+
+Examples of **incorrect** code for this rule with the `"multi-line"` option:
+
+```js
+/* curly: ["error", "multi-line"] */
+
+if (foo) foo();
+else {
+  bar();
+}
+
+while (foo) {
+  foo();
+}
+```
+
+Examples of **correct** code for this rule with the `"multi-line"` option:
+
+```js
+/* curly: ["error", "multi-line"] */
+
+if (foo) foo();
+else bar();
+
+while (foo) foo();
+
+while (true) {
+  doSomething();
+  doSomethingElse();
+}
+```
+
+#### `"multi-or-nest"`
+
+Examples of **incorrect** code for this rule with the `"multi-or-nest"` option:
+
+```js
+/* curly: ["error", "multi-or-nest"] */
+
 if (foo) {
-  foo++;
+  if (bar) bar();
 }
 
-for (let i = 0; i < 10; i++) {
-  doSomething(i);
+while (foo) {
+  while (bar) bar();
+}
+```
+
+Examples of **correct** code for this rule with the `"multi-or-nest"` option:
+
+```js
+/* curly: ["error", "multi-or-nest"] */
+
+if (foo) {
+  if (bar) bar();
 }
 
-while (bar) {
-  bar--;
+while (foo) {
+  while (bar) bar();
+}
+```
+
+#### `{ "consistent": true }`
+
+When enabled, `consistent: true` enforces consistent use of braces within an `if-else` chain.
+If one branch of the chain uses braces, then all branches must use braces, even if not strictly required by the first option.
+
+Examples of **incorrect** code with `"multi"` and `consistent: true`:
+
+```js
+/* curly: ["error", "multi", "consistent"] */
+
+if (foo) {
+  bar();
+  baz();
+} else qux();
+
+if (foo) bar();
+else {
+  baz();
+  qux();
+}
+```
+
+Examples of **correct** code with `"multi"` and `consistent: true`:
+
+```js
+/* curly: ["error", "multi", "consistent"] */
+
+if (foo) {
+  bar();
+  baz();
+} else {
+  qux();
+}
+
+if (foo) {
+  bar();
+} else {
+  baz();
+  qux();
+}
+```
+
+Examples of **incorrect** code with `"multi-line"` and `consistent: true`:
+
+```js
+/* curly: ["error", "multi-line", "consistent"] */
+
+if (foo) {
+  bar();
+} else {
+  baz();
+}
+```
+
+Examples of **correct** code with `"multi-line"` and `consistent: true`:
+
+```js
+/* curly: ["error", "multi-line", "consistent"] */
+
+if (foo) {
+  bar();
+} else {
+  baz();
+}
+```
+
+Examples of **incorrect** code with `"multi-or-nest"` and `consistent: true`:
+
+```js
+/* curly: ["error", "multi-or-nest", "consistent"] */
+
+if (foo) {
+  if (bar) baz();
+} else qux();
+```
+
+Examples of **correct** code with `"multi-or-nest"` and `consistent: true`:
+
+```js
+/* curly: ["error", "multi-or-nest", "consistent"] */
+
+if (foo) {
+  if (bar) baz();
+} else {
+  qux();
 }
 ```
 
