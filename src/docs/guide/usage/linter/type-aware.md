@@ -24,6 +24,7 @@ The following issues will be addressed for the alpha version.
 - [Disable comments are not respected](https://github.com/oxc-project/oxc/issues/13491)
 - [Type Checker is not enabled](https://github.com/oxc-project/tsgolint/issues/106)
 - [IDE support](https://github.com/oxc-project/tsgolint/issues/71)
+- Auto-fixes for type-aware rules only work in the VSCode extension, not in the CLI (`oxlint --fix`)
 
 ## Unimplemented Rules
 
