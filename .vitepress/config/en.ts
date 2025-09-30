@@ -83,7 +83,32 @@ export const enConfig = defineLocaleConfig("root", {
               ],
             },
             { text: "Parser", link: "/docs/guide/usage/parser" },
-            { text: "Transformer", link: "/docs/guide/usage/transformer" },
+            {
+              text: "Transformer",
+              link: "/docs/guide/usage/transformer",
+              items: [
+                {
+                  text: "Lowering",
+                  link: "/docs/guide/usage/transformer/lowering",
+                },
+                {
+                  text: "TypeScript",
+                  link: "/docs/guide/usage/transformer/typescript",
+                },
+                {
+                  text: "JSX",
+                  link: "/docs/guide/usage/transformer/jsx",
+                },
+                {
+                  text: "Plugins",
+                  link: "/docs/guide/usage/transformer/plugins",
+                },
+                {
+                  text: "Isolated Declarations",
+                  link: "/docs/guide/usage/transformer/isolated-declarations",
+                },
+              ],
+            },
             { text: "Formatter", link: "/docs/guide/usage/formatter" },
             { text: "Minifier", link: "/docs/guide/usage/minifier" },
             { text: "Resolver", link: "/docs/guide/usage/resolver" },
