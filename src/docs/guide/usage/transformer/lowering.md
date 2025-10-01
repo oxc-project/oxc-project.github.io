@@ -125,7 +125,7 @@ Assume that getters does not have side effects.
 When using public class fields, assume that they don't shadow any getter in the current class,
 in its subclasses or in its superclass. Thus, it's safe to assign them rather than using `Object.defineProperty`.
 
-::: note
+::: tip Note
 For TypeScript, if you wanted behavior is equivalent to `useDefineForClassFields: false`,
 you should set both `setPublicClassFields` and `removeClassFieldsWithoutInitializer` to `true`.
 See [the TypeScript page](./typescript#useDefineForClassFields) for more information.
