@@ -3,6 +3,7 @@
 # typos
 
 [default.extend-words]
+strager = "strager"
 trivias = "trivias"
 trivia = "trivia"
 inferrable = "inferrable"
