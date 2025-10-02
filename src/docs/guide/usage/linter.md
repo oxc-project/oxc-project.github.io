@@ -44,23 +44,6 @@ and run Oxlint before ESLint in your local or CI setup for a quicker feedback lo
 - No support for:
   - [stylistic rules](https://eslint.style).
 
-### Type-Aware Linting (Preview)
-
-Oxlint supports type-aware rules in preview mode. To enable type-aware linting:
-
-1. Install the required dependency:
-   ```bash
-   pnpm add -D oxlint-tsgolint@latest
-   ```
-
-2. Run oxlint with the `--type-aware` flag:
-   ```bash
-   pnpm dlx oxlint --type-aware
-   ```
-
-For more details and the list of supported type-aware rules, see the
-[type-aware linting announcement](/blog/2025-08-17-oxlint-type-aware).
-
 ## Installation
 
 Run `oxlint` directly at the root of your repository:
@@ -113,6 +96,23 @@ $ bun add -D oxlint
 
 `oxlint` does not require Node.js, the binaries can be downloaded from the
 [latest GitHub releases](https://github.com/oxc-project/oxc/releases/latest).
+
+### Type-Aware Linting (Preview)
+
+Oxlint supports type-aware rules in preview mode. To enable type-aware linting:
+
+1. Install the required dependency:
+   ```bash
+   pnpm add -D oxlint-tsgolint@latest
+   ```
+
+2. Run oxlint with the `--type-aware` flag:
+   ```bash
+   pnpm dlx oxlint --type-aware
+   ```
+
+For more details and the list of supported type-aware rules, see the
+[type-aware linting announcement](/blog/2025-08-17-oxlint-type-aware).
 
 ## Command-line Interface
 
