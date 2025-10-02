@@ -102,14 +102,52 @@ $ bun add -D oxlint
 Oxlint supports type-aware rules in preview mode. To enable type-aware linting:
 
 1. Install the required dependency:
-   ```bash
-   pnpm add -D oxlint-tsgolint@latest
-   ```
+
+::: code-group
+
+```sh [npm]
+$ npx add -D oxlint-tsgolint@latest
+```
+
+```sh [pnpm]
+$ pnpm add -D oxlint-tsgolint@latest
+```
+
+```sh [yarn]
+$ yarn add -D oxlint-tsgolint@latest
+```
+
+```sh [bun]
+$ bunx add -D oxlint-tsgolint@latest
+```
+
+:::
 
 2. Run oxlint with the `--type-aware` flag:
-   ```bash
-   pnpm dlx oxlint --type-aware
-   ```
+
+::: code-group
+
+```sh [npm]
+$ npx oxlint --type-aware
+```
+
+```sh [pnpm]
+$ pnpm oxlint --type-aware
+```
+
+```sh [yarn]
+$ yarn oxlint --type-aware
+```
+
+```sh [bun]
+$ bunx oxlint --type-aware
+```
+
+```sh [deno]
+$ deno run oxlint --type-aware
+```
+
+:::
 
 For more details and the list of supported type-aware rules, see the
 [type-aware linting announcement](/blog/2025-08-17-oxlint-type-aware).
