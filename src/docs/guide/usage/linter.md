@@ -149,8 +149,8 @@ $ deno run oxlint --type-aware
 
 :::
 
-For more details and the list of supported type-aware rules, see the
-[type-aware linting announcement](/blog/2025-08-17-oxlint-type-aware).
+For more details and the list of supported type-aware rules,
+see the [Type-Aware Linting](./linter/type-aware.md#configuration).
 
 ## Command-line Interface
 
