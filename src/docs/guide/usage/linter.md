@@ -94,9 +94,6 @@ $ bun add -D oxlint
 
 :::
 
-`oxlint` does not require Node.js, the binaries can be downloaded from the
-[latest GitHub releases](https://github.com/oxc-project/oxc/releases/latest).
-
 ### Type-Aware Linting (Preview)
 
 Oxlint supports type-aware rules in preview mode. To enable type-aware linting:
