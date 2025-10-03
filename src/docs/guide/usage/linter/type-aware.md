@@ -4,9 +4,25 @@ Read our [technical preview announcement](/blog/2025-08-17-oxlint-type-aware) fo
 
 ## Installation
 
-```bash
+::: code-group
+
+```sh [npm]
+npx add -D oxlint-tsgolint@latest
+```
+
+```sh [pnpm]
 pnpm add -D oxlint-tsgolint@latest
 ```
+
+```sh [yarn]
+yarn add -D oxlint-tsgolint@latest
+```
+
+```sh [bun]
+bunx add -D oxlint-tsgolint@latest
+```
+
+:::
 
 Run `oxlint` with `--type-aware`
 
