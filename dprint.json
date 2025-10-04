@@ -5,7 +5,8 @@
   },
   "excludes": [
     "pnpm-lock.yaml",
-    "src/docs/guide/usage/linter/rules/eslint/no-with.md"
+    "src/docs/guide/usage/linter/rules/eslint/no-with.md",
+    "public/sponsors.svg"
   ],
   "plugins": [
     "https://plugins.dprint.dev/typescript-0.95.11.wasm",
