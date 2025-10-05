@@ -34,7 +34,7 @@
   "lint-staged": {
     "*": "dprint fmt --staged"
   },
-  "packageManager": "pnpm@10.17.1",
+  "packageManager": "pnpm@10.18.0",
   "volta": {
     "node": "22.14.0"
   },
