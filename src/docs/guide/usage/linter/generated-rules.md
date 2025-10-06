@@ -2,7 +2,7 @@
 
 The progress of all rule implementations is tracked [here](https://github.com/oxc-project/oxc/issues/481).
 
-- Total number of rules: 591
+- Total number of rules: 602
 - Rules turned on by default: 103
 
 **Legend for 'Fixable?' column:**
@@ -13,7 +13,7 @@ The progress of all rule implementations is tracked [here](https://github.com/ox
 - ⚠️💡: a dangerous suggestion is available for this rule
 - 🚧: an auto-fix or suggestion is possible, but currently not implemented
 
-## Correctness (195):
+## Correctness (197):
 
 Code that is outright wrong or useless.
 
@@ -212,6 +212,8 @@ Code that is outright wrong or useless.
 | [prefer-string-starts-ends-with](/docs/guide/usage/linter/rules/unicorn/prefer-string-starts-ends-with.html)                                          | unicorn    | ✅      | 🛠️        |
 | [no-conditional-tests](/docs/guide/usage/linter/rules/vitest/no-conditional-tests.html)                                                               | vitest     |         |          |
 | [require-local-test-context-for-concurrent-snapshots](/docs/guide/usage/linter/rules/vitest/require-local-test-context-for-concurrent-snapshots.html) | vitest     |         | 🚧       |
+| [no-export-in-script-setup](/docs/guide/usage/linter/rules/vue/no-export-in-script-setup.html)                                                        | vue        |         |          |
+| [prefer-import-from-vue](/docs/guide/usage/linter/rules/vue/prefer-import-from-vue.html)                                                              | vue        |         | 🛠️        |
 | [valid-define-emits](/docs/guide/usage/linter/rules/vue/valid-define-emits.html)                                                                      | vue        |         | 🚧       |
 | [valid-define-props](/docs/guide/usage/linter/rules/vue/valid-define-props.html)                                                                      | vue        |         | 🚧       |
 
@@ -233,7 +235,7 @@ Code that can be written to run faster.
 | [prefer-array-flat-map](/docs/guide/usage/linter/rules/unicorn/prefer-array-flat-map.html)                | unicorn    |         | 🛠️        |
 | [prefer-set-has](/docs/guide/usage/linter/rules/unicorn/prefer-set-has.html)                              | unicorn    |         | ⚠️🛠️️       |
 
-## Restriction (72):
+## Restriction (74):
 
 Lints which prevent the use of language and library features. Must not be enabled as a whole, should be considered on a case-by-case basis before enabling.
 
@@ -249,6 +251,7 @@ Lints which prevent the use of language and library features. Must not be enable
 | [no-empty-function](/docs/guide/usage/linter/rules/eslint/no-empty-function.html)                                                 | eslint     |         |          |
 | [no-eq-null](/docs/guide/usage/linter/rules/eslint/no-eq-null.html)                                                               | eslint     |         | ⚠️🛠️️       |
 | [no-iterator](/docs/guide/usage/linter/rules/eslint/no-iterator.html)                                                             | eslint     |         | 💡       |
+| [no-param-reassign](/docs/guide/usage/linter/rules/eslint/no-param-reassign.html)                                                 | eslint     |         |          |
 | [no-plusplus](/docs/guide/usage/linter/rules/eslint/no-plusplus.html)                                                             | eslint     |         | 💡       |
 | [no-proto](/docs/guide/usage/linter/rules/eslint/no-proto.html)                                                                   | eslint     |         | 🚧       |
 | [no-regex-spaces](/docs/guide/usage/linter/rules/eslint/no-regex-spaces.html)                                                     | eslint     |         | 🚧       |
@@ -306,13 +309,14 @@ Lints which prevent the use of language and library features. Must not be enable
 | [no-length-as-slice-end](/docs/guide/usage/linter/rules/unicorn/no-length-as-slice-end.html)                                      | unicorn    |         | 🛠️        |
 | [no-magic-array-flat-depth](/docs/guide/usage/linter/rules/unicorn/no-magic-array-flat-depth.html)                                | unicorn    |         |          |
 | [no-process-exit](/docs/guide/usage/linter/rules/unicorn/no-process-exit.html)                                                    | unicorn    |         | 🚧       |
+| [no-useless-error-capture-stack-trace](/docs/guide/usage/linter/rules/unicorn/no-useless-error-capture-stack-trace.html)          | unicorn    |         | 🚧       |
 | [prefer-modern-math-apis](/docs/guide/usage/linter/rules/unicorn/prefer-modern-math-apis.html)                                    | unicorn    |         | 🚧       |
 | [prefer-node-protocol](/docs/guide/usage/linter/rules/unicorn/prefer-node-protocol.html)                                          | unicorn    |         | 🛠️        |
 | [prefer-number-properties](/docs/guide/usage/linter/rules/unicorn/prefer-number-properties.html)                                  | unicorn    |         | ⚠️🛠️️       |
 | [max-props](/docs/guide/usage/linter/rules/vue/max-props.html)                                                                    | vue        |         |          |
 | [no-multiple-slot-args](/docs/guide/usage/linter/rules/vue/no-multiple-slot-args.html)                                            | vue        |         | 🚧       |
 
-## Suspicious (45):
+## Suspicious (46):
 
 code that is most likely wrong or useless.
 
@@ -361,10 +365,11 @@ code that is most likely wrong or useless.
 | [no-array-sort](/docs/guide/usage/linter/rules/unicorn/no-array-sort.html)                                                      | unicorn    |         | 🛠️        |
 | [no-instanceof-builtins](/docs/guide/usage/linter/rules/unicorn/no-instanceof-builtins.html)                                    | unicorn    |         | 🚧       |
 | [prefer-add-event-listener](/docs/guide/usage/linter/rules/unicorn/prefer-add-event-listener.html)                              | unicorn    |         | 🚧       |
+| [require-module-specifiers](/docs/guide/usage/linter/rules/unicorn/require-module-specifiers.html)                              | unicorn    |         | 🛠️        |
 | [require-post-message-target-origin](/docs/guide/usage/linter/rules/unicorn/require-post-message-target-origin.html)            | unicorn    |         | 💡       |
 | [no-required-prop-with-default](/docs/guide/usage/linter/rules/vue/no-required-prop-with-default.html)                          | vue        |         | 🚧       |
 
-## Pedantic (98):
+## Pedantic (101):
 
 Lints which are rather strict or have occasional false positives.
 
@@ -444,6 +449,7 @@ Lints which are rather strict or have occasional false positives.
 | [no-this-assignment](/docs/guide/usage/linter/rules/unicorn/no-this-assignment.html)                                           | unicorn    |         |          |
 | [no-typeof-undefined](/docs/guide/usage/linter/rules/unicorn/no-typeof-undefined.html)                                         | unicorn    |         | 🚧       |
 | [no-unnecessary-array-flat-depth](/docs/guide/usage/linter/rules/unicorn/no-unnecessary-array-flat-depth.html)                 | unicorn    |         | 🚧       |
+| [no-unnecessary-array-splice-count](/docs/guide/usage/linter/rules/unicorn/no-unnecessary-array-splice-count.html)             | unicorn    |         | 🛠️        |
 | [no-unnecessary-slice-end](/docs/guide/usage/linter/rules/unicorn/no-unnecessary-slice-end.html)                               | unicorn    |         | 🛠️        |
 | [no-unreadable-iife](/docs/guide/usage/linter/rules/unicorn/no-unreadable-iife.html)                                           | unicorn    |         |          |
 | [no-useless-promise-resolve-reject](/docs/guide/usage/linter/rules/unicorn/no-useless-promise-resolve-reject.html)             | unicorn    |         | 🛠️        |
@@ -451,6 +457,7 @@ Lints which are rather strict or have occasional false positives.
 | [no-useless-undefined](/docs/guide/usage/linter/rules/unicorn/no-useless-undefined.html)                                       | unicorn    |         | 🛠️        |
 | [prefer-array-flat](/docs/guide/usage/linter/rules/unicorn/prefer-array-flat.html)                                             | unicorn    |         | ⚠️🛠️️       |
 | [prefer-array-some](/docs/guide/usage/linter/rules/unicorn/prefer-array-some.html)                                             | unicorn    |         | 🛠️        |
+| [prefer-at](/docs/guide/usage/linter/rules/unicorn/prefer-at.html)                                                             | unicorn    |         | ⚠️🛠️️       |
 | [prefer-blob-reading-methods](/docs/guide/usage/linter/rules/unicorn/prefer-blob-reading-methods.html)                         | unicorn    |         | 🚧       |
 | [prefer-code-point](/docs/guide/usage/linter/rules/unicorn/prefer-code-point.html)                                             | unicorn    |         | 🛠️        |
 | [prefer-date-now](/docs/guide/usage/linter/rules/unicorn/prefer-date-now.html)                                                 | unicorn    |         | 🛠️        |
@@ -466,10 +473,11 @@ Lints which are rather strict or have occasional false positives.
 | [prefer-regexp-test](/docs/guide/usage/linter/rules/unicorn/prefer-regexp-test.html)                                           | unicorn    |         | 🛠️        |
 | [prefer-string-replace-all](/docs/guide/usage/linter/rules/unicorn/prefer-string-replace-all.html)                             | unicorn    |         | 🛠️        |
 | [prefer-string-slice](/docs/guide/usage/linter/rules/unicorn/prefer-string-slice.html)                                         | unicorn    |         | 🛠️        |
+| [prefer-top-level-await](/docs/guide/usage/linter/rules/unicorn/prefer-top-level-await.html)                                   | unicorn    |         |          |
 | [prefer-type-error](/docs/guide/usage/linter/rules/unicorn/prefer-type-error.html)                                             | unicorn    |         | 🛠️        |
 | [require-number-to-fixed-digits-argument](/docs/guide/usage/linter/rules/unicorn/require-number-to-fixed-digits-argument.html) | unicorn    |         | 🛠️        |
 
-## Style (161):
+## Style (164):
 
 Code that should be written in a more idiomatic way.
 
@@ -612,6 +620,8 @@ Code that should be written in a more idiomatic way.
 | [number-literal-case](/docs/guide/usage/linter/rules/unicorn/number-literal-case.html)                                   | unicorn    |         | 🛠️        |
 | [numeric-separators-style](/docs/guide/usage/linter/rules/unicorn/numeric-separators-style.html)                         | unicorn    |         | 🛠️        |
 | [prefer-array-index-of](/docs/guide/usage/linter/rules/unicorn/prefer-array-index-of.html)                               | unicorn    |         | 🚧       |
+| [prefer-class-fields](/docs/guide/usage/linter/rules/unicorn/prefer-class-fields.html)                                   | unicorn    |         | 🛠️💡      |
+| [prefer-classlist-toggle](/docs/guide/usage/linter/rules/unicorn/prefer-classlist-toggle.html)                           | unicorn    |         | 🛠️        |
 | [prefer-dom-node-text-content](/docs/guide/usage/linter/rules/unicorn/prefer-dom-node-text-content.html)                 | unicorn    |         | 🛠️        |
 | [prefer-global-this](/docs/guide/usage/linter/rules/unicorn/prefer-global-this.html)                                     | unicorn    |         | 🚧       |
 | [prefer-includes](/docs/guide/usage/linter/rules/unicorn/prefer-includes.html)                                           | unicorn    |         | 🚧       |
@@ -635,6 +645,7 @@ Code that should be written in a more idiomatic way.
 | [prefer-to-be-truthy](/docs/guide/usage/linter/rules/vitest/prefer-to-be-truthy.html)                                    | vitest     |         | 🛠️        |
 | [define-emits-declaration](/docs/guide/usage/linter/rules/vue/define-emits-declaration.html)                             | vue        |         | 🚧       |
 | [define-props-declaration](/docs/guide/usage/linter/rules/vue/define-props-declaration.html)                             | vue        |         |          |
+| [define-props-destructuring](/docs/guide/usage/linter/rules/vue/define-props-destructuring.html)                         | vue        |         |          |
 | [require-typed-ref](/docs/guide/usage/linter/rules/vue/require-typed-ref.html)                                           | vue        |         |          |
 
 ## Nursery (9):
