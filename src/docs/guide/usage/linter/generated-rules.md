@@ -2,7 +2,7 @@
 
 The progress of all rule implementations is tracked [here](https://github.com/oxc-project/oxc/issues/481).
 
-- Total number of rules: 602
+- Total number of rules: 604
 - Rules turned on by default: 103
 
 **Legend for 'Fixable?' column:**
@@ -235,7 +235,7 @@ Code that can be written to run faster.
 | [prefer-array-flat-map](/docs/guide/usage/linter/rules/unicorn/prefer-array-flat-map.html)                | unicorn    |         | 🛠️        |
 | [prefer-set-has](/docs/guide/usage/linter/rules/unicorn/prefer-set-has.html)                              | unicorn    |         | ⚠️🛠️️       |
 
-## Restriction (74):
+## Restriction (75):
 
 Lints which prevent the use of language and library features. Must not be enabled as a whole, should be considered on a case-by-case basis before enabling.
 
@@ -314,9 +314,10 @@ Lints which prevent the use of language and library features. Must not be enable
 | [prefer-node-protocol](/docs/guide/usage/linter/rules/unicorn/prefer-node-protocol.html)                                          | unicorn    |         | 🛠️        |
 | [prefer-number-properties](/docs/guide/usage/linter/rules/unicorn/prefer-number-properties.html)                                  | unicorn    |         | ⚠️🛠️️       |
 | [max-props](/docs/guide/usage/linter/rules/vue/max-props.html)                                                                    | vue        |         |          |
+| [no-import-compiler-macros](/docs/guide/usage/linter/rules/vue/no-import-compiler-macros.html)                                    | vue        |         | ⚠️🛠️️       |
 | [no-multiple-slot-args](/docs/guide/usage/linter/rules/vue/no-multiple-slot-args.html)                                            | vue        |         | 🚧       |
 
-## Suspicious (46):
+## Suspicious (47):
 
 code that is most likely wrong or useless.
 
@@ -368,6 +369,7 @@ code that is most likely wrong or useless.
 | [require-module-specifiers](/docs/guide/usage/linter/rules/unicorn/require-module-specifiers.html)                              | unicorn    |         | 🛠️        |
 | [require-post-message-target-origin](/docs/guide/usage/linter/rules/unicorn/require-post-message-target-origin.html)            | unicorn    |         | 💡       |
 | [no-required-prop-with-default](/docs/guide/usage/linter/rules/vue/no-required-prop-with-default.html)                          | vue        |         | 🚧       |
+| [require-default-export](/docs/guide/usage/linter/rules/vue/require-default-export.html)                                        | vue        |         |          |
 
 ## Pedantic (101):
 
