@@ -151,6 +151,9 @@ default: `null`
 
 JS plugins.
 
+Note: JS plugins are experimental and not subject to semver.
+They are not supported in language server at present.
+
 ## overrides
 
 type: `array`
@@ -170,6 +173,9 @@ A set of glob patterns.
 type: `string[]`
 
 JS plugins for this override.
+
+Note: JS plugins are experimental and not subject to semver.
+They are not supported in language server at present.
 
 #### overrides[n].rules
 
