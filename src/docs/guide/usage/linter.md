@@ -115,7 +115,7 @@ $ yarn add -D oxlint-tsgolint@latest
 ```
 
 ```sh [bun]
-$ bunx add -D oxlint-tsgolint@latest
+$ bun add -D oxlint-tsgolint@latest
 ```
 
 :::
