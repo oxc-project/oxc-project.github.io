@@ -2,7 +2,7 @@
 
 The progress of all rule implementations is tracked [here](https://github.com/oxc-project/oxc/issues/481).
 
-- Total number of rules: 604
+- Total number of rules: 605
 - Rules turned on by default: 103
 
 **Legend for 'Fixable?' column:**
@@ -650,7 +650,7 @@ Code that should be written in a more idiomatic way.
 | [define-props-destructuring](/docs/guide/usage/linter/rules/vue/define-props-destructuring.html)                         | vue        |         |          |
 | [require-typed-ref](/docs/guide/usage/linter/rules/vue/require-typed-ref.html)                                           | vue        |         |          |
 
-## Nursery (9):
+## Nursery (10):
 
 New lints that are still under development.
 
@@ -662,6 +662,7 @@ New lints that are still under development.
 | [no-unreachable](/docs/guide/usage/linter/rules/eslint/no-unreachable.html)                               | eslint  |         |          |
 | [export](/docs/guide/usage/linter/rules/import/export.html)                                               | import  |         |          |
 | [named](/docs/guide/usage/linter/rules/import/named.html)                                                 | import  |         |          |
+| [branches-sharing-code](/docs/guide/usage/linter/rules/oxc/branches-sharing-code.html)                    | oxc     |         |          |
 | [no-map-spread](/docs/guide/usage/linter/rules/oxc/no-map-spread.html)                                    | oxc     |         | 🛠️💡      |
 | [no-return-in-finally](/docs/guide/usage/linter/rules/promise/no-return-in-finally.html)                  | promise |         |          |
 | [require-render-return](/docs/guide/usage/linter/rules/react/require-render-return.html)                  | react   |         |          |
