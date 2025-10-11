@@ -93,12 +93,11 @@ plan`](https://github.com/oxc-project/oxc/issues/481) issue on GitHub.
 | `promise`    |          | [#4655](https://github.com/oxc-project/oxc/issues/4655)                                                          | Rules from [`eslint-plugin-promise`](https://github.com/eslint-community/eslint-plugin-promise)                                                                                  |
 | `jest`       |          | [#492](https://github.com/oxc-project/oxc/issues/492)                                                            | Rules from [`eslint-plugin-jest`](https://github.com/jest-community/eslint-plugin-jest)                                                                                          |
 | `vitest`     |          | [#4656](https://github.com/oxc-project/oxc/issues/4656)                                                          | Rules from [`eslint-plugin-vitest`](https://github.com/vitest-dev/eslint-plugin-vitest)                                                                                          |
+| `vue`        |          | [#11440](https://github.com/oxc-project/oxc/issues/11440)                                                        | Rules from [`eslint-plugin-vue`](https://github.com/vuejs/eslint-plugin-vue) that work with `<script>` tags                                                                      |
 
 ## Adding New Plugins
 
 Do you have a favorite ESLint plugin that you'd like to see supported in Oxlint?
 Please open [a feature request](https://github.com/oxc-project/oxc/issues/new?assignees=&labels=C-enhancement%2CA-linter&projects=&template=feature_request.md&title=linter:%20support%20my%20favorite%20plugin).
-Please be aware that we have no plans on supporting rules in plugins that require special
-parsers, such as `eslint-plugin-vue` and `eslint-plugin-svelte`, though we are
-open to supporting rules in these plugins that only affect script tags in their
-source files.
+Please be aware that for plugins that require special parsers, such as `eslint-plugin-vue`
+and `eslint-plugin-svelte`, we support linting the `<script>` sections of those files.
