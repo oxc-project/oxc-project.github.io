@@ -7,7 +7,7 @@ Read our [technical preview announcement](/blog/2025-08-17-oxlint-type-aware) fo
 ::: code-group
 
 ```sh [npm]
-npx add -D oxlint-tsgolint@latest
+npm add -D oxlint-tsgolint@latest
 ```
 
 ```sh [pnpm]
