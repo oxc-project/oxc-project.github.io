@@ -2,7 +2,7 @@
 
 The progress of all rule implementations is tracked [here](https://github.com/oxc-project/oxc/issues/481).
 
-- Total number of rules: 605
+- Total number of rules: 607
 - Rules turned on by default: 103
 
 **Legend for 'Fixable?' column:**
@@ -235,7 +235,7 @@ Code that can be written to run faster.
 | [prefer-array-flat-map](/docs/guide/usage/linter/rules/unicorn/prefer-array-flat-map.html)                | unicorn    |         | 🛠️        |
 | [prefer-set-has](/docs/guide/usage/linter/rules/unicorn/prefer-set-has.html)                              | unicorn    |         | ⚠️🛠️️       |
 
-## Restriction (75):
+## Restriction (77):
 
 Lints which prevent the use of language and library features. Must not be enabled as a whole, should be considered on a case-by-case basis before enabling.
 
@@ -273,6 +273,7 @@ Lints which prevent the use of language and library features. Must not be enable
 | [empty-tags](/docs/guide/usage/linter/rules/jsdoc/empty-tags.html)                                                                | jsdoc      |         |          |
 | [anchor-ambiguous-text](/docs/guide/usage/linter/rules/jsx_a11y/anchor-ambiguous-text.html)                                       | jsx_a11y   |         |          |
 | [no-new-require](/docs/guide/usage/linter/rules/node/no-new-require.html)                                                         | node       |         |          |
+| [no-process-env](/docs/guide/usage/linter/rules/node/no-process-env.html)                                                         | node       |         |          |
 | [bad-bitwise-operator](/docs/guide/usage/linter/rules/oxc/bad-bitwise-operator.html)                                              | oxc        |         |          |
 | [no-async-await](/docs/guide/usage/linter/rules/oxc/no-async-await.html)                                                          | oxc        |         |          |
 | [no-barrel-file](/docs/guide/usage/linter/rules/oxc/no-barrel-file.html)                                                          | oxc        |         |          |
@@ -286,6 +287,7 @@ Lints which prevent the use of language and library features. Must not be enable
 | [jsx-filename-extension](/docs/guide/usage/linter/rules/react/jsx-filename-extension.html)                                        | react      |         | 🚧       |
 | [no-danger](/docs/guide/usage/linter/rules/react/no-danger.html)                                                                  | react      |         |          |
 | [no-unknown-property](/docs/guide/usage/linter/rules/react/no-unknown-property.html)                                              | react      |         | 🚧       |
+| [only-export-components](/docs/guide/usage/linter/rules/react/only-export-components.html)                                        | react      |         |          |
 | [explicit-function-return-type](/docs/guide/usage/linter/rules/typescript/explicit-function-return-type.html)                     | typescript |         |          |
 | [explicit-module-boundary-types](/docs/guide/usage/linter/rules/typescript/explicit-module-boundary-types.html)                   | typescript |         |          |
 | [no-dynamic-delete](/docs/guide/usage/linter/rules/typescript/no-dynamic-delete.html)                                             | typescript |         |          |
