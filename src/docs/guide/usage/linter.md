@@ -15,9 +15,13 @@ Oxlint is designed to catch erroneous or useless code without requiring any conf
 :::info
 At this stage, Oxlint can be used to fully replace ESLint in small to medium projects.
 
-For larger projects, our advice is to turn off ESLint rules via
+For larger projects, our current advice is to turn off ESLint rules via
 [eslint-plugin-oxlint](https://www.npmjs.com/package/eslint-plugin-oxlint),
 and run Oxlint before ESLint in your local or CI setup for a quicker feedback loop.
+
+Oxlint now supports JS plugins with an ESLint-compatible API. JS plugins support is currently experimental but,
+once stabilized, users will be able to migrate fully to Oxlint, running any ESLint rules/plugins that Oxlint
+doesn't support natively as JS plugins.
 :::
 
 ## Features
@@ -33,6 +37,7 @@ and run Oxlint before ESLint in your local or CI setup for a quicker feedback lo
   - [Nested configuration file](./linter/nested-config)
   - [Comment disabling](./linter/config.html#configuring-rules-via-inline-configuration-comments).
   - [Automatic Fixes](./linter/automatic-fixes)
+  - [JS plugins](./linter/js-plugins) (experimental)
 
 ## Language Support
 
