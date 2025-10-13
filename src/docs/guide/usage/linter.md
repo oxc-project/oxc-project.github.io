@@ -28,10 +28,10 @@ and run Oxlint before ESLint in your local or CI setup for a quicker feedback lo
   `eslint-plugin-jest`, `eslint-plugin-unicorn`, `eslint-plugin-jsx-a11y` and
   [many more](https://github.com/oxc-project/oxc/issues/481).
 - Supports
-  - [type-aware rules](./linter/type-aware).
-  - [`.oxlintrc.json` configuration file](./linter/config).
+  - [type-aware rules](./linter/type-aware)
+  - [`.oxlintrc.json` configuration file](./linter/config)
   - [Nested configuration file](./linter/nested-config)
-  - [Comment disabling](./linter/config.html#configuring-rules-via-inline-configuration-comments).
+  - [Comment disabling](./linter/config.html#configuring-rules-via-inline-configuration-comments)
   - [Automatic Fixes](./linter/automatic-fixes)
 
 ## Language Support
@@ -42,7 +42,7 @@ and run Oxlint before ESLint in your local or CI setup for a quicker feedback lo
   - [type-aware rules](https://typescript-eslint.io/getting-started/typed-linting) defined by
     `typescript-eslint` (preview, requires `--type-aware` flag and `oxlint-tsgolint` package).
 - No support for:
-  - [stylistic rules](https://eslint.style).
+  - [stylistic rules](https://eslint.style)
 
 ## Installation
 
