@@ -81,6 +81,26 @@ export * as something from "module";
 export * from "module";
 ```
 
+#### allowSeparateTypeImports
+
+`{ type: boolean, default: false }`
+
+When `true`, imports with only type specifiers (inline types or type imports) are
+considered separate from imports with value specifiers, so they can be imported from the
+same module on separate import statements.
+
+Examples of **correct** code when `allowSeparateTypeImports` is set to `true`:
+
+```js
+import { foo } from "module";
+import type { Bar } from "module";
+```
+
+```js
+import { type Foo } from "module";
+import type { Bar } from "module";
+```
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:
