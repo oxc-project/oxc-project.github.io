@@ -108,7 +108,7 @@ Oxlint supports type-aware rules in preview mode. To enable type-aware linting:
 ::: code-group
 
 ```sh [npm]
-$ npx add -D oxlint-tsgolint@latest
+$ npm add -D oxlint-tsgolint@latest
 ```
 
 ```sh [pnpm]
