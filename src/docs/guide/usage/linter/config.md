@@ -238,7 +238,7 @@ The primary way of specifying files to process is by passing a file path as an a
 - `.svelte` _\*_
 - `.vue` _\*_
 
-_\*Note: Supports only the `<script>` content, ignores the rest_
+_\*Note: Supports only the `<script>` content, ignores the rest. For Astro, both the frontmatter and component script are linted._
 
 ### Ignoring files
 
