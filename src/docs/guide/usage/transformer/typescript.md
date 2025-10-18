@@ -73,7 +73,7 @@ const result = transform("lib.ts", sourceCode, {
 
 ## TSX
 
-Transforming TSX files are supported as well.
+Transforming TSX files is supported as well.
 See [JSX transform](./jsx) for more information.
 
 ## Rewriting import extensions
