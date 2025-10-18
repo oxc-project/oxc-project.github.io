@@ -53,6 +53,11 @@ Install CMake by downloading from the official [website](https://cmake.org/downl
 brew install cmake
 ```
 
+### Install pnpm
+
+Install `pnpm` (a package manager for node.js, similar to `npm`) by following instructions from the official [website](https://pnpm.io/installation).
+
+
 #### Dependencies
 
 Run the following command in `justfile` at the project root to install dependencies:
