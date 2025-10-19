@@ -217,46 +217,62 @@ The reasons why this alternative API has potential to greatly improve performanc
 
 ## Performance
 
-As mentioned above, performance is not yet as good as it can be. Our prototyping work has demonstrated significant
-speed-gains from various optimizations, which we'll apply in future releases.
+As mentioned above, performance has not been our focus in this initial preview release of Oxlint JS plugins.
+Our primary goal has been to fill out enough of the API for JS plugins to be useful in real world projects,
+and gather feedback from early adopters.
 
-However, even without all those optimizations, the cost of adding JS plugins into the mix is already surprisingly low.
+Performance at present is decent, but not by any means stellar.
+
+However - and we feel this is the important point - our prototype of the _next_ version demonstrates that the
+architectural design we've settled on is capable of _exceptional_ performance, once various optimizations are added
+into the mix (see [Under the hood](#under-the-hood)).
+
+We'll be applying those optimization over the course of the next few months, and users will see multiple x speed-ups
+compared to the current version.
+
+That said, even without those optimizations, Oxlint's performance is still competitive.
 
 Oxlint vs ESLint linting a medium-sized TypeScript project [vuejs/core](https://github.com/vuejs/core):
 
 | Linter                       | Time     |
 | ---------------------------- | -------- |
-| ESLint                       | 7,030 ms |
-| ESLint multi-threaded        | 4,541 ms |
-| Oxlint                       | 582 ms   |
-| Oxlint with custom JS plugin | 584 ms   |
+| ESLint                       | 4,116 ms |
+| ESLint multi-threaded        | 3,710 ms |
+| Oxlint                       | 48 ms    |
+| Oxlint with custom JS plugin | 236 ms   |
 
 <div>
 <details>
 <summary>Details</summary>
 
-- Benchmark repo: https://github.com/camc314/core/tree/c/bench-custom-plugins
-- Benchmarked on 2023 MacBook Pro M2 Max
+:::info
+
+- Benchmark repo: https://github.com/overlookmotel/vue-core-cam/tree/bench-js-plugins
+- Benchmarked on MacBook Air M3, 24GB RAM
 - Bench command:
 
 ```sh
-hyperfine \
-  --warmup 1 \
-  --runs 5 \
-  'pnpm run oxlint' \
-  'pnpm run oxlint-with-custom-plugin' \
-  'pnpm run eslint-with-custom-plugin' \
-  'pnpm run eslint-with-custom-plugin-parallel' -i
+hyperfine -i --warmup 3 \
+  './node_modules/.bin/oxlint --silent' \
+  './node_modules/.bin/oxlint -c .oxlintrc-with-custom-plugin.json --silent' \
+  'USE_CUSTOM_PLUGIN=true ./node_modules/.bin/eslint .' \
+  'USE_CUSTOM_PLUGIN=true ./node_modules/.bin/eslint . --concurrency=auto'
 ```
+
+Note: The version of Oxlint on NPM at time of writing (1.23.0) has a bug which affects this benchmark, and hugely
+underestimates the cost of JS plugins. The above results were obtained using latest `main` branch, after the bug fix,
+at [this commit](https://github.com/oxc-project/oxc/commit/cd266b4c101c35c33e122457cdd0b514b44597a9).
+Please also see [below](#edit-18th-oct-2025).
+
+:::
 
 </details>
 </div>
 
-In this example, the cost of adding a simple JS plugin to Oxlint is less than 1%, and Oxlint is 8x faster than ESLint,
-even using ESLint's new multi-threaded runner.
+In this example, adding a simple JS plugin to Oxlint does have a significant cost, but Oxlint is still 15x faster
+than ESLint, even using ESLint's new multi-threaded runner.
 
-Obviously, more complicated JS plugins, or many of them, will have a higher performance cost - which is why we will
-be focused in future releases on driving down that cost further.
+Obviously, more complicated JS plugins, or many of them, will have a higher performance cost.
 
 ## Features
 
@@ -293,7 +309,7 @@ plugin without modification.
 
 #### 2. Improving performance
 
-Performance is already good, but we have proven during our prototyping many significant performance gains from further
+Performance is already decent, but we have proven during our prototyping many significant performance gains from further
 optimizations. We will apply them, and make JS plugins in Oxlint run at as close to Rust speed as we can get.
 
 ## Under the hood
@@ -380,3 +396,15 @@ please let us know. We'll be filling in the gaps in the API over the next few mo
 which there's greatest demand.
 
 Happy linting!
+
+---
+
+#### Edit: 18th Oct 2025
+
+The original version of this blog post published on 9th Oct contained benchmarks results which showed the performance
+of Oxlint JS plugins to be far better than they are in reality. This was the result of a bug in Oxlint which was causing
+JS plugins to be skipped on many files in certain circumstances when the config contains overrides. This bug lead to
+the performance of JS plugins being way overestimated in the benchmarks we quoted.
+
+We sincerely apologise for this mistake, and thank [Herrington Darkholme](https://github.com/HerringtonDarkholme)
+for pointing out the error.
