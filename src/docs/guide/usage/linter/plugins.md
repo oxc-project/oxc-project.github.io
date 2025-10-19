@@ -100,4 +100,4 @@ plan`](https://github.com/oxc-project/oxc/issues/481) issue on GitHub.
 Do you have a favorite ESLint plugin that you'd like to see supported in Oxlint?
 Please open [a feature request](https://github.com/oxc-project/oxc/issues/new?assignees=&labels=C-enhancement%2CA-linter&projects=&template=feature_request.md&title=linter:%20support%20my%20favorite%20plugin).
 Please be aware that for plugins that require special parsers, such as `eslint-plugin-vue`
-and `eslint-plugin-svelte`, we support linting the `<script>` sections of those files.
+and `eslint-plugin-svelte`, we only support linting the `<script>` sections of those files.
