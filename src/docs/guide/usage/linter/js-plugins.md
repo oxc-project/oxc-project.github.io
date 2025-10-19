@@ -8,6 +8,9 @@ Oxlint supports plugins written in JS - either custom-written, or from NPM.
 
 Oxlint's plugin API is compatible with ESLint, so many existing ESLint plugins should work out of the box with Oxlint.
 
+We are working towards implementing _all_ of ESLint's plugin APIs, and Oxlint will eventually be able to run
+_any_ ESLint plugin.
+
 :::warning
 JS plugins are currently in technical preview, and remain under heavy development.
 Not all of ESLint's plugin API is implemented yet (see [here](#api-support)).
@@ -16,8 +19,14 @@ All APIs which _are_ implemented should behave identically to ESLint. If you fin
 that's a bug - please [report it](https://github.com/oxc-project/oxc/issues/new?template=linter_bug_report.yaml).
 :::
 
-We are working towards implementing _all_ of ESLint's plugin APIs, and Oxlint will eventually be able to run
-_any_ ESLint plugin.
+:::warning
+Some users have reported [out-of-memory errors on Windows](https://github.com/oxc-project/oxc/issues/14375).
+This is due to how Windows manages virtual memory, which does not interface well with Oxlint's "raw transfer" method
+of communicating between Rust and JS.
+
+We are working on a fix. In meantime, if you hit this error, we recommend using
+[WSL](https://learn.microsoft.com/en-us/windows/wsl/) on Windows.
+:::
 
 ## Using JS plugins
 
