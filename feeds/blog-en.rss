@@ -4,7 +4,7 @@
         <title>The Oxidation Compiler Blog</title>
         <link>https://oxc.rs</link>
         <description>undefined</description>
-        <lastBuildDate>Sat, 18 Oct 2025 06:22:38 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 19 Oct 2025 01:40:38 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
@@ -1463,9 +1463,16 @@ whereas <code>createOnce</code> is called once only.</p>
 <p>The reasons why this alternative API has potential to greatly improve performance are explained in
 <a href="/docs/guide/usage/linter/js-plugins.html#why-is-the-alternative-api-faster">the docs</a>.</p>
 <h2 id="performance" tabindex="-1">Performance <a class="header-anchor" href="#performance" aria-label="Permalink to “Performance”">&#8203;</a></h2>
-<p>As mentioned above, performance is not yet as good as it can be. Our prototyping work has demonstrated significant
-speed-gains from various optimizations, which we'll apply in future releases.</p>
-<p>However, even without all those optimizations, the cost of adding JS plugins into the mix is already surprisingly low.</p>
+<p>As mentioned above, performance has not been our focus in this initial preview release of Oxlint JS plugins.
+Our primary goal has been to fill out enough of the API for JS plugins to be useful in real world projects,
+and gather feedback from early adopters.</p>
+<p>Performance at present is decent, but not by any means stellar.</p>
+<p>However - and we feel this is the important point - our prototype of the <em>next</em> version demonstrates that the
+architectural design we've settled on is capable of <em>exceptional</em> performance, once various optimizations are added
+into the mix (see <a href="#under-the-hood">Under the hood</a>).</p>
+<p>We'll be applying those optimization over the course of the next few months, and users will see multiple x speed-ups
+compared to the current version.</p>
+<p>That said, even without those optimizations, Oxlint's performance is still competitive.</p>
 <p>Oxlint vs ESLint linting a medium-sized TypeScript project <a href="https://github.com/vuejs/core" target="_blank" rel="noreferrer">vuejs/core</a>:</p>
 <table tabindex="0">
 <thead>
@@ -1477,43 +1484,46 @@ speed-gains from various optimizations, which we'll apply in future releases.</p
 <tbody>
 <tr>
 <td>ESLint</td>
-<td>7,030 ms</td>
+<td>4,116 ms</td>
 </tr>
 <tr>
 <td>ESLint multi-threaded</td>
-<td>4,541 ms</td>
+<td>3,710 ms</td>
 </tr>
 <tr>
 <td>Oxlint</td>
-<td>582 ms</td>
+<td>48 ms</td>
 </tr>
 <tr>
 <td>Oxlint with custom JS plugin</td>
-<td>584 ms</td>
+<td>236 ms</td>
 </tr>
 </tbody>
 </table>
 <div>
 <details>
 <summary>Details</summary>
+<div  class="info custom-block"><p class="custom-block-title custom-block-title-default">INFO</p>
 <ul>
-<li>Benchmark repo: <a href="https://github.com/camc314/core/tree/c/bench-custom-plugins" target="_blank" rel="noreferrer">https://github.com/camc314/core/tree/c/bench-custom-plugins</a></li>
-<li>Benchmarked on 2023 MacBook Pro M2 Max</li>
+<li>Benchmark repo: <a href="https://github.com/overlookmotel/vue-core-cam/tree/bench-js-plugins" target="_blank" rel="noreferrer">https://github.com/overlookmotel/vue-core-cam/tree/bench-js-plugins</a></li>
+<li>Benchmarked on MacBook Air M3, 24GB RAM</li>
 <li>Bench command:</li>
 </ul>
-<div class="language-sh"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" dir="ltr" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">hyperfine</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> \</span></span>
-<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">  --warmup</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 1</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> \</span></span>
-<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">  --runs</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 5</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> \</span></span>
-<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">  'pnpm run oxlint'</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> \</span></span>
-<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">  'pnpm run oxlint-with-custom-plugin'</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> \</span></span>
-<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">  'pnpm run eslint-with-custom-plugin'</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> \</span></span>
-<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">  'pnpm run eslint-with-custom-plugin-parallel'</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -i</span></span></code></pre>
-</div></details>
+<div class="language-sh"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" dir="ltr" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">hyperfine</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -i</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> --warmup</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 3</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> \</span></span>
+<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">  './node_modules/.bin/oxlint --silent'</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> \</span></span>
+<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">  './node_modules/.bin/oxlint -c .oxlintrc-with-custom-plugin.json --silent'</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> \</span></span>
+<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">  'USE_CUSTOM_PLUGIN=true ./node_modules/.bin/eslint .'</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> \</span></span>
+<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">  'USE_CUSTOM_PLUGIN=true ./node_modules/.bin/eslint . --concurrency=auto'</span></span></code></pre>
+</div><p>Note: The version of Oxlint on NPM at time of writing (1.23.0) has a bug which affects this benchmark, and hugely
+underestimates the cost of JS plugins. The above results were obtained using latest <code>main</code> branch, after the bug fix,
+at <a href="https://github.com/oxc-project/oxc/commit/cd266b4c101c35c33e122457cdd0b514b44597a9" target="_blank" rel="noreferrer">this commit</a>.
+Please also see <a href="#edit-18th-oct-2025">below</a>.</p>
 </div>
-<p>In this example, the cost of adding a simple JS plugin to Oxlint is less than 1%, and Oxlint is 8x faster than ESLint,
-even using ESLint's new multi-threaded runner.</p>
-<p>Obviously, more complicated JS plugins, or many of them, will have a higher performance cost - which is why we will
-be focused in future releases on driving down that cost further.</p>
+</details>
+</div>
+<p>In this example, adding a simple JS plugin to Oxlint does have a significant cost, but Oxlint is still 15x faster
+than ESLint, even using ESLint's new multi-threaded runner.</p>
+<p>Obviously, more complicated JS plugins, or many of them, will have a higher performance cost.</p>
 <h2 id="features" tabindex="-1">Features <a class="header-anchor" href="#features" aria-label="Permalink to “Features”">&#8203;</a></h2>
 <p>Oxlint supports most of ESLint's APIs which are typically used in plugins/rules which rely only on AST inspection.
 That includes most &quot;fix code&quot;-type rules.</p>
@@ -1541,7 +1551,7 @@ That includes most &quot;fix code&quot;-type rules.</p>
 <p>Aim is to support 100% of ESLint's plugin API surface, so that Oxlint will eventually be able to run <em>any</em> ESLint
 plugin without modification.</p>
 <h4 id="_2-improving-performance" tabindex="-1">2. Improving performance <a class="header-anchor" href="#_2-improving-performance" aria-label="Permalink to “2. Improving performance”">&#8203;</a></h4>
-<p>Performance is already good, but we have proven during our prototyping many significant performance gains from further
+<p>Performance is already decent, but we have proven during our prototyping many significant performance gains from further
 optimizations. We will apply them, and make JS plugins in Oxlint run at as close to Rust speed as we can get.</p>
 <h2 id="under-the-hood" tabindex="-1">Under the hood <a class="header-anchor" href="#under-the-hood" aria-label="Permalink to “Under the hood”">&#8203;</a></h2>
 <p>The rest of this post is not necessary to use JS plugins with Oxlint. But if you're interested in the geeky details
@@ -1601,6 +1611,14 @@ received.</p>
 please let us know. We'll be filling in the gaps in the API over the next few months, and will prioritise those for
 which there's greatest demand.</p>
 <p>Happy linting!</p>
+<hr>
+<h4 id="edit-18th-oct-2025" tabindex="-1">Edit: 18th Oct 2025 <a class="header-anchor" href="#edit-18th-oct-2025" aria-label="Permalink to “Edit: 18th Oct 2025”">&#8203;</a></h4>
+<p>The original version of this blog post published on 9th Oct contained benchmarks results which showed the performance
+of Oxlint JS plugins to be far better than they are in reality. This was the result of a bug in Oxlint which was causing
+JS plugins to be skipped on many files in certain circumstances when the config contains overrides. This bug lead to
+the performance of JS plugins being way overestimated in the benchmarks we quoted.</p>
+<p>We sincerely apologise for this mistake, and thank <a href="https://github.com/HerringtonDarkholme" target="_blank" rel="noreferrer">Herrington Darkholme</a>
+for pointing out the error.</p>
 ]]></content:encoded>
         </item>
     </channel>
