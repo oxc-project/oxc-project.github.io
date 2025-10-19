@@ -10,7 +10,7 @@ badges:
 
 <AppBadgeList />
 
-Oxlint is designed to catch erroneous or useless code without requiring any configurations by default.
+Oxlint (`/oh-eks-lint/`) is designed to catch erroneous or useless code without requiring any configurations by default.
 
 :::info
 At this stage, Oxlint can be used to fully replace ESLint in small to medium projects.
