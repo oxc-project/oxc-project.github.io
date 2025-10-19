@@ -7,7 +7,7 @@ outline: deep
 
 ## Overview
 
-The JavaScript Oxidation Compiler (Oxc) is a collection of high-performance tools for the JavaScript language written in Rust.
+Oxc (each letter is individually pronounced, `/oh-eks-see/`) is the JavaScript Oxidation Compiler, a collection of high-performance tools for the JavaScript language written in Rust.
 
 Our focus lies in constructing essential compiler tools for JavaScript: parser, linter, formatter, transpiler, minifier and resolver.
 
