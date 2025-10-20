@@ -41,9 +41,9 @@ Add the snippet below to your Renovate config to let it keep Oxlint automaticall
       "matchPackageNames": ["oxlint"],
       "groupName": "oxlint",
       "automergeType": "branch", // or "pr"
-      "stabilityDays": 1 // wait 24 h to catch regressions
-    }
-  ]
+      "stabilityDays": 1, // wait 24 h to catch regressions
+    },
+  ],
 }
 ```
 
