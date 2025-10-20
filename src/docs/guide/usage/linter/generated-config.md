@@ -399,10 +399,10 @@ Example:
         // OtherForm is considered a form component and has an endpoint attribute
         { "name": "OtherForm", "formAttribute": "endpoint" },
         // allows specifying multiple properties if necessary
-        { "name": "Form", "formAttribute": ["registerEndpoint", "loginEndpoint"] }
-      ]
-    }
-  }
+        { "name": "Form", "formAttribute": ["registerEndpoint", "loginEndpoint"] },
+      ],
+    },
+  },
 }
 ```
 
@@ -428,10 +428,10 @@ Example:
         // than `href`.
         { "name": "MyLink", "linkAttribute": "to" },
         // allows specifying multiple properties if necessary
-        { "name": "Link", "linkAttribute": ["to", "href"] }
-      ]
-    }
-  }
+        { "name": "Link", "linkAttribute": ["to", "href"] },
+      ],
+    },
+  },
 }
 ```
 
