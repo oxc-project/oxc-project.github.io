@@ -181,6 +181,23 @@ Examples of **incorrect** code for `/* exported variableName */` operation:
 var global_var = 42;
 ```
 
+### Options
+
+#### ignoreRestSiblings
+
+`{ type: boolean, default: false }`
+
+The `ignoreRestSiblings` option is set to `false` by default, meaning unused siblings of the rest parameter are flagged.
+
+With the option set to `false`, the code below would be flagged.
+
+```javascript
+const { password, ...profile } = user; // `password` is unused.
+return Response.json(profile);
+```
+
+With the option set to `true`, the code would be allowed.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:
