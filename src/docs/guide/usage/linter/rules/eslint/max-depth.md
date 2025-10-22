@@ -91,6 +91,14 @@ Example:
 ]
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### max
+
+type: `integer`
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

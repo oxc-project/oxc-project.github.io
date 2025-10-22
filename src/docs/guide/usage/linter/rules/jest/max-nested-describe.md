@@ -23,7 +23,7 @@ Nesting `describe()` blocks too deeply can make the test suite hard to read and 
 The following patterns are considered warnings (with the default option of
 `{ "max": 5 }`):
 
-/// /// Examples of **incorrect** code for this rule:
+Examples of **incorrect** code for this rule:
 
 ```javascript
 describe("foo", () => {
@@ -95,6 +95,18 @@ describe("foo", function() {
   });
 });
 ```
+
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### max
+
+type: `integer`
+
+default: `5`
+
+Maximum allowed depth of nested describe calls.
 
 ## How to use
 

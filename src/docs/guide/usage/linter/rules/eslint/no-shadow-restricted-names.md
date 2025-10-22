@@ -15,8 +15,8 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 ### What it does
 
-Disallows the redefining of global variables such as `undefined`, `NaN`, `Infinity`, `eval`
-and `arguments`.
+Disallows the redefining of global variables such as `undefined`, `NaN`, `Infinity`,
+`eval`, and `arguments`.
 
 ### Why is this bad?
 
@@ -70,6 +70,18 @@ var undefined;
 ```javascript
 import { undefined as undef } from "bar";
 ```
+
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### reportGlobalThis
+
+type: `boolean`
+
+default: `false`
+
+If true, also report shadowing of `globalThis`.
 
 ## How to use
 

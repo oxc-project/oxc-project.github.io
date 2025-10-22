@@ -32,6 +32,34 @@ function baz(qux) {
 }
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### ignorePropertyModificationsFor
+
+type: `string[]`
+
+default: `[]`
+
+An array of parameter names whose property modifications should be ignored.
+
+### ignorePropertyModificationsForRegex
+
+type: `string[]`
+
+An array of regex patterns (as strings) for parameter names whose property modifications should be ignored.
+Note that this uses [Rust regex syntax](https://docs.rs/regex/latest/regex/) and so may not have all features
+available to JavaScript regexes.
+
+### props
+
+type: `boolean`
+
+default: `false`
+
+When true, also check for modifications to properties of parameters.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

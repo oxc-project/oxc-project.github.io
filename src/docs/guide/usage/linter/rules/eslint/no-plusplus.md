@@ -56,28 +56,27 @@ for (let i = 0; i < l; i++) {
 
 Examples of **correct** code for this rule:
 
-````js
-var x = 0; x += 1;
-var y = 0; y -= 1;
+```js
+var x = 0;
+x += 1;
+var y = 0;
+y -= 1;
 for (let i = 0; i < l; i += 1) {
-   doSomething(i);
+  doSomething(i);
 }
+```
 
-### Options
+## Configuration
 
-#### allowForLoopAfterthoughts
+This rule accepts a configuration object with the following properties:
 
-`{ type: boolean, default: false }`
+### allowForLoopAfterthoughts
 
-Pass `"allowForLoopAfterthoughts": true` to allow `++` and `--` in for loop afterthoughts.
+type: `boolean`
 
-Example:
-```json
-"no-plusplus": [
-  "error",
-  { "allowForLoopAfterthoughts": true }
-]
-````
+default: `false`
+
+Whether to allow `++` and `--` in for loop afterthoughts.
 
 ## How to use
 

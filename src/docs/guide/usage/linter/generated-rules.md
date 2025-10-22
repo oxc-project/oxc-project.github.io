@@ -2,7 +2,7 @@
 
 The progress of all rule implementations is tracked [here](https://github.com/oxc-project/oxc/issues/481).
 
-- Total number of rules: 607
+- Total number of rules: 610
 - Rules turned on by default: 103
 
 **Legend for 'Fixable?' column:**
@@ -235,7 +235,7 @@ Code that can be written to run faster.
 | [prefer-array-flat-map](/docs/guide/usage/linter/rules/unicorn/prefer-array-flat-map.html)                | unicorn    |         | 🛠️        |
 | [prefer-set-has](/docs/guide/usage/linter/rules/unicorn/prefer-set-has.html)                              | unicorn    |         | ⚠️🛠️️       |
 
-## Restriction (77):
+## Restriction (78):
 
 Lints which prevent the use of language and library features. Must not be enabled as a whole, should be considered on a case-by-case basis before enabling.
 
@@ -274,7 +274,7 @@ Lints which prevent the use of language and library features. Must not be enable
 | [anchor-ambiguous-text](/docs/guide/usage/linter/rules/jsx_a11y/anchor-ambiguous-text.html)                                       | jsx_a11y   |         |          |
 | [no-new-require](/docs/guide/usage/linter/rules/node/no-new-require.html)                                                         | node       |         |          |
 | [no-process-env](/docs/guide/usage/linter/rules/node/no-process-env.html)                                                         | node       |         |          |
-| [bad-bitwise-operator](/docs/guide/usage/linter/rules/oxc/bad-bitwise-operator.html)                                              | oxc        |         |          |
+| [bad-bitwise-operator](/docs/guide/usage/linter/rules/oxc/bad-bitwise-operator.html)                                              | oxc        |         | 🚧       |
 | [no-async-await](/docs/guide/usage/linter/rules/oxc/no-async-await.html)                                                          | oxc        |         |          |
 | [no-barrel-file](/docs/guide/usage/linter/rules/oxc/no-barrel-file.html)                                                          | oxc        |         |          |
 | [no-const-enum](/docs/guide/usage/linter/rules/oxc/no-const-enum.html)                                                            | oxc        |         | 🛠️        |
@@ -283,6 +283,7 @@ Lints which prevent the use of language and library features. Must not be enable
 | [catch-or-return](/docs/guide/usage/linter/rules/promise/catch-or-return.html)                                                    | promise    |         |          |
 | [spec-only](/docs/guide/usage/linter/rules/promise/spec-only.html)                                                                | promise    |         |          |
 | [button-has-type](/docs/guide/usage/linter/rules/react/button-has-type.html)                                                      | react      |         |          |
+| [forbid-dom-props](/docs/guide/usage/linter/rules/react/forbid-dom-props.html)                                                    | react      |         |          |
 | [forbid-elements](/docs/guide/usage/linter/rules/react/forbid-elements.html)                                                      | react      |         |          |
 | [jsx-filename-extension](/docs/guide/usage/linter/rules/react/jsx-filename-extension.html)                                        | react      |         | 🚧       |
 | [no-danger](/docs/guide/usage/linter/rules/react/no-danger.html)                                                                  | react      |         |          |
@@ -373,7 +374,7 @@ code that is most likely wrong or useless.
 | [no-required-prop-with-default](/docs/guide/usage/linter/rules/vue/no-required-prop-with-default.html)                          | vue        |         | 🚧       |
 | [require-default-export](/docs/guide/usage/linter/rules/vue/require-default-export.html)                                        | vue        |         |          |
 
-## Pedantic (101):
+## Pedantic (102):
 
 Lints which are rather strict or have occasional false positives.
 
@@ -400,6 +401,7 @@ Lints which are rather strict or have occasional false positives.
 | [no-redeclare](/docs/guide/usage/linter/rules/eslint/no-redeclare.html)                                                        | eslint     |         |          |
 | [no-self-compare](/docs/guide/usage/linter/rules/eslint/no-self-compare.html)                                                  | eslint     |         |          |
 | [no-throw-literal](/docs/guide/usage/linter/rules/eslint/no-throw-literal.html)                                                | eslint     |         | 💡       |
+| [no-warning-comments](/docs/guide/usage/linter/rules/eslint/no-warning-comments.html)                                          | eslint     |         |          |
 | [radix](/docs/guide/usage/linter/rules/eslint/radix.html)                                                                      | eslint     |         | ⚠️🛠️️       |
 | [require-await](/docs/guide/usage/linter/rules/eslint/require-await.html)                                                      | eslint     |         | ⚠️🛠️️       |
 | [sort-vars](/docs/guide/usage/linter/rules/eslint/sort-vars.html)                                                              | eslint     |         | 🚧       |
@@ -652,12 +654,13 @@ Code that should be written in a more idiomatic way.
 | [define-props-destructuring](/docs/guide/usage/linter/rules/vue/define-props-destructuring.html)                         | vue        |         |          |
 | [require-typed-ref](/docs/guide/usage/linter/rules/vue/require-typed-ref.html)                                           | vue        |         |          |
 
-## Nursery (10):
+## Nursery (11):
 
 New lints that are still under development.
 
 | Rule name                                                                                                 | Source  | Default | Fixable? |
 | --------------------------------------------------------------------------------------------------------- | ------- | ------- | -------- |
+| [constructor-super](/docs/guide/usage/linter/rules/eslint/constructor-super.html)                         | eslint  |         |          |
 | [getter-return](/docs/guide/usage/linter/rules/eslint/getter-return.html)                                 | eslint  |         |          |
 | [no-misleading-character-class](/docs/guide/usage/linter/rules/eslint/no-misleading-character-class.html) | eslint  |         |          |
 | [no-undef](/docs/guide/usage/linter/rules/eslint/no-undef.html)                                           | eslint  |         |          |

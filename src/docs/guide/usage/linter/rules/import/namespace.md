@@ -63,6 +63,18 @@ const method = "bar";
 foo[method](); // Valid: method refers to an exported function
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### allowComputed
+
+type: `boolean`
+
+default: `false`
+
+Whether to allow computed references to an imported namespace.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

@@ -147,8 +147,6 @@ Globs to ignore during linting. These are resolved from the configuration file p
 
 type: `string[]`
 
-default: `null`
-
 JS plugins.
 
 Note: JS plugins are experimental and not subject to semver.
