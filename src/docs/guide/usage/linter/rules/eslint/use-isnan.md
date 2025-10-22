@@ -46,6 +46,26 @@ foo <= NaN;
 foo > NaN;
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### enforceForIndexOf
+
+type: `boolean`
+
+default: `false`
+
+Whether to disallow NaN as arguments of `indexOf` and `lastIndexOf`
+
+### enforceForSwitchCase
+
+type: `boolean`
+
+default: `true`
+
+Whether to disallow NaN in switch cases and discriminants
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

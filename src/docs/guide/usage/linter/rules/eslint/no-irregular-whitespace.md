@@ -36,11 +36,11 @@ function example() {
 
 Examples of **correct** code for this rule:
 
-````javascript
+```javascript
 function example() {
-  var foo = 'bar'; // regular spaces only
+  var foo = "bar"; // regular spaces only
 }
-
+```
 
 ## How to use
 
@@ -50,7 +50,7 @@ To **enable** this rule in the CLI or using the config file, you can use:
 
 ```bash [CLI]
 oxlint --deny no-irregular-whitespace
-````
+```
 
 ```json [Config (.oxlintrc.json)]
 {

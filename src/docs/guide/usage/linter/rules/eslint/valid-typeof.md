@@ -47,17 +47,21 @@ typeof foo === baz;
 typeof bar === typeof qux;
 ```
 
-### Options
+## Configuration
 
-#### requireStringLiterals
+This rule accepts a configuration object with the following properties:
 
-`{ type: boolean, default: false }`
+### requireStringLiterals
+
+type: `boolean`
+
+default: `false`
 
 The `requireStringLiterals` option when set to `true`, allows the comparison of `typeof`
 expressions with only string literals or other `typeof` expressions, and disallows
 comparisons to any other value. Default is `false`.
 
-With `requireStringLiterals` set to `true` the following are examples of incorrect code:
+With `requireStringLiterals` set to `true`, the following are examples of **incorrect** code:
 
 ```js
 typeof foo === undefined;
@@ -68,7 +72,7 @@ typeof baz === anotherVariable;
 typeof foo == 5;
 ```
 
-With `requireStringLiterals` set to `true` the following are examples of correct code:
+With `requireStringLiterals` set to `true`, the following are examples of **correct** code:
 
 ```js
 typeof foo === "undefined";

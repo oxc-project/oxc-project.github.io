@@ -18,9 +18,13 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 ### What it does
 
-Disallow unnecessary escape characters
+Disallow unnecessary escape characters.
 
 ### Why is this bad?
+
+Escaping characters unnecessarily has no effect on the behavior of strings or regexes,
+and can make code harder to read and understand by adding unnecessary complexity.
+This applies to string literals, template literals, and regular expressions.
 
 ### Examples
 
@@ -63,6 +67,18 @@ Examples of **correct** code for this rule:
 /[\]]/;
 /[a-z-]/;
 ```
+
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### allowRegexCharacters
+
+type: `string[]`
+
+default: `[]`
+
+An array of characters that are allowed to be escaped unnecessarily in regexes.
 
 ## How to use
 

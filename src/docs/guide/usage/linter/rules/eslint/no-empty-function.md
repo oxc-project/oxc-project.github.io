@@ -19,17 +19,23 @@ Disallows the usages of empty functions
 Empty functions can reduce readability because readers need to guess whether it's
 intentional or not. So writing a clear comment for empty functions is a good practice.
 
-### Configuration
+### Options
 
-You may pass an object containing a list of `allow`ed function kinds.
-For example:
+#### allow
+
+`{ type: string[], default: [] }`
+
+You may pass a list of allowed function kinds, which will allow functions of
+these kinds to be empty.
+
+Example:
 
 ```json
-// oxlint.json
 {
-  "rules": {
-    "no-empty-function": ["error", { "allow": ["functions"] }]
-  }
+  "no-empty-function": [
+    "error",
+    { "allow": ["functions"] }
+  ]
 }
 ```
 

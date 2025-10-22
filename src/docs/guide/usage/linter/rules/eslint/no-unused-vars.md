@@ -181,6 +181,200 @@ Examples of **incorrect** code for `/* exported variableName */` operation:
 var global_var = 42;
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### args
+
+Controls how unused arguments are checked.
+
+This option has three settings:
+
+1. `after-used` - Unused positional arguments that occur before the last
+   used argument will not be checked, but all named arguments and all
+   positional arguments after the last used argument will be checked.
+   This is the default setting.
+2. `all` - All named arguments must be used.
+3. `none` - Do not check arguments.
+
+### caughtErrors
+
+type: `boolean`
+
+Used for `catch` block validation.
+
+It has two settings:
+
+- `none` - do not check error objects. This is the default setting.
+- `all` - all named arguments must be used`.`none`corresponds to`false`, while`all`corresponds to`true`.
+
+### ignoreClassWithStaticInitBlock
+
+type: `boolean`
+
+The `ignoreClassWithStaticInitBlock` option is a boolean (default:
+`false`). Static initialization blocks allow you to initialize static
+variables and execute code during the evaluation of a class definition,
+meaning the static block code is executed without creating a new
+instance of the class. When set to true, this option ignores classes
+containing static initialization blocks.
+
+## Example
+
+Examples of **incorrect** code for the `{ "ignoreClassWithStaticInitBlock": true }` option
+
+```javascript
+/*eslint no-unused-vars: ["error", { "ignoreClassWithStaticInitBlock": true }]*/
+
+class Foo {
+  static myProperty = "some string";
+  static mymethod() {
+    return "some string";
+  }
+}
+
+class Bar {
+  static {
+    let baz; // unused variable
+  }
+}
+```
+
+Examples of **correct** code for the `{ "ignoreClassWithStaticInitBlock": true }` option
+
+```javascript
+/*eslint no-unused-vars: ["error", { "ignoreClassWithStaticInitBlock": true }]*/
+
+class Foo {
+  static {
+    let bar = "some string";
+
+    console.log(bar);
+  }
+}
+```
+
+### ignoreRestSiblings
+
+type: `boolean`
+
+Using a Rest property it is possible to "omit" properties from an
+object, but by default the sibling properties are marked as "unused".
+With this option enabled the rest property's siblings are ignored.
+
+By default this option is `false`.
+
+## Example
+
+Examples of **correct** code when this option is set to `true`:
+
+```js
+// 'foo' and 'bar' were ignored because they have a rest property sibling.
+var { foo, ...coords } = data;
+
+var bar;
+({ bar, ...coords } = data);
+```
+
+### ignoreUsingDeclarations
+
+type: `boolean`
+
+The `ignoreUsingDeclarations` option is a boolean (default: `false`).
+When set to `true`, the rule will ignore variables declared with
+`using` or `await using` declarations, even if they are unused.
+
+This is useful when working with resources that need to be disposed
+via the explicit resource management proposal, where the primary
+purpose is the disposal side effect rather than using the resource.
+
+## Example
+
+Examples of **correct** code for the `{ "ignoreUsingDeclarations": true }` option:
+
+```javascript
+/*eslint no-unused-vars: ["error", { "ignoreUsingDeclarations": true }]*/
+
+using resource = getResource();
+await using anotherResource = getAnotherResource();
+```
+
+### reportUsedIgnorePattern
+
+type: `boolean`
+
+The `reportUsedIgnorePattern` option is a boolean (default: `false`).
+Using this option will report variables that match any of the valid
+ignore pattern options (`varsIgnorePattern`, `argsIgnorePattern`,
+`caughtErrorsIgnorePattern`, or `destructuredArrayIgnorePattern`) if
+they have been used.
+
+## Example
+
+Examples of **incorrect** code for the `{ "reportUsedIgnorePattern": true }` option:
+
+```javascript
+/*eslint no-unused-vars: ["error", { "reportUsedIgnorePattern": true, "varsIgnorePattern": "[iI]gnored" }]*/
+
+var firstVarIgnored = 1;
+var secondVar = 2;
+console.log(firstVarIgnored, secondVar);
+```
+
+Examples of **correct** code for the `{ "reportUsedIgnorePattern": true }` option:
+
+```javascript
+/*eslint no-unused-vars: ["error", { "reportUsedIgnorePattern": true, "varsIgnorePattern": "[iI]gnored" }]*/
+
+var firstVar = 1;
+var secondVar = 2;
+console.log(firstVar, secondVar);
+```
+
+### reportVarsOnlyUsedAsTypes
+
+type: `boolean`
+
+The `reportVarsOnlyUsedAsTypes` option is a boolean (default: `false`).
+
+If `true`, the rule will also report variables that are only used as types.
+
+## Examples
+
+Examples of **incorrect** code for the `{ "reportVarsOnlyUsedAsTypes": true }` option:
+
+```javascript
+/* eslint no-unused-vars: ["error", { "reportVarsOnlyUsedAsTypes": true }] */
+
+const myNumber: number = 4;
+export type MyNumber = typeof myNumber
+```
+
+Examples of **correct** code for the `{ "reportVarsOnlyUsedAsTypes": true }` option:
+
+```javascript
+export type MyNumber = number;
+```
+
+Note: even with `{ "reportVarsOnlyUsedAsTypes": false }`, cases where the value is
+only used a type within itself will still be reported:
+
+```javascript
+function foo(): typeof foo {}
+```
+
+### vars
+
+Controls how usage of a variable in the global scope is checked.
+
+This option has two settings:
+
+1. `all` checks all variables for usage, including those in the global
+   scope. This is the default setting.
+2. `local` checks only that locally-declared variables are used but will
+   allow global variables to be unused.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

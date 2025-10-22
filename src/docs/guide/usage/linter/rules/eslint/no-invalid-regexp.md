@@ -40,6 +40,18 @@ new RegExp();
 this.RegExp("[");
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### allowConstructorFlags
+
+type: `string[]`
+
+default: `[]`
+
+Case-sensitive array of flags that will be allowed.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

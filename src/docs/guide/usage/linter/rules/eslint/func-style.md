@@ -154,17 +154,23 @@ type: `boolean`
 
 default: `false`
 
+When true, arrow functions are allowed regardless of the style setting.
+
 ### allowTypeAnnotation
 
 type: `boolean`
 
 default: `false`
 
+When true, functions with type annotations are allowed regardless of the style setting.
+
 ### style
 
 type: `"expression" | "declaration"`
 
 default: `"expression"`
+
+The style to enforce. Either "expression" (default) or "declaration".
 
 ## How to use
 
