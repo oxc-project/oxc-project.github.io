@@ -36,7 +36,7 @@ const result = transform("lib.js", "const foo = a ?? b;", {
 
 Oxc supports lowering the syntaxes below. Note that RegExp related transformations only transforms the RegExp literal (`/foo/v`) to use a RegExp constructor (`new RegExp('foo', 'v')`). You will need to use a polyfill together to support older browsers.
 
-### ESNext
+### ES2026
 
 - Explicit Resource Management (`using a = foo()`)
 
@@ -59,6 +59,7 @@ Oxc supports lowering the syntaxes below. Note that RegExp related transformatio
 
 - Nullish coalescing operator (`foo ?? bar`)
 - Optional Chaining (`foo?.bar`)
+- Export namespace from (`export * as foo from "bar"`)
 
 ### ES2019
 
@@ -140,5 +141,3 @@ The following syntaxes are not lowered by Oxc transformer.
 - ES2025
   - RegExp Modifiers (tracked at [#11826](https://github.com/oxc-project/oxc/issues/11826))
   - Duplicate named capture groups (tracked at [#11827](https://github.com/oxc-project/oxc/issues/11827))
-- ES2020
-  - Export namespace from (tracked at [#14257](https://github.com/oxc-project/oxc/issues/14257))
