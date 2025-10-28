@@ -108,13 +108,38 @@ export const enConfig = defineLocaleConfig("root", {
                   link: "/docs/guide/usage/transformer/plugins",
                 },
                 {
+                  text: "Global Variable Replacement",
+                  link: "/docs/guide/usage/transformer/global-variable-replacement",
+                },
+                {
                   text: "Isolated Declarations",
                   link: "/docs/guide/usage/transformer/isolated-declarations",
                 },
               ],
             },
             { text: "Formatter", link: "/docs/guide/usage/formatter" },
-            { text: "Minifier", link: "/docs/guide/usage/minifier" },
+            {
+              text: "Minifier",
+              link: "/docs/guide/usage/minifier",
+              items: [
+                {
+                  text: "Dead Code Elimination",
+                  link: "/docs/guide/usage/minifier/dead-code-elimination",
+                },
+                {
+                  text: "Syntax Normalization",
+                  link: "/docs/guide/usage/minifier/syntax-normalization",
+                },
+                {
+                  text: "Mangling",
+                  link: "/docs/guide/usage/minifier/mangling",
+                },
+                {
+                  text: "Whitespace Stripping",
+                  link: "/docs/guide/usage/minifier/whitespace-stripping",
+                },
+              ],
+            },
             { text: "Resolver", link: "/docs/guide/usage/resolver" },
           ],
         },
