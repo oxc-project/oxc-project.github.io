@@ -5,6 +5,17 @@
 We recommend thoroughly testing its output before deploying to production environments.
 :::
 
+## Features
+
+- [Eliminate dead code.](./minifier/dead-code-elimination)
+- [Transforms syntaxes to make the output shorter and repetitive.](./minifier/syntax-normalization)
+- [Mangle variable names.](./minifier/mangling)
+- [Remove whitespace and comments.](./minifier/whitespace-stripping)
+
+## Assumptions
+
+To allow better optimizations, Oxc minifier makes some assumptions about your code. See [Assumptions document](https://github.com/oxc-project/oxc/blob/main/crates/oxc_minifier/docs/ASSUMPTIONS.md) for more information.
+
 ## Installation
 
 ### With Rolldown
@@ -21,6 +32,10 @@ If you are using [Rolldown][url-rolldown], `oxc-minify` will be used for minific
 Use the umbrella crate [oxc][url-oxc-crate] with the `minifier` feature.
 
 Rust usage example can be found [here](https://github.com/oxc-project/oxc/blob/main/crates/oxc_minifier/examples/minifier.rs).
+
+## Integrations
+
+- [`unplugin-oxc`](https://github.com/unplugin/unplugin-oxc)
 
 <!-- Links -->
 

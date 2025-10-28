@@ -6,6 +6,7 @@
 - [Transforming TypeScript to JavaScript.](./transformer/typescript)
 - [Transforming JSX to JavaScript, with built-in React Refresh.](./transformer/jsx)
 - [Built-in support for popular plugins like styled-components.](./transformer/plugins)
+- [Replacing global variables.](./transformer/global-variable-replacement)
 - [TypeScript Isolated Declarations Emit without using the TypeScript compiler.](./transformer/isolated-declarations)
 
 ## Installation
