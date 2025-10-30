@@ -360,7 +360,6 @@ Not supported yet:
 - Suggestions.
 - Scope analysis.
 - `SourceCode` APIs related to tokens (e.g. `context.sourceCode.getTokens(node)`).
-- `SourceCode` APIs related to comments (e.g. `context.sourceCode.getAllComments()`).
 - Control flow analysis.
 
 We will be filling in the gaps in API support over the next few months, aiming to eventually support 100% of ESLint's
