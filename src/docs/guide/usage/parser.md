@@ -30,6 +30,27 @@ Use the umbrella crate [oxc][url-oxc-crate] or the individual [oxc_ast][url-oxc-
 
 Rust usage example can be found [here](https://github.com/oxc-project/oxc/blob/main/crates/oxc_parser/examples/parser.rs).
 
+## Print
+
+After parsing and transforming, you can print code.
+
+Here's a direct example using [esrap](https://www.npmjs.com/package/esrap) _(`parse` in reverse!)_:
+
+```js
+import { print } from "esrap";
+import ts from "esrap/languages/ts";
+import { parseSync } from "oxc-parser";
+
+const { program } = parseSync("test.js", "alert(\"hello oxc & esrap\");");
+const { code } = print(program, ts());
+
+console.log(code); // alert("hello oxc & esrap");
+```
+
+:::info
+Today, comments are not printed. _It will be supported thanks to [oxc-parser #13285](https://github.com/oxc-project/oxc/pull/13285)._
+:::
+
 <!-- Links -->
 
 [url-swc]: https://swc.rs
