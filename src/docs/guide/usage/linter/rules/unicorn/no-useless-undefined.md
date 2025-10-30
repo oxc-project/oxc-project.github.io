@@ -35,6 +35,26 @@ Examples of **correct** code for this rule:
 let foo;
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### checkArguments
+
+type: `boolean`
+
+default: `true`
+
+Whether to check for useless `undefined` in function call arguments.
+
+### checkArrowFunctionBody
+
+type: `boolean`
+
+default: `true`
+
+Whether to check for useless `undefined` in arrow function bodies.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

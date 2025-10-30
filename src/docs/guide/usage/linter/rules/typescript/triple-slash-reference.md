@@ -30,6 +30,34 @@ Examples of **incorrect** code for this rule:
 globalThis.value;
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### lib
+
+type: `"always" | "never"`
+
+default: `"always"`
+
+What to enforce for `/// <reference lib="..." />` references.
+
+### path
+
+type: `"always" | "never"`
+
+default: `"never"`
+
+What to enforce for `/// <reference path="..." />` references.
+
+### types
+
+type: `"always" | "never" | "prefer-import"`
+
+default: `"prefer-import"`
+
+What to enforce for `/// <reference types="..." />` references.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

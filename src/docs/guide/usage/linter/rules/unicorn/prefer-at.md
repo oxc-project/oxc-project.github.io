@@ -40,6 +40,28 @@ const foo = array.at(-5);
 const foo = string.at(-1);
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### checkAllIndexAccess
+
+type: `boolean`
+
+default: `false`
+
+Check all index access, not just special patterns like `array.length - 1`.
+When enabled, `array[0]`, `array[1]`, etc. will also be flagged.
+
+### getLastElementFunctions
+
+type: `string[]`
+
+default: `[]`
+
+List of function names to treat as "get last element" functions.
+These functions will be checked for `.at(-1)` usage.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

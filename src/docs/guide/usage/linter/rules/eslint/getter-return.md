@@ -49,6 +49,18 @@ class Person {
 }
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### allowImplicit
+
+type: `boolean`
+
+default: `false`
+
+When set to `true`, allows getters to implicitly return `undefined` with a `return` statement containing no expression.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

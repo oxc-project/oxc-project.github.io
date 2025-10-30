@@ -15,7 +15,7 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 ### What it does
 
-Checks that the titles of Jest blocks are valid.
+Checks that the titles of Jest and Vitest blocks are valid.
 
 Titles must be:
 
@@ -59,6 +59,7 @@ interface Options {
   ignoreSpaces?: boolean;
   ignoreTypeOfTestName?: boolean;
   ignoreTypeOfDescribeName?: boolean;
+  allowArguments?: boolean;
   disallowedWords?: string[];
   mustNotMatch?: Partial<Record<"describe" | "test" | "it", string>> | string;
   mustMatch?: Partial<Record<"describe" | "test" | "it", string>> | string;

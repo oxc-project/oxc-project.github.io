@@ -42,6 +42,50 @@ let myObj = {
 };
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### allowLineSeparatedGroups
+
+type: `boolean`
+
+default: `false`
+
+When true, groups of properties separated by a blank line are sorted independently.
+
+### caseSensitive
+
+type: `boolean`
+
+default: `true`
+
+Whether the sort comparison is case-sensitive (A < a when true).
+
+### minKeys
+
+type: `integer`
+
+default: `2`
+
+Minimum number of properties required in an object before sorting is enforced.
+
+### natural
+
+type: `boolean`
+
+default: `false`
+
+Use natural sort order so that, for example, "a2" comes before "a10".
+
+### sortOrder
+
+type: `"desc" | "asc"`
+
+default: `"asc"`
+
+Sorting order for keys. Accepts "asc" for ascending or "desc" for descending.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

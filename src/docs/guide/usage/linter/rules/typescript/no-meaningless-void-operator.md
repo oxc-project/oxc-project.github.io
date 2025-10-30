@@ -70,7 +70,7 @@ To **enable** this rule in the CLI or using the config file, you can use:
 ::: code-group
 
 ```bash [CLI]
-oxlint --deny typescript/no-meaningless-void-operator
+oxlint --type-aware --deny typescript/no-meaningless-void-operator
 ```
 
 ```json [Config (.oxlintrc.json)]

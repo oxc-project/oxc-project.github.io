@@ -128,6 +128,18 @@ afterEach(() => {
 });
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### allowedFunctionCalls
+
+type: `string[]`
+
+default: `[]`
+
+An array of function names that are allowed to be called outside of hooks.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

@@ -50,21 +50,24 @@ try {
 } catch (error) {}
 ```
 
-### Allow require
+## Configuration
 
-If `allowRequire` option is set to `true`, `require` calls are valid:
+This rule accepts a configuration object with the following properties:
 
-```js
-var mod = require("./mod");
-```
+### allowConditionalRequire
 
-but `module.exports` is reported as usual.
+type: `boolean`
 
-### Allow conditional require
+default: `true`
 
-By default, conditional requires are allowed, If the `allowConditionalRequire` option is set to `false`, they will be reported.
+When set to `true`, allows conditional `require()` calls (e.g., inside `if` statements or try-catch blocks).
+This is useful for places where you need to conditionally load via commonjs requires if ESM imports are not supported.
 
-### Allow primitive modules
+### allowPrimitiveModules
+
+type: `boolean`
+
+default: `false`
 
 If `allowPrimitiveModules` option is set to true, the following is valid:
 
@@ -81,6 +84,20 @@ but this is still reported:
 module.exports = { x: "y" };
 exports.z = function bark() {/* ... */};
 ```
+
+### allowRequire
+
+type: `boolean`
+
+default: `false`
+
+If set to `true`, `require` calls are valid:
+
+```js
+var mod = require("./mod");
+```
+
+but `module.exports` is reported as usual.
 
 ## How to use
 

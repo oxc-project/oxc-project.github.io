@@ -45,6 +45,22 @@ const isNo = answer !== 1;
 foo(bar || 1);
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### defaultAssignment
+
+type: `boolean`
+
+default: `true`
+
+Whether to allow the default assignment pattern `x ? x : y`.
+
+When set to `false`, the rule also flags cases like `x ? x : y` and suggests using
+the logical OR form `x || y` instead. When `true` (default), such default assignments
+are allowed and not reported.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

@@ -38,6 +38,26 @@ function foo() {
 }
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### ignoreExpressions
+
+type: `boolean`
+
+default: `false`
+
+Whether to ignore class expressions when counting classes.
+
+### max
+
+type: `integer`
+
+default: `1`
+
+The maximum number of classes allowed per file.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

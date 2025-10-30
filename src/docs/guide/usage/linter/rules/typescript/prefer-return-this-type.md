@@ -95,7 +95,7 @@ To **enable** this rule in the CLI or using the config file, you can use:
 ::: code-group
 
 ```bash [CLI]
-oxlint --deny typescript/prefer-return-this-type
+oxlint --type-aware --deny typescript/prefer-return-this-type
 ```
 
 ```json [Config (.oxlintrc.json)]

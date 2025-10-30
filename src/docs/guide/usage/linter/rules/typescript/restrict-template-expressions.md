@@ -88,7 +88,7 @@ To **enable** this rule in the CLI or using the config file, you can use:
 ::: code-group
 
 ```bash [CLI]
-oxlint --deny typescript/restrict-template-expressions
+oxlint --type-aware --deny typescript/restrict-template-expressions
 ```
 
 ```json [Config (.oxlintrc.json)]

@@ -81,6 +81,26 @@ Examples of correct code for the "never", { "ignoreForLoopInit": true } options:
 for (var i = 0; i < 1; i++) {}
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### ignoreForLoopInit
+
+type: `boolean`
+
+default: `false`
+
+When set to `true`, allows uninitialized variables in the init expression of `for`, `for-in`, and `for-of` loops.
+Only applies when mode is set to `"never"`.
+
+### mode
+
+type: `"always" | "never"`
+
+When set to `"always"` (default), requires that variables be initialized on declaration.
+When set to `"never"`, disallows initialization during declaration.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

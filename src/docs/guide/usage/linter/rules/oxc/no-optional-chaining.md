@@ -32,23 +32,19 @@ const foo = obj?.foo;
 obj.fn?.();
 ```
 
-### Options
+## Configuration
 
-```json
-{
-  "rules": {
-    "no-optional-chaining": [
-      "error",
-      {
-        "message": "Our output target is ES2016, and optional chaining results in verbose
-            helpers and should be avoided."
-      }
-    ]
-  }
-}
-```
+This rule accepts a configuration object with the following properties:
 
-- `message`: A custom help message to display when optional chaining is found.
+### message
+
+type: `string`
+
+default: `""`
+
+A custom help message to display when optional chaining is found.
+For example, "Our output target is ES2016, and optional chaining results in verbose
+helpers and should be avoided."
 
 ## How to use
 

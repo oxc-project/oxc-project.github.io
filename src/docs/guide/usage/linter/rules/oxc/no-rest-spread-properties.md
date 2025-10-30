@@ -31,24 +31,25 @@ let { x, ...y } = z;
 let z = { x, ...y };
 ```
 
-### Options
+## Configuration
 
-```json
-{
-  "rules": {
-    "no-rest-spread-properties": [
-      "error",
-      {
-        "objectSpreadMessage": "Object spread properties are not allowed.",
-        "objectRestMessage": "Object rest properties are not allowed."
-      }
-    ]
-  }
-}
-```
+This rule accepts a configuration object with the following properties:
 
-- `objectSpreadMessage`: A message to display when object spread properties are found.
-- `objectRestMessage`: A message to display when object rest properties are found.
+### objectRestMessage
+
+type: `string`
+
+default: `""`
+
+A message to display when object rest properties are found.
+
+### objectSpreadMessage
+
+type: `string`
+
+default: `""`
+
+A message to display when object spread properties are found.
 
 ## How to use
 

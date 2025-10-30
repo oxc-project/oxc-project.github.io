@@ -95,14 +95,17 @@ myPromise().catch(
 myPromise().finally(() => 4);
 ```
 
-### Options
+## Configuration
 
-#### allowReject
+This rule accepts a configuration object with the following properties:
 
-`{ type: boolean, default: false }`
+### allowReject
 
-The `allowReject` turns off the checking of returning a call `Promise.reject` inside a
-promise handler.
+type: `boolean`
+
+default: `false`
+
+`allowReject` allows returning `Promise.reject` inside a promise handler.
 
 With `allowReject` set to `true` the following are examples of correct code:
 

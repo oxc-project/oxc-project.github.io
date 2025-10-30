@@ -57,17 +57,25 @@ function greet(param: Array<string>): string {}
 function greet(param: Array<string>): Array<string> {}
 ```
 
-### Options
+## Configuration
 
-#### `ignoreRestArgs`
+This rule accepts a configuration object with the following properties:
 
-A boolean to specify if arrays from the rest operator are considered ok. `false` by
-default.
+### fixToUnknown
 
-#### `fixToUnknown`
+type: `boolean`
+
+default: `false`
 
 Whether to enable auto-fixing in which the `any` type is converted to the `unknown` type.
-`false` by default.
+
+### ignoreRestArgs
+
+type: `boolean`
+
+default: `false`
+
+Whether to ignore rest parameter arrays.
 
 ## How to use
 

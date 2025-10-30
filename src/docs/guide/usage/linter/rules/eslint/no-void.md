@@ -39,11 +39,15 @@ Examples of **correct** code for this rule:
 "foo.void = bar";
 ```
 
-### Options
+## Configuration
 
-#### allowAsStatement
+This rule accepts a configuration object with the following properties:
 
-`{ type: boolean, default: false }`
+### allowAsStatement
+
+type: `boolean`
+
+default: `false`
 
 If set to `true`, using `void` as a standalone statement is allowed.
 

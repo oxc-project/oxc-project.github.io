@@ -34,6 +34,52 @@ import e from "bar.js";
 import d from "foo.js";
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### allowSeparatedGroups
+
+type: `boolean`
+
+default: `false`
+
+When `true`, the rule allows import groups separated by blank lines to be treated independently.
+
+### ignoreCase
+
+type: `boolean`
+
+default: `false`
+
+When `true`, the rule ignores case-sensitivity when sorting import names.
+
+### ignoreDeclarationSort
+
+type: `boolean`
+
+default: `false`
+
+When `true`, the rule ignores the sorting of import declarations (the order of `import` statements).
+
+### ignoreMemberSort
+
+type: `boolean`
+
+default: `false`
+
+When `true`, the rule ignores the sorting of import members within a single import declaration.
+
+### memberSyntaxSortOrder
+
+type: `array`
+
+Specifies the sort order of different import syntaxes.
+
+#### memberSyntaxSortOrder[n]
+
+type: `"none" | "all" | "multiple" | "single"`
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

@@ -39,6 +39,18 @@ if (condition) {
 }
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### allowEmptyCatch
+
+type: `boolean`
+
+default: `false`
+
+If set to `true`, allows an empty `catch` block without triggering the linter.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

@@ -39,6 +39,34 @@ const { bar: renamed } = obj;
 export { baz };
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### ignoreDestructuring
+
+type: `boolean`
+
+default: `false`
+
+When set to `true`, allows using the same name in destructurings.
+
+### ignoreExport
+
+type: `boolean`
+
+default: `false`
+
+When set to `true`, allows renaming exports to the same name.
+
+### ignoreImport
+
+type: `boolean`
+
+default: `false`
+
+When set to `true`, allows renaming imports to the same name.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

@@ -32,8 +32,8 @@ This function was replaced with `expect.extend` in Jest 17 and removed in Jest 2
 
 These functions were replaced in Jest 21 and removed in Jest 26.
 
-Originally, the `requireActual` & `requireMock` the `requireActual`&
-`requireMock` functions were placed onto the `require` function.
+Originally, the `requireActual` and `requireMock` functions were placed
+onto the `require` function.
 
 These functions were later moved onto the `jest` object in order to be easier
 for type checkers to handle, and their use via `require` deprecated. Finally,
@@ -60,6 +60,24 @@ Examples of **incorrect** code for this rule:
 jest.resetModuleRegistry; // since Jest 15
 jest.addMatchers; // since Jest 17
 ```
+
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### jest
+
+type: `object`
+
+Jest configuration options.
+
+#### jest.version
+
+type: `string`
+
+default: `"29"`
+
+The version of Jest being used.
 
 ## How to use
 

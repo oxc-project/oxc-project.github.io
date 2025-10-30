@@ -63,23 +63,6 @@ export function doFoo(foo) {
 }
 ```
 
-### Options
-
-#### checkArrowFunctions
-
-`{ type: boolean, default: true }`
-
-Pass `"checkArrowFunctions": false` to disable linting of arrow functions.
-
-Example:
-
-```json
-"unicorn/consistent-function-scoping": [
-  "error",
-  { "checkArrowFunctions": false }
-]
-```
-
 ### Limitations
 
 This rule does not detect or remove extraneous code blocks inside of functions:
@@ -117,6 +100,18 @@ function doFoo(FooComponent) {
   }
 })();
 ```
+
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### checkArrowFunctions
+
+type: `boolean`
+
+default: `true`
+
+Whether to check scoping with arrow functions.
 
 ## How to use
 

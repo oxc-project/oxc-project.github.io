@@ -27,6 +27,18 @@ var foo = someFunction();
 var bar = a + 1;
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### typeof
+
+type: `boolean`
+
+default: `false`
+
+When set to `true`, warns on undefined variables used in a `typeof` expression.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

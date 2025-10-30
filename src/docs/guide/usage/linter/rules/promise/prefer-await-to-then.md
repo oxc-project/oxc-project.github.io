@@ -46,6 +46,18 @@ async function hi() {
 }
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### strict
+
+type: `boolean`
+
+default: `false`
+
+If true, enforces the rule even after an `await` or `yield` expression.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

@@ -66,15 +66,19 @@ a = "quux";
 b = "quux";
 ```
 
-### Options
+## Configuration
 
-This rule has an object option:
+This rule accepts a configuration object with the following properties:
 
-- `"ignoreNonDeclaration"`: When set to `true`, the rule allows chains that don't include initializing a variable in a declaration or initializing a class field. Default is `false`.
+### ignoreNonDeclaration
 
-#### ignoreNonDeclaration
+type: `boolean`
 
-Examples of **correct** code for the `{ "ignoreNonDeclaration": true }` option:
+default: `false`
+
+When set to `true`, the rule allows chains that don't include initializing a variable in a declaration or initializing a class field.
+
+Examples of **correct** code for this option set to `true`:
 
 ```js
 let a;
@@ -86,7 +90,7 @@ const y = {};
 x.one = y.one = 1;
 ```
 
-Examples of **incorrect** code for the `{ "ignoreNonDeclaration": true }` option:
+Examples of **incorrect** code for this option set to `true`:
 
 ```js
 let a = b = "baz";

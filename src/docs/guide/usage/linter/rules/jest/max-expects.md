@@ -19,7 +19,7 @@ the maximum number of assertions is exceeded.
 ### Why is this bad?
 
 This rule enforces a maximum number of `expect()` calls.
-The following patterns are considered warnings (with the default option of `{ "max": 5 }`):
+The following patterns are considered warnings (with the default max of 5):
 
 ### Examples
 
@@ -44,6 +44,18 @@ it("should not pass", () => {
   expect(true).toBeDefined();
 });
 ```
+
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### max
+
+type: `integer`
+
+default: `5`
+
+Maximum number of `expect()` assertion calls allowed within a single test.
 
 ## How to use
 

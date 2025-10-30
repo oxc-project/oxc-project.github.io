@@ -42,6 +42,46 @@ if (Array.isArray(arr)) { … }
 if (el?.nodeType === 1) { … }
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### exclude
+
+type: `string[]`
+
+default: `[]`
+
+Constructor names to exclude from checking.
+
+### include
+
+type: `string[]`
+
+default: `[]`
+
+Additional constructor names to check beyond the default set.
+Use this to extend the rule with additional constructors.
+
+### strategy
+
+type: `"strict" | "loose"`
+
+Controls which built-in constructors are checked.
+
+- `"loose"` (default): Only checks Array, Function, Error (if `useErrorIsError` is true), and primitive wrappers
+- `"strict"`: Additionally checks Error types, collections, typed arrays, and other built-in constructors
+
+### useErrorIsError
+
+type: `boolean`
+
+default: `false`
+
+When `true`, checks `instanceof Error` and suggests using `Error.isError()` instead.
+Requires [the `Error.isError()` function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error/isError)
+to be available.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

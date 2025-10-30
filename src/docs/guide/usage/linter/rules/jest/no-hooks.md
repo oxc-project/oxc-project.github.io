@@ -61,6 +61,18 @@ describe("foo", () => {
 });
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### allow
+
+type: `string[]`
+
+default: `[]`
+
+An array of hook function names that are permitted for use.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

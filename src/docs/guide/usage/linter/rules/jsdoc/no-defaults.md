@@ -39,6 +39,18 @@ function quux(foo) {}
 function quux(foo) {}
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### noOptionalParamNames
+
+type: `boolean`
+
+default: `false`
+
+If true, report the presence of optional param names (square brackets) on `@param` tags.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

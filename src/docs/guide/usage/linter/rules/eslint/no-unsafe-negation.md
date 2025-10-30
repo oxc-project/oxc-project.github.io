@@ -45,11 +45,15 @@ if (!(key in object)) {}
 if (!(obj instanceof Ctor)) {}
 ```
 
-### Options
+## Configuration
 
-#### enforceForOrderingRelations
+This rule accepts a configuration object with the following properties:
 
-`{ type: boolean, default: false }`
+### enforceForOrderingRelations
+
+type: `boolean`
+
+default: `false`
 
 The `enforceForOrderingRelations` option determines whether negation is allowed
 on the left-hand side of ordering relational operators (<, >, <=, >=).

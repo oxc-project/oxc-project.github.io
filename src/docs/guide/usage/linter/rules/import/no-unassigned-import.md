@@ -47,6 +47,20 @@ const { foo: bar } = require("foo");
 bar(require("foo"));
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### allow
+
+type: `string[]`
+
+default: `[]`
+
+A list of glob patterns to allow unassigned imports for specific modules.
+For example:
+`{ "allow": ["*.css"] }` will allow unassigned imports for any module ending with `.css`.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

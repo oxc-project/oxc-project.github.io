@@ -75,6 +75,65 @@ function test() {
 }
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### allowArgumentsExplicitlyTypedAsAny
+
+type: `boolean`
+
+default: `false`
+
+Whether to ignore arguments that are explicitly typed as `any`.
+
+### allowDirectConstAssertionInArrowFunctions
+
+type: `boolean`
+
+default: `true`
+
+Whether to ignore return type annotations on body-less arrow functions
+that return an `as const` type assertion. You must still type the
+parameters of the function.
+
+### allowHigherOrderFunctions
+
+type: `boolean`
+
+default: `true`
+
+Whether to ignore return type annotations on functions immediately
+returning another function expression. You must still type the
+parameters of the function.
+
+### allowOverloadFunctions
+
+type: `boolean`
+
+default: `false`
+
+Whether to ignore return type annotations on functions with overload
+signatures.
+
+### allowTypedFunctionExpressions
+
+type: `boolean`
+
+default: `true`
+
+Whether to ignore type annotations on the variable of a function
+expression.
+
+### allowedNames
+
+type: `string[]`
+
+default: `[]`
+
+An array of function/method names that will not have their arguments or
+return values checked.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

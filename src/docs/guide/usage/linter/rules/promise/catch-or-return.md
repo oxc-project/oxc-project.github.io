@@ -40,6 +40,34 @@ function doSomethingElse() {
 }
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### allowFinally
+
+type: `boolean`
+
+default: `false`
+
+Whether to allow `finally()` as a termination method.
+
+### allowThen
+
+type: `boolean`
+
+default: `false`
+
+Whether to allow `then()` with two arguments as a termination method.
+
+### terminationMethod
+
+type: `string[]`
+
+default: `["catch"]`
+
+List of allowed termination methods (e.g., `catch`, `done`).
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

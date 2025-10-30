@@ -66,11 +66,15 @@ class A {
 }
 ```
 
-### Options
+## Configuration
 
-#### allowIndirect
+This rule accepts a configuration object with the following properties:
 
-`{ type: boolean, default: true }`
+### allowIndirect
+
+type: `boolean`
+
+default: `true`
 
 This `allowIndirect` option allows indirect `eval()` calls.
 
@@ -78,15 +82,6 @@ Indirect calls to `eval`(e.g., `window['eval']`) are less dangerous
 than direct calls because they cannot dynamically change the scope.
 Indirect `eval()` calls also typically have less impact on performance
 compared to direct calls, as they do not invoke JavaScript's scope chain.
-
-Example:
-
-```json
-"eslint/no-eval": [
-  "error",
-  { "allowIndirect": true }
-]
-```
 
 ## How to use
 

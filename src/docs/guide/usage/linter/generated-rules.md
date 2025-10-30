@@ -2,7 +2,7 @@
 
 The progress of all rule implementations is tracked [here](https://github.com/oxc-project/oxc/issues/481).
 
-- Total number of rules: 610
+- Total number of rules: 611
 - Rules turned on by default: 103
 
 **Legend for 'Fixable?' column:**
@@ -374,7 +374,7 @@ code that is most likely wrong or useless.
 | [no-required-prop-with-default](/docs/guide/usage/linter/rules/vue/no-required-prop-with-default.html)                          | vue        |         | 🚧       |
 | [require-default-export](/docs/guide/usage/linter/rules/vue/require-default-export.html)                                        | vue        |         |          |
 
-## Pedantic (102):
+## Pedantic (103):
 
 Lints which are rather strict or have occasional false positives.
 
@@ -438,6 +438,7 @@ Lints which are rather strict or have occasional false positives.
 | [require-await](/docs/guide/usage/linter/rules/typescript/require-await.html)                                                  | typescript |         | 🚧       |
 | [restrict-plus-operands](/docs/guide/usage/linter/rules/typescript/restrict-plus-operands.html)                                | typescript |         | 🚧       |
 | [return-await](/docs/guide/usage/linter/rules/typescript/return-await.html)                                                    | typescript |         | 🚧       |
+| [strict-boolean-expressions](/docs/guide/usage/linter/rules/typescript/strict-boolean-expressions.html)                        | typescript |         | 🚧       |
 | [switch-exhaustiveness-check](/docs/guide/usage/linter/rules/typescript/switch-exhaustiveness-check.html)                      | typescript |         | 🚧       |
 | [consistent-assert](/docs/guide/usage/linter/rules/unicorn/consistent-assert.html)                                             | unicorn    |         | 🛠️        |
 | [consistent-empty-array-spread](/docs/guide/usage/linter/rules/unicorn/consistent-empty-array-spread.html)                     | unicorn    |         | 💡       |

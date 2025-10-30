@@ -42,20 +42,17 @@ defineProps({
 </script>
 ```
 
-### Options
+## Configuration
 
-This rule takes an object, where you can specify the maximum number of props allowed in a Vue SFC.
+This rule accepts a configuration object with the following properties:
 
-```json
-{
-  "vue/max-props": [
-    "error",
-    {
-      "maxProps": 1
-    }
-  ]
-}
-```
+### maxProps
+
+type: `integer`
+
+default: `1`
+
+The maximum number of props allowed in a Vue Single File Component (SFC).
 
 ## How to use
 
