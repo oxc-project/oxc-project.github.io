@@ -70,7 +70,7 @@ To **enable** this rule in the CLI or using the config file, you can use:
 ::: code-group
 
 ```bash [CLI]
-oxlint --deny typescript/no-duplicate-type-constituents
+oxlint --type-aware --deny typescript/no-duplicate-type-constituents
 ```
 
 ```json [Config (.oxlintrc.json)]

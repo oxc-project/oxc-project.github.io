@@ -93,6 +93,35 @@ line 4
 `;
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### allowedSnapshots
+
+type: `Record<string, array>`
+
+default: `{}`
+
+A map of snapshot file paths to arrays of snapshot names that are allowed to exceed the size limit.
+Snapshot names can be specified as regular expressions.
+
+### inlineMaxSize
+
+type: `integer`
+
+default: `50`
+
+Maximum number of lines allowed for inline snapshots.
+
+### maxSize
+
+type: `integer`
+
+default: `50`
+
+Maximum number of lines allowed for external snapshot files.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

@@ -67,7 +67,7 @@ To **enable** this rule in the CLI or using the config file, you can use:
 ::: code-group
 
 ```bash [CLI]
-oxlint --deny typescript/no-unnecessary-type-assertion
+oxlint --type-aware --deny typescript/no-unnecessary-type-assertion
 ```
 
 ```json [Config (.oxlintrc.json)]

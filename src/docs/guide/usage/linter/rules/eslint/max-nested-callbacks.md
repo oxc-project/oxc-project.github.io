@@ -61,26 +61,17 @@ function handleFoo4() {
 }
 ```
 
-### Options
+## Configuration
 
-#### max
+This rule accepts a configuration object with the following properties:
 
-`{ type: number, default: 10 }`
+### max
+
+type: `integer`
+
+default: `10`
 
 The `max` enforces a maximum depth that callbacks can be nested.
-
-Example:
-
-```json
-"eslint/max-nested-callbacks": ["error", 10]
-
-"eslint/max-nested-callbacks": [
-  "error",
-  {
-    max: 10
-  }
-]
-```
 
 ## How to use
 

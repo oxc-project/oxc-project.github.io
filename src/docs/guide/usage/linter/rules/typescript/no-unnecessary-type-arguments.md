@@ -82,7 +82,7 @@ To **enable** this rule in the CLI or using the config file, you can use:
 ::: code-group
 
 ```bash [CLI]
-oxlint --deny typescript/no-unnecessary-type-arguments
+oxlint --type-aware --deny typescript/no-unnecessary-type-arguments
 ```
 
 ```json [Config (.oxlintrc.json)]

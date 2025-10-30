@@ -117,7 +117,7 @@ To **enable** this rule in the CLI or using the config file, you can use:
 ::: code-group
 
 ```bash [CLI]
-oxlint --deny typescript/switch-exhaustiveness-check
+oxlint --type-aware --deny typescript/switch-exhaustiveness-check
 ```
 
 ```json [Config (.oxlintrc.json)]

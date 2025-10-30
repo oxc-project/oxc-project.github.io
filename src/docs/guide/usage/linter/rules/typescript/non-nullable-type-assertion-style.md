@@ -75,7 +75,7 @@ To **enable** this rule in the CLI or using the config file, you can use:
 ::: code-group
 
 ```bash [CLI]
-oxlint --deny typescript/non-nullable-type-assertion-style
+oxlint --type-aware --deny typescript/non-nullable-type-assertion-style
 ```
 
 ```json [Config (.oxlintrc.json)]

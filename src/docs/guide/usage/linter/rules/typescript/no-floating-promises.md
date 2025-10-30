@@ -93,7 +93,7 @@ To **enable** this rule in the CLI or using the config file, you can use:
 ::: code-group
 
 ```bash [CLI]
-oxlint --deny typescript/no-floating-promises
+oxlint --type-aware --deny typescript/no-floating-promises
 ```
 
 ```json [Config (.oxlintrc.json)]

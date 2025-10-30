@@ -105,16 +105,15 @@ app.get("/user", (req, res, next) => asyncHandler(req, res).catch(next));
 
 ## Configuration
 
-This rule takes the following configuration:
+This rule accepts a configuration object with the following properties:
 
-```ts
-type NoAsyncEndpointHandlersConfig = {
-  /**
-   * An array of names that are allowed to be async.
-   */
-  allowedNames?: string[];
-};
-```
+### allowedNames
+
+type: `string[]`
+
+default: `[]`
+
+An array of names that are allowed to be async.
 
 ## How to use
 

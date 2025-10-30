@@ -39,7 +39,7 @@ Examples of **correct** code for this rule:
 /** @param */
 ```
 
-### Options
+### Settings
 
 Configuration for allowed tags is done via [`settings.jsdoc.tagNamePreference`](/docs/guide/usage/linter/config-file-reference.html#settings-jsdoc-tagnamepreference).
 There is no CLI-only parameter for this rule.
@@ -73,6 +73,39 @@ Examples of correct code for this rule with the above configuration, adding the 
  * @customTagName
  */
 ```
+
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### definedTags
+
+type: `string[]`
+
+default: `[]`
+
+Additional tag names to allow.
+
+### jsxTags
+
+type: `boolean`
+
+default: `false`
+
+Whether to allow JSX-related tags:
+
+- `jsx`
+- `jsxFrag`
+- `jsxImportSource`
+- `jsxRuntime`
+
+### typed
+
+type: `boolean`
+
+default: `false`
+
+If typed is `true`, disallow tags that are unnecessary/duplicative of TypeScript functionality.
 
 ## How to use
 

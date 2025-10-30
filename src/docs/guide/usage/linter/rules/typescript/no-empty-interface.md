@@ -40,6 +40,18 @@ interface Bar extends Foo {
 }
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### allowSingleExtends
+
+type: `boolean`
+
+default: `false`
+
+When set to `true`, allows empty interfaces that extend a single interface.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

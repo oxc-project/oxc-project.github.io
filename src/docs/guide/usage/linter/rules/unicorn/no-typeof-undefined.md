@@ -35,6 +35,19 @@ Examples of **correct** code for this rule:
 foo === undefined;
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### checkGlobalVariables
+
+type: `boolean`
+
+default: `false`
+
+If set to `true`, also report `typeof x === "undefined"` when `x` may be a global
+variable that is not declared (commonly checked via `typeof foo === "undefined"`).
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

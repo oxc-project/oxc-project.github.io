@@ -106,7 +106,7 @@ To **enable** this rule in the CLI or using the config file, you can use:
 ::: code-group
 
 ```bash [CLI]
-oxlint --deny typescript/unbound-method
+oxlint --type-aware --deny typescript/unbound-method
 ```
 
 ```json [Config (.oxlintrc.json)]

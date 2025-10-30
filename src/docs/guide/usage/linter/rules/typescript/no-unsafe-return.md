@@ -75,7 +75,7 @@ To **enable** this rule in the CLI or using the config file, you can use:
 ::: code-group
 
 ```bash [CLI]
-oxlint --deny typescript/no-unsafe-return
+oxlint --type-aware --deny typescript/no-unsafe-return
 ```
 
 ```json [Config (.oxlintrc.json)]

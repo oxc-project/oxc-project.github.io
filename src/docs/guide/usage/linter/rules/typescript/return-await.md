@@ -87,7 +87,7 @@ To **enable** this rule in the CLI or using the config file, you can use:
 ::: code-group
 
 ```bash [CLI]
-oxlint --deny typescript/return-await
+oxlint --type-aware --deny typescript/return-await
 ```
 
 ```json [Config (.oxlintrc.json)]

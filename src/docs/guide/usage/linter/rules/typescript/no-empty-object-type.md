@@ -57,6 +57,42 @@ interface InterfaceWith {
 type TypeWith = { property: boolean };
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### allowInterfaces
+
+type: `"never" | "always" | "with-single-extends"`
+
+Whether to allow empty interfaces.
+
+Allowed values are:
+
+- `'always'`: to always allow interfaces with no fields
+- `'never'` _(default)_: to never allow interfaces with no fields
+- `'with-single-extends'`: to allow empty interfaces that `extend` from a single base interface
+
+Examples of **correct** code for this rule with `{ allowInterfaces: 'with-single-extends' }`:
+
+```ts
+interface Base {
+  value: boolean;
+}
+interface Derived extends Base {}
+```
+
+### allowObjectTypes
+
+type: `"never" | "always"`
+
+Whether to allow empty object type literals.
+
+Allowed values are:
+
+- `'always'`: to always allow object type literals with no fields
+- `'never'` _(default)_: to never allow object type literals with no fields
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

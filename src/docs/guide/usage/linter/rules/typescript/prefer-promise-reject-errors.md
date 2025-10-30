@@ -75,7 +75,7 @@ To **enable** this rule in the CLI or using the config file, you can use:
 ::: code-group
 
 ```bash [CLI]
-oxlint --deny typescript/prefer-promise-reject-errors
+oxlint --type-aware --deny typescript/prefer-promise-reject-errors
 ```
 
 ```json [Config (.oxlintrc.json)]

@@ -76,7 +76,7 @@ To **enable** this rule in the CLI or using the config file, you can use:
 ::: code-group
 
 ```bash [CLI]
-oxlint --deny typescript/prefer-reduce-type-parameter
+oxlint --type-aware --deny typescript/prefer-reduce-type-parameter
 ```
 
 ```json [Config (.oxlintrc.json)]

@@ -115,6 +115,50 @@ const data = { "x": 1 }; // excused because of quotes
 data["y"] = 3; // excused because of calculated property access
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### exceptionPatterns
+
+type: `string[]`
+
+An array of regex patterns for identifiers to exclude from the rule.
+For example, `["^x.*"]` would exclude all identifiers starting with "x".
+
+### exceptions
+
+type: `string[]`
+
+default: `[]`
+
+An array of identifier names that are excluded from the rule.
+For example, `["x", "y", "z"]` would allow single-letter identifiers "x", "y", and "z".
+
+### max
+
+type: `integer`
+
+default: `18446744073709551615`
+
+The maximum number of graphemes allowed in an identifier.
+Defaults to no maximum (effectively unlimited).
+
+### min
+
+type: `integer`
+
+default: `2`
+
+The minimum number of graphemes required in an identifier.
+
+### properties
+
+type: `"always" | "never"`
+
+When set to `"never"`, property names are not checked for length.
+When set to `"always"` (default), property names are checked just like other identifiers.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

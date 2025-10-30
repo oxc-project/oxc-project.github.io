@@ -55,6 +55,18 @@ Examples of **correct** code for this rule:
 /** @private */
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### tags
+
+type: `string[]`
+
+default: `[]`
+
+Additional tags to check for their descriptions.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

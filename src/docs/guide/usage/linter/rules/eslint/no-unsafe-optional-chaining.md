@@ -36,6 +36,19 @@ bar instanceof obj?.foo; // TypeError
 const { bar } = obj?.foo; // TypeError
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### disallowArithmeticOperators
+
+type: `boolean`
+
+default: `false`
+
+Disallow arithmetic operations on optional chaining expressions.
+If this is true, this rule warns arithmetic operations on optional chaining expressions, which possibly result in NaN.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

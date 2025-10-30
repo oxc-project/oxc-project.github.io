@@ -96,7 +96,7 @@ To **enable** this rule in the CLI or using the config file, you can use:
 ::: code-group
 
 ```bash [CLI]
-oxlint --deny typescript/use-unknown-in-catch-callback-variable
+oxlint --type-aware --deny typescript/use-unknown-in-catch-callback-variable
 ```
 
 ```json [Config (.oxlintrc.json)]

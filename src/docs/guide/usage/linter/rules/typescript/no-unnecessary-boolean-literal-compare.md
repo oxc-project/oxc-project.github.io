@@ -77,7 +77,7 @@ To **enable** this rule in the CLI or using the config file, you can use:
 ::: code-group
 
 ```bash [CLI]
-oxlint --deny typescript/no-unnecessary-boolean-literal-compare
+oxlint --type-aware --deny typescript/no-unnecessary-boolean-literal-compare
 ```
 
 ```json [Config (.oxlintrc.json)]

@@ -63,21 +63,17 @@ describe("test suite", () => {
 });
 ```
 
-### Options
+## Configuration
 
-You can also enforce a limit on the number of describes allowed at the top-level
-using the `maxNumberOfTopLevelDescribes` option:
+This rule accepts a configuration object with the following properties:
 
-```json
-{
-  "jest/require-top-level-describe": [
-    "error",
-    {
-      "maxNumberOfTopLevelDescribes": 2
-    }
-  ]
-}
-```
+### maxNumberOfTopLevelDescribes
+
+type: `integer`
+
+default: `18446744073709551615`
+
+The maximum number of top-level `describe` blocks allowed in a test file.
 
 ## How to use
 

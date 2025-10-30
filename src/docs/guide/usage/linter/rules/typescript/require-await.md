@@ -91,7 +91,7 @@ To **enable** this rule in the CLI or using the config file, you can use:
 ::: code-group
 
 ```bash [CLI]
-oxlint --deny typescript/require-await
+oxlint --type-aware --deny typescript/require-await
 ```
 
 ```json [Config (.oxlintrc.json)]

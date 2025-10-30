@@ -57,7 +57,7 @@ To **enable** this rule in the CLI or using the config file, you can use:
 ::: code-group
 
 ```bash [CLI]
-oxlint --deny typescript/no-array-delete
+oxlint --type-aware --deny typescript/no-array-delete
 ```
 
 ```json [Config (.oxlintrc.json)]

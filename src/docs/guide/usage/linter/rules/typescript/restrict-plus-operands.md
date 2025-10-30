@@ -77,7 +77,7 @@ To **enable** this rule in the CLI or using the config file, you can use:
 ::: code-group
 
 ```bash [CLI]
-oxlint --deny typescript/restrict-plus-operands
+oxlint --type-aware --deny typescript/restrict-plus-operands
 ```
 
 ```json [Config (.oxlintrc.json)]

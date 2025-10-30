@@ -46,6 +46,18 @@ Examples of **correct** code for this rule:
 const result = Object.fromEntries(pairs);
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### functions
+
+type: `string[]`
+
+default: `["_.fromPairs", "lodash.fromPairs"]`
+
+Additional functions to treat as equivalents to `Object.fromEntries`.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

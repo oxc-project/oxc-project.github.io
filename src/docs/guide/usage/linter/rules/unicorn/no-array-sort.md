@@ -36,16 +36,20 @@ Examples of **correct** code for this rule:
 const sorted = [...array].toSorted();
 ```
 
-### Options
+## Configuration
 
-#### allowExpressionStatement
+This rule accepts a configuration object with the following properties:
 
-`{ type: boolean, default: true }`
+### allowExpressionStatement
 
-This rule allows `array.sort()` as an expression statement by default,
-Pass allowExpressionStatement: false to forbid `Array#sort()` even if it's an expression statement.
+type: `boolean`
 
-Examples of **incorrect** code for this rule with the `{ "allowExpressionStatement": false }` option:
+default: `true`
+
+When set to `true` (default), allows `array.sort()` as an expression statement.
+Set to `false` to forbid `Array#sort()` even if it's an expression statement.
+
+Example of **incorrect** code for this rule with `allowExpressionStatement` set to `false`:
 
 ```js
 array.sort();

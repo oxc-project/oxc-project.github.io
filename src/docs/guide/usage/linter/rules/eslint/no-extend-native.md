@@ -53,6 +53,18 @@ x.prototype.p = 0;
 Object.defineProperty(x.prototype, "p", { value: 0 });
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### exceptions
+
+type: `string[]`
+
+default: `[]`
+
+A list of objects which are allowed to be exceptions to the rule.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

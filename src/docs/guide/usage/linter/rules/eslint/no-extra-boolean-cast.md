@@ -53,6 +53,22 @@ if (foo) {}
 if (foo || bar) {}
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### enforceForInnerExpressions
+
+type: `boolean`
+
+default: `false`
+
+when set to `true`, in addition to checking default contexts, checks
+whether extra boolean casts are present in expressions whose result is
+used in a boolean context. See examples below. Default is `false`,
+meaning that this rule by default does not warn about extra booleans
+cast inside inner expressions.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

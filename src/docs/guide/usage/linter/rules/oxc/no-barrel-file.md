@@ -15,7 +15,7 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 Disallow the use of barrel files where the file contains `export *` statements,
 and the total number of modules exceed a threshold.
 
-The default threshold is 100;
+The default threshold is 100.
 
 ### Why is this bad?
 
@@ -44,6 +44,19 @@ Valid:
 ```javascript
 export { foo } from "foo";
 ```
+
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### threshold
+
+type: `integer`
+
+default: `100`
+
+The maximum number of modules that can be re-exported via `export *`
+before the rule is triggered.
 
 ## How to use
 

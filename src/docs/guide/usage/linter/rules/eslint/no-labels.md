@@ -83,19 +83,18 @@ while (true) {
 }
 ```
 
-### Options
+## Configuration
 
-The options allow labels with loop or switch statements:
+This rule accepts a configuration object with the following properties:
 
-- `"allowLoop"` (`boolean`, default is `false`) - If this option was set `true`, this rule ignores labels which are sticking to loop statements.
-- `"allowSwitch"` (`boolean`, default is `false`) - If this option was set `true`, this rule ignores labels which are sticking to switch statements.
+### allowLoop
 
-Actually labeled statements in JavaScript can be used with other than loop and switch statements.
-However, this way is ultra rare, not well-known, so this would be confusing developers.
+type: `boolean`
 
-#### allowLoop
+default: `false`
 
-Examples of **correct** code for the `{ "allowLoop": true }` option:
+If set to `true`, this rule ignores labels which are sticking to loop statements.
+Examples of **correct** code with this option set to `true`:
 
 ```js
 label:
@@ -104,9 +103,14 @@ while (true) {
 }
 ```
 
-#### allowSwitch
+### allowSwitch
 
-Examples of **correct** code for the `{ "allowSwitch": true }` option:
+type: `boolean`
+
+default: `false`
+
+If set to `true`, this rule ignores labels which are sticking to switch statements.
+Examples of **correct** code with this option set to `true`:
 
 ```js
 label:

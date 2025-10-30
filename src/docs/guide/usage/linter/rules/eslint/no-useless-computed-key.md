@@ -81,11 +81,15 @@ class Foo {
 }
 ```
 
-### Options
+## Configuration
 
-#### enforceForClassMembers
+This rule accepts a configuration object with the following properties:
 
-`{ type: boolean, default: true }`
+### enforceForClassMembers
+
+type: `boolean`
+
+default: `true`
 
 The `enforceForClassMembers` option controls whether the rule applies to
 class members (methods and properties).

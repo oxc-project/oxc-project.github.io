@@ -56,12 +56,18 @@ Examples of **correct** code for this rule:
 new RegExp("^[\u{1F1EF}\u{1F1F5}]", "u");
 ```
 
-#### Options
+## Configuration
 
-This rule has an object option:
+This rule accepts a configuration object with the following properties:
 
-- `allowEscape`: When set to `true`, the rule allows any grouping of code points
-  inside a character class as long as they are written using escape sequences.
+### allowEscape
+
+type: `boolean`
+
+default: `false`
+
+When set to `true`, the rule allows any grouping of code points
+inside a character class as long as they are written using escape sequences.
 
 Examples of **incorrect** code for this rule with `{ "allowEscape": true }`:
 

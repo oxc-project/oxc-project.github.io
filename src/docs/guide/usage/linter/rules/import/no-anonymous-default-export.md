@@ -67,33 +67,76 @@ export default new Foo();
 export default foo(bar);
 ```
 
-### Options
-
-This rule takes an object with the following properties:
-
-- `allowArray`: `boolean` (default: `false`) - Allow anonymous array as default export.
-- `allowArrowFunction`: `boolean` (default: `false`) - Allow anonymous arrow function as default export.
-- `allowAnonymousClass`: `boolean` (default: `false`) - Allow anonymous class as default export.
-- `allowAnonymousFunction`: `boolean` (default: `false`) - Allow anonymous function as default export.
-- `allowCallExpression`: `boolean` (default: `true`) - Allow anonymous call expression as default export.
-- `allowNew`: `boolean` (default: `false`) - Allow anonymous new expression as default export.
-- `allowLiteral`: `boolean` (default: `false`) - Allow anonymous literal as default export.
-- `allowObject`: `boolean` (default: `false`) - Allow anonymous object as default export.
-
 By default, all types of anonymous default exports are forbidden,
 but any types can be selectively allowed by toggling them on in the options.
 
-```json
-"import/no-anonymous-default-export": ["error", {
-   "allowArray": false,
-   "allowArrowFunction": false,
-   "allowAnonymousClass": false,
-   "allowAnonymousFunction": false,
-   "allowCallExpression": true,
-   "allowNew": false,
-   "allowLiteral": false,
-   "allowObject": false
-```
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### allowAnonymousClass
+
+type: `boolean`
+
+default: `false`
+
+Allow anonymous class as default export.
+
+### allowAnonymousFunction
+
+type: `boolean`
+
+default: `false`
+
+Allow anonymous function as default export.
+
+### allowArray
+
+type: `boolean`
+
+default: `false`
+
+Allow anonymous array as default export.
+
+### allowArrowFunction
+
+type: `boolean`
+
+default: `false`
+
+Allow anonymous arrow function as default export.
+
+### allowCallExpression
+
+type: `boolean`
+
+default: `true`
+
+Allow anonymous call expression as default export.
+
+### allowLiteral
+
+type: `boolean`
+
+default: `false`
+
+Allow anonymous literal as default export.
+
+### allowNew
+
+type: `boolean`
+
+default: `false`
+
+Allow anonymous new expression as default export.
+
+### allowObject
+
+type: `boolean`
+
+default: `false`
+
+Allow anonymous object as default export.
 
 ## How to use
 

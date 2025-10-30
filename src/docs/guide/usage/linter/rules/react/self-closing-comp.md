@@ -48,6 +48,26 @@ const welem = <Component linter="oxlint"></Component>;
 const dom_elem = <div id="oxlint" />;
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### component
+
+type: `boolean`
+
+default: `true`
+
+Whether to enforce self-closing for custom components.
+
+### html
+
+type: `boolean`
+
+default: `true`
+
+Whether to enforce self-closing for native HTML elements.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

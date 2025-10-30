@@ -203,6 +203,54 @@ function UsersTable({ users }) {
 - [ECMA262 - Object spread evaluation semantics](https://262.ecma-international.org/15.0/index.html#sec-runtime-semantics-propertydefinitionevaluation)
 - [JSPerf - `concat` vs array spread performance](https://jsperf.app/pihevu)
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### ignoreArgs
+
+type: `boolean`
+
+default: `true`
+
+Ignore maps on arrays passed as parameters to a function.
+
+This option is enabled by default to better avoid false positives. It
+comes at the cost of potentially missing spreads that are inefficient.
+We recommend turning this off in your `.oxlintrc.json` files.
+
+#### Examples
+
+Examples of **incorrect** code for this rule when `ignoreArgs` is `true`:
+
+```ts
+/* "oxc/no-map-spread": ["error", { "ignoreArgs": true }] */
+function foo(arr) {
+  let arr2 = arr.filter(x => x.a > 0);
+  return arr2.map(x => ({ ...x }));
+}
+```
+
+Examples of **correct** code for this rule when `ignoreArgs` is `true`:
+
+```ts
+/* "oxc/no-map-spread": ["error", { "ignoreArgs": true }] */
+function foo(arr) {
+  return arr.map(x => ({ ...x }));
+}
+```
+
+### ignoreRereads
+
+type: `boolean`
+
+default: `true`
+
+Ignore mapped arrays that are re-read after the `map` call.
+
+Re-used arrays may rely on shallow copying behavior to avoid mutations.
+In these cases, `Object.assign` is not really more performant than spreads.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:
