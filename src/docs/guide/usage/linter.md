@@ -32,7 +32,7 @@ doesn't support natively as JS plugins.
   `eslint-plugin-jest`, `eslint-plugin-unicorn`, `eslint-plugin-jsx-a11y` and
   [many more](https://github.com/oxc-project/oxc/issues/481).
 - Supports
-  - [type-aware rules](./linter/type-aware)
+  - [type-aware rules](./linter/type-aware) (preview)
   - [`.oxlintrc.json` configuration file](./linter/config)
   - [Nested configuration file](./linter/nested-config)
   - [Comment disabling](./linter/config.html#configuring-rules-via-inline-configuration-comments)
