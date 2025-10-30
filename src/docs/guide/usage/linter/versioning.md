@@ -19,6 +19,13 @@ What's considered a **non-breaking** change:
 - Changing the default configuration for a rule.
 - Improving rule descriptions or diagnostic messages.
 
+## Features Not Subject to Semver
+
+The following features are **experimental** and are not subject to semantic versioning. They may introduce breaking changes at any time, even in patch or minor releases:
+
+- **JavaScript custom plugins** - The plugin API and behavior may change without notice.
+- **Type-aware linting** - Type-aware rules and their behavior may change as this feature evolves.
+
 ## Are New Lint Errors a Breaking Change?
 
 If a new version of Oxlint reports additional issues in your code, that’s expected. This behavior means Oxlint has improved — not that something in your project broke. New errors reflect stronger analysis, not a broken upgrade.
