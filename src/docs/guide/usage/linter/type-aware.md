@@ -97,3 +97,15 @@ List of supported rules:
   }
 }
 ```
+
+## TypeScript Compatibility
+
+TSGolint is based on [typescript-go](https://github.com/microsoft/typescript-go) (Microsoft's TypeScript v7.0 rewrite in Go), not the original TypeScript compiler written in TypeScript.
+
+**Key implications:**
+
+- Only TypeScript 7.0+ features are supported
+- Pre-7.0 syntax and features (like `baseUrl` in tsconfig.json) are not supported
+- If you're using deprecated features that were deprecated in TypeScript 6.0 or removed in TypeScript 7.0, you'll need to migrate your codebase first
+
+For help migrating deprecated tsconfig options, see the [TypeScript migration guide](https://github.com/microsoft/TypeScript/issues/62508#issuecomment-3348649259).
