@@ -145,6 +145,62 @@ Fill out the various documentation sections.
 Remember, we use this documentation to generate the [rule documentation pages](/docs/guide/usage/linter/rules) for this website, so make sure your
 documentation is clear and helpful!
 
+#### Configuration Documentation
+
+If your rule has configuration options, you will need to document them. You should do so via the system for auto-generating documentation. This should be partially generated for you automatically by the rulegen script.
+
+Each configuration option should be defined by adding fields to the rule's struct:
+
+```rust
+pub struct RuleName {
+  option_name: bool,
+  another_option: String,
+  yet_another_option: Vec<CompactStr>,
+}
+```
+
+Alternatively, you can instead define a separate `Config` struct to hold all configuration options:
+
+```rust
+pub struct RuleName(Box<RuleNameConfig>);
+
+pub struct RuleNameConfig {
+  option_name: bool,
+}
+```
+
+The configuration options should have `JsonSchema` derived for them and also a serde decoration, like so:
+
+```rust
+use schemars::JsonSchema;
+
+#[derive(Debug, Default, Clone, JsonSchema)]
+#[serde(rename_all = "camelCase", default)]
+pub struct RuleName {
+  option_name: bool,
+}
+```
+
+Add documentation comments (`///`) to each field to describe the option, for example:
+
+```rust
+use schemars::JsonSchema;
+
+#[derive(Debug, Default, Clone, JsonSchema)]
+#[serde(rename_all = "camelCase", default)]
+pub struct RuleName {
+  /// Whether to check for foo and bar when evaluating baz.
+  /// The comment can be as long as you need to fully describe the option.
+  option_name: bool,
+}
+```
+
+The default value and the type of each option will be automatically extracted from the struct definition, and should not be mentioned in the documentation comments.
+
+See [this issue](https://github.com/oxc-project/oxc/issues/14743) for dozens of examples of how to properly document configuration options in all kinds of rules.
+
+You can view the generated documentation by running `cargo run -p website -- linter-rules --rule-docs target/rule-docs --git-ref $(git rev-parse HEAD)` and then opening `target/rule-docs/<plugin-name>/<rule-name>.html`.
+
 ### Rule Category
 
 First, pick a [rule category](../linter.md#rule-category) that best fits the
