@@ -36,9 +36,7 @@ const result = minify("lib.js", code, {
 
 ::: warning The whole call expression is removed
 
-Note that this option removes the whole call expression including the arguments. This is intentional because removing the evaluation of call arguments is useful for improving the runtime performance if those are expensive to compute. However, if any of those arguments have side effects, this transformation will change the behavior of your code.
-
-<!-- TODO: suggest pure functions option when exposed -->
+Note that this option removes the whole call expression including the arguments. This is intentional because removing the evaluation of call arguments is useful for improving the runtime performance if those are expensive to compute. However, if any of those arguments have side effects, this transformation will change the behavior of your code. If you want to keep the arguments, you can use [`compress.treeshake.manualPureFunctions: ['console']`](#define-pure-functions) option.
 
 :::
 
@@ -142,3 +140,118 @@ const result = minify("lib.js", code, {
 If you are using the mangling feature, you may also want to enable [the `mangle.keepNames` option](./mangling#keep-name-property-values).
 
 :::
+
+## Controlling Side Effect Detection
+
+There are multiple options to control the side effect detection.
+
+### Pure Annotations
+
+By default, Oxc minifier respects pure annotations. Pure annotations are annotation comments that marks expressions that can be safely removed if their return values are not used. See [the draft specification proposal](https://github.com/javascript-compiler-hints/compiler-notations-spec) for more information.
+
+This can be disabled by setting `compress.treeshake.annotations` option to `false`.
+
+#### `#__PURE__` / `@__PURE__`
+
+The `#__PURE__` annotation is used to mark function calls that can be safely removed if their return values are not used. Note that it only marks the function call itself and does not cover the arguments of it.
+
+If you want to mark other expressions or the cover the arguments, you can wrap them with a IIFE and put the `#__PURE__` annotation on it.
+
+```js
+// input
+/* #__PURE__ */ foo();
+/* #__PURE__ */ new Foo();
+/* #__PURE__ */ foo(bar());
+/* #__PURE__ */ (() => {
+  foo(bar());
+})();
+console.log(/* #__PURE__ */ foo());
+console.log(/* #__PURE__ */ new Foo());
+
+// output
+bar();
+console.log(foo());
+console.log(new Foo());
+```
+
+::: tip The function does not have to be pure
+
+Despite the name, the function does not have to be pure ([Pure function - Wikipedia](https://en.wikipedia.org/wiki/Pure_function)). It does not indicate that the calls can be cached. In other words, the function does not have to be referentially transparent ([Referential transparency - Wikipedia](https://en.wikipedia.org/wiki/Referential_transparency)).
+
+:::
+
+#### `#__NO_SIDE_EFFECTS__` / `@__NO_SIDE_EFFECTS__`
+
+The `#__NO_SIDE_EFFECTS__` annotation is used to mark a function declaration that all calls of it can be safely removed if their return values are not used. This is useful if you have a function call of that function in multiple places.
+
+```js
+// input
+/* #__NO_SIDE_EFFECTS__ */
+export function foo() {}
+/* #__NO_SIDE_EFFECTS__ */
+export const bar = () => {};
+foo();
+bar();
+
+// output
+export function foo() {}
+export const bar = () => {};
+```
+
+### Define Pure Functions
+
+Instead of marking functions with pure annotations, you can also mark functions via the `compress.treeshake.manualPureFunctions` option. This option is an array of function names.
+
+```js
+// input
+foo();
+foo.bar();
+bar();
+bar.baz();
+new foo();
+foo``;
+
+// output
+bar();
+```
+
+```js
+// Example
+import { minify } from "oxc-minify";
+
+const result = minify("lib.js", code, {
+  compress: {
+    treeshake: {
+      manualPureFunctions: ["foo", "bar.baz"],
+    },
+  },
+});
+```
+
+### Ignoring Property Read Side Effects
+
+By default, Oxc minifier assumes that property reads have side effects. This is because the accessing a property of null throws and error. Also there's a case where a property is a getter and the getter might has a side effect. You can tell Oxc minifier to ignore those possibilities by setting `compress.treeshake.propertyReadSideEffects` option to `false`.
+
+```js
+// input
+const foo = {
+  get bar() {
+    console.log("effect");
+    return "bar";
+  },
+};
+foo.bar;
+
+// output (with `compress.treeshake.propertyReadSideEffects: false`)
+```
+
+### Ignoring Global Variable Access Side Effects
+
+By default, Oxc minifier assumes that global variable accesses have side effects. This is because accessing a non-existent global variable throws an error. Also there's a case where a global variable is a getter and the getter might has a side effect. You can tell Oxc minifier to ignore those possibilities by setting `compress.treeshake.unknownGlobalSideEffects` option to `false`.
+
+```js
+// input
+const jQuery = $;
+
+// output (with `compress.treeshake.propertyReadSideEffects: false`)
+```
