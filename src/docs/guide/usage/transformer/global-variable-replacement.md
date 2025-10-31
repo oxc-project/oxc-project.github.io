@@ -25,7 +25,13 @@ const result = transform("lib.js", sourceCode, {
 });
 ```
 
-<!-- TODO: describe what value can come for the value of each property -->
+Each `define` entry maps an expression to a string of code containing an expression. The keys of it must be an identifier (e.g. `__DEV__`), or a dotted sequence of identifiers (e.g. `process.env.NODE_ENV`, `import.meta.env.MODE`). The values of it must be a valid expression.
+
+::: tip Always quote the values
+
+The values of `define` are the string of expressions. This means the value should always a string. If you mean a string literal, you should quote it (e.g. `__MODE__: '"development"'`, `__MODE__: JSON.stringify("development")`).
+
+:::
 
 ::: tip The object reference are not shared
 
@@ -77,4 +83,19 @@ const result = transform("lib.js", sourceCode, {
 });
 ```
 
-<!-- TODO: describe more about what value the option takes -->
+Each `inject` entry maps an expression to an imported identifier. The keys of it must be an identifier (e.g. `__DEV__`), or a dotted sequence of identifiers (e.g. `process.env.NODE_ENV`). The values of it must be a string of the import source, or a tuple of strings of the import source and the import name (`*` is namespace import).
+
+```js
+const examples = {
+  // import { Promise } from 'es6-promise'
+  Promise: ["es6-promise", "Promise"],
+  // import { Promise as P } from 'es6-promise'
+  P: ["es6-promise", "Promise"],
+  // import $ from 'jquery'
+  $: "jquery",
+  // import * as fs from 'fs'
+  fs: ["fs", "*"],
+  // use a local module instead of a third-party one
+  "Object.assign": path.resolve("src/helpers/object-assign.js"),
+};
+```
