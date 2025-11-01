@@ -3,17 +3,16 @@
     "outDir": "build",
     "target": "esnext",
     "module": "esnext",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "allowJs": true,
     "strict": true,
     "jsx": "preserve",
-    "baseUrl": ".",
     "skipLibCheck": true,
     "paths": {
-      "@components/*": [".vitepress/theme/components/*"],
-      "@constants/*": [".vitepress/theme/constants/*"]
+      "@components/*": ["./.vitepress/theme/components/*"],
+      "@constants/*": ["./.vitepress/theme/constants/*"]
     }
   },
   "include": ["src/**/*", ".vitepress/**/*"],
