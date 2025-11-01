@@ -25,6 +25,7 @@ export const enConfig = defineLocaleConfig("root", {
         items: [
           { text: "Blog", link: "/blog/2025-10-09-oxlint-js-plugins" },
           { text: "Team", link: "/team" },
+          { text: "Release Notes", link: "https://github.com/oxc-project/oxc/releases" },
           { text: "Branding", link: "/branding" },
           { text: "Website GitHub", link: "https://github.com/oxc-project/oxc-project.github.io" },
         ],
