@@ -1,27 +1,39 @@
 <script setup lang="ts">
 import { withBase } from "vitepress";
-import type { DefaultTheme, HeroAction } from "vitepress/theme";
-import { VPButton, VPImage } from "vitepress/theme";
+import { type DefaultTheme, VPButton } from "vitepress/theme";
 import { inject, onMounted, onUnmounted, type Ref, ref } from "vue";
 
-// Math stuff
-function vec2(x, y) {
-  return { x: x || 0, y: y || 0 };
+interface Vec {
+  x: number;
+  y: number;
 }
 
-function vec2_clone(v) {
+interface HeroAction {
+  theme?: "brand" | "alt";
+  text: string;
+  link: string;
+  target?: string;
+  rel?: string;
+}
+
+// Math stuff
+function vec2(x: number = 0, y: number = 0): Vec {
+  return { x, y };
+}
+
+function vec2_clone(v: Vec) {
   return vec2(v.x, v.y);
 }
 
-function vec2_sub(a, b) {
+function vec2_sub(a: Vec, b: Vec) {
   return vec2(a.x - b.x, a.y - b.y);
 }
 
-function vec2_len(v) {
+function vec2_len(v: Vec) {
   return Math.sqrt(v.x * v.x + v.y * v.y);
 }
 
-function vec2_norm(v) {
+function vec2_norm(v: Vec) {
   const len = vec2_len(v);
   if (len === 0) {
     return vec2(0, 0);
@@ -29,32 +41,32 @@ function vec2_norm(v) {
   return vec2(v.x / len, v.y / len);
 }
 
-function vec2_mulf(v, f) {
+function vec2_mulf(v: Vec, f: number) {
   return vec2(v.x * f, v.y * f);
 }
 
-function vec2_clamp(v, min, max) {
+function vec2_clamp(v: Vec, min: Vec, max: Vec) {
   return vec2(clamp(v.x, min.x, max.x), clamp(v.y, min.y, max.y));
 }
 
-function vec2_lerp(a, b, t) {
+function vec2_lerp(a: Vec, b: Vec, t: number) {
   return vec2(lerp(a.x, b.x, t), lerp(a.y, b.y, t));
 }
 
-function lerp(a, b, t) {
+function lerp(a: number, b: number, t: number) {
   return a + (b - a) * t;
 }
 
-function clamp(x, min, max) {
+function clamp(x: number, min: number, max: number) {
   return Math.min(Math.max(x, min), max);
 }
 
-function oscillate(input, min, max) {
+function oscillate(input: number, min: number, max: number) {
   const range = max - min;
   return min + Math.abs(((input + range) % (range * 2)) - range);
 }
 
-function lemniscateGerono(t) {
+function lemniscateGerono(t: number) {
   return vec2(Math.sin(t * 2) / 2, Math.cos(t));
 }
 
@@ -62,32 +74,32 @@ defineProps<{
   name?: string;
   text?: string;
   tagline?: string;
-  image?: DefaultTheme.ThemeableImage;
+  image: DefaultTheme.ThemeableImage;
   actions?: HeroAction[];
 }>();
 
 const heroImageSlotExists = inject("hero-image-slot-exists") as Ref<boolean>;
-const hero = ref(null);
+const hero: any = ref(null);
 let rotation = ref(vec2());
 let targetRotation = ref(vec2());
-let mouse = vec2();
-let lastMouse = vec2();
-let cooldown = null;
+let mouse = ref<Vec | null>(vec2());
+let lastMouse = ref<Vec | null>(vec2());
+let cooldown: number | null = null;
 let idle = true;
 
-const onMouseMove = (e) => {
-  mouse = vec2(e.clientX, e.clientY);
+const onMouseMove = (e: MouseEvent) => {
+  mouse.value = vec2(e.clientX, e.clientY);
   if (cooldown) {
     clearTimeout(cooldown);
   }
   cooldown = setTimeout(() => {
     idle = true;
-    targetRotation = vec2();
-  }, 1500);
+    targetRotation.value = vec2();
+  }, 1500) as unknown as number;
   if (idle) {
     idle = false;
-    targetRotation = vec2_clone(rotation);
-    lastMouse = vec2_clone(mouse);
+    targetRotation.value = vec2_clone(rotation.value);
+    lastMouse.value = vec2_clone(mouse.value);
   }
 };
 
@@ -101,7 +113,7 @@ onUnmounted(() => {
     clearTimeout(cooldown);
     idle = true;
     cooldown = null;
-    mouse = null;
+    mouse.value = null;
   }
   document.removeEventListener("mousemove", onMouseMove);
 });
@@ -111,7 +123,7 @@ function nextFrame() {
   if (hero.value === null) {
     return;
   }
-  if (mouse === null) {
+  if (mouse.value === null) {
     return;
   }
   update();
@@ -129,16 +141,16 @@ const WAVE_MAX = vec2(+WAVE_RANGE, +WAVE_RANGE);
 function update() {
   const time = new Date().getTime() / 800;
   const osc = oscillate(time, -1, 1);
-  const dir = vec2_mulf(vec2_norm(vec2_sub(lastMouse, mouse)), 10);
+  const dir = vec2_mulf(vec2_norm(vec2_sub(lastMouse.value!, mouse.value!)), 10);
 
-  targetRotation.x += dir.y;
-  targetRotation.y -= dir.x;
+  targetRotation.value.x += dir.y;
+  targetRotation.value.y -= dir.x;
 
   let speed = undefined;
   let min = undefined;
   let max = undefined;
   if (idle) {
-    targetRotation = vec2_mulf(lemniscateGerono(osc), 20);
+    targetRotation.value = vec2_mulf(lemniscateGerono(osc), 20);
     speed = 0.01;
     min = WAVE_MIN;
     max = WAVE_MAX;
@@ -148,15 +160,15 @@ function update() {
     max = TARGET_MAX;
   }
 
-  targetRotation = vec2_clamp(targetRotation, min, max);
+  targetRotation.value = vec2_clamp(targetRotation.value, min, max);
 
-  rotation = vec2_lerp(rotation, targetRotation, speed);
+  rotation.value = vec2_lerp(rotation.value, targetRotation.value, speed);
 
-  lastMouse = mouse;
+  lastMouse.value = mouse.value;
 }
 
 function render() {
-  hero.value.style.transform = `translate(-50%,-50%) rotateX(${rotation.x}deg) rotateY(${rotation.y}deg)`;
+  hero.value.style.transform = `translate(-50%,-50%) rotateX(${rotation.value.x}deg) rotateY(${rotation.value.y}deg)`;
 }
 </script>
 
