@@ -22,6 +22,8 @@ of all rules we want to implement from existing ESLint plugins. From there, pick
 a plugin that looks interesting to you and find a rule that has not been
 implemented.
 
+**Important**: Since ESLint-compatible JavaScript plugin support is now available, we do not plan to add new Rust-based plugins. However, contributions that add rules to existing plugins are **highly encouraged**.
+
 Most documentation pages for ESLint rules include a link to the rule's [source code](https://eslint.org/docs/latest/rules/no-debugger#resources). Using this as
 a reference will help you with your implementation.
 
