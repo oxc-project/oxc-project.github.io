@@ -294,7 +294,7 @@ It does not yet support token-based APIs, so stylistic (formatting) rules will n
 - Language server (IDE) support
 - Rule options
 - Suggestions
-- Scope analysis
+- ~~Scope analysis~~ ([implemented](https://github.com/oxc-project/oxc/pull/14890) since v1.25.0)
 - `SourceCode` APIs related to tokens and comments (e.g. `context.sourceCode.getTokens(node)`)
 - Control flow analysis
 
