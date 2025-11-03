@@ -21,9 +21,9 @@ For Test262, all stage 4 and regular expression tests are included.
 
 All conformance results are stored in a snapshot file for tracking changes:
 
-- [test262.snap](https://github.com/oxc-project/oxc/blob/main/tasks/coverage/parser_test262.snap), reporting `43765/43765 (100.00%)`.
-- [babel.snap](https://github.com/oxc-project/oxc/blob/main/tasks/coverage/parser_babel.snap), reporting `2093/2101 (99.62%)`.
-- [typescript.snap](https://github.com/oxc-project/oxc/blob/main/tasks/coverage/parser_typescript.snap), reporting `6470/6479 (99.86%)`.
+- [test262.snap](https://github.com/oxc-project/oxc/blob/main/tasks/coverage/snapshots/parser_test262.snap).
+- [babel.snap](https://github.com/oxc-project/oxc/blob/main/tasks/coverage/snapshots/parser_babel.snap).
+- [typescript.snap](https://github.com/oxc-project/oxc/blob/main/tasks/coverage/snapshots/parser_typescript.snap).
 
 All syntax errors are written to these snapshot files for diffing changes.
 
