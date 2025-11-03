@@ -358,7 +358,7 @@ Not supported yet:
 - Language server (IDE) support.
 - Rule options.
 - Suggestions.
-- Scope analysis.
+- ~~Scope analysis~~ ([implemented](https://github.com/oxc-project/oxc/pull/14890) since v1.25.0).
 - `SourceCode` APIs related to tokens (e.g. `context.sourceCode.getTokens(node)`).
 - Control flow analysis.
 
