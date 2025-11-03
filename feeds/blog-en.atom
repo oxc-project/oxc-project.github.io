@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://oxc.rs</id>
     <title>The Oxidation Compiler Blog</title>
-    <updated>2025-11-02T16:39:33.303Z</updated>
+    <updated>2025-11-03T03:57:59.611Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://oxc.rs"/>
     <icon>https://cdn.jsdelivr.net/gh/oxc-project/oxc-assets/square.ico</icon>
@@ -1599,7 +1599,7 @@ That includes most &quot;fix code&quot;-type rules.</p>
 <li>Language server (IDE) support</li>
 <li>Rule options</li>
 <li>Suggestions</li>
-<li>Scope analysis</li>
+<li><s>Scope analysis</s> (<a href="https://github.com/oxc-project/oxc/pull/14890" target="_blank" rel="noreferrer">implemented</a> since v1.25.0)</li>
 <li><code>SourceCode</code> APIs related to tokens and comments (e.g. <code>context.sourceCode.getTokens(node)</code>)</li>
 <li>Control flow analysis</li>
 </ul>

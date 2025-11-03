@@ -4,7 +4,7 @@
         <title>The Oxidation Compiler Blog</title>
         <link>https://oxc.rs</link>
         <description>undefined</description>
-        <lastBuildDate>Sun, 02 Nov 2025 16:39:33 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 03 Nov 2025 03:57:59 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
@@ -1541,7 +1541,7 @@ That includes most &quot;fix code&quot;-type rules.</p>
 <li>Language server (IDE) support</li>
 <li>Rule options</li>
 <li>Suggestions</li>
-<li>Scope analysis</li>
+<li><s>Scope analysis</s> (<a href="https://github.com/oxc-project/oxc/pull/14890" target="_blank" rel="noreferrer">implemented</a> since v1.25.0)</li>
 <li><code>SourceCode</code> APIs related to tokens and comments (e.g. <code>context.sourceCode.getTokens(node)</code>)</li>
 <li>Control flow analysis</li>
 </ul>
