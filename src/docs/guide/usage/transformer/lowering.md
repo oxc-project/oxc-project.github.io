@@ -92,6 +92,11 @@ Oxc supports lowering the syntaxes below. Note that RegExp related transformatio
 
 Oxc transformer emits warnings for the syntaxes below if the target runtime does not support them.
 
+### ES2022
+
+- Top level await (`await foo()`)
+- Arbitrary module namespace identifiers (`import * as "f o o" from "bar"`)
+
 ### ES2020
 
 - BigInt (`1n`)
