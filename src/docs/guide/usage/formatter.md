@@ -1,6 +1,6 @@
 # Formatter
 
-Oxfmt (`/oh-eks-for-mat/`) is a non-opinionated yet Prettier-compatible code formatter.
+Oxfmt (`/oh-eks-for-mat/`) is a Prettier-compatible code formatter.
 
 :::info
 Oxfmt is currently working in progress.
