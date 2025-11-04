@@ -10,7 +10,7 @@ Please join the discussion!
 > RFC: Formatter · oxc-project/oxc · Discussion #13608
 > https://github.com/oxc-project/oxc/discussions/13608
 
-For a while, you may use [@prettier/plugin-oxc](https://github.com/prettier/prettier/tree/main/packages/plugin-oxc) in prettier to gain some parsing speed.
+For now, you may use [@prettier/plugin-oxc](https://github.com/prettier/prettier/tree/main/packages/plugin-oxc) in prettier to gain some parsing speed.
 :::
 
 ## Installation
