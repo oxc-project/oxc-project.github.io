@@ -5,7 +5,12 @@ Oxfmt (`/oh-eks-for-mat/`) is a non-opinionated yet Prettier-compatible code for
 :::info
 Oxfmt is currently working in progress.
 
-You may use [@prettier/plugin-oxc](https://github.com/prettier/prettier/tree/main/packages/plugin-oxc) in prettier to gain some parsing speed.
+Please join the discussion!
+
+> RFC: Formatter · oxc-project/oxc · Discussion #13608
+> https://github.com/oxc-project/oxc/discussions/13608
+
+For a while, you may use [@prettier/plugin-oxc](https://github.com/prettier/prettier/tree/main/packages/plugin-oxc) in prettier to gain some parsing speed.
 :::
 
 ## Installation
@@ -136,3 +141,10 @@ These will (or will not) be implemented in the future.
   - Some of them like sort-imports will be natively supported
 - Globs in positional paths are not expanded
   - But it works in `!` prefixed exclude paths
+
+## Compatibility with Prettier
+
+Please see this discussion.
+
+> `Oxfmt` differences with `Prettier` · oxc-project/oxc · Discussion #14669
+> https://github.com/oxc-project/oxc/discussions/14669
