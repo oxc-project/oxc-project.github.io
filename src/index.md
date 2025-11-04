@@ -36,6 +36,7 @@ features:
     link: /docs/guide/usage/minifier
   - title: Formatter 🚧
     details: Prettier compatible<br/>Prototype is complete
+    link: /docs/guide/usage/formatter
   - title: Rolldown Bundler 🚧
     details: Rollup compatible<br/>Designed for Vite
     link: https://rolldown.rs
