@@ -133,14 +133,15 @@ VCS directories like `.git` and `.svn` are always ignored. Also global and neste
 These will (or will not) be implemented in the future.
 
 - Only JS and TS files are supported
+- Embedded parts like css-in-js are partially supported
 - Stdin and stdout are not supported
 - Configuration is not supported for
   - `prettier` field in `package.json`
   - Extensions other than `.json(c)`
-- Plugins are not supported
-  - Some of them like sort-imports will be natively supported
 - Globs in positional paths are not expanded
   - But it works in `!` prefixed exclude paths
+- Plugins are not supported
+  - Some of them like sort-imports will be natively supported
 
 ## Compatibility with Prettier
 
