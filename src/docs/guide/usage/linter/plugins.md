@@ -97,7 +97,6 @@ plan`](https://github.com/oxc-project/oxc/issues/481) issue on GitHub.
 
 ## Adding New Plugins
 
-Do you have a favorite ESLint plugin that you'd like to see supported in Oxlint?
-Please open [a feature request](https://github.com/oxc-project/oxc/issues/new?assignees=&labels=C-enhancement%2CA-linter&projects=&template=feature_request.md&title=linter:%20support%20my%20favorite%20plugin).
-Please be aware that for plugins that require special parsers, such as `eslint-plugin-vue`
-and `eslint-plugin-svelte`, we only support linting the `<script>` sections of those files.
+We do not plan to add more Rust-based plugins due to supporting nearly all ESLint plugins [through JS plugins](https://oxc.rs/docs/guide/usage/linter/js-plugins.html#using-js-plugins).
+However, contributions that add rules to existing plugins are **highly encouraged**.
+If you think a rule or plugin would benefit from being written in rust, please open a discussion first, before making a pull request.
