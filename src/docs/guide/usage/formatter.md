@@ -136,4 +136,3 @@ These will (or will not) be implemented in the future.
   - Some of them like sort-imports will be natively supported
 - Globs in positional paths are not expanded
   - But it works in `!` prefixed exclude paths
-
