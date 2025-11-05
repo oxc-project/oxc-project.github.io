@@ -42,18 +42,24 @@ import { x } from "./foo";
 export { x, y };
 ```
 
-### Options
+## Configuration
 
-with `"absolute-first"`:
+This rule accepts a configuration object with the following properties:
 
-Examples of **incorrect** code for this rule:
+### absolute_first
+
+type: `"absolute-first" | "disable-absolute-first"`
+
+Whether to enforce absolute imports before relative imports.
+
+Examples of **incorrect** code for this rule with `"absolute-first"`:
 
 ```js
 import { y } from "bar";
 import { x } from "./foo";
 ```
 
-Examples of **correct** code for this rule:
+Examples of **correct** code for this rule with `"absolute-first"`:
 
 ```js
 import { y } from "bar";

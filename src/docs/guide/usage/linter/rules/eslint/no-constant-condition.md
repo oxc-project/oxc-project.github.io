@@ -60,11 +60,17 @@ while (typeof x === "undefined") {
 }
 ```
 
-### Options
+## Configuration
 
-#### checkLoops
+This rule accepts a configuration object with the following properties:
 
-`{ type: "all" | "allExceptWhileTrue" | "none" | boolean, default: "allExceptWhileTrue" }`
+### checkLoops
+
+type: `"all" | "allExceptWhileTrue" | "none"`
+
+default: `"allExceptWhileTrue"`
+
+Configuration option to specify whether to check for constant conditions in loops.
 
 - `"all"` or `true` disallows constant expressions in loops
 - `"allExceptWhileTrue"` disallows constant expressions in loops except while loops with expression `true`

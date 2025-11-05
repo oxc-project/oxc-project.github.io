@@ -56,6 +56,42 @@ export function a() {/* ... */}
 
 In this corrected version, `dep-b.js` no longer imports `dep-a.js`, breaking the cycle.
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### allowUnsafeDynamicCyclicDependency
+
+type: `boolean`
+
+default: `false`
+
+Allow cyclic dependency if there is at least one dynamic import in the chain
+
+### ignoreExternal
+
+type: `boolean`
+
+default: `false`
+
+Ignore external modules
+
+### ignoreTypes
+
+type: `boolean`
+
+default: `true`
+
+Ignore type-only imports
+
+### maxDepth
+
+type: `integer`
+
+default: `4294967295`
+
+Maximum dependency depth to traverse
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

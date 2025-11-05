@@ -35,6 +35,18 @@ Examples of **correct** code for this rule:
 var num = parseInt("071", 10); // 71
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### radixType
+
+type: `"always" | "as-needed"`
+
+default: `"always"`
+
+Configuration option to specify when to require the radix parameter.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

@@ -32,6 +32,18 @@ Examples of **correct** code for this rule:
 Promise.resolve();
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### allowedMethods
+
+type: `string[]`
+
+default: `null`
+
+List of Promise static methods that are allowed to be used.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

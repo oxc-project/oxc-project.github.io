@@ -43,6 +43,26 @@ React.createElement('input', { type: 'checkbox', checked: true, onChange() {}, r
 React.createElement('input', { type: 'checkbox', defaultChecked: true });
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### ignoreExclusiveCheckedAttribute
+
+type: `boolean`
+
+default: `false`
+
+Ignore the restriction that `checked` and `defaultChecked` should not be used together.
+
+### ignoreMissingProperties
+
+type: `boolean`
+
+default: `false`
+
+Ignore the requirement to provide either `onChange` or `readOnly` when the `checked` prop is present.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

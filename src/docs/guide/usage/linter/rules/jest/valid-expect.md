@@ -50,6 +50,42 @@ to use it, add the following configuration to your `.eslintrc.json`:
 }
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### alwaysAwait
+
+type: `boolean`
+
+default: `false`
+
+When `true`, async assertions must be awaited in all contexts (not just return statements).
+
+### asyncMatchers
+
+type: `string[]`
+
+default: `["toResolve", "toReject"]`
+
+List of matchers that are considered async and therefore require awaiting (e.g. `toResolve`, `toReject`).
+
+### maxArgs
+
+type: `integer`
+
+default: `1`
+
+Maximum number of arguments `expect` should be called with.
+
+### minArgs
+
+type: `integer`
+
+default: `1`
+
+Minimum number of arguments `expect` should be called with.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

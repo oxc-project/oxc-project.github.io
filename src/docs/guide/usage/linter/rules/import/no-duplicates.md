@@ -45,6 +45,25 @@ import { c } from "foo"; // separate type imports, unless
 import type { d } from "foo"; // `preferInline` is true
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### preferInline
+
+type: `boolean`
+
+default: `false`
+
+When set to `true`, prefer inline type imports instead of separate type import
+statements for TypeScript code.
+
+Examples of **correct** code with this option set to `true`:
+
+```typescript
+import { type Bar, Foo } from "./module";
+```
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

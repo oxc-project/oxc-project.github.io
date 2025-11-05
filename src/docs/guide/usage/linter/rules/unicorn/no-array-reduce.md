@@ -29,6 +29,18 @@ array.reduce(reducer, initialValue);
 array.reduceRight(reducer, initialValue);
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### allowSimpleOperations
+
+type: `boolean`
+
+default: `true`
+
+When set to `true`, allows simple operations (like summing numbers) in `reduce` and `reduceRight` calls.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

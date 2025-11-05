@@ -62,6 +62,18 @@ var Hello = createReactClass({
 });
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### noTemplateLiterals
+
+type: `boolean`
+
+default: `false`
+
+Disallow template literals in addition to string literals.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

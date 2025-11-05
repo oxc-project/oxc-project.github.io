@@ -44,6 +44,18 @@ function x() {
 }
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### alwaysDisallowAssignmentInReturn
+
+type: `boolean`
+
+default: `false`
+
+Whether to always disallow assignment in return statements.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

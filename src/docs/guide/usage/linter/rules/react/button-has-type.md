@@ -36,6 +36,34 @@ Examples of **correct** code for this rule:
 <button type="submit" />
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### button
+
+type: `boolean`
+
+default: `true`
+
+If true, allow `type="button"`.
+
+### reset
+
+type: `boolean`
+
+default: `true`
+
+If true, allow `type="reset"`.
+
+### submit
+
+type: `boolean`
+
+default: `true`
+
+If true, allow `type="submit"`.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

@@ -50,6 +50,18 @@ const styles = { height: '100px' };
 React.createElement("div", { style: styles });
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### allow
+
+type: `string[]`
+
+default: `[]`
+
+List of component names on which to allow style prop values of any type.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

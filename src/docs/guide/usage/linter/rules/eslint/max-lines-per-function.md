@@ -57,47 +57,43 @@ function foo() {
 }
 ```
 
-### Options
+## Configuration
 
-#### max
+This rule accepts a configuration object with the following properties:
 
-{ type: number, default: 50 }
+### iifes
 
-The `max` enforces a maximum number of lines in a function.
+type: `boolean`
 
-#### skipBlankLines
-
-{ type: boolean, default: false }
-
-The `skipBlankLines` ignore lines made up purely of whitespace.
-
-#### skipComments
-
-{ type: boolean, default: false }
-
-The `skipComments` ignore lines containing just comments.
-
-#### IIFEs
-
-{ type: boolean, default: false }
+default: `false`
 
 The `IIFEs` option controls whether IIFEs are included in the line count.
 By default, IIFEs are not considered, but when set to `true`, they will
 be included in the line count for the function.
 
-Example:
+### max
 
-```json
-"eslint/max-lines-per-function": [
-  "error",
-  {
-    "max": 50,
-    "skipBlankLines": false,
-    "skipComments": false,
-    "IIFEs": false
-  }
-]
-```
+type: `integer`
+
+default: `50`
+
+Maximum number of lines allowed in a function.
+
+### skipBlankLines
+
+type: `boolean`
+
+default: `false`
+
+Skip lines made up purely of whitespace.
+
+### skipComments
+
+type: `boolean`
+
+default: `false`
+
+Skip lines containing just comments.
 
 ## How to use
 

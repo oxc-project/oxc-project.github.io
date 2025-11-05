@@ -56,9 +56,59 @@ myPromise.then((b) => {
 });
 ```
 
-### Options
+## Configuration
 
-#### `ignoreLastCallback`
+This rule accepts a configuration object with the following properties:
+
+### ignoreAssignmentVariable
+
+type: `string[]`
+
+default: `["globalThis"]`
+
+You can pass an `{ ignoreAssignmentVariable: [] }` as an option to this rule
+with a list of variable names so that the last `then()` callback in a promise
+chain does not warn if it does an assignment to a global variable. Default is
+`["globalThis"]`.
+
+```javascript
+/* eslint promise/always-return: ["error", { ignoreAssignmentVariable: ["globalThis"] }] */
+
+// OK
+promise.then((x) => {
+  globalThis = x;
+});
+
+promise.then((x) => {
+  globalThis.x = x;
+});
+
+// OK
+promise.then((x) => {
+  globalThis.x.y = x;
+});
+
+// NG
+promise.then((x) => {
+  anyOtherVariable = x;
+});
+
+// NG
+promise.then((x) => {
+  anyOtherVariable.x = x;
+});
+
+// NG
+promise.then((x) => {
+  x();
+});
+```
+
+### ignoreLastCallback
+
+type: `boolean`
+
+default: `false`
 
 You can pass an `{ ignoreLastCallback: true }` as an option to this rule so that
 the last `then()` callback in a promise chain does not warn if it does not have
@@ -102,46 +152,6 @@ function foo() {
     console.log(x);
   });
 }
-```
-
-#### `ignoreAssignmentVariable`
-
-You can pass an `{ ignoreAssignmentVariable: [] }` as an option to this rule
-with a list of variable names so that the last `then()` callback in a promise
-chain does not warn if it does an assignment to a global variable. Default is
-`["globalThis"]`.
-
-```javascript
-/* eslint promise/always-return: ["error", { ignoreAssignmentVariable: ["globalThis"] }] */
-
-// OK
-promise.then((x) => {
-  globalThis = x;
-});
-
-promise.then((x) => {
-  globalThis.x = x;
-});
-
-// OK
-promise.then((x) => {
-  globalThis.x.y = x;
-});
-
-// NG
-promise.then((x) => {
-  anyOtherVariable = x;
-});
-
-// NG
-promise.then((x) => {
-  anyOtherVariable.x = x;
-});
-
-// NG
-promise.then((x) => {
-  x();
-});
 ```
 
 ## How to use

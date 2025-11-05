@@ -21,11 +21,17 @@ Enforces the shorthand or standard form for React Fragments.
 
 Makes code using fragments more consistent one way or the other.
 
-### Options
+## Configuration
 
-`{ "mode": "syntax" | "element" }`
+This rule accepts a configuration object with the following properties:
 
-#### `syntax` mode
+### mode
+
+type: `"syntax" | "element"`
+
+default: `"syntax"`
+
+`syntax` mode:
 
 This is the default mode. It will enforce the shorthand syntax for React fragments, with one exception.
 Keys or attributes are not supported by the shorthand syntax, so the rule will not warn on standard-form fragments that use those.
@@ -52,8 +58,7 @@ Examples of **correct** code for this rule:
 </React.Fragment>;
 ```
 
-#### `element` mode
-
+`element` mode:
 This mode enforces the standard form for React fragments.
 
 Examples of **incorrect** code for this rule:

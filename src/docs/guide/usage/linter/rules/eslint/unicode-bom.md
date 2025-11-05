@@ -33,6 +33,16 @@ Examples of **incorrect** code for this rule:
 var a = 123;
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### bomOption
+
+type: `"always" | "never"`
+
+Configuration option to specify whether to require or disallow Unicode BOM.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

@@ -56,18 +56,22 @@ import { lib2 } from "lib2";
 import * as lib3 from "lib3";
 ```
 
-### Options
+## Configuration
 
-#### `allow`
+This rule accepts a configuration object with the following properties:
 
-array of strings
+### allow
+
+type: `string[]`
+
+default: `[]`
 
 These strings will be compiled into regular expressions with the u flag and be used to test against the imported path.
 A common use case is to allow importing `package.json`. This is because `package.json` commonly lives outside of the TS root directory,
 so statically importing it would lead to root directory conflicts, especially with `resolveJsonModule` enabled.
 You can also use it to allow importing any JSON if your environment doesn't support JSON modules, or use it for other cases where `import` statements cannot work.
 
-With { allow: ['/package\\.json$'] }:
+With `{ allow: ['/package\\.json$'] }`:
 
 Examples of **correct** code for this rule:
 
@@ -75,12 +79,16 @@ Examples of **correct** code for this rule:
 console.log(require("../package.json").version);
 ```
 
-#### `allowAsImport`
+### allowAsImport
+
+type: `boolean`
+
+default: `false`
 
 When set to `true`, `import ... = require(...)` declarations won't be reported.
 This is useful if you use certain module options that require strict CommonJS interop semantics.
 
-With `{ allowAsImport: true }`:
+When set to `true`:
 
 Examples of **incorrect** code for this rule:
 

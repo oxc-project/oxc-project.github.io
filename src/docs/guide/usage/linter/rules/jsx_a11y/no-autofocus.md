@@ -24,23 +24,6 @@ non-sighted users alike. It can be disorienting when focus is shifted
 without user input and can interfere with assistive technologies.
 Users should control when and where focus moves on a page.
 
-### Rule Option
-
-This rule takes one optional object argument of type object:
-
-```json
-{
-  "rules": {
-    "jsx-a11y/no-autofocus": [2, {
-      "ignoreNonDOM": true
-    }]
-  }
-}
-```
-
-For the `ignoreNonDOM` option, this determines if developer created
-components are checked.
-
 ### Examples
 
 Examples of **incorrect** code for this rule:
@@ -57,6 +40,18 @@ Examples of **correct** code for this rule:
 ```jsx
 <div />;
 ```
+
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### ignoreNonDOM
+
+type: `boolean`
+
+default: `false`
+
+Determines if developer-created components are checked.
 
 ## How to use
 

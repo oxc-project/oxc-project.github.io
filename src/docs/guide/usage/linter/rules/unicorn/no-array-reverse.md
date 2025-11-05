@@ -36,16 +36,20 @@ Examples of **correct** code for this rule:
 const reversed = [...array].toReversed();
 ```
 
-### Options
+## Configuration
 
-#### allowExpressionStatement
+This rule accepts a configuration object with the following properties:
 
-`{ type: boolean, default: true }`
+### allowExpressionStatement
 
-This rule allow `array.reverse()` as an expression statement by default,
-Pass allowExpressionStatement: false to forbid `Array#reverse()` even it's an expression statement.
+type: `boolean`
 
-Examples of **incorrect** code for this rule with the `{ "allowExpressionStatement": false }` option:
+default: `true`
+
+This rule allows `array.reverse()` as an expression statement by default.
+Set to `false` to forbid `Array#reverse()` even if it's an expression statement.
+
+Examples of **incorrect** code for this rule with this option set to `false`:
 
 ```js
 array.reverse();
