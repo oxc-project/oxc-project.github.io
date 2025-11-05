@@ -70,7 +70,7 @@ export const CORE_MEMBERS: TeamMember[] = [
     id: "leaysgur",
     type: "core",
     name: "Yuji Sugiura",
-    title: "Member",
+    title: "Core",
     avatar: "https://www.github.com/leaysgur.png",
     links: [
       { icon: "github", link: "https://github.com/leaysgur" },
@@ -108,7 +108,7 @@ export const CORE_MEMBERS: TeamMember[] = [
   },
   {
     id: "don",
-    type: "core",
+    type: "emeriti",
     name: "Don",
     avatar: "https://www.github.com/donisaac.png",
     links: [
