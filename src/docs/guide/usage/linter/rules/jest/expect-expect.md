@@ -40,6 +40,34 @@ to use it, add the following configuration to your `.eslintrc.json`:
 }
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### additionalTestBlockFunctions
+
+type: `string[]`
+
+default: `[]`
+
+An array of function names that should also be treated as test blocks.
+
+### assertFunctionNamesJest
+
+type: `string[]`
+
+default: `["expect"]`
+
+A list of function names that should be treated as assertion functions.
+
+### assertFunctionNamesVitest
+
+type: `string[]`
+
+default: `["expect", "expectTypeOf", "assert", "assertType"]`
+
+A list of function names that should be treated as assertion functions for Vitest.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

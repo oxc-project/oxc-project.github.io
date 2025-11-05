@@ -38,6 +38,18 @@ var a, b, c, d;
 var B, a, c;
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### ignoreCase
+
+type: `boolean`
+
+default: `false`
+
+When `true`, the rule ignores case-sensitivity when sorting variables.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

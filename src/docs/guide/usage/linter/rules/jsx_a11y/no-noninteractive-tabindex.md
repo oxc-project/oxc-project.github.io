@@ -49,6 +49,34 @@ Examples of **correct** code for this rule:
 <article tabIndex="-1" />
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### allowExpressionValues
+
+type: `boolean`
+
+default: `true`
+
+If `true`, allows tabIndex values to be expression values (e.g., variables, ternaries). If `false`, only string literal values are allowed.
+
+### roles
+
+type: `string[]`
+
+default: `["tabpanel"]`
+
+An array of ARIA roles that should be considered interactive.
+
+### tags
+
+type: `string[]`
+
+default: `[]`
+
+An array of custom HTML elements that should be considered interactive.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

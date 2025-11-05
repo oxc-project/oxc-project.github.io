@@ -35,6 +35,18 @@ Examples of **correct** code for this rule:
 (async () => bar);
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### allowReject
+
+type: `boolean`
+
+default: `false`
+
+If set to `true`, allows the use of `Promise.reject` in async functions and promise callbacks.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

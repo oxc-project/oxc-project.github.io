@@ -40,6 +40,27 @@ Examples of **correct** code for this rule:
 <img src="baz" alt={`Baz taking a ${photo}`} /> // This is valid since photo is a variable name.
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### redundantWords
+
+type: `string[]`
+
+default: `["image", "photo", "picture"]`
+
+Words considered redundant in alt text that should trigger a warning.
+
+### typesToValidate
+
+type: `string[]`
+
+default: `["img"]`
+
+JSX element types to validate (component names) where the rule applies.
+For example, `["img", "Image"]`.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

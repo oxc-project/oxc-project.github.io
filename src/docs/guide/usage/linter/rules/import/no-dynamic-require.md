@@ -38,6 +38,18 @@ require("../name");
 require(`../name`);
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### esmodule
+
+type: `boolean`
+
+default: `false`
+
+When `true`, also check `import()` expressions for dynamic module specifiers.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

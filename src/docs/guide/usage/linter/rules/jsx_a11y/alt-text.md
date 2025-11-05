@@ -42,6 +42,42 @@ Examples of **correct** code for this rule:
 <area alt="Navigation link" />
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### area
+
+type: `string[]`
+
+default: `[]`
+
+Custom components to check for alt text on `area` elements.
+
+### img
+
+type: `string[]`
+
+default: `[]`
+
+Custom components to check for alt text on `img` elements.
+
+### input[type="image"]
+
+type: `string[]`
+
+default: `[]`
+
+Custom components to check for alt text on `input[type="image"]` elements.
+
+### object
+
+type: `string[]`
+
+default: `[]`
+
+Custom components to check for alt text on `object` elements.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

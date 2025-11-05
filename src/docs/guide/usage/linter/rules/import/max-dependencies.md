@@ -39,6 +39,26 @@ import a from "./a";
 import b from "./b"; // Allowed: 2 dependencies (max: 2)
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### ignoreTypeImports
+
+type: `boolean`
+
+default: `false`
+
+Whether to ignore type imports when counting dependencies.
+
+### max
+
+type: `integer`
+
+default: `10`
+
+Maximum number of dependencies allowed in a module.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

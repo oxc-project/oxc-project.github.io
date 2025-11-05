@@ -39,6 +39,18 @@ Examples of **correct** code for this rule:
 let foo;
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### checkStrictEquality
+
+type: `boolean`
+
+default: `false`
+
+When set to `true`, the rule will also check strict equality/inequality comparisons (`===` and `!==`) against `null`.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

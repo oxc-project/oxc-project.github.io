@@ -34,6 +34,19 @@ enum Foo {
 }
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### allowBitwiseExpressions
+
+type: `boolean`
+
+default: `false`
+
+When set to `true`, allows bitwise expressions in enum member initializers.
+This includes bitwise NOT (`~`), AND (`&`), OR (`|`), XOR (`^`), and shift operators (`<<`, `>>`, `>>>`).
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

@@ -25,35 +25,6 @@ Omitting curly braces can reduce code readability and increase the likelihood of
 It can also lead to bugs if additional statements are added later without properly enclosing them in braces.
 Using curly braces consistently makes the code safer and easier to modify.
 
-### Options
-
-First option:
-
-- Type: `string`
-- Default: `"all"`
-- Possible values:
-  - `"all"`: require braces in all cases
-  - `"multi"`: require braces only for multi-statement blocks
-  - `"multi-line"`: require braces only for multi-line blocks
-  - `"multi-or-nest"`: require braces for multi-line blocks or when nested
-
-Second option:
-
-- Type: `string`
-- Default: `undefined`
-- Possible values:
-- `"consistent"`: require braces if any other branch in the `if-else` chain has braces
-
-Note : The second option can only be used in conjunction with the first option.
-
-Example configuration:
-
-```json
-{
-  "curly": ["error", "multi-or-nest", "consistent"]
-}
-```
-
 ### Examples
 
 #### `"all"` (default)
@@ -253,6 +224,31 @@ if (foo) {
   qux();
 }
 ```
+
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### consistent
+
+type: `boolean`
+
+default: `false`
+
+Whether to enforce consistent use of curly braces in if-else chains.
+
+### curlyType
+
+type: `"all" | "multi" | "multi-line" | "multi-or-nest"`
+
+default: `"all"`
+
+Which type of curly brace enforcement to use.
+
+- `"all"`: require braces in all cases
+- `"multi"`: require braces only for multi-statement blocks
+- `"multi-line"`: require braces only for multi-line blocks
+- `"multi-or-nest"`: require braces for multi-line blocks or when nested
 
 ## How to use
 

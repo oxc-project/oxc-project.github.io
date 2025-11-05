@@ -36,16 +36,6 @@ Namespaced imports, while sometimes used, are generally considered less ideal in
 - **Explicit Imports**: Modern JavaScript practices encourage explicit imports for specific components. This enhances code readability and maintainability.
 - **Tree-Shaking**: Tools like Webpack and Rollup use tree-shaking to remove unused code from your bundles. Namespaced imports can prevent efficient tree-shaking, leading to larger bundle sizes.
 
-### Options
-
-`ignore` : array of glob strings for modules that should be ignored by the rule.
-
-```json
-{
-  "ignore": ["*.json"]
-}
-```
-
 ### Examples
 
 Examples of **incorrect** code for this rule:
@@ -64,6 +54,19 @@ import { getUserName, isUser } from "user-lib";
 import user from "user-lib";
 import defaultExport, { isUser } from "./user";
 ```
+
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### ignore
+
+type: `string[]`
+
+default: `[]`
+
+An array of glob strings for modules that should be ignored by the rule.
+For example, `["*.json"]` will ignore all JSON imports.
 
 ## How to use
 

@@ -41,38 +41,34 @@ function MyComponent() {
 }
 ```
 
-### Rule options
+## Configuration
 
-#### `allow` (default: `"always"`)
+This rule accepts a configuration object with the following properties:
+
+### allow
+
+type: `"always" | "as-needed"`
+
+default: `"always"`
 
 When to allow a JSX filename extension. By default all files may have a JSX extension.
 Set this to `as-needed` to only allow JSX file extensions in files that contain JSX syntax.
 
-```js
-"rules": {
-    "react/jsx-filename-extension": ["error", { "allow": "as-needed" }]
-}
-```
+### extensions
 
-#### `extensions` (default: `[".jsx"]`)
+type: `string[]`
 
-The set of allowed extensions is configurable. By default `'.jsx'` is allowed. If you wanted to allow both `'.jsx'` and `'.tsx'`, the configuration would be:
+default: `["jsx"]`
 
-```js
-"rules": {
-    "react/jsx-filename-extension": ["error", { "extensions": [".jsx", ".tsx"] }]
-}
-```
+The set of allowed file extensions.
 
-#### `ignoreFilesWithoutCode` (default: `false`)
+### ignoreFilesWithoutCode
+
+type: `boolean`
+
+default: `false`
 
 If enabled, files that do not contain code (i.e. are empty, contain only whitespaces or comments) will not be rejected.
-
-```js
-"rules": {
-    "react/jsx-filename-extension": ["error", { "ignoreFilesWithoutCode": true }]
-}
-```
 
 ## How to use
 

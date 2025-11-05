@@ -49,6 +49,26 @@ Promise.resolve()
   });
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### callbacks
+
+type: `string[]`
+
+default: `["callback", "cb", "done", "next"]`
+
+List of callback function names to check for within Promise `then` and `catch` methods.
+
+### exceptions
+
+type: `string[]`
+
+default: `[]`
+
+List of callback function names to allow within Promise `then` and `catch` methods.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

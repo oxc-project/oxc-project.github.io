@@ -53,6 +53,21 @@ import { type Foo } from "Foo";
 import Foo, { type Bar } from "Foo";
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### mode
+
+type: `"prefer-top-level" | "prefer-inline"`
+
+default: `"prefer-top-level"`
+
+Specify whether to prefer top-level type-only imports or inline type specifiers.
+
+- `"prefer-top-level"`: `import type { Foo } from 'foo'`
+- `"prefer-inline"`: `import { type Foo } from 'foo'`
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

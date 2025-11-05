@@ -12,20 +12,31 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 ### What it does
 
-Prevent duplicate polyfills from Polyfill.io.
+Prevent use of unsafe polyfill.io domains and duplicate polyfills.
 
 ### Why is this bad?
 
-You are using polyfills from Polyfill.io and including polyfills already shipped with Next.js. This unnecessarily increases page weight which can affect loading performance.
+**Security Risk:**
+The domains `cdn.polyfill.io` and `polyfill.io` were compromised in a supply chain attack in 2024,
+where the domain was acquired by a malicious actor and began injecting harmful code into websites.
+Over 380,000+ websites were affected. These domains should not be used under any circumstances.
+
+**Performance Issue:**
+For safe alternatives like `cdnjs.cloudflare.com/polyfill/`, including polyfills already shipped
+with Next.js unnecessarily increases page weight which can affect loading performance.
 
 ### Examples
 
 Examples of **incorrect** code for this rule:
 
 ```javascript
-<script src='https://polyfill.io/v3/polyfill.min.js?features=Array.prototype.copyWithin'></script>
+// Security risk - compromised domain
+<script src='https://cdn.polyfill.io/v2/polyfill.min.js'></script>
+<script src='https://polyfill.io/v3/polyfill.min.js'></script>
 
-<script src='https://polyfill.io/v3/polyfill.min.js?features=WeakSet%2CPromise%2CPromise.prototype.finally%2Ces2015%2Ces5%2Ces6'></script>
+// Duplicate polyfills
+<script src='https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=Array.prototype.copyWithin'></script>
+<script src='https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=WeakSet%2CPromise'></script>
 ```
 
 ## How to use

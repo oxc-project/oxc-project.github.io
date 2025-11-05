@@ -48,6 +48,21 @@ Examples of **correct** code for the `{ target: "any" }` option:
 export default function bar() {}
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### target
+
+type: `"single" | "any"`
+
+default: `"single"`
+
+Configuration option to specify the target type for preferring default exports.
+
+- `"single"`: Prefer default export when there is only one export in the module.
+- `"any"`: Prefer default export in any module that has exports.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:
