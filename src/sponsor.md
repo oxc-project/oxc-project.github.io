@@ -2,7 +2,7 @@
 editLink: false
 ---
 
-# Become a Oxc Sponsor
+# Become an Oxc Sponsor
 
 ## How to Sponsor
 

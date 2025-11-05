@@ -167,7 +167,7 @@ Our `typescript-go` version is synced every day.
 
 It may hang with a deadlock or cause OOM (out-of-memory) if a bug is encountered.
 
-We are actively addressing these issues, profiling and submitting improves to `typescript-go`, benefiting all `typescript-go` users.
+We are actively addressing these issues, profiling and submitting improvements to `typescript-go`, benefiting all `typescript-go` users.
 
 Our core team member [@camc314](https://github.com/camc314) has already submitted [many PRs](https://github.com/microsoft/typescript-go/pulls?q=is%3Apr+author%3Acamc314+) that made several code paths significantly faster.
 

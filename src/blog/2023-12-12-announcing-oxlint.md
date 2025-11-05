@@ -72,7 +72,7 @@ Setting up new JavaScript / TypeScript codebases is becoming increasingly comple
 There's a high likelihood of encountering compatibility issues among your tools, potentially resulting in hours of wasted time.
 
 That's why we designed oxlint to be zero-config out of the box; even Node.js is not a requirement.
-Most adjustments can be made through the command-line, and reading from ESLint configuration file is currently work in progress.
+Most adjustments can be made through the command-line, and reading from an ESLint configuration file is currently in progress.
 
 ### Enhanced Diagnostics
 

@@ -21,7 +21,7 @@ This port aims to resolve all known issues associated with `eslint-plugin-import
 
 This alpha release is expected to work if your project is in ESM (ECMAScript Modules).
 
-If path aliases (e.g. `@/foo`) is required through [tsconfig.compilerOptions.paths](https://www.typescriptlang.org/tsconfig/#paths),
+If path aliases (e.g. `@/foo`) are required through [tsconfig.compilerOptions.paths](https://www.typescriptlang.org/tsconfig/#paths),
 the `--tsconfig` option can be used:
 
 ```

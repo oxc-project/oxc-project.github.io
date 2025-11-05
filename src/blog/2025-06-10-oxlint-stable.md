@@ -23,7 +23,7 @@ TL;DR: The first stable version Oxlint has been released! With a [50~100x](#benc
 
 ---
 
-Oxlint is a Rust-powered linter for JavaScript and TypeScript is designed to be fast and simple to adopt. Since its first announcement back in December 2023, Oxlint has undergone significant improvements and is now shipping its first stable version, 1.0.
+Oxlint is a Rust-powered linter for JavaScript and TypeScript, designed to be fast and easy to adopt. Since its initial announcement in December 2023, Oxlint has undergone significant improvements and is now releasing its first stable version, 1.0.
 In addition to the stable release, we also want to announce that Oxlint has a dedicated full-time maintainer, [Cameron](https://github.com/camc314), and a growing core team working on maintaining and improving the linter.
 
 ## Real-World Impact
@@ -34,7 +34,7 @@ We are thankful for our [5,200 early adopters](https://github.com/oxc-project/ox
 
 - **Shopify**, where the front-end platform team uses Oxlint in the Shopify admin console.
 - **Airbnb**, where they use multi-file analysis [oxc/no-barrel-file](https://oxc.rs/docs/guide/usage/linter/rules/oxc/no-barrel-file.html) and [import/no-cycle](https://oxc.rs/docs/guide/usage/linter/rules/import/no-cycle.html) on their 126,000+ files, which completes in 7s on CI. ESLint's implementation of these rules times out.
-- [**Mercedes-Benz**](https://www.mercedes-benz.io/blog/2025-05-16-how-can-modern-tooling-save-mercedes-benz-io-engineering-time), where they observed a 71% decrease in lint time when swapping ESLint to Oxlint, with some project seeing up to a 97% speedup.
+- [**Mercedes-Benz**](https://www.mercedes-benz.io/blog/2025-05-16-how-can-modern-tooling-save-mercedes-benz-io-engineering-time), where they observed a 71% decrease in lint time when switching from ESLint to Oxlint, with some project seeing up to a 97% speedup.
 - Large Open Source projects, from runtimes like [Bun](https://github.com/oven-sh/bun/blob/main/oxlint.json) to frameworks like [Preact](https://github.com/preactjs/preact/blob/main/oxlint.json).
 
 On the largest repository we found, Oxlint reported:
