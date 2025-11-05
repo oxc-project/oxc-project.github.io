@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://oxc.rs</id>
     <title>The Oxidation Compiler Blog</title>
-    <updated>2025-11-05T06:50:12.628Z</updated>
+    <updated>2025-11-05T14:31:37.830Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://oxc.rs"/>
     <icon>https://cdn.jsdelivr.net/gh/oxc-project/oxc-assets/square.ico</icon>
@@ -43,7 +43,7 @@ This milestone signifies our team's ability to promptly address and triage issue
 <p>Setting up new JavaScript / TypeScript codebases is becoming increasingly complex.
 There's a high likelihood of encountering compatibility issues among your tools, potentially resulting in hours of wasted time.</p>
 <p>That's why we designed oxlint to be zero-config out of the box; even Node.js is not a requirement.
-Most adjustments can be made through the command-line, and reading from ESLint configuration file is currently work in progress.</p>
+Most adjustments can be made through the command-line, and reading from an ESLint configuration file is currently in progress.</p>
 <h3 id="enhanced-diagnostics" tabindex="-1">Enhanced Diagnostics <a class="header-anchor" href="#enhanced-diagnostics" aria-label="Permalink to “Enhanced Diagnostics”">&#8203;</a></h3>
 <p>Understanding linter messages can be challenging.
 Oxlint aims to simplify this by pinpointing root causes and providing helpful messages — eliminating the need for lengthy rule documentation reading, saving valuable time.</p>
@@ -87,7 +87,7 @@ This milestone signifies our team's ability to promptly address and triage issue
 <p>Setting up new JavaScript / TypeScript codebases is becoming increasingly complex.
 There's a high likelihood of encountering compatibility issues among your tools, potentially resulting in hours of wasted time.</p>
 <p>That's why we designed oxlint to be zero-config out of the box; even Node.js is not a requirement.
-Most adjustments can be made through the command-line, and reading from ESLint configuration file is currently work in progress.</p>
+Most adjustments can be made through the command-line, and reading from an ESLint configuration file is currently in progress.</p>
 <h3 id="enhanced-diagnostics" tabindex="-1">Enhanced Diagnostics <a class="header-anchor" href="#enhanced-diagnostics" aria-label="Permalink to “Enhanced Diagnostics”">&#8203;</a></h3>
 <p>Understanding linter messages can be challenging.
 Oxlint aims to simplify this by pinpointing root causes and providing helpful messages — eliminating the need for lengthy rule documentation reading, saving valuable time.</p>
@@ -126,7 +126,7 @@ or discuss on <a href="https://news.ycombinator.com/item?id=38652887" target="_b
 </ul>
 <h2 id="what-s-in-the-release" tabindex="-1">What's in the release? <a class="header-anchor" href="#what-s-in-the-release" aria-label="Permalink to “What's in the release?”">&#8203;</a></h2>
 <p>This alpha release is expected to work if your project is in ESM (ECMAScript Modules).</p>
-<p>If path aliases (e.g. <code>@/foo</code>) is required through <a href="https://www.typescriptlang.org/tsconfig/#paths" target="_blank" rel="noreferrer">tsconfig.compilerOptions.paths</a>,
+<p>If path aliases (e.g. <code>@/foo</code>) are required through <a href="https://www.typescriptlang.org/tsconfig/#paths" target="_blank" rel="noreferrer">tsconfig.compilerOptions.paths</a>,
 the <code>--tsconfig</code> option can be used:</p>
 <div class="language-"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" dir="ltr" v-pre=""><code><span class="line"><span>npx oxlint@latest --tsconfig ./tsconfig.json --import-plugin</span></span></code></pre>
 </div><p>The rules that are enabled by default via <code>npx oxlint@latest --import-plugin</code> are:</p>
@@ -186,7 +186,7 @@ you may consider <a href="https://github.com/sponsors/Boshen" target="_blank" re
 </ul>
 <h2 id="what-s-in-the-release" tabindex="-1">What's in the release? <a class="header-anchor" href="#what-s-in-the-release" aria-label="Permalink to “What's in the release?”">&#8203;</a></h2>
 <p>This alpha release is expected to work if your project is in ESM (ECMAScript Modules).</p>
-<p>If path aliases (e.g. <code>@/foo</code>) is required through <a href="https://www.typescriptlang.org/tsconfig/#paths" target="_blank" rel="noreferrer">tsconfig.compilerOptions.paths</a>,
+<p>If path aliases (e.g. <code>@/foo</code>) are required through <a href="https://www.typescriptlang.org/tsconfig/#paths" target="_blank" rel="noreferrer">tsconfig.compilerOptions.paths</a>,
 the <code>--tsconfig</code> option can be used:</p>
 <div class="language-"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" dir="ltr" v-pre=""><code><span class="line"><span>npx oxlint@latest --tsconfig ./tsconfig.json --import-plugin</span></span></code></pre>
 </div><p>The rules that are enabled by default via <code>npx oxlint@latest --import-plugin</code> are:</p>
@@ -903,7 +903,7 @@ and run Oxlint before ESLint in your local or CI setup for a quicker feedback lo
 <br>
 <p>TL;DR: The first stable version Oxlint has been released! With a <a href="#benchmark">50~100x</a> performance improvement over ESLint, support for over 500 ESLint rules, and <a href="#real-world-impact">usage in major companies</a> like Shopify, Airbnb, and Mercedes-Benz, you should give it a try. <a href="#quick-start">Get started now</a>.</p>
 <hr>
-<p>Oxlint is a Rust-powered linter for JavaScript and TypeScript is designed to be fast and simple to adopt. Since its first announcement back in December 2023, Oxlint has undergone significant improvements and is now shipping its first stable version, 1.0.
+<p>Oxlint is a Rust-powered linter for JavaScript and TypeScript, designed to be fast and easy to adopt. Since its initial announcement in December 2023, Oxlint has undergone significant improvements and is now releasing its first stable version, 1.0.
 In addition to the stable release, we also want to announce that Oxlint has a dedicated full-time maintainer, <a href="https://github.com/camc314" target="_blank" rel="noreferrer">Cameron</a>, and a growing core team working on maintaining and improving the linter.</p>
 <h2 id="real-world-impact" tabindex="-1">Real-World Impact <a class="header-anchor" href="#real-world-impact" aria-label="Permalink to “Real-World Impact”">&#8203;</a></h2>
 <p>We are extremely proud of the performance of Oxlint and its impact on real, large-scale codebases, which has led to reduced CI costs.</p>
@@ -911,7 +911,7 @@ In addition to the stable release, we also want to announce that Oxlint has a de
 <ul>
 <li><strong>Shopify</strong>, where the front-end platform team uses Oxlint in the Shopify admin console.</li>
 <li><strong>Airbnb</strong>, where they use multi-file analysis <a href="https://oxc.rs/docs/guide/usage/linter/rules/oxc/no-barrel-file.html" target="_blank" rel="noreferrer">oxc/no-barrel-file</a> and <a href="https://oxc.rs/docs/guide/usage/linter/rules/import/no-cycle.html" target="_blank" rel="noreferrer">import/no-cycle</a> on their 126,000+ files, which completes in 7s on CI. ESLint's implementation of these rules times out.</li>
-<li><a href="https://www.mercedes-benz.io/blog/2025-05-16-how-can-modern-tooling-save-mercedes-benz-io-engineering-time" target="_blank" rel="noreferrer"><strong>Mercedes-Benz</strong></a>, where they observed a 71% decrease in lint time when swapping ESLint to Oxlint, with some project seeing up to a 97% speedup.</li>
+<li><a href="https://www.mercedes-benz.io/blog/2025-05-16-how-can-modern-tooling-save-mercedes-benz-io-engineering-time" target="_blank" rel="noreferrer"><strong>Mercedes-Benz</strong></a>, where they observed a 71% decrease in lint time when switching from ESLint to Oxlint, with some project seeing up to a 97% speedup.</li>
 <li>Large Open Source projects, from runtimes like <a href="https://github.com/oven-sh/bun/blob/main/oxlint.json" target="_blank" rel="noreferrer">Bun</a> to frameworks like <a href="https://github.com/preactjs/preact/blob/main/oxlint.json" target="_blank" rel="noreferrer">Preact</a>.</li>
 </ul>
 <p>On the largest repository we found, Oxlint reported:</p>
@@ -1187,7 +1187,7 @@ We accept this risk and will fix breaking changes when upgrading <code>typescrip
 <h2 id="performance-issues" tabindex="-1">Performance Issues <a class="header-anchor" href="#performance-issues" aria-label="Permalink to “Performance Issues”">&#8203;</a></h2>
 <p><code>tsgolint</code> currently does not perform well on large monorepos with hundreds of projects or lots of project references.</p>
 <p>It may hang with a deadlock or cause OOM (out-of-memory) if a bug is encountered.</p>
-<p>We are actively addressing these issues, profiling and submitting improves to <code>typescript-go</code>, benefiting all <code>typescript-go</code> users.</p>
+<p>We are actively addressing these issues, profiling and submitting improvements to <code>typescript-go</code>, benefiting all <code>typescript-go</code> users.</p>
 <p>Our core team member <a href="https://github.com/camc314" target="_blank" rel="noreferrer">@camc314</a> has already submitted <a href="https://github.com/microsoft/typescript-go/pulls?q=is%3Apr+author%3Acamc314+" target="_blank" rel="noreferrer">many PRs</a> that made several code paths significantly faster.</p>
 <h2 id="v1-0-release" tabindex="-1">v1.0 Release <a class="header-anchor" href="#v1-0-release" aria-label="Permalink to “v1.0 Release”">&#8203;</a></h2>
 <p>For <code>tsgolint</code> v1.0, we will address:</p>
