@@ -128,16 +128,23 @@ Also you can specify your ignore file by `--ignore-path your.ignore` flag.
 
 VCS directories like `.git` and `.svn` are always ignored. Also global and nested ignores are not respected.
 
+In addition, `.oxfmtrc.json(c)` also supports `ignorePatterns` field.
+
 ## Notable limitations
 
 These will (or will not) be implemented in the future.
 
 - Only JS and TS files are supported
-- Embedded parts like css-in-js are partially supported
+  - Embedded parts like css-in-js are partially supported, but disabled by default
 - Stdin and stdout are not supported
-- Configuration is not supported for
+  - You need `oxc_language_server` via `oxlint` to get editor support for now
+- Configuration NOT supported for:
   - `prettier` field in `package.json`
-  - Extensions other than `.json(c)`
+  - File formats other than `.json(c)`
+  - Nested configs in sub directories
+  - Respect `.editorconfig`
+  - Inline CLI flags like `--no-semi`
+  - `experimentalTernaries` option
 - Globs in positional paths are not expanded
   - But it works in `!` prefixed exclude paths
 - Plugins are not supported
