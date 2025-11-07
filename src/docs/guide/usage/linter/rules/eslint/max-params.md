@@ -53,25 +53,28 @@ let foo = (bar, baz, qux) => {
 };
 ```
 
-### Options
+## Configuration
 
-#### max
+This rule accepts a configuration object with the following properties:
 
-`{ "max": number }`
+### countVoidThis
 
-This option is for changing the maximum allowed number of function parameters.
+type: `boolean`
 
-For example `{ "max": 4 }` would mean that having a function take four
-parameters is allowed which overrides the default of three.
-
-#### countVoidThis
-
-`{ "countVoidThis": boolean }`
+default: `false`
 
 This option is for counting the `this` parameter if it is of type `void`.
 
 For example `{ "countVoidThis": true }` would mean that having a function
 take a `this` parameter of type `void` is counted towards the maximum number of parameters.
+
+### max
+
+type: `integer`
+
+default: `3`
+
+Maximum number of parameters allowed in function definitions.
 
 ## How to use
 

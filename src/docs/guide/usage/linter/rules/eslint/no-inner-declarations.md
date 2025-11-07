@@ -39,6 +39,22 @@ if (test) {
 }
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### blockScopedFunctions
+
+default: `null`
+
+Controls whether function declarations in nested blocks are allowed in strict mode (ES6+ behavior).
+
+### config
+
+default: `"functions"`
+
+Determines what type of declarations to check.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

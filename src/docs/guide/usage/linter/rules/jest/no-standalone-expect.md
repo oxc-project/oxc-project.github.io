@@ -36,6 +36,18 @@ describe("a test", () => {
 });
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### additionalTestBlockFunctions
+
+type: `string[]`
+
+default: `[]`
+
+An array of function names that should also be treated as test blocks.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

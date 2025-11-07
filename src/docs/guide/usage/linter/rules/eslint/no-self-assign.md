@@ -67,11 +67,15 @@ foo &= foo;
 foo |= foo;
 ```
 
-### Options
+## Configuration
 
-#### props
+This rule accepts a configuration object with the following properties:
 
-`{ type: boolean, default: true }`
+### props
+
+type: `boolean`
+
+default: `true`
 
 The `props` option when set to `false`, disables the checking of properties.
 

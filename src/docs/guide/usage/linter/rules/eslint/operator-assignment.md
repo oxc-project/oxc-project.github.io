@@ -62,11 +62,17 @@ x = x + y;
 x.y = x.y / a.b;
 ```
 
-### Options
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### mode
+
+type: `"always" | "never"`
+
+default: `"always"`
 
 This rule has a single string option:
-
-`{ type: string, default: "always" }`
 
 - `always` requires assignment operator shorthand where possible
 - `never` disallows assignment operator shorthand
@@ -74,9 +80,8 @@ This rule has a single string option:
 Example:
 
 ```json
-"eslint/max-nested-callbacks": ["error", "always"]
-
-"eslint/max-nested-callbacks": ["error", "never"]
+"eslint/operator-assignment": ["error", "always"]
+"eslint/operator-assignment": ["error", "never"]
 ```
 
 ## How to use

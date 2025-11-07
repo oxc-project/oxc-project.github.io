@@ -41,6 +41,18 @@ test("plays video", () => {
 });
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### restrictedJestMethods
+
+type: `Record<string, string>`
+
+default: `{}`
+
+A mapping of restricted Jest method names to custom messages.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

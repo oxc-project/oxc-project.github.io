@@ -12,7 +12,7 @@ const result = transform("App.jsx", sourceCode, {
     runtime: "automatic", // or "classic"
     development: false, // or true
     throwIfNamespace: true, // or false
-    pure: true, // or false, currently noop
+    pure: true, // or false
     importSource: "react",
     pragma: "React.createElement",
     pragmaFrag: "React.Fragment",
@@ -46,7 +46,11 @@ By default, the development specific transforms are disabled. You can enable the
 
 ### XML Namespaced Tag Names
 
-By default, an error is thrown if the XML namespaced tag names (e.g. `<foo:bar baz:qux="foobar" />`) are used. Though the JSX spec allows this, it is disabled by default since React's JSX does not currently support them.
+By default, an error is thrown if the XML namespaced tag names (e.g. `<foo:bar baz:qux="foobar" />`) are used. Though the JSX spec allows this, it is disallowed by default since React's JSX does not currently support them. You can allow them by setting `jsx.throwIfNamespace` option to `false`.
+
+### Pure Annotation
+
+By default, JSX elements are annotated with pure annotations. Pure annotations are annotation comments that marks expressions that can be safely removed if their return values are not used. But this may not be desired if the JSX elements should be kept. You can disable this by setting `jsx.pure` option to `false`.
 
 ## Automatic Runtime Specific Options
 

@@ -32,6 +32,18 @@ Examples of **correct** code for this rule:
 <input autocomplete="name" />;
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### inputComponents
+
+type: `string[]`
+
+default: `["input"]`
+
+List of custom component names that should be treated as input elements.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

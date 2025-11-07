@@ -63,24 +63,25 @@ const c: string[] = ["a", "b"];
 const d: MyType[] = ["a", "b"];
 ```
 
-### Options
+## Configuration
 
-```json
-{
-  "typescript/array-type": ["error", { "default": "array", "readonly": "array" }]
-}
-```
+This rule accepts a configuration object with the following properties:
 
-- `default`: The array type expected for mutable cases.
-- `readonly`: The array type expected for readonly cases. If omitted, the value for `default` will be used.
+### default
 
-Both `default` and `readonly` can be one of:
+type: `"array" | "array-simple" | "generic"`
 
-- `"array"`
-- `"generic"`
-- `"array-simple"`
+default: `"array"`
 
-The default config will enforce that all mutable and readonly arrays use the 'array' syntax.
+The array type expected for mutable cases.
+
+### readonly
+
+type: `"array" | "array-simple" | "generic"`
+
+default: `null`
+
+The array type expected for readonly cases. If omitted, the value for `default` will be used.
 
 ## How to use
 

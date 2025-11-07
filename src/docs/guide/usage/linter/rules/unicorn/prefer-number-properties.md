@@ -45,6 +45,26 @@ const foo = Number.parseInt("10", 2);
 const bar = Number.parseFloat("10.5");
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### checkInfinity
+
+type: `boolean`
+
+default: `false`
+
+If set to `true`, checks for usage of `Infinity` and `-Infinity` as global variables.
+
+### checkNan
+
+type: `boolean`
+
+default: `true`
+
+If set to `true`, checks for usage of `NaN` as a global variable.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

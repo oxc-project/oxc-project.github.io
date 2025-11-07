@@ -84,41 +84,23 @@ import { App } from "./App";
 createRoot(document.getElementById("root")).render(<App />);
 ```
 
-### Options (or not)
+## Configuration
 
-#### allowExportNames
+This rule accepts a configuration object with the following properties:
 
-`{ type: string[], default: [] }`
+### allowConstantExport
 
-Treat specific named exports as HMR-safe (useful for frameworks that hot-replace
-certain exports). For example, in Remix:
+type: `[
+  boolean,
+  null
+]`
 
-```json
-{
-  "react/only-export-components": [
-    "error",
-    { "allowExportNames": ["meta", "links", "headers", "loader", "action"] }
-  ]
-}
-```
-
-#### allowConstantExport
-
-`{ type: boolean, default: false }`
+default: `null`
 
 Allow exporting primitive constants (string/number/boolean/template literal)
 alongside component exports without triggering a violation. Recommended when your
 bundler’s Fast Refresh integration supports this (enabled by the plugin’s `vite`
 preset).
-
-```json
-{
-  "react/only-export-components": [
-    "error",
-    { "allowConstantExport": true }
-  ]
-}
-```
 
 ```jsx
 // Allowed when allowConstantExport: true
@@ -126,34 +108,36 @@ export const VERSION = "3";
 export const Foo = () => null;
 ```
 
-#### customHOCs
+### allowExportNames
 
-`{ type: string[], default: [] }`
+type: `string[]`
 
-If you export components wrapped in custom higher-order components, list their
-identifiers here to avoid false positives:
+default: `null`
 
-```json
-{
-  "react/only-export-components": [
-    "error",
-    { "customHOCs": ["observer", "withAuth"] }
-  ]
-}
-```
+Treat specific named exports as HMR-safe (useful for frameworks that hot-replace
+certain exports). For example, in Remix:
+`{ "allowExportNames": ["meta", "links", "headers", "loader", "action"] }`
 
-#### checkJS
+### checkJS
 
-`{ type: boolean, default: false }`
+type: `[
+  boolean,
+  null
+]`
+
+default: `null`
 
 Check `.js` files that contain JSX (in addition to `.tsx`/`.jsx`). To reduce
 false positives, only files that import React are checked when this is enabled.
 
-```json
-{
-  "react/only-export-components": ["error", { "checkJS": true }]
-}
-```
+### customHOCs
+
+type: `string[]`
+
+default: `null`
+
+If you export components wrapped in custom higher-order components, list their
+identifiers here to avoid false positives.
 
 ## How to use
 

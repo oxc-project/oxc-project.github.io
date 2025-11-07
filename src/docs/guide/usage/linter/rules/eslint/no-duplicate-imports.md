@@ -42,11 +42,37 @@ import something from "another-module";
 import { find, merge } from "module";
 ```
 
-### Options
+## Configuration
 
-#### includeExports
+This rule accepts a configuration object with the following properties:
 
-`{ type: boolean, default: false }`
+### allowSeparateTypeImports
+
+type: `boolean`
+
+default: `false`
+
+When `true`, imports with only type specifiers (inline types or type imports) are
+considered separate from imports with value specifiers, so they can be imported from the
+same module on separate import statements.
+
+Examples of **correct** code when `allowSeparateTypeImports` is set to `true`:
+
+```js
+import { foo } from "module";
+import type { Bar } from "module";
+```
+
+```js
+import { type Foo } from "module";
+import type { Bar } from "module";
+```
+
+### includeExports
+
+type: `boolean`
+
+default: `false`
 
 When `true` this rule will also look at exports to see if there is both a re-export of a
 module as in `export ... from 'module'` and also a standard import statement for the same
@@ -79,26 +105,6 @@ export * as something from "module";
 
 // cannot be written differently
 export * from "module";
-```
-
-#### allowSeparateTypeImports
-
-`{ type: boolean, default: false }`
-
-When `true`, imports with only type specifiers (inline types or type imports) are
-considered separate from imports with value specifiers, so they can be imported from the
-same module on separate import statements.
-
-Examples of **correct** code when `allowSeparateTypeImports` is set to `true`:
-
-```js
-import { foo } from "module";
-import type { Bar } from "module";
-```
-
-```js
-import { type Foo } from "module";
-import type { Bar } from "module";
 ```
 
 ## How to use

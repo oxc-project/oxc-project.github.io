@@ -65,6 +65,66 @@ import Component from "./Component";
 import foo from "./foo";
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### checkTypeImports
+
+type: `boolean`
+
+default: `false`
+
+Whether to check type imports when enforcing extension rules.
+
+### ignorePackages
+
+type: `boolean`
+
+default: `true`
+
+Whether to ignore package imports (e.g., 'react', 'lodash') when enforcing extension rules.
+
+### js
+
+type: `"always" | "never" | "ignorePackages"`
+
+default: `"never"`
+
+Configuration for `.js` file extensions.
+
+### json
+
+type: `"always" | "never" | "ignorePackages"`
+
+default: `"never"`
+
+Configuration for `.json` file extensions.
+
+### jsx
+
+type: `"always" | "never" | "ignorePackages"`
+
+default: `"never"`
+
+Configuration for `.jsx` file extensions.
+
+### ts
+
+type: `"always" | "never" | "ignorePackages"`
+
+default: `"never"`
+
+Configuration for `.ts` file extensions.
+
+### tsx
+
+type: `"always" | "never" | "ignorePackages"`
+
+default: `"never"`
+
+Configuration for `.tsx` file extensions.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

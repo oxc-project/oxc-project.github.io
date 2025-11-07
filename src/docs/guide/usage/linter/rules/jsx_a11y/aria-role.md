@@ -41,28 +41,6 @@ control state are whether or not a checkbox or radio button has been
 selected, or whether or not a collapsible tree or list node is expanded
 or collapsed.
 
-### Rule options
-
-This rule takes one optional object argument of type object:
-
-```json
-{
-  "rules": {
-    "jsx-a11y/aria-role": [2, {
-      "allowedInvalidRoles": ["text"],
-      "ignoreNonDOM": true
-    }]
-  }
-}
-```
-
-`allowedInvalidRules` is an optional string array of custom roles that
-should be allowed in addition to the ARIA spec, such as for cases when
-you need to use a non-standard role.
-
-For the `ignoreNonDOM` option, this determines if developer created
-components are checked.
-
 ### Examples
 
 Examples of **incorrect** code for this rule:
@@ -82,6 +60,26 @@ Examples of **correct** code for this rule:
 <div></div>                   <!-- Good: No ARIA role -->
 <Foo role={role}></Foo>       <!-- Good: ignoreNonDOM is set to true -->
 ```
+
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### allowedInvalidRoles
+
+type: `string[]`
+
+default: `[]`
+
+Custom roles that should be allowed in addition to the ARIA spec.
+
+### ignoreNonDOM
+
+type: `boolean`
+
+default: `false`
+
+Determines if developer-created components are checked.
 
 ## How to use
 

@@ -38,9 +38,15 @@ declare module "foo" {}
 // anything inside a d.ts file
 ```
 
-#### allowDeclarations
+## Configuration
 
-`{ type: boolean, allowDeclarations: false }`
+This rule accepts a configuration object with the following properties:
+
+### allowDeclarations
+
+type: `boolean`
+
+default: `false`
 
 Whether to allow declare with custom TypeScript namespaces.
 
@@ -82,9 +88,11 @@ Examples of **correct** code for this rule when `{ "allowDeclarations": false }`
 declare module "foo" {}
 ```
 
-#### allowDefinitionFiles
+### allowDefinitionFiles
 
-`{ type: boolean, allowDefinitionFiles: true }`
+type: `boolean`
+
+default: `true`
 
 Examples of **incorrect** code for this rule when `{ "allowDefinitionFiles": true }`
 

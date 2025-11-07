@@ -2,7 +2,7 @@
 
 The progress of all rule implementations is tracked [here](https://github.com/oxc-project/oxc/issues/481).
 
-- Total number of rules: 611
+- Total number of rules: 613
 - Rules turned on by default: 103
 
 **Legend for 'Fixable?' column:**
@@ -13,7 +13,7 @@ The progress of all rule implementations is tracked [here](https://github.com/ox
 - ⚠️💡: a dangerous suggestion is available for this rule
 - 🚧: an auto-fix or suggestion is possible, but currently not implemented
 
-## Correctness (197):
+## Correctness (196):
 
 Code that is outright wrong or useless.
 
@@ -161,7 +161,6 @@ Code that is outright wrong or useless.
 | [forward-ref-uses-ref](/docs/guide/usage/linter/rules/react/forward-ref-uses-ref.html)                                                                | react      |         | 💡       |
 | [jsx-key](/docs/guide/usage/linter/rules/react/jsx-key.html)                                                                                          | react      |         |          |
 | [jsx-no-duplicate-props](/docs/guide/usage/linter/rules/react/jsx-no-duplicate-props.html)                                                            | react      |         |          |
-| [jsx-no-target-blank](/docs/guide/usage/linter/rules/react/jsx-no-target-blank.html)                                                                  | react      |         |          |
 | [jsx-no-undef](/docs/guide/usage/linter/rules/react/jsx-no-undef.html)                                                                                | react      |         |          |
 | [jsx-props-no-spread-multi](/docs/guide/usage/linter/rules/react/jsx-props-no-spread-multi.html)                                                      | react      |         | 🛠️        |
 | [no-children-prop](/docs/guide/usage/linter/rules/react/no-children-prop.html)                                                                        | react      |         |          |
@@ -374,7 +373,7 @@ code that is most likely wrong or useless.
 | [no-required-prop-with-default](/docs/guide/usage/linter/rules/vue/no-required-prop-with-default.html)                          | vue        |         | 🚧       |
 | [require-default-export](/docs/guide/usage/linter/rules/vue/require-default-export.html)                                        | vue        |         |          |
 
-## Pedantic (103):
+## Pedantic (105):
 
 Lints which are rather strict or have occasional false positives.
 
@@ -416,12 +415,14 @@ Lints which are rather strict or have occasional false positives.
 | [require-returns-description](/docs/guide/usage/linter/rules/jsdoc/require-returns-description.html)                           | jsdoc      |         |          |
 | [require-returns-type](/docs/guide/usage/linter/rules/jsdoc/require-returns-type.html)                                         | jsdoc      |         |          |
 | [checked-requires-onchange-or-readonly](/docs/guide/usage/linter/rules/react/checked-requires-onchange-or-readonly.html)       | react      |         |          |
+| [jsx-no-target-blank](/docs/guide/usage/linter/rules/react/jsx-no-target-blank.html)                                           | react      |         |          |
 | [jsx-no-useless-fragment](/docs/guide/usage/linter/rules/react/jsx-no-useless-fragment.html)                                   | react      |         | 💡       |
 | [no-unescaped-entities](/docs/guide/usage/linter/rules/react/no-unescaped-entities.html)                                       | react      |         |          |
 | [rules-of-hooks](/docs/guide/usage/linter/rules/react/rules-of-hooks.html)                                                     | react      |         |          |
 | [ban-ts-comment](/docs/guide/usage/linter/rules/typescript/ban-ts-comment.html)                                                | typescript |         | 🛠️        |
 | [ban-types](/docs/guide/usage/linter/rules/typescript/ban-types.html)                                                          | typescript |         | 🚧       |
 | [no-confusing-void-expression](/docs/guide/usage/linter/rules/typescript/no-confusing-void-expression.html)                    | typescript |         | 🚧       |
+| [no-deprecated](/docs/guide/usage/linter/rules/typescript/no-deprecated.html)                                                  | typescript |         |          |
 | [no-misused-promises](/docs/guide/usage/linter/rules/typescript/no-misused-promises.html)                                      | typescript |         | 🚧       |
 | [no-mixed-enums](/docs/guide/usage/linter/rules/typescript/no-mixed-enums.html)                                                | typescript |         | 🚧       |
 | [no-unsafe-argument](/docs/guide/usage/linter/rules/typescript/no-unsafe-argument.html)                                        | typescript |         | 🚧       |
@@ -484,7 +485,7 @@ Lints which are rather strict or have occasional false positives.
 | [prefer-type-error](/docs/guide/usage/linter/rules/unicorn/prefer-type-error.html)                                             | unicorn    |         | 🛠️        |
 | [require-number-to-fixed-digits-argument](/docs/guide/usage/linter/rules/unicorn/require-number-to-fixed-digits-argument.html) | unicorn    |         | 🛠️        |
 
-## Style (164):
+## Style (165):
 
 Code that should be written in a more idiomatic way.
 
@@ -597,6 +598,7 @@ Code that should be written in a more idiomatic way.
 | [no-set-state](/docs/guide/usage/linter/rules/react/no-set-state.html)                                                   | react      |         |          |
 | [prefer-es6-class](/docs/guide/usage/linter/rules/react/prefer-es6-class.html)                                           | react      |         |          |
 | [self-closing-comp](/docs/guide/usage/linter/rules/react/self-closing-comp.html)                                         | react      |         | 🛠️        |
+| [state-in-constructor](/docs/guide/usage/linter/rules/react/state-in-constructor.html)                                   | react      |         |          |
 | [adjacent-overload-signatures](/docs/guide/usage/linter/rules/typescript/adjacent-overload-signatures.html)              | typescript |         |          |
 | [array-type](/docs/guide/usage/linter/rules/typescript/array-type.html)                                                  | typescript |         | 🛠️        |
 | [ban-tslint-comment](/docs/guide/usage/linter/rules/typescript/ban-tslint-comment.html)                                  | typescript |         | 🛠️        |

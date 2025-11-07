@@ -36,6 +36,34 @@ Examples of **correct** code for this rule:
 <video><track kind="captions" src="caption_file.vtt" /></video>
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### audio
+
+type: `string[]`
+
+default: `["audio"]`
+
+Element names to treat as `<audio>` elements
+
+### track
+
+type: `string[]`
+
+default: `["track"]`
+
+Element names to treat as `<track>` elements
+
+### video
+
+type: `string[]`
+
+default: `["video"]`
+
+Element names to treat as `<video>` elements
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

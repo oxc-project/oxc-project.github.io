@@ -36,11 +36,15 @@ var a = 3;
 a = 10;
 ```
 
-### Options
+## Configuration
 
-#### builtinGlobals
+This rule accepts a configuration object with the following properties:
 
-`{ type: bool, default: true }`
+### builtInGlobals
+
+type: `boolean`
+
+default: `true`
 
 When set `true`, it flags redeclaring built-in globals (e.g., `let Object = 1;`).
 

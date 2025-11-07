@@ -35,6 +35,34 @@ Examples of **correct** code for this rule:
 const Hello = <Hello personal />;
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### assumeUndefinedIsFalse
+
+type: `boolean`
+
+default: `false`
+
+If true, treats `prop={false}` as equivalent to the prop being undefined
+
+### enforceBooleanAttribute
+
+type: `"always" | "never"`
+
+default: `"never"`
+
+Enforce boolean attributes to always or never have a value.
+
+### exceptions
+
+type: `string[]`
+
+default: `[]`
+
+List of attribute names to exclude from the rule.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

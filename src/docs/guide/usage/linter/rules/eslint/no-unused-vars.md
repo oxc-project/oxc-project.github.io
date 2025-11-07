@@ -220,7 +220,7 @@ meaning the static block code is executed without creating a new
 instance of the class. When set to true, this option ignores classes
 containing static initialization blocks.
 
-## Example
+#### Example
 
 Examples of **incorrect** code for the `{ "ignoreClassWithStaticInitBlock": true }` option
 
@@ -265,7 +265,7 @@ With this option enabled the rest property's siblings are ignored.
 
 By default this option is `false`.
 
-## Example
+#### Example
 
 Examples of **correct** code when this option is set to `true`:
 
@@ -289,7 +289,7 @@ This is useful when working with resources that need to be disposed
 via the explicit resource management proposal, where the primary
 purpose is the disposal side effect rather than using the resource.
 
-## Example
+#### Example
 
 Examples of **correct** code for the `{ "ignoreUsingDeclarations": true }` option:
 
@@ -310,7 +310,7 @@ ignore pattern options (`varsIgnorePattern`, `argsIgnorePattern`,
 `caughtErrorsIgnorePattern`, or `destructuredArrayIgnorePattern`) if
 they have been used.
 
-## Example
+#### Example
 
 Examples of **incorrect** code for the `{ "reportUsedIgnorePattern": true }` option:
 
@@ -340,7 +340,7 @@ The `reportVarsOnlyUsedAsTypes` option is a boolean (default: `false`).
 
 If `true`, the rule will also report variables that are only used as types.
 
-## Examples
+#### Examples
 
 Examples of **incorrect** code for the `{ "reportVarsOnlyUsedAsTypes": true }` option:
 

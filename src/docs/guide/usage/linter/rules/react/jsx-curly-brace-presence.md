@@ -13,12 +13,9 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 </Alert>
 </div>
 
-# Disallow unnecessary JSX expressions when literals alone are
-
+Disallow unnecessary JSX expressions when literals alone are
 sufficient or enforce JSX expressions on literals in JSX children or
 attributes (`react/jsx-curly-brace-presence`)
-
-🔧 This rule is automatically fixable by the [`--fix` CLI option](https://oxc-project.github.io/docs/guide/usage/linter/cli.html#fix-problems).
 
 This rule allows you to enforce curly braces or disallow unnecessary
 curly braces in JSX props and/or children.
@@ -227,6 +224,28 @@ Examples of **correct** code for this rule, even when configured with `"never"`:
 You should turn this rule off if you are not concerned about maintaining
 consistency regarding the use of curly braces in JSX props and/or
 children as well as the use of unnecessary JSX expressions.
+
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### children
+
+type: `"always" | "never" | "ignore"`
+
+default: `"never"`
+
+### propElementValues
+
+type: `"always" | "never" | "ignore"`
+
+default: `"ignore"`
+
+### props
+
+type: `"always" | "never" | "ignore"`
+
+default: `"never"`
 
 ## How to use
 

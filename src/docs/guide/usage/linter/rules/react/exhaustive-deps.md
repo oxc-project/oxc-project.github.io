@@ -46,19 +46,20 @@ function MyComponent(props) {
 }
 ```
 
-### Options
+## Configuration
 
-#### additionalHooks
+This rule accepts a configuration object with the following properties:
 
-`{ type: string }`
+### additionalHooks
+
+type: `[
+  string,
+  null
+]`
+
+default: `null`
 
 Optionally provide a regex of additional hooks to check.
-
-Example:
-
-```json
-{ "react/exhaustive-deps": ["error", { "additionalHooks": "useSpecialEffect" }] }
-```
 
 ## How to use
 

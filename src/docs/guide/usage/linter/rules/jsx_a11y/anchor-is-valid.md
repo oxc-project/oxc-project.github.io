@@ -43,15 +43,15 @@ All these anchor implementations indicate that the element is only used to execu
 
 ### Why is this bad?
 
-There are **many reasons** why an anchor should not have a logic and have a correct `href` attribute:
+There are **many reasons** why an anchor should not have logic and have a correct `href` attribute:
 
 - it can disrupt the correct flow of the user navigation e.g. a user that wants to open the link
   in another tab, but the default "click" behaviour is prevented
 - it can source of invalid links, and crawlers can't navigate the website, risking to penalise SEO ranking
 
-### Example
+### Examples
 
-#### Valid
+Examples of **valid** code for this rule:
 
 ```jsx
 <>
@@ -61,7 +61,7 @@ There are **many reasons** why an anchor should not have a logic and have a corr
 </>;
 ```
 
-#### Invalid
+Examples of **invalid** code for this rule:
 
 ```jsx
 <>
@@ -76,6 +76,18 @@ There are **many reasons** why an anchor should not have a logic and have a corr
 ### Reference
 
 - [WCAG 2.1.1](https://www.w3.org/WAI/WCAG21/Understanding/keyboard)
+
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### validHrefs
+
+type: `string[]`
+
+default: `[]`
+
+List of strings that are valid href values.
 
 ## How to use
 

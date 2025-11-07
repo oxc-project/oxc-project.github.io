@@ -21,6 +21,26 @@ Disallow aliasing `this`
 
 Assigning a variable to `this` instead of properly using arrow lambdas may be a symptom of pre-ES6 practices or not managing scope well.
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### allowDestructuring
+
+type: `boolean`
+
+default: `true`
+
+Whether to allow destructuring of `this` to local variables.
+
+### allowNames
+
+type: `string[]`
+
+default: `[]`
+
+An array of variable names that are allowed to alias `this`.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

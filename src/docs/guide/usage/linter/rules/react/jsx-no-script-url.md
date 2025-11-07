@@ -37,6 +37,26 @@ Examples of **correct** code for this rule:
 <Foo test="javascript:void(0)" />;
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### components
+
+type: `Record<string, array>`
+
+default: `{}`
+
+Additional components to check.
+
+### includeFromSettings
+
+type: `boolean`
+
+default: `false`
+
+Whether to include components from settings.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

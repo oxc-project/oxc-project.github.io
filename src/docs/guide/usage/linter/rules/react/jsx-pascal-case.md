@@ -68,31 +68,41 @@ Examples of **correct** code for the "allowLeadingUnderscore" option:
 </_AllowedComponent>
 ```
 
-### Options
+## Configuration
 
-#### allowAllCaps
+This rule accepts a configuration object with the following properties:
 
-`{ type: boolean, default: false }`
+### allowAllCaps
 
-Optional boolean set to true to allow components name in all caps
+type: `boolean`
 
-#### allowLeadingUnderscore
+default: `false`
 
-`{ type: boolean, default: false }`
+Whether to allow all-caps component names.
 
-Optional boolean set to true to allow components name with that starts with an underscore
+### allowLeadingUnderscore
 
-#### allowNamespace
+type: `boolean`
 
-`{ type: boolean, default: false }`
+default: `false`
 
-Optional boolean set to true to ignore namespaced components
+Whether to allow leading underscores in component names.
 
-#### ignore
+### allowNamespace
 
-`{ type: Array<string | RegExp>, default: [] }`
+type: `boolean`
 
-Optional string-array of component names to ignore during validation
+default: `false`
+
+Whether to allow namespaced component names.
+
+### ignore
+
+type: `string[]`
+
+default: `[]`
+
+List of component names to ignore.
 
 ## How to use
 

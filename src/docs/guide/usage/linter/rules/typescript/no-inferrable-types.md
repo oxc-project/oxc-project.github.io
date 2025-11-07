@@ -41,6 +41,26 @@ const c = true;
 const fn = (a = 5, b = true, c = "foo") => {};
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### ignoreParameters
+
+type: `boolean`
+
+default: `false`
+
+When set to `true`, ignores type annotations on function parameters.
+
+### ignoreProperties
+
+type: `boolean`
+
+default: `false`
+
+When set to `true`, ignores type annotations on class properties.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

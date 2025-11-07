@@ -65,6 +65,19 @@ type Foo = {
 };
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### isRecordMode
+
+type: `boolean`
+
+default: `true`
+
+When set to `true`, enforces the use of `Record` type for indexed object types.
+When set to `false`, enforces the use of indexed signature types.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

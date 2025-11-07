@@ -17,12 +17,6 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 Enforce explicitly comparing the length or size property of a value.
 
-The non-zero option can be configured with one of the following:
-greater-than (default)
-Enforces non-zero to be checked with: foo.length > 0
-not-equal
-Enforces non-zero to be checked with: foo.length !== 0
-
 ### Why is this bad?
 
 ### Examples
@@ -46,6 +40,21 @@ Examples of **correct** code for this rule:
 ```javascript
 const isEmpty = foo.length === 0;
 ```
+
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### nonZero
+
+type: `"greater-than" | "not-equal"`
+
+default: `"greater-than"`
+
+Configuration option to specify how non-zero length checks should be enforced.
+
+`greater-than`: Enforces non-zero to be checked with `foo.length > 0`
+`not-equal`: Enforces non-zero to be checked with `foo.length !== 0`
 
 ## How to use
 

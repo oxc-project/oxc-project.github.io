@@ -49,6 +49,50 @@ function Foo(props) {
 </label>;
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### assert
+
+type: `"html-for" | "nesting" | "both" | "either"`
+
+default: `"either"`
+
+The type of association required between the label and the control.
+
+### controlComponents
+
+type: `string[]`
+
+default: `[]`
+
+Custom JSX components to be treated as form controls.
+
+### depth
+
+type: `integer`
+
+default: `2`
+
+Maximum depth to search for a nested control.
+
+### labelAttributes
+
+type: `string[]`
+
+default: `["alt", "aria-label", "aria-labelledby"]`
+
+Attributes to check for accessible label text.
+
+### labelComponents
+
+type: `string[]`
+
+default: `["label"]`
+
+Custom JSX components to be treated as labels.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

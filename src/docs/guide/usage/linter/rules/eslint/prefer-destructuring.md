@@ -49,47 +49,57 @@ const { baz } = object;
 const obj = object.bar;
 ```
 
-### Options
+## Configuration
 
-This rule takes two arguments, both of which are objects.
-The first object parameter determines what types of destructuring the rule applies to.
-In the first object, there are two properties, array and object,
-that can be used to turn on or off the destructuring requirement for each of those types independently.
-By default, both are true.
+This rule accepts a configuration object with the following properties:
 
-```json
-{
-  "prefer-destructuring": ["error", { "array": true, "object": true }]
-}
-```
+### AssignmentExpression
 
-Alternatively, you can use separate configurations for different assignment types.
-The first argument accepts two other keys instead of array and object.
-One key is VariableDeclarator and the other is AssignmentExpression,
-which can be used to control the destructuring requirement for each of those types independently
+type: `object`
 
-```json
-{
-  "prefer-destructuring": [
-    "error",
-    {
-      "VariableDeclarator": { "array": true, "object": true },
-      "AssignmentExpression": { "array": true, "object": true }
-    }
-  ]
-}
-```
+default: `{"array":true, "object":true}`
 
-#### enforceForRenamedProperties
+Configuration for destructuring in assignment expressions, configured for arrays and objects independently.
 
-The rule has a second object argument with a single key,
-enforceForRenamedProperties, which determines whether the object destructuring applies to renamed variables.
+#### AssignmentExpression.array
 
-```json
-{
-  "prefer-destructuring": ["error", { "array": true, "object": true }, { "enforceForRenamedProperties": true }]
-}
-```
+type: `boolean`
+
+default: `true`
+
+#### AssignmentExpression.object
+
+type: `boolean`
+
+default: `true`
+
+### VariableDeclarator
+
+type: `object`
+
+default: `{"array":true, "object":true}`
+
+Configuration for destructuring in variable declarations, configured for arrays and objects independently.
+
+#### VariableDeclarator.array
+
+type: `boolean`
+
+default: `true`
+
+#### VariableDeclarator.object
+
+type: `boolean`
+
+default: `true`
+
+### enforceForRenamedProperties
+
+type: `boolean`
+
+default: `false`
+
+Determines whether the object destructuring rule applies to renamed variables.
 
 ## How to use
 

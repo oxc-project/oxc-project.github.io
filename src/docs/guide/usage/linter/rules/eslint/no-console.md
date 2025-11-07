@@ -42,11 +42,15 @@ Examples of **correct** code for this rule:
 Console.log("Hello world!");
 ```
 
-### Options
+## Configuration
 
-#### allow
+This rule accepts a configuration object with the following properties:
 
-`{ type: string[], default: [] }`
+### allow
+
+type: `string[]`
+
+default: `[]`
 
 The `allow` option permits the given list of console methods to be used as exceptions to
 this rule.

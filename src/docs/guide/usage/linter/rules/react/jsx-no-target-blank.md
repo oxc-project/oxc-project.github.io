@@ -5,7 +5,7 @@ import { data } from '../version.data.js';
 const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_linter/src/rules/react/jsx_no_target_blank.rs`;
 </script>
 
-# react/jsx-no-target-blank <Badge type="info" text="Correctness" />
+# react/jsx-no-target-blank <Badge type="info" text="Pedantic" />
 
 <div class="rule-meta">
 </div>
@@ -46,6 +46,50 @@ var Hello = <a></a>;
 
 [`noreferrer` docs]: https://html.spec.whatwg.org/multipage/links.html#link-type-noreferrer
 [`noopener` docs]: https://html.spec.whatwg.org/multipage/links.html#link-type-noopener
+
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### allowReferrer
+
+type: `boolean`
+
+default: `false`
+
+Whether to allow referrers.
+
+### enforceDynamicLinks
+
+type: `"always" | "never"`
+
+default: `"always"`
+
+Whether to enforce dynamic links or enforce static links.
+
+### forms
+
+type: `boolean`
+
+default: `false`
+
+Whether to check form elements.
+
+### links
+
+type: `boolean`
+
+default: `true`
+
+Whether to check link elements.
+
+### warnOnSpreadAttributes
+
+type: `boolean`
+
+default: `false`
+
+Whether to warn when spread attributes are used.
 
 ## How to use
 

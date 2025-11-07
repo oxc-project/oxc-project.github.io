@@ -48,6 +48,54 @@ class C {
 }
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### enforceForClassFields
+
+type: `boolean`
+
+default: `true`
+
+Enforce this rule for class fields that are functions.
+
+### exceptMethods
+
+type: `array`
+
+default: `[]`
+
+List of method names to exempt from this rule.
+
+#### exceptMethods[n]
+
+type: `object`
+
+##### exceptMethods[n].name
+
+type: `string`
+
+##### exceptMethods[n].private
+
+type: `boolean`
+
+### ignoreClassesWithImplements
+
+type: `"all" | "public-fields"`
+
+default: `null`
+
+Whether to ignore classes that implement interfaces.
+
+### ignoreOverrideMethods
+
+type: `boolean`
+
+default: `false`
+
+Whether to ignore methods that are overridden.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

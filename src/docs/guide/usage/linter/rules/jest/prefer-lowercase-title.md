@@ -37,20 +37,33 @@ it("adds 1 + 2 to equal 3", () => {
 });
 ```
 
-### Options
+## Configuration
 
-```json
-{
-  "jest/prefer-lowercase-title": [
-    "error",
-    {
-      "ignore": ["describe", "test"]
-    }
-  ]
-}
+This rule accepts a configuration object with the following properties:
+
+### allowedPrefixes
+
+type: `string[]`
+
+default: `[]`
+
+This array option allows specifying prefixes, which contain capitals that titles
+can start with. This can be useful when writing tests for API endpoints, where
+you'd like to prefix with the HTTP method.
+By default, nothing is allowed (the equivalent of `{ "allowedPrefixes": [] }`).
+
+Example of **correct** code for the `{ "allowedPrefixes": ["GET"] }` option:
+
+```js
+/* eslint jest/prefer-lowercase-title: ["error", { "allowedPrefixes": ["GET"] }] */
+describe("GET /live");
 ```
 
-#### `ignore`
+### ignore
+
+type: `string[]`
+
+default: `[]`
 
 This array option controls which Jest or Vitest functions are checked by this rule. There
 are four possible values:
@@ -84,21 +97,11 @@ Example of **correct** code for the `{ "ignore": ["it"] }` option:
 it("Uppercase description");
 ```
 
-#### `allowedPrefixes`
+### ignoreTopLevelDescribe
 
-This array option allows specifying prefixes, which contain capitals that titles
-can start with. This can be useful when writing tests for API endpoints, where
-you'd like to prefix with the HTTP method.
-By default, nothing is allowed (the equivalent of `{ "allowedPrefixes": [] }`).
+type: `boolean`
 
-Example of **correct** code for the `{ "allowedPrefixes": ["GET"] }` option:
-
-```js
-/* eslint jest/prefer-lowercase-title: ["error", { "allowedPrefixes": ["GET"] }] */
-describe("GET /live");
-```
-
-#### `ignoreTopLevelDescribe`
+default: `false`
 
 This option can be set to allow only the top-level `describe` blocks to have a
 title starting with an upper-case letter.
@@ -116,7 +119,11 @@ describe("MyClass", () => {
 });
 ```
 
-#### `lowercaseFirstCharacterOnly`
+### lowercaseFirstCharacterOnly
+
+type: `boolean`
+
+default: `true`
 
 This option can be set to only validate that the first character of a test name is lowercased.
 

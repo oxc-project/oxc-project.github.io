@@ -44,19 +44,19 @@ interface T {
 }
 ```
 
-### Options
+## Configuration
 
-This rule has a single string option:
+This rule accepts a configuration object with the following properties:
 
-`{ type: string, default: "interface" }`
+### config
 
-### interface
+type: `"interface" | "type"`
 
-This is the default option.
+default: `"interface"`
 
-### type
+Configuration option to enforce either 'interface' or 'type' for object type definitions.
 
-Enforces the use of types for object type definitions.
+Setting to `type` enforces the use of types for object type definitions.
 
 Examples of **incorrect** code for this option:
 

@@ -22,6 +22,34 @@ is not an objective maximum number of lines considered acceptable in a
 file, most people would agree it should not be in the thousands.
 Recommendations usually range from 100 to 500 lines.
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### max
+
+type: `integer`
+
+default: `300`
+
+Maximum number of lines allowed per file.
+
+### skipBlankLines
+
+type: `boolean`
+
+default: `false`
+
+Whether to ignore blank lines when counting.
+
+### skipComments
+
+type: `boolean`
+
+default: `false`
+
+Whether to ignore comments when counting.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

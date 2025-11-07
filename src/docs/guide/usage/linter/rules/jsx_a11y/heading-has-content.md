@@ -37,6 +37,19 @@ Examples of **correct** code for this rule:
 <h1>Foo</h1>;
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### components
+
+type: `string[]`
+
+default: `null`
+
+Additional custom component names to treat as heading elements.
+These will be validated in addition to the standard h1-h6 elements.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

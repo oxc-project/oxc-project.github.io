@@ -15,7 +15,7 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 ### What it does
 
-Disallow usage of unknown DOM property.
+Disallow usage of unknown DOM properties.
 
 ### Why is this bad?
 
@@ -44,6 +44,26 @@ const Alphabet = <div>Alphabet</div>;
 // Invalid aria-* attribute
 const IconButton = <div aria-label="bar" />;
 ```
+
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### ignore
+
+type: `string[]`
+
+default: `[]`
+
+List of properties to ignore.
+
+### requireDataLowercase
+
+type: `boolean`
+
+default: `false`
+
+Require `data-*` attributes to be lowercase, e.g. `data-foobar` instead of `data-fooBar`.
 
 ## How to use
 

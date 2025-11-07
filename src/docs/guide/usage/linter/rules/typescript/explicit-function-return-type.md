@@ -73,6 +73,74 @@ class Test {
 }
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### allowConciseArrowFunctionExpressionsStartingWithVoid
+
+type: `boolean`
+
+default: `false`
+
+Whether to allow concise arrow functions that start with the `void` keyword.
+
+### allowDirectConstAssertionInArrowFunctions
+
+type: `boolean`
+
+default: `true`
+
+Whether to allow arrow functions that use `as const` assertion on their return value.
+
+### allowExpressions
+
+type: `boolean`
+
+default: `false`
+
+Whether to allow expressions as function return types. When `true`, allows functions that immediately return an expression without a return type annotation.
+
+### allowFunctionsWithoutTypeParameters
+
+type: `boolean`
+
+default: `false`
+
+Whether to allow functions that do not have generic type parameters.
+
+### allowHigherOrderFunctions
+
+type: `boolean`
+
+default: `true`
+
+Whether to allow higher-order functions (functions that return another function) without return type annotations.
+
+### allowIifes
+
+type: `boolean`
+
+default: `false`
+
+Whether to allow immediately invoked function expressions (IIFEs) without return type annotations.
+
+### allowTypedFunctionExpressions
+
+type: `boolean`
+
+default: `true`
+
+Whether to allow typed function expressions. When `true`, allows function expressions that are assigned to a typed variable or parameter.
+
+### allowedNames
+
+type: `string[]`
+
+default: `[]`
+
+Array of function names that are exempt from requiring return type annotations.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

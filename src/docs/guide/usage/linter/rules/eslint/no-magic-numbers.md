@@ -135,6 +135,92 @@ type Foo = Bar[0];
 type Baz = Parameters<Foo>[2];
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### detectObjects
+
+type: `boolean`
+
+default: `false`
+
+When true, numeric literals used in object properties are considered magic numbers.
+
+### enforceConst
+
+type: `boolean`
+
+default: `false`
+
+When true, enforces that number constants must be declared using `const` instead of `let` or `var`.
+
+### ignore
+
+type: `array`
+
+default: `[]`
+
+An array of numbers to ignore if used as magic numbers. Can include floats or BigInt strings.
+
+#### ignore[n]
+
+### ignoreArrayIndexes
+
+type: `boolean`
+
+default: `false`
+
+When true, numeric literals used as array indexes are ignored.
+
+### ignoreClassFieldInitialValues
+
+type: `boolean`
+
+default: `false`
+
+When true, numeric literals used as initial values in class fields are ignored.
+
+### ignoreDefaultValues
+
+type: `boolean`
+
+default: `false`
+
+When true, numeric literals used as default values in function parameters and destructuring are ignored.
+
+### ignoreEnums
+
+type: `boolean`
+
+default: `false`
+
+When true, numeric literals in TypeScript enums are ignored.
+
+### ignoreNumericLiteralTypes
+
+type: `boolean`
+
+default: `false`
+
+When true, numeric literals used as TypeScript numeric literal types are ignored.
+
+### ignoreReadonlyClassProperties
+
+type: `boolean`
+
+default: `false`
+
+When true, numeric literals in readonly class properties are ignored.
+
+### ignoreTypeIndexes
+
+type: `boolean`
+
+default: `false`
+
+When true, numeric literals used to index TypeScript types are ignored.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

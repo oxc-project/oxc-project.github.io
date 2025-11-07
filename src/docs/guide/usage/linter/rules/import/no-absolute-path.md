@@ -60,23 +60,48 @@ define("./foo", function(foo) {});
 require("./foo", function(foo) {});
 ```
 
-### Options
+## Configuration
 
-By default, only ES6 imports and `CommonJS` require calls will have this rule enforced.
-You may provide an options object providing true/false for any of
+This rule accepts a configuration object with the following properties:
 
-- `esmodule`: defaults to `true`
-- `commonjs`: defaults to `true`
-- `amd`: defaults to `false`
+### amd
 
-If `{ amd: true }` is provided, dependency paths for AMD-style define and require calls will be resolved:
+type: `boolean`
+
+default: `false`
+
+If set to `true`, dependency paths for AMD-style define and require calls will be resolved:
 
 ```js
-/*eslint import/no-absolute-path: ['error', { commonjs: false, amd: true }]*/
+/* eslint import/no-absolute-path: ['error', { commonjs: false, amd: true }] */
 define(["/foo"], function(foo) {/*...*/}); // reported
 require(["/foo"], function(foo) {/*...*/}); // reported
 
 const foo = require("/foo"); // ignored because of explicit `commonjs: false`
+```
+
+### commonjs
+
+type: `boolean`
+
+default: `true`
+
+If set to `true`, dependency paths for CommonJS-style require calls will be resolved:
+
+```js
+var foo = require("/foo"); // reported
+```
+
+### esmodule
+
+type: `boolean`
+
+default: `true`
+
+If set to `true`, dependency paths for ES6-style import statements will be resolved:
+
+```js
+import foo from "/foo"; // reported
 ```
 
 ## How to use

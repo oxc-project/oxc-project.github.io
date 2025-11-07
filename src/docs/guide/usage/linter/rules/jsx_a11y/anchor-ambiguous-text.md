@@ -42,6 +42,18 @@ Examples of **correct** code for this rule:
 <a aria-label="oxc linter documentation">click here</a>
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### words
+
+type: `string[]`
+
+default: `["click here", "here", "link", "a link", "learn more"]`
+
+List of ambiguous words or phrases that should be flagged in anchor text.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

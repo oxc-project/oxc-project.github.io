@@ -37,6 +37,18 @@ Examples of **correct** code for this rule:
 const clone = structuredClone(foo);
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### allowedFunctions
+
+type: `string[]`
+
+default: `["cloneDeep", "utils.clone"]`
+
+List of functions that are allowed to be used for deep cloning instead of structuredClone.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

@@ -71,6 +71,42 @@ const version = 42;
 const isProduction = () => process.env.NODE_ENV === "production";
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### allow_constructor_only
+
+type: `boolean`
+
+default: `false`
+
+Allow classes that only have a constructor.
+
+### allow_empty
+
+type: `boolean`
+
+default: `false`
+
+Allow empty classes.
+
+### allow_static_only
+
+type: `boolean`
+
+default: `false`
+
+Allow classes with only static members.
+
+### allow_with_decorator
+
+type: `boolean`
+
+default: `false`
+
+Allow classes with decorators.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:
