@@ -54,7 +54,7 @@ The Oxc team always keeps compatibility with existing ecosystems in mind.
 Therefore, Oxfmt is implemented to match Prettier's formatting results as closely as possible.
 While not 100% compatible, we achieve excellent coverage, as demonstrated by our test results:
 
-> TODO: The latst coverage numbers here...
+> TODO: The latest coverage numbers here...
 
 Of course, there are cases where we believe Oxfmt produces better formatting than Prettier, and these will produce different results.
 
