@@ -1,5 +1,5 @@
 ---
-title: Oxlint v1.0 Stable
+title: Oxc Formatter Alpha
 outline: deep
 authors:
   - boshen
@@ -9,32 +9,135 @@ authors:
 
 <AppBlogPostHeader />
 
----
+We are excited to announce an alpha release for Oxfmt!
 
-Oxfmt is a Rust-powered formatter for JavaScript and TypeScript, designed to be compatible with prettier and its plugin system.
+Oxfmt is a Rust-powered formatter, designed to be compatible with Prettier and its plugin system.
+
+At this alpha stage, Oxfmt can only format JS and TS files, but we encourage you to give it a try.
 
 ## Quick Start
 
-## Benchmark
+To format files in your current working directory, simply run one of the following commands:
 
-https://github.com/oxc-project/bench-formatter
+::: code-group
 
-## Features
+```sh [npm]
+$ npx oxfmt@latest
+```
 
-- prettier compatible
-- embedded languages
-- https://github.com/oxc-project/oxc/discussions/13608
+```sh [pnpm]
+$ pnpm dlx oxfmt@latest
+```
 
-## Roadmap
+```sh [yarn]
+$ yarn dlx oxfmt@latest
+```
 
-- prettier plugins
-- https://github.com/oxc-project/oxc/milestone/15
+```sh [bun]
+$ bunx oxfmt@latest
+```
 
-## Acknowledgements
+```sh [deno]
+$ deno run npm:oxfmt@latest
+```
 
-- thank biome, rome and everyone who contributed to, especially ema and micha
-- thank fisker for triaging our reported issues
+:::
+
+Unlike Prettier, Oxfmt's default behavior is equivalent to `prettier . --write`, providing the same UX as `cargo fmt`.
+
+## Prettier compatible
+
+The Oxc team always keeps compatibility with existing ecosystems in mind.
+
+### Formatting results
+
+Therefore, Oxfmt is implemented to match Prettier's formatting results as closely as possible.
+While not 100% compatible, we achieve excellent coverage, as demonstrated by our test results:
+
+> TODO: The latst coverage numbers here...
+
+Of course, there are cases where we believe Oxfmt produces better formatting than Prettier, and these will produce different results.
+
+We are also actively reporting bugs and submitting PRs to Prettier itself, so the formatting results between the two should converge even more over time.
+
+For detailed differences, please refer to the following discussion:
+
+> `Oxfmt` differences with `Prettier` · oxc-project/oxc · Discussion #14669\
+> https://github.com/oxc-project/oxc/discussions/14669
+
+### Configuration
+
+Additionally, configuration files and ignore files are also compatible with Prettier.
+
+In the simplest case, migrating your configuration file looks like this:
+
+```sh
+cp .prettierrc.json .oxfmtrc.jsonc
+```
+
+While we don't support all options yet, we do support all of the following major options.
+
+- `experimentalOperatorPosition`
+- `printWidth`
+- `tabWidth`
+- `useTabs`
+- `semi`
+- `singleQuote`
+- `quoteProps`
+- `jsxSingleQuote`
+- `trailingComma`
+- `bracketSpacing`
+- `objectWrap`
+- `bracketSameLine`
+- `arrowParens`
+- `endOfLine`
+- `singleAttributePerLine`
+
+(Listed in the order they appear in Prettier's [documentation](https://prettier.io/docs/options))
+
+Additionally, we support `ignorePatterns`, which is familiar from ESLint configuration files.
+While `.prettierignore` is also supported, using `ignorePatterns` allows you to consolidate everything into a single configuration file!
+
+Please also refer to our Formatter [documentation page](/docs/guide/usage/formatter.html) for more details.
+
+## Yet better performance
+
+While Oxfmt demonstrates high compatibility with Prettier, performance is a different story — it runs incredibly fast!
+
+Check out our benchmark results on the [Outline](https://github.com/outline/outline) repository:
+
+> TODO: Benchmark numbers with the latest release here...
+
+For detailed benchmark setup, please refer to the following repository:
+
+> oxc-project/bench-formatter\
+> https://github.com/oxc-project/bench-formatter/tree/main
+
+## What's next
+
+While the timeline is not yet determined, we are planning the following initiatives for our next milestone — the beta release:
+
+- Stabilize experimental options
+  - `embeddedLanguageFormatting`: Support for embedded languages like CSS-in-JS
+  - `experimentalSortImports`: Built-in support for the highly-demanded `prettier-plugin-sort-imports` functionality
+- Support more major Prettier plugins
+  - Primarily support for popular frameworks like Vue, Svelte, and Astro
+
+> Formatter Beta · Milestone #15 · oxc-project/oxc\
+> https://github.com/oxc-project/oxc/milestone/15
+
+Needless to say, we will continue working daily on performance improvements and CLI UX enhancements.
 
 ## Join the Community
 
-## What's next
+> RFC: Formatter · oxc-project/oxc · Discussion #13608\
+> https://github.com/oxc-project/oxc/discussions/13608
+
+We welcome your feedback to help make Oxfmt even better!
+
+## Acknowledgements
+
+- Thanks biome, rome and everyone who contributed to
+  - Especially [@ematipico](https://github.com/ematipico) and [@MichaReiser](https://github.com/MichaReiser)
+  - Oxfmt is using fork of `biome_formatter` infrastructure
+- Thanks [@fisker](https://github.com/fisker) for triaging our reported issues
