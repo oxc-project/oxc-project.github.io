@@ -71,6 +71,83 @@ const result = transform("lib.ts", sourceCode, {
 });
 ```
 
+:::: warning Decorator Metadata: Types that requires type inference will fallback to `Object`
+
+Due to the lack of full type inference feature, Oxc transformer will fallback to `Object` type if it cannot calculate the type of the decorator metadata.
+
+For example, the following code will be transformed to the following code:
+
+::: code-group
+
+```ts [input.ts]
+import { Something1 } from "./somewhere";
+
+type Something2 = Exclude<string | number, string>;
+
+export class Foo {
+  @test
+  foo(input1: Something1, input2: Something2) {}
+}
+```
+
+```js [output(oxc).js]
+// omit helper functions
+import { Something1 } from "./somewhere";
+var _ref;
+export class Foo {
+  foo(input1, input2) {}
+}
+_decorate(
+  [
+    test,
+    _decorateMetadata("design:type", Function),
+    _decorateMetadata("design:paramtypes", [
+      typeof (_ref = typeof Something1 !== "undefined" && Something1)
+          === "function"
+        ? _ref
+        : Object,
+      Object, // [!code highlight]
+    ]),
+    _decorateMetadata("design:returntype", void 0),
+  ],
+  Foo.prototype,
+  "foo",
+  null,
+);
+```
+
+```js [output(typescript_compiler).js]
+// omit helper functions
+var _a;
+import { Something1 } from "./somewhere";
+export class Foo {
+  foo(input1, input2) {}
+}
+__decorate(
+  [
+    test,
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [
+      typeof (_a = typeof Something1 !== "undefined" && Something1)
+          === "function"
+        ? _a
+        : Object,
+      Number, // [!code highlight]
+    ]),
+    __metadata("design:returntype", void 0),
+  ],
+  Foo.prototype,
+  "foo",
+  null,
+);
+```
+
+:::
+
+This behavior aligns with TypeScript's behavior when using a type that is external.
+
+::::
+
 ## TSX
 
 Transforming TSX files is supported as well.
