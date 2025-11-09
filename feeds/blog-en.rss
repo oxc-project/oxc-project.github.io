@@ -4,7 +4,7 @@
         <title>The Oxidation Compiler Blog</title>
         <link>https://oxc.rs</link>
         <description>undefined</description>
-        <lastBuildDate>Sat, 08 Nov 2025 06:57:56 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 09 Nov 2025 12:57:34 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
@@ -1020,7 +1020,7 @@ discussion by documenting our decision process and technical details.</p>
 <p>Our testing shows that repositories which previously took a minute to run with <code>typescript-eslint</code> now complete in less than 10 seconds.</p>
 <p>This is achieved by leveraging <a href="https://github.com/microsoft/typescript-go" target="_blank" rel="noreferrer"><code>typescript-go</code></a>,
 the <a href="https://devblogs.microsoft.com/typescript/typescript-native-port" target="_blank" rel="noreferrer">10x faster TypeScript</a> written in Go.</p>
-<p>Using projects from <a href="https://github.com/oxc-project/oxlint-ecosystem-ci" target="_blank" rel="noreferrer">oxlint-ecosystem-ci</a>:</p>
+<p>Using projects from <a href="https://github.com/oxc-project/oxc-ecosystem-ci" target="_blank" rel="noreferrer">oxc-ecosystem-ci</a>:</p>
 <p>| Project  | Files | Time |
 |</p>
 ]]></description>
@@ -1049,7 +1049,7 @@ discussion by documenting our decision process and technical details.</p>
 <p>Our testing shows that repositories which previously took a minute to run with <code>typescript-eslint</code> now complete in less than 10 seconds.</p>
 <p>This is achieved by leveraging <a href="https://github.com/microsoft/typescript-go" target="_blank" rel="noreferrer"><code>typescript-go</code></a>,
 the <a href="https://devblogs.microsoft.com/typescript/typescript-native-port" target="_blank" rel="noreferrer">10x faster TypeScript</a> written in Go.</p>
-<p>Using projects from <a href="https://github.com/oxc-project/oxlint-ecosystem-ci" target="_blank" rel="noreferrer">oxlint-ecosystem-ci</a>:</p>
+<p>Using projects from <a href="https://github.com/oxc-project/oxc-ecosystem-ci" target="_blank" rel="noreferrer">oxc-ecosystem-ci</a>:</p>
 <table tabindex="0">
 <thead>
 <tr>
