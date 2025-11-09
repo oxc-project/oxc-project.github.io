@@ -68,7 +68,7 @@ For example:
 
 ### Ecosystem CI
 
-[oxlint-ecosystem-ci](https://github.com/oxc-project/oxlint-ecosystem-ci) runs `oxlint` against large repositories to check for false positives, regressions, and panics. The repositories tested include:
+[oxc-ecosystem-ci](https://github.com/oxc-project/oxc-ecosystem-ci) runs `oxlint` against large repositories to check for false positives, regressions, and panics. The repositories tested include:
 
 - [rolldown/rolldown](https://github.com/rolldown-rs/rolldown)
 - [napi-rs/napi-rs](https://github.com/napi-rs/napi-rs)

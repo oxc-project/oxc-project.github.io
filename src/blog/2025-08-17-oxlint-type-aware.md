@@ -56,7 +56,7 @@ Our testing shows that repositories which previously took a minute to run with `
 This is achieved by leveraging [`typescript-go`](https://github.com/microsoft/typescript-go),
 the [10x faster TypeScript](https://devblogs.microsoft.com/typescript/typescript-native-port) written in Go.
 
-Using projects from [oxlint-ecosystem-ci](https://github.com/oxc-project/oxlint-ecosystem-ci):
+Using projects from [oxc-ecosystem-ci](https://github.com/oxc-project/oxc-ecosystem-ci):
 
 | Project  | Files | Time |
 | -------- | ----- | ---- |
