@@ -20,7 +20,7 @@
     "@vueuse/core": "^14.0.0",
     "degit": "^2.8.4",
     "dprint": "^0.50.1",
-    "esbuild": "0.25.12",
+    "esbuild": "0.26.0",
     "feed": "^5.1.0",
     "husky": "^9.1.7",
     "lint-staged": "16.2.6",
