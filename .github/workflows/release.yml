@@ -38,6 +38,7 @@ jobs:
         with:
           tool: just
 
+      - run: rm -rf src/docs/guide/usage/linter/rules
       - run: cd oxc && just website ..
       - run: rm -rf oxc
 
