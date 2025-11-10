@@ -1,3 +1,7 @@
+---
+search: false
+---
+
 ## Usage
 
 **`oxlint`** \[**`-c`**=_`<./.oxlintrc.json>`_\] \[_`PATH`_\]...
@@ -14,7 +18,7 @@
   If not provided, Oxlint will look for `.oxlintrc.json` in the current working directory.
 
 - **`--tsconfig`**=_`<./tsconfig.json>`_ &mdash;
-  TypeScript `tsconfig.json` path for reading path alias and project references for import plugin
+  TypeScript `tsconfig.json` path for reading path alias and project references for import plugin. If not provided, will look for `tsconfig.json` in the current working directory.
 - **`--init`** &mdash;
   Initialize oxlint configuration with default values
 

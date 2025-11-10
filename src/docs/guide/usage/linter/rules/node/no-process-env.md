@@ -41,9 +41,15 @@ if (config.env === "development") {
 
 ## Configuration
 
+This rule accepts a configuration object with the following properties:
+
 ### allowedVariables
 
 type: `string[]`
+
+default: `[]`
+
+Variable names which are allowed to be accessed on `process.env`.
 
 ## How to use
 

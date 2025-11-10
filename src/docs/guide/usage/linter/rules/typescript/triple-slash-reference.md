@@ -15,7 +15,7 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 ### What it does
 
-Disallow certain triple slash directives in favor of ES6-style import declarations.
+Disallow certain triple slash directives in favor of ES module import declarations.
 
 ### Why is this bad?
 

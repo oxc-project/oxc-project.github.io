@@ -18,7 +18,7 @@ It also optionally reports the presence of the square-bracketed optional argumen
 ### Why is this bad?
 
 The rule is intended to prevent the indication of defaults on tags
-where this would be redundant with ES6 default parameters.
+where this would be redundant with ES2015 default parameters.
 
 ### Examples
 

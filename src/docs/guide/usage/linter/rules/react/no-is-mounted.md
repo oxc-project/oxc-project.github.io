@@ -12,11 +12,11 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 ### What it does
 
-This rule prevents using isMounted in ES6 classes
+This rule prevents using isMounted in classes
 
 ### Why is this bad?
 
-isMounted is an anti-pattern, is not available when using ES6 classes,
+isMounted is an anti-pattern, is not available when using classes,
 and it is on its way to being officially deprecated.///
 
 ### Examples
