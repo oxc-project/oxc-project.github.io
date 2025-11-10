@@ -6,7 +6,7 @@ search: false
 
 The progress of all rule implementations is tracked [here](https://github.com/oxc-project/oxc/issues/481).
 
-- Total number of rules: 613
+- Total number of rules: 614
 - Rules turned on by default: 103
 
 **Legend for 'Fixable?' column:**
@@ -489,7 +489,7 @@ Lints which are rather strict or have occasional false positives.
 | [prefer-type-error](/docs/guide/usage/linter/rules/unicorn/prefer-type-error.html)                                             | unicorn    |         | 🛠️        |
 | [require-number-to-fixed-digits-argument](/docs/guide/usage/linter/rules/unicorn/require-number-to-fixed-digits-argument.html) | unicorn    |         | 🛠️        |
 
-## Style (165):
+## Style (166):
 
 Code that should be written in a more idiomatic way.
 
@@ -629,6 +629,7 @@ Code that should be written in a more idiomatic way.
 | [no-nested-ternary](/docs/guide/usage/linter/rules/unicorn/no-nested-ternary.html)                                       | unicorn    |         | 🛠️        |
 | [no-null](/docs/guide/usage/linter/rules/unicorn/no-null.html)                                                           | unicorn    |         | 🛠️        |
 | [no-unreadable-array-destructuring](/docs/guide/usage/linter/rules/unicorn/no-unreadable-array-destructuring.html)       | unicorn    |         |          |
+| [no-useless-collection-argument](/docs/guide/usage/linter/rules/unicorn/no-useless-collection-argument.html)             | unicorn    |         | 🚧       |
 | [no-zero-fractions](/docs/guide/usage/linter/rules/unicorn/no-zero-fractions.html)                                       | unicorn    |         | 🛠️        |
 | [number-literal-case](/docs/guide/usage/linter/rules/unicorn/number-literal-case.html)                                   | unicorn    |         | 🛠️        |
 | [numeric-separators-style](/docs/guide/usage/linter/rules/unicorn/numeric-separators-style.html)                         | unicorn    |         | 🛠️        |
