@@ -1,3 +1,7 @@
+---
+search: false
+---
+
 # Rules
 
 The progress of all rule implementations is tracked [here](https://github.com/oxc-project/oxc/issues/481).
@@ -516,7 +520,7 @@ Code that should be written in a more idiomatic way.
 | [no-new-func](/docs/guide/usage/linter/rules/eslint/no-new-func.html)                                                    | eslint     |         |          |
 | [no-return-assign](/docs/guide/usage/linter/rules/eslint/no-return-assign.html)                                          | eslint     |         | 🚧       |
 | [no-script-url](/docs/guide/usage/linter/rules/eslint/no-script-url.html)                                                | eslint     |         |          |
-| [no-template-curly-in-string](/docs/guide/usage/linter/rules/eslint/no-template-curly-in-string.html)                    | eslint     |         | ⚠️🛠️️       |
+| [no-template-curly-in-string](/docs/guide/usage/linter/rules/eslint/no-template-curly-in-string.html)                    | eslint     |         |          |
 | [no-ternary](/docs/guide/usage/linter/rules/eslint/no-ternary.html)                                                      | eslint     |         |          |
 | [no-useless-computed-key](/docs/guide/usage/linter/rules/eslint/no-useless-computed-key.html)                            | eslint     |         | 🚧       |
 | [operator-assignment](/docs/guide/usage/linter/rules/eslint/operator-assignment.html)                                    | eslint     |         | ⚠️🛠️️       |

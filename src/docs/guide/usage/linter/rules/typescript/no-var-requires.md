@@ -16,7 +16,7 @@ Disallow `require` statements except in import statements
 
 ### Why is this bad?
 
-In other words, the use of forms such as var foo = require("foo") are banned. Instead use ES6 style imports or import foo = require("foo") imports.
+In other words, the use of forms such as var foo = require("foo") are banned. Instead use ES module imports or import foo = require("foo") imports.
 
 ```typescript
 var foo = require("foo");

@@ -1,3 +1,7 @@
+---
+search: false
+---
+
 # Oxlint Configuration File
 
 This configuration is aligned with ESLint v8's configuration schema (`eslintrc.json`).

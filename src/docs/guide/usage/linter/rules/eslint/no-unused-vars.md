@@ -80,7 +80,7 @@ is used or unused in a Vue file.
 
 The original ESLint rule recognizes `/* exported variableName */`
 comments as a way to indicate that a variable is used in another script
-and should not be considered unused. Since ES6 modules are now a TC39
+and should not be considered unused. Since ES modules are now a TC39
 standard, Oxlint does not support this feature.
 
 ### Examples
@@ -177,7 +177,7 @@ Examples of **incorrect** code for `/* exported variableName */` operation:
 ```js
 /* exported global_var */
 
-// Not respected, use ES6 modules instead.
+// Not respected, use ES modules instead.
 var global_var = 42;
 ```
 
