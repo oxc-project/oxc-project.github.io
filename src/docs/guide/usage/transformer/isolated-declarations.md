@@ -29,8 +29,8 @@ export declare enum Bar {
 
 ## Usage
 
-```js
-import { transform } from "oxc-transform";
+```ts
+import { isolatedDeclaration } from "oxc-transform";
 
 const result = isolatedDeclaration("lib.ts", sourceCode, {
   sourcemap: false,
