@@ -58,6 +58,7 @@ List of supported rules:
     "typescript/no-array-delete": "error",
     "typescript/no-base-to-string": "error",
     "typescript/no-confusing-void-expression": "error",
+    "typescript/no-deprecated": "error",
     "typescript/no-duplicate-type-constituents": "error",
     "typescript/no-floating-promises": "error",
     "typescript/no-for-in-array": "error",
@@ -91,6 +92,7 @@ List of supported rules:
     "typescript/restrict-plus-operands": "error",
     "typescript/restrict-template-expressions": "error",
     "typescript/return-await": "error",
+    "typescript/strict-boolean-expressions": "error",
     "typescript/switch-exhaustiveness-check": "error",
     "typescript/unbound-method": "error",
     "typescript/use-unknown-in-catch-callback-variable": "error"
