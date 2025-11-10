@@ -50,7 +50,7 @@ Examples of **incorrect** code for this rule:
 // ./baz.js
 import { notFoo } from "./foo";
 
-// ES7 proposal
+// re-export
 export { notFoo as defNotBar } from "./foo";
 
 // will follow 'jsnext:main', if available
@@ -63,7 +63,7 @@ Examples of **correct** code for this rule:
 // ./bar.js
 import { foo } from "./foo";
 
-// ES7 proposal
+// re-export
 export { foo as bar } from "./foo";
 
 // node_modules without jsnext:main are not analyzed by default

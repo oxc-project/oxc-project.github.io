@@ -98,7 +98,7 @@ type: `boolean`
 
 default: `true`
 
-If set to `true`, dependency paths for ES6-style import statements will be resolved:
+If set to `true`, dependency paths for ES module import statements will be resolved:
 
 ```js
 import foo from "/foo"; // reported

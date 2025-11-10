@@ -19,7 +19,7 @@ Disallow aliasing `this`
 
 ### Why is this bad?
 
-Assigning a variable to `this` instead of properly using arrow lambdas may be a symptom of pre-ES6 practices or not managing scope well.
+Assigning a variable to `this` instead of properly using arrow lambdas may be a symptom of pre-ES2015 practices or not managing scope well.
 
 ## Configuration
 

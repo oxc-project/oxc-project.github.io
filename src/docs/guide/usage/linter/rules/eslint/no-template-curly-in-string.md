@@ -8,9 +8,6 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 # eslint/no-template-curly-in-string <Badge type="info" text="Style" />
 
 <div class="rule-meta">
-<Alert class="fix" type="info">
-<span class="emoji">⚠️🛠️️</span> A dangerous auto-fix is available for this rule.
-</Alert>
 </div>
 
 ### What it does

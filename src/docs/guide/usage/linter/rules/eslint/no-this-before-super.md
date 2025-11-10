@@ -19,8 +19,8 @@ Requires calling `super()` before using `this` or `super`.
 
 ### Why is this bad?
 
-Getters should always return a value.
-If they don't, it's probably a mistake.
+In the constructor of derived classes, if `this`/`super` are used before `super()` calls,
+it raises a ReferenceError.
 
 ### Examples
 

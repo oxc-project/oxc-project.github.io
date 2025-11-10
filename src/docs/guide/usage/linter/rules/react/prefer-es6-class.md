@@ -13,7 +13,7 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 ### What it does
 
 React offers you two ways to create traditional components: using the ES5
-create-react-class module or the new ES6 class system.
+create-react-class module or the new ES2015 class system.
 
 ### Why is this bad?
 

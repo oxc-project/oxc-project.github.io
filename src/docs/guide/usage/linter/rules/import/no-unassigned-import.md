@@ -16,7 +16,7 @@ This rule aims to remove modules with side-effects by reporting when a module is
 
 ### Why is this bad?
 
-With both CommonJS' require and the ES6 modules' import syntax,
+With both CommonJS' require and the ES modules' import syntax,
 it is possible to import a module but not to use its result.
 This can be done explicitly by not assigning the module to a variable.
 Doing so can mean either of the following things:
