@@ -44,6 +44,7 @@ export const enConfig = defineLocaleConfig("root", {
             {
               text: "Linter",
               link: "/docs/guide/usage/linter",
+              collapsed: true,
               items: [
                 {
                   text: "Configuring Oxlint",
@@ -91,6 +92,7 @@ export const enConfig = defineLocaleConfig("root", {
             {
               text: "Transformer",
               link: "/docs/guide/usage/transformer",
+              collapsed: true,
               items: [
                 {
                   text: "Lowering",
@@ -122,6 +124,7 @@ export const enConfig = defineLocaleConfig("root", {
             {
               text: "Minifier",
               link: "/docs/guide/usage/minifier",
+              collapsed: true,
               items: [
                 {
                   text: "Dead Code Elimination",
