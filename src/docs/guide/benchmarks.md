@@ -34,6 +34,6 @@ See repository [bench-formatter](https://github.com/oxc-project/bench-formatter)
 
 ## Resolver
 
-`oxc-resolver` is 20x faster than webpack's `enhanced-resolve`.
+`oxc-resolver` is 30x faster than webpack's `enhanced-resolve`.
 
 See repository [bench-resolver](https://github.com/oxc-project/bench-resolver).
