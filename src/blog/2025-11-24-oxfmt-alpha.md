@@ -11,7 +11,7 @@ authors:
 
 We are excited to announce an alpha release for Oxfmt!
 
-Oxfmt is a Rust-powered formatter, designed to be compatible with Prettier and its plugin system.
+Oxfmt is a Rust-powered formatter, designed to be compatible with Prettier.
 
 At this alpha stage, Oxfmt can only format JS and TS files, but we encourage you to give it a try.
 
@@ -45,13 +45,15 @@ $ deno run npm:oxfmt@latest
 
 Unlike Prettier, Oxfmt's default behavior is equivalent to `prettier . --write`, providing the same UX as `cargo fmt`.
 
+This command produces no output by default. Use `--check` to see details.
+
 ## Prettier compatible
 
 The Oxc team always keeps compatibility with existing ecosystems in mind.
 
 ### Formatting results
 
-Therefore, Oxfmt is implemented to match Prettier's formatting results as closely as possible.
+Therefore, Oxfmt is carefully implemented to match Prettier's formatting results as closely as possible.
 While not 100% compatible, we achieve excellent coverage, as demonstrated by our test results:
 
 > TODO: The latest coverage numbers here...
@@ -117,16 +119,22 @@ For detailed benchmark setup, please refer to the following repository:
 
 While the timeline is not yet determined, we are planning the following initiatives for our next milestone — the beta release:
 
-- Stabilize experimental options
-  - `embeddedLanguageFormatting`: Support for embedded languages like CSS-in-JS
-  - `experimentalSortImports`: Built-in support for the highly-demanded `prettier-plugin-sort-imports` functionality
-- Support more major Prettier plugins
-  - Primarily support for popular frameworks like Vue, Svelte, and Astro
+First, stabilize experimental options disabled by default.
+
+- `embeddedLanguageFormatting`
+  - Support for embedded languages like CSS-in-JS
+  - Currently, partially supported only for non-substitution template
+- `experimentalSortImports`
+  - Built-in support for the highly-demanded `prettier-plugin-sort-imports` functionality
+  - Based on `eslint-plugin-perfectionist/sort-imports` rule
+
+And next, support more major Prettier plugins.
+It means primarily support for popular frameworks like Vue, Svelte, and Astro.
 
 > Formatter Beta · Milestone #15 · oxc-project/oxc\
 > https://github.com/oxc-project/oxc/milestone/15
 
-Needless to say, we will continue working daily on performance improvements and CLI UX enhancements.
+Needless to say, we will continue working daily on performance improvements and CLI UX enhancements!
 
 ## Join the Community
 
