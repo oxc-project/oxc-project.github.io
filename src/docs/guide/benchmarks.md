@@ -26,6 +26,12 @@ Oxlint is 50x - 100x faster than ESLint depending on the number of CPU cores.
 
 See repository [bench-javascript-linter](https://github.com/oxc-project/bench-javascript-linter).
 
+## Formatter
+
+Oxfmt is 3x faster than Biome, 35x faster than prettier.
+
+See repository [bench-formatter](https://github.com/oxc-project/bench-formatter).
+
 ## Resolver
 
 `oxc-resolver` is 20x faster than webpack's `enhanced-resolve`.
