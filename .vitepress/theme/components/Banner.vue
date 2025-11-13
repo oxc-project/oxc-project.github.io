@@ -17,7 +17,7 @@ const hide = () => {
 };
 
 // Sync with inlined-scripts/banner.js
-const slug = "/blog/2025-12-01-oxfmt-alpha";
+const slug = "/blog/2025-12-01-type-aware-alpha";
 
 const bannerDismissed = useLocalStorage<boolean>(`oxc-banner-dismissed-${slug}`, false);
 
@@ -46,7 +46,7 @@ const dismiss = () => {
 
 <template>
   <div ref="el" class="banner banner-dismissed">
-    <div class="text"><a :href="slug">Oxfmt: Announcing Oxc Formatter Alpha</a> 🎉</div>
+    <div class="text"><a :href="slug">Announcing Type-Aware Linting Alpha</a> 🎉</div>
 
     <button type="button" @click="dismiss">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
