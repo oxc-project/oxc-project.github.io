@@ -351,6 +351,7 @@ Supported:
 - Fixes.
 - Selectors ([ESLint docs](https://eslint.org/docs/latest/extend/selectors)).
 - `SourceCode` APIs (e.g. `context.sourceCode.getText(node)`).
+- Scope analysis.
 - Plugins written in TypeScript (with NodeJS 22.18.0+).
 
 Not supported yet:
@@ -358,7 +359,6 @@ Not supported yet:
 - Language server (IDE) support.
 - Rule options.
 - Suggestions.
-- ~~Scope analysis~~ ([implemented](https://github.com/oxc-project/oxc/pull/14890) since v1.25.0).
 - `SourceCode` APIs related to tokens (e.g. `context.sourceCode.getTokens(node)`).
 - Control flow analysis.
 
