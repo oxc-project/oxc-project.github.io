@@ -252,4 +252,4 @@ You can ignore certain patterns of files by configuring the `ignorePatterns` pro
 
 ### .eslintignore
 
-Oxlint works with our previous [.eslintignore](https://eslint.org/docs/latest/use/configure/ignore#the-eslintignore-file) file.
+Oxlint works with existing [.eslintignore](https://eslint.org/docs/latest/use/configure/ignore#the-eslintignore-file) files.
