@@ -11,7 +11,7 @@ This is a general overview of how to configure Oxlint for linting your project. 
 2. **Inline comments**, which can be used to enable/disable specific rules for a specific section of code.
 3. **CLI options**, which can be used to override configuration files or specify inputs and outputs. (See [command-line interface](./cli.md) for more information.)
 
-This page will mostly cover how to use configuration files, as they are the primary way of configuring Oxlint, but also includes information on how to use inline comments and CLI options. In general, inline comments and command-line arguments take precedent over the configuration file.
+This page will mostly cover how to use configuration files, as they are the primary way of configuring Oxlint, but also includes information on how to use inline comments and CLI options. In general, inline comments and command-line arguments take precedence over the configuration file.
 
 ## Configuration file format
 
@@ -21,7 +21,7 @@ A configuration file is a JSON object with top-level properties that will change
 
 - `rules`: Configures what lint rules are enabled or disabled, their severity, and any rule-specific options.
 - `plugins`: Extends the set of available rules with built-in plugins specific to certain frameworks or file types.
-- `categories`: Enable groups of lint rules which have similar behavior or purpose, such as stylistic rules or correctness rules.
+- `categories`: Enables groups of lint rules which have similar behavior or purpose, such as stylistic rules or correctness rules.
 - `ignorePatterns`: Specifies file patterns to ignore when searching for lintable files.
 - `env`: Enables sets of global variables which are known to be predefined based on the environment.
 - `globals`: Declares individual global variables as predefined and read-only or writable, and also allows for global variables to be removed from the base set.
@@ -119,7 +119,7 @@ Rules can also be enabled or disabled for specific sections of code using inline
 
 - `oxlint-enable-next-line`: Enable one or more rules on the line following the comment, then re-enable it
 
-Oxlint does not support modifying the configuration of a lint rule through inline comments. If you need to change the configuration of a rule, you should use a configuration file instead. Oxlint also supports all of the following directives with `oxlint` replaced with `eslint` for compatibility with ESLint, such as `/* eslint-disable */` or `// eslint-disable-next`. We recommend preferring `oxlint-*`, and using `eslint-*` only for rules that Oxlint doesn't support yet.
+Oxlint does not support modifying the configuration of a lint rule through inline comments. If you need to change the configuration of a rule, you should use a configuration file instead. Oxlint also supports all of the following directives with `oxlint` replaced with `eslint` for compatibility with ESLint, such as `/* eslint-disable */` or `// eslint-disable-next-line`. We recommend preferring `oxlint-*`, and using `eslint-*` only for rules that Oxlint doesn't support yet.
 
 ### Enabling groups of rules (categories)
 
@@ -193,9 +193,9 @@ Rule configurations can be changed depending on the file path, and this is done 
   },
   "overrides": [
     {
-      "files": ["script/*.js"],
+      "files": ["scripts/*.js"],
       "rules": {
-        // Allow console.* calls in scripts
+        // Allow `console.*` calls in scripts
         "no-console": "off",
       },
     },

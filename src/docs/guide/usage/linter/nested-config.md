@@ -28,7 +28,7 @@ Oxlint will always use the nearest configuration file to the file currently bein
 - `package1/index.js` will be linted using `my-project/package1/.oxlintrc.json`
 - `package2/index.js` will be linted using `my-project/package2/.oxlintrc.json`
 
-Configuration files are not automatically merged, and the configuration in a child configuration file will not affect the parent configuration. However, options passed in the command-line will override any configuration file, regardless of whether it is in the parent or child directory. In addition, using the `--config` option to specify a singular file for configuration will disable the use of nested configuration files.
+Configuration files are not automatically merged, and the configuration in a child configuration file will not affect the parent configuration. However, options passed in the command-line will override any configuration file, regardless of whether it is in the parent or child directory. In addition, using the `--config` option to specify a single file for configuration will disable the use of nested configuration files.
 
 ## Extending configuration files
 
