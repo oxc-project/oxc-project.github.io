@@ -18,7 +18,7 @@ const foo = 1;
 // Example
 import { transform } from "oxc-transform";
 
-const result = transform("lib.js", sourceCode, {
+const result = await transform("lib.js", sourceCode, {
   define: {
     __DEV__: "true",
   },
@@ -50,7 +50,7 @@ console.log(foo.bar); // undefined
 // Example
 import { transform } from "oxc-transform";
 
-const result = transform("lib.js", sourceCode, {
+const result = await transform("lib.js", sourceCode, {
   define: {
     __OBJECT__: "{}",
   },
@@ -76,7 +76,7 @@ const foo = new P((resolve) => resolve(1));
 // Example
 import { transform } from "oxc-transform";
 
-const result = transform("lib.js", sourceCode, {
+const result = await transform("lib.js", sourceCode, {
   inject: {
     P: ["es6-promise", "Promise"],
   },

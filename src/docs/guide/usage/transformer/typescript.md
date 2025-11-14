@@ -5,7 +5,7 @@ Oxc transformer supports transforming TypeScript to JavaScript.
 ```js
 import { transform } from "oxc-transform";
 
-const result = transform("lib.ts", sourceCode, {
+const result = await transform("lib.ts", sourceCode, {
   typescript: {
     jsxPragma: "React.createElement",
     jsxPragmaFrag: "React.Fragment",
@@ -27,7 +27,7 @@ If you are using this option, make sure to set `typescript.onlyRemoveTypeImports
 ```js
 import { transform } from "oxc-transform";
 
-const result = transform("lib.ts", sourceCode, {
+const result = await transform("lib.ts", sourceCode, {
   typescript: {
     onlyRemoveTypeImports: true,
   },
@@ -43,7 +43,7 @@ If you are disabling this option, make sure to set `typescript.removeClassFields
 ```js
 import { transform } from "oxc-transform";
 
-const result = transform("lib.ts", sourceCode, {
+const result = await transform("lib.ts", sourceCode, {
   typescript: {
     removeClassFieldsWithoutInitializer: true,
   },
@@ -63,7 +63,7 @@ If you are using the [`emitDecoratorMetadata`](https://www.typescriptlang.org/ts
 ```js
 import { transform } from "oxc-transform";
 
-const result = transform("lib.ts", sourceCode, {
+const result = await transform("lib.ts", sourceCode, {
   decorators: {
     legacy: true,
     emitDecoratorMetadata: true,
@@ -160,7 +160,7 @@ If you are using the [`rewriteImportExtensions`](https://www.typescriptlang.org/
 ```js
 import { transform } from "oxc-transform";
 
-const result = transform("lib.ts", sourceCode, {
+const result = await transform("lib.ts", sourceCode, {
   typescript: {
     rewriteImportExtensions: "rewrite", // or "remove"
   },
