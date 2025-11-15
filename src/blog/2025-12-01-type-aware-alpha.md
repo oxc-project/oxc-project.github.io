@@ -89,10 +89,11 @@ Previously, this would silently fail, but now the configuration is actually pass
 
 Rules that run in `tsgolint` can now be disabled similar to any other `oxlint` rule by placing a comment in the file or on a line:
 
-```js
-// oxlint-disable-next-line typescript/no-floating-promises
+```ts
+/* oxlint-disable typescript/no-floating-promises */
 
-/* oxlint-disable-file typescript/no-floating-promises
+// oxlint-disable-next-line typescript/no-floating-promises
+[1, 2, 3].map(async x => x + 1);
 ```
 
 Previously, this didn't actually disable the rule, but now it will.
