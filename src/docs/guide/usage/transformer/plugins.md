@@ -11,7 +11,7 @@ The styled-components plugin adds comprehensive support for styled-components wi
 ```javascript
 import { transform } from "oxc-transform";
 
-const result = transform("Component.jsx", sourceCode, {
+const result = await transform("Component.jsx", sourceCode, {
   plugins: {
     styledComponents: {
       displayName: true,

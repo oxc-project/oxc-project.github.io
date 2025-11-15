@@ -11,7 +11,7 @@ Oxc minifier uses some syntaxes that are only supported in newer environments. Y
 ```js
 import { minify } from "oxc-minify";
 
-const result = minify("lib.js", code, {
+const result = await minify("lib.js", code, {
   compress: {
     target: "chrome87",
   },
@@ -35,7 +35,7 @@ var foo = 1, bar = 2;
 // Example
 import { minify } from "oxc-minify";
 
-const result = minify("lib.js", code, {
+const result = await minify("lib.js", code, {
   compress: {
     joinVars: false,
   },
@@ -59,7 +59,7 @@ foo(), bar();
 // Example
 import { minify } from "oxc-minify";
 
-const result = minify("lib.js", code, {
+const result = await minify("lib.js", code, {
   compress: {
     sequences: false,
   },

@@ -7,7 +7,7 @@ Oxc transformer supports transforming JSX.
 ```js
 import { transform } from "oxc-transform";
 
-const result = transform("App.jsx", sourceCode, {
+const result = await transform("App.jsx", sourceCode, {
   jsx: {
     runtime: "automatic", // or "classic"
     development: false, // or true
@@ -93,7 +93,7 @@ To enable React Refresh transformation, set `jsx.refresh` option:
 ```javascript
 import { transform } from "oxc-transform";
 
-const result = transform("App.jsx", sourceCode, {
+const result = await transform("App.jsx", sourceCode, {
   jsx: {
     development: true,
     refresh: true,
