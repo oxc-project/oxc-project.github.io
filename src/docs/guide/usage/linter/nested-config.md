@@ -3,9 +3,9 @@ outline: [2, 3]
 editLink: false
 ---
 
-# Nesting configuration files
+# Nested configuration files
 
-It is possible to have multiple configuration files within the same project, and Oxlint will automatically detect the presence of these files and use them in addition to the top-level configuration file. The files must be named `.oxlintrc.json` for this to work.
+It is possible to have multiple configuration files within the same project. Oxlint will automatically detect the presence of these files and use them in addition to the top-level configuration file. Config files must be named `.oxlintrc.json` for nested configuration to work.
 
 For example, consider the following project structure:
 
@@ -22,7 +22,7 @@ my-project/
     └── index.js
 ```
 
-Oxlint will always use the nearest configuration file to the file currently being processed and use that for linting. In the example hierarchy above, that means:
+Oxlint will always use the nearest configuration file to the file currently being processed and use that for linting. In the example above, that means:
 
 - `src/index.js` will be linted using `my-project/.oxlintrc.json`
 - `package1/index.js` will be linted using `my-project/package1/.oxlintrc.json`
