@@ -65,7 +65,70 @@ For more configuration options, see our [usage guide](/docs/guide/usage/linter/t
 
 ## What's New
 
-[Add details about new features and capabilities]
+### Rule configuration support in `oxlint`
+
+Type-aware rules that run in `tsgolint` can be configured in `oxlint` just like any other lint rule. For example, you can configure the `no-floating-promises` rule to allow certain safe calls or ignore `void`:
+
+```json
+{
+  "rules": {
+    "typescript/no-floating-promises": ["error", {
+      "ignoreVoid": true,
+      "allowForKnownSafePromises": [
+        { "from": "file", "name": "SafePromise" },
+        { "from": "lib", "name": "PromiseLike" },
+      ]
+    }]
+  }
+}
+```
+
+Previously, this would silently fail, but now the configuration is actually passed to `tsgolint` and parsed for the lint rule to use.
+
+### Disable comment support in `oxlint`
+
+Rules that run in `tsgolint` can now be disabled similar to any other `oxlint` rule by placing a comment in the file or on a line:
+
+```js
+// oxlint-disable-next-line typescript/no-floating-promises
+
+/* oxlint-disable-file typescript/no-floating-promises
+```
+
+Previously, this didn't actually disable the rule, but now it will.
+
+### More supported rules
+
+The alpha milestone is largely focused on stability and integrating `tsgolint` more closely with `oxlint`, but we've still ported several rules from `typescript-eslint` which you can now use via `oxlint` as well: 
+
+- `no-deprecated`
+- `prefer-includes`
+- `strict-boolean-expressions`
+
+### TypeScript program diagnostics are now reported
+
+Previously, if TypeScript failed to create and parse a program, these errors were not reported which lead to confusion around why linting was not working. Now, we report any issues with creating a program as a diagnostic. For example, if a `tsconfig.json` file contains `baseUrl`, that will be reported now:
+
+```
+$ oxlint --type-aware
+
+  × Invalid tsconfig
+   ╭─[docs/tsconfig.json:1:1]
+ 1 │ {
+   · ▲
+ 2 │   "compilerOptions": {
+   ╰────
+  help: Non-relative paths are not allowed. Did you forget a leading './'?
+
+  × Invalid tsconfig
+   ╭─[test/ui/tsconfig.json:1:1]
+ 1 │ {
+   · ▲
+ 2 │   "extends": "../../tsconfig.base.json",
+   ╰────
+  help: Option 'baseUrl' has been removed. Please remove it from your configuration.
+        See https://github.com/oxc-project/tsgolint/issues/351 for more information.
+```
 
 ## Performance
 
