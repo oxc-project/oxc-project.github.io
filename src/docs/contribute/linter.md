@@ -23,6 +23,19 @@ Or test and filter against the rule:
 just watch "cargo test -p oxc_linter -- rule-name"
 ```
 
+### Testing oxlint against a full codebase
+
+To test oxlint on a full codebase, for example to test your changes with a large JavaScript/TypeScript project, you can build the `oxlint` CLI and run it against that codebase.
+
+```bash
+# build the oxlint cli in the oxc repo
+just oxlint-node
+# and then in the directory of the codebase you want to test with, run oxlint with node:
+node <path-to-oxc-repo>/apps/oxlint/dist/cli.js
+# You can also pass flags to it, like -D to enable a specific rule, and --disable-x-plugin to turn off default plugins:
+node <path-to-oxc-repo>/apps/oxlint/dist/cli.js -D rulename --disable-unicorn-plugin --disable-oxc-plugin --disable-typescript-plugin
+```
+
 ### Snapshot Testing
 
 [`cargo insta`](https://insta.rs/docs) is used for snapshot testing.
