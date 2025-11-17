@@ -1,7 +1,9 @@
 import { Author, Feed } from "feed";
+import container from "markdown-it-container";
+import type Token from "markdown-it/lib/token.mjs";
 import { mkdirSync, writeFileSync } from "node:fs";
 import path from "node:path";
-import { createContentLoader, defineConfig, type SiteConfig } from "vitepress";
+import { createContentLoader, createMarkdownRenderer, defineConfig, type SiteConfig } from "vitepress";
 import { TEAM_MEMBERS_MAP } from "../theme/constants/team";
 import { sharedConfig } from "./shared";
 
@@ -37,6 +39,39 @@ export const rssConfig = defineConfig({
       copyright: sharedConfig.themeConfig!.footer!.copyright!,
     });
 
+    const md = await createMarkdownRenderer(
+      config.srcDir,
+      config.markdown,
+      config.site.base,
+      config.logger,
+    );
+    // Wrap code groups with <table>s
+    // Reference: https://github.com/vuejs/vitepress/blob/179ee6/src/node/markdown/plugins/preWrapper.ts#L8
+    md.use(md => {
+      const fence = md.renderer.rules.fence!;
+      md.renderer.rules.fence = (...args) => {
+        const [tokens, idx] = args;
+        const token = tokens[idx];
+
+        const title = token.info.match(/\[(.*)\]/)?.[1];
+        // Code blocks in a code group have titles
+        return title == null
+          ? fence(...args)
+          : (
+            "<tr>"
+            + `<td>${title}</td>`
+            + `<td>${fence(...args)}</td>`
+            + "</tr>"
+          );
+      };
+    });
+    // Override https://github.com/vuejs/vitepress/blob/179ee6/src/node/markdown/plugins/containers.ts#L26
+    md.use(container, "code-group", {
+      render(tokens: Token[], idx: number) {
+        return tokens[idx].nesting === 1 ? "<table><tbody>" : "</tbody></table>\n";
+      },
+    });
+    // `createMarkdownRenderer` returns a cached global renderer, so the above modifications will be applied to the next rendering
     const posts = await createContentLoader("blog/*.md", {
       excerpt: true,
       render: true,
