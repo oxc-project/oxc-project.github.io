@@ -64,6 +64,32 @@ const getData = () => fetch("/");
 console.log({ foo: 42, ...(await getData()) });
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### checksConditionals
+
+type: `boolean`
+
+default: `true`
+
+Whether to check if Promises are used in conditionals.
+When true, disallows using Promises in conditions where a boolean is expected.
+
+### checksSpreads
+
+type: `boolean`
+
+default: `true`
+
+Whether to check if Promises are used in spread syntax.
+When true, disallows spreading Promise values.
+
+### checksVoidReturn
+
+type: `boolean | object`
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

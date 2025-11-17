@@ -70,6 +70,58 @@ const numResult = 42 + 58; // number + number
 const strResult = "hello" + "world"; // string + string
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### allowAny
+
+type: `boolean`
+
+default: `true`
+
+Whether to allow `any` type in plus operations.
+
+### allowBoolean
+
+type: `boolean`
+
+default: `true`
+
+Whether to allow `boolean` types in plus operations.
+
+### allowNullish
+
+type: `boolean`
+
+default: `true`
+
+Whether to allow nullish types (`null` or `undefined`) in plus operations.
+
+### allowNumberAndString
+
+type: `boolean`
+
+default: `true`
+
+Whether to allow mixed number and string operands in plus operations.
+
+### allowRegExp
+
+type: `boolean`
+
+default: `true`
+
+Whether to allow `RegExp` types in plus operations.
+
+### skipCompoundAssignments
+
+type: `boolean`
+
+default: `false`
+
+Whether to skip compound assignments (e.g., `a += b`).
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

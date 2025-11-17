@@ -80,6 +80,59 @@ function createThenable(): { then: Function } {
 }
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### allowAny
+
+type: `boolean`
+
+default: `true`
+
+Whether to allow functions returning `any` type without requiring `async`.
+
+### allowedPromiseNames
+
+type: `string[]`
+
+default: `[]`
+
+A list of Promise type names that are allowed without requiring `async`.
+Example: `["SpecialPromise"]` to allow functions returning `SpecialPromise` without `async`.
+
+### checkArrowFunctions
+
+type: `boolean`
+
+default: `true`
+
+Whether to check arrow functions for missing `async` keyword.
+
+### checkFunctionDeclarations
+
+type: `boolean`
+
+default: `true`
+
+Whether to check function declarations for missing `async` keyword.
+
+### checkFunctionExpressions
+
+type: `boolean`
+
+default: `true`
+
+Whether to check function expressions for missing `async` keyword.
+
+### checkMethodDeclarations
+
+type: `boolean`
+
+default: `true`
+
+Whether to check method declarations for missing `async` keyword.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

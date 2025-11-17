@@ -66,6 +66,8 @@ This rule accepts a configuration object with the following properties:
 
 ### destructure
 
+type: `null | null`
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

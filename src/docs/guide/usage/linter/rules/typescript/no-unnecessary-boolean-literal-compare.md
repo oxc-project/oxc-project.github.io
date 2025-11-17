@@ -70,6 +70,37 @@ if (someValue === true) {
 }
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### allowComparingNullableBooleansToFalse
+
+type: `boolean`
+
+default: `true`
+
+Whether to allow comparing nullable boolean expressions to `false`.
+When false, `x === false` where x is `boolean | null` will be flagged.
+
+### allowComparingNullableBooleansToTrue
+
+type: `boolean`
+
+default: `true`
+
+Whether to allow comparing nullable boolean expressions to `true`.
+When false, `x === true` where x is `boolean | null` will be flagged.
+
+### allowRuleToRunWithoutStrictNullChecksIKnowWhatIAmDoing
+
+type: `boolean`
+
+default: `false`
+
+Whether to allow this rule to run without `strictNullChecks` enabled.
+This is not recommended as the rule may produce incorrect results.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

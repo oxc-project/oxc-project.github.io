@@ -99,6 +99,19 @@ const getValue = instance2.getValue; // Safe - arrow function preserves 'this'
 getValue(); // Correct
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### ignoreStatic
+
+type: `boolean`
+
+default: `false`
+
+Whether to ignore unbound methods that are static.
+When true, static methods can be referenced without binding.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

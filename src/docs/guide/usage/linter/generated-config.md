@@ -165,11 +165,23 @@ type: `array`
 
 type: `object`
 
+### overrides[n].env
+
+type: `object | null`
+
+Environments enable and disable collections of global variables.
+
 #### overrides[n].files
 
 type: `string[]`
 
 A set of glob patterns.
+
+### overrides[n].globals
+
+type: `object | null`
+
+Enabled or disabled specific global variables.
 
 #### overrides[n].jsPlugins
 
@@ -180,11 +192,33 @@ JS plugins for this override.
 Note: JS plugins are experimental and not subject to semver.
 They are not supported in language server at present.
 
+### overrides[n].plugins
+
+type: `array | null`
+
+default: `null`
+
+Optionally change what plugins are enabled for this override. When
+omitted, the base config's plugins are used.
+
 #### overrides[n].rules
 
 type: `object`
 
 See [Oxlint Rules](https://oxc.rs/docs/guide/usage/linter/rules.html)
+
+# plugins
+
+type: `array | null`
+
+default: `null`
+
+Enabled built-in plugins for Oxlint.
+You can view the list of available plugins on
+[the website](https://oxc.rs/docs/guide/usage/linter/plugins.html#supported-plugins).
+
+NOTE: Setting the `plugins` field will overwrite the base set of plugins.
+The `plugins` array should reflect all of the plugins you want to use.
 
 ## rules
 
@@ -375,6 +409,8 @@ Configure Next.js plugin rules.
 
 #### settings.next.rootDir
 
+type: `string | array`
+
 ### settings.react
 
 type: `object`
@@ -411,6 +447,8 @@ Example:
 
 ##### settings.react.formComponents[n]
 
+type: `string | object | object`
+
 #### settings.react.linkComponents
 
 type: `array`
@@ -439,6 +477,8 @@ Example:
 ```
 
 ##### settings.react.linkComponents[n]
+
+type: `string | object | object`
 
 ### settings.vitest
 

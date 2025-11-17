@@ -69,6 +69,14 @@ default: `[]`
 
 List of callback function names to allow within Promise `then` and `catch` methods.
 
+### timeoutsErr
+
+type: `boolean`
+
+default: `false`
+
+Boolean as to whether callbacks in timeout functions like `setTimeout` will err.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

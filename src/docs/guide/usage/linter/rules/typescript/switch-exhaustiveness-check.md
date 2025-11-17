@@ -110,6 +110,48 @@ function getColorName(color: Color) {
 }
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### allowDefaultCaseForExhaustiveSwitch
+
+type: `boolean`
+
+default: `false`
+
+Whether to allow default cases on switches that are not exhaustive.
+When false, requires exhaustive switch statements without default cases.
+
+### allowRuleToRunWithoutStrictNullChecksIKnowWhatIAmDoing
+
+type: `boolean`
+
+default: `false`
+
+Whether to allow this rule to run without `strictNullChecks` enabled.
+This is not recommended as the rule may produce incorrect results.
+
+### defaultCaseCommentPattern
+
+type: `[
+  string,
+  null
+]`
+
+Regular expression pattern that when matched in a default case comment,
+will suppress the exhaustiveness check.
+Example: `"@skip-exhaustive-check"` to allow `default: // @skip-exhaustive-check`
+
+### requireDefaultForNonUnion
+
+type: `boolean`
+
+default: `false`
+
+Whether to require default cases on switches over union types that are not exhaustive.
+When true, switches with non-exhaustive union types must have a default case.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

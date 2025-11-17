@@ -109,6 +109,14 @@ default: `"never"`
 
 Configuration for `.jsx` file extensions.
 
+## requireExtension
+
+type: `string | null`
+
+default: `null`
+
+Configuration for requiring or disallowing file extensions in import/require statements.
+
 ### ts
 
 type: `"always" | "never" | "ignorePackages"`

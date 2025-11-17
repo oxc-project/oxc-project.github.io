@@ -15,11 +15,12 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 ### What it does
 
-Enforces consistent use of the JSX file extension.
+Enforces consistent use of the `.jsx` file extension.
 
 ### Why is this bad?
 
 Some bundlers or parsers need to know by the file extension that it contains JSX
+in order to properly handle the files.
 
 ### Examples
 
@@ -61,6 +62,7 @@ type: `string[]`
 default: `["jsx"]`
 
 The set of allowed file extensions.
+Can include or exclude the leading dot (e.g., "jsx" and ".jsx" are both valid).
 
 ### ignoreFilesWithoutCode
 

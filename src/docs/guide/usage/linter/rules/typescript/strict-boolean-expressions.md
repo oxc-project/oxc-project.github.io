@@ -90,6 +90,83 @@ if (bool) {
 }
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### allowAny
+
+type: `boolean`
+
+default: `false`
+
+Whether to allow `any` type in boolean contexts.
+
+### allowNullableBoolean
+
+type: `boolean`
+
+default: `false`
+
+Whether to allow nullable boolean types (e.g., `boolean | null`) in boolean contexts.
+
+### allowNullableEnum
+
+type: `boolean`
+
+default: `false`
+
+Whether to allow nullable enum types in boolean contexts.
+
+### allowNullableNumber
+
+type: `boolean`
+
+default: `false`
+
+Whether to allow nullable number types (e.g., `number | null`) in boolean contexts.
+
+### allowNullableObject
+
+type: `boolean`
+
+default: `true`
+
+Whether to allow nullable object types in boolean contexts.
+
+### allowNullableString
+
+type: `boolean`
+
+default: `false`
+
+Whether to allow nullable string types (e.g., `string | null`) in boolean contexts.
+
+### allowNumber
+
+type: `boolean`
+
+default: `true`
+
+Whether to allow number types in boolean contexts (checks for non-zero numbers).
+
+### allowRuleToRunWithoutStrictNullChecksIKnowWhatIAmDoing
+
+type: `boolean`
+
+default: `false`
+
+Whether to allow this rule to run without `strictNullChecks` enabled.
+This is not recommended as the rule may produce incorrect results.
+
+### allowString
+
+type: `boolean`
+
+default: `true`
+
+Whether to allow string types in boolean contexts (checks for non-empty strings).
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

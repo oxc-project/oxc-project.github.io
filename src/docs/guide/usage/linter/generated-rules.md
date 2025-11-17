@@ -6,7 +6,7 @@ search: false
 
 The progress of all rule implementations is tracked [here](https://github.com/oxc-project/oxc/issues/481).
 
-- Total number of rules: 614
+- Total number of rules: 615
 - Rules turned on by default: 103
 
 **Legend for 'Fixable?' column:**
@@ -489,7 +489,7 @@ Lints which are rather strict or have occasional false positives.
 | [prefer-type-error](/docs/guide/usage/linter/rules/unicorn/prefer-type-error.html)                                             | unicorn    |         | 🛠️        |
 | [require-number-to-fixed-digits-argument](/docs/guide/usage/linter/rules/unicorn/require-number-to-fixed-digits-argument.html) | unicorn    |         | 🛠️        |
 
-## Style (166):
+## Style (167):
 
 Code that should be written in a more idiomatic way.
 
@@ -645,6 +645,7 @@ Code that should be written in a more idiomatic way.
 | [prefer-object-from-entries](/docs/guide/usage/linter/rules/unicorn/prefer-object-from-entries.html)                     | unicorn    |         | 🚧       |
 | [prefer-optional-catch-binding](/docs/guide/usage/linter/rules/unicorn/prefer-optional-catch-binding.html)               | unicorn    |         | 🛠️        |
 | [prefer-reflect-apply](/docs/guide/usage/linter/rules/unicorn/prefer-reflect-apply.html)                                 | unicorn    |         |          |
+| [prefer-response-static-json](/docs/guide/usage/linter/rules/unicorn/prefer-response-static-json.html)                   | unicorn    |         | 🚧       |
 | [prefer-spread](/docs/guide/usage/linter/rules/unicorn/prefer-spread.html)                                               | unicorn    |         | 🛠️        |
 | [prefer-string-raw](/docs/guide/usage/linter/rules/unicorn/prefer-string-raw.html)                                       | unicorn    |         | 🛠️        |
 | [prefer-string-trim-start-end](/docs/guide/usage/linter/rules/unicorn/prefer-string-trim-start-end.html)                 | unicorn    |         | 🛠️        |
