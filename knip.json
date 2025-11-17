@@ -1,0 +1,28 @@
+{
+  "$schema": "https://unpkg.com/knip@5/schema.json",
+  "entry": [
+    ".vitepress/config/index.ts",
+    ".vitepress/theme/index.ts",
+    "src/**/*.md!",
+    ".vitepress/theme/components/**/*.vue!"
+  ],
+  "project": [
+    ".vitepress/**/*.{ts,vue}",
+    "src/**/*.md"
+  ],
+  "ignore": [
+    ".vitepress/cache/**",
+    ".vitepress/dist/**",
+    "build/**"
+  ],
+  "ignoreDependencies": [
+    "esbuild"
+  ],
+  "ignoreBinaries": [
+    "typos"
+  ],
+  "ignoreExportsUsedInFile": true,
+  "ignoreIssues": {
+    ".vitepress/theme/constants/team.ts": ["exports", "types"]
+  }
+}

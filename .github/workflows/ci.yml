@@ -28,6 +28,7 @@ jobs:
       - uses: oxc-project/setup-node@fdbf0dfd334c4e6d56ceeb77d91c76339c2a0885 # v1.0.4
       - run: pnpm run lint --format github
       - run: pnpm run fmt
+      - run: pnpm run knip
       - run: git diff --exit-code # Must commit everything
       - uses: crate-ci/typos@626c4bedb751ce0b7f03262ca97ddda9a076ae1c # v1.39.2
         with:
