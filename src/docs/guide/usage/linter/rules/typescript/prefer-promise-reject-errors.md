@@ -68,6 +68,34 @@ const error = new Error("Error message");
 Promise.reject(error);
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### allowEmptyReject
+
+type: `boolean`
+
+default: `false`
+
+Whether to allow calling `Promise.reject()` with no arguments.
+
+### allowThrowingAny
+
+type: `boolean`
+
+default: `false`
+
+Whether to allow rejecting Promises with values typed as `any`.
+
+### allowThrowingUnknown
+
+type: `boolean`
+
+default: `false`
+
+Whether to allow rejecting Promises with values typed as `unknown`.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

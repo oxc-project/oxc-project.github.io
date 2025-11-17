@@ -63,6 +63,28 @@ type T5 =
   | "baz";
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### ignoreIntersections
+
+type: `boolean`
+
+default: `false`
+
+Whether to ignore duplicate types in intersection types.
+When true, allows `type T = A & A`.
+
+### ignoreUnions
+
+type: `boolean`
+
+default: `false`
+
+Whether to ignore duplicate types in union types.
+When true, allows `type T = A | A`.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

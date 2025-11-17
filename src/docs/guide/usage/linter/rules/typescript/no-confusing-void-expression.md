@@ -62,6 +62,37 @@ void (function() {
 })();
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### ignoreArrowShorthand
+
+type: `boolean`
+
+default: `false`
+
+Whether to ignore arrow function shorthand that returns void.
+When true, allows expressions like `() => someVoidFunction()`.
+
+### ignoreVoidOperator
+
+type: `boolean`
+
+default: `false`
+
+Whether to ignore expressions using the void operator.
+When true, allows `void someExpression`.
+
+### ignoreVoidReturningFunctions
+
+type: `boolean`
+
+default: `false`
+
+Whether to ignore calling functions that are declared to return void.
+When true, allows expressions like `x = voidReturningFunction()`.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

@@ -60,6 +60,20 @@ const str2: string = "hello";
 const num: number = 42;
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### typesToIgnore
+
+type: `string[]`
+
+default: `[]`
+
+A list of type names to ignore when checking for unnecessary assertions.
+Type assertions to these types will not be flagged even if they appear unnecessary.
+Example: `["Foo", "Bar"]` to allow `x as Foo` or `x as Bar`.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

@@ -81,6 +81,111 @@ declare const unknown: unknown;
 const result8 = typeof unknown === "string" ? `Value: ${unknown}` : "Invalid";
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### allow
+
+type: `array`
+
+default: `[{"from":"lib", "name":["Error", "URL", "URLSearchParams"]}]`
+
+An array of type or value specifiers for additional types that are allowed in template expressions.
+Defaults include Error, URL, and URLSearchParams from lib.
+
+#### allow[n]
+
+type: `string`
+
+Type or value specifier for matching specific declarations
+
+Supports four types of specifiers:
+
+1. **String specifier** (deprecated): Universal match by name
+
+```json
+"Promise"
+```
+
+2. **File specifier**: Match types/values declared in local files
+
+```json
+{ "from": "file", "name": "MyType" }
+{ "from": "file", "name": ["Type1", "Type2"] }
+{ "from": "file", "name": "MyType", "path": "./types.ts" }
+```
+
+3. **Lib specifier**: Match TypeScript built-in lib types
+
+```json
+{ "from": "lib", "name": "Promise" }
+{ "from": "lib", "name": ["Promise", "PromiseLike"] }
+```
+
+4. **Package specifier**: Match types/values from npm packages
+
+```json
+{ "from": "package", "name": "Observable", "package": "rxjs" }
+{ "from": "package", "name": ["Observable", "Subject"], "package": "rxjs" }
+```
+
+### allowAny
+
+type: `boolean`
+
+default: `true`
+
+Whether to allow `any` typed values in template expressions.
+
+### allowArray
+
+type: `boolean`
+
+default: `false`
+
+Whether to allow array types in template expressions.
+
+### allowBoolean
+
+type: `boolean`
+
+default: `true`
+
+Whether to allow boolean types in template expressions.
+
+### allowNever
+
+type: `boolean`
+
+default: `false`
+
+Whether to allow `never` type in template expressions.
+
+### allowNullish
+
+type: `boolean`
+
+default: `true`
+
+Whether to allow nullish types (`null` or `undefined`) in template expressions.
+
+### allowNumber
+
+type: `boolean`
+
+default: `true`
+
+Whether to allow number and bigint types in template expressions.
+
+### allowRegExp
+
+type: `boolean`
+
+default: `true`
+
+Whether to allow RegExp values in template expressions.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

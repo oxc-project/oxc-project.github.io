@@ -39,6 +39,20 @@ function onClick() {
 }
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### restrictedGlobals
+
+type: `Record<string, string>`
+
+default: `{}`
+
+Objects in the format
+`{ "name": "event", "message": "Use local parameter instead." }`, which define what globals
+are restricted from use.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

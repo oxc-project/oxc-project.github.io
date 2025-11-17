@@ -12,7 +12,18 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 ### What it does
 
-Disallow missing React when using JSX
+Enforces that React is imported and in-scope when using JSX syntax.
+
+Note that this rule is **not necessary** on React 17+ if you are using
+the new JSX Transform, and you can disable this rule and skip importing
+`React` in files with JSX syntax.
+
+If your `tsconfig.json` has `jsx` set to `react-jsx` or `react-jsxdev`, you are using the new JSX Transform.
+For JavaScript projects using Babel, you are using the new JSX Transform if your React preset configuration
+(in `.babelrc` or `babel.config.js`) has `runtime: "automatic"`.
+
+For more information, see
+[the React blog post on JSX Transform](https://legacy.reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html#eslint).
 
 ### Why is this bad?
 
@@ -24,14 +35,14 @@ the `React` variable must be in scope.
 Examples of **incorrect** code for this rule:
 
 ```jsx
-var a = <a />;
+const a = <a />;
 ```
 
 Examples of **correct** code for this rule:
 
 ```jsx
 import React from "react";
-var a = <a />;
+const a = <a />;
 ```
 
 ## How to use

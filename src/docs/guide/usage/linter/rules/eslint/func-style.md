@@ -164,6 +164,14 @@ default: `false`
 
 When true, functions with type annotations are allowed regardless of the style setting.
 
+## namedExports
+
+type: `string | null`
+
+default: `null`
+
+Override the style specifically for named exports. Can be "expression", "declaration", or "ignore" (default).
+
 ### style
 
 type: `"expression" | "declaration"`
