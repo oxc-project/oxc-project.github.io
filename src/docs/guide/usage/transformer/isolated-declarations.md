@@ -32,7 +32,7 @@ export declare enum Bar {
 ```ts
 import { isolatedDeclaration } from "oxc-transform";
 
-const result = isolatedDeclaration("lib.ts", sourceCode, {
+const result = await isolatedDeclaration("lib.ts", sourceCode, {
   sourcemap: false,
   stripInternal: false,
 });

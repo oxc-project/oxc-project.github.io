@@ -27,7 +27,7 @@ The values that are supported by [esbuild's target option](https://esbuild.githu
 ```js
 import { transform } from "oxc-transform";
 
-const result = transform("lib.js", "const foo = a ?? b;", {
+const result = await transform("lib.js", "const foo = a ?? b;", {
   target: ["chrome87", "es2022"],
 });
 ```
@@ -108,7 +108,7 @@ You can specify assumptions for the compiler to make the output more smaller.
 ```js
 import { transform } from "oxc-transform";
 
-const result = transform("lib.js", "const foo = a ?? b;", {
+const result = await transform("lib.js", "const foo = a ?? b;", {
   target: ["chrome87", "es2022"],
   assumptions: {
     noDocumentAll: true,

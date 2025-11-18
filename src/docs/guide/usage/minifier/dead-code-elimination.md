@@ -27,7 +27,7 @@ const bar = window.bar();
 // Example
 import { minify } from "oxc-minify";
 
-const result = minify("lib.js", code, {
+const result = await minify("lib.js", code, {
   compress: {
     dropConsole: true,
   },
@@ -55,7 +55,7 @@ debugger;
 // Example
 import { minify } from "oxc-minify";
 
-const result = minify("lib.js", code, {
+const result = await minify("lib.js", code, {
   compress: {
     dropDebugger: true,
   },
@@ -79,7 +79,7 @@ console.log("bar");
 // Example
 import { minify } from "oxc-minify";
 
-const result = minify("lib.js", code, {
+const result = await minify("lib.js", code, {
   compress: {
     dropLabels: ["DEV"],
   },
@@ -103,7 +103,7 @@ All unused function / class / variable declarations are removed by default. You 
 // Example
 import { minify } from "oxc-minify";
 
-const result = minify("lib.js", code, {
+const result = await minify("lib.js", code, {
   compress: {
     unused: true, // or "keep_assign"
   },
@@ -128,7 +128,7 @@ var bar = function foo() {};
 // Example
 import { minify } from "oxc-minify";
 
-const result = minify("lib.js", code, {
+const result = await minify("lib.js", code, {
   compress: {
     keepNames: true, // shorthand of { function: true, class: true }
   },
@@ -219,7 +219,7 @@ bar();
 // Example
 import { minify } from "oxc-minify";
 
-const result = minify("lib.js", code, {
+const result = await minify("lib.js", code, {
   compress: {
     treeshake: {
       manualPureFunctions: ["foo", "bar.baz"],

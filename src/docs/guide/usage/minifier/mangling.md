@@ -20,7 +20,7 @@ var e = 1;
 // Example
 import { minify } from "oxc-minify";
 
-const result = minify("lib.js", code, {
+const result = await minify("lib.js", code, {
   module: false, // non-module code
   compress: {
     mangle: {
@@ -46,7 +46,7 @@ var foo = function() {};
 // Example
 import { minify } from "oxc-minify";
 
-const result = minify("lib.js", code, {
+const result = await minify("lib.js", code, {
   compress: {
     mangle: {
       keepNames: true, // shorthand of { function: true, class: true }
@@ -77,7 +77,7 @@ var slot_0 = 1;
 // Example
 import { minify } from "oxc-minify";
 
-const result = minify("lib.js", code, {
+const result = await minify("lib.js", code, {
   compress: {
     mangle: {
       debug: true,
