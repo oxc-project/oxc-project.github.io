@@ -13,7 +13,7 @@ We are excited to announce an alpha release for Oxfmt!
 
 Oxfmt is a Rust-powered formatter, designed to be compatible with Prettier.
 
-At this alpha stage, Oxfmt can only format JS and TS files, but we encourage you to give it a try.
+At this alpha stage, Oxfmt can only format JS and TS files, but we hope you'll give it a try.
 
 ## Quick Start
 
@@ -77,7 +77,15 @@ In the simplest case, migrating your configuration file looks like this:
 cp .prettierrc.json .oxfmtrc.jsonc
 ```
 
-While we don't support all options yet, we do support all of the following major options.
+Or, start with this minimal template after adding `oxfmt` to your dev dependencies:
+
+```json
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json"
+}
+```
+
+While we don't support all options yet, we do support the following major options.
 
 - `experimentalOperatorPosition`
 - `printWidth`
@@ -129,7 +137,9 @@ First, stabilize experimental options disabled by default.
   - Based on `eslint-plugin-perfectionist/sort-imports` rule
 
 And next, support more major Prettier plugins.
+
 It means primarily support for popular frameworks like Vue, Svelte, and Astro.
+he implementation approach is currently under active research and discussion.
 
 > Formatter Beta · Milestone #15 · oxc-project/oxc\
 > https://github.com/oxc-project/oxc/milestone/15
