@@ -20,12 +20,12 @@ features:
     link: /docs/guide/usage/parser
     linkText: Usage guide
   - title: Linter ✅
-    details: 50~100x faster than ESLint<br/>600+ rules and growing<br/>Type-aware Linting
+    details: 50~100x faster than ESLint<br/>610+ rules and growing<br/>Type-aware Linting
     link: /docs/guide/usage/linter
     linkText: Usage guide
-  - title: Resolver ✅
-    details: 28x faster than enhanced-resolve
-    link: /docs/guide/usage/resolver
+  - title: Formatter 🚧
+    details: 30x faster than Prettier<br/>Prettier compatible<br/>Alpha release soon
+    link: /docs/guide/usage/formatter
     linkText: Usage guide
   - title: Transformer ✅
     details: Babel compatible<br/>✓ TypeScript / React JSX<br/>✓ Isolated Declarations DTS Emit
@@ -34,16 +34,19 @@ features:
   - title: Minifier 🚧
     details: Faster and better at compression<br/>In Alpha Stage
     link: /docs/guide/usage/minifier
-  - title: Formatter 🚧
-    details: Prettier compatible<br/>Prototype is complete
-    link: /docs/guide/usage/formatter
+  - title: Resolver ✅
+    details: 28x faster than enhanced-resolve
+    link: /docs/guide/usage/resolver
+    linkText: Usage guide
   - title: Rolldown Bundler 🚧
     details: Rollup compatible<br/>Designed for Vite
     link: https://rolldown.rs
+    linkText: rolldown.rs
     external: true
   - title: Nova JavaScript Engine 🚧
     details: ECMAScript specification with data-oriented design
     link: https://trynova.dev
+    linkText: trynova.dev
     external: true
 ---
 
