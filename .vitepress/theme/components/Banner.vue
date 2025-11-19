@@ -17,7 +17,7 @@ const hide = () => {
 };
 
 // Sync with inlined-scripts/banner.js
-const slug = "/blog/2025-11-24-oxfmt-alpha";
+const slug = "/blog/2025-11-27-oxfmt-alpha";
 
 const bannerDismissed = useLocalStorage<boolean>(`oxc-banner-dismissed-${slug}`, false);
 
