@@ -6,6 +6,6 @@
     }
   };
 
-  window.__OXC_BANNER_ID__ = "/blog/2025-10-09-oxlint-js-plugins";
+  window.__OXC_BANNER_ID__ = "/blog/2025-11-27-oxfmt-alpha";
   restore(`oxc-banner-dismissed-${__OXC_BANNER_ID__}`, "banner-dismissed");
 })();
