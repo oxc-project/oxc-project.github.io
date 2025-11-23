@@ -27,7 +27,7 @@
     "feed": "^5.1.0",
     "husky": "^9.1.7",
     "knip": "^5.69.1",
-    "lint-staged": "16.2.6",
+    "lint-staged": "16.2.7",
     "markdown-it-container": "^4.0.0",
     "oxc-minify": "^0.97.0",
     "oxlint": "^1.14.0",
@@ -40,7 +40,7 @@
   "lint-staged": {
     "*": "dprint fmt --staged"
   },
-  "packageManager": "pnpm@10.22.0",
+  "packageManager": "pnpm@10.23.0",
   "volta": {
     "node": "22.14.0"
   },
