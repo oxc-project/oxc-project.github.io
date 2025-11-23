@@ -64,7 +64,10 @@ export const CORE_MEMBERS: TeamMember[] = [
     name: "Cameron",
     title: "Core",
     avatar: "https://www.github.com/camc314.png",
-    links: [{ icon: "github", link: "https://github.com/camc314" }],
+    links: [
+      { icon: "github", link: "https://github.com/camc314" },
+      { icon: "x", link: "https://github.com/Cameron_C2" },
+    ],
   },
   {
     id: "leaysgur",
@@ -86,6 +89,7 @@ export const CORE_MEMBERS: TeamMember[] = [
     links: [
       { icon: "github", link: "https://github.com/camchenry" },
       { icon: "x", link: "https://x.com/cammchenry" },
+      { icon: "bluesky", link: "https://bsky.app/profile/camchenry.com" },
     ],
   },
   {
