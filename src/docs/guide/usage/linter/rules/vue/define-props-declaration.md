@@ -53,14 +53,17 @@ const props = defineProps({
 </script>
 ```
 
-### Options
+## Configuration
 
-```
-"vue/define-props-declaration": ["error", "type-based" | "runtime"]
-```
+This rule accepts one of the following string values:
 
-- `type-based` (default) enforces type-based declaration
-- `runtime` enforces runtime declaration
+### `"type-based"`
+
+Enforce type-based declaration.
+
+### `"runtime"`
+
+Enforce runtime declaration.
 
 ## How to use
 

@@ -6,7 +6,7 @@ search: false
 
 The progress of all rule implementations is tracked [here](https://github.com/oxc-project/oxc/issues/481).
 
-- Total number of rules: 615
+- Total number of rules: 617
 - Rules turned on by default: 103
 
 **Legend for 'Fixable?' column:**
@@ -345,7 +345,7 @@ code that is most likely wrong or useless.
 | [no-self-import](/docs/guide/usage/linter/rules/import/no-self-import.html)                                                     | import     |         |          |
 | [no-unassigned-import](/docs/guide/usage/linter/rules/import/no-unassigned-import.html)                                         | import     |         |          |
 | [no-commented-out-tests](/docs/guide/usage/linter/rules/jest/no-commented-out-tests.html)                                       | jest       |         |          |
-| [approx-constant](/docs/guide/usage/linter/rules/oxc/approx-constant.html)                                                      | oxc        |         |          |
+| [approx-constant](/docs/guide/usage/linter/rules/oxc/approx-constant.html)                                                      | oxc        |         | 🚧       |
 | [misrefactored-assign-op](/docs/guide/usage/linter/rules/oxc/misrefactored-assign-op.html)                                      | oxc        |         | 🚧       |
 | [no-async-endpoint-handlers](/docs/guide/usage/linter/rules/oxc/no-async-endpoint-handlers.html)                                | oxc        |         |          |
 | [always-return](/docs/guide/usage/linter/rules/promise/always-return.html)                                                      | promise    |         |          |
@@ -377,7 +377,7 @@ code that is most likely wrong or useless.
 | [no-required-prop-with-default](/docs/guide/usage/linter/rules/vue/no-required-prop-with-default.html)                          | vue        |         | 🚧       |
 | [require-default-export](/docs/guide/usage/linter/rules/vue/require-default-export.html)                                        | vue        |         |          |
 
-## Pedantic (105):
+## Pedantic (106):
 
 Lints which are rather strict or have occasional false positives.
 
@@ -437,6 +437,7 @@ Lints which are rather strict or have occasional false positives.
 | [no-unsafe-return](/docs/guide/usage/linter/rules/typescript/no-unsafe-return.html)                                            | typescript |         | 🚧       |
 | [only-throw-error](/docs/guide/usage/linter/rules/typescript/only-throw-error.html)                                            | typescript |         | 🚧       |
 | [prefer-enum-initializers](/docs/guide/usage/linter/rules/typescript/prefer-enum-initializers.html)                            | typescript |         | 🚧       |
+| [prefer-includes](/docs/guide/usage/linter/rules/typescript/prefer-includes.html)                                              | typescript |         | 🚧       |
 | [prefer-promise-reject-errors](/docs/guide/usage/linter/rules/typescript/prefer-promise-reject-errors.html)                    | typescript |         | 🚧       |
 | [prefer-ts-expect-error](/docs/guide/usage/linter/rules/typescript/prefer-ts-expect-error.html)                                | typescript |         | 🛠️        |
 | [related-getter-setter-pairs](/docs/guide/usage/linter/rules/typescript/related-getter-setter-pairs.html)                      | typescript |         | 🚧       |
@@ -489,7 +490,7 @@ Lints which are rather strict or have occasional false positives.
 | [prefer-type-error](/docs/guide/usage/linter/rules/unicorn/prefer-type-error.html)                                             | unicorn    |         | 🛠️        |
 | [require-number-to-fixed-digits-argument](/docs/guide/usage/linter/rules/unicorn/require-number-to-fixed-digits-argument.html) | unicorn    |         | 🛠️        |
 
-## Style (167):
+## Style (168):
 
 Code that should be written in a more idiomatic way.
 
@@ -634,6 +635,7 @@ Code that should be written in a more idiomatic way.
 | [number-literal-case](/docs/guide/usage/linter/rules/unicorn/number-literal-case.html)                                   | unicorn    |         | 🛠️        |
 | [numeric-separators-style](/docs/guide/usage/linter/rules/unicorn/numeric-separators-style.html)                         | unicorn    |         | 🛠️        |
 | [prefer-array-index-of](/docs/guide/usage/linter/rules/unicorn/prefer-array-index-of.html)                               | unicorn    |         | 🚧       |
+| [prefer-bigint-literals](/docs/guide/usage/linter/rules/unicorn/prefer-bigint-literals.html)                             | unicorn    |         | 🛠️        |
 | [prefer-class-fields](/docs/guide/usage/linter/rules/unicorn/prefer-class-fields.html)                                   | unicorn    |         | 🛠️💡      |
 | [prefer-classlist-toggle](/docs/guide/usage/linter/rules/unicorn/prefer-classlist-toggle.html)                           | unicorn    |         | 🛠️        |
 | [prefer-dom-node-text-content](/docs/guide/usage/linter/rules/unicorn/prefer-dom-node-text-content.html)                 | unicorn    |         | 🛠️        |

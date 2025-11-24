@@ -44,9 +44,17 @@ let myObj = {
 
 ## Configuration
 
-This rule accepts a configuration object with the following properties:
+### The 1st option
 
-### allowLineSeparatedGroups
+type: `"desc" | "asc"`
+
+Sorting order for keys. Accepts "asc" for ascending or "desc" for descending.
+
+### The 2nd option
+
+This option is an object with the following properties:
+
+#### allowLineSeparatedGroups
 
 type: `boolean`
 
@@ -54,7 +62,7 @@ default: `false`
 
 When true, groups of properties separated by a blank line are sorted independently.
 
-### caseSensitive
+#### caseSensitive
 
 type: `boolean`
 
@@ -62,7 +70,7 @@ default: `true`
 
 Whether the sort comparison is case-sensitive (A < a when true).
 
-### minKeys
+#### minKeys
 
 type: `integer`
 
@@ -70,21 +78,13 @@ default: `2`
 
 Minimum number of properties required in an object before sorting is enforced.
 
-### natural
+#### natural
 
 type: `boolean`
 
 default: `false`
 
 Use natural sort order so that, for example, "a2" comes before "a10".
-
-### sortOrder
-
-type: `"desc" | "asc"`
-
-default: `"asc"`
-
-Sorting order for keys. Accepts "asc" for ascending or "desc" for descending.
 
 ## How to use
 

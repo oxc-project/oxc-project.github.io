@@ -15,11 +15,11 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 ### What it does
 
-Enforce type definitions to consistently use either interface or type.
+Enforce type definitions to consistently use either `interface` or `type`.
 
 ### Why is this bad?
 
-TypeScript provides two common ways to define an object type: interface and type.
+TypeScript provides two common ways to define an object type: `interface` and `type`.
 The two are generally very similar, and can often be used interchangeably.
 Using the same type declaration style consistently helps with code readability.
 
@@ -54,7 +54,7 @@ type: `"interface" | "type"`
 
 default: `"interface"`
 
-Configuration option to enforce either 'interface' or 'type' for object type definitions.
+Configuration option to enforce either `interface` or `type` for object type definitions.
 
 Setting to `type` enforces the use of types for object type definitions.
 

@@ -31,6 +31,18 @@ var Hello = createReactClass({
 });
 ```
 
+## Configuration
+
+This rule accepts one of the following string values:
+
+### `"always"`
+
+Always prefer ES6 class-style components
+
+### `"never"`
+
+Do not allow ES6 class-style
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

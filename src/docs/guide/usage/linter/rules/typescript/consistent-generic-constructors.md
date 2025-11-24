@@ -45,6 +45,8 @@ This rule accepts a configuration object with the following properties:
 
 ### option
 
+type: `"constructor" | "type-annotation"`
+
 default: `"constructor"`
 
 Specifies where the generic type should be specified.
@@ -53,6 +55,14 @@ Possible values:
 
 - `"constructor"` (default): Type arguments that only appear on the type annotation are disallowed.
 - `"type-annotation"`: Type arguments that only appear on the constructor are disallowed.
+
+#### `"constructor"`
+
+Type arguments that only appear on the type annotation are disallowed.
+
+#### `"type-annotation"`
+
+Type arguments that only appear on the constructor are disallowed.
 
 ## How to use
 

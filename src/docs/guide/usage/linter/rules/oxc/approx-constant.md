@@ -8,6 +8,9 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 # oxc/approx-constant <Badge type="info" text="Suspicious" />
 
 <div class="rule-meta">
+<Alert class="fix" type="info">
+<span class="emoji">🚧</span> An auto-fix is still under development.
+</Alert>
 </div>
 
 ### What it does
@@ -18,6 +21,9 @@ of the constants in the `Math` object.
 ### Why is this bad?
 
 Approximate constants are not as accurate as the constants in the `Math` object.
+Using the `Math` constants improves code readability and accuracy.
+See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math
+for more information.
 
 ### Examples
 

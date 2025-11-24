@@ -61,43 +61,25 @@ promise.catch(error => {});
 promise.then(undefined, error => {});
 ```
 
-### Options
+## Configuration
 
-#### name
+This rule accepts a configuration object with the following properties:
 
-`{ type: string, default: "error" }`
+### ignore
 
-The name to use for error variables in `catch` blocks. You can customize it
-to something other than `'error'` (e.g., `'exception'`).
-
-Example:
-
-```json
-"unicorn/catch-error-name": [
-  "error",
-  { "name": "exception" }
-]
-```
-
-#### ignore
-
-`{ type: Array<string | RegExp>, default: [] }`
+type: `string[]`
 
 A list of patterns to ignore when checking `catch` variable names. The pattern
 can be a string or regular expression.
 
-Example:
+### name
 
-```json
-"unicorn/catch-error-name": [
-  "error",
-  {
-    "ignore": [
-      "^error\\d*$"
-    ]
-  }
-]
-```
+type: `string`
+
+default: `"error"`
+
+The name to use for error variables in `catch` blocks. You can customize it
+to something other than `'error'` (e.g., `'exception'`).
 
 ## How to use
 
