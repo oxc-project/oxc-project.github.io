@@ -24,14 +24,6 @@ makes the code more explicit and reduces mistakes.
 You may optionally include a `// no default` after the last case if there is
 no default case. The comment may be in any desired case, such as `// No Default`.
 
-### Options
-
-First option:
-
-- Type: `object`
-- Properties:
-  - `commentPattern`: `string` (default: `/^no default$/i`) - A regex pattern used to detect comments that mark the absence of a `default` case as intentional.
-
 Example configuration:
 
 ```json
@@ -70,12 +62,26 @@ switch (a) {
 }
 ```
 
-#### `commentPattern`
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### commentPattern
+
+type: `[
+  string,
+  null
+]`
+
+A regex pattern used to detect comments that mark the absence
+of a `default` case as intentional.
+
+Default value: `no default`.
 
 Examples of **incorrect** code for this rule with the `{ "commentPattern": "^skip\\sdefault" }` option:
 
 ```js
-/* default-case: ["error", { "commentPattern": "^skip\\sdefault" }] */
+/* default-case: ["error", { "commentPattern": "^skip\sdefault" }] */
 
 switch (a) {
   case 1:

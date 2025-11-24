@@ -36,6 +36,30 @@ Examples of **correct** code for this rule:
 new Promise(function(resolve, reject) {});
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### rejectPattern
+
+type: `[
+  string,
+  null
+]`
+
+Regex pattern used to validate the `reject` parameter name. If provided, this pattern
+is used instead of the default `^_?reject$` check.
+
+### resolvePattern
+
+type: `[
+  string,
+  null
+]`
+
+Regex pattern used to validate the `resolve` parameter name. If provided, this pattern
+is used instead of the default `^_?resolve$` check.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

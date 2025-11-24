@@ -81,6 +81,18 @@ class Foo extends React.Component {
 }
 ```
 
+## Configuration
+
+This rule accepts one of the following string values:
+
+### `"always"`
+
+Enforce state initialization in the constructor.
+
+### `"never"`
+
+Enforce state initialization with a class property.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

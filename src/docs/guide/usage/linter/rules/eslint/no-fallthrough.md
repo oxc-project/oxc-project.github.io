@@ -184,6 +184,35 @@ switch (foo) {
 Note that the last case statement in these examples does not cause a
 warning because there is nothing to fall through into.
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### allowEmptyCase
+
+type: `boolean`
+
+default: `false`
+
+Whether to allow empty case clauses to fall through.
+
+### commentPattern
+
+type: `[
+  string,
+  null
+]`
+
+Custom regex pattern to match fallthrough comments.
+
+### reportUnusedFallthroughComment
+
+type: `boolean`
+
+default: `false`
+
+Whether to report unused fallthrough comments.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

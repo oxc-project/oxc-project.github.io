@@ -48,21 +48,23 @@ switch (num) {
 }
 ```
 
-### Options
-
-`{ type: "always" | "avoid", default: "always" }`
-
-- `"always"`
-  Always report when clause is not a `BlockStatement`.
-
-- `"avoid"`
-  Allows braces only when needed for scoping (e.g., variable or function declarations).
-
-Example:
+Example config:
 
 ```json
 "unicorn/switch-case-braces": ["error", "avoid"]
 ```
+
+## Configuration
+
+This rule accepts one of the following string values:
+
+### `"always"`
+
+Always require braces in case clauses (except empty cases).
+
+### `"avoid"`
+
+Allow braces only when needed for scoping (e.g., variable or function declarations).
 
 ## How to use
 

@@ -44,8 +44,12 @@ Examples of **correct** code for this rule:
 ```js
 /* curly: ["error", "all"] */
 
-if (foo) foo++;
-while (bar) bar--;
+if (foo) {
+  foo++;
+}
+while (bar) {
+  bar--;
+}
 do {
   foo();
 } while (bar);

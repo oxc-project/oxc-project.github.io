@@ -15,7 +15,7 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 ### What it does
 
-Disallow control flow statements in finally blocks
+Disallow control flow statements in `finally` blocks.
 
 ### Why is this bad?
 

@@ -64,25 +64,15 @@ x.y = x.y / a.b;
 
 ## Configuration
 
-This rule accepts a configuration object with the following properties:
+This rule accepts one of the following string values:
 
-### mode
+### `"always"`
 
-type: `"always" | "never"`
+Requires assignment operator shorthand where possible.
 
-default: `"always"`
+### `"never"`
 
-This rule has a single string option:
-
-- `always` requires assignment operator shorthand where possible
-- `never` disallows assignment operator shorthand
-
-Example:
-
-```json
-"eslint/operator-assignment": ["error", "always"]
-"eslint/operator-assignment": ["error", "never"]
-```
+Disallows assignment operator shorthand.
 
 ## How to use
 

@@ -45,15 +45,35 @@ This rule accepts a configuration object with the following properties:
 
 ### blockScopedFunctions
 
+type: `"allow" | "disallow"`
+
 default: `null`
 
 Controls whether function declarations in nested blocks are allowed in strict mode (ES6+ behavior).
 
+#### `"allow"`
+
+Allow function declarations in nested blocks in strict mode (ES6+ behavior).
+
+#### `"disallow"`
+
+Disallow function declarations in nested blocks regardless of strict mode.
+
 ### config
+
+type: `"functions" | "both"`
 
 default: `"functions"`
 
 Determines what type of declarations to check.
+
+#### `"functions"`
+
+Disallows function declarations in nested blocks.
+
+#### `"both"`
+
+Disallows function and var declarations in nested blocks.
 
 ## How to use
 
