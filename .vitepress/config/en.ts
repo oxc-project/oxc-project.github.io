@@ -242,6 +242,7 @@ export const enConfig = defineLocaleConfig("root", {
         { text: "Debugging", link: "/docs/contribute/debugging" },
         { text: "Profiling", link: "/docs/contribute/profiling" },
         { text: "Rules and Policy", link: "/docs/contribute/rules" },
+        { text: "Security Policy", link: "/docs/contribute/security" },
       ],
       "/blog/": BLOG_SIDEBAR,
     },
