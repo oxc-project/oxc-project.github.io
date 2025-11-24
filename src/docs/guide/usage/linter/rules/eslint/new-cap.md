@@ -325,6 +325,68 @@ Examples of **correct** code for this rule with the `{ "properties": false }` op
 var friend = new person.acquaintance();
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### capIsNew
+
+type: `boolean`
+
+default: `true`
+
+`true` to require that all functions with names starting with an uppercase letter to be called with `new`.
+
+### capIsNewExceptionPattern
+
+type: `[
+  string,
+  null
+]`
+
+A regex pattern to match exceptions for functions with names starting with an uppercase letter.
+
+### capIsNewExceptions
+
+type: `string[]`
+
+default: `[]`
+
+Exceptions to ignore for functions with names starting with an uppercase letter.
+
+### newIsCap
+
+type: `boolean`
+
+default: `true`
+
+`true` to require that all constructor names start with an uppercase letter, e.g. `new Person()`.
+
+### newIsCapExceptionPattern
+
+type: `[
+  string,
+  null
+]`
+
+A regex pattern to match exceptions for constructor names starting with an uppercase letter.
+
+### newIsCapExceptions
+
+type: `string[]`
+
+default: `["Array", "Boolean", "Date", "Error", "Function", "Number", "Object", "RegExp", "String", "Symbol", "BigInt"]`
+
+Exceptions to ignore for constructor names starting with an uppercase letter.
+
+### properties
+
+type: `boolean`
+
+default: `true`
+
+`true` to require capitalization for object properties (e.g., `new obj.Method()`).
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

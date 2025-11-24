@@ -37,12 +37,6 @@ following an `if` containing a return statement. As such, it will warn
 when it encounters an `else` following a chain of `if`s, all of them
 containing a `return` statement.
 
-Options
-This rule has an object option:
-
-- `allowElseIf`: `true` _(default)_ allows `else if` blocks after a return
-- `allowElseIf`: `false` disallows `else if` blocks after a return
-
 ### Examples
 
 #### `allowElseIf: true`
@@ -142,9 +136,19 @@ function foo4() {
 }
 ```
 
-#### `allowElseIf: false`
+## Configuration
 
-Examples of **incorrect** code for this rule:
+This rule accepts a configuration object with the following properties:
+
+### allowElseIf
+
+type: `boolean`
+
+default: `true`
+
+Whether to allow `else if` blocks after a return statement.
+
+Examples of **incorrect** code for this rule with `allowElseIf: false`:
 
 ```javascript
 function foo() {
@@ -156,7 +160,7 @@ function foo() {
 }
 ```
 
-Examples of **correct** code for this rule:
+Examples of **correct** code for this rule with `allowElseIf: false`:
 
 ```javascript
 function foo() {

@@ -16,7 +16,8 @@ Requires that all function parameters are documented with JSDoc `@param` tags.
 
 ### Why is this bad?
 
-The rule is aimed at enforcing code quality and maintainability by requiring that all function parameters are documented.
+The rule is aimed at enforcing code quality and maintainability by requiring
+that all function parameters are documented.
 
 ### Examples
 
@@ -33,6 +34,77 @@ Examples of **correct** code for this rule:
 /** @param foo */
 function quux(foo) {}
 ```
+
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### checkConstructors
+
+type: `boolean`
+
+default: `false`
+
+Whether to check constructor methods.
+
+### checkDestructured
+
+type: `boolean`
+
+default: `true`
+
+Whether to check destructured parameters.
+
+### checkDestructuredRoots
+
+type: `boolean`
+
+default: `true`
+
+Whether to check destructured parameters when you have code like
+`function doSomething({ a, b }) { ... }`. Because there is no named
+parameter in this example, when this option is `true` you must
+have a `@param` tag that corresponds to `{a, b}`.
+
+### checkGetters
+
+type: `boolean`
+
+default: `true`
+
+Whether to check getter methods.
+
+### checkRestProperty
+
+type: `boolean`
+
+default: `false`
+
+Whether to check rest properties.
+
+### checkSetters
+
+type: `boolean`
+
+default: `true`
+
+Whether to check setter methods.
+
+### checkTypesPattern
+
+type: `string`
+
+default: `"^(?:[oO]bject|[aA]rray|PlainObject|Generic(?:Object|Array))$"`
+
+Regex pattern to match types that exempt parameters from checking.
+
+### exemptedBy
+
+type: `string[]`
+
+default: `["inheritdoc"]`
+
+List of JSDoc tags that exempt functions from `@param` checking.
 
 ## How to use
 

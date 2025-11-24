@@ -85,15 +85,24 @@ const emit2 = defineEmits({
 </script>
 ```
 
-### Options
+## Configuration
 
-```
-"vue/define-emits-declaration": ["error", "type-based" | "type-literal" | "runtime"]
-```
+This rule accepts one of the following string values:
 
-- `type-based` (default): Enforce type-based declaration
-- `type-literal`: Enforce type-literal declaration
-- `runtime`: Enforce runtime declaration
+### `"type-based"`
+
+Enforces the use of a named TypeScript type or interface as the
+argument to `defineEmits`, e.g. `defineEmits<MyEmits>()`.
+
+### `"type-literal"`
+
+Enforces the use of an inline type literal as the argument to
+`defineEmits`, e.g. `defineEmits<{ (event: string): void }>()`.
+
+### `"runtime"`
+
+Enforces the use of runtime declaration, where emits are declared
+using an array or object, e.g. `defineEmits(['event1', 'event2'])`.
 
 ## How to use
 

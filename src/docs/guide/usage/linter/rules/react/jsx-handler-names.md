@@ -34,30 +34,67 @@ Examples of **correct** code for this rule:
 <MyComponent onChange={this.props.onFoo} />
 ```
 
-### Options
+## Configuration
 
-```json
-{
-  "react/jsx-handler-names": [<enabled>, {
-    "eventHandlerPrefix": <eventHandlerPrefix>,
-    "eventHandlerPropPrefix": <eventHandlerPropPrefix>,
-    "checkLocalVariables": <boolean>,
-    "checkInlineFunction": <boolean>,
-    "ignoreComponentNames": Array<string>
-  }]
-}
-```
+This rule accepts a configuration object with the following properties:
 
-- `eventHandlerPrefix`: Prefix for component methods used as event handlers.
-  Defaults to `handle`
-- `eventHandlerPropPrefix`: Prefix for props that are used as event handlers
-  Defaults to `on`
-- `checkLocalVariables`: Determines whether event handlers stored as local variables
-  are checked. Defaults to `false`
-- `checkInlineFunction`: Determines whether event handlers set as inline functions are
-  checked. Defaults to `false`
-- `ignoreComponentNames`: Array of glob strings, when matched with component name,
-  ignores the rule on that component. Defaults to `[]`
+### checkInlineFunctions
+
+type: `boolean`
+
+default: `false`
+
+Whether to check for inline functions in JSX attributes.
+
+### checkLocalVariables
+
+type: `boolean`
+
+default: `false`
+
+Whether to check for local variables in JSX attributes.
+
+### eventHandlerPrefixes
+
+type: `string`
+
+default: `"handle"`
+
+Event handler prefixes to check against.
+
+### eventHandlerPropPrefixes
+
+type: `string`
+
+default: `"on"`
+
+Event handler prop prefixes to check against.
+
+### eventHandlerPropRegex
+
+type: `[
+  string,
+  null
+]`
+
+Compiled regex for event handler prop prefixes.
+
+### eventHandlerRegex
+
+type: `[
+  string,
+  null
+]`
+
+Compiled regex for event handler prefixes.
+
+### ignoreComponentNames
+
+type: `string[]`
+
+default: `[]`
+
+Component names to ignore when checking for event handler prefixes.
 
 ## How to use
 

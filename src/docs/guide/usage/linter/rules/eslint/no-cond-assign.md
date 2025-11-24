@@ -46,6 +46,19 @@ if (user.jobTitle === "manager") {
 }
 ```
 
+## Configuration
+
+This rule accepts one of the following string values:
+
+### `"except-parens"`
+
+Allow assignments in conditional expressions only if they are
+enclosed in parentheses.
+
+### `"always"`
+
+Disallow all assignments in conditional expressions.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

@@ -19,7 +19,7 @@ Enforce consistent usage of type imports.
 
 ### Why is this bad?
 
-inconsistent usage of type imports can make the code harder to read and understand.
+Inconsistent usage of type imports can make the code harder to read and understand.
 
 ### Examples
 
@@ -37,33 +37,6 @@ Examples of **correct** code for this rule:
 ```ts
 import type { Foo } from "Foo";
 ```
-
-### Options
-
-```json
-{
-  "typescript/consistent-type-imports": [
-    "error",
-    {
-      "prefer": "type-imports",
-      "fixStyle": "separate-type-imports",
-      "disallowTypeAnnotations": true
-    }
-  ]
-}
-```
-
-- `prefer`: Control whether to enforce type imports or value imports
-  - `"type-imports"` (default): Will enforce that you always use `import type Foo from '...'` except referenced by metadata of decorators
-  - `"no-type-imports"`: Will enforce that you always use `import Foo from '...'`
-
-- `fixStyle`: Determines how type imports are added when auto-fixing
-  - `"separate-type-imports"` (default): Will add the type keyword after the import keyword `import type { A } from '...'`
-  - `"inline-type-imports"`: Will inline the type keyword `import { type A } from '...'` (only available in TypeScript 4.5+)
-
-- `disallowTypeAnnotations`: Disallow using `import()` in type annotations
-  - `true` (default): Disallows using `import()` in type annotations like `type T = import('foo')`
-  - `false`: Allows `import()` type annotations
 
 #### Examples with `"prefer": "type-imports"` (default)
 
@@ -120,6 +93,44 @@ When set to `false`, allows `import()` type annotations:
 ```ts
 type T = import("foo").Bar;
 ```
+
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### disallowTypeAnnotations
+
+type: `boolean`
+
+Disallow using `import()` in type annotations, like `type T = import('foo')`
+
+### fixStyle
+
+type: `"separate-type-imports" | "inline-type-imports"`
+
+Control how type imports are added when auto-fixing.
+
+#### `"separate-type-imports"`
+
+Will add the type keyword after the import keyword `import type { A } from '...'`
+
+#### `"inline-type-imports"`
+
+Will inline the type keyword `import { type A } from '...'` (only available in TypeScript 4.5+)
+
+### prefer
+
+type: `"type-imports" | "no-type-imports"`
+
+Control whether to enforce type imports or value imports.
+
+#### `"type-imports"`
+
+Will enforce that you always use `import type Foo from '...'` except referenced by metadata of decorators.
+
+#### `"no-type-imports"`
+
+Will enforce that you always use `import Foo from '...'`
 
 ## How to use
 

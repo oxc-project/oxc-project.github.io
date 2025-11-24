@@ -19,8 +19,11 @@ Disallow reassigning `const` variables.
 
 ### Why is this bad?
 
-We cannot modify variables that are declared using const keyword.
-It will raise a runtime error.
+We cannot modify variables that are declared using the `const` keyword,
+as it will raise a runtime error.
+
+Note that this rule is not necessary for TypeScript
+code, as TypeScript will already catch this as an error.
 
 ### Examples
 

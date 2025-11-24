@@ -47,6 +47,50 @@ function quux() {
 }
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### checkConstructors
+
+type: `boolean`
+
+default: `false`
+
+Whether to check constructor methods.
+
+### checkGetters
+
+type: `boolean`
+
+default: `true`
+
+Whether to check getter methods.
+
+### exemptedBy
+
+type: `string[]`
+
+default: `["inheritdoc"]`
+
+Tags that exempt functions from requiring `@returns`.
+
+### forceRequireReturn
+
+type: `boolean`
+
+default: `false`
+
+Whether to require a `@returns` tag even if the function doesn't return a value.
+
+### forceReturnsWithAsync
+
+type: `boolean`
+
+default: `false`
+
+Whether to require a `@returns` tag for async functions.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

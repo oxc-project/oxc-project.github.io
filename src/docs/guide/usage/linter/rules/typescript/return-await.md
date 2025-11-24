@@ -80,6 +80,30 @@ async function multipleOperations() {
 }
 ```
 
+## Configuration
+
+This rule accepts one of the following string values:
+
+### `"in-try-catch"`
+
+Require `await` when returning Promises inside try/catch/finally blocks.
+This ensures proper error handling and stack traces.
+
+### `"always"`
+
+Require `await` before returning Promises in all cases.
+Example: `return await Promise.resolve()` is required.
+
+### `"error-handling-correctness-only"`
+
+Require `await` only when it affects error handling correctness.
+Only flags cases where omitting await would change error handling behavior.
+
+### `"never"`
+
+Disallow `await` before returning Promises in all cases.
+Example: `return Promise.resolve()` is required (no await).
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:
