@@ -11,9 +11,9 @@ authors:
 
 We are excited to announce an alpha release for Oxfmt!
 
-Oxfmt is a Rust-powered formatter, designed to be compatible with Prettier outputs.
+Oxfmt is a Rust-powered formatter, designed to be compatible with Prettier.
 
-At this alpha stage, Oxfmt can only format JS and TS files, but we hope you'll give it a try.
+At this alpha stage, Oxfmt mainly focuses on formatting JS and TS files, but we hope you'll give it a try.
 
 ## Quick Start
 
@@ -53,31 +53,33 @@ The Oxc team always keeps compatibility with existing ecosystems in mind.
 
 ### Formatting results
 
-Therefore, Oxfmt is carefully implemented to match Prettier's formatting results as closely as possible.
+Oxfmt is carefully implemented to match Prettier's formatting results as closely as possible.
 
-And we achieve excellent coverage - over [90%](https://github.com/oxc-project/oxc/tree/main/tasks/prettier_conformance/snapshots) for both JS and TS!
+We achieve excellent coverage - over [95%](https://github.com/oxc-project/oxc/tree/main/tasks/prettier_conformance/snapshots) for both JS and TS!
 
-While not 100% compatible, there's no need to worry.
-This 10% gap includes:
+While not 100% compatible, this shouldn't be a concern.
 
-- Cases due to Prettier's experimental options that we haven't implemented yet in Oxfmt
-- Cases where we believe Oxfmt produces better formatting than Prettier
-- Cases confirmed as bugs in Prettier itself
-
-We are also actively reporting issues and submitting PRs to Prettier itself, so the formatting results between the two should converge even more over time.
+This remaining gap includes cases where Oxfmt produces better formatting than Prettier. And some cases are confirmed as bugs in Prettier itself.
+We're actively reporting issues and submitting PRs to Prettier, so the formatting results should converge over time.
 
 For detailed differences, please refer to the following discussion:
 
 > `Oxfmt` differences with `Prettier` · oxc-project/oxc · Discussion #14669\
 > https://github.com/oxc-project/oxc/discussions/14669
 
-However, we believe you won't encounter these differences often in typical codebases.
+But we believe you won't encounter these differences often in typical codebases.
+We've manually verified Oxfmt on large codebases like [microsoft/vscode](https://github.com/microsoft/vscode) and found no major issues.
+
+So, please let us know if you find any concerns.
+
+Finally, note that our coverage is based on Prettier's `main` branch.
+This means Oxfmt provides more stable formatting results compared to the current released version of Prettier (version `3.6.2` at the time of writing).
 
 ### Configuration
 
 Additionally, configuration files and ignore files are also compatible with Prettier.
 
-In the simplest case, migrating your configuration file looks like this:
+In the simplest case, your config migration experience looks like this:
 
 ```sh
 cp .prettierrc.json .oxfmtrc.jsonc
@@ -91,9 +93,8 @@ Or, if your editor supports JSON language server, start with this minimal templa
 }
 ```
 
-While we don't support all options yet, we do support the following major options.
+While we don't support all options yet (especially experimental ones), we do support the following major options.
 
-- `experimentalOperatorPosition`
 - `printWidth`
 - `tabWidth`
 - `useTabs`
@@ -116,6 +117,18 @@ While `.prettierignore` is also supported, using `ignorePatterns` allows you to 
 
 Please also refer to our Formatter [documentation page](/docs/guide/usage/formatter.html) for more details.
 
+## `printWidth: 100` by default
+
+While we have high coverage and compatible configuration files, this one change may generate many diffs in your codebase.
+
+After thorough discussion, we've decided to adopt `printWidth: 100` as the default instead of Prettier's `80`, providing a better out-of-the-box experience.
+
+> RFC: change oxfmt default print width from 80 to 100 · oxc-project/oxc · Discussion #15851\
+> https://github.com/oxc-project/oxc/discussions/15851
+
+If you prefer the old behavior, please add `printWidth: 80` to your configuration.
+But we hope you'll like it too.
+
 ## Yet better performance
 
 While Oxfmt demonstrates high compatibility with Prettier, performance is a different story — it runs incredibly fast!
@@ -126,7 +139,7 @@ Our benchmark result on the [Outline](https://github.com/outline/outline) reposi
 - Over 20x faster even when using `@prettier/plugin-oxc`
 - Over 3x faster than Biome, another Rust-based formatter
 
-While it's important to note that each tool doesn't implement exactly the same behavior or features, and these numbers may fluctuate as we add more functionality, we believe this is a solid starting point.
+While each tool implements different behavior and features, and these numbers may fluctuate as we add functionality, this is a solid starting point.
 
 For detailed benchmark setup, please refer to the following repository:
 
@@ -135,21 +148,24 @@ For detailed benchmark setup, please refer to the following repository:
 
 ## What's next
 
-While the timeline is not yet determined, we are planning the following initiatives for our next milestone — the beta release:
+While the timeline is not yet determined, we are planning the following initiatives for our next milestone — the beta release.
 
 First, stabilize experimental options currently disabled by default.
 
 - `embeddedLanguageFormatting`
   - Support for embedded languages like CSS-in-JS
-  - Currently, partially supported only for non-substitution templates
+  - Currently, we have partial support only for non-substitution templates
 - `experimentalSortImports`
   - Built-in support for the in-demand `prettier-plugin-sort-imports` functionality
-  - Based on `eslint-plugin-perfectionist/sort-imports` rule
+  - Based on more configurable `eslint-plugin-perfectionist/sort-imports` rule
 
-And next, support more major Prettier plugins.
+Next, we plan to support files that Prettier handles natively without plugins, such as `.json` files.
 
-It means primarily support for popular frameworks like Vue, Svelte, and Astro.
-The implementation approach is currently under active research and discussion.
+And more, we also plan to support more major Prettier plugins.
+
+This primarily means support for popular frameworks like Svelte and Astro. We've also noticed demand for `prettier-plugin-tailwindcss` support.
+
+The implementation approach is currently under active research and discussion. Stay tuned for updates.
 
 > Formatter Beta · Milestone #15 · oxc-project/oxc\
 > https://github.com/oxc-project/oxc/milestone/15
