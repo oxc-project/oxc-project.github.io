@@ -7,7 +7,7 @@ Oxfmt is currently working in progress.
 
 Please join the discussion!
 
-> RFC: Formatter · oxc-project/oxc · Discussion #13608
+> RFC: Formatter · oxc-project/oxc · Discussion #13608\
 > https://github.com/oxc-project/oxc/discussions/13608
 
 For now, you may use [@prettier/plugin-oxc](https://github.com/prettier/prettier/tree/main/packages/plugin-oxc) in prettier to gain some parsing speed.
@@ -69,7 +69,7 @@ $ bun add -D oxfmt
 Usage: [--check | --list-different] [-c=PATH] [--ignore-path=PATH]... [PATH]...
 
 Output Options
-        --check              Check mode - check if files are formatted
+        --check              Check mode - check if files are formatted, also show statistics
         --list-different     List mode - list files that would be changed
 
 Basic Options
@@ -82,8 +82,9 @@ Ignore Options
         --with-node-modules  Format code in node_modules directory (skipped by default)
 
 Miscellaneous
+        --lsp                Start language server protocol (LSP) server
         --no-error-on-unmatched-pattern  Do not exit with error when pattern is unmatched
-        --threads=INT        Number of threads to use. Set to 1 for using only 1 CPU core
+        --threads=INT        Number of threads to use. Set to 1 for using only 1 CPU core.
 
 Available positional items:
     PATH                     Single file, single path or list of paths. If not provided, current
@@ -97,7 +98,9 @@ Available options:
 
 Oxfmt works like `prettier --write .` by default.
 
-Format options are not supported by CLI, use configuration file instead. This will help you use CLI and editor extension with the same settings.
+Format options like `--no-semi` are not supported by CLI, we recommend to use configuration file instead. This will help you use CLI and editor extension with the same settings.
+
+Globs in positional paths are not expanded. (Still you can rely on your shell.) But it works in `!` prefixed exclude paths.
 
 ## Configuration file
 
@@ -130,29 +133,50 @@ VCS directories like `.git` and `.svn` are always ignored. Also global and neste
 
 In addition, `.oxfmtrc.json(c)` also supports `ignorePatterns` field.
 
-## Notable limitations
+## FAQs
 
-These will (or will not) be implemented in the future.
+### What kinds of files are supported?
 
-- Only JS and TS files are supported
-  - Embedded parts like css-in-js are partially supported, but disabled by default
-- Stdin and stdout are not supported
-  - You need `oxc_language_server` via `oxlint` to get editor support for now
-- Configuration NOT supported for:
-  - `prettier` field in `package.json`
-  - File formats other than `.json(c)`
-  - Nested configs in sub directories
-  - Respect `.editorconfig`
-  - Inline CLI flags like `--no-semi`
-  - `experimentalTernaries` option
-- Globs in positional paths are not expanded
-  - But it works in `!` prefixed exclude paths
-- Plugins are not supported
-  - Some of them like sort-imports will be natively supported
+Currently, only JS and TS files are supported.
+JSX is always available in JS files, but for TS files, the `.tsx` extension is required to use JSX.
 
-## Compatibility with Prettier
+Embedded parts like CSS-in-JS have experimental partial support.
+By specifying `embeddedLanguageFormatting: auto`, non-substitution templates will be formatted.
 
-Please see this discussion.
+### What is the compatibility with Prettier?
 
-> `Oxfmt` differences with `Prettier` · oxc-project/oxc · Discussion #14669
+We're following the `main` branch of Prettier, not the `latest` release.
+
+For other differences, please see this discussion.
+
+> `Oxfmt` differences with `Prettier` · oxc-project/oxc · Discussion #14669\
 > https://github.com/oxc-project/oxc/discussions/14669
+
+### Are there any limitations for configuration?
+
+The following are NOT currently supported:
+
+- `prettier` field in `package.json`
+- File formats other than `.json(c)`
+- Nested configs in sub directories
+- `override` field
+- Respect `.editorconfig`
+- `experimentalTernaries` and `experimentalOperatorPosition` option
+
+Also, if `printWidth` is not specified, its default value is `100`. This differs from Prettier's default.
+
+### Are Prettier plugins supported?
+
+Currently, they are not supported.
+
+For import sorting functionality, we provide experimental behavior based on `eslint-plugin-perfectionist/sort-imports` through the `experimentalSortImports` configuration option.
+
+### How does editor integration work?
+
+By running `oxfmt --lsp`, you can start a language server that responds to `textDocument/formatting` requests.
+
+Formatting via stdin and stdout are not supported, but we have confirmed that some editors and extensions can work with the CLI by configuring them to use temporary files.
+
+Oxc VS Code extension is also available.
+
+However, both methods have some limitations, such as not supporting formatting of embedded parts.
