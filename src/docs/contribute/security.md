@@ -9,6 +9,8 @@ The following security policies are applied to all projects within the [oxc-proj
 
 Please inform [@boshen](https://github.com/Boshen) if you notice any oversights.
 
+https://www.npmjs.com/~boshen and https://crates.io/users/Boshen are the only accounts with publish access to our packages and crates.
+
 ## github.com
 
 - Required two-factor authentication for everyone in the organization
