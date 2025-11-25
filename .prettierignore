@@ -1,8 +1,0 @@
-build/
-!.vitepress/
-.vitepress/cache
-pnpm-lock.yaml
-# Prettier keeps breaking // `[code ++]` comments in code snippets
-src/blog/2024-10-18-oxlint-v0.10-release.md
-# auto-generated
-public/sponsors.svg

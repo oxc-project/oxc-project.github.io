@@ -164,13 +164,13 @@ export const CORE_MEMBERS: TeamMember[] = [
     avatar: "https://www.github.com/auvred.png",
     org: "typescript-eslint",
     orgLink: "https://github.com/typescript-eslint",
-    links: [
-      { icon: "github", link: "https://github.com/auvred" },
-    ],
+    links: [{ icon: "github", link: "https://github.com/auvred" }],
   },
 ];
 
-export const CORE_TEAM_MEMBERS = CORE_MEMBERS.filter(({ type }) => type === "core") as CoreTeamMember[];
+export const CORE_TEAM_MEMBERS = CORE_MEMBERS.filter(
+  ({ type }) => type === "core",
+) as CoreTeamMember[];
 
 export const CONSULTANTS = CORE_MEMBERS.filter(({ type }) => type === "consultant") as Consultant[];
 

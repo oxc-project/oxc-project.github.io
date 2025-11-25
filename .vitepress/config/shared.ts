@@ -5,11 +5,7 @@ import { defineConfig, HeadConfig } from "vitepress";
 import { groupIconMdPlugin, groupIconVitePlugin } from "vitepress-plugin-group-icons";
 
 function inlineScript(file: string): HeadConfig {
-  return [
-    "script",
-    {},
-    readFileSync(resolve(__dirname, `./inlined-scripts/${file}`), "utf-8"),
-  ];
+  return ["script", {}, readFileSync(resolve(__dirname, `./inlined-scripts/${file}`), "utf-8")];
 }
 
 const head: HeadConfig[] = [
@@ -79,8 +75,10 @@ export const sharedConfig = defineConfig({
 
     // Add page-specific Open Graph and Twitter meta tags
     const title = pageData.frontmatter.title || pageData.title;
-    const description = pageData.frontmatter.description || pageData.description
-      || "A collection of high-performance JavaScript tools written in Rust";
+    const description =
+      pageData.frontmatter.description ||
+      pageData.description ||
+      "A collection of high-performance JavaScript tools written in Rust";
 
     // Construct the canonical URL for the page
     let url = "https://oxc.rs";
@@ -97,8 +95,14 @@ export const sharedConfig = defineConfig({
     }
 
     if (description) {
-      pageData.frontmatter.head.push(["meta", { property: "og:description", content: description }]);
-      pageData.frontmatter.head.push(["meta", { name: "twitter:description", content: description }]);
+      pageData.frontmatter.head.push([
+        "meta",
+        { property: "og:description", content: description },
+      ]);
+      pageData.frontmatter.head.push([
+        "meta",
+        { name: "twitter:description", content: description },
+      ]);
     }
 
     pageData.frontmatter.head.push(["meta", { property: "og:url", content: url }]);
@@ -149,7 +153,10 @@ export const sharedConfig = defineConfig({
         },
         {
           find: /^.*\/VPHero\.vue$/,
-          replacement: resolve(dirname(fileURLToPath(import.meta.url)), "../theme/components/Hero.vue"),
+          replacement: resolve(
+            dirname(fileURLToPath(import.meta.url)),
+            "../theme/components/Hero.vue",
+          ),
         },
       ],
     },
