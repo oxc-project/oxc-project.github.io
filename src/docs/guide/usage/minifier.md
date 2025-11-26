@@ -16,6 +16,10 @@ We recommend thoroughly testing its output before deploying to production enviro
 
 To allow better optimizations, Oxc minifier makes some assumptions about your code. See [Assumptions document](https://github.com/oxc-project/oxc/blob/main/crates/oxc_minifier/docs/ASSUMPTIONS.md) for more information.
 
+## FAQ
+
+See [FAQ](./minifier/faq) for common questions.
+
 ## Installation
 
 ### With Rolldown
