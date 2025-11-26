@@ -65,42 +65,13 @@ $ bun add -D oxfmt
 
 ## Command-line Interface
 
-```
-Usage: [--check | --list-different] [-c=PATH] [--ignore-path=PATH]... [PATH]...
-
-Output Options
-        --check              Check mode - check if files are formatted, also show statistics
-        --list-different     List mode - list files that would be changed
-
-Basic Options
-    -c, --config=PATH        Path to the configuration file
-
-Ignore Options
-        --ignore-path=PATH   Path to ignore file(s). Can be specified multiple times. If not
-                             specified, .gitignore and .prettierignore in the current directory are
-                             used.
-        --with-node-modules  Format code in node_modules directory (skipped by default)
-
-Miscellaneous
-        --lsp                Start language server protocol (LSP) server
-        --no-error-on-unmatched-pattern  Do not exit with error when pattern is unmatched
-        --threads=INT        Number of threads to use. Set to 1 for using only 1 CPU core.
-
-Available positional items:
-    PATH                     Single file, single path or list of paths. If not provided, current
-                             working directory is used. Glob is supported only for exclude patterns
-                             like `'!**/fixtures/*.js'.
-
-Available options:
-    -h, --help               Prints help information
-    -V, --version            Prints version information
-```
-
-Oxfmt works like `prettier --write .` by default.
+`oxfmt` works like `prettier --write .` by default.
 
 Format options like `--no-semi` are not supported by CLI, we recommend to use configuration file instead. This will help you use CLI and editor extension with the same settings.
 
 Globs in positional paths are not expanded. (Still you can rely on your shell.) But it works in `!` prefixed exclude paths.
+
+See more details in [CLI reference](./formatter/cli).
 
 ## Configuration file
 

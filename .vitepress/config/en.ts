@@ -88,6 +88,21 @@ export const enConfig = defineLocaleConfig("root", {
                 },
               ],
             },
+            {
+              text: "Formatter",
+              link: "/docs/guide/usage/formatter",
+              collapsed: true,
+              items: [
+                {
+                  text: "CLI reference",
+                  link: "/docs/guide/usage/formatter/cli",
+                },
+                // {
+                // text: "Configuration file reference",
+                // link: "/docs/guide/usage/formatter/config-file-reference",
+                // },
+              ],
+            },
             { text: "Parser", link: "/docs/guide/usage/parser" },
             {
               text: "Transformer",
@@ -120,7 +135,6 @@ export const enConfig = defineLocaleConfig("root", {
                 },
               ],
             },
-            { text: "Formatter", link: "/docs/guide/usage/formatter" },
             {
               text: "Minifier",
               link: "/docs/guide/usage/minifier",
