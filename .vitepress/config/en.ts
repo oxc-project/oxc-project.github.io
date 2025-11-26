@@ -156,6 +156,10 @@ export const enConfig = defineLocaleConfig("root", {
                   text: "Whitespace Stripping",
                   link: "/docs/guide/usage/minifier/whitespace-stripping",
                 },
+                {
+                  text: "FAQ",
+                  link: "/docs/guide/usage/minifier/faq",
+                },
               ],
             },
             { text: "Resolver", link: "/docs/guide/usage/resolver" },

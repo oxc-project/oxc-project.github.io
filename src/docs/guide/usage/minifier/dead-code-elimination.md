@@ -200,7 +200,7 @@ export const bar = () => {};
 
 ### Define Pure Functions
 
-Instead of marking functions with pure annotations, you can also mark functions via the `compress.treeshake.manualPureFunctions` option. This option is an array of function names.
+Instead of marking functions with pure annotations, you can also mark functions via the `compress.treeshake.manualPureFunctions` option. This option is an array of function names. This feature is similar to [Rollup's `treeshake.manualPureFunctions` option](https://rollupjs.org/configuration-options/#treeshake-manualpurefunctions) and [Terser](https://terser.org/)'s `pure_funcs` option.
 
 ```js
 // input
@@ -230,7 +230,7 @@ const result = await minify("lib.js", code, {
 
 ### Ignoring Property Read Side Effects
 
-By default, Oxc minifier assumes that property reads have side effects. This is because the accessing a property of null throws and error. Also there's a case where a property is a getter and the getter might has a side effect. You can tell Oxc minifier to ignore those possibilities by setting `compress.treeshake.propertyReadSideEffects` option to `false`.
+By default, Oxc minifier assumes that property reads have side effects. This is because the accessing a property of null throws and error. Also there's a case where a property is a getter and the getter might has a side effect. You can tell Oxc minifier to ignore those possibilities by setting `compress.treeshake.propertyReadSideEffects` option to `false`. This feature is similar to [Rollup's `treeshake.propertyReadSideEffects` option](https://rollupjs.org/configuration-options/#treeshake-propertyreadsideeffects) and [Terser](https://terser.org/)'s `pure_getters` option.
 
 ```js
 // input
@@ -247,7 +247,7 @@ foo.bar;
 
 ### Ignoring Global Variable Access Side Effects
 
-By default, Oxc minifier assumes that global variable accesses have side effects. This is because accessing a non-existent global variable throws an error. Also there's a case where a global variable is a getter and the getter might has a side effect. You can tell Oxc minifier to ignore those possibilities by setting `compress.treeshake.unknownGlobalSideEffects` option to `false`.
+By default, Oxc minifier assumes that global variable accesses have side effects. This is because accessing a non-existent global variable throws an error. Also there's a case where a global variable is a getter and the getter might has a side effect. You can tell Oxc minifier to ignore those possibilities by setting `compress.treeshake.unknownGlobalSideEffects` option to `false`. This feature is similar to [Rollup's `treeshake.unknownGlobalSideEffects` option](https://rollupjs.org/configuration-options/#treeshake-unknownglobalsideeffects).
 
 ```js
 // input

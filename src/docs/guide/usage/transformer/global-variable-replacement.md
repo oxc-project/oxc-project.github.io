@@ -4,7 +4,7 @@ Oxc transformer supports replacing global variables.
 
 ## Define
 
-"Define" feature provides a way to replace global variables with constant expressions. This feature is similar to [esbuild's `define` option](https://esbuild.github.io/api/#define).
+"Define" feature provides a way to replace global variables with constant expressions. This feature is similar to [Terser](https://terser.org/)'s `global_defs` option and [esbuild's `define` option](https://esbuild.github.io/api/#define).
 
 ```js
 // input
