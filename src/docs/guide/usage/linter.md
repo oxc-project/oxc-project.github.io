@@ -185,12 +185,14 @@ that are already supported by oxlint. So you can enjoy the speed of oxlint while
 }
 ```
 
-### VSCode Extension
+### VS Code Extension
 
-Download the official VSCode extension from the
+Download the official VS Code extension from:
 
 - [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=oxc.oxc-vscode)
 - [Open VSX Registry](https://open-vsx.org/extension/oxc/oxc-vscode)
+
+It is also compatible with other VS Code-based editors like Cursor.
 
 ### Zed Extension
 
