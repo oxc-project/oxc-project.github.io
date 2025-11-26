@@ -1,7 +1,3 @@
----
-outline: [2, 3]
----
-
 # Automatic Fixes
 
 In some cases, Oxlint is able to automatically fix lint violations in your code.
