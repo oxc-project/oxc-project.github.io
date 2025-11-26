@@ -1,6 +1,5 @@
 ---
 title: Oxlint JS Plugins Preview
-outline: [2, 3]
 authors:
   - overlookmotel
   - cameron

@@ -1,7 +1,3 @@
----
-outline: [2, 3]
----
-
 # Plugins
 
 Oxlint supports several of the most popular ESLint plugins out of the box with
