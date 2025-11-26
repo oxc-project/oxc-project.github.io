@@ -1,9 +1,14 @@
 ---
-title: VSCode Extension
+title: VS Code Extension
 outline: deep
 ---
 
-# VSCode Extension
+# VS Code Extension
+
+::: tip
+This page is for contributing to the Oxc VS Code extension.
+To download the extension, see the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=oxc.oxc-vscode) or the [Open VSX Registry](https://open-vsx.org/extension/oxc/oxc-vscode).
+:::
 
 ## Development
 
