@@ -14,6 +14,8 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 Enforces the proper number of arguments are passed to Promise functions.
 
+This rule is generally unnecessary if using TypeScript.
+
 ### Why is this bad?
 
 Calling a Promise function with the incorrect number of arguments can lead to unexpected

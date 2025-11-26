@@ -73,15 +73,14 @@ type Foo = {
 
 ## Configuration
 
-This rule accepts a configuration object with the following properties:
+This rule accepts one of the following string values:
 
-### preferredStyle
-
-type: `"record" | "index-signature"`
-
-default: `"record"`
+### `"record"`
 
 When set to `record`, enforces the use of a `Record` for indexed object types, e.g. `Record<string, unknown>`.
+
+### `"index-signature"`
+
 When set to `index-signature`, enforces the use of indexed signature types, e.g. `{ [key: string]: unknown }`.
 
 ## How to use

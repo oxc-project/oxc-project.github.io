@@ -187,6 +187,8 @@ This rule accepts a configuration object with the following properties:
 
 ### args
 
+type: `"afterUsed" | "all" | "none"`
+
 Controls how unused arguments are checked.
 
 This option has three settings:
@@ -197,6 +199,20 @@ This option has three settings:
    This is the default setting.
 2. `all` - All named arguments must be used.
 3. `none` - Do not check arguments.
+
+#### `"afterUsed"`
+
+Unused positional arguments that occur before the last used argument
+will not be checked, but all named arguments and all positional
+arguments after the last used argument will be checked.
+
+#### `"all"`
+
+All named arguments must be used
+
+#### `"none"`
+
+Do not check arguments
 
 ### caughtErrors
 
@@ -366,6 +382,8 @@ function foo(): typeof foo {}
 
 ### vars
 
+type: `"all" | "local"`
+
 Controls how usage of a variable in the global scope is checked.
 
 This option has two settings:
@@ -374,6 +392,15 @@ This option has two settings:
    scope. This is the default setting.
 2. `local` checks only that locally-declared variables are used but will
    allow global variables to be unused.
+
+#### `"all"`
+
+All variables are checked for usage, including those in the global scope.
+
+#### `"local"`
+
+Checks only that locally-declared variables are used but will allow
+global variables to be unused.
 
 ## How to use
 
