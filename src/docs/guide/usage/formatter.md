@@ -1,4 +1,4 @@
-# Formatter
+# Formatter (oxfmt)
 
 Oxfmt (`/oh-eks-for-mat/`) is a Prettier-compatible code formatter.
 
