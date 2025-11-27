@@ -40,7 +40,7 @@ The following issues will be addressed for the alpha version.
 
 See https://github.com/oxc-project/tsgolint/issues/104
 
-## Configuration
+## Supported Rules
 
 List of supported rules:
 
