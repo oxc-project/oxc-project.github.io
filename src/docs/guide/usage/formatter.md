@@ -67,7 +67,7 @@ $ bun add -D oxfmt
 
 `oxfmt` works like `prettier --write .` by default.
 
-Format options like `--no-semi` are not supported by CLI, we recommend setting these via the configuration file instead. This will ensure you use the CLI and editor integrations with the same settings.
+Formatting config options like `--no-semi` are not supported via CLI flags, we recommend setting these via the configuration file instead. This will ensure that the CLI and editor integrations always use the same settings.
 
 Globs in positional paths are not expanded. (You can rely on your shell.) But `!`-prefixed exclude paths do support glob expansion.
 
@@ -79,7 +79,7 @@ By default, `oxfmt` automatically tries to find the nearest `.oxfmtrc.json` or `
 
 You can also specify your config file with the `-c yourconfig.jsonc` flag.
 
-Almost all format options are compatible with Prettier's [options](https://prettier.io/docs/options).
+Almost all formatting options are compatible with Prettier's [options](https://prettier.io/docs/options).
 So you can migrate from Prettier by simply renaming `.prettierrc.json` to `.oxfmtrc.jsonc`.
 
 We also recommend adding the `$schema` to the config file after copying it:
@@ -103,6 +103,22 @@ Also you can specify your ignore file by `--ignore-path your.ignore` flag.
 VCS directories like `.git` and `.svn` are always ignored. Also global and nested ignores are not respected.
 
 In addition, `.oxfmtrc.json(c)` supports an `ignorePatterns` field.
+
+## Pre-commit hook
+
+In git pre-commit hooks, if you want to auto-format staged files with oxfmt, you should run `oxfmt --no-error-on-unmatched-pattern`.
+
+This command is equivalent to `"prettier --ignore-unknown --write"` and will format all staged files that are supported by oxfmt. `--no-error-on-unmatched-pattern` ensures that you won't get errors if there are no supported files staged (e.g. only Ruby files are staged).
+
+You can alternatively pass `--check` to only check the formatting of staged files, without modifying them.
+
+If you are using a pre-commit hook via husky/lint-staged, you can run oxfmt with it by updating your package.json like so:
+
+```json
+"lint-staged": {
+  "*": "oxfmt --no-error-on-unmatched-pattern"
+},
+```
 
 ## FAQs
 
