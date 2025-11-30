@@ -13,7 +13,7 @@ We’re excited to announce the alpha release of **Oxfmt**, a Rust-powered, Pret
 
 Oxfmt is designed with these goals in mind:
 
-- **Performance:** More than 30× faster than Prettier and more than 3× faster than Biome on an initial run without cache ([**benchmark**](https://github.com/oxc-project/bench-formatter)).
+- **Performance:** More than 30× faster than Prettier and more than 3× faster than Biome on an initial run without a cache ([**benchmark**](https://github.com/oxc-project/bench-formatter)).
 - **Compatibility:** Prettier-compatible, so you can adopt Oxfmt in existing projects easily.
 - **Developer Experience:** Upcoming features include import sorting, expanded formatting options, and support for Prettier plugins.
 
@@ -76,7 +76,7 @@ Alternatively, refer to the [installation guide](/docs/guide/usage/formatter.ht
 Oxfmt is incredibly fast. Our benchmark results on the [Outline](https://github.com/outline/outline) repository show:
 
 - Over 30× faster than Prettier’s experimental CLI without cache
-- Over 20× faster than Prettier using Oxc’s parser via `@prettier/plugin-oxc`
+- Over 20× faster than Prettier using Oxc’s parser through `@prettier/plugin-oxc`
 - Over 3× faster than Biome, another Rust-based formatter
 
 For detailed benchmark setup, please refer to the following repository:
@@ -134,7 +134,7 @@ Check out all of the options in our [documentation](https://oxc.rs/docs/guide/us
 
 ### Terminal Output
 
-Oxfmt's default behavior is equivalent to `prettier . --write`, providing the same UX as `cargo fmt` and producing no output. You can use `--check` to see details.
+Oxfmt's default behavior is equivalent to `prettier . --write`, providing the same UX as `cargo fmt` and producing no output. You can use `--check` to display formatting differences.
 
 ## Beta Release Plans
 
@@ -174,4 +174,4 @@ We welcome your feedback to help make Oxfmt even better!
 
 ## Acknowledgements
 
-Oxfmt builds on a fork of the `biome_formatter` infrastructure, and we’d like to thank the Biome team, especially [@ematipico](https://github.com/ematipico) and [@MichaReiser](https://github.com/MichaReiser). We’d also like to thank the Prettier team and [@fisker](https://github.com/fisker) for collaborating with us on formatting compatibility.
+Oxfmt builds on a fork of the [`biome_formatter`](https://github.com/biomejs/biome/tree/main/crates/biome_formatter) infrastructure, and we’d like to thank the Biome team, especially [@ematipico](https://github.com/ematipico) and [@MichaReiser](https://github.com/MichaReiser). We’d also like to thank the Prettier team and [@fisker](https://github.com/fisker) for collaborating with us on formatting compatibility.
