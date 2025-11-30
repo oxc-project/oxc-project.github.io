@@ -46,7 +46,7 @@ const dismiss = () => {
 
 <template>
   <div ref="el" class="banner banner-dismissed">
-    <div class="text"><a :href="slug">Announcing Oxfmt Alpha</a> 🎉</div>
+    <div class="text"><a :href="slug">Oxfmt: Announcing Oxc Formatter Alpha</a> 🎉</div>
 
     <button type="button" @click="dismiss">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">

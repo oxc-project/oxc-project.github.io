@@ -1,5 +1,5 @@
 ---
-title: Oxc Formatter Alpha
+title: "Oxfmt: Oxc Formatter Alpha"
 outline: deep
 authors:
   - boshen
@@ -9,170 +9,163 @@ authors:
 
 <AppBlogPostHeader />
 
-We are excited to announce an alpha release for Oxfmt!
+We’re excited to announce the alpha release of **Oxfmt**, a Rust-powered, Prettier-compatible code formatter. This first release focuses on JavaScript and TypeScript, with support for additional languages coming soon.
 
-Oxfmt is a Rust-powered formatter, designed to be compatible with Prettier.
+Oxfmt is designed with these goals in mind:
 
-At this alpha stage, Oxfmt mainly focuses on formatting JS and TS files, but we hope you'll give it a try.
+- **Performance:** More than 30× faster than Prettier and more than 3× faster than Biome on an initial run without cache ([**benchmark**](https://github.com/oxc-project/bench-formatter)).
+- **Compatibility:** Prettier-compatible, so you can adopt Oxfmt in existing projects easily.
+- **Developer Experience:** Upcoming features include import sorting, expanded formatting options, and support for Prettier plugins.
 
-## Quick Start
+## **Quick Start**
 
-To format files in your current working directory, simply run one of the following commands:
+Add `oxfmt` to your project:
 
 ::: code-group
 
-```sh [npm]
-$ npx oxfmt@latest
+```bash
+$ npm install -D oxfmt@latest
 ```
 
-```sh [pnpm]
-$ pnpm dlx oxfmt@latest
+```bash
+$ pnpm add -D oxfmt@latest
 ```
 
-```sh [yarn]
-$ yarn dlx oxfmt@latest
+```bash
+$ yarn add -D oxfmt@latest
 ```
 
-```sh [bun]
-$ bunx oxfmt@latest
+```bash
+$ bun add -D oxfmt@latest
 ```
 
-```sh [deno]
-$ deno run npm:oxfmt@latest
+```bash
+$ deno add -D npm:oxfmt@latest
 ```
 
 :::
 
-Unlike Prettier, Oxfmt's default behavior is equivalent to `prettier . --write`, providing the same UX as `cargo fmt`.
+Oxfmt follows Prettier’s configuration format. If you are using Prettier with a JSON configuration file, you can rename it to `.oxfmtrc.jsonc`:
 
-This command produces no output by default. Use `--check` to see details if needed.
-
-## Prettier compatible
-
-The Oxc team always keeps compatibility with existing ecosystems in mind.
-
-### Formatting results
-
-Oxfmt is carefully implemented to match Prettier's formatting results as closely as possible.
-
-We achieve excellent coverage - over [95%](https://github.com/oxc-project/oxc/tree/main/tasks/prettier_conformance/snapshots) for both JS and TS!
-
-While not 100% compatible, this shouldn't be a concern.
-
-This remaining gap includes cases where Oxfmt produces better formatting than Prettier. And some cases are confirmed as bugs in Prettier itself.
-We're actively reporting issues and submitting PRs to Prettier, so the formatting results should converge over time.
-
-For detailed differences, please refer to the following discussion:
-
-> `Oxfmt` differences with `Prettier` · oxc-project/oxc · Discussion #14669\
-> https://github.com/oxc-project/oxc/discussions/14669
-
-But we believe you won't encounter these differences often in typical codebases.
-We've manually verified Oxfmt on large codebases like [microsoft/vscode](https://github.com/microsoft/vscode) and found no major issues.
-
-So, please let us know if you find any concerns.
-
-Finally, note that our coverage is based on Prettier's `main` branch.
-This means Oxfmt provides more stable formatting results compared to the current released version of Prettier (version `3.6.2` at the time of writing).
-
-### Configuration
-
-Additionally, configuration files and ignore files are also compatible with Prettier.
-
-In the simplest case, your config migration experience looks like this:
-
-```sh
+```jsx
 cp .prettierrc.json .oxfmtrc.jsonc
 ```
 
-Or, if your editor supports JSON language server, start with this minimal template after adding `oxfmt` to your dev dependencies:
+You can also start from this `.oxfmtrc.jsonc` configuration example:
 
-```json
+```jsx
 {
-  "$schema": "./node_modules/oxfmt/configuration_schema.json"
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "printWidth": 80, // Use 80 if migrating from Prettier; 100 is the Oxfmt default
+  "ignorePatterns": [] // Same as `.prettierignore`
 }
 ```
 
-While we don't support all options yet (especially experimental ones), we do support the following major options.
+Next, add `oxfmt` to your package.json scripts:
 
-- `printWidth`
-- `tabWidth`
-- `useTabs`
-- `semi`
-- `singleQuote`
-- `quoteProps`
-- `jsxSingleQuote`
-- `trailingComma`
-- `bracketSpacing`
-- `objectWrap`
-- `bracketSameLine`
-- `arrowParens`
-- `endOfLine`
-- `singleAttributePerLine`
+```jsx
+"scripts": {
+  "format": "oxfmt"
+}
+```
 
-(Listed in the order they appear in Prettier's [documentation](https://prettier.io/docs/options))
+Alternatively, refer to the [installation guide](/docs/guide/usage/formatter.html) for detailed instructions.
 
-Additionally, we support `ignorePatterns`, which is familiar from ESLint configuration files.
-While `.prettierignore` is also supported, using `ignorePatterns` allows you to consolidate everything into a single configuration file!
+## Performance
 
-Please also refer to our Formatter [documentation page](/docs/guide/usage/formatter.html) for more details.
+Oxfmt is incredibly fast. Our benchmark results on the [Outline](https://github.com/outline/outline) repository show:
 
-## `printWidth: 100` by default
-
-While we have high coverage and compatible configuration files, this one change may generate many diffs in your codebase.
-
-After thorough discussion, we've decided to adopt `printWidth: 100` as the default instead of Prettier's `80`, providing a better out-of-the-box experience.
-
-> RFC: change oxfmt default print width from 80 to 100 · oxc-project/oxc · Discussion #15851\
-> https://github.com/oxc-project/oxc/discussions/15851
-
-If you prefer the old behavior, please add `printWidth: 80` to your configuration.
-But we hope you'll like it too.
-
-## Yet better performance
-
-While Oxfmt demonstrates high compatibility with Prettier, performance is a different story — it runs incredibly fast!
-
-Our benchmark result on the [Outline](https://github.com/outline/outline) repository shows:
-
-- Over 30x faster than Prettier on the first run without cache
-- Over 20x faster even when using `@prettier/plugin-oxc`
-- Over 3x faster than Biome, another Rust-based formatter
-
-While each tool implements different behavior and features, and these numbers may fluctuate as we add functionality, this is a solid starting point.
+- Over 30× faster than Prettier’s experimental CLI without cache
+- Over 20× faster than Prettier using Oxc’s parser via `@prettier/plugin-oxc`
+- Over 3× faster than Biome, another Rust-based formatter
 
 For detailed benchmark setup, please refer to the following repository:
 
 > oxc-project/bench-formatter\
 > https://github.com/oxc-project/bench-formatter
 
-## What's next
+## Design
 
-While the timeline is not yet determined, we are planning the following initiatives for our next milestone — the beta release.
+The Oxc team prioritizes compatibility with existing ecosystems, making migrations straightforward, even for large codebases.
 
-First, stabilize experimental options currently disabled by default.
+### Code formatting results
 
-- `embeddedLanguageFormatting`
-  - Support for embedded languages like CSS-in-JS
-  - Currently, we have partial support only for non-substitution templates
-- `experimentalSortImports`
-  - Built-in support for the in-demand `prettier-plugin-sort-imports` functionality
-  - Based on more configurable `eslint-plugin-perfectionist/sort-imports` rule
+Oxfmt matches Prettier’s JavaScript formatting. If you are migrating to Oxfmt today, you shouldn’t see any formatting differences compared to Prettier.
 
-Next, we plan to support files that Prettier handles natively without plugins, such as `.json` files.
+You might see minor differences when migrating from older versions of Prettier ([See an example migration](https://github.com/SBoudrias/Inquirer.js/pull/1912)) because we identified areas in which Prettier’s formatting could be improved. We have been actively collaborating with the Prettier team by submitting bug reports and pull requests directly to Prettier. Many of these improvements landed in the recent [Prettier 3.7](https://prettier.io/blog/2025/11/27/3.7.0) release.
 
-And more, we also plan to support more major Prettier plugins.
+Oxfmt currently passes around [95%](https://github.com/oxc-project/oxc/tree/main/tasks/prettier_conformance/snapshots) of Prettier’s JavaScript and TypeScript tests, and we hope to work with the Prettier team to converge on formatting over time.
 
-This primarily means support for popular frameworks like Svelte and Astro. We've also noticed demand for `prettier-plugin-tailwindcss` support.
+### `printWidth: 100` by default
 
-The implementation approach is currently under active research and discussion. Stay tuned for updates.
+We chose `printWidth: 100` as the default line length instead of Prettier's `80`. Our reasons include:
+
+- TypeScript code tends to be longer than JavaScript due to type annotations.
+- Import statements often contain many items.
+- Larger screens provide more horizontal space.
+- Results in slightly fewer LLM tokens.
+
+While Oxfmt remains compatible with Prettier, it uses a different default print width of 100 characters. If you want to avoid large diffs when migrating from Prettier, explicitly set the print width to 80.
+
+## `ignorePatterns`
+
+While Oxfmt supports `.prettierignore`, it also supports an `ignorePatterns` configuration option to consolidate all configuration into a single file.
+
+### Configuration
+
+Prettier JSON configuration files are compatible with Oxfmt. In the simplest case, migrating your config looks like this:
+
+```bash
+cp .prettierrc.json .oxfmtrc.jsonc
+```
+
+If your editor supports the JSON language server, you can start with this minimal template after adding `oxfmt` to your `devDependencies`:
+
+```json
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "ignorePatterns": []
+}
+```
+
+While we don’t yet support all of Prettier’s configuration options in this alpha release, we do support the following major options: `printWidth`, `tabWidth`, `useTabs`, `semi`, `singleQuote`, `quoteProps`, `jsxSingleQuote`, `trailingComma`, `bracketSpacing`, `objectWrap`, `bracketSameLine`, `arrowParens`, `endOfLine`, and`singleAttributePerLine`.
+
+Check out all of the options in our [documentation](https://oxc.rs/docs/guide/usage/formatter.html#configuration-file).
+
+### Terminal Output
+
+Oxfmt's default behavior is equivalent to `prettier . --write`, providing the same UX as `cargo fmt` and producing no output. You can use `--check` to see details.
+
+## Beta Release Plans
+
+Here are our plans for the beta release:
+
+- [Support more file formats](https://github.com/oxc-project/oxc/issues/15899) and [add support for embedded language formatting](https://github.com/oxc-project/oxc/issues/15180) - css in js or js in markdown
+- [Built-in sorting and aesthetics features](https://github.com/oxc-project/oxc/issues/13610), such as [sort imports](https://github.com/oxc-project/oxc/issues/14253)
+- [Prettier plugins](https://github.com/oxc-project/oxc/issues/15665)
+- [Node.js API for Oxfmt](https://github.com/oxc-project/oxc/issues/15913)
+- [Disable newline at the end of file](https://github.com/oxc-project/oxc/issues/15066)
+- [`--migrate prettier`](https://github.com/oxc-project/oxc/issues/15849)
+- _… and your feature requests_
+
+You can track our progress towards the beta release here:
 
 > Formatter Beta · Milestone #15 · oxc-project/oxc\
 > https://github.com/oxc-project/oxc/milestone/15
 
-Needless to say, we will continue working daily on performance improvements and CLI UX enhancements!
+We also plan to relax some of the formatting opinions in future versions.
 
-## Join the Community
+## Next Steps
+
+See the full installation guide in the [Oxfmt docs](https://oxc.rs/docs/guide/usage/formatter.html).
+
+### Reporting Issues
+
+For formatting differences, please refer to [https://github.com/oxc-project/oxc/discussions/14669](https://github.com/oxc-project/oxc/discussions/14669)
+
+For other bugs, please [create a GitHub issue(https://github.com/oxc-project/oxc/issues/new/choose).
+
+### Join the Community
 
 > RFC: Formatter · oxc-project/oxc · Discussion #13608\
 > https://github.com/oxc-project/oxc/discussions/13608
@@ -181,7 +174,4 @@ We welcome your feedback to help make Oxfmt even better!
 
 ## Acknowledgements
 
-- Thanks biome, rome and everyone who contributed
-  - Especially [@ematipico](https://github.com/ematipico) and [@MichaReiser](https://github.com/MichaReiser)
-  - Oxfmt is using a fork of `biome_formatter` infrastructure
-- Thanks [@fisker](https://github.com/fisker) for triaging our reported issues for Prettier
+Oxfmt builds on a fork of the `biome_formatter` infrastructure, and we’d like to thank the Biome team, especially [@ematipico](https://github.com/ematipico) and [@MichaReiser](https://github.com/MichaReiser). We’d also like to thank the Prettier team and [@fisker](https://github.com/fisker) for collaborating with us on formatting compatibility.
