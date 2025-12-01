@@ -94,6 +94,8 @@ You can see the full JSON schema for the config file here:
 
 > https://github.com/oxc-project/oxc/blob/main/npm/oxfmt/configuration_schema.json
 
+See also [Configuration File](./formatter/config-file-reference).
+
 ## Ignore file
 
 By default, `oxfmt` automatically finds the `.gitignore` and `.prettierignore` files from the current working directory.
