@@ -15,19 +15,13 @@ Include parentheses around a sole arrow function parameter. (Default: "always")
 
 ## bracketSameLine
 
-type: `[
-  boolean,
-  null
-]`
+type: `boolean | null`
 
 Put the > of a multi-line JSX element at the end of the last line instead of being alone on the next line. (Default: false)
 
 ## bracketSpacing
 
-type: `[
-  boolean,
-  null
-]`
+type: `boolean | null`
 
 Print spaces between brackets in object literals. (Default: true)
 
@@ -51,10 +45,7 @@ Experimental: Sort import statements. Disabled by default.
 
 ## experimentalSortImports.groups
 
-type: `[
-  array,
-  null
-]`
+type: `array | null`
 
 Custom groups configuration for organizing imports.
 Each array element represents a group, and multiple group names in the same array are treated as one.
@@ -106,10 +97,7 @@ Ignore files matching these glob patterns. Current working directory is used as 
 
 ## jsxSingleQuote
 
-type: `[
-  boolean,
-  null
-]`
+type: `boolean | null`
 
 Use single quotes instead of double quotes in JSX. (Default: false)
 
@@ -122,10 +110,7 @@ NOTE: In addition to Prettier's "preserve" and "collapse", we also support "alwa
 
 ## printWidth
 
-type: `[
-  integer,
-  null
-]`
+type: `integer | null`
 
 The line length that the printer will wrap on. (Default: 100)
 
@@ -137,37 +122,25 @@ Change when properties in objects are quoted. (Default: "as-needed")
 
 ## semi
 
-type: `[
-  boolean,
-  null
-]`
+type: `boolean | null`
 
 Print semicolons at the ends of statements. (Default: true)
 
 ## singleAttributePerLine
 
-type: `[
-  boolean,
-  null
-]`
+type: `boolean | null`
 
 Put each attribute on a new line in JSX. (Default: false)
 
 ## singleQuote
 
-type: `[
-  boolean,
-  null
-]`
+type: `boolean | null`
 
 Use single quotes instead of double quotes. (Default: false)
 
 ## tabWidth
 
-type: `[
-  integer,
-  null
-]`
+type: `integer | null`
 
 Number of spaces per indentation level. (Default: 2)
 
@@ -179,9 +152,6 @@ Print trailing commas wherever possible. (Default: "all")
 
 ## useTabs
 
-type: `[
-  boolean,
-  null
-]`
+type: `boolean | null`
 
 Use tabs for indentation or spaces. (Default: false)
