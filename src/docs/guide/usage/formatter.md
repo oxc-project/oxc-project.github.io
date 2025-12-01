@@ -3,7 +3,7 @@
 Oxfmt (`/oh-eks-for-mat/`) is a Prettier-compatible code formatter.
 
 :::info
-Oxfmt is currently working in progress.
+Oxfmt is currently a work in progress.
 
 Please join the discussion!
 
@@ -67,26 +67,22 @@ $ bun add -D oxfmt
 
 `oxfmt` works like `prettier --write .` by default.
 
-Format options like `--no-semi` are not supported by CLI, we recommend to use configuration file instead. This will help you use CLI and editor extension with the same settings.
+Formatting config options like `--no-semi` are not supported via CLI flags, we recommend setting these via the configuration file instead. This will ensure that the CLI and editor integrations always use the same settings.
 
-Globs in positional paths are not expanded. (Still you can rely on your shell.) But it works in `!` prefixed exclude paths.
+Globs in positional paths are not expanded. (You can rely on your shell.) But `!`-prefixed exclude paths do support glob expansion.
 
-See more details in [CLI reference](./formatter/cli).
+See more details in the [CLI reference](./formatter/cli).
 
 ## Configuration file
 
-By default, `oxfmt` automatically tries to find the nearest `.oxfmtrc.json` or `.oxfmtrc.jsonc` file from current working directory. If not found, default configuration is used.
+By default, `oxfmt` automatically tries to find the nearest `.oxfmtrc.json` or `.oxfmtrc.jsonc` file from the current working directory. If not found, the default configuration options are used.
 
-Also you can specify your config file by `-c yourconfig.jsonc` flag.
+You can also specify your config file with the `-c yourconfig.jsonc` flag.
 
-Almost all format options are compatible with Prettier's [options](https://prettier.io/docs/options).
-So you may finish your setup by just renaming `.prettierrc.json` to `.oxfmtrc.jsonc`.
+Almost all formatting options are compatible with Prettier's [options](https://prettier.io/docs/options).
+So you can migrate from Prettier by simply renaming `.prettierrc.json` to `.oxfmtrc.jsonc`.
 
-Config file follows this schema.
-
-> https://github.com/oxc-project/oxc/blob/main/npm/oxfmt/configuration_schema.json
-
-You can start with this template if your editor is supporting JSON Schema.
+We also recommend adding the `$schema` to the config file after copying it:
 
 ```json
 {
@@ -94,22 +90,42 @@ You can start with this template if your editor is supporting JSON Schema.
 }
 ```
 
+You can see the full JSON schema for the config file here:
+
+> https://github.com/oxc-project/oxc/blob/main/npm/oxfmt/configuration_schema.json
+
 ## Ignore file
 
-By default, `oxfmt` automatically finds the `.gitignore` and `.prettierignore` file from current working directory.
+By default, `oxfmt` automatically finds the `.gitignore` and `.prettierignore` files from the current working directory.
 
 Also you can specify your ignore file by `--ignore-path your.ignore` flag.
 
 VCS directories like `.git` and `.svn` are always ignored. Also global and nested ignores are not respected.
 
-In addition, `.oxfmtrc.json(c)` also supports `ignorePatterns` field.
+In addition, `.oxfmtrc.json(c)` supports an `ignorePatterns` field.
+
+## Pre-commit hook
+
+If you want to auto-format staged files with oxfmt in a git pre-commit hook, you can use `oxfmt --no-error-on-unmatched-pattern`.
+
+This command is equivalent to `prettier --no-error-on-unmatched-pattern --write`, and will format all matched files that are supported by oxfmt. The `--no-error-on-unmatched-pattern` flag ensures that oxfmt will not raise errors if there are no supported files passed into the command by your pre-commit hook tool (e.g. only Ruby files are staged).
+
+You can also pass `--check` to only _check_ the formatting of files, and bail if any files are incorrectly formatted.
+
+If you are using a pre-commit hook via husky/lint-staged, you can run oxfmt with it by updating your package.json like so:
+
+```json
+"lint-staged": {
+  "*": "oxfmt --no-error-on-unmatched-pattern"
+},
+```
 
 ## FAQs
 
 ### What kinds of files are supported?
 
-Currently, only JS and TS files are supported.
-JSX is always available in JS files, but for TS files, the `.tsx` extension is required to use JSX.
+Currently, only JavaScript and TypeScript files are supported (using all common JS/TS extensions and filenames, including `.js`, `.jsx`, `.ts`, `.mjs`, etc.).
+JSX is always available in JS files, but for TypeScript, the `.tsx` extension is required to use JSX syntax.
 
 Embedded parts like CSS-in-JS have experimental partial support.
 By specifying `embeddedLanguageFormatting: auto`, non-substitution templates will be formatted.
