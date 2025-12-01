@@ -108,9 +108,9 @@ In addition, `.oxfmtrc.json(c)` supports an `ignorePatterns` field.
 
 If you want to auto-format staged files with oxfmt in a git pre-commit hook, you can use `oxfmt --no-error-on-unmatched-pattern`.
 
-This command is equivalent to `"prettier --ignore-unknown --write"` and will format all files that are supported by oxfmt. The `--no-error-on-unmatched-pattern` flag ensures that oxfmt will not raise errors if there are no supported files passed in by your pre-commit hook tool (e.g. only Ruby files are staged).
+This command is equivalent to `"prettier --no-error-on-unmatched-pattern --write"`, and will format all matched files that are supported by oxfmt. The `--no-error-on-unmatched-pattern` flag ensures that oxfmt will not raise errors if there are no supported files passed into the command by your pre-commit hook tool (e.g. only Ruby files are staged).
 
-You can also pass `--check` to only check the formatting of files, without modifying them in the pre-commit hook.
+You can also pass `--check` to only _check_ the formatting of files, and bail if any files are incorrectly formatted.
 
 If you are using a pre-commit hook via husky/lint-staged, you can run oxfmt with it by updating your package.json like so:
 
