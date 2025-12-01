@@ -72,6 +72,15 @@ Key strategies for maintaining performance:
 - [Terser Options](https://github.com/terser/terser#minify-options)
 - [esbuild Minification](https://esbuild.github.io/api/#minification)
 
+#### Playgrounds
+
+- esbuild: https://esbuild.github.io/try
+- rollup: https://rollupjs.org/rep
+- swc: https://play.swc.rs
+- terser: https://try.terser.org
+- closure compiler: https://jscompressor.treblereel.dev
+  - Official website is no longer available: [Closure Compiler Webservice Turndown - 2025](https://github.com/google/closure-compiler/issues/4199)
+
 [google-closure-compiler]: https://github.com/google/closure-compiler
 [terser]: https://github.com/terser/terser
 [esbuild]: https://github.com/evanw/esbuild
