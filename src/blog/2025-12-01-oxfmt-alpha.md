@@ -23,23 +23,23 @@ Add `oxfmt` to your project:
 
 ::: code-group
 
-```bash
+```npm
 $ npm add -D oxfmt@latest
 ```
 
-```bash
+```pnpm
 $ pnpm add -D oxfmt@latest
 ```
 
-```bash
+```yarn
 $ yarn add -D oxfmt@latest
 ```
 
-```bash
+```bun
 $ bun add -D oxfmt@latest
 ```
 
-```bash
+```deno
 $ deno add -D npm:oxfmt@latest
 ```
 
@@ -56,7 +56,8 @@ You can also start from this `.oxfmtrc.jsonc` configuration example:
 ```jsx
 {
   "$schema": "./node_modules/oxfmt/configuration_schema.json",
-  "printWidth": 80, // Use 80 if migrating from Prettier; 100 is the Oxfmt default
+  // Use 80 if migrating from Prettier; 100 is the Oxfmt default!
+  "printWidth": 80,
   "ignorePatterns": [] // Same as `.prettierignore`
 }
 ```
@@ -107,7 +108,7 @@ We chose `printWidth: 100` as the default line length instead of Prettier's `80`
 
 While Oxfmt remains compatible with Prettier, it uses a different default print width of 100 characters. If you want to avoid large diffs when migrating from Prettier, explicitly set the print width to 80.
 
-## `ignorePatterns`
+### `ignorePatterns`
 
 While Oxfmt supports `.prettierignore`, it also supports an `ignorePatterns` configuration option to consolidate all configuration into a single file.
 
@@ -140,7 +141,8 @@ Oxfmt's default behavior is equivalent to `prettier . --write`, providing the sa
 
 Here are our plans for the beta release:
 
-- [Support more file formats](https://github.com/oxc-project/oxc/issues/15899) and [add support for embedded language formatting](https://github.com/oxc-project/oxc/issues/15180) - css in js or js in markdown
+- [Support more file formats](https://github.com/oxc-project/oxc/issues/15899) - like `.json` files
+- [Add support for embedded language formatting](https://github.com/oxc-project/oxc/issues/15180) - css in js or graphql in js
 - [Built-in sorting and aesthetics features](https://github.com/oxc-project/oxc/issues/13610), such as [sort imports](https://github.com/oxc-project/oxc/issues/14253)
 - [Prettier plugins](https://github.com/oxc-project/oxc/issues/15665)
 - [Node.js API for Oxfmt](https://github.com/oxc-project/oxc/issues/15913)
@@ -161,9 +163,10 @@ See the full installation guide in the [Oxfmt docs](https://oxc.rs/docs/guide/us
 
 ### Reporting Issues
 
-For formatting differences, please refer to [https://github.com/oxc-project/oxc/discussions/14669](https://github.com/oxc-project/oxc/discussions/14669)
+For formatting differences, please refer to [https://github.com/oxc-project/oxc/discussions/14669](https://github.com/oxc-project/oxc/discussions/14669).
+Additionally, known issues are distinguished by [labels](https://github.com/oxc-project/oxc/issues?q=sort%3Aupdated-desc%20is%3Aissue%20label%3AA-formatter-prettier-diff).
 
-For other bugs, please [create a GitHub issue(https://github.com/oxc-project/oxc/issues/new/choose).
+If you find any other issues, please create an issue with [dedicated template](https://github.com/oxc-project/oxc/issues/new?template=formatter_diff_report.yaml) on GitHub.
 
 ### Join the Community
 
