@@ -24,7 +24,7 @@ Add `oxfmt` to your project:
 ::: code-group
 
 ```bash
-$ npm install -D oxfmt@latest
+$ npm add -D oxfmt@latest
 ```
 
 ```bash
