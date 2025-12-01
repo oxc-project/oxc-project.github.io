@@ -97,10 +97,10 @@ export const enConfig = defineLocaleConfig("root", {
                   text: "CLI reference",
                   link: "/docs/guide/usage/formatter/cli",
                 },
-                // {
-                // text: "Configuration file reference",
-                // link: "/docs/guide/usage/formatter/config-file-reference",
-                // },
+                {
+                  text: "Configuration file reference",
+                  link: "/docs/guide/usage/formatter/config-file-reference",
+                },
               ],
             },
             { text: "Parser", link: "/docs/guide/usage/parser" },
