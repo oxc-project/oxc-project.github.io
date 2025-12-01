@@ -124,7 +124,7 @@ If you are using a pre-commit hook via husky/lint-staged, you can run oxfmt with
 
 ### What kinds of files are supported?
 
-Currently, only JavaScript and TypeScript files are supported (`.js`, `.jsx`, `.ts`, `.tsx`, `.mjs`, `.cjs`, `.mts`, and `.cts`).
+Currently, only JavaScript and TypeScript files are supported (using all common JS/TS extensions and filenames, including `.js`, `.jsx`, `.ts`, `.mjs`, etc.).
 JSX is always available in JS files, but for TypeScript, the `.tsx` extension is required to use JSX syntax.
 
 Embedded parts like CSS-in-JS have experimental partial support.
