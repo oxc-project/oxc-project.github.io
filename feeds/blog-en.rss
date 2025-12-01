@@ -4,7 +4,7 @@
         <title>The Oxidation Compiler Blog</title>
         <link>https://oxc.rs</link>
         <description>undefined</description>
-        <lastBuildDate>Mon, 01 Dec 2025 15:44:04 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 01 Dec 2025 16:52:53 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
@@ -1682,7 +1682,7 @@ for pointing out the error.</p>
 <span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">  "$schema"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"./node_modules/oxfmt/configuration_schema.json"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">,</span></span>
 <span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">  "ignorePatterns"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: []</span></span>
 <span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">}</span></span></code></pre>
-</div><p>While we don’t yet support all of Prettier’s configuration options in this alpha release, we do support the following major options: <code>printWidth</code>, <code>tabWidth</code>, <code>useTabs</code>, <code>semi</code>, <code>singleQuote</code>, <code>quoteProps</code>, <code>jsxSingleQuote</code>, <code>trailingComma</code>, <code>bracketSpacing</code>, <code>objectWrap</code>, <code>bracketSameLine</code>, <code>arrowParens</code>, <code>endOfLine</code>, and<code>singleAttributePerLine</code>.</p>
+</div><p>While we don’t yet support all of Prettier’s configuration options in this alpha release, we do support the following major options: <code>printWidth</code>, <code>tabWidth</code>, <code>useTabs</code>, <code>semi</code>, <code>singleQuote</code>, <code>quoteProps</code>, <code>jsxSingleQuote</code>, <code>trailingComma</code>, <code>bracketSpacing</code>, <code>objectWrap</code>, <code>bracketSameLine</code>, <code>arrowParens</code>, <code>endOfLine</code>, and <code>singleAttributePerLine</code>.</p>
 <p>Check out all of the options in our <a href="https://oxc.rs/docs/guide/usage/formatter.html#configuration-file" target="_blank" rel="noreferrer">documentation</a>.</p>
 <h3 id="terminal-output" tabindex="-1">Terminal Output <a class="header-anchor" href="#terminal-output" aria-label="Permalink to “Terminal Output”">&#8203;</a></h3>
 <p>Oxfmt's default behavior is equivalent to <code>prettier . --write</code>, providing the same UX as <code>cargo fmt</code> and producing no output. You can use <code>--check</code> to display formatting differences and enforce oxfmt usage in CI pipelines.</p>
