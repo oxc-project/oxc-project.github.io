@@ -349,17 +349,17 @@ Supported:
 - AST traversal.
 - AST exploration (`node.parent`, `context.sourceCode.getAncestors`).
 - Fixes.
+- Rule options.
 - Selectors ([ESLint docs](https://eslint.org/docs/latest/extend/selectors)).
 - `SourceCode` APIs (e.g. `context.sourceCode.getText(node)`).
+- `SourceCode` tokens APIs (e.g. `context.sourceCode.getTokens(node)`).
 - Scope analysis.
 - Plugins written in TypeScript (with NodeJS 22.18.0+).
 
 Not supported yet:
 
 - Language server (IDE) support.
-- Rule options.
 - Suggestions.
-- `SourceCode` APIs related to tokens (e.g. `context.sourceCode.getTokens(node)`).
 - Control flow analysis.
 
 We will be filling in the gaps in API support over the next few months, aiming to eventually support 100% of ESLint's
