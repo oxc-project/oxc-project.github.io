@@ -17,12 +17,24 @@ More information inside the `justfile` located on the root `oxc` project.
 
 After `just init` run `pnpm install` inside `editors/vscode` directory.
 
-## Building Extension and Installing it locally
+## Building and running the extension locally
 
-Inside `editors/vscode` run `pnpm build` to compile the vscode extension and build the release version of the language server.
-Run `pnpm install-extension` to install it on your VSCode Editor.
-Hit `CTRL` + `SHIFT` + `P` and the search for "Developer: Reload Window".
-You are able now to manual test your changes inside VSCode.
+There are two options for running and testing your changes to the oxc VS Code extension.
+
+**Via command line:**
+
+- Inside `editors/vscode`, run `pnpm build` to compile the vscode extension and build the release version of the language server.
+- Run `pnpm install-extension` to install it on your VS Code Editor.
+- Hit `CTRL` + `SHIFT` + `P` and the search for "Developer: Reload Window".
+- You are now able to manually test your changes inside VS Code.
+
+**Via VS Code itself:**
+
+- Open the `oxc` repository in VS Code.
+- Go to the "Run and Debug" tab in the left sidebar of your editor.
+- Select the `Launch VS Code Extension` configuration.
+- Hit the green play button at the top.
+- This will build the VS Code extension and launch a new VS Code window with the newly-built VS Code extension installed.
 
 ### Building Debug Version of Server
 
