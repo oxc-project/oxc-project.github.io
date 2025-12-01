@@ -30,7 +30,7 @@
     "lint-staged": "16.2.7",
     "markdown-it-container": "^4.0.0",
     "oxc-minify": "^0.99.0",
-    "oxfmt": "^0.15.0",
+    "oxfmt": "^0.16.0",
     "oxlint": "^1.14.0",
     "typescript": "~5.9.2",
     "vitepress": "2.0.0-alpha.15",
