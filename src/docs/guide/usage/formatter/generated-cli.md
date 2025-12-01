@@ -25,7 +25,7 @@ search: false
 - **`--with-node-modules`** &mdash;
   Format code in node_modules directory (skipped by default)
 
-## Miscellaneous
+## Misc Options
 
 - **`--lsp`** &mdash;
   Start language server protocol (LSP) server
