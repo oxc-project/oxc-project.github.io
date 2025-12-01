@@ -134,7 +134,7 @@ Check out all of the options in our [documentation](https://oxc.rs/docs/guide/us
 
 ### Terminal Output
 
-Oxfmt's default behavior is equivalent to `prettier . --write`, providing the same UX as `cargo fmt` and producing no output. You can use `--check` to display formatting differences.
+Oxfmt's default behavior is equivalent to `prettier . --write`, providing the same UX as `cargo fmt` and producing no output. You can use `--check` to display formatting differences and enforce oxfmt usage in CI pipelines.
 
 ## Beta Release Plans
 
