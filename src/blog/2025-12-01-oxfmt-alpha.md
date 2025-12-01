@@ -129,7 +129,7 @@ If your editor supports the JSON language server, you can start with this minima
 }
 ```
 
-While we don’t yet support all of Prettier’s configuration options in this alpha release, we do support the following major options: `printWidth`, `tabWidth`, `useTabs`, `semi`, `singleQuote`, `quoteProps`, `jsxSingleQuote`, `trailingComma`, `bracketSpacing`, `objectWrap`, `bracketSameLine`, `arrowParens`, `endOfLine`, and`singleAttributePerLine`.
+While we don’t yet support all of Prettier’s configuration options in this alpha release, we do support the following major options: `printWidth`, `tabWidth`, `useTabs`, `semi`, `singleQuote`, `quoteProps`, `jsxSingleQuote`, `trailingComma`, `bracketSpacing`, `objectWrap`, `bracketSameLine`, `arrowParens`, `endOfLine`, and `singleAttributePerLine`.
 
 Check out all of the options in our [documentation](https://oxc.rs/docs/guide/usage/formatter.html#configuration-file).
 
