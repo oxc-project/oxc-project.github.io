@@ -45,7 +45,7 @@ const isEmpty = foo.length === 0;
 
 This rule accepts a configuration object with the following properties:
 
-### nonZero
+### non-zero
 
 type: `"greater-than" | "not-equal"`
 

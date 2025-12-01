@@ -35,13 +35,16 @@ var a = 123;
 
 ## Configuration
 
-This rule accepts a configuration object with the following properties:
+This rule accepts one of the following string values:
 
-### bomOption
+### `"always"`
 
-type: `"always" | "never"`
+Always require a Unicode BOM (Byte Order Mark) at the beginning of the file.
 
-Configuration option to specify whether to require or disallow Unicode BOM.
+### `"never"`
+
+Never allow a Unicode BOM (Byte Order Mark) at the beginning of the file.
+This is the default option.
 
 ## How to use
 

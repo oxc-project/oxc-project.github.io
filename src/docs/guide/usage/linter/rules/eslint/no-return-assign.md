@@ -15,7 +15,7 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 ### What it does
 
-Disallows assignment operators in return statements
+Disallows assignment operators in return statements.
 
 ### Why is this bad?
 
@@ -46,15 +46,16 @@ function x() {
 
 ## Configuration
 
-This rule accepts a configuration object with the following properties:
+This rule accepts one of the following string values:
 
-### alwaysDisallowAssignmentInReturn
+### `"always"`
 
-type: `boolean`
+Disallow all assignments in return statements.
 
-default: `false`
+### `"except-parens"`
 
-Whether to always disallow assignment in return statements.
+Allow assignments in return statements only if they are enclosed in parentheses.
+This is the default mode.
 
 ## How to use
 

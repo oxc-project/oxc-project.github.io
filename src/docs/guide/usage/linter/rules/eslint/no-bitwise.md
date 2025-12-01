@@ -75,7 +75,7 @@ type: `boolean`
 
 default: `false`
 
-When set to true the `int32Hint` option allows the use of bitwise OR in |0
+When set to `true` the `int32Hint` option allows the use of bitwise OR in |0
 pattern for type casting.
 
 For example with `{ "int32Hint": true }` the following is permitted:

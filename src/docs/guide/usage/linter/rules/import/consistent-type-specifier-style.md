@@ -55,18 +55,15 @@ import Foo, { type Bar } from "Foo";
 
 ## Configuration
 
-This rule accepts a configuration object with the following properties:
+This rule accepts one of the following string values:
 
-### mode
+### `"prefer-top-level"`
 
-type: `"prefer-top-level" | "prefer-inline"`
+Prefer `import type { Foo } from 'foo'` for type imports.
 
-default: `"prefer-top-level"`
+### `"prefer-inline"`
 
-Specify whether to prefer top-level type-only imports or inline type specifiers.
-
-- `"prefer-top-level"`: `import type { Foo } from 'foo'`
-- `"prefer-inline"`: `import { type Foo } from 'foo'`
+Prefer `import { type Foo } from 'foo'` for type imports.
 
 ## How to use
 

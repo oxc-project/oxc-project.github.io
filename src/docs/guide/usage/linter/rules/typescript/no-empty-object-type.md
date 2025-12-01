@@ -93,6 +93,31 @@ Allowed values are:
 - `'always'`: to always allow object type literals with no fields
 - `'never'` _(default)_: to never allow object type literals with no fields
 
+### allowWithName
+
+type: `[
+  string,
+  null
+]`
+
+A stringified regular expression to allow interfaces and object type aliases with the configured name.
+
+This can be useful if your existing code style includes a pattern of declaring empty types with `{}` instead of `object`.
+
+Example of **incorrect** code for this rule with `{ allowWithName: 'Props$' }`:
+
+```ts
+interface InterfaceValue {}
+type TypeValue = {};
+```
+
+Example of **correct** code for this rule with `{ allowWithName: 'Props$' }`:
+
+```ts
+interface InterfaceProps {}
+type TypeProps = {};
+```
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

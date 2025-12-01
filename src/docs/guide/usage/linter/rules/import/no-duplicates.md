@@ -42,7 +42,7 @@ import * as a from "foo"; // separate statements for namespace imports
 import { b } from "foo";
 
 import { c } from "foo"; // separate type imports, unless
-import type { d } from "foo"; // `preferInline` is true
+import type { d } from "foo"; // `prefer-inline` is true
 ```
 
 ## Configuration

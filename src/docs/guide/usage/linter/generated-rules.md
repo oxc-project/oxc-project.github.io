@@ -6,7 +6,7 @@ search: false
 
 The progress of all rule implementations is tracked [here](https://github.com/oxc-project/oxc/issues/481).
 
-- Total number of rules: 617
+- Total number of rules: 618
 - Rules turned on by default: 103
 
 **Legend for 'Fixable?' column:**
@@ -238,7 +238,7 @@ Code that can be written to run faster.
 | [prefer-array-flat-map](/docs/guide/usage/linter/rules/unicorn/prefer-array-flat-map.html)                | unicorn    |         | 🛠️        |
 | [prefer-set-has](/docs/guide/usage/linter/rules/unicorn/prefer-set-has.html)                              | unicorn    |         | ⚠️🛠️️       |
 
-## Restriction (78):
+## Restriction (79):
 
 Lints which prevent the use of language and library features. Must not be enabled as a whole, should be considered on a case-by-case basis before enabling.
 
@@ -302,6 +302,7 @@ Lints which prevent the use of language and library features. Must not be enable
 | [no-non-null-asserted-nullish-coalescing](/docs/guide/usage/linter/rules/typescript/no-non-null-asserted-nullish-coalescing.html) | typescript |         |          |
 | [no-non-null-assertion](/docs/guide/usage/linter/rules/typescript/no-non-null-assertion.html)                                     | typescript |         |          |
 | [no-require-imports](/docs/guide/usage/linter/rules/typescript/no-require-imports.html)                                           | typescript |         | 🚧       |
+| [no-restricted-types](/docs/guide/usage/linter/rules/typescript/no-restricted-types.html)                                         | typescript |         | 🛠️💡      |
 | [no-var-requires](/docs/guide/usage/linter/rules/typescript/no-var-requires.html)                                                 | typescript |         |          |
 | [non-nullable-type-assertion-style](/docs/guide/usage/linter/rules/typescript/non-nullable-type-assertion-style.html)             | typescript |         | 🚧       |
 | [prefer-literal-enum-member](/docs/guide/usage/linter/rules/typescript/prefer-literal-enum-member.html)                           | typescript |         |          |

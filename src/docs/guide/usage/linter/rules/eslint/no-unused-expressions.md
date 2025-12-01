@@ -65,7 +65,7 @@ default: `false`
 
 When set to `true`, allows ternary operators in expressions.
 
-### enforceForJsx
+### enforceForJSX
 
 type: `boolean`
 

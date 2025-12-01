@@ -44,13 +44,11 @@ export { x, y };
 
 ## Configuration
 
-This rule accepts a configuration object with the following properties:
+This rule accepts one of the following string values:
 
-### absolute_first
+### `"absolute-first"`
 
-type: `"absolute-first" | "disable-absolute-first"`
-
-Whether to enforce absolute imports before relative imports.
+Forces absolute imports to be listed before relative imports.
 
 Examples of **incorrect** code for this rule with `"absolute-first"`:
 
@@ -65,6 +63,11 @@ Examples of **correct** code for this rule with `"absolute-first"`:
 import { y } from "bar";
 import { x } from "./foo";
 ```
+
+### `"disable-absolute-first"`
+
+Disables the absolute-first behavior.
+This is the default behavior.
 
 ## How to use
 
