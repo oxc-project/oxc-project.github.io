@@ -40,19 +40,19 @@ Install Oxfmt as a development dependency with your package manager of choice:
 ::: code-group
 
 ```bash [npm]
-$ npm add -D Oxfmt@latest
+$ npm add -D oxfmt@latest
 ```
 
 ```bash [pnpm]
-$ pnpm add -D Oxfmt@latest
+$ pnpm add -D oxfmt@latest
 ```
 
 ```bash [yarn]
-$ yarn add -D Oxfmt@latest
+$ yarn add -D oxfmt@latest
 ```
 
 ```bash [bun]
-$ bun add -D Oxfmt@latest
+$ bun add -D oxfmt@latest
 ```
 
 ```bash [deno]
