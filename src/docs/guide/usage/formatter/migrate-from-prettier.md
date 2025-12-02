@@ -29,7 +29,7 @@ See also [the Oxfmt FAQ](/docs/guide/usage/formatter.html#faqs) for any other po
 
 ## Step 1: Upgrade Prettier to v3.7 (Optional)
 
-This step is optional, but will make it easier to determine which differences between Oxfmt and prettier are "real".
+This step is optional, but will make it easier to determine which differences between Oxfmt and Prettier are "real".
 
 To minimize the number of changes when migrating to Oxfmt, you should upgrade Prettier to version 3.7 first and reformat all JS/TS files with it, as it is the latest release of Prettier (from Nov 2025) and will be most similar to the output of Oxfmt.
 
