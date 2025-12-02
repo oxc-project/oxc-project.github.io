@@ -42,6 +42,14 @@ default: `"always"`
 
 What to enforce for `/// <reference lib="..." />` references.
 
+#### `"always"`
+
+Allow triple-slash `lib` references.
+
+#### `"never"`
+
+Disallow triple-slash `lib` references.
+
 ### path
 
 type: `"always" | "never"`
@@ -50,6 +58,14 @@ default: `"never"`
 
 What to enforce for `/// <reference path="..." />` references.
 
+#### `"always"`
+
+Allow triple-slash `path` references.
+
+#### `"never"`
+
+Disallow triple-slash `path` references.
+
 ### types
 
 type: `"always" | "never" | "prefer-import"`
@@ -57,6 +73,26 @@ type: `"always" | "never" | "prefer-import"`
 default: `"prefer-import"`
 
 What to enforce for `/// <reference types="..." />` references.
+
+#### `"always"`
+
+Allow triple-slash `types` references.
+
+#### `"never"`
+
+Disallow triple-slash `types` references.
+
+#### `"prefer-import"`
+
+Prefer ES module import declarations over triple-slash `types` references.
+This option only reports when there is an existing `import` declaration for the same module.
+
+For example, this would be reported as a lint violation with `prefer-import`:
+
+```ts
+/// <reference types="foo" />
+import { bar } from "foo";
+```
 
 ## How to use
 

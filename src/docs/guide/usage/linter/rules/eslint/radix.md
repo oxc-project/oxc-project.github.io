@@ -19,7 +19,12 @@ Enforce the consistent use of the radix argument when using `parseInt()`.
 
 ### Why is this bad?
 
-Using the `parseInt()` function without specifying the radix can lead to unexpected results.
+Using the `parseInt()` function without specifying
+the radix can lead to unexpected results.
+
+See the
+[MDN documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt#radix)
+for more information.
 
 ### Examples
 
@@ -37,15 +42,15 @@ var num = parseInt("071", 10); // 71
 
 ## Configuration
 
-This rule accepts a configuration object with the following properties:
+This rule accepts one of the following string values:
 
-### radixType
+### `"always"`
 
-type: `"always" | "as-needed"`
+Always require the radix parameter when using `parseInt()`.
 
-default: `"always"`
+### `"as-needed"`
 
-Configuration option to specify when to require the radix parameter.
+Only require the radix parameter when necessary.
 
 ## How to use
 

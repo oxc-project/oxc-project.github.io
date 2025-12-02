@@ -34,6 +34,34 @@ Examples of **correct** code for this rule:
 [1, 2, 3]?.map(x => <BabelEslintApp key={x} />);
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### checkFragmentShorthand
+
+type: `boolean`
+
+default: `true`
+
+When true, check fragment shorthand `<>` for keys
+
+### checkKeyMustBeforeSpread
+
+type: `boolean`
+
+default: `true`
+
+When true, require key prop to be placed before any spread props
+
+### warnOnDuplicates
+
+type: `boolean`
+
+default: `true`
+
+When true, warn on duplicate key values
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

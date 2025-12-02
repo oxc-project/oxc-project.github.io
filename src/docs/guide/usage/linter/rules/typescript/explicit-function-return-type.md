@@ -117,7 +117,7 @@ default: `true`
 
 Whether to allow higher-order functions (functions that return another function) without return type annotations.
 
-### allowIifes
+### allowIIFEs
 
 type: `boolean`
 

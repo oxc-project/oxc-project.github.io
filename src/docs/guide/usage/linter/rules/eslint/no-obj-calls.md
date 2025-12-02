@@ -15,7 +15,10 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 ### What it does
 
-Disallow calling some global objects as functions
+Disallow calling some global objects as functions.
+
+It is safe to disable this rule when using TypeScript, because
+TypeScript's compiler enforces this check.
 
 ### Why is this bad?
 

@@ -55,7 +55,7 @@ This rule accepts a configuration object with the following properties:
 
 ### assert
 
-type: `"html-for" | "nesting" | "both" | "either"`
+type: `"htmlFor" | "nesting" | "both" | "either"`
 
 default: `"either"`
 

@@ -102,6 +102,8 @@ This rule accepts a configuration object with the following properties:
 
 type: `boolean`
 
+default: `true`
+
 Disallow using `import()` in type annotations, like `type T = import('foo')`
 
 ### fixStyle

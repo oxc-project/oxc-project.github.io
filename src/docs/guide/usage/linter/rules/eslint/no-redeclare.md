@@ -40,7 +40,7 @@ a = 10;
 
 This rule accepts a configuration object with the following properties:
 
-### builtInGlobals
+### builtinGlobals
 
 type: `boolean`
 

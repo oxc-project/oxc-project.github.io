@@ -25,7 +25,7 @@ Using the same type declaration style consistently helps with code readability.
 
 ### Examples
 
-By default this rule enforces the use of interfaces for object types.
+By default this rule enforces the use of `interface` for defining object types.
 
 Examples of **incorrect** code for this rule:
 
@@ -46,19 +46,11 @@ interface T {
 
 ## Configuration
 
-This rule accepts a configuration object with the following properties:
+This rule accepts one of the following string values:
 
-### config
+### `"interface"`
 
-type: `"interface" | "type"`
-
-default: `"interface"`
-
-Configuration option to enforce either `interface` or `type` for object type definitions.
-
-Setting to `type` enforces the use of types for object type definitions.
-
-Examples of **incorrect** code for this option:
+Prefer `interface` over `type` for object type definitions:
 
 ```typescript
 interface T {
@@ -66,7 +58,9 @@ interface T {
 }
 ```
 
-Examples of **correct** code for this option:
+### `"type"`
+
+Prefer `type` over `interface` for object type definitions:
 
 ```typescript
 type T = { x: number };
