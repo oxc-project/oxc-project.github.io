@@ -5,6 +5,9 @@ If you currently use Prettier as your code formatter, you can follow this guide 
 Note that Oxfmt is in alpha, and may not be suitable for production use in complex setups.
 For the beta milestone, we may provide migration commands.
 
+> oxfmt: `--migrate prettier` · Issue #15849 · oxc-project/oxc\
+> https://github.com/oxc-project/oxc/issues/15849
+
 ## Caveats for migrating to Oxfmt
 
 Before migrating, ensure that the current release of the Oxfmt alpha meets your project's needs. It is almost entirely compatible with Prettier v3.7 already for basic configurations, but less-common config options and other features are not yet implemented.
