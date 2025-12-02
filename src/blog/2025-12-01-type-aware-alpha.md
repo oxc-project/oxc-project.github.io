@@ -76,7 +76,7 @@ bunx oxlint --type-aware -A all -D typescript/no-floating-promises
 
 For more configuration options, see our [usage guide](/docs/guide/usage/linter/type-aware).
 
-## What's New
+## What's new
 
 ### Support for type-checking while linting
 
@@ -163,7 +163,7 @@ $ oxlint --type-aware
 
 [Add performance benchmarks and comparisons]
 
-## Technical Details
+## Technical details
 
 ### Architecture
 
@@ -183,7 +183,7 @@ tsgolint (Go)
 
 This design keeps Oxlint's core fast while leveraging TypeScript's type system through typescript-go. The frontend-backend separation means `oxlint` controls the user experience while `tsgolint` handles the heavy lifting of type analysis.
 
-### TypeScript Compatibility
+### TypeScript compatibility
 
 `tsgolint` is based on [typescript-go](https://github.com/microsoft/typescript-go), Microsoft's TypeScript v7.0 rewrite in Go, not the original TypeScript compiler. This means that you might encounter some features which are no longer supported.
 
@@ -195,16 +195,20 @@ This design keeps Oxlint's core fast while leveraging TypeScript's type system t
 
 If you're using deprecated features from TypeScript 6.0 or earlier, you'll need to migrate your codebase first. See the [TypeScript migration guide](https://github.com/microsoft/TypeScript/issues/62508#issuecomment-3348649259) for help updating deprecated tsconfig options.
 
-### Implementation Details
+### Implementation details
 
 `tsgolint` doesn't use typescript-go's public APIs. Instead, it compiles typescript-go by [shimming](https://github.com/oxc-project/tsgolint/tree/main/shim) internal APIs to make them accessible. We actively track typescript-go updates and fix breaking changes as needed.
 
 Our typescript-go fork is synced regularly using renovatebot, ensuring we stay current with the latest improvements and fixes.
 
-## What's Next
+### Known issues
+
+While `tsgolint` is ready for testing in production codebases, you may encounter issues with running out of memory when working with very large codebases. We are working on optimizing the memory usage for the next milestone. We would love if you tried `tsgolint` and reported any out-of-memory issues to us in the [`tsgolint` repository](https://github.com/oxc-project/tsgolint) and included some details about your project to help us improve memory usage.
+
+## What's next
 
 [Add roadmap and future plans]
 
-## Try It Out
+## Try it out
 
 [Add call to action and community information]
