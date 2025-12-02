@@ -3,7 +3,7 @@ title: Formatter
 outline: deep
 ---
 
-# Formatter (Prettier)
+# Formatter (oxfmt)
 
 We are currently porting Prettier and Biome Formatter to Oxc to create a high-performance, Prettier-compatible formatter.
 
@@ -35,7 +35,7 @@ The Oxc formatter is built around the same core concepts as Prettier but with si
 ### Missing Features
 
 - [ ] Plugin system compatibility
-- [ ] Configuration file support
+- [x] Configuration file support
 - [ ] Editor integrations
-- [ ] CLI tool
-- [ ] Language server protocol
+- [x] CLI tool
+- [x] Language server protocol

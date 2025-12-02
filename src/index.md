@@ -24,7 +24,7 @@ features:
     link: /docs/guide/usage/linter
     linkText: Usage guide
   - title: Formatter 🚧
-    details: 30x faster than Prettier<br/>Prettier compatible<br/>In Alpha Stage
+    details: 30x faster than Prettier<br/>Prettier-compatible<br/>In Alpha Stage
     link: /docs/guide/usage/formatter
     linkText: Usage guide
   - title: Transformer ✅

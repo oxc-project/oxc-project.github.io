@@ -3,14 +3,14 @@
 Oxfmt (`/oh-eks-for-mat/`) is a Prettier-compatible code formatter.
 
 :::info
-Oxfmt is currently a work in progress.
+Oxfmt is currently in alpha.
 
 Please join the discussion!
 
 > RFC: Formatter · oxc-project/oxc · Discussion #13608\
 > https://github.com/oxc-project/oxc/discussions/13608
 
-For now, you may use [@prettier/plugin-oxc](https://github.com/prettier/prettier/tree/main/packages/plugin-oxc) in prettier to gain some parsing speed.
+Waiting on oxfmt to implement additional features? Consider using [@prettier/plugin-oxc](https://github.com/prettier/prettier/tree/main/packages/plugin-oxc) in Prettier to gain some parsing speed in the meantime.
 :::
 
 ## Installation
