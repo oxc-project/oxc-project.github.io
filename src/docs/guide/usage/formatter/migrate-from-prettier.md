@@ -1,53 +1,55 @@
-# Migrating from Prettier to oxfmt
+# Migrating from Prettier to Oxfmt
 
-If you currently use Prettier as your code formatter, you can follow this guide to migrate to oxfmt.
+If you currently use Prettier as your code formatter, you can follow this guide to migrate to Oxfmt.
 
-Note that oxfmt is in alpha, and may not be suitable for production use in complex setups.
+Note that Oxfmt is in alpha, and may not be suitable for production use in complex setups.
+For the beta milestone, we may provide migration commands.
 
-## Caveats for migrating to oxfmt
+## Caveats for migrating to Oxfmt
 
-Before migrating, ensure that the current release of the oxfmt alpha meets your project's needs. It is almost entirely compatible with Prettier 3.7 already for basic configurations, but less-common config options and other features are not yet implemented.
+Before migrating, ensure that the current release of the Oxfmt alpha meets your project's needs. It is almost entirely compatible with Prettier v3.7 already for basic configurations, but less-common config options and other features are not yet implemented.
 
-The oxfmt alpha only supports formatting JavaScript and TypeScript files (including those with JSX syntax). If you need support for non-JSX frameworks like Vue or Ember, or other languages like JSON, YAML, or Markdown, you will likely want to wait.
+The Oxfmt alpha only supports formatting JavaScript and TypeScript files (including those with JSX syntax). If you need support for non-JSX frameworks like Vue or Ember, or other languages like JSON, YAML, or Markdown, you will likely want to wait.
 
-Other important considerations when migrating from Prettier to oxfmt:
+Other important considerations when migrating from Prettier to Oxfmt:
 
-- oxfmt's formatting output is closest to Prettier v3.7. If you are using an older version of Prettier, you will see more differences in formatting output.
-- oxfmt aims to be mostly compatible with Prettier out-of-the-box, but there may still be some minor differences in formatting output in edge-cases.
-- oxfmt uses a `printWidth` of 100 characters by default, whereas Prettier's default is 80. If your Prettier configuration does not set the `printWidth` setting explicitly, you should make sure to set `"printWidth": 80` in your oxfmt config file to minimize differences.
+- Oxfmt's formatting output is closest to Prettier v3.7. If you are using an older version of Prettier, you will see more differences in formatting output.
+- Oxfmt aims to be mostly compatible with Prettier out-of-the-box, but there may still be some minor differences in formatting output in edge-cases.
+- Oxfmt uses a `printWidth` of 100 characters by default, whereas Prettier's default is 80. If your Prettier configuration does not set the `printWidth` setting explicitly, you should make sure to set `"printWidth": 80` in your Oxfmt config file to minimize differences.
 - Prettier plugins are not yet supported.
 - Some Prettier options are not supported. See the [oxfmt CLI documentation](/docs/guide/usage/formatter/config-file-reference.html) for the full list of currently-supported options.
-- oxfmt supports an `--lsp` flag to spin up a Language Server Protocol server, but editor/IDE integration is still being developed and has not been tested/documented yet for most editors.
-- See [the oxfmt FAQ](/docs/guide/usage/formatter.html#faqs) for any other potential caveats or limitations you may need to consider.
+- Oxfmt supports an `--lsp` flag to spin up a Language Server Protocol server, but editor/IDE integration is still being developed and has not been tested/documented yet for most editors.
 
-Many of these limitations will be addressed in the future, with the Beta or Stable releases of oxfmt.
+Many of these limitations will be addressed in the future, with the Beta or Stable releases of Oxfmt.
 
-## Step 1: Upgrade Prettier to v3.7
+See also [the Oxfmt FAQ](/docs/guide/usage/formatter.html#faqs) for any other potential caveats or limitations you may need to consider.
 
-This step is optional, but will make it easier to determine which differences between oxfmt and prettier are "real".
+## Step 1: Upgrade Prettier to v3.7 (Optional)
 
-To minimize the number of changes when migrating to oxfmt, you should upgrade Prettier to version 3.7 first and reformat all JS/TS files with it, as it is the latest release of Prettier (from Nov 2025) and will be most similar to the output of oxfmt.
+This step is optional, but will make it easier to determine which differences between Oxfmt and prettier are "real".
 
-## Step 2: Install oxfmt
+To minimize the number of changes when migrating to Oxfmt, you should upgrade Prettier to version 3.7 first and reformat all JS/TS files with it, as it is the latest release of Prettier (from Nov 2025) and will be most similar to the output of Oxfmt.
 
-Install oxfmt as a development dependency with your package manager of choice:
+## Step 2: Install Oxfmt
+
+Install Oxfmt as a development dependency with your package manager of choice:
 
 ::: code-group
 
 ```bash [npm]
-$ npm add -D oxfmt@latest
+$ npm add -D Oxfmt@latest
 ```
 
 ```bash [pnpm]
-$ pnpm add -D oxfmt@latest
+$ pnpm add -D Oxfmt@latest
 ```
 
 ```bash [yarn]
-$ yarn add -D oxfmt@latest
+$ yarn add -D Oxfmt@latest
 ```
 
 ```bash [bun]
-$ bun add -D oxfmt@latest
+$ bun add -D Oxfmt@latest
 ```
 
 ```bash [deno]
@@ -58,15 +60,14 @@ $ deno add -D npm:oxfmt@latest
 
 ## Step 3: Migrate Prettier configuration file
 
-`.oxfmtrc.jsonc` is the configuration file for oxfmt. Only JSON files are supported.
+`.oxfmtrc.jsonc` is the configuration file for Oxfmt. Only JSON files are supported.
 
-A basic .oxfmtrc.jsonc file looks like this:
+A basic `.oxfmtrc.jsonc` file looks like this:
 
 ```jsonc
 {
   "$schema": "./node_modules/oxfmt/configuration_schema.json",
-  "singleQuote": false,
-  "printWidth": 100,
+  "printWidth": 80,
 }
 ```
 
@@ -130,24 +131,13 @@ Update any formatting scripts you currently have, for example in `package.json`,
 
 ### `package.json` scripts
 
-Before:
-
-```json
+```diff
 {
   "scripts": {
-    "format": "prettier --write .",
-    "format:check": "prettier --check ."
-  }
-}
-```
-
-After:
-
-```json
-{
-  "scripts": {
-    "format": "oxfmt",
-    "format:check": "oxfmt --check"
+-   "format": "prettier --write .",
++   "format": "oxfmt",
+-   "format:check": "prettier --check ."
++   "format:check": "oxfmt --check"
   }
 }
 ```
@@ -156,41 +146,24 @@ After:
 
 Update any CI workflows that run Prettier, particularly `prettier --check`.
 
-Before:
-
-```yaml
-- name: Check formatting
-  run: yarn prettier --check .
-```
-
-After:
-
-```yaml
-- name: Check formatting
-  run: yarn oxfmt --check
+```diff
+  - name: Check formatting
+-   run: yarn prettier --check .
++   run: yarn oxfmt --check
 ```
 
 ### Git Hooks (e.g. husky, lint-staged)
 
-Before:
-
-```json
+```diff
 "lint-staged": {
-  "*": "prettier --write"
-}
-```
-
-After:
-
-```json
-"lint-staged": {
-  "*": "oxfmt --no-error-on-unmatched-pattern"
+- "*": "prettier --write --no-error-on-unmatched-pattern"
++ "*": "oxfmt --no-error-on-unmatched-pattern"
 }
 ```
 
 ## Step 5: Run formatter
 
-Run oxfmt on your codebase to check for any changes and ensure that the configuration was migrated correctly:
+Run Oxfmt on your codebase to check for any changes and ensure that the configuration was migrated correctly:
 
 **TODO: Add code blocks for other pkg managers.**
 
@@ -206,21 +179,19 @@ If you no longer need Prettier, you can uninstall it:
 
 ## Step 7: Done!
 
-You have now migrated to oxfmt :)
+You have now migrated to Oxfmt :)
 
 Please see the section below for any additional, optional steps you may need to take.
 
-### Miscellaneous migration steps
-
 These are only applicable for some setups, so skip them if they don't apply to you.
 
-#### Update editor integrations
+### Update editor integrations
 
-**TODO: Clarify the status of VS Code integration, and also add a note for potentially using oxfmt in JetBrains IDEs + others via the LSP server.**
+**TODO: Clarify the status of VS Code integration, and also add a note for potentially using Oxfmt in JetBrains IDEs + others via the LSP server.**
 
-**Note that the oxc VS Code extension includes oxfmt support, but it is experimental and incomplete**. It may not fully work yet, so please be mindful of this before migrating.
+**Note that the oxc VS Code extension includes Oxfmt support, but it is experimental and incomplete**. It may not fully work yet, so please be mindful of this before migrating.
 
-If you have any editor integrations for Prettier, update them to use oxfmt instead. For example, update `.vscode/settings.json` to use oxfmt:
+If you have any editor integrations for Prettier, update them to use Oxfmt instead. For example, update `.vscode/settings.json` to use Oxfmt:
 
 Before:
 
@@ -240,40 +211,29 @@ After:
 
 And update `.vscode/extensions.json` to recommend the oxc extension instead of Prettier.
 
-Before:
-
-```json
+```diff
 {
   "recommendations": [
-    "esbenp.prettier-vscode"
+-   "esbenp.prettier-vscode"
++   "oxc.oxc-vscode"
   ]
 }
 ```
 
-After:
+### Update `CONTRIBUTING.md`
 
-```json
-{
-  "recommendations": [
-    "oxc.oxc-vscode"
-  ]
-}
-```
+If you have a `CONTRIBUTING.md` file that references Prettier, update those references to use Oxfmt.
 
-#### Update CONTRIBUTING.md
+### Update `AGENTS.md`/`CLAUDE.md`
 
-If you have a CONTRIBUTING.md file that references Prettier, update those references to use oxfmt.
+If you use an `AGENTS.md` or `CLAUDE.md` file, you should check for references to Prettier. If you have any references in those files, you'll want to update them to reference Oxfmt and Oxfmt's CLI commands instead.
 
-#### Update AGENTS.md/CLAUDE.md
-
-If you use an AGENTS.md or CLAUDE.md file, you should check for references to Prettier. If you have any references in those files, you'll want to update them to reference oxfmt and oxfmt's CLI commands instead.
-
-#### Update lint rules
+### Update lint rules
 
 If you have any lint rules that check for Prettier formatting (e.g. `eslint-plugin-prettier`), you should remove them.
 
 While you're at it, you could also consider migrating to oxlint ;)
 
-#### Create/update `.git-blame-ignore-revs`
+### Create/update `.git-blame-ignore-revs`
 
-If you want to avoid extra noise in your `git blame` history, you can add the commit SHA where you reformatted files using oxfmt to your `.git-blame-ignore-revs` file. This will make `git blame` ignore that commit when showing blame information. This file is supported natively by git, and by both GitHub and GitLab.
+If you want to avoid extra noise in your `git blame` history, you can add the commit SHA where you reformatted files using Oxfmt to your `.git-blame-ignore-revs` file. This will make `git blame` ignore that commit when showing blame information. This file is supported natively by git, and by both GitHub and GitLab.
