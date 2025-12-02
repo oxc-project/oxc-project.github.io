@@ -162,10 +162,10 @@ For import sorting functionality, we provide experimental behavior based on `esl
 
 ### How does editor integration work?
 
-By running `oxfmt --lsp`, you can start a language server that responds to `textDocument/formatting` requests.
+For VS Code, the Oxc extension is available from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=oxc.oxc-vscode) and [Open VSX Registry](https://open-vsx.org/extension/oxc/oxc-vscode).
+
+For other editors, by running `oxfmt --lsp` you can start a language server that responds to standard `textDocument/formatting` requests.
 
 Formatting via stdin and stdout are not supported, but we have confirmed that some editors and extensions can work with the CLI by configuring them to use temporary files.
 
-Oxc VS Code extension is also available.
-
-However, both methods have some limitations, such as not supporting formatting of embedded parts.
+However, these methods have some limitations, such as not supporting formatting of embedded parts.
