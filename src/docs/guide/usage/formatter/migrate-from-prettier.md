@@ -215,7 +215,7 @@ If you have a `CONTRIBUTING.md` file that references Prettier, update those refe
 
 ### Update `AGENTS.md`/`CLAUDE.md`
 
-If you use an `AGENTS.md` or `CLAUDE.md` file, you should check for references to Prettier. If you have any references in those files, you'll want to update them to reference Oxfmt and Oxfmt's CLI commands instead.
+If you use an `AGENTS.md` or `CLAUDE.md` file to help LLM tools understand your codebase, you should check for references to Prettier. If you have any references in those files, you'll want to update them to reference Oxfmt and Oxfmt's CLI commands instead.
 
 ### Update lint rules
 
