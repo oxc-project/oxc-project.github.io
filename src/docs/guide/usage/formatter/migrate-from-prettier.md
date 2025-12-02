@@ -168,19 +168,14 @@ Update any CI workflows that run Prettier, particularly `prettier --check`.
 
 Run Oxfmt on your codebase to check for any changes and ensure that the configuration was migrated correctly:
 
-**TODO: Add code blocks for other pkg managers.**
+```sh
+# Your script specified in Step 4
+npm run format
+```
 
-`yarn oxfmt` (or `npm run oxfmt`, etc.)
+If you no longer need Prettier, you can uninstall for now.
 
-## Step 6: Uninstall Prettier (optional)
-
-If you no longer need Prettier, you can uninstall it:
-
-**TODO: Add code blocks for other pkg managers.**
-
-`yarn remove prettier`, etc.
-
-## Step 7: Done!
+## Done!
 
 You have now migrated to Oxfmt :)
 
@@ -196,19 +191,10 @@ These are only applicable for some setups, so skip them if they don't apply to y
 
 If you have any editor integrations for Prettier, update them to use Oxfmt instead. For example, update `.vscode/settings.json` to use Oxfmt:
 
-Before:
-
-```json
+```diff
 {
-  "editor.defaultFormatter": "esbenp.prettier-vscode"
-}
-```
-
-After:
-
-```json
-{
-  "editor.defaultFormatter": "oxc.oxc-vscode"
+- "editor.defaultFormatter": "esbenp.prettier-vscode"
++ "editor.defaultFormatter": "oxc.oxc-vscode"
 }
 ```
 
