@@ -47,7 +47,7 @@ $ deno add -D npm:oxfmt@latest
 
 Oxfmt follows Prettier’s configuration format. If you are using Prettier with a JSON configuration file, you can rename it to `.oxfmtrc.jsonc`:
 
-```jsx
+```bash
 cp .prettierrc.json .oxfmtrc.jsonc
 ```
 

@@ -10,9 +10,9 @@ It may be surprising that new lines in strings are not removed and replaced with
 
 ```js
 // this code is 16 bytes
-const foo="a\nb"
+const foo = "a\nb";
 
 // this code is 15 bytes
-const foo=`a
-b`
+const foo = `a
+b`;
 ```
