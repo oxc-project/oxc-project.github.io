@@ -47,7 +47,7 @@
   },
   "pnpm": {
     "overrides": {
-      "vitepress>vite": "npm:rolldown-vite@latest"
+      "vitepress>vite": "npm:vite@8.0.0-beta.0"
     },
     "onlyBuiltDependencies": [
       "esbuild"
