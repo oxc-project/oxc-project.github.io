@@ -33,6 +33,34 @@ if (false) {
 }
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### minimumDescriptionLength
+
+type: `integer`
+
+default: `3`
+
+Minimum description length required when using directives with `allow-with-description`.
+
+### ts-check
+
+How to handle the `@ts-check` directive.
+
+### ts-expect-error
+
+How to handle the `@ts-expect-error` directive.
+
+### ts-ignore
+
+How to handle the `@ts-ignore` directive.
+
+### ts-nocheck
+
+How to handle the `@ts-nocheck` directive.
+
 ## How to use
 
 To **enable** this rule in the CLI or using the config file, you can use:

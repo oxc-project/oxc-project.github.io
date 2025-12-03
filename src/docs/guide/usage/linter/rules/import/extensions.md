@@ -109,7 +109,7 @@ default: `"never"`
 
 Configuration for `.jsx` file extensions.
 
-## requireExtension
+### requireExtension
 
 type: `string | null`
 

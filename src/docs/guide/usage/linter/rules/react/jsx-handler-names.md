@@ -72,19 +72,13 @@ Event handler prop prefixes to check against.
 
 ### eventHandlerPropRegex
 
-type: `[
-  string,
-  null
-]`
+type: `string | null`
 
 Compiled regex for event handler prop prefixes.
 
 ### eventHandlerRegex
 
-type: `[
-  string,
-  null
-]`
+type: `string | null`
 
 Compiled regex for event handler prefixes.
 

@@ -36,7 +36,7 @@ var foo = Boolean(!!bar);
 if (!!foo) {}
 if (Boolean(foo)) {}
 
-// with "enforceForLogicalOperands" option enabled
+// with "enforceForInnerExpressions" option enabled
 if (!!foo || bar) {}
 ```
 
@@ -49,7 +49,7 @@ var foo = Boolean(bar);
 if (foo) {}
 if (foo) {}
 
-// with "enforceForLogicalOperands" option enabled
+// with "enforceForInnerExpressions" option enabled
 if (foo || bar) {}
 ```
 

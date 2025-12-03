@@ -41,7 +41,7 @@ const clone = structuredClone(foo);
 
 This rule accepts a configuration object with the following properties:
 
-### allowedFunctions
+### functions
 
 type: `string[]`
 

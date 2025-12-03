@@ -57,33 +57,6 @@ describe("foo", function() {
 });
 ```
 
-#### Options
-
-This rule can be configured as follows
-
-```json5
-{
-    type: 'object',
-    properties: {
-        fn: {
-            enum: ['it', 'test'],
-        },
-        withinDescribe: {
-            enum: ['it', 'test'],
-        },
-    },
-    additionalProperties: false,
-}
-```
-
-##### fn
-
-Decides whether to use `test` or `it`.
-
-##### withinDescribe
-
-Decides whether to use `test` or `it` within a `describe` scope.
-
 This rule is compatible with [eslint-plugin-vitest](https://github.com/veritem/eslint-plugin-vitest/blob/v1.1.9/docs/rules/consistent-test-it.md),
 to use it, add the following configuration to your `.eslintrc.json`:
 
@@ -94,6 +67,27 @@ to use it, add the following configuration to your `.eslintrc.json`:
   }
 }
 ```
+
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### fn
+
+type: `"it" | "test"`
+
+default: `"test"`
+
+Decides whether to use `test` or `it`.
+
+### withinDescribe
+
+type: `"it" | "test"`
+
+default: `"it"`
+
+Decides whether to use `test` or `it` within a `describe` scope.
+If only `fn` is provided, this will default to the value of `fn`.
 
 ## How to use
 

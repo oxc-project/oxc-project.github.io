@@ -339,10 +339,7 @@ default: `true`
 
 ### capIsNewExceptionPattern
 
-type: `[
-  string,
-  null
-]`
+type: `string | null`
 
 A regex pattern to match exceptions for functions with names starting with an uppercase letter.
 
@@ -364,10 +361,7 @@ default: `true`
 
 ### newIsCapExceptionPattern
 
-type: `[
-  string,
-  null
-]`
+type: `string | null`
 
 A regex pattern to match exceptions for constructor names starting with an uppercase letter.
 

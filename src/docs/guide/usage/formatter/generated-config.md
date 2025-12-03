@@ -7,7 +7,7 @@ search: false
 Most options are the same as Prettier's options.
 See also <https://prettier.io/docs/options>
 
-# arrowParens
+## arrowParens
 
 type: `string | null`
 
@@ -25,25 +25,25 @@ type: `boolean | null`
 
 Print spaces between brackets in object literals. (Default: true)
 
-# embeddedLanguageFormatting
+## embeddedLanguageFormatting
 
 type: `string | null`
 
 Control whether formats quoted code embedded in the file. (Default: "auto")
 
-# endOfLine
+## endOfLine
 
 type: `string | null`
 
 Which end of line characters to apply. (Default: "lf")
 
-# experimentalSortImports
+## experimentalSortImports
 
 type: `object | null`
 
 Experimental: Sort import statements. Disabled by default.
 
-## experimentalSortImports.groups
+### experimentalSortImports.groups
 
 type: `array | null`
 
@@ -51,39 +51,43 @@ Custom groups configuration for organizing imports.
 Each array element represents a group, and multiple group names in the same array are treated as one.
 Accepts both `string` and `string[]` as group elements.
 
-### experimentalSortImports.groups[n]
+#### experimentalSortImports.groups[n]
 
 type: `string[]`
 
-## experimentalSortImports.ignoreCase
+### experimentalSortImports.ignoreCase
 
 type: `boolean`
 
 default: `true`
 
-## experimentalSortImports.newlinesBetween
+### experimentalSortImports.internalPattern
+
+type: `string[]`
+
+### experimentalSortImports.newlinesBetween
 
 type: `boolean`
 
 default: `true`
 
-# experimentalSortImports.order
+### experimentalSortImports.order
 
 type: `string | null`
 
-## experimentalSortImports.partitionByComment
+### experimentalSortImports.partitionByComment
 
 type: `boolean`
 
 default: `false`
 
-## experimentalSortImports.partitionByNewline
+### experimentalSortImports.partitionByNewline
 
 type: `boolean`
 
 default: `false`
 
-## experimentalSortImports.sortSideEffects
+### experimentalSortImports.sortSideEffects
 
 type: `boolean`
 
@@ -101,7 +105,7 @@ type: `boolean | null`
 
 Use single quotes instead of double quotes in JSX. (Default: false)
 
-# objectWrap
+## objectWrap
 
 type: `string | null`
 
@@ -114,7 +118,7 @@ type: `integer | null`
 
 The line length that the printer will wrap on. (Default: 100)
 
-# quoteProps
+## quoteProps
 
 type: `string | null`
 
@@ -144,7 +148,7 @@ type: `integer | null`
 
 Number of spaces per indentation level. (Default: 2)
 
-# trailingComma
+## trailingComma
 
 type: `string | null`
 
