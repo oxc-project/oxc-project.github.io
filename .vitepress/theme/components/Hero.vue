@@ -1,6 +1,7 @@
 <script setup lang="ts">
+import { VPButton } from "@voidzero-dev/vitepress-theme";
 import { withBase } from "vitepress";
-import { type DefaultTheme, VPButton } from "vitepress/theme";
+import { type DefaultTheme } from "vitepress/theme";
 import { inject, onMounted, onUnmounted, type Ref, ref } from "vue";
 
 interface Vec {

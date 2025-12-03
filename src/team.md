@@ -11,7 +11,7 @@ import {
   VPTeamPageTitle,
   VPTeamPageSection,
   VPTeamMembers
-} from 'vitepress/theme'
+} from '@voidzero-dev/vitepress-theme'
 import { CORE_TEAM_MEMBERS, CONSULTANTS, EMERITI } from '@constants/team'
 </script>
 

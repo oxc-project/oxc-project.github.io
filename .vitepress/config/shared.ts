@@ -108,6 +108,7 @@ export const sharedConfig = defineConfig({
     pageData.frontmatter.head.push(["meta", { property: "og:url", content: url }]);
   },
   themeConfig: {
+    variant: 'oxc',
     siteTitle: "Oxc",
     logo: "https://cdn.jsdelivr.net/gh/oxc-project/oxc-assets/round.svg",
     search: {
@@ -134,6 +135,21 @@ export const sharedConfig = defineConfig({
     },
   },
   vite: {
+    optimizeDeps: {
+      exclude: ['@docsearch/css'],
+    },
+    server: {
+      fs: {
+        // Allow serving files from the linked theme package
+        allow: [resolve(__dirname, '..', '..', '..')],
+      },
+      watch: {
+        ignored: ['!**/node_modules/@voidzero-dev/**'],
+      },
+    },
+    ssr: {
+      noExternal: ['@voidzero-dev/vitepress-theme'],
+    },
     plugins: [
       groupIconVitePlugin({
         customIcon: {
