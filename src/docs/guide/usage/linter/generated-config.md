@@ -57,7 +57,7 @@ Example
 }
 ```
 
-### categories
+## categories
 
 type: `object`
 
@@ -79,21 +79,21 @@ Example
 }
 ```
 
-#### categories.correctness
+### categories.correctness
 
-#### categories.nursery
+### categories.nursery
 
-#### categories.pedantic
+### categories.pedantic
 
-#### categories.perf
+### categories.perf
 
-#### categories.restriction
+### categories.restriction
 
-#### categories.style
+### categories.style
 
-#### categories.suspicious
+### categories.suspicious
 
-### env
+## env
 
 type: `Record<string, boolean>`
 
@@ -112,7 +112,7 @@ are resolved relative to the location of the configuration file that contains th
 property. The configuration files are merged from the first to the last, with the last file
 overriding the previous ones.
 
-### globals
+## globals
 
 type: `Record<string, string>`
 
@@ -157,33 +157,33 @@ JS plugins.
 Note: JS plugins are experimental and not subject to semver.
 They are not supported in language server at present.
 
-### overrides
+## overrides
 
 type: `array`
 
-#### overrides[n]
+### overrides[n]
 
 type: `object`
 
-##### overrides[n].env
+#### overrides[n].env
 
 type: `object | null`
 
 Environments enable and disable collections of global variables.
 
-###### overrides[n].files
+#### overrides[n].files
 
 type: `string[]`
 
 A set of glob patterns.
 
-##### overrides[n].globals
+#### overrides[n].globals
 
 type: `object | null`
 
 Enabled or disabled specific global variables.
 
-##### overrides[n].jsPlugins
+#### overrides[n].jsPlugins
 
 type: `string[]`
 
@@ -192,7 +192,7 @@ JS plugins for this override.
 Note: JS plugins are experimental and not subject to semver.
 They are not supported in language server at present.
 
-##### overrides[n].plugins
+#### overrides[n].plugins
 
 type: `array | null`
 
@@ -201,11 +201,11 @@ default: `null`
 Optionally change what plugins are enabled for this override. When
 omitted, the base config's plugins are used.
 
-###### overrides[n].plugins[n]
+##### overrides[n].plugins[n]
 
 type: `string`
 
-###### overrides[n].rules
+#### overrides[n].rules
 
 type: `object`
 
@@ -228,13 +228,13 @@ The `plugins` array should reflect all of the plugins you want to use.
 
 type: `string`
 
-### rules
+## rules
 
 type: `object`
 
 See [Oxlint Rules](https://oxc.rs/docs/guide/usage/linter/rules.html)
 
-### settings
+## settings
 
 type: `object`
 
@@ -266,11 +266,11 @@ Here's an example if you're using Next.js in a monorepo:
 }
 ```
 
-##### settings.jsdoc
+### settings.jsdoc
 
 type: `object`
 
-###### settings.jsdoc.augmentsExtendsReplacesDocs
+#### settings.jsdoc.augmentsExtendsReplacesDocs
 
 type: `boolean`
 
@@ -278,7 +278,7 @@ default: `false`
 
 Only for `require-(yields|returns|description|example|param|throws)` rule
 
-###### settings.jsdoc.exemptDestructuredRootsFromChecks
+#### settings.jsdoc.exemptDestructuredRootsFromChecks
 
 type: `boolean`
 
@@ -286,7 +286,7 @@ default: `false`
 
 Only for `require-param-type` and `require-param-description` rule
 
-###### settings.jsdoc.ignoreInternal
+#### settings.jsdoc.ignoreInternal
 
 type: `boolean`
 
@@ -294,7 +294,7 @@ default: `false`
 
 For all rules but NOT apply to `empty-tags` rule
 
-###### settings.jsdoc.ignorePrivate
+#### settings.jsdoc.ignorePrivate
 
 type: `boolean`
 
@@ -302,7 +302,7 @@ default: `false`
 
 For all rules but NOT apply to `check-access` and `empty-tags` rule
 
-###### settings.jsdoc.ignoreReplacesDocs
+#### settings.jsdoc.ignoreReplacesDocs
 
 type: `boolean`
 
@@ -310,7 +310,7 @@ default: `true`
 
 Only for `require-(yields|returns|description|example|param|throws)` rule
 
-###### settings.jsdoc.implementsReplacesDocs
+#### settings.jsdoc.implementsReplacesDocs
 
 type: `boolean`
 
@@ -318,7 +318,7 @@ default: `false`
 
 Only for `require-(yields|returns|description|example|param|throws)` rule
 
-###### settings.jsdoc.overrideReplacesDocs
+#### settings.jsdoc.overrideReplacesDocs
 
 type: `boolean`
 
@@ -326,13 +326,13 @@ default: `true`
 
 Only for `require-(yields|returns|description|example|param|throws)` rule
 
-###### settings.jsdoc.tagNamePreference
+#### settings.jsdoc.tagNamePreference
 
 type: `object`
 
 default: `{}`
 
-##### settings.jsx-a11y
+### settings.jsx-a11y
 
 type: `object`
 
@@ -342,7 +342,7 @@ See
 [eslint-plugin-jsx-a11y](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y#configurations)'s
 configuration for a full reference.
 
-###### settings.jsx-a11y.attributes
+#### settings.jsx-a11y.attributes
 
 type: `Record<string, array>`
 
@@ -365,7 +365,7 @@ Example:
 }
 ```
 
-###### settings.jsx-a11y.components
+#### settings.jsx-a11y.components
 
 type: `Record<string, string>`
 
@@ -389,7 +389,7 @@ Example:
 }
 ```
 
-###### settings.jsx-a11y.polymorphicPropName
+#### settings.jsx-a11y.polymorphicPropName
 
 type: `string | null`
 
@@ -406,21 +406,21 @@ For example, if you set the `polymorphicPropName` to `as`, then this element:
 Will be treated as an `h3`. If not set, this component will be treated
 as a `Box`.
 
-##### settings.next
+### settings.next
 
 type: `object`
 
 Configure Next.js plugin rules.
 
-####### settings.next.rootDir
+#### settings.next.rootDir
 
 type: `array | string`
 
-######## settings.next.rootDir[n]
+##### settings.next.rootDir[n]
 
 type: `string`
 
-##### settings.react
+### settings.react
 
 type: `object`
 
@@ -428,7 +428,7 @@ Configure React plugin rules.
 
 Derived from [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react#configuration-legacy-eslintrc-)
 
-###### settings.react.formComponents
+#### settings.react.formComponents
 
 type: `array`
 
@@ -454,19 +454,19 @@ Example:
 }
 ```
 
-####### settings.react.formComponents[n]
+##### settings.react.formComponents[n]
 
 type: `object | string`
 
-######## settings.react.formComponents[n].attribute
+###### settings.react.formComponents[n].attribute
 
 type: `string`
 
-######## settings.react.formComponents[n].name
+###### settings.react.formComponents[n].name
 
 type: `string`
 
-###### settings.react.linkComponents
+#### settings.react.linkComponents
 
 type: `array`
 
@@ -493,19 +493,19 @@ Example:
 }
 ```
 
-####### settings.react.linkComponents[n]
+##### settings.react.linkComponents[n]
 
 type: `object | string`
 
-######## settings.react.linkComponents[n].attribute
+###### settings.react.linkComponents[n].attribute
 
 type: `string`
 
-######## settings.react.linkComponents[n].name
+###### settings.react.linkComponents[n].name
 
 type: `string`
 
-##### settings.vitest
+### settings.vitest
 
 type: `object`
 
@@ -514,7 +514,7 @@ Configure Vitest plugin rules.
 See [eslint-plugin-vitest](https://github.com/veritem/eslint-plugin-vitest)'s
 configuration for a full reference.
 
-###### settings.vitest.typecheck
+#### settings.vitest.typecheck
 
 type: `boolean`
 
