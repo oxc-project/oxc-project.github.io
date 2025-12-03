@@ -7,7 +7,11 @@ theme: dark
 <Hero/>
 <TrustedBy />
 <HeadingSection
-  heading="Tools section title"
-  subheading="Pending copy"
+  heading="Fast compiler tools for JavaScript"
 />
+<FeatureToolbar/>
+<FeatureParser/>
+<FeatureLinter/>
+<FeatureResolver/>
+<FeatureTransformer/>
 <Spacer />
