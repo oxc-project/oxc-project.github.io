@@ -89,7 +89,55 @@ When true, disallows spreading Promise values.
 
 ### checksVoidReturn
 
-type: `boolean | object`
+type: `object | boolean`
+
+#### checksVoidReturn.arguments
+
+type: `boolean`
+
+default: `true`
+
+Whether to check Promise-returning functions passed as arguments to void-returning functions.
+
+#### checksVoidReturn.attributes
+
+type: `boolean`
+
+default: `true`
+
+Whether to check Promise-returning functions in JSX attributes expecting void.
+
+#### checksVoidReturn.inheritedMethods
+
+type: `boolean`
+
+default: `true`
+
+Whether to check Promise-returning methods that override void-returning inherited methods.
+
+#### checksVoidReturn.properties
+
+type: `boolean`
+
+default: `true`
+
+Whether to check Promise-returning functions assigned to object properties expecting void.
+
+#### checksVoidReturn.returns
+
+type: `boolean`
+
+default: `true`
+
+Whether to check Promise values returned from void-returning functions.
+
+#### checksVoidReturn.variables
+
+type: `boolean`
+
+default: `true`
+
+Whether to check Promise-returning functions assigned to variables typed as void-returning.
 
 ## How to use
 

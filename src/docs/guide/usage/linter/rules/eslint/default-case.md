@@ -68,10 +68,7 @@ This rule accepts a configuration object with the following properties:
 
 ### commentPattern
 
-type: `[
-  string,
-  null
-]`
+type: `string | null`
 
 A regex pattern used to detect comments that mark the absence
 of a `default` case as intentional.

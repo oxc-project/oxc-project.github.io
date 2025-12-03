@@ -165,7 +165,7 @@ type: `array`
 
 type: `object`
 
-### overrides[n].env
+#### overrides[n].env
 
 type: `object | null`
 
@@ -177,7 +177,7 @@ type: `string[]`
 
 A set of glob patterns.
 
-### overrides[n].globals
+#### overrides[n].globals
 
 type: `object | null`
 
@@ -192,7 +192,7 @@ JS plugins for this override.
 Note: JS plugins are experimental and not subject to semver.
 They are not supported in language server at present.
 
-### overrides[n].plugins
+#### overrides[n].plugins
 
 type: `array | null`
 
@@ -201,13 +201,17 @@ default: `null`
 Optionally change what plugins are enabled for this override. When
 omitted, the base config's plugins are used.
 
+##### overrides[n].plugins[n]
+
+type: `string`
+
 #### overrides[n].rules
 
 type: `object`
 
 See [Oxlint Rules](https://oxc.rs/docs/guide/usage/linter/rules.html)
 
-# plugins
+## plugins
 
 type: `array | null`
 
@@ -219,6 +223,10 @@ You can view the list of available plugins on
 
 NOTE: Setting the `plugins` field will overwrite the base set of plugins.
 The `plugins` array should reflect all of the plugins you want to use.
+
+### plugins[n]
+
+type: `string`
 
 ## rules
 
@@ -383,10 +391,7 @@ Example:
 
 #### settings.jsx-a11y.polymorphicPropName
 
-type: `[
-  string,
-  null
-]`
+type: `string | null`
 
 An optional setting that define the prop your code uses to create polymorphic components.
 This setting will be used to determine the element type in rules that
@@ -409,7 +414,11 @@ Configure Next.js plugin rules.
 
 #### settings.next.rootDir
 
-type: `string | array`
+type: `array | string`
+
+##### settings.next.rootDir[n]
+
+type: `string`
 
 ### settings.react
 
@@ -447,7 +456,15 @@ Example:
 
 ##### settings.react.formComponents[n]
 
-type: `string | object | object`
+type: `object | string`
+
+###### settings.react.formComponents[n].attribute
+
+type: `string`
+
+###### settings.react.formComponents[n].name
+
+type: `string`
 
 #### settings.react.linkComponents
 
@@ -478,7 +495,15 @@ Example:
 
 ##### settings.react.linkComponents[n]
 
-type: `string | object | object`
+type: `object | string`
+
+###### settings.react.linkComponents[n].attribute
+
+type: `string`
+
+###### settings.react.linkComponents[n].name
+
+type: `string`
 
 ### settings.vitest
 

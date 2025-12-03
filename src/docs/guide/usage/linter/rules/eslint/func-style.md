@@ -164,7 +164,7 @@ default: `false`
 
 When true, functions with type annotations are allowed regardless of the style setting.
 
-## namedExports
+### namedExports
 
 type: `string | null`
 

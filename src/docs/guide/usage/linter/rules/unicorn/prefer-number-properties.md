@@ -57,7 +57,7 @@ default: `false`
 
 If set to `true`, checks for usage of `Infinity` and `-Infinity` as global variables.
 
-### checkNan
+### checkNaN
 
 type: `boolean`
 
