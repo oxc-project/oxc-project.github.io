@@ -93,6 +93,10 @@ Our performance testing shows that `oxlint` with type-aware linting is around 10
 
 Oxlint can also be used to typecheck your codebase while linting. This avoids a duplicate work, as much of the type information is already computed during type-aware linting..
 
+:::warning Known Issues
+While `tsgolint` is ready for testing in production codebases, you may encounter issues with running out of memory when working with very large codebases. We are working on optimizing the memory usage for the next milestone. We would love if you tried `tsgolint` and reported any out-of-memory issues to us in the [`tsgolint` repository](https://github.com/oxc-project/tsgolint) and included some details about your project to help us improve memory usage.
+:::
+
 ## What's new since the technical preview?
 
 ### Support for type-checking while linting
@@ -221,10 +225,6 @@ If you're using deprecated features from TypeScript 6.0 or earlier, you'll need 
 `tsgolint` doesn't use typescript-go's public APIs. Instead, it compiles typescript-go by [shimming](https://github.com/oxc-project/tsgolint/tree/main/shim) internal APIs to make them accessible. We actively track typescript-go updates and fix breaking changes as needed.
 
 Our typescript-go fork is synced regularly using renovatebot, ensuring we stay current with the latest improvements and fixes. Once TypeScript 7.0 is officially released, we will track stable releases rather than the tip of the main branch.
-
-### Known issues
-
-While `tsgolint` is ready for testing in production codebases, you may encounter issues with running out of memory when working with very large codebases. We are working on optimizing the memory usage for the next milestone. We would love if you tried `tsgolint` and reported any out-of-memory issues to us in the [`tsgolint` repository](https://github.com/oxc-project/tsgolint) and included some details about your project to help us improve memory usage.
 
 ## What's next
 
