@@ -18,15 +18,13 @@ Following our [technical preview in August](/blog/2025-08-17-oxlint-type-aware),
 
 Type-aware linting enables powerful rules like `no-floating-promises`, `no-misused-promises`, and `await-thenable` that catch bugs by utilizing TypeScript's type system. With 43 type-aware rules now available, you can catch entire categories of runtime errors before they happen.
 
-The alpha release addresses the major limitations from the technical preview:
+**In this post:**
 
-- **Full rule configuration support** - Configure individual type-aware rules in `.oxlintrc.json`
-- **Disable comment support** - Use `eslint-disable` comments to control type-aware rules
-- **IDE support** - Type-aware linting works in VSCode and other supported editors
-- **Improved stability** - Many crashes and edge cases have been fixed
-- **Better performance** - Less memory used and slightly better rule performance in some cases
-
-While we're still working on performance for very large monorepos and some advanced rules, the alpha is ready for testing in production codebases.
+- [Quick Start](#quick-start) - Get started with type-aware linting in minutes
+- [Performance](#performance) - See how much faster type-aware linting is compared to ESLint
+- [What's new since the technical preview](#what-s-new-since-the-technical-preview) - New features and improvements
+- [Technical details](#technical-details) - How type-aware linting works under the hood
+- [What's next](#what-s-next) - Upcoming improvements for the beta release
 
 ## Quick Start
 
