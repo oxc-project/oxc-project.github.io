@@ -30,12 +30,6 @@ Run `oxlint` with `--type-aware`
 oxlint --type-aware
 ```
 
-## Unsupported Features
-
-The following issues will be addressed for the alpha version.
-
-- Auto-fixes for type-aware rules only work in the VS Code extension, not in the CLI (`oxlint --fix`)
-
 ## Unimplemented Rules
 
 See https://github.com/oxc-project/tsgolint/issues/104
@@ -99,3 +93,22 @@ tsgolint is based on [typescript-go](https://github.com/microsoft/typescript-go)
 - If you're using deprecated features that were deprecated in TypeScript 6.0 or removed in TypeScript 7.0, you'll need to migrate your codebase first
 
 For help migrating deprecated tsconfig options, see the [TypeScript migration guide](https://github.com/microsoft/TypeScript/issues/62508#issuecomment-3348649259).
+
+## Architecture
+
+Type-aware linting in Oxlint uses a unique two-binary architecture:
+
+```
+oxlint CLI (Rust)
+  ├─ Handles file traversal, ignore logic, and diagnostics
+  ├─ Runs non-type-aware rules and custom JS plugins
+  ├─ Passes paths and configuration to tsgolint
+  └─ Formats and displays results
+
+tsgolint (Go)
+  ├─ Uses typescript-go directly for type checking
+  ├─ Executes type-aware rules
+  └─ Returns structured diagnostics
+```
+
+This design keeps Oxlint's core fast while leveraging TypeScript's type system through typescript-go. The frontend-backend separation means `oxlint` controls the user experience while `tsgolint` handles the heavy lifting of type analysis.
