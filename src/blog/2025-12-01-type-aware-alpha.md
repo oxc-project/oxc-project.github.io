@@ -181,6 +181,7 @@ Type-aware linting in Oxlint uses a unique two-binary architecture:
 ```
 oxlint CLI (Rust)
   ├─ Handles file traversal, ignore logic, and diagnostics
+  ├─ Runs non-type-aware rules and custom JS plugins
   ├─ Passes paths and configuration to tsgolint
   └─ Formats and displays results
 
