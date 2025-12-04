@@ -229,7 +229,6 @@ We're actively working on the following improvements for the beta release:
 
 ## Acknowledgements
 
-
 We'd like to extend our gratitude to:
 
 - The TypeScript team for creating `typescript-go`.
