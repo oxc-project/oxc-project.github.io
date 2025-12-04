@@ -16,6 +16,8 @@ theme: dark
 <FeatureTransformer/>
 <FeatureMinifierFormatter/>
 <Spacer />
+<Sponsors/>
+<Spacer />
 <Footer
   heading="Explore the Oxc ecosystem"
   subheading="Lint, format, parse, minify, transform and resolve JavaScript at blazing speed"
