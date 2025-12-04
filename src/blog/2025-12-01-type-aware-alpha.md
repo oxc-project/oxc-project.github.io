@@ -128,7 +128,7 @@ Rules that run in `tsgolint` can now be disabled similar to any other `oxlint` r
 /* oxlint-disable typescript/no-floating-promises */
 
 // oxlint-disable-next-line typescript/no-floating-promises
-[1, 2, 3].map(async x => x + 1);
+[1, 2, 3].map(async (x) => x + 1);
 ```
 
 In the technical preview, disable comments were ignored for type-aware rules. Now, they work exactly as you would expect.
@@ -147,7 +147,7 @@ Since the initial preview, support for the following rules has also been added:
 
 Previously, if TypeScript failed to create and parse a program, these errors were not reported which lead to confusion around why linting was not working. Now, we report any issues with creating a program as a diagnostic, including configuration issues in `tsconfig.json` files.
 
-For example, if a `tsconfig.json` file contains `baseUrl`, that will be reported as an error, since `baseUrl` has been removed from TypeScript:
+For example, if a `tsconfig.json` file contains `baseUrl`, that will be reported as an error, since `baseUrl` has been removed from TypeScript in v7.0:
 
 ```
 $ oxlint --type-aware
