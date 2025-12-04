@@ -207,8 +207,18 @@ While `tsgolint` is ready for testing in production codebases, you may encounter
 
 ## What's next
 
-[Add roadmap and future plans]
+We're actively working on the following improvements for the beta release:
+
+- **More supported rules** - Currently we support 43 out the 59 type-aware rules from `typescript-eslint`. As we head towards a beta release, we plan to continue expanding rule coverage.
+- **Performance and memory usage improvements** - We're going to continue to optimize performance, especially for very large monorepos.
 
 ## Try it out
 
-[Add call to action and community information]
+Install `oxlint` and `oxlint-tsgolint`, then run with the `--type-aware` flag:
+
+```sh
+pnpm add -D oxlint oxlint-tsgolint
+pnpm oxlint --type-aware
+```
+
+We'd love to hear your feedback! If you encounter any issues, please report them in the [oxlint](https://github.com/oxc-project/oxc) or [tsgolint](https://github.com/oxc-project/tsgolint) repositories.
