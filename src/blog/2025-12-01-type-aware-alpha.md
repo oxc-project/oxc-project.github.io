@@ -163,6 +163,11 @@ $ oxlint --type-aware
         See https://github.com/oxc-project/tsgolint/issues/351 for more information.
 ```
 
+
+### Automatic fixes for type-aware rules
+
+Type-aware rules now support automatic fixes via the `--fix` flag. When you run `oxlint --type-aware --fix`, fixable diagnostics from `tsgolint` are applied just like regular `oxlint` fixes. This brings full parity with non-type-aware rules for the fix workflow.
+
 ## Performance
 
 [Add performance benchmarks and comparisons]
