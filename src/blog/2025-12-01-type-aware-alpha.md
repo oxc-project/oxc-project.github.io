@@ -231,11 +231,6 @@ We're actively working on the following improvements for the beta release:
 
 ## Try it out
 
-Install `oxlint` and `oxlint-tsgolint`, then run with the `--type-aware` flag:
-
-```sh
-pnpm add -D oxlint oxlint-tsgolint
-pnpm oxlint --type-aware
-```
+Ready to get started? Head to the [Quick Start](#quick-start) section above to install and run type-aware linting.
 
 We'd love to hear your feedback! If you encounter any issues, please report them in the [oxlint](https://github.com/oxc-project/oxc) or [tsgolint](https://github.com/oxc-project/tsgolint) repositories.
