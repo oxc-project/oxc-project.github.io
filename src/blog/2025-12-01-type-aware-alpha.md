@@ -209,7 +209,7 @@ If you're using deprecated features from TypeScript 6.0 or earlier, you'll need 
 
 `tsgolint` doesn't use typescript-go's public APIs. Instead, it compiles typescript-go by [shimming](https://github.com/oxc-project/tsgolint/tree/main/shim) internal APIs to make them accessible. We actively track typescript-go updates and fix breaking changes as needed.
 
-Our typescript-go fork is synced regularly using renovatebot, ensuring we stay current with the latest improvements and fixes.
+Our typescript-go fork is synced regularly using renovatebot, ensuring we stay current with the latest improvements and fixes. Once TypeScript 7.0 is officially released, we will track stable releases rather than the tip of the main branch.
 
 ### Known issues
 
