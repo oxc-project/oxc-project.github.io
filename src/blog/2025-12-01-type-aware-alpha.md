@@ -56,7 +56,7 @@ bunx oxlint --type-aware
 
 :::
 
-To try a specific type-aware rule without other configuration (`tsgolint` must be installed globally or locally already):
+To try a specific type-aware rule without other configuration (`oxlint-tsgolint` must be installed globally or locally already):
 
 ::: code-group
 
