@@ -145,7 +145,7 @@ Since the initial preview, support for the following rules has also been added:
 
 ### TypeScript program diagnostics are now reported
 
-Previously, if TypeScript failed to create and parse a program, these errors were not reported which lead to confusion around why linting was not working. Now, we report any issues with creating a program as a diagnostic, including if there is a configuration issue in the `tsconfig.json` file. 
+Previously, if TypeScript failed to create and parse a program, these errors were not reported which lead to confusion around why linting was not working. Now, we report any issues with creating a program as a diagnostic, including configuration issues in `tsconfig.json` files.
 
 For example, if a `tsconfig.json` file contains `baseUrl`, that will be reported as an error, since `baseUrl` has been removed from TypeScript:
 
