@@ -229,6 +229,16 @@ We're actively working on the following improvements for the beta release:
 - **More supported rules** - Currently we support 43 out of the 59 type-aware rules from `typescript-eslint`. As we head towards a beta release, we plan to continue expanding rule coverage.
 - **Performance and memory usage improvements** - We're going to continue to optimize performance, especially for very large monorepos.
 
+## Acknowledgements
+
+
+We'd like to extend our gratitude to:
+
+- The TypeScript team for creating `typescript-go`.
+- The `typescript-eslint` team for their heartwarming support.
+- [@auvred](https://github.com/auvred) for creating `tsgolint`.
+- [@camchenry](https://github.com/camchenry) for continued performance work, as well as implementing rule option support.
+
 ## Try it out
 
 Ready to get started? Head to the [Quick Start](#quick-start) section above to install and run type-aware linting.
