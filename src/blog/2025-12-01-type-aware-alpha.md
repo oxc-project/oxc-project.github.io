@@ -80,7 +80,20 @@ bunx oxlint --type-aware -A all -D typescript/no-floating-promises
 
 For more configuration options, see our [usage guide](/docs/guide/usage/linter/type-aware).
 
-## What's new
+## Performance
+
+| Project         | Oxlint + Type Aware | ESLint + typescript-eslint | Improvement |
+| --------------- | ------------------- | -------------------------- | ----------- |
+| vuejs/core      | 2.531 s             | 20.800 s                   | 8.22x       |
+| outline/outline | 4.448 s             | 55.070 s                   | 12.38x      |
+
+Benchmarks were performed on a MacBook Pro M2 Max 12 Cores (8 performance and 4 efficiency).
+
+Our performance testing shows that `oxlint` with type-aware linting is around 10 times faster than `eslint` with `typescript-eslint`. Take a look at our [performance benchmarks](https://github.com/oxc-project/bench-linter) for more details.
+
+Oxlint can also be used to typecheck your codebase while linting. This avoids a duplicate work, as much of the type information is already computed during type-aware linting..
+
+## What's new since the technical preview?
 
 ### Support for type-checking while linting
 
@@ -169,17 +182,6 @@ $ oxlint --type-aware
 ### Automatic fixes for type-aware rules
 
 Type-aware rules now support automatic fixes via the `--fix` flag. When you run `oxlint --type-aware --fix`, fixable diagnostics from `tsgolint` are applied just like regular `oxlint` fixes. This brings full parity with non-type-aware rules for the fix workflow.
-
-## Performance
-
-| Project         | Oxlint + Type Aware | ESLint + typescript-eslint | Improvement |
-| --------------- | ------------------- | -------------------------- | ----------- |
-| vuejs/core      | 2.531 s             | 20.800 s                   | 8.22x       |
-| outline/outline | 4.448 s             | 55.070 s                   | 12.38x      |
-
-Benchmarks were performed on a MacBook Pro M2 Max 12 Cores (8 performance and 4 efficiency).
-
-Our performance testing shows that `oxlint` with type-aware linting is around 10 times faster that `eslint` with `typescript-eslint`. Take a look at our [performance benchmarks](https://github.com/oxc-project/bench-linter) for more details.
 
 ## Technical details
 
