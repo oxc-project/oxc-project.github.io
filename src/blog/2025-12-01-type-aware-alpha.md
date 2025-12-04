@@ -101,13 +101,16 @@ Type-aware rules that run in `tsgolint` can be configured in `oxlint` just like 
 ```json
 {
   "rules": {
-    "typescript/no-floating-promises": ["error", {
-      "ignoreVoid": true,
-      "allowForKnownSafePromises": [
-        { "from": "file", "name": "SafePromise" },
-        { "from": "lib", "name": "PromiseLike" }
-      ]
-    }]
+    "typescript/no-floating-promises": [
+      "error",
+      {
+        "ignoreVoid": true,
+        "allowForKnownSafePromises": [
+          { "from": "file", "name": "SafePromise" },
+          { "from": "lib", "name": "PromiseLike" }
+        ]
+      }
+    ]
   }
 }
 ```
