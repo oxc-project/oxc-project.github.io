@@ -155,9 +155,9 @@ We've continued to make progress on porting popular rules from `typescript-eslin
 
 Since the initial preview, support for the following rules has also been added:
 
-- `no-deprecated` (one of the most commonly requested rules)
-- `prefer-includes`
-- `strict-boolean-expressions`
+- [`no-deprecated`](/docs/guide/usage/linter/rules/typescript/no-deprecated) (one of the most commonly requested rules)
+- [`prefer-includes`](/docs/guide/usage/linter/rules/typescript/prefer-includes)
+- [`strict-boolean-expressions`](/docs/guide/usage/linter/rules/typescript/strict-boolean-expressions)
 
 ### TypeScript program diagnostics are now reported
 
