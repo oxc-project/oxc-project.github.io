@@ -128,7 +128,7 @@ Rules that run in `tsgolint` can now be disabled similar to any other `oxlint` r
 [1, 2, 3].map(async x => x + 1);
 ```
 
-Previously, this didn't actually disable the rule, but now it will work as expected.
+In the technical preview, disable comments were ignored for type-aware rules. Now, they work exactly as you would expect.
 
 ### More supported rules
 
