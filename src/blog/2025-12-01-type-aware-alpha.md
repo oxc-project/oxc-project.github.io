@@ -243,4 +243,10 @@ We'd like to extend our gratitude to:
 
 Ready to get started? Head to the [Quick Start](#quick-start) section above to install and run type-aware linting.
 
-We'd love to hear your feedback! If you encounter any issues, please report them in the [oxlint](https://github.com/oxc-project/oxc) or [tsgolint](https://github.com/oxc-project/tsgolint) repositories.
+We'd love to hear your feedback on type-aware linting and are excited to see how it helps improve your development workflow.
+
+Connect with us:
+
+- **Discord**: Join our [community server](https://discord.gg/9uXCAwqQZW) for real-time discussions
+- **GitHub**: Share feedback on [GitHub Discussions](https://github.com/oxc-project/oxc/discussions)
+- **Issues**: Report `oxlint` bugs to [oxc](https://github.com/oxc-project/oxc/issues) and type-aware linting bugs to [tsgolint](https://github.com/oxc-project/tsgolint/issues).
