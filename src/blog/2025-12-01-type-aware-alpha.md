@@ -68,6 +68,10 @@ npx oxlint --type-aware -A all -D typescript/no-floating-promises
 pnpx oxlint --type-aware -A all -D typescript/no-floating-promises
 ```
 
+```sh [yarn]
+yarn oxlint --type-aware -A all -D typescript/no-floating-promises
+```
+
 ```sh [bun]
 bunx oxlint --type-aware -A all -D typescript/no-floating-promises
 ```
