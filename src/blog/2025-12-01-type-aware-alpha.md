@@ -117,7 +117,6 @@ Type-aware rules that run in `tsgolint` can be configured in `oxlint` just like 
 
 The configuration options are aligned with what `typescript-eslint` supports and documentation can be found in the configuration section for each rule (like [`no-floating-promises`](https://oxc.rs/docs/guide/usage/linter/rules/typescript/no-floating-promises.html#configuration)).
 
-
 In the technical preview, rule configurations were not passed to `tsgolint`, so customizing type-aware rules had no effect. Now, all configuration options are properly forwarded and applied.
 
 ### Disable comment support in `oxlint`
@@ -162,7 +161,6 @@ $ oxlint --type-aware
   help: Option 'baseUrl' has been removed. Please remove it from your configuration.
         See https://github.com/oxc-project/tsgolint/issues/351 for more information.
 ```
-
 
 ### Automatic fixes for type-aware rules
 
