@@ -174,7 +174,7 @@ Type-aware rules now support automatic fixes via the `--fix` flag. When you run 
 
 | Project         | Oxlint + Type Aware | ESLint + typescript-eslint |
 | --------------- | ------------------- | -------------------------- |
-| outlint/outlint | XXX                 | XXX                        |
+| outline/outline | XXX                 | XXX                        |
 | vuejs/core      | XXXX                | XXX                        |
 
 Our performance testing shows that `oxlint` with type-aware linting is around X times faster that `eslint` with `typescript-eslint`. Take a look at our [performance benchmarks](https://github.com/oxc-project/bench-linter) for more details.
