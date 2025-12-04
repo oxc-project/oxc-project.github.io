@@ -202,7 +202,7 @@ This design keeps Oxlint's core fast while leveraging TypeScript's type system t
 
 ### TypeScript compatibility
 
-`tsgolint` is based on [typescript-go](https://github.com/microsoft/typescript-go), Microsoft's TypeScript v7.0 rewrite in Go, not the original TypeScript compiler. This means that you might encounter some features which are no longer supported.
+`tsgolint` is based on [typescript-go](https://github.com/microsoft/typescript-go), Microsoft's Go-based rewrite that will become TypeScript v7.0. This means that you might encounter some features which are no longer supported.
 
 **Important compatibility notes:**
 
