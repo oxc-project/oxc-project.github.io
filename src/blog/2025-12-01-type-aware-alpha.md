@@ -138,7 +138,7 @@ Type-aware rules that run in `tsgolint` can be configured in `oxlint` just like 
 
 The configuration options are aligned with what `typescript-eslint` supports and documentation can be found in the configuration section for each rule (like [`no-floating-promises`](https://oxc.rs/docs/guide/usage/linter/rules/typescript/no-floating-promises.html#configuration)).
 
-### Disable comment support in `oxlint`
+### In-line disable comment support in `oxlint`
 
 Rules that run in `tsgolint` can now be disabled similar to any other `oxlint` rule by placing a comment in the file or on a line:
 
