@@ -226,7 +226,7 @@ While `tsgolint` is ready for testing in production codebases, you may encounter
 
 We're actively working on the following improvements for the beta release:
 
-- **More supported rules** - Currently we support 43 out the 59 type-aware rules from `typescript-eslint`. As we head towards a beta release, we plan to continue expanding rule coverage.
+- **More supported rules** - Currently we support 43 out of the 59 type-aware rules from `typescript-eslint`. As we head towards a beta release, we plan to continue expanding rule coverage.
 - **Performance and memory usage improvements** - We're going to continue to optimize performance, especially for very large monorepos.
 
 ## Try it out
