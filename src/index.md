@@ -4,6 +4,10 @@ layout: home
 theme: dark
 ---
 
+<script setup>
+import { sponsors } from './sponsors'
+</script>
+
 <Hero/>
 <TrustedBy />
 <HeadingSection
@@ -16,7 +20,10 @@ theme: dark
 <FeatureTransformer/>
 <FeatureMinifierFormatter/>
 <Spacer />
-<Sponsors/>
+<Sponsors
+  :sponsors="sponsors"
+  :side-by-side-tiers="['bronze', 'backers']"
+/>
 <Spacer />
 <Footer
   heading="Explore the Oxc ecosystem"

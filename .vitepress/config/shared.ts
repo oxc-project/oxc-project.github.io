@@ -167,6 +167,7 @@ export const sharedConfig = defineConfig({
     },
   },
   vite: {
+    publicDir: resolve(dirname(fileURLToPath(import.meta.url)), '../../public'),
     optimizeDeps: {
       exclude: ['@docsearch/css'],
     },
