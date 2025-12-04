@@ -127,6 +127,38 @@ export const sharedConfig = defineConfig({
     footer: {
       message: `Released under the MIT License.`,
       copyright: "Copyright © 2023-present VoidZero Inc.",
+      nav: [
+        {
+          title: "Oxc",
+          items: [
+            { text: "Guide", link: "/docs/guide/introduction" },
+            { text: "Learn", link: "/docs/learn/parser_in_rust/intro" },
+            { text: "Contribute", link: "/docs/contribute/introduction" },
+            { text: "Playground", link: "https://playground.oxc.rs" },
+            { text: "Sponsor", link: "/sponsor" },
+          ],
+        },
+        {
+          title: "Resources",
+          items: [
+            { text: "Blog", link: "/blog/2025-12-01-oxfmt-alpha" },
+            { text: "Team", link: "/team" },
+          ],
+        },
+        /*{
+          title: "Legal",
+          items: [
+            { text: "Terms & Conditions", link: "https://voidzero.dev/terms" },
+            { text: "Privacy Policy", link: "https://voidzero.dev/privacy" },
+            { text: "Cookie Policy", link: "https://voidzero.dev/cookies" },
+          ],
+        },*/
+      ],
+      social: [
+        { icon: "github", link: "https://github.com/oxc-project/oxc" },
+        { icon: "discord", link: "https://discord.gg/9uXCAwqQZW" },
+        { icon: "bluesky", link: "https://bsky.app/profile/boshen.github.io" },
+      ],
     },
   },
   markdown: {

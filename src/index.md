@@ -14,4 +14,11 @@ theme: dark
 <FeatureLinter/>
 <FeatureResolver/>
 <FeatureTransformer/>
+<FeatureMinifierFormatter/>
 <Spacer />
+<Footer
+  heading="Explore the Oxc ecosystem"
+  subheading="Lint, format, parse, minify, transform and resolve JavaScript at blazing speed"
+  button-text="Get started"
+  button-link="/docs/guide/introduction"
+/>
