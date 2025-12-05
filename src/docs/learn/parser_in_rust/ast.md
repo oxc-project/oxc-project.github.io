@@ -249,7 +249,7 @@ Every `Box` and `Vec` are allocated on demand and then dropped separately.
 What we would like to do is pre-allocate memory and drop it in wholesale.
 
 :::info
-[This blog post](https://manishearth.github.io/blog/2021/03/15/arenas-in-rust/) explains memory arena in more detail.
+See also [Arenas in Rust](https://manishearth.github.io/blog/2021/03/15/arenas-in-rust) and [Flattening ASTs](https://www.cs.cornell.edu/~asampson/blog/flattening.html) for more background on storing ASTs in memory arenas.
 :::
 
 [`bumpalo`](https://docs.rs/bumpalo/latest/bumpalo/) is a very good candidate for our use case, according to its documentation:
