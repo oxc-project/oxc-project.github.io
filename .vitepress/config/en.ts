@@ -101,6 +101,10 @@ export const enConfig = defineLocaleConfig("root", {
                   text: "Configuration file reference",
                   link: "/docs/guide/usage/formatter/config-file-reference",
                 },
+                {
+                  text: "Migrating from Prettier",
+                  link: "/docs/guide/usage/formatter/migrate-from-prettier",
+                },
               ],
             },
             { text: "Parser", link: "/docs/guide/usage/parser" },
