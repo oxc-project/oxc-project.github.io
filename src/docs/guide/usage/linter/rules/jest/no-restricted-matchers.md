@@ -87,13 +87,9 @@ The value is an optional custom message to display when the matcher/modifier is 
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny jest/no-restricted-matchers --jest-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -102,6 +98,10 @@ oxlint --deny jest/no-restricted-matchers --jest-plugin
     "jest/no-restricted-matchers": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny jest/no-restricted-matchers --jest-plugin
 ```
 
 :::

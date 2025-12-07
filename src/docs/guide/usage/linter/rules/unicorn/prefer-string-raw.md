@@ -39,13 +39,9 @@ const regexp = new RegExp(String.raw`foo\.bar`);
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny unicorn/prefer-string-raw
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -53,6 +49,10 @@ oxlint --deny unicorn/prefer-string-raw
     "unicorn/prefer-string-raw": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny unicorn/prefer-string-raw
 ```
 
 :::

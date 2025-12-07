@@ -64,13 +64,9 @@ function qux() {
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny no-func-assign
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -78,6 +74,10 @@ oxlint --deny no-func-assign
     "no-func-assign": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny no-func-assign
 ```
 
 :::

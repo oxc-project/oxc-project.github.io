@@ -80,13 +80,9 @@ Whether to allow `++` and `--` in for loop afterthoughts.
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny no-plusplus
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -94,6 +90,10 @@ oxlint --deny no-plusplus
     "no-plusplus": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny no-plusplus
 ```
 
 :::

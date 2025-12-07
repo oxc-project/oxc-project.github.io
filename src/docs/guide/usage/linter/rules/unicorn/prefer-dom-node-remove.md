@@ -34,13 +34,9 @@ childNode.remove();
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny unicorn/prefer-dom-node-remove
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -48,6 +44,10 @@ oxlint --deny unicorn/prefer-dom-node-remove
     "unicorn/prefer-dom-node-remove": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny unicorn/prefer-dom-node-remove
 ```
 
 :::

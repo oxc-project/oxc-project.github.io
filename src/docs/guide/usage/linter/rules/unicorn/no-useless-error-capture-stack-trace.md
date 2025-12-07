@@ -46,13 +46,9 @@ class MyError extends Error {
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny unicorn/no-useless-error-capture-stack-trace
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -60,6 +56,10 @@ oxlint --deny unicorn/no-useless-error-capture-stack-trace
     "unicorn/no-useless-error-capture-stack-trace": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny unicorn/no-useless-error-capture-stack-trace
 ```
 
 :::

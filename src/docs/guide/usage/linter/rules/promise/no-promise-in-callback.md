@@ -43,13 +43,9 @@ promisify(doSomething)()
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny promise/no-promise-in-callback --promise-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -58,6 +54,10 @@ oxlint --deny promise/no-promise-in-callback --promise-plugin
     "promise/no-promise-in-callback": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny promise/no-promise-in-callback --promise-plugin
 ```
 
 :::

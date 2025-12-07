@@ -124,13 +124,9 @@ Maximum number of lines allowed for external snapshot files.
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny jest/no-large-snapshots --jest-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -139,6 +135,10 @@ oxlint --deny jest/no-large-snapshots --jest-plugin
     "jest/no-large-snapshots": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny jest/no-large-snapshots --jest-plugin
 ```
 
 :::

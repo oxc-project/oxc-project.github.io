@@ -74,13 +74,9 @@ When `true`, require `@yields` when a `@generator` tag is present.
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny jsdoc/require-yields --jsdoc-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -89,6 +85,10 @@ oxlint --deny jsdoc/require-yields --jsdoc-plugin
     "jsdoc/require-yields": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny jsdoc/require-yields --jsdoc-plugin
 ```
 
 :::

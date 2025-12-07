@@ -79,13 +79,9 @@ An array of custom HTML elements that should be considered interactive.
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny jsx-a11y/no-noninteractive-tabindex --jsx-a11y-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -94,6 +90,10 @@ oxlint --deny jsx-a11y/no-noninteractive-tabindex --jsx-a11y-plugin
     "jsx-a11y/no-noninteractive-tabindex": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny jsx-a11y/no-noninteractive-tabindex --jsx-a11y-plugin
 ```
 
 :::

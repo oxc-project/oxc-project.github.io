@@ -49,13 +49,9 @@ const bar = array.filter(Boolean);
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny unicorn/no-array-callback-reference
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -63,6 +59,10 @@ oxlint --deny unicorn/no-array-callback-reference
     "unicorn/no-array-callback-reference": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny unicorn/no-array-callback-reference
 ```
 
 :::

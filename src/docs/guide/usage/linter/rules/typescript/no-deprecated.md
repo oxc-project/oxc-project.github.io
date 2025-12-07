@@ -59,13 +59,9 @@ const url2 = new URL("/foo", "http://www.example.com");
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --type-aware --deny typescript/no-deprecated
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -73,6 +69,10 @@ oxlint --type-aware --deny typescript/no-deprecated
     "typescript/no-deprecated": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --type-aware --deny typescript/no-deprecated
 ```
 
 :::

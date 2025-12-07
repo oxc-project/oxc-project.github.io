@@ -38,13 +38,9 @@ array.flat(Infinity);
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny unicorn/no-magic-array-flat-depth
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -52,6 +48,10 @@ oxlint --deny unicorn/no-magic-array-flat-depth
     "unicorn/no-magic-array-flat-depth": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny unicorn/no-magic-array-flat-depth
 ```
 
 :::

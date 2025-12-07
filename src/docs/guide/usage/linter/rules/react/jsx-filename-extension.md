@@ -74,13 +74,9 @@ If enabled, files that do not contain code (i.e. are empty, contain only whitesp
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny react/jsx-filename-extension --react-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -89,6 +85,10 @@ oxlint --deny react/jsx-filename-extension --react-plugin
     "react/jsx-filename-extension": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny react/jsx-filename-extension --react-plugin
 ```
 
 :::

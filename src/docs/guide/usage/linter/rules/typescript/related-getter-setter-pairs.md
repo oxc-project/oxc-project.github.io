@@ -85,13 +85,9 @@ class WriteOnlyProperty {
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --type-aware --deny typescript/related-getter-setter-pairs
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -99,6 +95,10 @@ oxlint --type-aware --deny typescript/related-getter-setter-pairs
     "typescript/related-getter-setter-pairs": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --type-aware --deny typescript/related-getter-setter-pairs
 ```
 
 :::

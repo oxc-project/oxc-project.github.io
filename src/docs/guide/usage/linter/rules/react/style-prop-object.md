@@ -64,13 +64,9 @@ List of component names on which to allow style prop values of any type.
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny react/style-prop-object --react-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -79,6 +75,10 @@ oxlint --deny react/style-prop-object --react-plugin
     "react/style-prop-object": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny react/style-prop-object --react-plugin
 ```
 
 :::

@@ -78,13 +78,9 @@ class A {
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny no-class-assign
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -92,6 +88,10 @@ oxlint --deny no-class-assign
     "no-class-assign": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny no-class-assign
 ```
 
 :::

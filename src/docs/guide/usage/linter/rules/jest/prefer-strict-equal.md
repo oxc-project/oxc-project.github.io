@@ -40,13 +40,9 @@ expect({ a: "a", b: undefined }).toStrictEqual({ a: "a" });
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny jest/prefer-strict-equal --jest-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -55,6 +51,10 @@ oxlint --deny jest/prefer-strict-equal --jest-plugin
     "jest/prefer-strict-equal": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny jest/prefer-strict-equal --jest-plugin
 ```
 
 :::

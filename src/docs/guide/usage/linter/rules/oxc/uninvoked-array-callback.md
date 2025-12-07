@@ -38,13 +38,9 @@ const list = new Array(5).fill().map(_ => createElement());
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny oxc/uninvoked-array-callback
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -52,6 +48,10 @@ oxlint --deny oxc/uninvoked-array-callback
     "oxc/uninvoked-array-callback": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny oxc/uninvoked-array-callback
 ```
 
 :::

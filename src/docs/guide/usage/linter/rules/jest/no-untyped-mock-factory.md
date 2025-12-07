@@ -78,13 +78,9 @@ jest.mock(
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny jest/no-untyped-mock-factory --jest-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -93,6 +89,10 @@ oxlint --deny jest/no-untyped-mock-factory --jest-plugin
     "jest/no-untyped-mock-factory": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny jest/no-untyped-mock-factory --jest-plugin
 ```
 
 :::

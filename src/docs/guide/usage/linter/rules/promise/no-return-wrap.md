@@ -123,13 +123,9 @@ myPromise().then().catch(() => Promise.reject("err"));
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny promise/no-return-wrap --promise-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -138,6 +134,10 @@ oxlint --deny promise/no-return-wrap --promise-plugin
     "promise/no-return-wrap": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny promise/no-return-wrap --promise-plugin
 ```
 
 :::

@@ -42,13 +42,9 @@ const match = users.find(fn);
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny unicorn/prefer-array-find
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -56,6 +52,10 @@ oxlint --deny unicorn/prefer-array-find
     "unicorn/prefer-array-find": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny unicorn/prefer-array-find
 ```
 
 :::

@@ -46,13 +46,9 @@ List of Promise static methods that are allowed to be used.
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny promise/spec-only --promise-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -61,6 +57,10 @@ oxlint --deny promise/spec-only --promise-plugin
     "promise/spec-only": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny promise/spec-only --promise-plugin
 ```
 
 :::

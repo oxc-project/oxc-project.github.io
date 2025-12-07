@@ -47,13 +47,9 @@ describe("my tests", () => {
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny vitest/no-conditional-tests --vitest-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -62,6 +58,10 @@ oxlint --deny vitest/no-conditional-tests --vitest-plugin
     "vitest/no-conditional-tests": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny vitest/no-conditional-tests --vitest-plugin
 ```
 
 :::

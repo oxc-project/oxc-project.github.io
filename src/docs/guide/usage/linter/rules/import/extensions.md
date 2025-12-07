@@ -135,13 +135,9 @@ Configuration for `.tsx` file extensions.
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny import/extensions --import-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -150,6 +146,10 @@ oxlint --deny import/extensions --import-plugin
     "import/extensions": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny import/extensions --import-plugin
 ```
 
 :::

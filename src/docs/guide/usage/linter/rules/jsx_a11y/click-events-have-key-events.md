@@ -35,13 +35,9 @@ Examples of **correct** code for this rule:
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny jsx-a11y/click-events-have-key-events --jsx-a11y-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -50,6 +46,10 @@ oxlint --deny jsx-a11y/click-events-have-key-events --jsx-a11y-plugin
     "jsx-a11y/click-events-have-key-events": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny jsx-a11y/click-events-have-key-events --jsx-a11y-plugin
 ```
 
 :::

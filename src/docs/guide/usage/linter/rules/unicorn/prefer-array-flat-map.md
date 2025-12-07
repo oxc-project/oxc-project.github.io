@@ -37,13 +37,9 @@ const bar = [1, 2, 3].flatMap(i => [i]);
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny unicorn/prefer-array-flat-map
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -51,6 +47,10 @@ oxlint --deny unicorn/prefer-array-flat-map
     "unicorn/prefer-array-flat-map": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny unicorn/prefer-array-flat-map
 ```
 
 :::

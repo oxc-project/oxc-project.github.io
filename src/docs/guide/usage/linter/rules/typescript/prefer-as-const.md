@@ -52,13 +52,9 @@ let foo = { bar: "baz" };
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny typescript/prefer-as-const
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -66,6 +62,10 @@ oxlint --deny typescript/prefer-as-const
     "typescript/prefer-as-const": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny typescript/prefer-as-const
 ```
 
 :::

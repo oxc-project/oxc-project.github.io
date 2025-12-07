@@ -40,13 +40,9 @@ export * from "./export-all"; // No conflict if export-all.js also exports foo
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny import/export --import-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -55,6 +51,10 @@ oxlint --deny import/export --import-plugin
     "import/export": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny import/export --import-plugin
 ```
 
 :::

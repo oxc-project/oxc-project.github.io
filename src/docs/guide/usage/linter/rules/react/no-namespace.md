@@ -36,13 +36,9 @@ Examples of **correct** code for this rule:
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny react/no-namespace --react-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -51,6 +47,10 @@ oxlint --deny react/no-namespace --react-plugin
     "react/no-namespace": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny react/no-namespace --react-plugin
 ```
 
 :::

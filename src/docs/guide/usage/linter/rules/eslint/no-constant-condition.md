@@ -78,13 +78,9 @@ Configuration option to specify whether to check for constant conditions in loop
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny no-constant-condition
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -92,6 +88,10 @@ oxlint --deny no-constant-condition
     "no-constant-condition": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny no-constant-condition
 ```
 
 :::

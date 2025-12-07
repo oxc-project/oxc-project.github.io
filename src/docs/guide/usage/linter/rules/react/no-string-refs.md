@@ -76,13 +76,9 @@ Disallow template literals in addition to string literals.
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny react/no-string-refs --react-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -91,6 +87,10 @@ oxlint --deny react/no-string-refs --react-plugin
     "react/no-string-refs": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny react/no-string-refs --react-plugin
 ```
 
 :::

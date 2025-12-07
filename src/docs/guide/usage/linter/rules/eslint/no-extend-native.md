@@ -67,13 +67,9 @@ A list of objects which are allowed to be exceptions to the rule.
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny no-extend-native
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -81,6 +77,10 @@ oxlint --deny no-extend-native
     "no-extend-native": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny no-extend-native
 ```
 
 :::

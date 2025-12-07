@@ -42,13 +42,9 @@ expect(uncalledFunction).not.toBeCalled();
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny jest/prefer-called-with --jest-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -57,6 +53,10 @@ oxlint --deny jest/prefer-called-with --jest-plugin
     "jest/prefer-called-with": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny jest/prefer-called-with --jest-plugin
 ```
 
 :::

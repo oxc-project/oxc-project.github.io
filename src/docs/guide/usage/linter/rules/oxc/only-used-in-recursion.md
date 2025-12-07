@@ -52,13 +52,9 @@ function f(a: number): number {
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny oxc/only-used-in-recursion
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -66,6 +62,10 @@ oxlint --deny oxc/only-used-in-recursion
     "oxc/only-used-in-recursion": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny oxc/only-used-in-recursion
 ```
 
 :::

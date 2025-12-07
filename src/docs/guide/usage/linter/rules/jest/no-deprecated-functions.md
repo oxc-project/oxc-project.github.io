@@ -81,13 +81,9 @@ The version of Jest being used.
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny jest/no-deprecated-functions --jest-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -96,6 +92,10 @@ oxlint --deny jest/no-deprecated-functions --jest-plugin
     "jest/no-deprecated-functions": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny jest/no-deprecated-functions --jest-plugin
 ```
 
 :::

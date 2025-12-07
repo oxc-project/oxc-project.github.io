@@ -53,13 +53,9 @@ If set to `true`, allows an empty `catch` block without triggering the linter.
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny no-empty
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -67,6 +63,10 @@ oxlint --deny no-empty
     "no-empty": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny no-empty
 ```
 
 :::

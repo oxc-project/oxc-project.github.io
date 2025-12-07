@@ -37,13 +37,9 @@ const enum Color {
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny oxc/no-const-enum
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -51,6 +47,10 @@ oxlint --deny oxc/no-const-enum
     "oxc/no-const-enum": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny oxc/no-const-enum
 ```
 
 :::

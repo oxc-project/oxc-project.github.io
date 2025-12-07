@@ -69,13 +69,9 @@ enum E {
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny typescript/no-duplicate-enum-values
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -83,6 +79,10 @@ oxlint --deny typescript/no-duplicate-enum-values
     "typescript/no-duplicate-enum-values": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny typescript/no-duplicate-enum-values
 ```
 
 :::

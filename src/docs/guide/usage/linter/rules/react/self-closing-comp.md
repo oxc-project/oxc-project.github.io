@@ -70,13 +70,9 @@ Whether to enforce self-closing for native HTML elements.
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny react/self-closing-comp --react-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -85,6 +81,10 @@ oxlint --deny react/self-closing-comp --react-plugin
     "react/self-closing-comp": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny react/self-closing-comp --react-plugin
 ```
 
 :::

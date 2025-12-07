@@ -68,13 +68,9 @@ type T = { x: number };
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny typescript/consistent-type-definitions
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -82,6 +78,10 @@ oxlint --deny typescript/consistent-type-definitions
     "typescript/consistent-type-definitions": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny typescript/consistent-type-definitions
 ```
 
 :::

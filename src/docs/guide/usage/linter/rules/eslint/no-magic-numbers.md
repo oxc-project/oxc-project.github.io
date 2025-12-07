@@ -223,13 +223,9 @@ When true, numeric literals used to index TypeScript types are ignored.
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny no-magic-numbers
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -237,6 +233,10 @@ oxlint --deny no-magic-numbers
     "no-magic-numbers": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny no-magic-numbers
 ```
 
 :::

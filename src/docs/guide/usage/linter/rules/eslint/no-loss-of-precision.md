@@ -76,13 +76,9 @@ var x = 0x1FFF_FFFF_FFF_FFF;
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny no-loss-of-precision
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -90,6 +86,10 @@ oxlint --deny no-loss-of-precision
     "no-loss-of-precision": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny no-loss-of-precision
 ```
 
 :::

@@ -66,13 +66,9 @@ calling setState() afterwards may replace the mutation you made
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny react/no-direct-mutation-state --react-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -81,6 +77,10 @@ oxlint --deny react/no-direct-mutation-state --react-plugin
     "react/no-direct-mutation-state": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny react/no-direct-mutation-state --react-plugin
 ```
 
 :::

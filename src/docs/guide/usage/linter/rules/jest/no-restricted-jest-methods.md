@@ -55,13 +55,9 @@ A mapping of restricted Jest method names to custom messages.
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny jest/no-restricted-jest-methods --jest-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -70,6 +66,10 @@ oxlint --deny jest/no-restricted-jest-methods --jest-plugin
     "jest/no-restricted-jest-methods": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny jest/no-restricted-jest-methods --jest-plugin
 ```
 
 :::

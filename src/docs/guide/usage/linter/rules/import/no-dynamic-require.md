@@ -52,13 +52,9 @@ When `true`, also check `import()` expressions for dynamic module specifiers.
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny import/no-dynamic-require --import-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -67,6 +63,10 @@ oxlint --deny import/no-dynamic-require --import-plugin
     "import/no-dynamic-require": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny import/no-dynamic-require --import-plugin
 ```
 
 :::
