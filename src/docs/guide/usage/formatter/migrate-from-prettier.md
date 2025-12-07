@@ -188,13 +188,11 @@ These are only applicable for some setups, so skip them if they don't apply to y
 
 See [the Formatter FAQ](../formatter.md#how-does-editor-integration-work') for details on editor/IDE integration with Oxfmt.
 
-### Update `CONTRIBUTING.md`
+### Update `CONTRIBUTING.md` and `AGENTS.md`/`CLAUDE.md`
 
 If you have a `CONTRIBUTING.md` file that references Prettier, update those references to use Oxfmt.
 
-### Update `AGENTS.md`/`CLAUDE.md`
-
-If you use an `AGENTS.md` or `CLAUDE.md` file to help LLM tools understand your codebase, you should check for references to Prettier. If you have any references in those files, you'll want to update them to reference Oxfmt and Oxfmt's CLI commands instead.
+If you use an `AGENTS.md` or `CLAUDE.md` file to help LLM tools understand your codebase, you should also check for references to Prettier in those files.
 
 ### Update lint rules
 
