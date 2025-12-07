@@ -12,13 +12,14 @@ For the beta milestone, we may provide migration commands.
 
 Before migrating, ensure that the current release of the Oxfmt alpha meets your project's needs. It is almost entirely compatible with Prettier v3.7 already for basic configurations, but less-common config options and other features are not yet implemented.
 
+<!-- TODO: Remove this note when oxfmt 0.17.0 ships with many of the missing languages. -->
+
 The Oxfmt alpha only supports formatting JavaScript and TypeScript files (including those with JSX syntax). If you need support for non-JSX frameworks like Vue or Ember, or other languages like JSON, YAML, or Markdown, you will likely want to wait.
 
 Other important considerations when migrating from Prettier to Oxfmt:
 
-- Oxfmt's formatting output is closest to Prettier v3.7. If you are using an older version of Prettier, you will see more differences in formatting output.
-- Oxfmt aims to be mostly compatible with Prettier out-of-the-box, but there may still be some minor differences in formatting output in edge-cases.
-- Oxfmt uses a `printWidth` of 100 characters by default, whereas Prettier's default is 80. If your Prettier configuration does not set the `printWidth` setting explicitly, you should make sure to set `"printWidth": 80` in your Oxfmt config file to minimize differences.
+- Oxfmt's formatting output is closest to Prettier v3.7. You will see more differences migrating from an older version of Prettier.
+- Oxfmt uses a `printWidth` of 100 characters by default, whereas Prettier's default is 80. Make sure to set `"printWidth": 80` in `.oxfmtrc.jsonc` to minimize differences if you use the Prettier default.
 - Prettier plugins are not yet supported.
 - Some Prettier options are not supported. See the [oxfmt CLI documentation](/docs/guide/usage/formatter/config-file-reference.html) for the full list of currently-supported options.
 - Oxfmt supports an `--lsp` flag to spin up a Language Server Protocol server, but editor/IDE integration is still being developed and has not been tested/documented yet for most editors.
@@ -76,7 +77,7 @@ A basic `.oxfmtrc.jsonc` file looks like this:
 
 If you have a basic `.prettierrc` file, you can simply rename the file with `mv .prettierrc .oxfmtrc.jsonc`.
 
-If you are using YAML or JavaScript to configure Prettier, you will need to convert the configuration to JSON format manually, although for simple configs this should be trivial.
+If you are using something other than JSON to configure Prettier, you will need to convert the configuration to JSON.
 
 ### `prettierrc.js`
 
@@ -185,29 +186,7 @@ These are only applicable for some setups, so skip them if they don't apply to y
 
 ### Update editor integrations
 
-**TODO: Clarify the status of VS Code integration, and also add a note for potentially using Oxfmt in JetBrains IDEs + others via the LSP server.**
-
-**Note that the oxc VS Code extension includes Oxfmt support, but it is experimental and incomplete**. It may not fully work yet, so please be mindful of this before migrating.
-
-If you have any editor integrations for Prettier, update them to use Oxfmt instead. For example, update `.vscode/settings.json` to use Oxfmt:
-
-```diff
-{
-- "editor.defaultFormatter": "esbenp.prettier-vscode"
-+ "editor.defaultFormatter": "oxc.oxc-vscode"
-}
-```
-
-And update `.vscode/extensions.json` to recommend the oxc extension instead of Prettier.
-
-```diff
-{
-  "recommendations": [
--   "esbenp.prettier-vscode"
-+   "oxc.oxc-vscode"
-  ]
-}
-```
+See [the Formatter FAQ](../formatter.md#how-does-editor-integration-work') for details on editor/IDE integration with Oxfmt.
 
 ### Update `CONTRIBUTING.md`
 
@@ -219,9 +198,9 @@ If you use an `AGENTS.md` or `CLAUDE.md` file to help LLM tools understand your 
 
 ### Update lint rules
 
-If you have any lint rules that check for Prettier formatting (e.g. `eslint-plugin-prettier`), you should remove them.
+If you have any lint rules that explicitly check for Prettier formatting (e.g. `eslint-plugin-prettier`), you should remove them.
 
-While you're at it, you could also consider migrating to oxlint ;)
+While you're at it, you could also consider migrating to [oxlint](../linter.md) ;)
 
 ### Create/update `.git-blame-ignore-revs`
 
