@@ -106,13 +106,9 @@ using an array or object, e.g. `defineEmits(['event1', 'event2'])`.
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny vue/define-emits-declaration --vue-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -121,6 +117,10 @@ oxlint --deny vue/define-emits-declaration --vue-plugin
     "vue/define-emits-declaration": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny vue/define-emits-declaration --vue-plugin
 ```
 
 :::

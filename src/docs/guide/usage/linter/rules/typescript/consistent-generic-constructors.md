@@ -66,13 +66,9 @@ Type arguments that only appear on the constructor are disallowed.
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny typescript/consistent-generic-constructors
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -80,6 +76,10 @@ oxlint --deny typescript/consistent-generic-constructors
     "typescript/consistent-generic-constructors": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny typescript/consistent-generic-constructors
 ```
 
 :::

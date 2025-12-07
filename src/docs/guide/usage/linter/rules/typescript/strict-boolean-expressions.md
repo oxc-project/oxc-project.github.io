@@ -170,13 +170,9 @@ Whether to allow string types in boolean contexts (checks for non-empty strings)
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --type-aware --deny typescript/strict-boolean-expressions
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -184,6 +180,10 @@ oxlint --type-aware --deny typescript/strict-boolean-expressions
     "typescript/strict-boolean-expressions": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --type-aware --deny typescript/strict-boolean-expressions
 ```
 
 :::

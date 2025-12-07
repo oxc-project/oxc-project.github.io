@@ -56,13 +56,9 @@ export default {
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny vue/no-multiple-slot-args --vue-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -71,6 +67,10 @@ oxlint --deny vue/no-multiple-slot-args --vue-plugin
     "vue/no-multiple-slot-args": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny vue/no-multiple-slot-args --vue-plugin
 ```
 
 :::

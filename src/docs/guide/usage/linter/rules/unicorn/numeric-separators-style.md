@@ -153,13 +153,9 @@ grouping will be enforced for eligible numbers even if they don't include separa
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny unicorn/numeric-separators-style
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -167,6 +163,10 @@ oxlint --deny unicorn/numeric-separators-style
     "unicorn/numeric-separators-style": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny unicorn/numeric-separators-style
 ```
 
 :::

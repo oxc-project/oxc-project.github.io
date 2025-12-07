@@ -43,13 +43,9 @@ An array of variable names that are allowed to alias `this`.
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny typescript/no-this-alias
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -57,6 +53,10 @@ oxlint --deny typescript/no-this-alias
     "typescript/no-this-alias": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny typescript/no-this-alias
 ```
 
 :::

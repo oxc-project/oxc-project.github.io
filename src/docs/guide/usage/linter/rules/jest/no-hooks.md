@@ -75,13 +75,9 @@ An array of hook function names that are permitted for use.
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny jest/no-hooks --jest-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -90,6 +86,10 @@ oxlint --deny jest/no-hooks --jest-plugin
     "jest/no-hooks": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny jest/no-hooks --jest-plugin
 ```
 
 :::

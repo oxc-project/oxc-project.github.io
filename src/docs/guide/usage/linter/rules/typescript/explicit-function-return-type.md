@@ -143,13 +143,9 @@ Array of function names that are exempt from requiring return type annotations.
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny typescript/explicit-function-return-type
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -157,6 +153,10 @@ oxlint --deny typescript/explicit-function-return-type
     "typescript/explicit-function-return-type": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny typescript/explicit-function-return-type
 ```
 
 :::

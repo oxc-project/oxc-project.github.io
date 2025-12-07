@@ -71,13 +71,9 @@ Whether to allow calls to `Promise.reject()` with no arguments.
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny prefer-promise-reject-errors
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -85,6 +81,10 @@ oxlint --deny prefer-promise-reject-errors
     "prefer-promise-reject-errors": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny prefer-promise-reject-errors
 ```
 
 :::

@@ -79,13 +79,9 @@ Boolean as to whether callbacks in timeout functions like `setTimeout` will err.
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny promise/no-callback-in-promise --promise-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -94,6 +90,10 @@ oxlint --deny promise/no-callback-in-promise --promise-plugin
     "promise/no-callback-in-promise": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny promise/no-callback-in-promise --promise-plugin
 ```
 
 :::

@@ -40,13 +40,9 @@ require("thing");
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny jest/no-mocks-import --jest-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -55,6 +51,10 @@ oxlint --deny jest/no-mocks-import --jest-plugin
     "jest/no-mocks-import": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny jest/no-mocks-import --jest-plugin
 ```
 
 :::

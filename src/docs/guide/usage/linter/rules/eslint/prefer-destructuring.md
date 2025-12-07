@@ -103,13 +103,9 @@ Determines whether the object destructuring rule applies to renamed variables.
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny prefer-destructuring
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -117,6 +113,10 @@ oxlint --deny prefer-destructuring
     "prefer-destructuring": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny prefer-destructuring
 ```
 
 :::

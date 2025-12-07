@@ -50,13 +50,9 @@ var foo = Symbol("some description");
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny symbol-description
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -64,6 +60,10 @@ oxlint --deny symbol-description
     "symbol-description": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny symbol-description
 ```
 
 :::

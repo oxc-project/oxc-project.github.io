@@ -65,13 +65,9 @@ const str5 = `Result: ${1 + 2}`;
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --type-aware --deny typescript/no-unnecessary-template-expression
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -79,6 +75,10 @@ oxlint --type-aware --deny typescript/no-unnecessary-template-expression
     "typescript/no-unnecessary-template-expression": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --type-aware --deny typescript/no-unnecessary-template-expression
 ```
 
 :::

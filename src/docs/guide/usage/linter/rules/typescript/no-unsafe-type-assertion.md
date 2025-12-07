@@ -69,13 +69,9 @@ const unknown: unknown = value;
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --type-aware --deny typescript/no-unsafe-type-assertion
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -83,6 +79,10 @@ oxlint --type-aware --deny typescript/no-unsafe-type-assertion
     "typescript/no-unsafe-type-assertion": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --type-aware --deny typescript/no-unsafe-type-assertion
 ```
 
 :::

@@ -76,13 +76,9 @@ Useful for ignoring common comment decorations like `*` in JSDoc-style comments.
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny no-warning-comments
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -90,6 +86,10 @@ oxlint --deny no-warning-comments
     "no-warning-comments": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny no-warning-comments
 ```
 
 :::

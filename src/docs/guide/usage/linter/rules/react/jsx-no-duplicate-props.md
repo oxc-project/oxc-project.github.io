@@ -37,13 +37,9 @@ Examples of **correct** code for this rule:
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny react/jsx-no-duplicate-props --react-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -52,6 +48,10 @@ oxlint --deny react/jsx-no-duplicate-props --react-plugin
     "react/jsx-no-duplicate-props": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny react/jsx-no-duplicate-props --react-plugin
 ```
 
 :::

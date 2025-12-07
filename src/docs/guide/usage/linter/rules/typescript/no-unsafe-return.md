@@ -71,13 +71,9 @@ function safeGetString(): string | null {
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --type-aware --deny typescript/no-unsafe-return
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -85,6 +81,10 @@ oxlint --type-aware --deny typescript/no-unsafe-return
     "typescript/no-unsafe-return": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --type-aware --deny typescript/no-unsafe-return
 ```
 
 :::

@@ -212,13 +212,9 @@ Whether to report unused fallthrough comments.
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny no-fallthrough
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -226,6 +222,10 @@ oxlint --deny no-fallthrough
     "no-fallthrough": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny no-fallthrough
 ```
 
 :::

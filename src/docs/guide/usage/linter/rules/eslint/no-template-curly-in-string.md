@@ -44,13 +44,9 @@ templateFunction`Hello ${name}`;
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny no-template-curly-in-string
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -58,6 +54,10 @@ oxlint --deny no-template-curly-in-string
     "no-template-curly-in-string": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny no-template-curly-in-string
 ```
 
 :::

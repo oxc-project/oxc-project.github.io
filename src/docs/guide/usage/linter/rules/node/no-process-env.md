@@ -53,13 +53,9 @@ Variable names which are allowed to be accessed on `process.env`.
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny node/no-process-env --node-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -68,6 +64,10 @@ oxlint --deny node/no-process-env --node-plugin
     "node/no-process-env": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny node/no-process-env --node-plugin
 ```
 
 :::

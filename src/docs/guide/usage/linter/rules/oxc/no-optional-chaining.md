@@ -48,13 +48,9 @@ helpers and should be avoided."
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny oxc/no-optional-chaining
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -62,6 +58,10 @@ oxlint --deny oxc/no-optional-chaining
     "oxc/no-optional-chaining": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny oxc/no-optional-chaining
 ```
 
 :::

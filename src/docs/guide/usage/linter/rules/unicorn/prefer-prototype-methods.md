@@ -42,13 +42,9 @@ const maxValue = Math.max.apply(Math, numbers);
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny unicorn/prefer-prototype-methods
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -56,6 +52,10 @@ oxlint --deny unicorn/prefer-prototype-methods
     "unicorn/prefer-prototype-methods": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny unicorn/prefer-prototype-methods
 ```
 
 :::

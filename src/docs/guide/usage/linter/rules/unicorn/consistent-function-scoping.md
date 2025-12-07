@@ -115,13 +115,9 @@ Whether to check scoping with arrow functions.
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny unicorn/consistent-function-scoping
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -129,6 +125,10 @@ oxlint --deny unicorn/consistent-function-scoping
     "unicorn/consistent-function-scoping": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny unicorn/consistent-function-scoping
 ```
 
 :::

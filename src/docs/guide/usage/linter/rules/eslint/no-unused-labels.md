@@ -51,13 +51,9 @@ for (const student of students) {
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny no-unused-labels
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -65,6 +61,10 @@ oxlint --deny no-unused-labels
     "no-unused-labels": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny no-unused-labels
 ```
 
 :::

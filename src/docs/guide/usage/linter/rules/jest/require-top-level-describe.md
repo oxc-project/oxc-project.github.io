@@ -77,13 +77,9 @@ The maximum number of top-level `describe` blocks allowed in a test file.
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny jest/require-top-level-describe --jest-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -92,6 +88,10 @@ oxlint --deny jest/require-top-level-describe --jest-plugin
     "jest/require-top-level-describe": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny jest/require-top-level-describe --jest-plugin
 ```
 
 :::

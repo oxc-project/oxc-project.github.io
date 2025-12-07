@@ -115,13 +115,9 @@ When true, static methods can be referenced without binding.
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --type-aware --deny typescript/unbound-method
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -129,6 +125,10 @@ oxlint --type-aware --deny typescript/unbound-method
     "typescript/unbound-method": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --type-aware --deny typescript/unbound-method
 ```
 
 :::

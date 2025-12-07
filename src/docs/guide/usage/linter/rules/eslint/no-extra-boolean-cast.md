@@ -71,13 +71,9 @@ cast inside inner expressions.
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny no-extra-boolean-cast
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -85,6 +81,10 @@ oxlint --deny no-extra-boolean-cast
     "no-extra-boolean-cast": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny no-extra-boolean-cast
 ```
 
 :::

@@ -34,13 +34,9 @@ tooling or developers by appearing to serve a purpose when they do not.
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny unicorn/no-empty-file
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -48,6 +44,10 @@ oxlint --deny unicorn/no-empty-file
     "unicorn/no-empty-file": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny unicorn/no-empty-file
 ```
 
 :::

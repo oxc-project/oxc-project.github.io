@@ -81,13 +81,9 @@ if (condition) {
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny no-lonely-if
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -95,6 +91,10 @@ oxlint --deny no-lonely-if
     "no-lonely-if": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny no-lonely-if
 ```
 
 :::

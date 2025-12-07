@@ -49,13 +49,9 @@ test("foo", () => {
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny vitest/no-import-node-test --vitest-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -64,6 +60,10 @@ oxlint --deny vitest/no-import-node-test --vitest-plugin
     "vitest/no-import-node-test": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny vitest/no-import-node-test --vitest-plugin
 ```
 
 :::
