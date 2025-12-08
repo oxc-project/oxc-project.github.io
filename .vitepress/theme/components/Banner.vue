@@ -17,7 +17,7 @@ const hide = () => {
 };
 
 // Sync with inlined-scripts/banner.js
-const slug = "/blog/2025-12-01-type-aware-alpha";
+const slug = "/blog/2025-12-08-type-aware-alpha";
 
 const bannerDismissed = useLocalStorage<boolean>(`oxc-banner-dismissed-${slug}`, false);
 
