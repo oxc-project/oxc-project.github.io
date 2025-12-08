@@ -75,8 +75,6 @@ Arguments:
   Enable the promise plugin and detect promise usage problems
 - **`--node-plugin`** &mdash;
   Enable the node plugin and detect node usage problems
-- **`--regex-plugin`** &mdash;
-  Enable the regex plugin and detect regex usage problems
 - **`--vue-plugin`** &mdash;
   Enable the vue plugin and detect vue usage problems
 

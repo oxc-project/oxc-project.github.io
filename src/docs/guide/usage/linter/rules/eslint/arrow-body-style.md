@@ -9,7 +9,7 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 <div class="rule-meta">
 <Alert class="fix" type="info">
-<span class="emoji">🚧</span> An auto-fix is planned for this rule, but not implemented at this time.
+<span class="emoji">🛠️</span> An auto-fix is available for this rule.
 </Alert>
 </div>
 
@@ -32,13 +32,13 @@ First option:
 
 - Type: `string`
 - Enum: `"always"`, `"as-needed"`, `"never"`
-- Default: `"never"`
+- Default: `"as-needed"`
 
 Possible values:
 
-- `never` enforces no braces where they can be omitted (default)
+- `never` enforces no braces around the function body (constrains arrow functions to the role of returning an expression)
 - `always` enforces braces around the function body
-- `as-needed` enforces no braces around the function body (constrains arrow functions to the role of returning an expression)
+- `as-needed` enforces no braces where they can be omitted (default)
 
 Second option:
 

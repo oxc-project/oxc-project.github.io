@@ -116,7 +116,7 @@ describe("foo", () => {
 ```
 
 This rule is compatible with [eslint-plugin-vitest](https://github.com/veritem/eslint-plugin-vitest/blob/v1.1.9/docs/rules/prefer-hooks-in-order.md),
-to use it, add the following configuration to your `.eslintrc.json`:
+to use it, add the following configuration to your `.oxlintrc.json`:
 
 ```json
 {

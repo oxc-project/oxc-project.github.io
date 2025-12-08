@@ -44,15 +44,7 @@ Examples of **correct** code for this rule:
 
 This rule accepts a configuration object with the following properties:
 
-### redundantWords
-
-type: `string[]`
-
-default: `["image", "photo", "picture"]`
-
-Words considered redundant in alt text that should trigger a warning.
-
-### typesToValidate
+### components
 
 type: `string[]`
 
@@ -61,15 +53,19 @@ default: `["img"]`
 JSX element types to validate (component names) where the rule applies.
 For example, `["img", "Image"]`.
 
+### words
+
+type: `string[]`
+
+default: `["image", "photo", "picture"]`
+
+Words considered redundant in alt text that should trigger a warning.
+
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny jsx-a11y/img-redundant-alt --jsx-a11y-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -78,6 +74,10 @@ oxlint --deny jsx-a11y/img-redundant-alt --jsx-a11y-plugin
     "jsx-a11y/img-redundant-alt": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny jsx-a11y/img-redundant-alt --jsx-a11y-plugin
 ```
 
 :::
