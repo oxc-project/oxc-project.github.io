@@ -6,7 +6,7 @@ search: false
 
 The progress of all rule implementations is tracked [here](https://github.com/oxc-project/oxc/issues/481).
 
-- Total number of rules: 618
+- Total number of rules: 619
 - Rules turned on by default: 103
 
 **Legend for 'Fixable?' column:**
@@ -378,7 +378,7 @@ code that is most likely wrong or useless.
 | [no-required-prop-with-default](/docs/guide/usage/linter/rules/vue/no-required-prop-with-default.html)                          | vue        |         | 🚧       |
 | [require-default-export](/docs/guide/usage/linter/rules/vue/require-default-export.html)                                        | vue        |         |          |
 
-## Pedantic (106):
+## Pedantic (107):
 
 Lints which are rather strict or have occasional false positives.
 
@@ -405,6 +405,7 @@ Lints which are rather strict or have occasional false positives.
 | [no-redeclare](/docs/guide/usage/linter/rules/eslint/no-redeclare.html)                                                        | eslint     |         |          |
 | [no-self-compare](/docs/guide/usage/linter/rules/eslint/no-self-compare.html)                                                  | eslint     |         |          |
 | [no-throw-literal](/docs/guide/usage/linter/rules/eslint/no-throw-literal.html)                                                | eslint     |         | 💡       |
+| [no-useless-return](/docs/guide/usage/linter/rules/eslint/no-useless-return.html)                                              | eslint     |         | 🚧       |
 | [no-warning-comments](/docs/guide/usage/linter/rules/eslint/no-warning-comments.html)                                          | eslint     |         |          |
 | [radix](/docs/guide/usage/linter/rules/eslint/radix.html)                                                                      | eslint     |         | ⚠️🛠️️       |
 | [require-await](/docs/guide/usage/linter/rules/eslint/require-await.html)                                                      | eslint     |         | ⚠️🛠️️       |
@@ -497,7 +498,7 @@ Code that should be written in a more idiomatic way.
 
 | Rule name                                                                                                                | Source     | Default | Fixable? |
 | ------------------------------------------------------------------------------------------------------------------------ | ---------- | ------- | -------- |
-| [arrow-body-style](/docs/guide/usage/linter/rules/eslint/arrow-body-style.html)                                          | eslint     |         | 🚧       |
+| [arrow-body-style](/docs/guide/usage/linter/rules/eslint/arrow-body-style.html)                                          | eslint     |         | 🛠️        |
 | [curly](/docs/guide/usage/linter/rules/eslint/curly.html)                                                                | eslint     |         | 🛠️        |
 | [default-case-last](/docs/guide/usage/linter/rules/eslint/default-case-last.html)                                        | eslint     |         |          |
 | [default-param-last](/docs/guide/usage/linter/rules/eslint/default-param-last.html)                                      | eslint     |         |          |

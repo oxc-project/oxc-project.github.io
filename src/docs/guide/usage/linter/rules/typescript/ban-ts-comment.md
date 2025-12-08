@@ -35,6 +35,28 @@ if (false) {
 
 ## Configuration
 
+This rule allows you to specify how different TypeScript directive comments
+should be handled.
+
+For each directive (`@ts-expect-error`, `@ts-ignore`, `@ts-nocheck`, `@ts-check`), you can choose one of the following options:
+
+- `true`: Disallow the directive entirely, preventing its use in the entire codebase.
+- `false`: Allow the directive without any restrictions.
+- `"allow-with-description"`: Allow the directive only if it is followed by a description explaining its use. The description must meet the minimum length specified by `minimumDescriptionLength`.
+- `{ "descriptionFormat": "<regex>" }`: Allow the directive only if the description matches the specified regex pattern.
+
+For example:
+
+```json
+{
+  "ts-expect-error": "allow-with-description",
+  "ts-ignore": true,
+  "ts-nocheck": { "descriptionFormat": "^: TS\\d+ because .+$" },
+  "ts-check": false,
+  "minimumDescriptionLength": 3
+}
+```
+
 This rule accepts a configuration object with the following properties:
 
 ### minimumDescriptionLength

@@ -2,46 +2,53 @@
 search: false
 ---
 
-## Usage
 
-**`oxfmt`** \[**`-c`**=_`PATH`_\] \[_`PATH`_\]...
+## Usage
+ **`oxfmt`** \[**`-c`**=_`PATH`_\] \[_`PATH`_\]...
 
 ## Output Options
-
-- **`--check`** &mdash;
+- **`    --check`** &mdash; 
   Check mode - check if files are formatted, also show statistics
-- **`--list-different`** &mdash;
+- **`    --list-different`** &mdash; 
   List mode - list files that would be changed
 
-## Basic Options
 
-- **`-c`**, **`--config`**=_`PATH`_ &mdash;
+
+## Basic Options
+- **`-c`**, **`--config`**=_`PATH`_ &mdash; 
   Path to the configuration file
 
-## Ignore Options
 
-- **`--ignore-path`**=_`PATH`_ &mdash;
+
+## Ignore Options
+- **`    --ignore-path`**=_`PATH`_ &mdash; 
   Path to ignore file(s). Can be specified multiple times. If not specified, .gitignore and .prettierignore in the current directory are used.
-- **`--with-node-modules`** &mdash;
+- **`    --with-node-modules`** &mdash; 
   Format code in node_modules directory (skipped by default)
 
-## Misc Options
 
-- **`--lsp`** &mdash;
+
+## Misc Options
+- **`    --lsp`** &mdash; 
   Start language server protocol (LSP) server
-- **`--no-error-on-unmatched-pattern`** &mdash;
+- **`    --no-error-on-unmatched-pattern`** &mdash; 
   Do not exit with error when pattern is unmatched
-- **`--threads`**=_`INT`_ &mdash;
+- **`    --threads`**=_`INT`_ &mdash; 
   Number of threads to use. Set to 1 for using only 1 CPU core.
 
-## Available positional items:
 
-- _`PATH`_ &mdash;
+
+## Available positional items:
+- _`PATH`_ &mdash; 
   Single file, single path or list of paths. If not provided, current working directory is used. Glob is supported only for exclude patterns like `'!**/fixtures/*.js'`.
 
-## Available options:
 
-- **`-h`**, **`--help`** &mdash;
+
+## Available options:
+- **`-h`**, **`--help`** &mdash; 
   Prints help information
-- **`-V`**, **`--version`** &mdash;
+- **`-V`**, **`--version`** &mdash; 
   Prints version information
+
+
+
