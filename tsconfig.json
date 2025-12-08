@@ -12,9 +12,9 @@
     "skipLibCheck": true,
     "paths": {
       "@components/*": ["./.vitepress/theme/components/*"],
-      "@constants/*": ["./.vitepress/theme/constants/*"]
-    }
+      "@constants/*": ["./.vitepress/theme/constants/*"],
+    },
   },
   "include": ["src/**/*", ".vitepress/**/*"],
-  "exclude": ["node_modules", "build", ".vitepress/cache"]
+  "exclude": ["node_modules", "build", ".vitepress/cache"],
 }

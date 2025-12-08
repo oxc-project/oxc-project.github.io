@@ -161,6 +161,7 @@ impl<'a> AstBuilder<'a> {
 ### Adding New AST Nodes
 
 1. **Define the struct**:
+
    ```rust
    #[ast(visit)]
    pub struct MyNewNode<'a> {
@@ -171,6 +172,7 @@ impl<'a> AstBuilder<'a> {
    ```
 
 2. **Add to enum**:
+
    ```rust
    pub enum Statement<'a> {
        // ... existing variants
@@ -179,6 +181,7 @@ impl<'a> AstBuilder<'a> {
    ```
 
 3. **Run code generation**:
+
    ```bash
    just ast
    ```

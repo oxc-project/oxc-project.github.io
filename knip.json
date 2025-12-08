@@ -6,21 +6,10 @@
     "src/**/*.md!",
     ".vitepress/theme/components/**/*.vue!"
   ],
-  "project": [
-    ".vitepress/**/*.{ts,vue}",
-    "src/**/*.md"
-  ],
-  "ignore": [
-    ".vitepress/cache/**",
-    ".vitepress/dist/**",
-    "build/**"
-  ],
-  "ignoreDependencies": [
-    "esbuild"
-  ],
-  "ignoreBinaries": [
-    "typos"
-  ],
+  "project": [".vitepress/**/*.{ts,vue}", "src/**/*.md"],
+  "ignore": [".vitepress/cache/**", ".vitepress/dist/**", "build/**"],
+  "ignoreDependencies": ["esbuild"],
+  "ignoreBinaries": ["typos"],
   "ignoreExportsUsedInFile": true,
   "ignoreIssues": {
     ".vitepress/theme/constants/team.ts": ["exports", "types"]

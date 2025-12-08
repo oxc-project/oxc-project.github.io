@@ -11,7 +11,7 @@
     "lint": "oxlint -W correctness -W no-unused-vars --deny-warnings",
     "lint:fix": "pnpm lint --fix && typos -w && pnpm fmt --write .",
     "typecheck": "tsc && vue-tsc",
-    "fmt": "oxfmt && dprint fmt",
+    "fmt": "oxfmt",
     "knip": "knip",
     "sponsors": "degit Boshen/sponsors temp --force && mv temp/sponsors.svg public/sponsors.svg",
     "prepare": "husky"
@@ -22,7 +22,6 @@
     "@types/node": "^24.3.1",
     "@vueuse/core": "^14.0.0",
     "degit": "^2.8.4",
-    "dprint": "^0.50.1",
     "esbuild": "0.27.1",
     "feed": "^5.1.0",
     "husky": "^9.1.7",
@@ -30,7 +29,7 @@
     "lint-staged": "16.2.7",
     "markdown-it-container": "^4.0.0",
     "oxc-minify": "^0.102.0",
-    "oxfmt": "^0.16.0",
+    "oxfmt": "^0.17.0",
     "oxlint": "^1.14.0",
     "typescript": "~5.9.2",
     "vitepress": "2.0.0-alpha.15",
@@ -39,7 +38,7 @@
     "vue-tsc": "^3.1.2"
   },
   "lint-staged": {
-    "*": "dprint fmt --staged"
+    "*": "oxfmt"
   },
   "packageManager": "pnpm@10.24.0",
   "volta": {
