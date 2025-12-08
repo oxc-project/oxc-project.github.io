@@ -89,7 +89,7 @@ Benchmarks were performed on a MacBook Pro M2 Max 12 Cores (8 performance and 4 
 
 Our performance testing shows that `oxlint` with type-aware linting is around 10 times faster than `eslint` with `typescript-eslint`. Take a look at our [performance benchmarks](https://github.com/oxc-project/bench-linter) for more details.
 
-Oxlint can also be used to typecheck your codebase while linting. This avoids a duplicate work, as much of the type information is already computed during type-aware linting..
+Oxlint can also be used to typecheck your codebase while linting. This avoids a duplicate work, as much of the type information is already computed during type-aware linting.
 
 :::warning Known Issues
 While `tsgolint` is ready for testing in production codebases, you may encounter issues with running out of memory when working with very large codebases. We are working on optimizing the memory usage for the next milestone. We would love if you tried `tsgolint` and reported any out-of-memory issues to us in the [`tsgolint` repository](https://github.com/oxc-project/tsgolint) and included some details about your project to help us improve memory usage.
