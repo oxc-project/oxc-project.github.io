@@ -12,7 +12,7 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 ### What it does
 
-Prevent usage of styled-jsx in pages/_document.js.
+Prevent usage of styled-jsx in pages/\_document.js.
 
 ### Why is this bad?
 

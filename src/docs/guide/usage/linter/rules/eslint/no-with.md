@@ -4,7 +4,9 @@
 import { data } from '../version.data.js';
 const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_linter/src/rules/eslint/no_with.rs`;
 </script>
+
 # eslint/no-with <Badge type="info" text="Correctness" />
+
 <div class="rule-meta">
 <Alert class="default-on" type="success">
 <span class="emoji">✅</span> This rule is turned on by default.
@@ -22,12 +24,12 @@ The with statement is potentially problematic because it adds members of an obje
 ### Examples
 
 Examples of **incorrect** code for this rule:
+
 ```javascript
 with (point) {
     r = Math.sqrt(x * x + y * y); // is r a member of point?
 }
 ```
-
 
 ## How to use
 
@@ -48,7 +50,6 @@ oxlint --deny no-with
 ```
 
 :::
-
 
 ## References
 
