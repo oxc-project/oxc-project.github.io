@@ -1,6 +1,6 @@
 # Type-Aware Linting
 
-Read our [technical preview announcement](/blog/2025-08-17-oxlint-type-aware) for background details, and the rationale for the architecture we have chosen for type-aware linting.
+Read our [technical preview announcement](/blog/2025-08-17-oxlint-type-aware) and [alpha announcement](/blog/2025-12-08-type-aware-alpha) for background details, and the rationale for the architecture we have chosen for type-aware linting.
 
 ## Installation
 
