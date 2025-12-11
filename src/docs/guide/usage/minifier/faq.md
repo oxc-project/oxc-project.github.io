@@ -2,7 +2,7 @@
 
 ## Top level variables are removed
 
-Top level variables are removed when the source type is `module`. This is because top level variables in module code are not accessible from other modules. Contrary to that, top level variables in script code are treated as global variables and are accessible from other scripts. If you expect the top level variables to be kept, you should use not use a `.mjs` filename nor enable `module` option.
+Top level variables are removed when the source type is `module`. This is because top level variables in module code are not accessible from other modules. Contrary to that, top level variables in script code are treated as global variables and are accessible from other scripts. If you expect the top level variables to be kept, you should not use a `.mjs` filename nor enable `module` option.
 
 ## New lines in strings are not removed
 
