@@ -23,23 +23,23 @@ Add `oxfmt` to your project:
 
 ::: code-group
 
-```bash
+```sh [npm]
 npm add -D oxfmt@latest
 ```
 
-```bash
+```sh [pnpm]
 pnpm add -D oxfmt@latest
 ```
 
-```bash
+```sh [yarn]
 yarn add -D oxfmt@latest
 ```
 
-```bash
+```sh [bun]
 bun add -D oxfmt@latest
 ```
 
-```bash
+```sh [deno]
 deno add -D npm:oxfmt@latest
 ```
 
