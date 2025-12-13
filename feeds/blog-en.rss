@@ -4,7 +4,7 @@
         <title>The Oxidation Compiler Blog</title>
         <link>https://oxc.rs</link>
         <description>undefined</description>
-        <lastBuildDate>Thu, 11 Dec 2025 15:53:52 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 13 Dec 2025 06:07:14 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
@@ -14,7 +14,10 @@
             <link>https://oxc.rs/blog/2023-12-12-announcing-oxlint</link>
             <guid isPermaLink="false">https://oxc.rs/blog/2023-12-12-announcing-oxlint</guid>
             <pubDate>Tue, 12 Dec 2023 00:00:00 GMT</pubDate>
-            <description><![CDATA[<AppBlogPostHeader /><p>We are thrilled to announce that oxlint is now generally available!
+            <description><![CDATA[<AppBlogPostHeader /><Alert type="info">
+<p><strong>This post announces the initial General Availability release of Oxlint.</strong> For the latest stable release with significantly more features and improvements, see the <a href="/blog/2025-06-10-oxlint-stable.html">Oxlint v1.0 Stable announcement</a>.</p>
+</Alert>
+<p>We are thrilled to announce that oxlint is now generally available!
 This milestone signifies our team's ability to promptly address and triage issues.</p>
 <p>Oxlint is a JavaScript linter designed to catch erroneous or useless code without requiring any configurations by default.</p>
 <h2 id="how-to-use" tabindex="-1">How to Use <a class="header-anchor" href="#how-to-use" aria-label="Permalink to “How to Use”">&#8203;</a></h2>
@@ -57,7 +60,10 @@ Oxlint aims to simplify this by pinpointing root causes and providing helpful me
 navigate through <a href="https://github.com/antfu/eslint-ts-patch" target="_blank" rel="noreferrer">compatibility issues</a>,
 or <a href="https://github.com/import-js/eslint-plugin-import/pull/2504#issuecomment-1191057877" target="_blank" rel="noreferrer">resort to forked plugins due to version constraints</a>.</p>
 ]]></description>
-            <content:encoded><![CDATA[<AppBlogPostHeader /><p>We are thrilled to announce that oxlint is now generally available!
+            <content:encoded><![CDATA[<AppBlogPostHeader /><Alert type="info">
+<p><strong>This post announces the initial General Availability release of Oxlint.</strong> For the latest stable release with significantly more features and improvements, see the <a href="/blog/2025-06-10-oxlint-stable.html">Oxlint v1.0 Stable announcement</a>.</p>
+</Alert>
+<p>We are thrilled to announce that oxlint is now generally available!
 This milestone signifies our team's ability to promptly address and triage issues.</p>
 <p>Oxlint is a JavaScript linter designed to catch erroneous or useless code without requiring any configurations by default.</p>
 <h2 id="how-to-use" tabindex="-1">How to Use <a class="header-anchor" href="#how-to-use" aria-label="Permalink to “How to Use”">&#8203;</a></h2>
@@ -460,7 +466,10 @@ and the benchmarks are shown in its <a href="https://github.com/oxc-project/benc
             <link>https://oxc.rs/blog/2024-10-18-oxlint-v0.10-release</link>
             <guid isPermaLink="false">https://oxc.rs/blog/2024-10-18-oxlint-v0.10-release</guid>
             <pubDate>Fri, 18 Oct 2024 00:00:00 GMT</pubDate>
-            <content:encoded><![CDATA[<AppBlogPostHeader /><p>Oxlint v0.10.0 is here! This release includes several exciting features,
+            <content:encoded><![CDATA[<AppBlogPostHeader /><Alert type="info">
+<p><strong>This migration guide is for an older version of Oxlint.</strong> For information about the latest stable v1.0 release, see the <a href="/blog/2025-06-10-oxlint-stable.html">Oxlint v1.0 Stable announcement</a>.</p>
+</Alert>
+<p>Oxlint v0.10.0 is here! This release includes several exciting features,
 including many improvements to configuration files.</p>
 <h2 id="new-features" tabindex="-1">New Features <a class="header-anchor" href="#new-features" aria-label="Permalink to “New Features”">&#8203;</a></h2>
 <!-- todo: other features -->
@@ -667,7 +676,10 @@ especially the advanced symbol minification algorithm which <code>esbuild</code>
             <link>https://oxc.rs/blog/2025-03-15-oxlint-beta</link>
             <guid isPermaLink="false">https://oxc.rs/blog/2025-03-15-oxlint-beta</guid>
             <pubDate>Sat, 15 Mar 2025 00:00:00 GMT</pubDate>
-            <description><![CDATA[<AppBlogPostHeader /><p>We are thrilled to announce that Oxlint is now in beta release, after more than a year of development by the community!</p>
+            <description><![CDATA[<AppBlogPostHeader /><Alert type="info">
+<p><strong>This post announces the beta release of Oxlint.</strong> Oxlint has since reached v1.0 stable! See the <a href="/blog/2025-06-10-oxlint-stable.html">Oxlint v1.0 Stable announcement</a> for the latest features and improvements.</p>
+</Alert>
+<p>We are thrilled to announce that Oxlint is now in beta release, after more than a year of development by the community!</p>
 <p>This milestone represents a significant step forward in feature completeness, performance, and stability.</p>
 <h2 id="how-to-use" tabindex="-1">How to use <a class="header-anchor" href="#how-to-use" aria-label="Permalink to “How to use”">&#8203;</a></h2>
 <p>At this stage, Oxlint can be used to fully replace ESLint in small to medium projects.</p>
@@ -696,7 +708,10 @@ and run Oxlint before ESLint in your local or CI setup for a quicker feedback lo
 <p>| Rule type       | Rule count (GA) | Rule count (beta) | Increase       |
 |</p>
 ]]></description>
-            <content:encoded><![CDATA[<AppBlogPostHeader /><p>We are thrilled to announce that Oxlint is now in beta release, after more than a year of development by the community!</p>
+            <content:encoded><![CDATA[<AppBlogPostHeader /><Alert type="info">
+<p><strong>This post announces the beta release of Oxlint.</strong> Oxlint has since reached v1.0 stable! See the <a href="/blog/2025-06-10-oxlint-stable.html">Oxlint v1.0 Stable announcement</a> for the latest features and improvements.</p>
+</Alert>
+<p>We are thrilled to announce that Oxlint is now in beta release, after more than a year of development by the community!</p>
 <p>This milestone represents a significant step forward in feature completeness, performance, and stability.</p>
 <h2 id="how-to-use" tabindex="-1">How to use <a class="header-anchor" href="#how-to-use" aria-label="Permalink to “How to use”">&#8203;</a></h2>
 <p>At this stage, Oxlint can be used to fully replace ESLint in small to medium projects.</p>
@@ -985,7 +1000,10 @@ Note that minor releases can still break your CI if newly added rules uncover pr
             <link>https://oxc.rs/blog/2025-08-17-oxlint-type-aware</link>
             <guid isPermaLink="false">https://oxc.rs/blog/2025-08-17-oxlint-type-aware</guid>
             <pubDate>Sun, 17 Aug 2025 00:00:00 GMT</pubDate>
-            <description><![CDATA[<AppBlogPostHeader /><br>
+            <description><![CDATA[<AppBlogPostHeader /><Alert type="info">
+<p><strong>This post announces the technical preview of type-aware linting.</strong> For the latest alpha release with improved stability, configurability, and rule coverage, see the <a href="/blog/2025-12-08-type-aware-alpha.html">Type-Aware Linting Alpha announcement</a>.</p>
+</Alert>
+<br>
 <p>We're thrilled to announce type-aware linting in <code>oxlint</code>!</p>
 <p>The long-awaited <code>no-floating-promises</code> and related rules are here.</p>
 <p>This preview release aims to engage with the community for collaboration and
@@ -1014,7 +1032,10 @@ the <a href="https://devblogs.microsoft.com/typescript/typescript-native-port" t
 <p>| Project  | Files | Time |
 |</p>
 ]]></description>
-            <content:encoded><![CDATA[<AppBlogPostHeader /><br>
+            <content:encoded><![CDATA[<AppBlogPostHeader /><Alert type="info">
+<p><strong>This post announces the technical preview of type-aware linting.</strong> For the latest alpha release with improved stability, configurability, and rule coverage, see the <a href="/blog/2025-12-08-type-aware-alpha.html">Type-Aware Linting Alpha announcement</a>.</p>
+</Alert>
+<br>
 <p>We're thrilled to announce type-aware linting in <code>oxlint</code>!</p>
 <p>The long-awaited <code>no-floating-promises</code> and related rules are here.</p>
 <p>This preview release aims to engage with the community for collaboration and
