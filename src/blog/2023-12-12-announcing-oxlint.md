@@ -7,6 +7,12 @@ authors:
 
 <AppBlogPostHeader />
 
+<Alert type="info">
+
+**This post announces the initial General Availability release of Oxlint.** For the latest stable release with significantly more features and improvements, see the [Oxlint v1.0 Stable announcement](/blog/2025-06-10-oxlint-stable).
+
+</Alert>
+
 We are thrilled to announce that oxlint is now generally available!
 This milestone signifies our team's ability to promptly address and triage issues.
 
