@@ -8,6 +8,12 @@ authors:
 
 <AppBlogPostHeader />
 
+<Alert type="info">
+
+**This post announces the beta release of Oxlint.** Oxlint has since reached v1.0 stable! See the [Oxlint v1.0 Stable announcement](/blog/2025-06-10-oxlint-stable) for the latest features and improvements.
+
+</Alert>
+
 We are thrilled to announce that Oxlint is now in beta release, after more than a year of development by the community!
 
 This milestone represents a significant step forward in feature completeness, performance, and stability.
