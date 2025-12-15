@@ -26,7 +26,7 @@ Examples of **incorrect** code for this rule:
 var Hello = createReactClass({
   render: function() {
     return <div ref="hello">Hello, world.</div>;
-  },
+  }
 });
 
 var Hello = createReactClass({
@@ -36,7 +36,7 @@ var Hello = createReactClass({
   },
   render: function() {
     return <div ref="hello">Hello, world.</div>;
-  },
+  }
 });
 ```
 
@@ -49,16 +49,8 @@ var Hello = createReactClass({
     // ...do something with component
   },
   render() {
-    return (
-      <div
-        ref={(c) => {
-          this.hello = c;
-        }}
-      >
-        Hello, world.
-      </div>
-    );
-  },
+    return <div ref={(c) => { this.hello = c; }}>Hello, world.</div>;
+  }
 });
 ```
 
@@ -82,10 +74,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["react"],
-  "rules": {
-    "react/no-string-refs": "error"
-  }
+    "plugins": ["react"],
+    "rules": {
+        "react/no-string-refs": "error"
+    }
 }
 ```
 

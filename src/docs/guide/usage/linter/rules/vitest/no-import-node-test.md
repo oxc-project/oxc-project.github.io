@@ -29,22 +29,22 @@ compatibility and access to its full functionality.
 Examples of **incorrect** code for this rule:
 
 ```javascript
-import { test } from "node:test";
-import { expect } from "vitest";
+import { test } from 'node:test'
+import { expect } from 'vitest'
 
-test("foo", () => {
-  expect(1).toBe(1);
-});
+test('foo', () => {
+  expect(1).toBe(1)
+})
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
-import { expect, test } from "vitest";
+import { test, expect } from 'vitest'
 
-test("foo", () => {
-  expect(1).toBe(1);
-});
+test('foo', () => {
+  expect(1).toBe(1)
+})
 ```
 
 ## How to use
@@ -55,10 +55,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["vitest"],
-  "rules": {
-    "vitest/no-import-node-test": "error"
-  }
+    "plugins": ["vitest"],
+    "rules": {
+        "vitest/no-import-node-test": "error"
+    }
 }
 ```
 

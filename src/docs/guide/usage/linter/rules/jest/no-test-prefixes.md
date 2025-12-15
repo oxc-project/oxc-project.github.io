@@ -32,11 +32,11 @@ This rule enforces usages from the only & skip list.
 Examples of **incorrect** code for this rule:
 
 ```javascript
-fit("foo"); // invalid
-fdescribe("foo"); // invalid
-xit("foo"); // invalid
-xtest("foo"); // invalid
-xdescribe("foo"); // invalid
+fit('foo'); // invalid
+fdescribe('foo'); // invalid
+xit('foo'); // invalid
+xtest('foo'); // invalid
+xdescribe('foo'); // invalid
 ```
 
 This rule is compatible with [eslint-plugin-vitest](https://github.com/veritem/eslint-plugin-vitest/blob/v1.1.9/docs/rules/no-test-prefixes.md),
@@ -45,7 +45,7 @@ to use it, add the following configuration to your `.oxlintrc.json`:
 ```json
 {
   "rules": {
-    "vitest/no-test-prefixes": "error"
+     "vitest/no-test-prefixes": "error"
   }
 }
 ```
@@ -58,10 +58,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["jest"],
-  "rules": {
-    "jest/no-test-prefixes": "error"
-  }
+    "plugins": ["jest"],
+    "rules": {
+        "jest/no-test-prefixes": "error"
+    }
 }
 ```
 

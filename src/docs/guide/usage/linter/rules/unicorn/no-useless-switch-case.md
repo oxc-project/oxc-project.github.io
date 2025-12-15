@@ -27,10 +27,10 @@ Examples of **incorrect** code for this rule:
 
 ```javascript
 switch (foo) {
-  case 1:
-  default:
-    handleDefaultCase();
-    break;
+	case 1:
+	default:
+		handleDefaultCase();
+		break;
 }
 ```
 
@@ -38,10 +38,10 @@ Examples of **correct** code for this rule:
 
 ```javascript
 switch (foo) {
-  case 1:
-  case 2:
-    handleCase1And2();
-    break;
+	case 1:
+	case 2:
+		handleCase1And2();
+		break;
 }
 ```
 
@@ -53,9 +53,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "unicorn/no-useless-switch-case": "error"
-  }
+    "rules": {
+        "unicorn/no-useless-switch-case": "error"
+    }
 }
 ```
 

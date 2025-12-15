@@ -24,11 +24,11 @@ Examples of **incorrect** code for this rule:
 
 ```js
 (async () => {
-  await run();
+    await run();
 })();
 
 run().catch(error => {
-  console.error(error);
+    console.error(error);
 });
 ```
 
@@ -38,9 +38,9 @@ Examples of **correct** code for this rule:
 await run();
 
 try {
-  await run();
+    await run();
 } catch (error) {
-  console.error(error);
+    console.error(error);
 }
 ```
 
@@ -52,9 +52,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "unicorn/prefer-top-level-await": "error"
-  }
+    "rules": {
+        "unicorn/prefer-top-level-await": "error"
+    }
 }
 ```
 

@@ -8,6 +8,9 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 # jest/prefer-to-contain <Badge type="info" text="Style" />
 
 <div class="rule-meta">
+<Alert class="fix" type="info">
+<span class="emoji">🛠️</span> An auto-fix is available for this rule.
+</Alert>
 </div>
 
 ### What it does
@@ -17,7 +20,7 @@ asserting expectations on an array containing an object.
 
 ### Why is this bad?
 
-TThis rule triggers a warning if `toBe()`, `toEqual()` or `toStrictEqual()` is
+This rule triggers a warning if `toBe()`, `toEqual()` or `toStrictEqual()` is
 used to assert object inclusion in an array
 
 ### Examples
@@ -39,6 +42,17 @@ expect(a).toContain(b);
 expect(a).not.toContain(b);
 ```
 
+This rule is compatible with [eslint-plugin-vitest](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/prefer-to-contain.md),
+to use it, add the following configuration to your `.oxlintrc.json`:
+
+```json
+{
+  "rules": {
+     "vitest/prefer-to-contain": "error"
+  }
+}
+```
+
 ## How to use
 
 To **enable** this rule using the config file or in the CLI, you can use:
@@ -47,10 +61,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["jest"],
-  "rules": {
-    "jest/prefer-to-contain": "error"
-  }
+    "plugins": ["jest"],
+    "rules": {
+        "jest/prefer-to-contain": "error"
+    }
 }
 ```
 

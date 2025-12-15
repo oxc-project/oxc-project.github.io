@@ -31,11 +31,11 @@ let module = {};
 
 // Using module in variable declaration
 const module = {
-  exports: {},
+  exports: {}
 };
 
 // Assigning to module
-module = { id: "my-module" };
+module = { id: 'my-module' };
 ```
 
 Examples of **correct** code for this rule:
@@ -46,7 +46,7 @@ let myModule = {};
 
 // Use a more descriptive name
 const customModule = {
-  exports: {},
+  exports: {}
 };
 
 // Access actual module object (when available)
@@ -61,10 +61,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["nextjs"],
-  "rules": {
-    "nextjs/no-assign-module-variable": "error"
-  }
+    "plugins": ["nextjs"],
+    "rules": {
+        "nextjs/no-assign-module-variable": "error"
+    }
 }
 ```
 

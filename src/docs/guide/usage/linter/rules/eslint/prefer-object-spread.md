@@ -28,11 +28,11 @@ Examples of **incorrect** code for this rule:
 ```js
 Object.assign({}, foo);
 
-Object.assign({}, { foo: "bar" });
+Object.assign({}, {foo: 'bar'});
 
-Object.assign({ foo: "bar" }, baz);
+Object.assign({ foo: 'bar'}, baz);
 
-Object.assign({}, baz, { foo: "bar" });
+Object.assign({}, baz, { foo: 'bar' });
 
 Object.assign({}, { ...baz });
 
@@ -47,7 +47,7 @@ Examples of **correct** code for this rule:
 ```js
 ({ ...foo });
 
-({ ...baz, foo: "bar" });
+({ ...baz, foo: 'bar' });
 
 // Any Object.assign call without an object literal as the first argument
 Object.assign(foo, { bar: baz });
@@ -67,9 +67,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "prefer-object-spread": "error"
-  }
+    "rules": {
+        "prefer-object-spread": "error"
+    }
 }
 ```
 

@@ -29,17 +29,17 @@ resulting from this part of the spec
 Examples of **incorrect** code for this rule:
 
 ```js
-import { x } from "./foo";
+import { x } from './foo';
 export { x };
-import { y } from "./bar";
+import { y } from './bar';
 ```
 
 Examples of **correct** code for this rule:
 
 ```js
-import { y } from "./bar";
-import { x } from "./foo";
-export { x, y };
+import { x } from './foo';
+import { y } from './bar';
+export { x, y }
 ```
 
 ## Configuration
@@ -53,15 +53,15 @@ Forces absolute imports to be listed before relative imports.
 Examples of **incorrect** code for this rule with `"absolute-first"`:
 
 ```js
-import { y } from "bar";
-import { x } from "./foo";
+import { x } from './foo';
+import { y } from 'bar'
 ```
 
 Examples of **correct** code for this rule with `"absolute-first"`:
 
 ```js
-import { y } from "bar";
-import { x } from "./foo";
+import { y } from 'bar';
+import { x } from './foo'
 ```
 
 ### `"disable-absolute-first"`
@@ -77,10 +77,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["import"],
-  "rules": {
-    "import/first": "error"
-  }
+    "plugins": ["import"],
+    "rules": {
+        "import/first": "error"
+    }
 }
 ```
 

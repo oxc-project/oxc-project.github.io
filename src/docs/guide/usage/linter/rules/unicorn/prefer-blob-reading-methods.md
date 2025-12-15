@@ -27,16 +27,16 @@ Examples of **incorrect** code for this rule:
 
 ```javascript
 async function bad() {
-  const arrayBuffer = await new Promise((resolve, reject) => {
-    const fileReader = new FileReader();
-    fileReader.addEventListener("load", () => {
-      resolve(fileReader.result);
+    const arrayBuffer = await new Promise((resolve, reject) => {
+        const fileReader = new FileReader();
+        fileReader.addEventListener('load', () => {
+            resolve(fileReader.result);
+        });
+        fileReader.addEventListener('error', () => {
+            reject(fileReader.error);
+        });
+        fileReader.readAsArrayBuffer(blob);
     });
-    fileReader.addEventListener("error", () => {
-      reject(fileReader.error);
-    });
-    fileReader.readAsArrayBuffer(blob);
-  });
 }
 ```
 
@@ -44,7 +44,7 @@ Examples of **correct** code for this rule:
 
 ```javascript
 async function good() {
-  const arrayBuffer = await blob.arrayBuffer();
+    const arrayBuffer = await blob.arrayBuffer();
 }
 ```
 
@@ -56,9 +56,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "unicorn/prefer-blob-reading-methods": "error"
-  }
+    "rules": {
+        "unicorn/prefer-blob-reading-methods": "error"
+    }
 }
 ```
 

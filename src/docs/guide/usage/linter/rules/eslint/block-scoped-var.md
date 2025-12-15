@@ -21,10 +21,6 @@ JavaScript’s `var` declarations are hoisted to the top of their enclosing func
 This can lead to hard-to-find bugs.
 By enforcing block scoping, this rule helps avoid hoisting issues and aligns more closely with how other languages treat block variables.
 
-### Options
-
-No options available for this rule.
-
 ### Examples
 
 Examples of **incorrect** code for this rule:
@@ -33,35 +29,36 @@ Examples of **incorrect** code for this rule:
 /* block-scoped-var: "error" */
 
 function doIf() {
-  if (true) {
-    var build = true;
-  }
-  console.log(build);
+    if (true) {
+        var build = true;
+    }
+    console.log(build);
 }
 
 function doLoop() {
-  for (var i = 0; i < 10; i++) {
-    // do something
-  }
-  console.log(i); // i is accessible here
+    for (var i = 0; i < 10; i++) {
+        // do something
+    }
+    console.log(i); // i is accessible here
 }
 
 function doSomething() {
-  if (true) {
-    var foo = 1;
-  }
-  if (false) {
-    foo = 2;
-  }
+    if (true) {
+        var foo = 1;
+    }
+    if (false) {
+        foo = 2;
+    }
 }
 
 function doTry() {
-  try {
-    var foo = 1;
-  } catch (e) {
-    console.log(foo);
-  }
+    try {
+        var foo = 1;
+    } catch (e) {
+        console.log(foo);
+    }
 }
+
 ```
 
 Examples of **correct** code for this rule:
@@ -70,38 +67,38 @@ Examples of **correct** code for this rule:
 /* block-scoped-var: "error" */
 
 function doIf() {
-  var build;
-  if (true) {
-    build = true;
-  }
-  console.log(build);
+    var build;
+    if (true) {
+        build = true;
+    }
+    console.log(build);
 }
 
 function doLoop() {
-  var i;
-  for (i = 0; i < 10; i++) {
-    // do something
-  }
-  console.log(i);
+    var i;
+    for (i = 0; i < 10; i++) {
+        // do something
+    }
+    console.log(i);
 }
 
 function doSomething() {
-  var foo;
-  if (true) {
-    foo = 1;
-  }
-  if (false) {
-    foo = 2;
-  }
+    var foo;
+    if (true) {
+        foo = 1;
+    }
+    if (false) {
+        foo = 2;
+    }
 }
 
 function doTry() {
-  var foo;
-  try {
-    foo = 1;
-  } catch (e) {
-    console.log(foo);
-  }
+    var foo;
+    try {
+        foo = 1;
+    } catch (e) {
+        console.log(foo);
+    }
 }
 ```
 
@@ -113,9 +110,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "block-scoped-var": "error"
-  }
+    "rules": {
+        "block-scoped-var": "error"
+    }
 }
 ```
 

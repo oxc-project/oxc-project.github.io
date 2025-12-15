@@ -40,7 +40,7 @@ declare class C {
 
 ```typescript
 interface I {
-  new(): I;
+  new (): I;
   constructor(): void;
 }
 ```
@@ -55,7 +55,7 @@ declare class C {
 
 ```typescript
 interface I {
-  new(): C;
+  new (): C;
 }
 ```
 
@@ -67,9 +67,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "typescript/no-misused-new": "error"
-  }
+    "rules": {
+        "typescript/no-misused-new": "error"
+    }
 }
 ```
 

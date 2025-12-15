@@ -30,27 +30,27 @@ and stable snapshots, avoiding potential conflicts or failures.
 Examples of **incorrect** code for this rule:
 
 ```javascript
-test.concurrent("myLogic", () => {
-  expect(true).toMatchSnapshot();
-});
+test.concurrent('myLogic', () => {
+    expect(true).toMatchSnapshot();
+})
 
-describe.concurrent("something", () => {
-  test("myLogic", () => {
-    expect(true).toMatchInlineSnapshot();
-  });
-});
+describe.concurrent('something', () => {
+    test('myLogic', () => {
+        expect(true).toMatchInlineSnapshot();
+    })
+})
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
-test.concurrent("myLogic", ({ expect }) => {
-  expect(true).toMatchSnapshot();
-});
+test.concurrent('myLogic', ({ expect }) => {
+    expect(true).toMatchSnapshot();
+})
 
-test.concurrent("myLogic", (context) => {
-  context.expect(true).toMatchSnapshot();
-});
+test.concurrent('myLogic', (context) => {
+    context.expect(true).toMatchSnapshot();
+})
 ```
 
 ## How to use
@@ -61,10 +61,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["vitest"],
-  "rules": {
-    "vitest/require-local-test-context-for-concurrent-snapshots": "error"
-  }
+    "plugins": ["vitest"],
+    "rules": {
+        "vitest/require-local-test-context-for-concurrent-snapshots": "error"
+    }
 }
 ```
 

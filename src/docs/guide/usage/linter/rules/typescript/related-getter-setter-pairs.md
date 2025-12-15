@@ -46,7 +46,7 @@ class Example {
 // Getter without corresponding setter or vice versa might be flagged
 class IncompleteProperty {
   get readOnlyValue(): string {
-    return "constant";
+    return 'constant';
   }
   // Missing setter - might be intended, but should be consistent
 }
@@ -65,13 +65,13 @@ class Example {
     this._value = val;
   }
 
-  private _value: string = "";
+  private _value: string = '';
 }
 
 // Read-only property with only getter
 class ReadOnlyProperty {
   get constant(): string {
-    return "constant value";
+    return 'constant value';
   }
 }
 
@@ -91,9 +91,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "typescript/related-getter-setter-pairs": "error"
-  }
+    "rules": {
+        "typescript/related-getter-setter-pairs": "error"
+    }
 }
 ```
 

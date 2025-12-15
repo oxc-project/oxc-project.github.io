@@ -26,18 +26,29 @@ Examples of **incorrect** code for this rule:
 
 ```js
 for (const item of items) {
-  describe(item, () => {
-    expect(item).toBe("foo");
-  });
+	describe(item, () => {
+		expect(item).toBe('foo')
+	})
 }
 ```
 
 Examples of **correct** code for this rule:
 
 ```js
-describe.each(items)("item", (item) => {
-  expect(item).toBe("foo");
-});
+describe.each(items)('item', (item) => {
+	expect(item).toBe('foo')
+})
+```
+
+This rule is compatible with [eslint-plugin-vitest](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/prefer-each.md),
+to use it, add the following configuration to your `.oxlintrc.json`:
+
+```json
+{
+  "rules": {
+     "vitest/prefer-each": "error"
+  }
+}
 ```
 
 ## How to use
@@ -48,10 +59,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["jest"],
-  "rules": {
-    "jest/prefer-each": "error"
-  }
+    "plugins": ["jest"],
+    "rules": {
+        "jest/prefer-each": "error"
+    }
 }
 ```
 

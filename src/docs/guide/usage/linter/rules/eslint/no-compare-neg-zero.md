@@ -32,13 +32,13 @@ Examples of **incorrect** code for this rule:
 
 ```javascript
 if (x === -0) {
-  // doSomething()...
+    // doSomething()...
 }
 ```
 
 ```javascript
 if (-0 > x) {
-  // doSomething()...
+    // doSomething()...
 }
 ```
 
@@ -46,19 +46,19 @@ Examples of **correct** code for this rule:
 
 ```javascript
 if (x === 0) {
-  // doSomething()...
+    // doSomething()...
 }
 ```
 
 ```javascript
 if (Object.is(x, -0)) {
-  // doSomething()...
+    // doSomething()...
 }
 ```
 
 ```javascript
 if (0 > x) {
-  // doSomething()...
+    // doSomething()...
 }
 ```
 
@@ -70,9 +70,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "no-compare-neg-zero": "error"
-  }
+    "rules": {
+        "no-compare-neg-zero": "error"
+    }
 }
 ```
 

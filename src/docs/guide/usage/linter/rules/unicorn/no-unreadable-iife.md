@@ -25,7 +25,7 @@ Examples of **incorrect** code for this rule:
 ```javascript
 const foo = (bar => (bar ? bar.baz : baz))(getBar());
 
-const foo = ((bar, baz) => ({ bar, baz }))(bar, baz);
+const foo = ((bar, baz) => ({bar, baz}))(bar, baz);
 ```
 
 Examples of **correct** code for this rule:
@@ -38,7 +38,7 @@ const getBaz = bar => (bar ? bar.baz : baz);
 const foo = getBaz(getBar());
 
 const foo = (bar => {
-  return bar ? bar.baz : baz;
+    return bar ? bar.baz : baz;
 })(getBar());
 ```
 
@@ -50,9 +50,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "unicorn/no-unreadable-iife": "error"
-  }
+    "rules": {
+        "unicorn/no-unreadable-iife": "error"
+    }
 }
 ```
 

@@ -30,22 +30,22 @@ Examples of **incorrect** code for this rule:
 ```ts
 // Should indicate that no value is returned (void)
 function test() {
-  return;
+    return
 }
 
 // Should indicate that a number is returned
-var fn = function() {
-  return 1;
-};
+var fn = function () {
+    return 1
+}
 
 // Should indicate that a string is returned
-var arrowFn = () => "test";
+var arrowFn = () => 'test'
 
 class Test {
-  // Should indicate that no value is returned (void)
-  method() {
-    return;
-  }
+    // Should indicate that no value is returned (void)
+    method() {
+        return
+    }
 }
 ```
 
@@ -54,22 +54,22 @@ Examples of **correct** code for this rule:
 ```ts
 // No return value should be expected (void)
 function test(): void {
-  return;
+    return
 }
 
 // A return value of type number
-var fn = function(): number {
-  return 1;
-};
+var fn = function (): number {
+    return 1
+}
 
 // A return value of type string
-var arrowFn = (): string => "test";
+var arrowFn = (): string => 'test'
 
 class Test {
-  // No return value should be expected (void)
-  method(): void {
-    return;
-  }
+    // No return value should be expected (void)
+    method(): void {
+        return
+    }
 }
 ```
 
@@ -149,9 +149,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "typescript/explicit-function-return-type": "error"
-  }
+    "rules": {
+        "typescript/explicit-function-return-type": "error"
+    }
 }
 ```
 

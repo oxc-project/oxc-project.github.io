@@ -15,11 +15,17 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 ### What it does
 
-Disallow `with` statements
+Disallow [`with`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/with) statements.
 
 ### Why is this bad?
 
-The with statement is potentially problematic because it adds members of an object to the current scope, making it impossible to tell what a variable inside the block actually refers to.
+The with statement is potentially problematic because it adds members
+of an object to the current scope, making it impossible to tell what a
+variable inside the block actually refers to.
+
+It is generally considered a bad practice and is forbidden in strict mode.
+
+This rule is not necessary in TypeScript code if `alwaysStrict` is enabled.
 
 ### Examples
 

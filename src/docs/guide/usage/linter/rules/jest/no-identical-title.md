@@ -25,14 +25,14 @@ For example, when a test with the same title as another test in the same test su
 Examples of **incorrect** code for this rule:
 
 ```javascript
-describe("baz", () => {
-  // ...
-});
+ describe('baz', () => {
+   //...
+ });
 
-describe("baz", () => {
-  // Has the same title as a previous test suite
-  // ...
-});
+ describe('baz', () => {
+   // Has the same title as a previous test suite
+   // ...
+ });
 ```
 
 This rule is compatible with [eslint-plugin-vitest](https://github.com/veritem/eslint-plugin-vitest/blob/v1.1.9/docs/rules/no-identical-title.md),
@@ -41,7 +41,7 @@ to use it, add the following configuration to your `.oxlintrc.json`:
 ```json
 {
   "rules": {
-    "vitest/no-identical-title": "error"
+     "vitest/no-identical-title": "error"
   }
 }
 ```
@@ -54,10 +54,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["jest"],
-  "rules": {
-    "jest/no-identical-title": "error"
-  }
+    "plugins": ["jest"],
+    "rules": {
+        "jest/no-identical-title": "error"
+    }
 }
 ```
 

@@ -20,10 +20,6 @@ Placing default parameters last allows function calls to omit optional trailing 
 which improves readability and consistency. This rule applies equally to JavaScript and
 TypeScript functions.
 
-### Options
-
-No options available for this rule
-
 ### Examples
 
 Examples of **incorrect** code for this rule:
@@ -34,7 +30,7 @@ Examples of **incorrect** code for this rule:
 function f(a = 0, b) {}
 function f(a, b = 0, c) {}
 function createUser(isAdmin = false, id) {}
-createUser(undefined, "tabby");
+createUser(undefined, "tabby")
 ```
 
 Examples of **correct** code for this rule:
@@ -45,7 +41,7 @@ Examples of **correct** code for this rule:
 function f(a, b = 0) {}
 function f(a = 0, b = 0) {}
 function createUser(id, isAdmin = false) {}
-createUser("tabby");
+createUser("tabby")
 ```
 
 Examples of **incorrect** TypeScript code for this rule:
@@ -77,9 +73,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "default-param-last": "error"
-  }
+    "rules": {
+        "default-param-last": "error"
+    }
 }
 ```
 

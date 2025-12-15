@@ -36,7 +36,7 @@ Examples of **incorrect** code for this rule:
 const numbers = [3, 1, 4, 1, 5];
 numbers.sort(); // Lexicographic sort, not numeric
 
-const mixedArray = ["10", "2", "1"];
+const mixedArray = ['10', '2', '1'];
 mixedArray.sort(); // Might be intended, but explicit compareFn is clearer
 
 [3, 1, 4].sort(); // Will sort as strings: ['1', '3', '4']
@@ -54,7 +54,7 @@ numbers.sort((a, b) => a - b);
 numbers.sort((a, b) => b - a);
 
 // String sort (explicit)
-const strings = ["banana", "apple", "cherry"];
+const strings = ['banana', 'apple', 'cherry'];
 strings.sort((a, b) => a.localeCompare(b));
 
 // Custom object sorting
@@ -64,8 +64,8 @@ interface Person {
 }
 
 const people: Person[] = [
-  { name: "Alice", age: 30 },
-  { name: "Bob", age: 25 },
+  { name: 'Alice', age: 30 },
+  { name: 'Bob', age: 25 },
 ];
 
 people.sort((a, b) => a.age - b.age);
@@ -80,9 +80,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "typescript/require-array-sort-compare": "error"
-  }
+    "rules": {
+        "typescript/require-array-sort-compare": "error"
+    }
 }
 ```
 

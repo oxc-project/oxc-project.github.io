@@ -36,7 +36,8 @@ Examples of **incorrect** code for this rule:
 
 if (foo) foo++;
 while (bar) bar--;
-do foo(); while (bar);
+do foo();
+while (bar);
 ```
 
 Examples of **correct** code for this rule:
@@ -50,9 +51,7 @@ if (foo) {
 while (bar) {
   bar--;
 }
-do {
-  foo();
-} while (bar);
+do { foo(); } while (bar);
 ```
 
 #### `"multi"`
@@ -63,10 +62,7 @@ Examples of **incorrect** code for this rule with the `"multi"` option:
 /* curly: ["error", "multi"] */
 
 if (foo) foo();
-else {
-  bar();
-  baz();
-}
+else { bar(); baz(); }
 ```
 
 Examples of **correct** code for this rule with the `"multi"` option:
@@ -85,14 +81,12 @@ Examples of **incorrect** code for this rule with the `"multi-line"` option:
 ```js
 /* curly: ["error", "multi-line"] */
 
-if (foo) foo();
-else {
+if (foo) foo()
+else
   bar();
-}
 
-while (foo) {
-  foo();
-}
+while (foo)
+  foo()
 ```
 
 Examples of **correct** code for this rule with the `"multi-line"` option:
@@ -106,8 +100,8 @@ else bar();
 while (foo) foo();
 
 while (true) {
-  doSomething();
-  doSomethingElse();
+   doSomething();
+   doSomethingElse();
 }
 ```
 
@@ -118,13 +112,11 @@ Examples of **incorrect** code for this rule with the `"multi-or-nest"` option:
 ```js
 /* curly: ["error", "multi-or-nest"] */
 
-if (foo) {
+if (foo)
   if (bar) bar();
-}
 
-while (foo) {
+while (foo)
   while (bar) bar();
-}
 ```
 
 Examples of **correct** code for this rule with the `"multi-or-nest"` option:
@@ -190,9 +182,8 @@ Examples of **incorrect** code with `"multi-line"` and `consistent: true`:
 
 if (foo) {
   bar();
-} else {
+} else
   baz();
-}
 ```
 
 Examples of **correct** code with `"multi-line"` and `consistent: true`:
@@ -262,9 +253,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "curly": "error"
-  }
+    "rules": {
+        "curly": "error"
+    }
 }
 ```
 

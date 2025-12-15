@@ -34,8 +34,8 @@ Examples of incorrect code for the default "always" option:
 ```js
 /*eslint init-declarations: ["error", "always"]*/
 function foo() {
-  var bar;
-  let baz;
+    var bar;
+    let baz;
 }
 ```
 
@@ -44,9 +44,9 @@ Examples of incorrect code for the "never" option:
 ```js
 /*eslint init-declarations: ["error", "never"]*/
 function foo() {
-  var bar = 1;
-  let baz = 2;
-  for (var i = 0; i < 1; i++) {}
+    var bar = 1;
+    let baz = 2;
+    for (var i = 0; i < 1; i++) {}
 }
 ```
 
@@ -56,9 +56,9 @@ Examples of correct code for the default "always" option:
 /*eslint init-declarations: ["error", "always"]*/
 
 function foo() {
-  var bar = 1;
-  let baz = 2;
-  const qux = 3;
+    var bar = 1;
+    let baz = 2;
+    const qux = 3;
 }
 ```
 
@@ -68,9 +68,9 @@ Examples of correct code for the "never" option:
 /*eslint init-declarations: ["error", "never"]*/
 
 function foo() {
-  var bar;
-  let baz;
-  const buzz = 1;
+    var bar;
+    let baz;
+    const buzz = 1;
 }
 ```
 
@@ -109,9 +109,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "init-declarations": "error"
-  }
+    "rules": {
+        "init-declarations": "error"
+    }
 }
 ```
 

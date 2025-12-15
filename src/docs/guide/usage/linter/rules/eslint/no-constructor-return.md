@@ -25,9 +25,7 @@ Examples of **incorrect** code for this rule:
 
 ```js
 class C {
-  constructor() {
-    return 42;
-  }
+  constructor() { return 42; }
 }
 ```
 
@@ -35,9 +33,7 @@ Examples of **correct** code for this rule:
 
 ```js
 class C {
-  constructor() {
-    this.value = 42;
-  }
+  constructor() { this.value = 42; }
 }
 ```
 
@@ -49,9 +45,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "no-constructor-return": "error"
-  }
+    "rules": {
+        "no-constructor-return": "error"
+    }
 }
 ```
 

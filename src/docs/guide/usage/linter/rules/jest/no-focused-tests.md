@@ -31,14 +31,14 @@ have fixed your test and before committing the changes you have to remove
 Examples of **incorrect** code for this rule:
 
 ```javascript
-describe.only("foo", () => {});
-it.only("foo", () => {});
-describe["only"]("bar", () => {});
-it["only"]("bar", () => {});
-test.only("foo", () => {});
-test["only"]("bar", () => {});
-fdescribe("foo", () => {});
-fit("foo", () => {});
+describe.only('foo', () => {});
+it.only('foo', () => {});
+describe['only']('bar', () => {});
+it['only']('bar', () => {});
+test.only('foo', () => {});
+test['only']('bar', () => {});
+fdescribe('foo', () => {});
+fit('foo', () => {});
 fit.each`
 table
 `();
@@ -50,7 +50,7 @@ to use it, add the following configuration to your `.oxlintrc.json`:
 ```json
 {
   "rules": {
-    "vitest/no-focused-tests": "error"
+     "vitest/no-focused-tests": "error"
   }
 }
 ```
@@ -63,10 +63,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["jest"],
-  "rules": {
-    "jest/no-focused-tests": "error"
-  }
+    "plugins": ["jest"],
+    "rules": {
+        "jest/no-focused-tests": "error"
+    }
 }
 ```
 

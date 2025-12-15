@@ -26,7 +26,7 @@ Checking if a value is `undefined` by using `typeof value === 'undefined'` is ne
 Examples of **incorrect** code for this rule:
 
 ```javascript
-typeof foo === "undefined";
+typeof foo === 'undefined';
 ```
 
 Examples of **correct** code for this rule:
@@ -56,9 +56,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "unicorn/no-typeof-undefined": "error"
-  }
+    "rules": {
+        "unicorn/no-typeof-undefined": "error"
+    }
 }
 ```
 

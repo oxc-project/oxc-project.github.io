@@ -43,7 +43,7 @@ Examples of **correct** code for this rule:
 
 ```jsx
 // pages/_document.jsx
-import NextDocument, { Head, Html } from "next/document";
+import NextDocument, { Html, Head } from "next/document";
 class Document extends NextDocument {
   render() {
     return (
@@ -69,10 +69,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["nextjs"],
-  "rules": {
-    "nextjs/no-page-custom-font": "error"
-  }
+    "plugins": ["nextjs"],
+    "rules": {
+        "nextjs/no-page-custom-font": "error"
+    }
 }
 ```
 

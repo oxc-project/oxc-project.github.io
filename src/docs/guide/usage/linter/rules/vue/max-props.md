@@ -62,10 +62,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["vue"],
-  "rules": {
-    "vue/max-props": "error"
-  }
+    "plugins": ["vue"],
+    "rules": {
+        "vue/max-props": "error"
+    }
 }
 ```
 

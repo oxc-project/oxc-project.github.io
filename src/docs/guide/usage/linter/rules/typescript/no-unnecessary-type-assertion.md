@@ -30,11 +30,11 @@ Type assertions that don't actually change the type of an expression are unneces
 Examples of **incorrect** code for this rule:
 
 ```ts
-const str: string = "hello";
+const str: string = 'hello';
 const redundant = str as string; // unnecessary, str is already string
 
 function getString(): string {
-  return "hello";
+  return 'hello';
 }
 const result = getString() as string; // unnecessary, getString() already returns string
 
@@ -42,22 +42,22 @@ const num = 42;
 const alsoRedundant = num as 42; // unnecessary if TypeScript can infer literal type
 
 // Unnecessary assertion to wider type
-const literal = "hello" as string;
+const literal = 'hello' as string;
 ```
 
 Examples of **correct** code for this rule:
 
 ```ts
-const unknown: unknown = "hello";
+const unknown: unknown = 'hello';
 const str = unknown as string; // necessary to narrow type
 
-const element = document.getElementById("myElement") as HTMLInputElement; // necessary for specific element type
+const element = document.getElementById('myElement') as HTMLInputElement; // necessary for specific element type
 
-const obj = { name: "John" };
+const obj = { name: 'John' };
 const name = obj.name as const; // necessary for literal type
 
 // No assertion needed
-const str2: string = "hello";
+const str2: string = 'hello';
 const num: number = 42;
 ```
 
@@ -83,9 +83,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "typescript/no-unnecessary-type-assertion": "error"
-  }
+    "rules": {
+        "typescript/no-unnecessary-type-assertion": "error"
+    }
 }
 ```
 

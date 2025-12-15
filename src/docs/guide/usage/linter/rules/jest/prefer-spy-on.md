@@ -46,8 +46,8 @@ Date.now = jest.fn(() => 10);
 Examples of **correct** code for this rule:
 
 ```javascript
-jest.spyOn(Date, "now");
-jest.spyOn(Date, "now").mockImplementation(() => 10);
+jest.spyOn(Date, 'now');
+jest.spyOn(Date, 'now').mockImplementation(() => 10);
 ```
 
 ## How to use
@@ -58,10 +58,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["jest"],
-  "rules": {
-    "jest/prefer-spy-on": "error"
-  }
+    "plugins": ["jest"],
+    "rules": {
+        "jest/prefer-spy-on": "error"
+    }
 }
 ```
 

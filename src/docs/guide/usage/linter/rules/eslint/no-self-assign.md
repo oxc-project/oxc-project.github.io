@@ -32,7 +32,7 @@ foo = foo;
 [a, b] = [a, b];
 [a, ...b] = [x, ...b];
 
-({ a, b } = { a, x });
+({a, b} = {a, x});
 
 foo &&= foo;
 foo ||= foo;
@@ -96,9 +96,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "no-self-assign": "error"
-  }
+    "rules": {
+        "no-self-assign": "error"
+    }
 }
 ```
 

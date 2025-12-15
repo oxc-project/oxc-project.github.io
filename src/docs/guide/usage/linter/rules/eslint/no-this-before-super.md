@@ -17,10 +17,13 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 Requires calling `super()` before using `this` or `super`.
 
+This rule can be disabled for TypeScript code, as the TypeScript compiler
+enforces this check.
+
 ### Why is this bad?
 
 In the constructor of derived classes, if `this`/`super` are used before `super()` calls,
-it raises a ReferenceError.
+it raises a `ReferenceError`.
 
 ### Examples
 
@@ -28,11 +31,11 @@ Examples of **incorrect** code for this rule:
 
 ```javascript
 class A1 extends B {
-  constructor() {
-    // super() needs to be called first
-    this.a = 0;
-    super();
-  }
+    constructor() {
+        // super() needs to be called first
+        this.a = 0;
+        super();
+    }
 }
 ```
 
@@ -44,9 +47,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "no-this-before-super": "error"
-  }
+    "rules": {
+        "no-this-before-super": "error"
+    }
 }
 ```
 

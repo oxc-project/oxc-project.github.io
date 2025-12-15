@@ -42,10 +42,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["react"],
-  "rules": {
-    "react/no-namespace": "error"
-  }
+    "plugins": ["react"],
+    "rules": {
+        "react/no-namespace": "error"
+    }
 }
 ```
 

@@ -23,10 +23,10 @@ People may forget to add assertions.
 Examples of **incorrect** code for this rule:
 
 ```javascript
-it("should be a test", () => {
-  console.log("no assertion");
+it('should be a test', () => {
+    console.log('no assertion');
 });
-test("should assert something", () => {});
+test('should assert something', () => {});
 ```
 
 This rule is compatible with [eslint-plugin-vitest](https://github.com/veritem/eslint-plugin-vitest/blob/v1.1.9/docs/rules/expect-expect.md),
@@ -35,7 +35,7 @@ to use it, add the following configuration to your `.oxlintrc.json`:
 ```json
 {
   "rules": {
-    "vitest/expect-expect": "error"
+     "vitest/expect-expect": "error"
   }
 }
 ```
@@ -71,10 +71,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["jest"],
-  "rules": {
-    "jest/expect-expect": "error"
-  }
+    "plugins": ["jest"],
+    "rules": {
+        "jest/expect-expect": "error"
+    }
 }
 ```
 

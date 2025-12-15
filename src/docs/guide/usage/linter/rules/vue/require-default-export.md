@@ -25,7 +25,7 @@ Examples of **incorrect** code for this rule:
 
 ```vue
 <script>
-const foo = "foo";
+const foo = 'foo';
 </script>
 ```
 
@@ -36,9 +36,9 @@ Examples of **correct** code for this rule:
 export default {
   data() {
     return {
-      foo: "foo",
+      foo: 'foo'
     };
-  },
+  }
 };
 </script>
 ```
@@ -51,10 +51,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["vue"],
-  "rules": {
-    "vue/require-default-export": "error"
-  }
+    "plugins": ["vue"],
+    "rules": {
+        "vue/require-default-export": "error"
+    }
 }
 ```
 

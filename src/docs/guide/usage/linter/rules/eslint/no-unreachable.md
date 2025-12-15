@@ -12,7 +12,10 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 ### What it does
 
-Disallow unreachable code after `return`, `throw`, `continue`, and `break` statements
+Disallow unreachable code after `return`, `throw`, `continue`, and `break` statements.
+
+This rule can be disabled for TypeScript code if `allowUnreachableCode: false` is configured
+in the `tsconfig.json`, as the TypeScript compiler enforces this check.
 
 ### Why is this bad?
 
@@ -24,8 +27,8 @@ Examples of **incorrect** code for this rule:
 
 ```ts
 function foo() {
-  return 2;
-  console.log("this will never be executed");
+    return 2;
+    console.log("this will never be executed");
 }
 ```
 
@@ -33,8 +36,8 @@ Examples of **correct** code for this rule:
 
 ```ts
 function foo() {
-  console.log("this will be executed");
-  return 2;
+    console.log("this will be executed");
+    return 2;
 }
 ```
 
@@ -46,9 +49,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "no-unreachable": "error"
-  }
+    "rules": {
+        "no-unreachable": "error"
+    }
 }
 ```
 

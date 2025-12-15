@@ -36,7 +36,7 @@ anyValue(); // unsafe call
 
 anyValue(1, 2, 3); // unsafe call
 
-const result = anyValue("hello"); // unsafe call
+const result = anyValue('hello'); // unsafe call
 
 // Chained unsafe calls
 anyValue().then().catch(); // unsafe
@@ -51,10 +51,10 @@ declare const unknownValue: unknown;
 
 fn(); // safe
 
-const result = fnWithParams(1, "hello"); // safe
+const result = fnWithParams(1, 'hello'); // safe
 
 // Type guard for unknown
-if (typeof unknownValue === "function") {
+if (typeof unknownValue === 'function') {
   unknownValue(); // safe after type guard
 }
 
@@ -70,9 +70,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "typescript/no-unsafe-call": "error"
-  }
+    "rules": {
+        "typescript/no-unsafe-call": "error"
+    }
 }
 ```
 

@@ -29,23 +29,29 @@ and can lead to confusion.
 Examples of **incorrect** code for this rule:
 
 ```jsx
-var React = require("react");
+var React = require('react');
 
-var Component = React.forwardRef((props) => <div />);
+var Component = React.forwardRef((props) => (
+    <div />
+));
 ```
 
 Examples of **correct** code for this rule:
 
 ```jsx
-var React = require("react");
+var React = require('react');
 
-var Component = React.forwardRef((props, ref) => <div ref={ref} />);
+var Component = React.forwardRef((props, ref) => (
+   <div ref={ref} />
+));
 
-var Component = React.forwardRef((props, ref) => <div />);
+var Component = React.forwardRef((props, ref) => (
+   <div />
+));
 
 function Component(props) {
-  return <div />;
-}
+   return <div />;
+};
 ```
 
 ## How to use
@@ -56,10 +62,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["react"],
-  "rules": {
-    "react/forward-ref-uses-ref": "error"
-  }
+    "plugins": ["react"],
+    "rules": {
+        "react/forward-ref-uses-ref": "error"
+    }
 }
 ```
 

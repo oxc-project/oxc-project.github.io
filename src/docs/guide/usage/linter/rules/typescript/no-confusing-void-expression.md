@@ -59,7 +59,7 @@ foo();
 
 // IIFE with void
 void (function() {
-  console.log("immediately invoked");
+  console.log('immediately invoked');
 })();
 ```
 
@@ -102,9 +102,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "typescript/no-confusing-void-expression": "error"
-  }
+    "rules": {
+        "typescript/no-confusing-void-expression": "error"
+    }
 }
 ```
 

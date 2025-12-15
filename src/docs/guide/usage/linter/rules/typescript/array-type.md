@@ -37,10 +37,10 @@ const arr: number[] = new Array<number>();
 
 ```typescript
 /*oxlint array-type: ["error", { "default": "array-simple" }] */
-const a: (string | number)[] = ["a", "b"];
-const b: { prop: string }[] = [{ prop: "a" }];
-const c: Array<MyType> = ["a", "b"];
-const d: Array<string> = ["a", "b"];
+const a: (string | number)[] = ['a', 'b'];
+const b: { prop: string }[] = [{ prop: 'a' }];
+const c: Array<MyType> = ['a', 'b'];
+const d: Array<string> = ['a', 'b'];
 ```
 
 Examples of **correct** code for this rule:
@@ -57,10 +57,10 @@ const arr: Array<number> = new Array<number>();
 
 ```typescript
 /*oxlint array-type: ["error", { "default": "array-simple" }] */
-const a: Array<string | number> = ["a", "b"];
-const b: Array<{ prop: string }> = [{ prop: "a" }];
-const c: string[] = ["a", "b"];
-const d: MyType[] = ["a", "b"];
+const a: Array<string | number> = ['a', 'b'];
+const b: Array<{ prop: string }> = [{ prop: 'a' }];
+const c: string[] = ['a', 'b'];
+const d: MyType[] = ['a', 'b'];
 ```
 
 ## Configuration
@@ -91,9 +91,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "typescript/array-type": "error"
-  }
+    "rules": {
+        "typescript/array-type": "error"
+    }
 }
 ```
 

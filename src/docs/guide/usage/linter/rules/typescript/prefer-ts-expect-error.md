@@ -34,20 +34,20 @@ Examples of **incorrect** code for this rule:
 const str: string = 1;
 
 /**
- * Explaining comment
- *
- * @ts-ignore */
-const multiLine: number = "value";
+* Explaining comment
+*
+* @ts-ignore */
+const multiLine: number = 'value';
 ```
 
 Examples of **incorrect** code for this rule:
 
 ```ts
 /**
- * Explaining comment
- *
- * @ts-expect-error */
-const multiLine: number = "value";
+* Explaining comment
+*
+* @ts-expect-error */
+const multiLine: number = 'value';
 ```
 
 ## How to use
@@ -58,9 +58,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "typescript/prefer-ts-expect-error": "error"
-  }
+    "rules": {
+        "typescript/prefer-ts-expect-error": "error"
+    }
 }
 ```
 

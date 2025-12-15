@@ -29,21 +29,21 @@ try/catch blocks for managing errors.
 Examples of **incorrect** code for this rule:
 
 ```js
-cb();
-callback();
-doSomething(arg, (err) => {});
+cb()
+callback()
+doSomething(arg, (err) => {})
 function doSomethingElse(cb) {}
 ```
 
 Examples of **correct** code for this rule:
 
 ```js
-await doSomething(arg);
+await doSomething(arg)
 async function doSomethingElse() {}
 function* generator() {
-  yield yieldValue(err => {});
+    yield yieldValue(err => {})
 }
-eventEmitter.on("error", err => {});
+eventEmitter.on('error', err => {})
 ```
 
 ## How to use
@@ -54,10 +54,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["promise"],
-  "rules": {
-    "promise/prefer-await-to-callbacks": "error"
-  }
+    "plugins": ["promise"],
+    "rules": {
+        "promise/prefer-await-to-callbacks": "error"
+    }
 }
 ```
 

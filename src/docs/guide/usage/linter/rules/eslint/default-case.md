@@ -28,7 +28,7 @@ Example configuration:
 
 ```json
 {
-  "default-case": ["error", { "commentPattern": "^skip\\sdefault" }]
+    "default-case": ["error", { "commentPattern": "^skip\\sdefault" }]
 }
 ```
 
@@ -58,7 +58,7 @@ switch (a) {
 switch (a) {
   case 1:
     break;
-    // no default
+  // no default
 }
 ```
 
@@ -81,9 +81,9 @@ Examples of **incorrect** code for this rule with the `{ "commentPattern": "^ski
 /* default-case: ["error", { "commentPattern": "^skip\sdefault" }] */
 
 switch (a) {
-  case 1:
-    break;
-    // no default
+case 1:
+break;
+// no default
 }
 ```
 
@@ -93,9 +93,9 @@ Examples of **correct** code for this rule with the `{ "commentPattern": "^skip\
 /* default-case: ["error", { "commentPattern": "^skip\\sdefault" }] */
 
 switch (a) {
-  case 1:
-    break;
-    // skip default
+case 1:
+break;
+// skip default
 }
 ```
 
@@ -107,9 +107,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "default-case": "error"
-  }
+    "rules": {
+        "default-case": "error"
+    }
 }
 ```
 

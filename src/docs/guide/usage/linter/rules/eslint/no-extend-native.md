@@ -27,13 +27,13 @@ Object.prototype.extra = 55;
 
 // Defining a user object
 const users = {
-  "1": "user1",
-  "2": "user2",
+    "1": "user1",
+    "2": "user2",
 };
 
 for (const id in users) {
-  // This will print "extra" as well as "1" and "2":
-  console.log(id);
+    // This will print "extra" as well as "1" and "2":
+    console.log(id);
 }
 ```
 
@@ -42,15 +42,15 @@ for (const id in users) {
 Examples of **incorrect** code for this rule:
 
 ```js
-Object.prototype.p = 0;
-Object.defineProperty(Array.prototype, "p", { value: 0 });
+Object.prototype.p = 0
+Object.defineProperty(Array.prototype, 'p', {value: 0})
 ```
 
 Examples of **correct** code for this rule:
 
 ```js
-x.prototype.p = 0;
-Object.defineProperty(x.prototype, "p", { value: 0 });
+x.prototype.p = 0
+Object.defineProperty(x.prototype, 'p', {value: 0})
 ```
 
 ## Configuration
@@ -73,9 +73,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "no-extend-native": "error"
-  }
+    "rules": {
+        "no-extend-native": "error"
+    }
 }
 ```
 

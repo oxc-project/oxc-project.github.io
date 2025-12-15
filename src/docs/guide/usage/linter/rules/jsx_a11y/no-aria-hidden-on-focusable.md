@@ -26,13 +26,13 @@ Enforces that `aria-hidden="true"` is not set on focusable elements.
 Examples of **incorrect** code for this rule:
 
 ```jsx
-<div aria-hidden="true" tabIndex="0" />;
+<div aria-hidden="true" tabIndex="0" />
 ```
 
 Examples of **correct** code for this rule:
 
 ```jsx
-<div aria-hidden="true" />;
+<div aria-hidden="true" />
 ```
 
 ## How to use
@@ -43,10 +43,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["jsx-a11y"],
-  "rules": {
-    "jsx-a11y/no-aria-hidden-on-focusable": "error"
-  }
+    "plugins": ["jsx-a11y"],
+    "rules": {
+        "jsx-a11y/no-aria-hidden-on-focusable": "error"
+    }
 }
 ```
 

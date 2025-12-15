@@ -24,14 +24,14 @@ Examples of **incorrect** code for this rule:
 
 ```javascript
 var sum = 0,
-  i;
+    i;
 
-for (i = 0; i < 10; i++) {
-  if (i >= 5) {
-    continue;
-  }
+for(i = 0; i < 10; i++) {
+    if(i >= 5) {
+        continue;
+    }
 
-  sum += i;
+    sum += i;
 }
 ```
 
@@ -39,7 +39,7 @@ Examples of **correct** code for this rule:
 
 ```javascript
 var sum = 0, i;
-for (i = 0; i < 10; i++) {
+for(i = 0; i < 10; i++) {
   if (i < 5) {
     sum += i;
   }
@@ -54,9 +54,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "no-continue": "error"
-  }
+    "rules": {
+        "no-continue": "error"
+    }
 }
 ```
 

@@ -19,7 +19,9 @@ const tsgolintSource = `https://github.com/oxc-project/tsgolint/blob/main/intern
 
 ### What it does
 
-This rule forbids providing Promises to logical locations such as if statements in places where the TypeScript compiler allows them but they are not handled properly. These situations can often arise due to a missing await keyword or just a misunderstanding of the way async functions are handled/awaited.
+This rule forbids providing Promises to logical locations such as if statements in places where the TypeScript
+compiler allows them but they are not handled properly. These situations can often arise due to a missing
+`await` keyword or just a misunderstanding of the way async functions are handled/awaited.
 
 ### Why is this bad?
 
@@ -31,7 +33,7 @@ Examples of **incorrect** code for this rule:
 
 ```ts
 // Promises in conditionals:
-const promise = Promise.resolve("value");
+const promise = Promise.resolve('value');
 if (promise) {
   // Do something
 }
@@ -42,7 +44,7 @@ if (promise) {
 });
 
 // Spreading Promises:
-const getData = () => fetch("/");
+const getData = () => fetch('/');
 console.log({ foo: 42, ...getData() });
 ```
 
@@ -50,7 +52,7 @@ Examples of **correct** code for this rule:
 
 ```ts
 // Awaiting the Promise to get its value in a conditional:
-const promise = Promise.resolve("value");
+const promise = Promise.resolve('value');
 if (await promise) {
   // Do something
 }
@@ -61,7 +63,7 @@ for (const value of [1, 2, 3]) {
 }
 
 // Spreading data returned from Promise, instead of the Promise itself:
-const getData = () => fetch("/");
+const getData = () => fetch('/');
 console.log({ foo: 42, ...(await getData()) });
 ```
 
@@ -147,9 +149,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "typescript/no-misused-promises": "error"
-  }
+    "rules": {
+        "typescript/no-misused-promises": "error"
+    }
 }
 ```
 

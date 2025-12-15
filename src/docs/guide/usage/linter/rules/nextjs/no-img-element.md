@@ -31,11 +31,11 @@ Examples of **incorrect** code for this rule:
 
 ```javascript
 export function MyComponent() {
-  return (
-    <div>
-      <img src="/test.png" alt="Test picture" />
-    </div>
-  );
+	return (
+		<div>
+			<img src="/test.png" alt="Test picture" />
+		</div>
+	);
 }
 ```
 
@@ -43,13 +43,13 @@ Examples of **correct** code for this rule:
 
 ```javascript
 import Image from "next/image";
-import testImage from "./test.png";
+import testImage from "./test.png"
 export function MyComponent() {
-  return (
-    <div>
-      <Image src={testImage} alt="Test picture" />
-    </div>
-  );
+	return (
+		<div>
+            <Image src={testImage} alt="Test picture" />
+        </div>
+    );
 }
 ```
 
@@ -61,10 +61,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["nextjs"],
-  "rules": {
-    "nextjs/no-img-element": "error"
-  }
+    "plugins": ["nextjs"],
+    "rules": {
+        "nextjs/no-img-element": "error"
+    }
 }
 ```
 

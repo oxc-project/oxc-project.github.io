@@ -66,7 +66,7 @@ For example `{ "allow": ["~"] }` would allow the use of the bitwise operator
 `~` without restriction. Such as in the following:
 
 ```javascript
-~[1, 2, 3].indexOf(1) === -1;
+~[1,2,3].indexOf(1) === -1;
 ```
 
 ### int32Hint
@@ -81,7 +81,7 @@ pattern for type casting.
 For example with `{ "int32Hint": true }` the following is permitted:
 
 ```javascript
-const b = a | 0;
+const b = a|0;
 ```
 
 ## How to use
@@ -92,9 +92,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "no-bitwise": "error"
-  }
+    "rules": {
+        "no-bitwise": "error"
+    }
 }
 ```
 

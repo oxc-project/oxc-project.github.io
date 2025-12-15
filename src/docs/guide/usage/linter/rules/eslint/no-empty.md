@@ -28,6 +28,7 @@ Examples of **incorrect** code for this rule:
 
 ```javascript
 if (condition) {
+
 }
 ```
 
@@ -35,7 +36,7 @@ Examples of **correct** code for this rule:
 
 ```javascript
 if (condition) {
-  throw new Error("condition should be false");
+  throw new Error("condition should be false")
 }
 ```
 
@@ -59,9 +60,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "no-empty": "error"
-  }
+    "rules": {
+        "no-empty": "error"
+    }
 }
 ```
 

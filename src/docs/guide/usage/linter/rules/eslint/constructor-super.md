@@ -5,15 +5,21 @@ import { data } from '../version.data.js';
 const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_linter/src/rules/eslint/constructor_super.rs`;
 </script>
 
-# eslint/constructor-super <Badge type="info" text="Nursery" />
+# eslint/constructor-super <Badge type="info" text="Correctness" />
 
 <div class="rule-meta">
+<Alert class="default-on" type="success">
+<span class="emoji">✅</span> This rule is turned on by default.
+</Alert>
 </div>
 
 ### What it does
 
 Requires `super()` calls in constructors of derived classes and disallows `super()` calls
 in constructors of non-derived classes.
+
+This rule can be disabled for TypeScript code, as the TypeScript compiler
+enforces this check.
 
 ### Why is this bad?
 
@@ -28,23 +34,23 @@ Examples of **incorrect** code for this rule:
 ```js
 // Missing super() call
 class A extends B {
-  constructor() {}
+    constructor() { }
 }
 
 // super() in non-derived class
 class A {
-  constructor() {
-    super();
-  }
+    constructor() {
+        super();
+    }
 }
 
 // super() only in some code paths
 class C extends D {
-  constructor() {
-    if (condition) {
-      super();
+    constructor() {
+        if (condition) {
+            super();
+        }
     }
-  }
 }
 ```
 
@@ -53,25 +59,25 @@ Examples of **correct** code for this rule:
 ```js
 // Proper super() call in derived class
 class A extends B {
-  constructor() {
-    super();
-  }
+    constructor() {
+        super();
+    }
 }
 
 // No super() in non-derived class
 class A {
-  constructor() {}
+    constructor() { }
 }
 
 // super() in all code paths
 class C extends D {
-  constructor() {
-    if (condition) {
-      super();
-    } else {
-      super();
+    constructor() {
+        if (condition) {
+            super();
+        } else {
+            super();
+        }
     }
-  }
 }
 ```
 
@@ -83,9 +89,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "constructor-super": "error"
-  }
+    "rules": {
+        "constructor-super": "error"
+    }
 }
 ```
 

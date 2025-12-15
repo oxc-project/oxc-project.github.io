@@ -27,15 +27,15 @@ result from accidental deletions or tool-generated code.
 Examples of **incorrect** code for this rule:
 
 ```js
-import {} from "mod";
-import Default, {} from "mod";
+import {} from 'mod'
+import Default, {} from 'mod'
 ```
 
 Examples of **correct** code for this rule:
 
 ```js
-import { mod } from "mod";
-import Default, { mod } from "mod";
+import { mod } from 'mod'
+import Default, { mod } from 'mod'
 ```
 
 ## How to use
@@ -46,10 +46,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["import"],
-  "rules": {
-    "import/no-empty-named-blocks": "error"
-  }
+    "plugins": ["import"],
+    "rules": {
+        "import/no-empty-named-blocks": "error"
+    }
 }
 ```
 

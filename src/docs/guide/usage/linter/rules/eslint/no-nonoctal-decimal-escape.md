@@ -29,15 +29,15 @@ ECMAScript specification treats \8 and \9 in string literals as a legacy feature
 Examples of **incorrect** code for this rule:
 
 ```javascript
-let x = "\8";
-let y = "\9";
+let x = "\8"
+let y = "\9"
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
-let x = "8";
-let y = "\\9";
+let x = "8"
+let y = "\\9"
 ```
 
 ## How to use
@@ -48,9 +48,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "no-nonoctal-decimal-escape": "error"
-  }
+    "rules": {
+        "no-nonoctal-decimal-escape": "error"
+    }
 }
 ```
 

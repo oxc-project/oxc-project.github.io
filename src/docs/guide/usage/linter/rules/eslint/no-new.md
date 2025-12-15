@@ -26,15 +26,15 @@ Examples of **incorrect** code for this rule:
 ```javascript
 new Person();
 
-(() => {
-  new Date();
-});
+(() => { new Date() })
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
-var a = new Date()(() => new Date());
+var a = new Date()
+
+(() => new Date())
 ```
 
 ## How to use
@@ -45,9 +45,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "no-new": "error"
-  }
+    "rules": {
+        "no-new": "error"
+    }
 }
 ```
 

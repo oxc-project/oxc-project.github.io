@@ -30,13 +30,13 @@ elements is meaningless and can create confusion for screen readers.
 Examples of **incorrect** code for this rule:
 
 ```jsx
-<meta charset="UTF-8" aria-hidden="false" />;
+<meta charset="UTF-8" aria-hidden="false" />
 ```
 
 Examples of **correct** code for this rule:
 
 ```jsx
-<meta charset="UTF-8" />;
+<meta charset="UTF-8" />
 ```
 
 ## How to use
@@ -47,10 +47,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["jsx-a11y"],
-  "rules": {
-    "jsx-a11y/aria-unsupported-elements": "error"
-  }
+    "plugins": ["jsx-a11y"],
+    "rules": {
+        "jsx-a11y/aria-unsupported-elements": "error"
+    }
 }
 ```
 

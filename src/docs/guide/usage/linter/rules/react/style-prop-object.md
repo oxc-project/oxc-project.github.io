@@ -60,7 +60,7 @@ type: `string[]`
 
 default: `[]`
 
-List of component names on which to allow style prop values of any type.
+List of component names on which to allow `style` prop values of any type.
 
 ## How to use
 
@@ -70,10 +70,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["react"],
-  "rules": {
-    "react/style-prop-object": "error"
-  }
+    "plugins": ["react"],
+    "rules": {
+        "react/style-prop-object": "error"
+    }
 }
 ```
 

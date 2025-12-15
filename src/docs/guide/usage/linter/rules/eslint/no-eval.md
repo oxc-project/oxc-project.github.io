@@ -56,13 +56,13 @@ class A {
     this.eval("const a = 0");
   }
 
-  eval() {}
+  eval() { }
 
   static {
     this.eval("const a = 0");
   }
 
-  static eval() {}
+  static eval() { }
 }
 ```
 
@@ -91,9 +91,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "no-eval": "error"
-  }
+    "rules": {
+        "no-eval": "error"
+    }
 }
 ```
 

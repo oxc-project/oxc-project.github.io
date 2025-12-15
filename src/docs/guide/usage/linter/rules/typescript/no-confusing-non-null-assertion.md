@@ -26,9 +26,9 @@ Using a non-null assertion (!) next to an assign or equals check (= or == or ===
 Examples of **incorrect** code for this rule:
 
 ```ts
-a! == b; // a non-null assertions(`!`) and an equals test(`==`)
-a !== b; // not equals test(`!==`)
-a! === b; // a non-null assertions(`!`) and an triple equals test(`===`)
+   a! == b; // a non-null assertions(`!`) and an equals test(`==`)
+   a !== b; // not equals test(`!==`)
+   a! === b; // a non-null assertions(`!`) and an triple equals test(`===`)
 ```
 
 Examples of **correct** code for this rule:
@@ -47,9 +47,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "typescript/no-confusing-non-null-assertion": "error"
-  }
+    "rules": {
+        "typescript/no-confusing-non-null-assertion": "error"
+    }
 }
 ```
 

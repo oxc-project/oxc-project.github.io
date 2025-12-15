@@ -27,17 +27,17 @@ If you want to import a module for side effects, use `import 'module'` instead.
 Examples of **incorrect** code for this rule:
 
 ```js
-import {} from "foo";
-import foo, {} from "foo";
-export {} from "foo";
+import {} from 'foo';
+import foo, {} from 'foo';
+export {} from 'foo';
 export {};
 ```
 
 Examples of **correct** code for this rule:
 
 ```js
-import "foo";
-import foo from "foo";
+import 'foo';
+import foo from 'foo';
 ```
 
 ## How to use
@@ -48,9 +48,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "unicorn/require-module-specifiers": "error"
-  }
+    "rules": {
+        "unicorn/require-module-specifiers": "error"
+    }
 }
 ```
 

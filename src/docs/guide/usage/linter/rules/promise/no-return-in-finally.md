@@ -24,17 +24,15 @@ consume what's returned.
 Examples of **incorrect** code for this rule:
 
 ```javascript
-myPromise.finally(function(val) {
-  return val;
-});
+myPromise.finally(function (val) {
+  return val
+})
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
-Promise.resolve(1).finally(() => {
-  console.log(2);
-});
+Promise.resolve(1).finally(() => { console.log(2) })
 ```
 
 ## How to use
@@ -45,10 +43,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["promise"],
-  "rules": {
-    "promise/no-return-in-finally": "error"
-  }
+    "plugins": ["promise"],
+    "rules": {
+        "promise/no-return-in-finally": "error"
+    }
 }
 ```
 

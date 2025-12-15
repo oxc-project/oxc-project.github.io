@@ -29,23 +29,23 @@ This rule won’t flag usage of bind() that includes function argument binding.
 Examples of **incorrect** code for this rule:
 
 ```js
-const x = function() {
-  foo();
+const x = function () {
+foo();
 }.bind(bar);
 
 const z = (() => {
-  this.foo();
+    this.foo();
 }).bind(this);
 ```
 
 Examples of **correct** code for this rule:
 
 ```js
-const x = function() {
-  this.foo();
+const x = function () {
+    this.foo();
 }.bind(bar);
-const y = function(a) {
-  return a + 1;
+const y = function (a) {
+    return a + 1;
 }.bind(foo, bar);
 ```
 
@@ -57,9 +57,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "no-extra-bind": "error"
-  }
+    "rules": {
+        "no-extra-bind": "error"
+    }
 }
 ```
 

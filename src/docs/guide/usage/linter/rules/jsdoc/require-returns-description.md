@@ -13,7 +13,7 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 ### What it does
 
 Requires that the `@returns` tag has a description value.
-The error will not be reported if the return value is `void`or `undefined` or if it is `Promise<void>` or `Promise<undefined>`.
+The error will not be reported if the return value is `void `or `undefined` or if it is `Promise<void>` or `Promise<undefined>`.
 
 ### Why is this bad?
 
@@ -25,14 +25,14 @@ Examples of **incorrect** code for this rule:
 
 ```javascript
 /** @returns */
-function quux(foo) {}
+function quux (foo) {}
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
 /** @returns Foo. */
-function quux(foo) {}
+function quux (foo) {}
 ```
 
 ## How to use
@@ -43,10 +43,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["jsdoc"],
-  "rules": {
-    "jsdoc/require-returns-description": "error"
-  }
+    "plugins": ["jsdoc"],
+    "rules": {
+        "jsdoc/require-returns-description": "error"
+    }
 }
 ```
 

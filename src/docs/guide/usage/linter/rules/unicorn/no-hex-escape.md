@@ -24,14 +24,14 @@ Enforces a convention of using [Unicode escapes](https://mathiasbynens.be/notes/
 Examples of **incorrect** code for this rule:
 
 ```javascript
-const foo = "\x1B";
+const foo = '\x1B';
 const foo = `\x1B${bar}`;
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
-const foo = "\u001B";
+const foo = '\u001B';
 const foo = `\u001B${bar}`;
 ```
 
@@ -43,9 +43,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "unicorn/no-hex-escape": "error"
-  }
+    "rules": {
+        "unicorn/no-hex-escape": "error"
+    }
 }
 ```
 

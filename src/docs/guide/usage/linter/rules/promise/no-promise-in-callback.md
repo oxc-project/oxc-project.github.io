@@ -27,9 +27,9 @@ Examples of **incorrect** code for this rule:
 
 ```js
 doSomething((err, val) => {
-  if (err) console.error(err);
-  else doSomethingElse(val).then(console.log);
-});
+  if (err) console.error(err)
+  else doSomethingElse(val).then(console.log)
+})
 ```
 
 Examples of **correct** code for this rule:
@@ -38,7 +38,7 @@ Examples of **correct** code for this rule:
 promisify(doSomething)()
   .then(doSomethingElse)
   .then(console.log)
-  .catch(console.error);
+  .catch(console.error)
 ```
 
 ## How to use
@@ -49,10 +49,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["promise"],
-  "rules": {
-    "promise/no-promise-in-callback": "error"
-  }
+    "plugins": ["promise"],
+    "rules": {
+        "promise/no-promise-in-callback": "error"
+    }
 }
 ```
 

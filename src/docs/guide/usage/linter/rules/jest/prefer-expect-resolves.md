@@ -40,31 +40,42 @@ Additionally, favoring the first style ensures consistency with its
 Examples of **incorrect** code for this rule:
 
 ```javascript
-it("passes", async () => {
-  expect(await someValue()).toBe(true);
+it('passes', async () => {
+    expect(await someValue()).toBe(true);
 });
-it("is true", async () => {
-  const myPromise = Promise.resolve(true);
-  expect(await myPromise).toBe(true);
+it('is true', async () => {
+    const myPromise = Promise.resolve(true);
+    expect(await myPromise).toBe(true);
 });
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
-it("passes", async () => {
-  await expect(someValue()).resolves.toBe(true);
+it('passes', async () => {
+    await expect(someValue()).resolves.toBe(true);
 });
-it("is true", async () => {
-  const myPromise = Promise.resolve(true);
+it('is true', async () => {
+    const myPromise = Promise.resolve(true);
 
-  await expect(myPromise).resolves.toBe(true);
+    await expect(myPromise).resolves.toBe(true);
 });
-it("errors", async () => {
-  await expect(Promise.reject(new Error("oh noes!"))).rejects.toThrowError(
-    "oh noes!",
-  );
+it('errors', async () => {
+    await expect(Promise.reject(new Error('oh noes!'))).rejects.toThrowError(
+        'oh noes!',
+    );
 });
+```
+
+This rule is compatible with [eslint-plugin-vitest](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/prefer-expect-resolves.md),
+to use it, add the following configuration to your `.oxlintrc.json`:
+
+```json
+{
+  "rules": {
+     "vitest/prefer-expect-resolves": "error"
+  }
+}
 ```
 
 ## How to use
@@ -75,10 +86,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["jest"],
-  "rules": {
-    "jest/prefer-expect-resolves": "error"
-  }
+    "plugins": ["jest"],
+    "rules": {
+        "jest/prefer-expect-resolves": "error"
+    }
 }
 ```
 

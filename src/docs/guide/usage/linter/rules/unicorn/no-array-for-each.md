@@ -33,7 +33,7 @@ Examples of **incorrect** code for this rule:
 
 ```javascript
 const foo = [1, 2, 3];
-foo.forEach((element) => {/* ... */});
+foo.forEach((element) => { /* ... */ });
 ```
 
 Examples of **correct** code for this rule:
@@ -51,9 +51,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "unicorn/no-array-for-each": "error"
-  }
+    "rules": {
+        "unicorn/no-array-for-each": "error"
+    }
 }
 ```
 

@@ -33,19 +33,19 @@ rule's `allowBatchAssign` option.
 Examples of **incorrect** code for this rule:
 
 ```js
-exports = {};
+exports = {}
 ```
 
 Examples of **correct** code for this rule:
 
 ```js
-module.exports.foo = 1;
-exports.bar = 2;
-module.exports = {};
+module.exports.foo = 1
+exports.bar = 2
+module.exports = {}
 
 // allows `exports = {}` if along with `module.exports =`
-module.exports = exports = {};
-exports = module.exports = {};
+module.exports = exports = {}
+exports = module.exports = {}
 ```
 
 ## How to use
@@ -56,10 +56,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["node"],
-  "rules": {
-    "node/no-exports-assign": "error"
-  }
+    "plugins": ["node"],
+    "rules": {
+        "node/no-exports-assign": "error"
+    }
 }
 ```
 

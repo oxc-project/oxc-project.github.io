@@ -38,7 +38,7 @@ Examples of **incorrect** code for this rule:
 Examples of **correct** code for this rule:
 
 ```jsx
-<Item list={this.props.list} />;
+<Item list={this.props.list} />
 ```
 
 ## How to use
@@ -49,10 +49,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["react-perf"],
-  "rules": {
-    "react-perf/jsx-no-new-array-as-prop": "error"
-  }
+    "plugins": ["react-perf"],
+    "rules": {
+        "react-perf/jsx-no-new-array-as-prop": "error"
+    }
 }
 ```
 

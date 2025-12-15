@@ -15,26 +15,30 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 ### What it does
 
-Disallow usage of `javascript:` URLs
+Disallow usage of `javascript:` URLs.
 
 ### Why is this bad?
 
-URLs starting with `javascript:` are a dangerous attack surface because it’s easy to accidentally include unsanitized output in a tag like `<a href>` and create a security hole.
-In React 16.9 any URLs starting with `javascript:` scheme log a warning.
-In a future major release, React will throw an error if it encounters a `javascript:` URL.
+URLs starting with `javascript:` are a dangerous attack surface because it’s easy to accidentally
+include unsanitized output in a tag like `<a href>` and create a security hole.
+
+Starting in React 16.9, any URLs starting with `javascript:` log a warning.
+
+In React 19, `javascript:` URLs are
+[disallowed entirely](https://react.dev/blog/2024/04/25/react-19-upgrade-guide#other-breaking-changes).
 
 ### Examples
 
 Examples of **incorrect** code for this rule:
 
 ```jsx
-<a href="javascript:void(0)">Test</a>;
+<a href="javascript:void(0)">Test</a>
 ```
 
 Examples of **correct** code for this rule:
 
 ```jsx
-<Foo test="javascript:void(0)" />;
+<Foo test="javascript:void(0)" />
 ```
 
 ## Configuration
@@ -65,10 +69,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["react"],
-  "rules": {
-    "react/jsx-no-script-url": "error"
-  }
+    "plugins": ["react"],
+    "rules": {
+        "react/jsx-no-script-url": "error"
+    }
 }
 ```
 

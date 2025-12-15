@@ -31,7 +31,7 @@ Examples of **incorrect** code for this rule:
 
 ```ts
 class Builder {
-  private value: string = "";
+  private value: string = '';
 
   setValue(value: string): Builder { // Should return 'this'
     this.value = value;
@@ -58,7 +58,7 @@ Examples of **correct** code for this rule:
 
 ```ts
 class Builder {
-  private value: string = "";
+  private value: string = '';
 
   setValue(value: string): this {
     this.value = value;
@@ -97,9 +97,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "typescript/prefer-return-this-type": "error"
-  }
+    "rules": {
+        "typescript/prefer-return-this-type": "error"
+    }
 }
 ```
 

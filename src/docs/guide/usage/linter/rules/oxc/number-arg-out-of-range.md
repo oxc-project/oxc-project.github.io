@@ -48,9 +48,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "oxc/number-arg-out-of-range": "error"
-  }
+    "rules": {
+        "oxc/number-arg-out-of-range": "error"
+    }
 }
 ```
 

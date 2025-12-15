@@ -32,20 +32,20 @@ https://eslint.org/docs/latest/rules/no-new-wrappers
 Examples of **incorrect** code for this rule:
 
 ```js
-var stringObject = new String("Hello world");
+var stringObject = new String('Hello world');
 var numberObject = new Number(33);
 var booleanObject = new Boolean(false);
-var symbolObject = new Symbol("foo"); // symbol is not a constructor
+var symbolObject = new Symbol('foo'); // symbol is not a constructor
 ```
 
 Examples of **correct** code for this rule:
 
 ```js
-var stringObject = "Hello world";
+var stringObject = 'Hello world';
 var stringObject2 = String(value);
 var numberObject = Number(value);
 var booleanObject = Boolean(value);
-var symbolObject = Symbol("foo");
+var symbolObject = Symbol('foo');
 ```
 
 ## How to use
@@ -56,9 +56,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "no-new-wrappers": "error"
-  }
+    "rules": {
+        "no-new-wrappers": "error"
+    }
 }
 ```
 

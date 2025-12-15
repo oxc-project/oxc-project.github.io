@@ -33,7 +33,7 @@ Duplicate constituents in union and intersection types serve no purpose and can 
 Examples of **incorrect** code for this rule:
 
 ```ts
-type T1 = "A" | "A";
+type T1 = 'A' | 'A';
 
 type T2 = A | A | B;
 
@@ -42,15 +42,15 @@ type T3 = { a: string } & { a: string };
 type T4 = [A, A];
 
 type T5 =
-  | "foo"
-  | "bar"
-  | "foo";
+  | 'foo'
+  | 'bar'
+  | 'foo';
 ```
 
 Examples of **correct** code for this rule:
 
 ```ts
-type T1 = "A" | "B";
+type T1 = 'A' | 'B';
 
 type T2 = A | B | C;
 
@@ -59,9 +59,9 @@ type T3 = { a: string } & { b: string };
 type T4 = [A, B];
 
 type T5 =
-  | "foo"
-  | "bar"
-  | "baz";
+  | 'foo'
+  | 'bar'
+  | 'baz';
 ```
 
 ## Configuration
@@ -94,9 +94,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "typescript/no-duplicate-type-constituents": "error"
-  }
+    "rules": {
+        "typescript/no-duplicate-type-constituents": "error"
+    }
 }
 ```
 

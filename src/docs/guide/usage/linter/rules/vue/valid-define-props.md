@@ -36,32 +36,32 @@ Examples of **incorrect** code for this rule:
 
 ```vue
 <script setup>
-const def = { msg: String };
-defineProps(def);
+const def = { msg: String }
+defineProps(def)
 </script>
 ```
 
 ```vue
 <script setup lang="ts">
-defineProps<{ msg?: string }>({ msg: String });
+defineProps<{ msg?: string }>({ msg: String })
 </script>
 ```
 
 ```vue
 <script setup>
-defineProps({ msg: String });
-defineProps({ count: Number });
+defineProps({ msg: String })
+defineProps({ count: Number })
 </script>
 ```
 
 ```vue
 <script>
 export default {
-  props: { msg: String },
-};
+  props: { msg: String }
+}
 </script>
 <script setup>
-defineProps({ count: Number });
+defineProps({ count: Number })
 </script>
 ```
 
@@ -69,30 +69,30 @@ Examples of **correct** code for this rule:
 
 ```vue
 <script setup>
-defineProps({ msg: String });
+defineProps({ msg: String })
 </script>
 ```
 
 ```vue
 <script setup>
-defineProps(["msg"]);
+defineProps(['msg'])
 </script>
 ```
 
 ```vue
 <script setup lang="ts">
-defineProps<{ msg?: string }>();
+defineProps<{ msg?: string }>()
 </script>
 ```
 
 ```vue
 <script>
 export default {
-  props: { msg: String },
-};
+  props: { msg: String }
+}
 </script>
 <script setup>
-defineProps();
+defineProps()
 </script>
 ```
 
@@ -104,10 +104,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["vue"],
-  "rules": {
-    "vue/valid-define-props": "error"
-  }
+    "plugins": ["vue"],
+    "rules": {
+        "vue/valid-define-props": "error"
+    }
 }
 ```
 

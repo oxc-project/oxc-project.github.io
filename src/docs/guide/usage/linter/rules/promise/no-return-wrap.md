@@ -42,35 +42,29 @@ same effect. This is why some take the opinion that returning values such as
 Examples of **incorrect** code for this rule:
 
 ```js
-myPromise().then(() => Promise.resolve(4));
-myPromise().then(function() {
-  return Promise.resolve(4);
-});
+myPromise().then(() => Promise.resolve(4))
+myPromise().then(function() { return Promise.resolve(4) })
 
-myPromise().then(() => Promise.reject("err"));
-myPromise().then(function() {
-  return Promise.reject("err");
-});
+myPromise().then(() => Promise.reject("err"))
+myPromise().then(function() { return Promise.reject("err") })
 ```
 
 ```js
 myPromise().catch(
   function() {
-    return Promise.reject("err");
-  },
-);
+    return Promise.reject("err")
+})
 ```
 
 ```js
 myPromise().finally(
   function() {
-    return Promise.reject("err");
-  },
-);
+    return Promise.reject("err")
+})
 ```
 
 ```js
-myPromise().finally(() => Promise.resolve(4));
+myPromise().finally(() => Promise.resolve(4))
 ```
 
 Examples of **correct** code for this rule:
@@ -86,13 +80,12 @@ myPromise().then(function() { throw "err" })
 ```js
 myPromise().catch(
   function() {
-    throw "err";
-  },
-);
+    throw "err"
+})
 ```
 
 ```js
-myPromise().finally(() => 4);
+myPromise().finally(() => 4)
 ```
 
 ## Configuration
@@ -111,14 +104,13 @@ With `allowReject` set to `true` the following are examples of correct code:
 
 ```js
 myPromise().then(
-  function() {
-    return Promise.reject(0);
-  },
-);
+function() {
+return Promise.reject(0)
+})
 ```
 
 ```js
-myPromise().then().catch(() => Promise.reject("err"));
+myPromise().then().catch(() => Promise.reject("err"))
 ```
 
 ## How to use
@@ -129,10 +121,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["promise"],
-  "rules": {
-    "promise/no-return-wrap": "error"
-  }
+    "plugins": ["promise"],
+    "rules": {
+        "promise/no-return-wrap": "error"
+    }
 }
 ```
 

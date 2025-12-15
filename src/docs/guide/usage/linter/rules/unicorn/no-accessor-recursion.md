@@ -25,9 +25,9 @@ Examples of **incorrect** code for this rule:
 
 ```js
 const foo = {
-  get bar() {
-    return this.bar;
-  },
+	get bar() {
+		return this.bar;
+	}
 };
 ```
 
@@ -35,9 +35,9 @@ Examples of **correct** code for this rule:
 
 ```js
 const foo = {
-  get bar() {
-    return this.baz;
-  },
+	get bar() {
+		return this.baz;
+	}
 };
 ```
 
@@ -49,9 +49,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "unicorn/no-accessor-recursion": "error"
-  }
+    "rules": {
+        "unicorn/no-accessor-recursion": "error"
+    }
 }
 ```
 

@@ -30,8 +30,8 @@ Examples of **incorrect** code for this rule:
 ```js
 export default [];
 export default () => {};
-export default class {}
-export default function() {}
+export default class {};
+export default function() {};
 export default foo(bar);
 export default 123;
 export default {};
@@ -45,20 +45,20 @@ Examples of **correct** code for this rule:
 ```js
 const foo = 123;
 export default foo;
-export default function foo() {}
-export default class MyClass {}
-export default function foo() {}
+export default function foo() {};
+export default class MyClass {};
+export default function foo() {};
 export default foo(bar);
 /* eslint import/no-anonymous-default-export: ['error', {"allowLiteral": true}] */
 export default 123;
 /* eslint import/no-anonymous-default-export: ['error, {"allowArray": true}] */
-export default [];
+export default []
 /* eslint import/no-anonymous-default-export: ['error, {"allowArrowFunction": true}] */
 export default () => {};
 /* eslint import/no-anonymous-default-export: ['error, {"allowAnonymousClass": true}] */
-export default class {}
+export default class {};
 /* eslint import/no-anonymous-default-export: ['error, {"allowAnonymousFunction": true}] */
-export default function() {}
+export default function() {};
 /* eslint import/no-anonymous-default-export: ['error, {"allowObject": true}] */
 export default {};
 /* eslint import/no-anonymous-default-export: ['error, {"allowNew": true}] */
@@ -146,10 +146,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["import"],
-  "rules": {
-    "import/no-anonymous-default-export": "error"
-  }
+    "plugins": ["import"],
+    "rules": {
+        "import/no-anonymous-default-export": "error"
+    }
 }
 ```
 

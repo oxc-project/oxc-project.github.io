@@ -25,19 +25,19 @@ and increase the cost of locating the export quickly
 Examples of **incorrect** code for this rule:
 
 ```js
-const bool = true;
-export const foo = "bar";
-const str = "foo";
+const bool = true
+export const foo = 'bar'
+const str = 'foo'
 ```
 
 Examples of **correct** code for this rule:
 
 ```js
-const arr = ["bar"];
-export const bool = true;
-export const str = "foo";
+const arr = ['bar']
+export const bool = true
+export const str = 'foo'
 export function func() {
-  console.log("Hello World");
+  console.log('Hello World')
 }
 ```
 
@@ -49,10 +49,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["import"],
-  "rules": {
-    "import/exports-last": "error"
-  }
+    "plugins": ["import"],
+    "rules": {
+        "import/exports-last": "error"
+    }
 }
 ```
 

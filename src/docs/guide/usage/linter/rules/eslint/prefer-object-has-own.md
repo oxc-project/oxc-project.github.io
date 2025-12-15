@@ -23,7 +23,7 @@ It is very common to write code like:
 
 ```javascript
 if (Object.prototype.hasOwnProperty.call(object, "foo")) {
-  console.log("has property foo");
+    console.log("has property foo");
 }
 ```
 
@@ -32,7 +32,7 @@ Introduced in ES2022, Object.hasOwn() is a shorter alternative to Object.prototy
 
 ```javascript
 if (Object.hasOwn(object, "foo")) {
-  console.log("has property foo");
+  console.log("has property foo")
 }
 ```
 
@@ -62,9 +62,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "prefer-object-has-own": "error"
-  }
+    "rules": {
+        "prefer-object-has-own": "error"
+    }
 }
 ```
 

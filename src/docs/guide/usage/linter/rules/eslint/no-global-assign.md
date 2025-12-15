@@ -26,7 +26,7 @@ In almost all cases, you don't want to assign a value to these global variables 
 Examples of **incorrect** code for this rule:
 
 ```javascript
-Object = null;
+Object = null
 ```
 
 ## Configuration
@@ -50,9 +50,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "no-global-assign": "error"
-  }
+    "rules": {
+        "no-global-assign": "error"
+    }
 }
 ```
 

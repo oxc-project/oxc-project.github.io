@@ -27,23 +27,34 @@ or error type makes tests more precise and helps catch regressions more effectiv
 Examples of **incorrect** code for this rule:
 
 ```javascript
-test("all the things", async () => {
-  expect(() => a()).toThrow();
-  expect(() => a()).toThrowError();
-  await expect(a()).rejects.toThrow();
-  await expect(a()).rejects.toThrowError();
+test('all the things', async () => {
+    expect(() => a()).toThrow();
+    expect(() => a()).toThrowError();
+    await expect(a()).rejects.toThrow();
+    await expect(a()).rejects.toThrowError();
 });
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
-test("all the things", async () => {
-  expect(() => a()).toThrow("a");
-  expect(() => a()).toThrowError("a");
-  await expect(a()).rejects.toThrow("a");
-  await expect(a()).rejects.toThrowError("a");
+test('all the things', async () => {
+  expect(() => a()).toThrow('a');
+  expect(() => a()).toThrowError('a');
+  await expect(a()).rejects.toThrow('a');
+  await expect(a()).rejects.toThrowError('a');
 });
+```
+
+This rule is compatible with [eslint-plugin-vitest](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/require-to-throw-message.md),
+to use it, add the following configuration to your `.oxlintrc.json`:
+
+```json
+{
+  "rules": {
+     "vitest/require-to-throw-message": "error"
+  }
+}
 ```
 
 ## How to use
@@ -54,10 +65,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["jest"],
-  "rules": {
-    "jest/require-to-throw-message": "error"
-  }
+    "plugins": ["jest"],
+    "rules": {
+        "jest/require-to-throw-message": "error"
+    }
 }
 ```
 

@@ -48,13 +48,13 @@ await getPromise;
 Examples of **correct** code for this rule:
 
 ```ts
-await Promise.resolve("value");
+await Promise.resolve('value');
 await Promise.reject(new Error());
 
 // Promise-like values
 await {
   then(onfulfilled, onrejected) {
-    onfulfilled("value");
+    onfulfilled('value');
   },
 };
 
@@ -71,9 +71,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "typescript/await-thenable": "error"
-  }
+    "rules": {
+        "typescript/await-thenable": "error"
+    }
 }
 ```
 

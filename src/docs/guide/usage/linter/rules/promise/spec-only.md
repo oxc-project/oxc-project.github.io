@@ -23,13 +23,13 @@ Non-standard Promises may cost more maintenance work.
 Examples of **incorrect** code for this rule:
 
 ```js
-Promise.done();
+Promise.done()
 ```
 
 Examples of **correct** code for this rule:
 
 ```js
-Promise.resolve();
+Promise.resolve()
 ```
 
 ## Configuration
@@ -52,10 +52,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["promise"],
-  "rules": {
-    "promise/spec-only": "error"
-  }
+    "plugins": ["promise"],
+    "rules": {
+        "promise/spec-only": "error"
+    }
 }
 ```
 

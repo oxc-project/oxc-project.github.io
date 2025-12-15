@@ -22,7 +22,7 @@ Disallow sparse arrays.
 Take the following example:
 
 ```javascript
-const items = [, ,];
+const items = [,,];
 ```
 
 While the items array in this example has a length of 2, there are actually
@@ -40,11 +40,11 @@ code.
 Examples of **incorrect** code for this rule:
 
 ```javascript
-var items = [, ,];
+var items = [,,];
 ```
 
 ```javascript
-var colors = ["red", , "blue"];
+var colors = [ "red",, "blue" ];
 ```
 
 Examples of **correct** code for this rule:
@@ -56,7 +56,7 @@ var items = [];
 // trailing comma (after the last element) is not a problem
 
 ```javascript
-var colors = ["red", "blue"];
+var colors = [ "red", "blue", ];
 ```
 
 ## How to use
@@ -67,9 +67,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "no-sparse-arrays": "error"
-  }
+    "rules": {
+        "no-sparse-arrays": "error"
+    }
 }
 ```
 

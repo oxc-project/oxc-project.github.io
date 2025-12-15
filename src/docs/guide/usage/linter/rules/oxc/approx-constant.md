@@ -9,7 +9,7 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 <div class="rule-meta">
 <Alert class="fix" type="info">
-<span class="emoji">🚧</span> An auto-fix is planned for this rule, but not implemented at this time.
+<span class="emoji">💡</span> A suggestion is available for this rule.
 </Alert>
 </div>
 
@@ -30,13 +30,13 @@ for more information.
 Examples of **incorrect** code for this rule:
 
 ```javascript
-let log10e = 0.434294;
+let log10e = 0.434294
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
-let log10e = Math.LOG10E;
+let log10e = Math.LOG10E
 ```
 
 ## How to use
@@ -47,9 +47,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "oxc/approx-constant": "error"
-  }
+    "rules": {
+        "oxc/approx-constant": "error"
+    }
 }
 ```
 

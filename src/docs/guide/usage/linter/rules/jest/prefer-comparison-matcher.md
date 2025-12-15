@@ -47,7 +47,18 @@ expect(x).toBeGreaterThan(5);
 expect(x).not.toBeLessThanOrEqual(7);
 expect(x).toBeLessThanOrEqual(y);
 // special case - see below
-expect(x < "Carl").toBe(true);
+expect(x < 'Carl').toBe(true);
+```
+
+This rule is compatible with [eslint-plugin-vitest](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/prefer-comparison-matcher.md),
+to use it, add the following configuration to your `.oxlintrc.json`:
+
+```json
+{
+  "rules": {
+     "vitest/prefer-comparison-matcher": "error"
+  }
+}
 ```
 
 ## How to use
@@ -58,10 +69,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["jest"],
-  "rules": {
-    "jest/prefer-comparison-matcher": "error"
-  }
+    "plugins": ["jest"],
+    "rules": {
+        "jest/prefer-comparison-matcher": "error"
+    }
 }
 ```
 

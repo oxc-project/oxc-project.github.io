@@ -31,15 +31,15 @@ Examples of **incorrect** code for this rule:
 ```js
 export function doFoo(foo) {
   // Does not capture anything from the scope, can be moved to the outer scope
-  function doBar(bar) {
-    return bar === "bar";
-  }
-  return doBar;
+	  function doBar(bar) {
+	    return bar === 'bar';
+	  }
+	  return doBar;
 }
 
 function doFoo(foo) {
   const doBar = bar => {
-    return bar === "bar";
+    return bar === 'bar';
   };
 }
 ```
@@ -48,7 +48,7 @@ Examples of **correct** code for this rule:
 
 ```js
 function doBar(bar) {
-  return bar === "bar";
+  return bar === 'bar';
 }
 
 export function doFoo(foo) {
@@ -57,7 +57,7 @@ export function doFoo(foo) {
 
 export function doFoo(foo) {
   function doBar(bar) {
-    return bar === "bar" && foo.doBar(bar);
+    return bar === 'bar' && foo.doBar(bar);
   }
   return doBar;
 }
@@ -69,13 +69,13 @@ This rule does not detect or remove extraneous code blocks inside of functions:
 
 ```js
 function doFoo(foo) {
-  {
-    function doBar(bar) {
-      return bar;
-    }
-  }
+	{
+		function doBar(bar) {
+			return bar;
+		}
+	}
 
-  return foo;
+	return foo;
 }
 ```
 
@@ -83,21 +83,21 @@ It also ignores functions that contain `JSXElement` references:
 
 ```jsx
 function doFoo(FooComponent) {
-  function Bar() {
-    return <FooComponent />;
-  }
+	function Bar() {
+		return <FooComponent/>;
+	}
 
-  return Bar;
-}
+	return Bar;
+};
 ```
 
 [Immediately invoked function expressions (IIFE)](https://en.wikipedia.org/wiki/Immediately_invoked_function_expression) are ignored:
 
 ```js
-(function() {
-  function doFoo(bar) {
-    return bar;
-  }
+(function () {
+	function doFoo(bar) {
+		return bar;
+	}
 })();
 ```
 
@@ -121,9 +121,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "unicorn/consistent-function-scoping": "error"
-  }
+    "rules": {
+        "unicorn/consistent-function-scoping": "error"
+    }
 }
 ```
 

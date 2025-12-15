@@ -29,33 +29,31 @@ by Prateek Surana.
 Examples of **incorrect** code for this rule:
 
 ```javascript
-arr.reduce((acc, x) => ({ ...acc, [x]: fn(x) }), {});
-Object.keys(obj).reduce((acc, el) => ({ ...acc, [el]: fn(el) }), {});
+arr.reduce((acc, x) => ({ ...acc, [x]: fn(x) }), {})
+Object.keys(obj).reduce((acc, el) => ({ ...acc, [el]: fn(el) }), {})
 
-let foo = [];
-for (let i = 0; i < 10; i++) foo = [...foo, i];
+let foo = []; for (let i = 0; i < 10; i++) { foo = [...foo, i]; }
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
-function fn(x) {
+function fn (x) {
   // ...
 }
 
-arr.reduce((acc, x) => acc.push(fn(x)), []);
+arr.reduce((acc, x) => acc.push(fn(x)), [])
 Object.keys(obj).reduce((acc, el) => {
-  acc[el] = fn(el);
-}, {});
+  acc[el] = fn(el)
+}, {})
 // spreading non-accumulators should be avoided if possible, but is not
 // banned by this rule
 Object.keys(obj).reduce((acc, el) => {
-  acc[el] = { ...obj[el] };
-  return acc;
-}, {});
+  acc[el] = { ...obj[el] }
+  return acc
+}, {})
 
-let foo = [];
-for (let i = 0; i < 10; i++) foo.push(i);
+let foo = []; for (let i = 0; i < 10; i++) { foo.push(i); }
 ```
 
 ## How to use
@@ -66,9 +64,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "oxc/no-accumulating-spread": "error"
-  }
+    "rules": {
+        "oxc/no-accumulating-spread": "error"
+    }
 }
 ```
 

@@ -27,16 +27,12 @@ A `for` loop with a stop condition that can never be reached will run
 infinitely. While infinite loops can be intentional, they are usually written
 as `while` loops. More often, an infinite `for` loop is a bug.
 
-### Options
-
-No options available for this rule.
-
 ### Examples
 
 Examples of **incorrect** code for this rule:
 
 ```js
-/* eslint for-direction: "error" */
+/* for-direction: "error" */
 
 for (var i = 0; i < 10; i--) {
 }
@@ -58,7 +54,7 @@ for (let i = 0; i < 10; i += n) {
 Examples of **correct** code for this rule:
 
 ```js
-/* eslint for-direction: "error" */
+/* for-direction: "error" */
 
 for (var i = 0; i < 10; i++) {
 }
@@ -81,9 +77,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "for-direction": "error"
-  }
+    "rules": {
+        "for-direction": "error"
+    }
 }
 ```
 

@@ -34,25 +34,36 @@ Examples of **incorrect** code for this rule:
 ```javascript
 jest.fn().mockImplementation(() => Promise.resolve(123));
 jest
-  .spyOn(fs.promises, "readFile")
-  .mockReturnValue(Promise.reject(new Error("oh noes!")));
+  .spyOn(fs.promises, 'readFile')
+  .mockReturnValue(Promise.reject(new Error('oh noes!')));
 
 myFunction
   .mockReturnValueOnce(Promise.resolve(42))
   .mockImplementationOnce(() => Promise.resolve(42))
-  .mockReturnValue(Promise.reject(new Error("too many calls!")));
+  .mockReturnValue(Promise.reject(new Error('too many calls!')));
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
 jest.fn().mockResolvedValue(123);
-jest.spyOn(fs.promises, "readFile").mockRejectedValue(new Error("oh noes!"));
+jest.spyOn(fs.promises, 'readFile').mockRejectedValue(new Error('oh noes!'));
 
 myFunction
   .mockResolvedValueOnce(42)
   .mockResolvedValueOnce(42)
-  .mockRejectedValue(new Error("too many calls!"));
+  .mockRejectedValue(new Error('too many calls!'));
+```
+
+This rule is compatible with [eslint-plugin-vitest](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/prefer-mock-promise-shorthand.md),
+to use it, add the following configuration to your `.oxlintrc.json`:
+
+```json
+{
+  "rules": {
+     "vitest/prefer-mock-promise-shorthand": "error"
+  }
+}
 ```
 
 ## How to use
@@ -63,10 +74,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["jest"],
-  "rules": {
-    "jest/prefer-mock-promise-shorthand": "error"
-  }
+    "plugins": ["jest"],
+    "rules": {
+        "jest/prefer-mock-promise-shorthand": "error"
+    }
 }
 ```
 

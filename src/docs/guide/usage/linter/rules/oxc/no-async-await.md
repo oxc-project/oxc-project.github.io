@@ -30,8 +30,8 @@ Examples of **incorrect** code for this rule:
 
 ```javascript
 async function foo() {
-  await bar();
-  return baz();
+   await bar();
+   return baz();
 }
 ```
 
@@ -43,9 +43,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "oxc/no-async-await": "error"
-  }
+    "rules": {
+        "oxc/no-async-await": "error"
+    }
 }
 ```
 

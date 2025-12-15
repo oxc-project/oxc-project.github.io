@@ -37,17 +37,17 @@ Examples of **incorrect** code for this rule:
 
 ```ts
 let bar: 2 = 2;
-let foo = { bar: "baz" as "baz" };
+let foo = { bar: 'baz' as 'baz' };
 ```
 
 Examples of **correct** code for this rule:
 
 ```ts
-let foo = "bar";
-let foo = "bar" as const;
-let foo: "bar" = "bar" as const;
-let bar = "bar" as string;
-let foo = { bar: "baz" };
+let foo = 'bar';
+let foo = 'bar' as const;
+let foo: 'bar' = 'bar' as const;
+let bar = 'bar' as string;
+let foo = { bar: 'baz' };
 ```
 
 ## How to use
@@ -58,9 +58,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "typescript/prefer-as-const": "error"
-  }
+    "rules": {
+        "typescript/prefer-as-const": "error"
+    }
 }
 ```
 

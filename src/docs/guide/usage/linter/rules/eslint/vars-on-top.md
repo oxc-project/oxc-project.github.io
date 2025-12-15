@@ -24,29 +24,29 @@ Examples of **incorrect** code for this rule:
 
 ```js
 function doSomething() {
-  if (true) {
-    var first = true;
-  }
-  var second;
+    if (true) {
+        var first = true;
+    }
+    var second;
 }
 
 function doSomethingElse() {
-  for (var i = 0; i < 10; i++) {}
+    for (var i = 0; i < 10; i++) {}
 }
 
 f();
 var a;
 
 class C {
-  static {
-    if (something) {
-      var a = true;
+    static {
+        if (something) {
+            var a = true;
+        }
     }
-  }
-  static {
-    f();
-    var a;
-  }
+    static {
+        f();
+        var a;
+    }
 }
 ```
 
@@ -54,32 +54,32 @@ Examples of **correct** code for this rule:
 
 ```js
 function doSomething() {
-  var first;
-  var second;
-  if (true) {
-    first = true;
-  }
+    var first;
+    var second;
+    if (true) {
+        first = true;
+    }
 }
 
 function doSomethingElse() {
-  var i;
-  for (i = 0; i < 10; i++) {}
+    var i;
+    for (i = 0; i < 10; i++) {}
 }
 
 var a;
 f();
 
 class C {
-  static {
-    var a;
-    if (something) {
-      a = true;
+    static {
+        var a;
+        if (something) {
+            a = true;
+        }
     }
-  }
-  static {
-    var a;
-    f();
-  }
+    static {
+        var a;
+        f();
+    }
 }
 ```
 
@@ -91,9 +91,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "vars-on-top": "error"
-  }
+    "rules": {
+        "vars-on-top": "error"
+    }
 }
 ```
 

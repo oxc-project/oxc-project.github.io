@@ -29,14 +29,14 @@ Unicode is better supported in [`String#codePointAt()`](https://developer.mozill
 Examples of **incorrect** code for this rule:
 
 ```javascript
-"🦄".charCodeAt(0);
+'🦄'.charCodeAt(0);
 String.fromCharCode(0x1f984);
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
-"🦄".codePointAt(0);
+'🦄'.codePointAt(0);
 String.fromCodePoint(0x1f984);
 ```
 
@@ -48,9 +48,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "unicorn/prefer-code-point": "error"
-  }
+    "rules": {
+        "unicorn/prefer-code-point": "error"
+    }
 }
 ```
 

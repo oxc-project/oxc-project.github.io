@@ -27,7 +27,7 @@ Even when that is not the case this will lead to unnecessary computations being 
 Examples of **incorrect** code for this rule:
 
 ```jsx
-<App {...props} myAttr="1" {...props} />;
+<App {...props} myAttr="1" {...props} />
 ```
 
 Examples of **correct** code for this rule:
@@ -45,10 +45,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["react"],
-  "rules": {
-    "react/jsx-props-no-spread-multi": "error"
-  }
+    "plugins": ["react"],
+    "rules": {
+        "react/jsx-props-no-spread-multi": "error"
+    }
 }
 ```
 

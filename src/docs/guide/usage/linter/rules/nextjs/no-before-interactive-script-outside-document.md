@@ -32,17 +32,17 @@ Examples of **incorrect** code for this rule:
 
 ```jsx
 // pages/index.js
-import Script from "next/script";
+import Script from 'next/script'
 
 export default function HomePage() {
   return (
     <div>
       <Script
         src="https://example.com/script.js"
-        strategy="beforeInteractive" // ❌ Wrong placement
+        strategy="beforeInteractive"  // ❌ Wrong placement
       />
     </div>
-  );
+  )
 }
 ```
 
@@ -50,8 +50,8 @@ Examples of **correct** code for this rule:
 
 ```jsx
 // pages/_document.js
-import Document, { Head, Html, Main, NextScript } from "next/document";
-import Script from "next/script";
+import Document, { Html, Head, Main, NextScript } from 'next/document'
+import Script from 'next/script'
 
 class MyDocument extends Document {
   render() {
@@ -61,17 +61,17 @@ class MyDocument extends Document {
         <body>
           <Script
             src="https://example.com/script.js"
-            strategy="beforeInteractive" // ✅ Correct placement
+            strategy="beforeInteractive"  // ✅ Correct placement
           />
           <Main />
           <NextScript />
         </body>
       </Html>
-    );
+    )
   }
 }
 
-export default MyDocument;
+export default MyDocument
 ```
 
 ## How to use
@@ -82,10 +82,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["nextjs"],
-  "rules": {
-    "nextjs/no-before-interactive-script-outside-document": "error"
-  }
+    "plugins": ["nextjs"],
+    "rules": {
+        "nextjs/no-before-interactive-script-outside-document": "error"
+    }
 }
 ```
 

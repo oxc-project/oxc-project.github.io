@@ -28,21 +28,21 @@ var foo = "a" + "b";
 ```
 
 ```javascript
-var foo = "a" + "b" + "c";
+var foo = 'a' + 'b' + 'c';
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
-var foo = "a" + bar;
+var foo = 'a' + bar;
 ```
 
 // when the string concatenation is multiline
 
 ```javascript
-var foo = "a"
-  + "b"
-  + "c";
+var foo = 'a'
+    + 'b'
+    + 'c';
 ```
 
 ## How to use
@@ -53,9 +53,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "no-useless-concat": "error"
-  }
+    "rules": {
+        "no-useless-concat": "error"
+    }
 }
 ```
 

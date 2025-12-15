@@ -35,7 +35,7 @@ Examples of **correct** code for this rule with option "ignore":
 
 ```javascript
 /*typescript no-magic-numbers: ["error", { "ignore": [1] }]*/
-var data = ["foo", "bar", "baz"];
+var data = ['foo', 'bar', 'baz'];
 var dataLast = data.length && data[data.length - 1];
 ```
 
@@ -57,7 +57,7 @@ Examples of **correct** code for this rule with option "ignoreDefaultValues":
 ```javascript
 /*typescript no-magic-numbers: ["error", { "ignoreDefaultValues": true }]*/
 const { tax = 0.25 } = accountancy;
-function mapParallel(concurrency = 3) {/***/}
+function mapParallel(concurrency = 3) { /***/ }
 ```
 
 Examples of **correct** code for this rule with option "ignoreClassFieldInitialValues":
@@ -65,10 +65,10 @@ Examples of **correct** code for this rule with option "ignoreClassFieldInitialV
 ```javascript
 /*typescript no-magic-numbers: ["error", { "ignoreClassFieldInitialValues": true }]*/
 class C {
-  foo = 2;
-  bar = -3;
-  #baz = 4;
-  static qux = 5;
+    foo = 2;
+    bar = -3;
+    #baz = 4;
+    static qux = 5;
 }
 ```
 
@@ -84,7 +84,7 @@ Examples of **incorrect** code for this rule with option "detectObjects":
 ```javascript
 /*typescript no-magic-numbers: ["error", { "detectObjects": true }]*/
 var magic = {
-  tax: 0.25,
+    tax: 0.25
 };
 ```
 
@@ -95,7 +95,7 @@ Examples of **correct** code for this rule with option "detectObjects":
 var TAX = 0.25;
 
 var magic = {
-  tax: TAX,
+    tax: TAX
 };
 ```
 
@@ -104,7 +104,7 @@ Examples of **correct** code for this rule with option "ignoreEnums":
 ```typescript
 /*typescript no-magic-numbers: ["error", { "ignoreEnums": true }]*/
 enum foo {
-  SECOND = 1000,
+    SECOND = 1000,
 }
 ```
 
@@ -120,10 +120,10 @@ Examples of **correct** code for this rule with option "ignoreReadonlyClassPrope
 ```typescript
 /*typescript no-magic-numbers: ["error", { "ignoreReadonlyClassProperties": true }]*/
 class Foo {
-  readonly A = 1;
-  readonly B = 2;
-  public static readonly C = 1;
-  static readonly D = 1;
+    readonly A = 1;
+    readonly B = 2;
+    public static readonly C = 1;
+    static readonly D = 1;
 }
 ```
 
@@ -229,9 +229,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "no-magic-numbers": "error"
-  }
+    "rules": {
+        "no-magic-numbers": "error"
+    }
 }
 ```
 

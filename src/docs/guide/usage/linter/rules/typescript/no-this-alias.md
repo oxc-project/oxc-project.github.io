@@ -33,7 +33,7 @@ default: `true`
 
 Whether to allow destructuring of `this` to local variables.
 
-### allowNames
+### allowedNames
 
 type: `string[]`
 
@@ -49,9 +49,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "typescript/no-this-alias": "error"
-  }
+    "rules": {
+        "typescript/no-this-alias": "error"
+    }
 }
 ```
 

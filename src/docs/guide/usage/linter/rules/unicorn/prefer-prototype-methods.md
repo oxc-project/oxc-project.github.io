@@ -48,9 +48,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "unicorn/prefer-prototype-methods": "error"
-  }
+    "rules": {
+        "unicorn/prefer-prototype-methods": "error"
+    }
 }
 ```
 

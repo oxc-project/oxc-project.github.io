@@ -34,7 +34,7 @@ declare namespace foo {}
 Examples of **correct** code for this rule:
 
 ```typescript
-declare module "foo" {}
+declare module 'foo' {}
 // anything inside a d.ts file
 ```
 
@@ -60,16 +60,16 @@ namespace foo {}
 Examples of **correct** code for this rule when `{ "allowDeclarations": true }`
 
 ```typescript
-declare module "foo" {}
+declare module 'foo' {}
 declare module foo {}
 declare namespace foo {}
 
 declare global {
-  namespace foo {}
+namespace foo {}
 }
 
 declare module foo {
-  namespace foo {}
+namespace foo {}
 }
 ```
 
@@ -85,7 +85,7 @@ declare namespace foo {}
 Examples of **correct** code for this rule when `{ "allowDeclarations": false }`
 
 ```typescript
-declare module "foo" {}
+declare module 'foo' {}
 ```
 
 ### allowDefinitionFiles
@@ -111,7 +111,7 @@ declare namespace foo {}
 Examples of **correct** code for this rule when `{ "allowDefinitionFiles": true }`
 
 ```typescript
-declare module "foo" {}
+declare module 'foo' {}
 // anything inside a d.ts file
 ```
 
@@ -123,9 +123,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "typescript/no-namespace": "error"
-  }
+    "rules": {
+        "typescript/no-namespace": "error"
+    }
 }
 ```
 

@@ -34,8 +34,8 @@ var f = Function.bind(null, "a", "b", "return a + b");
 Examples of **correct** code for this rule:
 
 ```js
-let x = function(a, b) {
-  return a + b;
+let x = function (a, b) {
+ return a + b;
 };
 ```
 
@@ -47,9 +47,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "no-new-func": "error"
-  }
+    "rules": {
+        "no-new-func": "error"
+    }
 }
 ```
 

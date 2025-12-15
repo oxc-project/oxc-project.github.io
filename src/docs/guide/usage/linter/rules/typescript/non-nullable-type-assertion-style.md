@@ -77,9 +77,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "typescript/non-nullable-type-assertion-style": "error"
-  }
+    "rules": {
+        "typescript/non-nullable-type-assertion-style": "error"
+    }
 }
 ```
 

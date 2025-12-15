@@ -34,15 +34,15 @@ ECMAScript 2015 moved globals onto the `Number` constructor for consistency and 
 Examples of **incorrect** code for this rule:
 
 ```javascript
-const foo = parseInt("10", 2);
-const bar = parseFloat("10.5");
+const foo = parseInt('10', 2);
+const bar = parseFloat('10.5');
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
-const foo = Number.parseInt("10", 2);
-const bar = Number.parseFloat("10.5");
+const foo = Number.parseInt('10', 2);
+const bar = Number.parseFloat('10.5');
 ```
 
 ## Configuration
@@ -73,9 +73,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "unicorn/prefer-number-properties": "error"
-  }
+    "rules": {
+        "unicorn/prefer-number-properties": "error"
+    }
 }
 ```
 

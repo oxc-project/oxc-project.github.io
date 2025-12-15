@@ -45,13 +45,13 @@ Examples of **incorrect** code for this rule:
 Examples of **correct** code for this rule:
 
 ```jsx
-import Script from "next/script";
+import Script from 'next/script'
 
 // Using next/script for GA source
 <Script
   src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"
   strategy="lazyOnload"
-/>;
+/>
 
 // Using next/script for GA initialization
 <Script id="google-analytics">
@@ -61,7 +61,7 @@ import Script from "next/script";
     gtag('js', new Date());
     gtag('config', 'GA_MEASUREMENT_ID');
   `}
-</Script>;
+</Script>
 ```
 
 ## How to use
@@ -72,10 +72,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["nextjs"],
-  "rules": {
-    "nextjs/next-script-for-ga": "error"
-  }
+    "plugins": ["nextjs"],
+    "rules": {
+        "nextjs/next-script-for-ga": "error"
+    }
 }
 ```
 

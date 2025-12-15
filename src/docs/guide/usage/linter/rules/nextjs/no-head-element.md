@@ -32,16 +32,16 @@ function Index() {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </head>
     </>
-  );
+  )
 }
 
-export default Index;
+export default Index
 ```
 
 Examples of **correct** code for this rule:
 
 ```jsx
-import Head from "next/head";
+import Head from 'next/head'
 
 function Index() {
   return (
@@ -51,10 +51,10 @@ function Index() {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
     </>
-  );
+  )
 }
 
-export default Index;
+export default Index
 ```
 
 ## How to use
@@ -65,10 +65,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["nextjs"],
-  "rules": {
-    "nextjs/no-head-element": "error"
-  }
+    "plugins": ["nextjs"],
+    "rules": {
+        "nextjs/no-head-element": "error"
+    }
 }
 ```
 

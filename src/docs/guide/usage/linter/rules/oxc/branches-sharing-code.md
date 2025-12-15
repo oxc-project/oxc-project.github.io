@@ -25,19 +25,19 @@ Examples of **incorrect** code for this rule:
 
 ```javascript
 if (condition) {
-  console.log("Hello");
-  return 13;
+    console.log("Hello");
+    return 13;
 } else {
-  console.log("Hello");
-  return 42;
-}
+    console.log("Hello");
+    return 42;
+};
 
 if (condition) {
-  doSomething();
-  cleanup();
+    doSomething();
+    cleanup();
 } else {
-  doSomethingElse();
-  cleanup();
+    doSomethingElse();
+    cleanup();
 }
 ```
 
@@ -46,15 +46,15 @@ Examples of **correct** code for this rule:
 ```javascript
 console.log("Hello");
 if (condition) {
-  return 13;
+    return 13;
 } else {
-  return 42;
-}
+    return 42;
+};
 
 if (condition) {
-  doSomething();
+    doSomething();
 } else {
-  doSomethingElse();
+    doSomethingElse();
 }
 cleanup();
 ```
@@ -67,9 +67,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "oxc/branches-sharing-code": "error"
-  }
+    "rules": {
+        "oxc/branches-sharing-code": "error"
+    }
 }
 ```
 

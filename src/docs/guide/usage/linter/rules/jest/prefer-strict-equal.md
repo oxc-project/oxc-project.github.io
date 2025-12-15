@@ -29,13 +29,24 @@ provides more accurate comparison by checking for `undefined` values.
 Examples of **incorrect** code for this rule:
 
 ```javascript
-expect({ a: "a", b: undefined }).toEqual({ a: "a" });
+expect({ a: 'a', b: undefined }).toEqual({ a: 'a' });
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
-expect({ a: "a", b: undefined }).toStrictEqual({ a: "a" });
+expect({ a: 'a', b: undefined }).toStrictEqual({ a: 'a' });
+```
+
+This rule is compatible with [eslint-plugin-vitest](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/prefer-strict-equal.md),
+to use it, add the following configuration to your `.oxlintrc.json`:
+
+```json
+{
+  "rules": {
+     "vitest/prefer-strict-equal": "error"
+  }
+}
 ```
 
 ## How to use
@@ -46,10 +57,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["jest"],
-  "rules": {
-    "jest/prefer-strict-equal": "error"
-  }
+    "plugins": ["jest"],
+    "rules": {
+        "jest/prefer-strict-equal": "error"
+    }
 }
 ```
 

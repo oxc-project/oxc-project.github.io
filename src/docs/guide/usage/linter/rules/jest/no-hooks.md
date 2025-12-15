@@ -32,33 +32,44 @@ This rule reports for the following function calls:
 Examples of **incorrect** code for this rule:
 
 ```javascript
-function setupFoo(options) {/* ... */}
-function setupBar(options) {/* ... */}
+function setupFoo(options) { /* ... */ }
+function setupBar(options) { /* ... */ }
 
-describe("foo", () => {
-  let foo;
-  beforeEach(() => {
-    foo = setupFoo();
-  });
-  afterEach(() => {
-    foo = null;
-  });
-  it("does something", () => {
-    expect(foo.doesSomething()).toBe(true);
-  });
-  describe("with bar", () => {
-    let bar;
+describe('foo', () => {
+    let foo;
     beforeEach(() => {
-      bar = setupBar();
+        foo = setupFoo();
     });
     afterEach(() => {
-      bar = null;
+        foo = null;
     });
-    it("does something with bar", () => {
-      expect(foo.doesSomething(bar)).toBe(true);
+    it('does something', () => {
+        expect(foo.doesSomething()).toBe(true);
     });
-  });
+    describe('with bar', () => {
+        let bar;
+        beforeEach(() => {
+            bar = setupBar();
+        });
+        afterEach(() => {
+            bar = null;
+        });
+        it('does something with bar', () => {
+            expect(foo.doesSomething(bar)).toBe(true);
+        });
+    });
 });
+```
+
+This rule is compatible with [eslint-plugin-vitest](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/no-hooks.md),
+to use it, add the following configuration to your `.oxlintrc.json`:
+
+```json
+{
+  "rules": {
+     "vitest/no-hooks": "error"
+  }
+}
 ```
 
 ## Configuration
@@ -81,10 +92,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["jest"],
-  "rules": {
-    "jest/no-hooks": "error"
-  }
+    "plugins": ["jest"],
+    "rules": {
+        "jest/no-hooks": "error"
+    }
 }
 ```
 

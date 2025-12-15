@@ -82,9 +82,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "operator-assignment": "error"
-  }
+    "rules": {
+        "operator-assignment": "error"
+    }
 }
 ```
 

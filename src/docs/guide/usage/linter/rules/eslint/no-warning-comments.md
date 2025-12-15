@@ -82,9 +82,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "no-warning-comments": "error"
-  }
+    "rules": {
+        "no-warning-comments": "error"
+    }
 }
 ```
 

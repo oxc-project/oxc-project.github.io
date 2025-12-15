@@ -31,20 +31,20 @@ Examples of **incorrect** code for this rule:
 
 ```javascript
 // Async callback functions are not allowed
-describe("myFunction()", async () => {
+describe('myFunction()', async () => {
   // ...
 });
 
 // Callback function parameters are not allowed
-describe("myFunction()", done => {
+describe('myFunction()', done => {
   // ...
 });
 
 // Returning a value from a describe block is not allowed
-describe("myFunction", () =>
-  it("returns a truthy value", () => {
+describe('myFunction', () =>
+  it('returns a truthy value', () => {
     expect(myFunction()).toBeTruthy();
-  }));
+}));
 ```
 
 This rule is compatible with [eslint-plugin-vitest](https://github.com/veritem/eslint-plugin-vitest/blob/v1.1.9/docs/rules/valid-describe-callback.md),
@@ -53,7 +53,7 @@ to use it, add the following configuration to your `.oxlintrc.json`:
 ```json
 {
   "rules": {
-    "vitest/valid-describe-callback": "error"
+     "vitest/valid-describe-callback": "error"
   }
 }
 ```
@@ -66,10 +66,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["jest"],
-  "rules": {
-    "jest/valid-describe-callback": "error"
-  }
+    "plugins": ["jest"],
+    "rules": {
+        "jest/valid-describe-callback": "error"
+    }
 }
 ```
 

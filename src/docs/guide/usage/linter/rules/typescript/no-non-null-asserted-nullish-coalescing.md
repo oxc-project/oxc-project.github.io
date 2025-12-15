@@ -32,11 +32,11 @@ foo!.bazz! ?? bar;
 foo()! ?? bar;
 
 let x!: string;
-x! ?? "";
+x! ?? '';
 
 let x: string;
 x = foo();
-x! ?? "";
+x! ?? '';
 ```
 
 Examples of **correct** code for this rule:
@@ -52,7 +52,7 @@ foo() ?? bar;
 ```ts
 // This is considered correct code because there's no way for the user to satisfy it.
 let x: string;
-x! ?? "";
+x! ?? '';
 ```
 
 ## How to use
@@ -63,9 +63,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "typescript/no-non-null-asserted-nullish-coalescing": "error"
-  }
+    "rules": {
+        "typescript/no-non-null-asserted-nullish-coalescing": "error"
+    }
 }
 ```
 

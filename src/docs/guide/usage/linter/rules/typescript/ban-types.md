@@ -26,7 +26,7 @@ Some built-in types have aliases, while some types are considered dangerous or h
 Examples of **incorrect** code for this rule:
 
 ```typescript
-let foo: String = "foo";
+let foo: String = 'foo';
 
 let bar: Boolean = true;
 ```
@@ -34,7 +34,7 @@ let bar: Boolean = true;
 Examples of **correct** code for this rule:
 
 ```typescript
-let foo: string = "foo";
+let foo: string = 'foo';
 
 let bar: boolean = true;
 ```
@@ -47,9 +47,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "typescript/ban-types": "error"
-  }
+    "rules": {
+        "typescript/ban-types": "error"
+    }
 }
 ```
 

@@ -29,12 +29,8 @@ prefer arrow functions or bind explicitly in a clearer way. Arrow functions inhe
 Examples of **incorrect** code for this rule:
 
 ```js
-array.map(function(x) {
-  return x + this.y;
-}, this);
-array.filter(function(x) {
-  return x !== this.value;
-}, this);
+array.map(function(x) { return x + this.y }, this);
+array.filter(function(x) { return x !== this.value }, this);
 ```
 
 Examples of **correct** code for this rule:
@@ -43,9 +39,7 @@ Examples of **correct** code for this rule:
 array.map(x => x + this.y);
 array.filter(x => x !== this.value);
 const self = this;
-array.map(function(x) {
-  return x + self.y;
-});
+array.map(function(x) { return x + self.y });
 ```
 
 ## How to use
@@ -56,9 +50,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "unicorn/no-array-method-this-argument": "error"
-  }
+    "rules": {
+        "unicorn/no-array-method-this-argument": "error"
+    }
 }
 ```
 

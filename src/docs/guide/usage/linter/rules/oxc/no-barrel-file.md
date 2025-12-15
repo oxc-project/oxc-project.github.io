@@ -35,14 +35,14 @@ References:
 Invalid:
 
 ```javascript
-export * from "foo"; // where `foo` loads a subtree of 100 modules
-import * as ns from "foo"; // where `foo` loads a subtree of 100 modules
+export * from 'foo'; // where `foo` loads a subtree of 100 modules
+import * as ns from 'foo'; // where `foo` loads a subtree of 100 modules
 ```
 
 Valid:
 
 ```javascript
-export { foo } from "foo";
+export { foo } from 'foo';
 ```
 
 ## Configuration
@@ -66,9 +66,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "oxc/no-barrel-file": "error"
-  }
+    "rules": {
+        "oxc/no-barrel-file": "error"
+    }
 }
 ```
 

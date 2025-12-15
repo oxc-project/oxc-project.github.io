@@ -28,20 +28,20 @@ This rules requires that you accompany `target='_blank'` attributes with `rel='n
 Examples of **incorrect** code for this rule:
 
 ```jsx
-var Hello = <a target="_blank" href="https://example.com/"></a>;
-var Hello = <a target="_blank" href={dynamicLink}></a>;
+var Hello = <a target='_blank' href="https://example.com/"></a>
+var Hello = <a target='_blank' href={dynamicLink}></a>
 ```
 
 Examples of **correct** code for this rule:
 
 ```jsx
 /// correct
-var Hello = <p target="_blank"></p>;
-var Hello = <a target="_blank" rel="noreferrer" href="https://example.com"></a>;
-var Hello = <a target="_blank" rel="noopener noreferrer" href="https://example.com"></a>;
-var Hello = <a target="_blank" href="relative/path/in/the/host"></a>;
-var Hello = <a target="_blank" href="/absolute/path/in/the/host"></a>;
-var Hello = <a></a>;
+var Hello = <p target="_blank"></p>
+var Hello = <a target="_blank" rel="noreferrer" href="https://example.com"></a>
+var Hello = <a target="_blank" rel="noopener noreferrer" href="https://example.com"></a>
+var Hello = <a target="_blank" href="relative/path/in/the/host"></a>
+var Hello = <a target="_blank" href="/absolute/path/in/the/host"></a>
+var Hello = <a></a>
 ```
 
 [`noreferrer` docs]: https://html.spec.whatwg.org/multipage/links.html#link-type-noreferrer
@@ -99,10 +99,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["react"],
-  "rules": {
-    "react/jsx-no-target-blank": "error"
-  }
+    "plugins": ["react"],
+    "rules": {
+        "react/jsx-no-target-blank": "error"
+    }
 }
 ```
 
