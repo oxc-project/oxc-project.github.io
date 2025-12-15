@@ -67,6 +67,7 @@ List of supported rules:
 - [typescript/non-nullable-type-assertion-style](/docs/guide/usage/linter/rules/typescript/non-nullable-type-assertion-style)
 - [typescript/only-throw-error](/docs/guide/usage/linter/rules/typescript/only-throw-error)
 - [typescript/prefer-includes](/docs/guide/usage/linter/rules/typescript/prefer-includes)
+- [typescript/prefer-nullish-coalescing](/docs/guide/usage/linter/rules/typescript/prefer-nullish-coalescing)
 - [typescript/prefer-promise-reject-errors](/docs/guide/usage/linter/rules/typescript/prefer-promise-reject-errors)
 - [typescript/prefer-reduce-type-parameter](/docs/guide/usage/linter/rules/typescript/prefer-reduce-type-parameter)
 - [typescript/prefer-return-this-type](/docs/guide/usage/linter/rules/typescript/prefer-return-this-type)
