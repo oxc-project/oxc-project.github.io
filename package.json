@@ -1,20 +1,23 @@
 {
   "name": "website",
   "version": "0.0.0",
-  "type": "module",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "vitepress dev",
     "prebuild": "pnpm run sponsors",
     "build": "vitepress build",
     "preview": "vitepress preview",
     "lint": "oxlint -W correctness -W no-unused-vars --deny-warnings",
-    "lint:fix": "pnpm lint --fix && typos -w && pnpm fmt --write .",
+    "lint:fix": "pnpm lint --fix && typos -w",
     "typecheck": "tsc && vue-tsc",
     "fmt": "oxfmt",
     "knip": "knip",
     "sponsors": "degit Boshen/sponsors temp --force && mv temp/sponsors.svg public/sponsors.svg",
     "prepare": "husky"
+  },
+  "lint-staged": {
+    "*": "oxfmt"
   },
   "devDependencies": {
     "@types/markdown-it": "^14.1.2",
@@ -29,16 +32,13 @@
     "lint-staged": "16.2.7",
     "markdown-it-container": "^4.0.0",
     "oxc-minify": "^0.102.0",
-    "oxfmt": "^0.17.0",
+    "oxfmt": "^0.18.0",
     "oxlint": "^1.32.0",
     "typescript": "~5.9.3",
     "vitepress": "2.0.0-alpha.15",
     "vitepress-plugin-group-icons": "^1.6.5",
     "vue": "^3.5.25",
     "vue-tsc": "^3.1.8"
-  },
-  "lint-staged": {
-    "*": "oxfmt"
   },
   "packageManager": "pnpm@10.24.0",
   "volta": {
