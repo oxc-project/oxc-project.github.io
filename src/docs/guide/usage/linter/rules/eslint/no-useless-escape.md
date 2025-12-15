@@ -33,8 +33,8 @@ Examples of **incorrect** code for this rule:
 ```javascript
 /*eslint no-useless-escape: "error"*/
 
-"'";
-"\"";
+"\'";
+'\"';
 "\#";
 "\e";
 `\"`;
@@ -52,7 +52,7 @@ Examples of **correct** code for this rule:
 /*eslint no-useless-escape: "error"*/
 
 "\"";
-"'";
+'\'';
 "\x12";
 "\u00a9";
 "\371";
@@ -88,9 +88,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "no-useless-escape": "error"
-  }
+    "rules": {
+        "no-useless-escape": "error"
+    }
 }
 ```
 

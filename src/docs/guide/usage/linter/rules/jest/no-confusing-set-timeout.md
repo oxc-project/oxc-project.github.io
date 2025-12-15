@@ -25,25 +25,25 @@ Disallow confusing usages of jest.setTimeout
 All of these are invalid case:
 
 ```javascript
-escribe("test foo", () => {
+escribe('test foo', () => {
   jest.setTimeout(1000);
-  it("test-description", () => {
+  it('test-description', () => {
     // test logic;
   });
 });
 
-describe("test bar", () => {
-  it("test-description", () => {
+describe('test bar', () => {
+  it('test-description', () => {
     jest.setTimeout(1000);
     // test logic;
   });
 });
 
-test("foo-bar", () => {
+test('foo-bar', () => {
   jest.setTimeout(1000);
 });
 
-describe("unit test", () => {
+describe('unit test', () => {
   beforeEach(() => {
     jest.setTimeout(1000);
   });
@@ -58,10 +58,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["jest"],
-  "rules": {
-    "jest/no-confusing-set-timeout": "error"
-  }
+    "plugins": ["jest"],
+    "rules": {
+        "jest/no-confusing-set-timeout": "error"
+    }
 }
 ```
 

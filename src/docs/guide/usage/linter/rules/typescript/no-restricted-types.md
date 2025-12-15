@@ -41,10 +41,10 @@ let value: Bar;
 Other examples of configuration option setups for this rule:
 
 - Banning the `Foo` type with just a message, no fixes or suggestions:
-  `{ "types": { "Foo": "Use`OtherType`instead." } }`
+  `{ "types": { "Foo": "Use `OtherType` instead." } }`
 
 - Banning `Bar` type with suggestion:
-  `{ "types": { "Bar": { "message": "Avoid using`Bar`.", "suggest": "BazQux" } } }`
+  `{ "types": { "Bar": { "message": "Avoid using `Bar`.", "suggest": "BazQux" } } }`
 
 - Banning `Object` type with a generic message:
   `{ "types": { "Object": true } }`
@@ -69,9 +69,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "typescript/no-restricted-types": "error"
-  }
+    "rules": {
+        "typescript/no-restricted-types": "error"
+    }
 }
 ```
 

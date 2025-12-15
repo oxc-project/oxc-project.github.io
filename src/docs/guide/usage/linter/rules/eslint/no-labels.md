@@ -20,11 +20,11 @@ Labeled statements in JavaScript are used in conjunction with `break` and `conti
 
 ```js
 outer:
-while (true) {
-  while (true) {
-    break outer;
-  }
-}
+    while (true) {
+        while (true) {
+           break outer;
+        }
+    }
 ```
 
 The `break outer` statement ensures that this code will not result in an infinite loop because control is returned to the next statement after the `outer` label was applied. If this statement was changed to be just `break`, control would flow back to the outer `while` statement and an infinite loop would result.
@@ -36,50 +36,50 @@ Examples of **incorrect** code for this rule:
 
 ```js
 label:
-while (true) {
-  // ...
-}
+    while(true) {
+        // ...
+    }
 
 label:
-while (true) {
-  break label;
-}
+    while(true) {
+        break label;
+    }
 
 label:
-while (true) {
-  continue label;
-}
+    while(true) {
+        continue label;
+    }
 
 label:
-switch (a) {
-  case 0:
-    break label;
-}
+    switch (a) {
+    case 0:
+        break label;
+    }
 
 label:
-{
-  break label;
-}
+    {
+        break label;
+    }
 
 label:
-if (a) {
-  break label;
-}
+    if (a) {
+        break label;
+    }
 ```
 
 Examples of **correct** code for this rule:
 
 ```js
 var f = {
-  label: "foo",
+    label: "foo"
 };
 
 while (true) {
-  break;
+    break;
 }
 
 while (true) {
-  continue;
+    continue;
 }
 ```
 
@@ -99,7 +99,7 @@ Examples of **correct** code with this option set to `true`:
 ```js
 label:
 while (true) {
-  break label;
+break label;
 }
 ```
 
@@ -115,8 +115,8 @@ Examples of **correct** code with this option set to `true`:
 ```js
 label:
 switch (a) {
-  case 0:
-    break label;
+case 0:
+break label;
 }
 ```
 
@@ -128,9 +128,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "no-labels": "error"
-  }
+    "rules": {
+        "no-labels": "error"
+    }
 }
 ```
 

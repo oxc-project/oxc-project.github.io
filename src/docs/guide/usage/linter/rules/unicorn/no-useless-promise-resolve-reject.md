@@ -26,13 +26,13 @@ Wrapping a return value in `Promise.resolve` in an async function or a `Promise#
 Examples of **incorrect** code for this rule:
 
 ```javascript
-(async () => Promise.resolve(bar));
+async () => Promise.resolve(bar);
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
-(async () => bar);
+async () => bar;
 ```
 
 ## Configuration
@@ -55,9 +55,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "unicorn/no-useless-promise-resolve-reject": "error"
-  }
+    "rules": {
+        "unicorn/no-useless-promise-resolve-reject": "error"
+    }
 }
 ```
 

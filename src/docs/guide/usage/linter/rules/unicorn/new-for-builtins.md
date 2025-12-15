@@ -30,14 +30,14 @@ as they create object wrappers instead of primitive values.
 Examples of **incorrect** code for this rule:
 
 ```javascript
-const foo = new String("hello world");
+const foo = new String('hello world');
 const bar = Array(1, 2, 3);
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
-const foo = String("hello world");
+const foo = String('hello world');
 const bar = new Array(1, 2, 3);
 ```
 
@@ -49,9 +49,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "unicorn/new-for-builtins": "error"
-  }
+    "rules": {
+        "unicorn/new-for-builtins": "error"
+    }
 }
 ```
 

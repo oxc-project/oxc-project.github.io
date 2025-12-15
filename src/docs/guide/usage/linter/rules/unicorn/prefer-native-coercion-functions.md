@@ -30,7 +30,7 @@ Examples of **incorrect** code for this rule:
 const foo = v => String(v);
 foo(1);
 const foo = v => Number(v);
-array.some((v) => /* comment */ v);
+array.some((v, ) => /* comment */ v)
 ```
 
 Examples of **correct** code for this rule:
@@ -49,9 +49,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "unicorn/prefer-native-coercion-functions": "error"
-  }
+    "rules": {
+        "unicorn/prefer-native-coercion-functions": "error"
+    }
 }
 ```
 

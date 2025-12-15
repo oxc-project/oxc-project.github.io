@@ -29,10 +29,10 @@ Examples of **incorrect** code for this rule:
 
 ```javascript
 async function foo() {
-  Promise.all([await promise, anotherPromise]);
-  Promise.allSettled([await promise, anotherPromise]);
-  Promise.any([await promise, anotherPromise]);
-  Promise.race([await promise, anotherPromise]);
+    Promise.all([await promise, anotherPromise]);
+    Promise.allSettled([await promise, anotherPromise]);
+    Promise.any([await promise, anotherPromise]);
+    Promise.race([await promise, anotherPromise]);
 }
 ```
 
@@ -40,10 +40,10 @@ Examples of **correct** code for this rule:
 
 ```javascript
 async function foo() {
-  Promise.all([promise, anotherPromise]);
-  Promise.allSettled([promise, anotherPromise]);
-  Promise.any([promise, anotherPromise]);
-  Promise.race([promise, anotherPromise]);
+    Promise.all([promise, anotherPromise]);
+    Promise.allSettled([promise, anotherPromise]);
+    Promise.any([promise, anotherPromise]);
+    Promise.race([promise, anotherPromise]);
 }
 ```
 
@@ -55,9 +55,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "unicorn/no-await-in-promise-methods": "error"
-  }
+    "rules": {
+        "unicorn/no-await-in-promise-methods": "error"
+    }
 }
 ```
 

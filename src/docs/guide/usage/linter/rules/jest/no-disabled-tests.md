@@ -24,22 +24,22 @@ running.
 ### Example
 
 ```js
-describe.skip("foo", () => {});
-it.skip("foo", () => {});
-test.skip("foo", () => {});
+describe.skip('foo', () => {});
+it.skip('foo', () => {});
+test.skip('foo', () => {});
 
-describe["skip"]("bar", () => {});
-it["skip"]("bar", () => {});
-test["skip"]("bar", () => {});
+describe['skip']('bar', () => {});
+it['skip']('bar', () => {});
+test['skip']('bar', () => {});
 
-xdescribe("foo", () => {});
-xit("foo", () => {});
-xtest("foo", () => {});
+xdescribe('foo', () => {});
+xit('foo', () => {});
+xtest('foo', () => {});
 
-it("bar");
-test("bar");
+it('bar');
+test('bar');
 
-it("foo", () => {
+it('foo', () => {
   pending();
 });
 ```
@@ -50,7 +50,7 @@ to use it, add the following configuration to your `.oxlintrc.json`:
 ```json
 {
   "rules": {
-    "vitest/no-disabled-tests": "error"
+     "vitest/no-disabled-tests": "error"
   }
 }
 ```
@@ -63,10 +63,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["jest"],
-  "rules": {
-    "jest/no-disabled-tests": "error"
-  }
+    "plugins": ["jest"],
+    "rules": {
+        "jest/no-disabled-tests": "error"
+    }
 }
 ```
 

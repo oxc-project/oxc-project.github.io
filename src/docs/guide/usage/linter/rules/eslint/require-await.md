@@ -30,10 +30,10 @@ await operator, such as this:
 
 ```js
 async function fetchData(processDataItem) {
-  const response = await fetch(DATA_URL);
-  const data = await response.json();
+    const response = await fetch(DATA_URL);
+    const data = await response.json();
 
-  return data.map(processDataItem);
+    return data.map(processDataItem);
 }
 ```
 
@@ -52,7 +52,7 @@ Examples of **incorrect** code for this rule:
 
 ```js
 async function foo() {
-  doSomething();
+    doSomething();
 }
 ```
 
@@ -60,7 +60,7 @@ Examples of **correct** code for this rule:
 
 ```js
 async function foo() {
-  await doSomething();
+   await doSomething();
 }
 ```
 
@@ -72,9 +72,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "require-await": "error"
-  }
+    "rules": {
+        "require-await": "error"
+    }
 }
 ```
 

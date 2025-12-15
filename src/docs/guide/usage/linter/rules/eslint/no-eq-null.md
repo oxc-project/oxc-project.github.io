@@ -29,10 +29,10 @@ Examples of **incorrect** code for this rule:
 
 ```js
 if (foo == null) {
-  bar();
+    bar();
 }
 if (baz != null) {
-  bar();
+    bar();
 }
 ```
 
@@ -40,15 +40,15 @@ Examples of **correct** code for this rule:
 
 ```js
 if (foo === null) {
-  bar();
+    bar();
 }
 
 if (baz !== null) {
-  bar();
+    bar();
 }
 
 if (bang === undefined) {
-  bar();
+    bar();
 }
 ```
 
@@ -60,9 +60,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "no-eq-null": "error"
-  }
+    "rules": {
+        "no-eq-null": "error"
+    }
 }
 ```
 

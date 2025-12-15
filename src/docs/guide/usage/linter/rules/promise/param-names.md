@@ -26,14 +26,14 @@ makes code more uniform and easier to understand.
 Examples of **incorrect** code for this rule:
 
 ```javascript
-new Promise(function(reject, resolve) {/* ... */}); // incorrect order
-new Promise(function(ok, fail) {/* ... */}); // non-standard parameter names
+new Promise(function (reject, resolve) { /* ... */ }) // incorrect order
+new Promise(function (ok, fail) { /* ... */ }) // non-standard parameter names
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
-new Promise(function(resolve, reject) {});
+new Promise(function(resolve, reject) {})
 ```
 
 ## Configuration
@@ -62,10 +62,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["promise"],
-  "rules": {
-    "promise/param-names": "error"
-  }
+    "plugins": ["promise"],
+    "rules": {
+        "promise/param-names": "error"
+    }
 }
 ```
 

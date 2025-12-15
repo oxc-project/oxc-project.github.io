@@ -27,13 +27,13 @@ Redundant roles can lead to confusion and verbosity in the codebase.
 Examples of **incorrect** code for this rule:
 
 ```jsx
-<nav role="navigation" />;
+<nav role="navigation" />
 ```
 
 Examples of **correct** code for this rule:
 
 ```jsx
-<nav />;
+<nav />
 ```
 
 ## How to use
@@ -44,10 +44,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["jsx-a11y"],
-  "rules": {
-    "jsx-a11y/no-redundant-roles": "error"
-  }
+    "plugins": ["jsx-a11y"],
+    "rules": {
+        "jsx-a11y/no-redundant-roles": "error"
+    }
 }
 ```
 

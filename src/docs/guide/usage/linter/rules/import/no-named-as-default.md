@@ -29,22 +29,22 @@ Given
 
 ```javascript
 // foo.js
-export default "foo";
-export const bar = "baz";
+export default 'foo';
+export const bar = 'baz';
 ```
 
 Examples of **incorrect** code for this rule:
 
 ```javascript
 // Invalid: using exported name 'bar' as the identifier for default export.
-import bar from "./foo.js";
+import bar from './foo.js';
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
 // Valid: correctly importing default export with a non-conflicting name.
-import foo from "./foo.js";
+import foo from './foo.js';
 ```
 
 ## How to use
@@ -55,10 +55,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["import"],
-  "rules": {
-    "import/no-named-as-default": "error"
-  }
+    "plugins": ["import"],
+    "rules": {
+        "import/no-named-as-default": "error"
+    }
 }
 ```
 

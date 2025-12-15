@@ -28,8 +28,8 @@ Examples of **incorrect** code for this rule:
 ```typescript
 // wrong, the value of `Close` is not constant
 enum Status {
-  Open = 1,
-  Close,
+ Open = 1,
+ Close,
 }
 ```
 
@@ -37,8 +37,8 @@ Examples of **correct** code for this rule:
 
 ```typescript
 enum Status {
-  Open = 1,
-  Close = 2,
+ Open = 1,
+ Close = 2,
 }
 ```
 
@@ -50,9 +50,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "typescript/prefer-enum-initializers": "error"
-  }
+    "rules": {
+        "typescript/prefer-enum-initializers": "error"
+    }
 }
 ```
 

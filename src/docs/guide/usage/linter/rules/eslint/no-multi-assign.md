@@ -20,10 +20,10 @@ Chaining the assignment of variables can lead to unexpected results and be diffi
 
 ```js
 (function() {
-  const foo = bar = 0; // Did you mean `foo = bar == 0`?
-  bar = 1; // This will not fail since `bar` is not constant.
+    const foo = bar = 0; // Did you mean `foo = bar == 0`?
+    bar = 1;             // This will not fail since `bar` is not constant.
 })();
-console.log(bar); // This will output 1 since `bar` is not scoped.
+console.log(bar);        // This will output 1 since `bar` is not scoped.
 ```
 
 ### Examples
@@ -35,10 +35,12 @@ var a = b = c = 5;
 
 const foo = bar = "baz";
 
-let d = e = f;
+let d =
+    e =
+    f;
 
 class Foo {
-  a = b = 10;
+    a = b = 10;
 }
 
 a = b = "quux";
@@ -58,8 +60,8 @@ let d = c;
 let e = c;
 
 class Foo {
-  a = 10;
-  b = 10;
+    a = 10;
+    b = 10;
 }
 
 a = "quux";
@@ -98,7 +100,7 @@ let a = b = "baz";
 const foo = bar = 1;
 
 class Foo {
-  a = b = 10;
+a = b = 10;
 }
 ```
 
@@ -110,9 +112,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "no-multi-assign": "error"
-  }
+    "rules": {
+        "no-multi-assign": "error"
+    }
 }
 ```
 

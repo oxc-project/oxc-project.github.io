@@ -17,8 +17,8 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 Disallow calling some global objects as functions.
 
-It is safe to disable this rule when using TypeScript, because
-TypeScript's compiler enforces this check.
+This rule can be disabled for TypeScript code, as the TypeScript compiler
+enforces this check.
 
 ### Why is this bad?
 
@@ -63,9 +63,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "no-obj-calls": "error"
-  }
+    "rules": {
+        "no-obj-calls": "error"
+    }
 }
 ```
 

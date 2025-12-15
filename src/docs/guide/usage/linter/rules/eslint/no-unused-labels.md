@@ -31,10 +31,10 @@ Examples of **incorrect** code for this rule:
 ```javascript
 OUTER_LOOP:
 for (const student of students) {
-  if (checkScores(student.scores)) {
-    continue;
-  }
-  doSomething(student);
+    if (checkScores(student.scores)) {
+        continue;
+    }
+    doSomething(student);
 }
 ```
 
@@ -42,10 +42,10 @@ Examples of **correct** code for this rule:
 
 ```javascript
 for (const student of students) {
-  if (checkScores(student.scores)) {
-    continue;
-  }
-  doSomething(student);
+    if (checkScores(student.scores)) {
+        continue;
+    }
+    doSomething(student);
 }
 ```
 
@@ -57,9 +57,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "no-unused-labels": "error"
-  }
+    "rules": {
+        "no-unused-labels": "error"
+    }
 }
 ```
 

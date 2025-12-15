@@ -61,13 +61,13 @@ follows:
 Example of **incorrect** code for this option:
 
 ```javascript
-console.log("foo");
+console.log('foo');
 ```
 
 Example of **correct** code for this option:
 
 ```javascript
-console.info("foo");
+console.info('foo');
 ```
 
 ## How to use
@@ -78,9 +78,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "no-console": "error"
-  }
+    "rules": {
+        "no-console": "error"
+    }
 }
 ```
 

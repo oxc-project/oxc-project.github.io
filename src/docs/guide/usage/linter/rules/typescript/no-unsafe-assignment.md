@@ -62,7 +62,7 @@ let num: number;
 num = numberValue; // safe
 
 // Use type guards with unknown
-if (typeof unknownValue === "string") {
+if (typeof unknownValue === 'string') {
   const str2: string = unknownValue; // safe after type guard
 }
 
@@ -78,9 +78,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "typescript/no-unsafe-assignment": "error"
-  }
+    "rules": {
+        "typescript/no-unsafe-assignment": "error"
+    }
 }
 ```
 

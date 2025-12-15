@@ -36,7 +36,8 @@ TypeScript projects.
 - IDEs can't provide as good suggestions for static class or namespace
   imported properties when you start typing property names
 - It's more difficult to statically analyze code for unused variables,
-  etc. when they're all on the class (see: [Finding dead code (and dead types) in TypeScript](https://effectivetypescript.com/2020/10/20/tsprune/)).
+  etc. when they're all on the class (see: [Finding dead code (and dead
+  types) in TypeScript](https://effectivetypescript.com/2020/10/20/tsprune/)).
 
 This rule also reports classes that have only a constructor and no
 fields. Those classes can generally be replaced with a standalone
@@ -48,27 +49,27 @@ Examples of **incorrect** code for this rule:
 
 ```ts
 class StaticConstants {
-  static readonly version = 42;
+	static readonly version = 42;
 
-  static isProduction() {
-    return process.env.NODE_ENV === "production";
+	static isProduction() {
+	  return process.env.NODE_ENV === 'production';
+	}
   }
-}
 
-class HelloWorldLogger {
-  constructor() {
-    console.log("Hello, world!");
+  class HelloWorldLogger {
+	constructor() {
+	  console.log('Hello, world!');
+	}
   }
-}
 
-abstract class Foo {}
+  abstract class Foo {}
 ```
 
 Examples of **correct** code for this rule:
 
 ```ts
 const version = 42;
-const isProduction = () => process.env.NODE_ENV === "production";
+const isProduction = () => process.env.NODE_ENV === 'production';
 ```
 
 ## Configuration
@@ -115,9 +116,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "typescript/no-extraneous-class": "error"
-  }
+    "rules": {
+        "typescript/no-extraneous-class": "error"
+    }
 }
 ```
 

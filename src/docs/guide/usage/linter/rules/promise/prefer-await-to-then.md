@@ -23,17 +23,13 @@ Async/await syntax can be seen as more readable.
 Examples of **incorrect** code for this rule:
 
 ```javascript
-function foo() {
-  hey.then(x => {});
-}
+function foo() { hey.then(x => {}) }
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
-async function hi() {
-  await thing();
-}
+async function hi() { await thing() }
 ```
 
 ### Example with strict mode
@@ -42,7 +38,7 @@ Examples of **incorrect** code with `{ strict: true }`:
 
 ```javascript
 async function hi() {
-  await thing().then(x => {});
+  await thing().then(x => {})
 }
 ```
 
@@ -66,10 +62,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["promise"],
-  "rules": {
-    "promise/prefer-await-to-then": "error"
-  }
+    "plugins": ["promise"],
+    "rules": {
+        "promise/prefer-await-to-then": "error"
+    }
 }
 ```
 

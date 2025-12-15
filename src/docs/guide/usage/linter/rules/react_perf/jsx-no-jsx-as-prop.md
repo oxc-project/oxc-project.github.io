@@ -36,7 +36,7 @@ Examples of **incorrect** code for this rule:
 Examples of **correct** code for this rule:
 
 ```jsx
-<Item callback={this.props.jsx} />;
+<Item callback={this.props.jsx} />
 ```
 
 ## How to use
@@ -47,10 +47,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["react-perf"],
-  "rules": {
-    "react-perf/jsx-no-jsx-as-prop": "error"
-  }
+    "plugins": ["react-perf"],
+    "rules": {
+        "react-perf/jsx-no-jsx-as-prop": "error"
+    }
 }
 ```
 

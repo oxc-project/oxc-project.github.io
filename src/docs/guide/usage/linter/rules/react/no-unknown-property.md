@@ -26,23 +26,23 @@ You can use unknown property name that has no effect.
 Examples of **incorrect** code for this rule:
 
 ```jsx
-// Unknown properties
-const Hello = <div class="hello">Hello World</div>;
-const Alphabet = <div abc="something">Alphabet</div>;
+ // Unknown properties
+ const Hello = <div class="hello">Hello World</div>;
+ const Alphabet = <div abc="something">Alphabet</div>;
 
-// Invalid aria-* attribute
-const IconButton = <div aria-foo="bar" />;
+ // Invalid aria-* attribute
+ const IconButton = <div aria-foo="bar" />;
 ```
 
 Examples of **correct** code for this rule:
 
 ```jsx
-// Unknown properties
-const Hello = <div className="hello">Hello World</div>;
-const Alphabet = <div>Alphabet</div>;
+ // Unknown properties
+ const Hello = <div className="hello">Hello World</div>;
+ const Alphabet = <div>Alphabet</div>;
 
-// Invalid aria-* attribute
-const IconButton = <div aria-label="bar" />;
+ // Invalid aria-* attribute
+ const IconButton = <div aria-label="bar" />;
 ```
 
 ## Configuration
@@ -73,10 +73,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["react"],
-  "rules": {
-    "react/no-unknown-property": "error"
-  }
+    "plugins": ["react"],
+    "rules": {
+        "react/no-unknown-property": "error"
+    }
 }
 ```
 

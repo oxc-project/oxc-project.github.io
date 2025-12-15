@@ -29,31 +29,31 @@ It's a good practice to be consistent in your test suite, so that all tests are 
 
 ```javascript
 /*eslint jest/consistent-test-it: ["error", {"fn": "test"}]*/
-test("foo"); // valid
-test.only("foo"); // valid
+test('foo'); // valid
+test.only('foo'); // valid
 
-it("foo"); // invalid
-it.only("foo"); // invalid
+it('foo'); // invalid
+it.only('foo'); // invalid
 ```
 
 ```javascript
 /*eslint jest/consistent-test-it: ["error", {"fn": "it"}]*/
-it("foo"); // valid
-it.only("foo"); // valid
-test("foo"); // invalid
-test.only("foo"); // invalid
+it('foo'); // valid
+it.only('foo'); // valid
+test('foo'); // invalid
+test.only('foo'); // invalid
 ```
 
 ```javascript
 /*eslint jest/consistent-test-it: ["error", {"fn": "it", "withinDescribe": "test"}]*/
-it("foo"); // valid
-describe("foo", function() {
-  test("bar"); // valid
+it('foo'); // valid
+describe('foo', function () {
+    test('bar'); // valid
 });
 
-test("foo"); // invalid
-describe("foo", function() {
-  it("bar"); // invalid
+test('foo'); // invalid
+describe('foo', function () {
+    it('bar'); // invalid
 });
 ```
 
@@ -63,7 +63,7 @@ to use it, add the following configuration to your `.oxlintrc.json`:
 ```json
 {
   "rules": {
-    "vitest/consistent-test-it": "error"
+     "vitest/consistent-test-it": "error"
   }
 }
 ```
@@ -97,10 +97,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["jest"],
-  "rules": {
-    "jest/consistent-test-it": "error"
-  }
+    "plugins": ["jest"],
+    "rules": {
+        "jest/consistent-test-it": "error"
+    }
 }
 ```
 

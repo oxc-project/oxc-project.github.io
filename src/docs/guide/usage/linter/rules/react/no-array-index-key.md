@@ -26,13 +26,17 @@ This results in unnecessary renders.
 Examples of **incorrect** code for this rule:
 
 ```jsx
-things.map((thing, index) => <Hello key={index} />);
+things.map((thing, index) => (
+    <Hello key={index} />
+));
 ```
 
 Examples of **correct** code for this rule:
 
 ```jsx
-things.map((thing, index) => <Hello key={thing.id} />);
+things.map((thing, index) => (
+    <Hello key={thing.id} />
+));
 ```
 
 ## How to use
@@ -43,10 +47,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["react"],
-  "rules": {
-    "react/no-array-index-key": "error"
-  }
+    "plugins": ["react"],
+    "rules": {
+        "react/no-array-index-key": "error"
+    }
 }
 ```
 

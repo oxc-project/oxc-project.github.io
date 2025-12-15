@@ -53,22 +53,33 @@ Example configuration:
 Examples of **incorrect** code for this rule with the above configuration:
 
 ```javascript
-it("is false", () => {
+it('is false', () => {
   // if this has a modifier (i.e. `not.toBeFalsy`), it would be considered fine
   expect(a).toBeFalsy();
 });
 
-it("resolves", async () => {
+it('resolves', async () => {
   // all uses of this modifier are disallowed, regardless of matcher
   await expect(myPromise()).resolves.toBe(true);
 });
 
-describe("when an error happens", () => {
-  it("does not upload the file", async () => {
+describe('when an error happens', () => {
+  it('does not upload the file', async () => {
     // all uses of this matcher are disallowed
-    expect(uploadFileMock).not.toHaveBeenCalledWith("file.name");
+    expect(uploadFileMock).not.toHaveBeenCalledWith('file.name');
   });
 });
+```
+
+This rule is compatible with [eslint-plugin-vitest](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/no-restricted-matchers.md),
+to use it, add the following configuration to your `.oxlintrc.json`:
+
+```json
+{
+  "rules": {
+     "vitest/no-restricted-matchers": "error"
+  }
+}
 ```
 
 ## Configuration
@@ -93,10 +104,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["jest"],
-  "rules": {
-    "jest/no-restricted-matchers": "error"
-  }
+    "plugins": ["jest"],
+    "rules": {
+        "jest/no-restricted-matchers": "error"
+    }
 }
 ```
 

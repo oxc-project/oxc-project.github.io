@@ -26,7 +26,7 @@ Examples of **incorrect** code for this rule:
 
 ```javascript
 jest.useFakeTimers();
-it("calls the callback after 1 second via advanceTimersByTime", () => {
+it('calls the callback after 1 second via advanceTimersByTime', () => {
   // ...
 
   jest.advanceTimersByTime(1000);
@@ -34,11 +34,22 @@ it("calls the callback after 1 second via advanceTimersByTime", () => {
   // ...
 });
 
-test("plays video", () => {
-  const spy = jest.spyOn(video, "play");
+test('plays video', () => {
+  const spy = jest.spyOn(video, 'play');
 
   // ...
 });
+```
+
+This rule is compatible with [eslint-plugin-vitest](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/no-restricted-vi-methods.md),
+to use it, add the following configuration to your `.oxlintrc.json`:
+
+```json
+{
+  "rules": {
+     "vitest/no-restricted-vi-methods": "error"
+  }
+}
 ```
 
 ## Configuration
@@ -61,10 +72,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["jest"],
-  "rules": {
-    "jest/no-restricted-jest-methods": "error"
-  }
+    "plugins": ["jest"],
+    "rules": {
+        "jest/no-restricted-jest-methods": "error"
+    }
 }
 ```
 

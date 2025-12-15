@@ -23,13 +23,13 @@ Using semantic HTML tags can improve accessibility and readability of the code.
 Examples of **incorrect** code for this rule:
 
 ```jsx
-<div role="button" />;
+<div role="button" />
 ```
 
 Examples of **correct** code for this rule:
 
 ```jsx
-<button />;
+<button />
 ```
 
 ## How to use
@@ -40,10 +40,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["jsx-a11y"],
-  "rules": {
-    "jsx-a11y/prefer-tag-over-role": "error"
-  }
+    "plugins": ["jsx-a11y"],
+    "rules": {
+        "jsx-a11y/prefer-tag-over-role": "error"
+    }
 }
 ```
 

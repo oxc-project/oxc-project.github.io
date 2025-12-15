@@ -40,19 +40,19 @@ Examples of **correct** code for this rule:
 let foo;
 
 if (isBar) {
-  foo = baz;
+    foo = baz;
 } else {
-  foo = qux;
+    foo = qux;
 }
 ```
 
 ```javascript
 function quux() {
-  if (foo) {
-    return bar();
-  } else {
-    return baz();
-  }
+    if (foo) {
+        return bar();
+    } else {
+        return baz();
+    }
 }
 ```
 
@@ -64,9 +64,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "no-ternary": "error"
-  }
+    "rules": {
+        "no-ternary": "error"
+    }
 }
 ```
 

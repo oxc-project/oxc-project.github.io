@@ -55,10 +55,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["jsdoc"],
-  "rules": {
-    "jsdoc/check-access": "error"
-  }
+    "plugins": ["jsdoc"],
+    "rules": {
+        "jsdoc/check-access": "error"
+    }
 }
 ```
 

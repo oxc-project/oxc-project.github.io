@@ -24,7 +24,7 @@ This rule prevents ignoring consecutive values when destructuring from an array.
 Examples of **incorrect** code for this rule:
 
 ```javascript
-const [, , foo] = parts;
+const [,, foo] = parts;
 ```
 
 Examples of **correct** code for this rule:
@@ -41,9 +41,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "unicorn/no-unreadable-array-destructuring": "error"
-  }
+    "rules": {
+        "unicorn/no-unreadable-array-destructuring": "error"
+    }
 }
 ```
 

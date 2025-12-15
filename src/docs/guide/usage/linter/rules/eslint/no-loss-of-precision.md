@@ -15,18 +15,18 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 ### What it does
 
-Disallow precision loss of number literal
+Disallow precision loss of number literal.
 
 ### Why is this bad?
 
-It can lead to unexpected results in certain situations
-For example, when performing mathematical operations
+It can lead to unexpected results in certain situations.
+For example, when performing mathematical operations.
 
-In JS, Numbers are stored as double-precision floating-point numbers
+In JavaScript, Numbers are stored as double-precision floating-point numbers
 according to the IEEE 754 standard. Because of this, numbers can only
 retain accuracy up to a certain amount of digits. If the programmer
 enters additional digits, those digits will be lost in the conversion
-to the Number type and will result in unexpected behavior.
+to the Number type and will result in unexpected/incorrect behavior.
 
 ### Examples
 
@@ -82,9 +82,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "no-loss-of-precision": "error"
-  }
+    "rules": {
+        "no-loss-of-precision": "error"
+    }
 }
 ```
 

@@ -31,13 +31,13 @@ Examples of **incorrect** code for this rule:
 
 ```ts
 enum Status {
-  Open = "open",
-  Closed = "closed",
+  Open = 'open',
+  Closed = 'closed',
 }
 
 enum Color {
-  Red = "red",
-  Blue = "blue",
+  Red = 'red',
+  Blue = 'blue',
 }
 
 declare const status: Status;
@@ -51,15 +51,15 @@ if (status === color) {} // unsafe
 if (status === str) {} // unsafe
 
 // Comparing with arbitrary value
-if (status === "unknown") {} // unsafe
+if (status === 'unknown') {} // unsafe
 ```
 
 Examples of **correct** code for this rule:
 
 ```ts
 enum Status {
-  Open = "open",
-  Closed = "closed",
+  Open = 'open',
+  Closed = 'closed',
 }
 
 declare const status: Status;
@@ -68,7 +68,7 @@ declare const status: Status;
 if (status === Status.Open) {} // safe
 
 // Comparing with the correct literal type
-if (status === "open") {} // safe
+if (status === 'open') {} // safe
 
 // Using enum methods
 if (Object.values(Status).includes(someValue)) {} // safe way to check
@@ -82,9 +82,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "typescript/no-unsafe-enum-comparison": "error"
-  }
+    "rules": {
+        "typescript/no-unsafe-enum-comparison": "error"
+    }
 }
 ```
 

@@ -32,13 +32,13 @@ Examples of **incorrect** code for this rule:
 ```ts
 // Function returning Promise without async
 function fetchData(): Promise<string> {
-  return fetch("/api/data").then(res => res.text());
+  return fetch('/api/data').then(res => res.text());
 }
 
 // Method returning Promise without async
 class DataService {
   getData(): Promise<any> {
-    return fetch("/api/data").then(res => res.json());
+    return fetch('/api/data').then(res => res.json());
   }
 }
 
@@ -53,14 +53,14 @@ Examples of **correct** code for this rule:
 ```ts
 // Async function
 async function fetchData(): Promise<string> {
-  const response = await fetch("/api/data");
+  const response = await fetch('/api/data');
   return response.text();
 }
 
 // Async method
 class DataService {
   async getData(): Promise<any> {
-    const response = await fetch("/api/data");
+    const response = await fetch('/api/data');
     return response.json();
   }
 }
@@ -72,7 +72,7 @@ const processData = async (): Promise<void> => {
 
 // Functions that don't return Promise are fine
 function syncFunction(): string {
-  return "hello";
+  return 'hello';
 }
 
 // Functions returning Promise-like but not actual Promise
@@ -142,9 +142,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "typescript/promise-function-async": "error"
-  }
+    "rules": {
+        "typescript/promise-function-async": "error"
+    }
 }
 ```
 

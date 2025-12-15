@@ -49,9 +49,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "unicorn/prefer-math-min-max": "error"
-  }
+    "rules": {
+        "unicorn/prefer-math-min-max": "error"
+    }
 }
 ```
 

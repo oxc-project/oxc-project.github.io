@@ -23,13 +23,13 @@ Incorrectly using the autocomplete attribute may decrease the accessibility of t
 Examples of **incorrect** code for this rule:
 
 ```jsx
-<input autocomplete="invalid-value" />;
+<input autocomplete="invalid-value" />
 ```
 
 Examples of **correct** code for this rule:
 
 ```jsx
-<input autocomplete="name" />;
+<input autocomplete="name" />
 ```
 
 ## Configuration
@@ -52,10 +52,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["jsx-a11y"],
-  "rules": {
-    "jsx-a11y/autocomplete-valid": "error"
-  }
+    "plugins": ["jsx-a11y"],
+    "rules": {
+        "jsx-a11y/autocomplete-valid": "error"
+    }
 }
 ```
 

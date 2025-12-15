@@ -29,33 +29,33 @@ Examples of **incorrect** code for this rule:
 
 ```javascript
 if (a) {
-  foo();
+    foo();
 } else if (b) {
-  bar();
+    bar();
 } else if (b) {
-  baz();
+    baz();
 }
 ```
 
 ```javascript
 if (a || b) {
-  foo();
+   foo();
 } else if (a) {
-  bar();
+   bar();
 }
 ```
 
 ```javascript
 if (n === 1) {
-  foo();
+    foo();
 } else if (n === 2) {
-  bar();
+    bar();
 } else if (n === 3) {
-  baz();
+    baz();
 } else if (n === 2) {
-  quux();
+    quux();
 } else if (n === 5) {
-  quuux();
+    quuux();
 }
 ```
 
@@ -63,33 +63,33 @@ Examples of **correct** code for this rule:
 
 ```javascript
 if (a) {
-  foo();
+    foo();
 } else if (b) {
-  bar();
+    bar();
 } else if (c) {
-  baz();
+    baz();
 }
 ```
 
 ```javascript
 if (a || b) {
-  foo();
+   foo();
 } else if (c) {
-  bar();
+   bar();
 }
 ```
 
 ```javascript
 if (n === 1) {
-  foo();
+    foo();
 } else if (n === 2) {
-  bar();
+    bar();
 } else if (n === 3) {
-  baz();
+    baz();
 } else if (n === 4) {
-  quux();
+    quux();
 } else if (n === 5) {
-  quuux();
+    quuux();
 }
 ```
 
@@ -101,9 +101,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "no-dupe-else-if": "error"
-  }
+    "rules": {
+        "no-dupe-else-if": "error"
+    }
 }
 ```
 

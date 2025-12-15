@@ -29,17 +29,17 @@ Examples of **incorrect** code for this rule:
 var Hello = createReactClass({
   getInitialState: function() {
     return {
-      name: this.props.name,
+      name: this.props.name
     };
   },
   handleClick: function() {
     this.setState({
-      name: this.props.name.toUpperCase(),
+      name: this.props.name.toUpperCase()
     });
   },
   render: function() {
     return <div onClick={this.handleClick.bind(this)}>Hello {this.state.name}</div>;
-  },
+  }
 });
 ```
 
@@ -51,10 +51,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["react"],
-  "rules": {
-    "react/no-set-state": "error"
-  }
+    "plugins": ["react"],
+    "rules": {
+        "react/no-set-state": "error"
+    }
 }
 ```
 

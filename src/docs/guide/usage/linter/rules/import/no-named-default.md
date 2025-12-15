@@ -24,15 +24,15 @@ Examples of **incorrect** code for this rule:
 
 ```js
 // message: Using exported name 'bar' as identifier for default export.
-import { default as foo } from "./foo.js";
-import { bar, default as foo } from "./foo.js";
+import { default as foo } from './foo.js';
+import { default as foo, bar } from './foo.js';
 ```
 
 Examples of **correct** code for this rule:
 
 ```js
-import foo from "./foo.js";
-import foo, { bar } from "./foo.js";
+import foo from './foo.js';
+import foo, { bar } from './foo.js';
 ```
 
 ## How to use
@@ -43,10 +43,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["import"],
-  "rules": {
-    "import/no-named-default": "error"
-  }
+    "plugins": ["import"],
+    "rules": {
+        "import/no-named-default": "error"
+    }
 }
 ```
 

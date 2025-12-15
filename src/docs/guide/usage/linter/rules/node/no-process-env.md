@@ -24,7 +24,7 @@ make code harder to test, and bypass configuration validation.
 Examples of **incorrect** code for this rule:
 
 ```js
-if (process.env.NODE_ENV === "development") {
+if(process.env.NODE_ENV === "development") {
   // ...
 }
 ```
@@ -34,8 +34,8 @@ Examples of **correct** code for this rule:
 ```js
 import config from "./config";
 
-if (config.env === "development") {
-  // ...
+if(config.env === "development") {
+  //...
 }
 ```
 
@@ -59,10 +59,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["node"],
-  "rules": {
-    "node/no-process-env": "error"
-  }
+    "plugins": ["node"],
+    "rules": {
+        "node/no-process-env": "error"
+    }
 }
 ```
 

@@ -28,12 +28,12 @@ constructs of the language thanks in part to the ability to “fall
 through” from one case to the next. For example:
 
 ```js
-switch (foo) {
+switch(foo) {
   case 1:
-    doSomething();
+  doSomething();
 
-  case 2:
-    doSomethingElse();
+case 2:
+  doSomethingElse();
 }
 ```
 
@@ -42,7 +42,7 @@ cases, as the first falls through to the second. You can prevent this by
 using `break`, as in this example:
 
 ```js
-switch (foo) {
+switch(foo) {
   case 1:
     doSomething();
     break;
@@ -59,7 +59,7 @@ fallthrough is intentional using a comment which matches the
 `/falls?\s?through/i`` regular expression but isn’t a directive:
 
 ```js
-switch (foo) {
+switch(foo) {
   case 1:
     doSomething();
     // falls through
@@ -68,7 +68,7 @@ switch (foo) {
     doSomethingElse();
 }
 
-switch (foo) {
+switch(foo) {
   case 1:
     doSomething();
     // fall through
@@ -77,7 +77,7 @@ switch (foo) {
     doSomethingElse();
 }
 
-switch (foo) {
+switch(foo) {
   case 1:
     doSomething();
     // fallsthrough
@@ -86,7 +86,7 @@ switch (foo) {
     doSomethingElse();
 }
 
-switch (foo) {
+switch(foo) {
   case 1: {
     doSomething();
     // falls through
@@ -107,7 +107,7 @@ case.
 Examples of **incorrect** code for this rule:
 
 ```js
-switch (foo) {
+switch(foo) {
   case 1:
     doSomething();
 
@@ -119,7 +119,7 @@ switch (foo) {
 Examples of **correct** code for this rule:
 
 ```js
-switch (foo) {
+switch(foo) {
   case 1:
     doSomething();
     break;
@@ -129,7 +129,7 @@ switch (foo) {
 }
 
 function bar(foo) {
-  switch (foo) {
+  switch(foo) {
     case 1:
       doSomething();
       return;
@@ -139,7 +139,7 @@ function bar(foo) {
   }
 }
 
-switch (foo) {
+switch(foo) {
   case 1:
     doSomething();
     throw new Error("Boo!");
@@ -148,19 +148,18 @@ switch (foo) {
     doSomething();
 }
 
-switch (foo) {
+switch(foo) {
   case 1:
   case 2:
     doSomething();
 }
 
-switch (foo) {
-  case 1:
-  case 2:
+switch(foo) {
+  case 1: case 2:
     doSomething();
 }
 
-switch (foo) {
+switch(foo) {
   case 1:
     doSomething();
     // falls through
@@ -169,7 +168,7 @@ switch (foo) {
     doSomething();
 }
 
-switch (foo) {
+switch(foo) {
   case 1: {
     doSomething();
     // falls through
@@ -218,9 +217,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "no-fallthrough": "error"
-  }
+    "rules": {
+        "no-fallthrough": "error"
+    }
 }
 ```
 

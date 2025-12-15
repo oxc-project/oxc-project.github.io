@@ -27,21 +27,21 @@ Prefer `.querySelector()` over `.getElementById()`, `.querySelectorAll()` over `
 Examples of **incorrect** code for this rule:
 
 ```javascript
-document.getElementById("foo");
-document.getElementsByClassName("foo bar");
-document.getElementsByTagName("main");
+document.getElementById('foo');
+document.getElementsByClassName('foo bar');
+document.getElementsByTagName('main');
 document.getElementsByClassName(fn());
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
-document.querySelector("#foo");
-document.querySelector(".bar");
-document.querySelector("main #foo .bar");
-document.querySelectorAll(".foo .bar");
-document.querySelectorAll("li a");
-document.querySelector("li").querySelectorAll("a");
+document.querySelector('#foo');
+document.querySelector('.bar');
+document.querySelector('main #foo .bar');
+document.querySelectorAll('.foo .bar');
+document.querySelectorAll('li a');
+document.querySelector('li').querySelectorAll('a');
 ```
 
 ## How to use
@@ -52,9 +52,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "unicorn/prefer-query-selector": "error"
-  }
+    "rules": {
+        "unicorn/prefer-query-selector": "error"
+    }
 }
 ```
 

@@ -28,9 +28,9 @@ Examples of **incorrect** code for this rule:
 
 ```js
 class MyError extends Error {
-  constructor() {
-    Error.captureStackTrace(this, MyError);
-  }
+    constructor() {
+        Error.captureStackTrace(this, MyError);
+    }
 }
 ```
 
@@ -38,9 +38,9 @@ Examples of **correct** code for this rule:
 
 ```js
 class MyError extends Error {
-  constructor() {
-    // No need to call Error.captureStackTrace
-  }
+    constructor() {
+        // No need to call Error.captureStackTrace
+    }
 }
 ```
 
@@ -52,9 +52,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "unicorn/no-useless-error-capture-stack-trace": "error"
-  }
+    "rules": {
+        "unicorn/no-useless-error-capture-stack-trace": "error"
+    }
 }
 ```
 

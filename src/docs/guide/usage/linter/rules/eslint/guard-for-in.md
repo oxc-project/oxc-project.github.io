@@ -50,9 +50,9 @@ for (key in foo) {
 
 ```javascript
 for (key in foo) {
-  if ({}.hasOwnProperty.call(foo, key)) {
-    doSomething(key);
-  }
+   if ({}.hasOwnProperty.call(foo, key)) {
+       doSomething(key);
+   }
 }
 ```
 
@@ -64,9 +64,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "guard-for-in": "error"
-  }
+    "rules": {
+        "guard-for-in": "error"
+    }
 }
 ```
 

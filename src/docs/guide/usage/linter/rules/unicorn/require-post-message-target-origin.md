@@ -33,9 +33,9 @@ window.postMessage(message);
 Examples of **correct** code for this rule:
 
 ```js
-window.postMessage(message, "https://example.com");
+window.postMessage(message, 'https://example.com');
 
-window.postMessage(message, "*");
+window.postMessage(message, '*');
 ```
 
 ## How to use
@@ -46,9 +46,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "unicorn/require-post-message-target-origin": "error"
-  }
+    "rules": {
+        "unicorn/require-post-message-target-origin": "error"
+    }
 }
 ```
 

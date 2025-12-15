@@ -29,17 +29,17 @@ the rule ensures that requests are correctly configured and prevents unnecessary
 Examples of **incorrect** code for this rule:
 
 ```javascript
-const response = await fetch("/", { method: "GET", body: "foo=bar" });
+const response = await fetch('/', {method: 'GET', body: 'foo=bar'});
 
-const request = new Request("/", { method: "GET", body: "foo=bar" });
+const request = new Request('/', {method: 'GET', body: 'foo=bar'});
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
-const response = await fetch("/", { method: "POST", body: "foo=bar" });
+const response = await fetch('/', {method: 'POST', body: 'foo=bar'});
 
-const request = new Request("/", { method: "POST", body: "foo=bar" });
+const request = new Request('/', {method: 'POST', body: 'foo=bar'});
 ```
 
 ## How to use
@@ -50,9 +50,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "unicorn/no-invalid-fetch-options": "error"
-  }
+    "rules": {
+        "unicorn/no-invalid-fetch-options": "error"
+    }
 }
 ```
 

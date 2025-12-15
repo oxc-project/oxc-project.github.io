@@ -29,7 +29,7 @@ Examples of **incorrect** code for this rule:
 
 ```javascript
 expect(x === 5).toBe(true);
-expect(name === "Carl").not.toEqual(true);
+expect(name === 'Carl').not.toEqual(true);
 expect(myObj !== thatObj).toStrictEqual(true);
 ```
 
@@ -37,8 +37,19 @@ Examples of **correct** code for this rule:
 
 ```javascript
 expect(x).toBe(5);
-expect(name).not.toEqual("Carl");
+expect(name).not.toEqual('Carl');
 expect(myObj).toStrictEqual(thatObj);
+```
+
+This rule is compatible with [eslint-plugin-vitest](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/prefer-equality-matcher.md),
+to use it, add the following configuration to your `.oxlintrc.json`:
+
+```json
+{
+  "rules": {
+     "vitest/prefer-equality-matcher": "error"
+  }
+}
 ```
 
 ## How to use
@@ -49,10 +60,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["jest"],
-  "rules": {
-    "jest/prefer-equality-matcher": "error"
-  }
+    "plugins": ["jest"],
+    "rules": {
+        "jest/prefer-equality-matcher": "error"
+    }
 }
 ```
 

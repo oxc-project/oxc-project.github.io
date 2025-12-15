@@ -44,10 +44,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["promise"],
-  "rules": {
-    "promise/no-new-statics": "error"
-  }
+    "plugins": ["promise"],
+    "rules": {
+        "promise/no-new-statics": "error"
+    }
 }
 ```
 

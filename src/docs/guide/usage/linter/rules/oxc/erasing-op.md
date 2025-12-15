@@ -50,9 +50,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "oxc/erasing-op": "error"
-  }
+    "rules": {
+        "oxc/erasing-op": "error"
+    }
 }
 ```
 

@@ -48,10 +48,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["vitest"],
-  "rules": {
-    "vitest/prefer-to-be-object": "error"
-  }
+    "plugins": ["vitest"],
+    "rules": {
+        "vitest/prefer-to-be-object": "error"
+    }
 }
 ```
 

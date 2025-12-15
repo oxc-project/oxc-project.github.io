@@ -57,8 +57,8 @@ of majors, eventually they are removed completely.
 Examples of **incorrect** code for this rule:
 
 ```javascript
-jest.resetModuleRegistry; // since Jest 15
-jest.addMatchers; // since Jest 17
+jest.resetModuleRegistry // since Jest 15
+jest.addMatchers // since Jest 17
 ```
 
 ## Configuration
@@ -87,10 +87,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["jest"],
-  "rules": {
-    "jest/no-deprecated-functions": "error"
-  }
+    "plugins": ["jest"],
+    "rules": {
+        "jest/no-deprecated-functions": "error"
+    }
 }
 ```
 

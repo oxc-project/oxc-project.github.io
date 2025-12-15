@@ -29,11 +29,11 @@ var foo = undefined;
 var undefined = "foo";
 
 if (foo === undefined) {
-  // ...
+    // ...
 }
 
 function baz(undefined) {
-  // ...
+    // ...
 }
 
 bar(undefined, "lorem");
@@ -47,7 +47,7 @@ var foo = void 0;
 var Undefined = "foo";
 
 if (typeof foo === "undefined") {
-  // ...
+    // ...
 }
 
 global.undefined = "foo";
@@ -63,9 +63,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "no-undefined": "error"
-  }
+    "rules": {
+        "no-undefined": "error"
+    }
 }
 ```
 

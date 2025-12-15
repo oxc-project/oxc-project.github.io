@@ -91,7 +91,7 @@ For example, this would be reported as a lint violation with `prefer-import`:
 
 ```ts
 /// <reference types="foo" />
-import { bar } from "foo";
+import { bar } from 'foo';
 ```
 
 ## How to use
@@ -102,9 +102,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "typescript/triple-slash-reference": "error"
-  }
+    "rules": {
+        "typescript/triple-slash-reference": "error"
+    }
 }
 ```
 

@@ -28,7 +28,7 @@ Examples of **incorrect** code for this rule:
 
 ```javascript
 if (a == b == c) {
-  console.log("a, b, and c are the same");
+ console.log("a, b, and c are the same");
 }
 ```
 
@@ -36,7 +36,7 @@ Examples of **correct** code for this rule:
 
 ```javascript
 if (a == b && b == c) {
-  console.log("a, b, and c are the same");
+ console.log("a, b, and c are the same");
 }
 ```
 
@@ -48,9 +48,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "oxc/bad-comparison-sequence": "error"
-  }
+    "rules": {
+        "oxc/bad-comparison-sequence": "error"
+    }
 }
 ```
 

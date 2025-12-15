@@ -28,29 +28,29 @@ Enforcing one style makes it immediately obvious which imports are types and whi
 Examples of incorrect code for the default `prefer-top-level` option:
 
 ```typescript
-import { type Foo } from "Foo";
-import Foo, { type Bar } from "Foo";
+import { type Foo } from 'Foo';
+import Foo, { type Bar } from 'Foo';
 ```
 
 Examples of correct code for the default option:
 
 ```typescript
-import type { Foo } from "Foo";
-import type Foo, { Bar } from "Foo";
+import type { Foo } from 'Foo';
+import type Foo, { Bar } from 'Foo';
 ```
 
 Examples of incorrect code for the `prefer-inline` option:
 
 ```typescript
-import type { Foo } from "Foo";
-import type Foo, { Bar } from "Foo";
+import type { Foo } from 'Foo';
+import type Foo, { Bar } from 'Foo';
 ```
 
 Examples of correct code for the `prefer-inline` option:
 
 ```typescript
-import { type Foo } from "Foo";
-import Foo, { type Bar } from "Foo";
+import { type Foo } from 'Foo';
+import Foo, { type Bar } from 'Foo';
 ```
 
 ## Configuration
@@ -73,10 +73,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["import"],
-  "rules": {
-    "import/consistent-type-specifier-style": "error"
-  }
+    "plugins": ["import"],
+    "rules": {
+        "import/consistent-type-specifier-style": "error"
+    }
 }
 ```
 

@@ -38,14 +38,13 @@ local version with a very different meaning.
 Examples of **incorrect** code for this rule:
 
 ```javascript
-function NaN() {}
+function NaN(){}
 
-!function(Infinity) {};
+!function(Infinity){};
 
 var undefined = 5;
 
-try {
-} catch (eval) {}
+try {} catch(eval){}
 ```
 
 ```javascript
@@ -61,7 +60,7 @@ Examples of **correct** code for this rule:
 ```javascript
 var Object;
 
-function f(a, b) {}
+function f(a, b){}
 
 // Exception: `undefined` may be shadowed if the variable is never assigned a value.
 var undefined;
@@ -91,9 +90,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "no-shadow-restricted-names": "error"
-  }
+    "rules": {
+        "no-shadow-restricted-names": "error"
+    }
 }
 ```
 

@@ -34,39 +34,39 @@ Examples of **incorrect** code for this rule:
 
 ```javascript
 class A {
-  constructor() {
-  }
+    constructor () {
+    }
 }
 
 class B extends A {
-  constructor(...args) {
-    super(...args);
-  }
+    constructor (...args) {
+      super(...args);
+    }
 }
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
-class A {}
+class A { }
 
 class B {
-  constructor() {
-    doSomething();
-  }
+    constructor () {
+        doSomething();
+    }
 }
 
 class C extends A {
-  constructor() {
-    super("foo");
-  }
+    constructor() {
+        super('foo');
+    }
 }
 
 class D extends A {
-  constructor() {
-    super();
-    doSomething();
-  }
+    constructor() {
+        super();
+        doSomething();
+    }
 }
 ```
 
@@ -78,9 +78,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "no-useless-constructor": "error"
-  }
+    "rules": {
+        "no-useless-constructor": "error"
+    }
 }
 ```
 

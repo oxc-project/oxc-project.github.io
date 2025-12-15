@@ -38,19 +38,19 @@ The following nodes are checked:
 Examples of **incorrect** code for this rule:
 
 ```ts
-const str = "hello";
+const str = 'hello';
 if (str) {
-  console.log("string");
+  console.log('string');
 }
 
 const num = 42;
 if (num) {
-  console.log("number");
+  console.log('number');
 }
 
-const obj = { foo: "bar" };
+const obj = { foo: 'bar' };
 if (obj) {
-  console.log("object");
+  console.log('object');
 }
 
 declare const maybeString: string | undefined;
@@ -59,25 +59,25 @@ if (maybeString) {
 }
 
 const result = str && num;
-const ternary = str ? "yes" : "no";
+const ternary = str ? 'yes' : 'no';
 ```
 
 Examples of **correct** code for this rule:
 
 ```ts
-const str = "hello";
-if (str !== "") {
-  console.log("string");
+const str = 'hello';
+if (str !== '') {
+  console.log('string');
 }
 
 const num = 42;
 if (num !== 0) {
-  console.log("number");
+  console.log('number');
 }
 
-const obj = { foo: "bar" };
+const obj = { foo: 'bar' };
 if (obj !== null) {
-  console.log("object");
+  console.log('object');
 }
 
 declare const maybeString: string | undefined;
@@ -87,7 +87,7 @@ if (maybeString !== undefined) {
 
 const bool = true;
 if (bool) {
-  console.log("boolean");
+  console.log('boolean');
 }
 ```
 
@@ -176,9 +176,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "typescript/strict-boolean-expressions": "error"
-  }
+    "rules": {
+        "typescript/strict-boolean-expressions": "error"
+    }
 }
 ```
 

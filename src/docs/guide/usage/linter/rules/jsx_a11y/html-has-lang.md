@@ -26,13 +26,13 @@ and access website in more than one language.
 Examples of **incorrect** code for this rule:
 
 ```jsx
-<html />;
+<html />
 ```
 
 Examples of **correct** code for this rule:
 
 ```jsx
-<html lang="en" />;
+<html lang="en" />
 ```
 
 ## How to use
@@ -43,10 +43,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["jsx-a11y"],
-  "rules": {
-    "jsx-a11y/html-has-lang": "error"
-  }
+    "plugins": ["jsx-a11y"],
+    "rules": {
+        "jsx-a11y/html-has-lang": "error"
+    }
 }
 ```
 

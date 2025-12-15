@@ -33,32 +33,32 @@ It's considered a good practice to avoid using eval() in JavaScript. There are s
 Examples of **incorrect** code for this rule:
 
 ```ts
-setTimeout("alert(\"Hi!\");", 100);
+setTimeout('alert("Hi!");', 100);
 
-setInterval("alert(\"Hi!\");", 100);
+setInterval('alert("Hi!");', 100);
 
-setImmediate("alert(\"Hi!\")");
+setImmediate('alert("Hi!")');
 
-window.setTimeout("count = 5", 10);
+window.setTimeout('count = 5', 10);
 
-window.setInterval("foo = bar", 10);
+window.setInterval('foo = bar', 10);
 
-const fn = new Function("a", "b", "return a + b");
+const fn = new Function('a', 'b', 'return a + b');
 ```
 
 Examples of **correct** code for this rule:
 
 ```ts
 setTimeout(() => {
-  alert("Hi!");
+  alert('Hi!');
 }, 100);
 
 setInterval(() => {
-  alert("Hi!");
+  alert('Hi!');
 }, 100);
 
 setImmediate(() => {
-  alert("Hi!");
+  alert('Hi!');
 });
 
 const fn = (a: number, b: number) => a + b;
@@ -72,9 +72,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "typescript/no-implied-eval": "error"
-  }
+    "rules": {
+        "typescript/no-implied-eval": "error"
+    }
 }
 ```
 

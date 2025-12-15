@@ -43,14 +43,14 @@ already using ES modules.
 Examples of **incorrect** code for this rule:
 
 ```ts
-export const value = "Hello, world!";
+export const value = 'Hello, world!';
 export {};
 ```
 
 Examples of **correct** code for this rule:
 
 ```ts
-export const value = "Hello, world!";
+export const value = 'Hello, world!';
 ```
 
 ## How to use
@@ -61,9 +61,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "typescript/no-useless-empty-export": "error"
-  }
+    "rules": {
+        "typescript/no-useless-empty-export": "error"
+    }
 }
 ```
 

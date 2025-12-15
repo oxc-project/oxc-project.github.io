@@ -28,7 +28,7 @@ var mod = require("fs");
 
 var exports = (module.exports = {});
 
-exports.sayHello = function() {
+exports.sayHello = function () {
   return "Hello";
 };
 
@@ -74,7 +74,7 @@ If `allowPrimitiveModules` option is set to true, the following is valid:
 ```js
 module.exports = "foo";
 module.exports = function rule(context) {
-  return {/* ... */};
+return { /* ... */ };
 };
 ```
 
@@ -82,7 +82,7 @@ but this is still reported:
 
 ```js
 module.exports = { x: "y" };
-exports.z = function bark() {/* ... */};
+exports.z = function bark() { /* ... */ };
 ```
 
 ### allowRequire
@@ -107,10 +107,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["import"],
-  "rules": {
-    "import/no-commonjs": "error"
-  }
+    "plugins": ["import"],
+    "rules": {
+        "import/no-commonjs": "error"
+    }
 }
 ```
 

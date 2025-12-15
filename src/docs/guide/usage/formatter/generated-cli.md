@@ -6,32 +6,43 @@ search: false
 
 **`oxfmt`** \[**`-c`**=_`PATH`_\] \[_`PATH`_\]...
 
-## Output Options
+## Mode Options:
 
-- **`--check`** &mdash;
-  Check mode - check if files are formatted, also show statistics
-- **`--list-different`** &mdash;
-  List mode - list files that would be changed
+- **`    --init`** &mdash;
+  Initialize `.oxfmtrc.json` with default values
+- **`    --migrate`**=_`SOURCE`_ &mdash;
+  Migrate configuration to `.oxfmtrc.json` from specified source Available sources: prettier
+- **`    --lsp`** &mdash;
+  Start language server protocol (LSP) server
+- **`    --stdin-filepath`**=_`PATH`_ &mdash;
+  Specify the file name to use to infer which parser to use
 
-## Basic Options
+## Output Options:
+
+- **`    --write`** &mdash;
+  Format and write files in place (default)
+- **`    --check`** &mdash;
+  Check if files are formatted, also show statistics
+- **`    --list-different`** &mdash;
+  List files that would be changed
+
+## Config Options
 
 - **`-c`**, **`--config`**=_`PATH`_ &mdash;
   Path to the configuration file
 
 ## Ignore Options
 
-- **`--ignore-path`**=_`PATH`_ &mdash;
+- **`    --ignore-path`**=_`PATH`_ &mdash;
   Path to ignore file(s). Can be specified multiple times. If not specified, .gitignore and .prettierignore in the current directory are used.
-- **`--with-node-modules`** &mdash;
+- **`    --with-node-modules`** &mdash;
   Format code in node_modules directory (skipped by default)
 
-## Misc Options
+## Runtime Options
 
-- **`--lsp`** &mdash;
-  Start language server protocol (LSP) server
-- **`--no-error-on-unmatched-pattern`** &mdash;
+- **`    --no-error-on-unmatched-pattern`** &mdash;
   Do not exit with error when pattern is unmatched
-- **`--threads`**=_`INT`_ &mdash;
+- **`    --threads`**=_`INT`_ &mdash;
   Number of threads to use. Set to 1 for using only 1 CPU core.
 
 ## Available positional items:

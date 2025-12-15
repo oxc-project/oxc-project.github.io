@@ -29,23 +29,15 @@ The `throw` keyword is required in front of a `new` expression to throw an error
 Examples of **incorrect** code for this rule:
 
 ```javascript
-function foo() {
-  throw Error();
-}
-const foo = () => {
-  new Error();
-};
+function foo() { throw Error() }
+const foo = () => { new Error() }
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
-function foo() {
-  throw new Error();
-}
-const foo = () => {
-  throw new Error();
-};
+function foo() { throw new Error() }
+const foo = () => { throw new Error() }
 ```
 
 ## How to use
@@ -56,9 +48,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "oxc/missing-throw": "error"
-  }
+    "rules": {
+        "oxc/missing-throw": "error"
+    }
 }
 ```
 

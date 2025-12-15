@@ -15,7 +15,7 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 ### What it does
 
-Enforce import from 'vue' instead of import from '@vue/\*'.
+Enforce `import from 'vue'` instead of `import from '@vue/*'`.
 
 ### Why is this bad?
 
@@ -31,15 +31,15 @@ Imports from the following modules are almost always wrong. You should import fr
 Examples of **incorrect** code for this rule:
 
 ```js
-import { ref } from "@vue/reactivity";
-import { Component } from "@vue/runtime-core";
-import { createApp } from "@vue/runtime-dom";
+import { createApp } from '@vue/runtime-dom'
+import { Component } from '@vue/runtime-core'
+import { ref } from '@vue/reactivity'
 ```
 
 Examples of **correct** code for this rule:
 
 ```js
-import { Component, createApp, ref } from "vue";
+import { createApp, ref, Component } from 'vue'
 ```
 
 ## How to use
@@ -50,10 +50,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["vue"],
-  "rules": {
-    "vue/prefer-import-from-vue": "error"
-  }
+    "plugins": ["vue"],
+    "rules": {
+        "vue/prefer-import-from-vue": "error"
+    }
 }
 ```
 

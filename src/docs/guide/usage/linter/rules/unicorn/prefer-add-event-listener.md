@@ -34,7 +34,7 @@ foo.onclick = () => {};
 Examples of **correct** code for this rule:
 
 ```javascript
-foo.addEventListener("click", () => {});
+foo.addEventListener('click', () => {});
 ```
 
 ## How to use
@@ -45,9 +45,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "unicorn/prefer-add-event-listener": "error"
-  }
+    "rules": {
+        "unicorn/prefer-add-event-listener": "error"
+    }
 }
 ```
 

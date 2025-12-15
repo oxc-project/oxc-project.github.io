@@ -23,11 +23,11 @@ React will throw a warning if this rule is ignored and both `children` and `dang
 Examples of **incorrect** code for this rule:
 
 ```jsx
-<div dangerouslySetInnerHTML={{ __html: "HTML" }}>Children</div>;
+<div dangerouslySetInnerHTML={{ __html: "HTML" }}>Children</div>
 React.createElement(
-  "div",
-  { dangerouslySetInnerHTML: { __html: "HTML" } },
-  "Children",
+    "div",
+    { dangerouslySetInnerHTML: { __html: "HTML" } },
+    "Children"
 );
 ```
 
@@ -46,10 +46,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["react"],
-  "rules": {
-    "react/no-danger-with-children": "error"
-  }
+    "plugins": ["react"],
+    "rules": {
+        "react/no-danger-with-children": "error"
+    }
 }
 ```
 

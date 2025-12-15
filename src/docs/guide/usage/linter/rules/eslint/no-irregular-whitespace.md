@@ -30,7 +30,7 @@ Examples of **incorrect** code for this rule:
 ```javascript
 // Contains irregular whitespace characters (invisible)
 function example() {
-  var foo = "bar"; // irregular whitespace before 'bar'
+  var foo = 'bar'; // irregular whitespace before 'bar'
 }
 ```
 
@@ -38,7 +38,7 @@ Examples of **correct** code for this rule:
 
 ```javascript
 function example() {
-  var foo = "bar"; // regular spaces only
+  var foo = 'bar'; // regular spaces only
 }
 ```
 
@@ -50,9 +50,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "no-irregular-whitespace": "error"
-  }
+    "rules": {
+        "no-irregular-whitespace": "error"
+    }
 }
 ```
 

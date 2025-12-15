@@ -31,8 +31,8 @@ Examples of **incorrect** code for this rule:
 ```js
 /*eslint no-restricted-imports: ["error", "disallowed-import"]"*/
 
-import foo from "disallowed-import";
-export * from "disallowed-import";
+import foo from 'disallowed-import';
+export * from 'disallowed-import';
 ```
 
 Examples of **correct** code for this rule:
@@ -40,7 +40,7 @@ Examples of **correct** code for this rule:
 ```js
 /*eslint no-restricted-imports: ["error", "fs"]*/
 
-import crypto from "crypto";
+import crypto from 'crypto';
 export * from "bar";
 ```
 
@@ -58,7 +58,7 @@ Examples of **incorrect** code for this rule:
   "message": "Please use 'allowed-import' instead"
 }]*/
 
-import foo from "disallowed-import";
+import foo from 'disallowed-import';
 ```
 
 #### paths
@@ -74,7 +74,7 @@ Examples of **incorrect** code for `paths`:
 ```js
 /*eslint no-restricted-imports: ["error", { "paths": ["cluster"] }]*/
 
-import cluster from "cluster";
+import cluster from 'cluster';
 ```
 
 Custom messages for a particular module can also be specified in `paths` array using objects with `name` and `message`.
@@ -110,8 +110,8 @@ Examples of **incorrect** code for this rule:
   "importNames": ["Baz"]
 }]}]*/
 
-import { Baz } from "far";
 import DisallowedObject from "foo";
+import {Baz} from "far";
 ```
 
 ##### allowImportNames
@@ -145,8 +145,8 @@ Examples of **incorrect** code for this rule:
   "allowTypeImports": true
 }]}]*/
 
-import foo from "import-foo";
-export { Foo } from "import-foo";
+import foo from 'import-foo';
+export { Foo } from 'import-foo';
 ```
 
 Examples of **correct** code for this rule:
@@ -157,8 +157,8 @@ Examples of **correct** code for this rule:
   "allowTypeImports": true
 }]}]*/
 
-import type foo from "import-foo";
-export type { Foo } from "import-foo";
+import type foo from 'import-foo';
+export type { Foo } from 'import-foo';
 ```
 
 #### patterns
@@ -201,7 +201,7 @@ Examples of **incorrect** code for `patterns` option:
 ```js
 /*eslint no-restricted-imports: ["error", { "patterns": ["lodash/*"] }]*/
 
-import pick from "lodash/pick";
+import pick from 'lodash/pick';
 ```
 
 Examples of **correct** code for `patterns` option:
@@ -209,7 +209,7 @@ Examples of **correct** code for `patterns` option:
 ```js
 /*eslint no-restricted-imports: ["error", { "patterns": ["crypto/*"] }]*/
 
-import crypto from "crypto";
+import crypto from 'crypto';
 ```
 
 ##### group
@@ -227,7 +227,7 @@ Examples of **incorrect** code for `group` option:
   message: "Please use the default import from 'lodash' instead."
 }]}]*/
 
-import pick from "lodash/pick";
+import pick from 'lodash/pick';
 ```
 
 ##### regex
@@ -246,10 +246,10 @@ Examples of **incorrect** code for `regex` option:
   regex: "@app/(api|enums).*",
 }]}]*/
 
-import Foo from "@app/api";
-import Bar from "@app/api/bar";
-import Baz from "@app/api/baz";
-import Bux from "@app/api/enums/foo";
+import Foo from '@app/api';
+import Bar from '@app/api/bar';
+import Baz from '@app/api/baz';
+import Bux from '@app/api/enums/foo';
 ```
 
 ##### caseSensitive
@@ -272,7 +272,7 @@ Examples of **incorrect** code for `importNames` in `patterns`:
   message: "Use 'isEmpty' from lodash instead."
 }]}]*/
 
-import { isEmpty } from "utils/collection-utils";
+import { isEmpty } from 'utils/collection-utils';
 ```
 
 ##### allowImportNames
@@ -295,7 +295,7 @@ Examples of **incorrect** code for `importNamePattern` option:
   message: "Use 'is*' and 'has*' functions from baz/bar instead"
 }]}]*/
 
-import { hasSomething, isSomething } from "foo/bar";
+import { isSomething, hasSomething } from 'foo/bar';
 ```
 
 ##### allowImportNamePattern
@@ -322,7 +322,7 @@ Examples of **incorrect** code for `allowImportNamePattern` option:
   allowImportNamePattern: '^has'
 }]}]*/
 
-import { isEmpty } from "utils/collection-utils";
+import { isEmpty } from 'utils/collection-utils';
 ```
 
 Examples of **correct** code for `allowImportNamePattern` option:
@@ -333,7 +333,7 @@ Examples of **correct** code for `allowImportNamePattern` option:
   allowImportNamePattern: '^is'
 }]}]*/
 
-import { isEmpty } from "utils/collection-utils";
+import { isEmpty } from 'utils/collection-utils';
 ```
 
 ## How to use
@@ -344,9 +344,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "no-restricted-imports": "error"
-  }
+    "rules": {
+        "no-restricted-imports": "error"
+    }
 }
 ```
 

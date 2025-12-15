@@ -37,7 +37,7 @@ Examples of **incorrect** code for this rule:
 
 ```vue
 <script setup>
-import { defineProps, withDefaults } from "vue";
+import { defineProps, withDefaults } from 'vue'
 </script>
 ```
 
@@ -45,7 +45,7 @@ Examples of **correct** code for this rule:
 
 ```vue
 <script setup>
-import { ref } from "vue";
+import { ref } from 'vue'
 </script>
 ```
 
@@ -57,10 +57,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["vue"],
-  "rules": {
-    "vue/no-import-compiler-macros": "error"
-  }
+    "plugins": ["vue"],
+    "rules": {
+        "vue/no-import-compiler-macros": "error"
+    }
 }
 ```
 

@@ -26,13 +26,13 @@ It is slightly more efficient to use `.flatMap(…)` instead of `.map(…).flat(
 Examples of **incorrect** code for this rule:
 
 ```javascript
-const bar = [1, 2, 3].map(i => [i]).flat();
+const bar = [1,2,3].map(i => [i]).flat();
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
-const bar = [1, 2, 3].flatMap(i => [i]);
+const bar = [1,2,3].flatMap(i => [i]);
 ```
 
 ## How to use
@@ -43,9 +43,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "unicorn/prefer-array-flat-map": "error"
-  }
+    "rules": {
+        "unicorn/prefer-array-flat-map": "error"
+    }
 }
 ```
 

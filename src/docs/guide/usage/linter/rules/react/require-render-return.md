@@ -26,7 +26,7 @@ Examples of **incorrect** code for this rule:
 var Hello = createReactClass({
   render() {
     <div>Hello</div>;
-  },
+  }
 });
 
 class Hello extends React.Component {
@@ -42,7 +42,7 @@ Examples of **correct** code for this rule:
 var Hello = createReactClass({
   render() {
     return <div>Hello</div>;
-  },
+  }
 });
 
 class Hello extends React.Component {
@@ -60,10 +60,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["react"],
-  "rules": {
-    "react/require-render-return": "error"
-  }
+    "plugins": ["react"],
+    "rules": {
+        "react/require-render-return": "error"
+    }
 }
 ```
 

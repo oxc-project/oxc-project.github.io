@@ -26,17 +26,17 @@ Examples of **incorrect** code for this rule:
 
 ```javascript
 expect();
-expect("something");
+expect('something');
 expect(true).toBeDefined;
-expect(Promise.resolve("Hi!")).resolves.toBe("Hi!");
+expect(Promise.resolve('Hi!')).resolves.toBe('Hi!');
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
-expect("something").toEqual("something");
+expect('something').toEqual('something');
 expect(true).toBeDefined();
-expect(Promise.resolve("Hi!")).resolves.toBe("Hi!");
+expect(Promise.resolve('Hi!')).resolves.toBe('Hi!');
 ```
 
 This rule is compatible with [eslint-plugin-vitest](https://github.com/veritem/eslint-plugin-vitest/blob/v1.1.9/docs/rules/valid-expect.md),
@@ -45,7 +45,7 @@ to use it, add the following configuration to your `.oxlintrc.json`:
 ```json
 {
   "rules": {
-    "vitest/valid-expect": "error"
+     "vitest/valid-expect": "error"
   }
 }
 ```
@@ -94,10 +94,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["jest"],
-  "rules": {
-    "jest/valid-expect": "error"
-  }
+    "plugins": ["jest"],
+    "rules": {
+        "jest/valid-expect": "error"
+    }
 }
 ```
 

@@ -32,9 +32,9 @@ Examples of **correct** code for this rule:
 
 ```js
 function foo() {
-  var bar = 1;
-  let baz = 2;
-  const qux = 3;
+    var bar = 1;
+    let baz = 2;
+    const qux = 3;
 }
 ```
 
@@ -66,9 +66,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "max-classes-per-file": "error"
-  }
+    "rules": {
+        "max-classes-per-file": "error"
+    }
 }
 ```
 

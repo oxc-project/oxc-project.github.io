@@ -27,11 +27,11 @@ Examples of **incorrect** code for this rule:
 
 ```javascript
 function MyComponent(props) {
-  useEffect(() => {
-    console.log(props.foo);
-  }, []);
-  // `props` is missing from the dependencies array
-  return <div />;
+    useEffect(() => {
+        console.log(props.foo);
+    }, []);
+    // `props` is missing from the dependencies array
+    return <div />;
 }
 ```
 
@@ -39,10 +39,10 @@ Examples of **correct** code for this rule:
 
 ```javascript
 function MyComponent(props) {
-  useEffect(() => {
-    console.log(props.foo);
-  }, [props]);
-  return <div />;
+    useEffect(() => {
+        console.log(props.foo);
+    }, [props]);
+    return <div />;
 }
 ```
 
@@ -66,10 +66,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["react"],
-  "rules": {
-    "react/exhaustive-deps": "error"
-  }
+    "plugins": ["react"],
+    "rules": {
+        "react/exhaustive-deps": "error"
+    }
 }
 ```
 

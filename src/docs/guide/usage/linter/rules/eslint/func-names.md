@@ -61,7 +61,7 @@ Examples of **incorrect** code for this rule:
 
 Foo.prototype.bar = function() {};
 const cat = { meow: function() {} };
-(function() {/* ... */})();
+(function() { /* ... */ }());
 export default function() {}
 ```
 
@@ -72,7 +72,7 @@ Examples of **correct** code for this rule:
 
 Foo.prototype.bar = function bar() {};
 const cat = { meow() {} };
-(function bar() {/* ... */})();
+(function bar() { /* ... */ }());
 export default function foo() {}
 ```
 
@@ -84,7 +84,7 @@ Examples of **incorrect** code for this rule with the `"as-needed"` option:
 /* func-names: ["error", "as-needed"] */
 
 Foo.prototype.bar = function() {};
-(function() {/* ... */})();
+(function() { /* ... */ }());
 export default function() {}
 ```
 
@@ -95,12 +95,9 @@ Examples of **correct** code for this rule with the `"as-needed"` option:
 
 const bar = function() {};
 const cat = { meow: function() {} };
-class C {
-  #bar = function() {};
-  baz = function() {};
-}
+class C { #bar = function() {}; baz = function() {}; }
 quux ??= function() {};
-(function bar() {/* ... */})();
+(function bar() { /* ... */ }());
 export default function foo() {}
 ```
 
@@ -112,7 +109,7 @@ Examples of **incorrect** code for this rule with the `"never"` option:
 /* func-names: ["error", "never"] */
 
 Foo.prototype.bar = function bar() {};
-(function bar() {/* ... */})();
+(function bar() { /* ... */ }());
 ```
 
 Examples of **correct** code for this rule with the `"never"` option:
@@ -121,7 +118,7 @@ Examples of **correct** code for this rule with the `"never"` option:
 /* func-names: ["error", "never"] */
 
 Foo.prototype.bar = function() {};
-(function() {/* ... */})();
+(function() { /* ... */ }());
 ```
 
 #### `generators`
@@ -131,7 +128,7 @@ Examples of **incorrect** code for this rule with the `"always", { "generators":
 ```js
 /* func-names: ["error", "always", { "generators": "as-needed" }] */
 
-(function*() {/* ... */})();
+(function*() { /* ... */ }());
 ```
 
 Examples of **correct** code for this rule with the `"always", { "generators": "as-needed" }` options:
@@ -147,7 +144,7 @@ Examples of **incorrect** code for this rule with the `"always", { "generators":
 ```js
 /* func-names: ["error", "always", { "generators": "never" }] */
 
-const foo = bar(function* baz() {});
+const foo = bar(function *baz() {});
 ```
 
 Examples of **correct** code for this rule with the `"always", { "generators": "never" }` options:
@@ -155,7 +152,7 @@ Examples of **correct** code for this rule with the `"always", { "generators": "
 ```js
 /* func-names: ["error", "always", { "generators": "never" }] */
 
-const foo = bar(function*() {});
+const foo = bar(function *() {});
 ```
 
 Examples of **incorrect** code for this rule with the `"as-needed", { "generators": "never" }` options:
@@ -163,7 +160,7 @@ Examples of **incorrect** code for this rule with the `"as-needed", { "generator
 ```js
 /* func-names: ["error", "as-needed", { "generators": "never" }] */
 
-const foo = bar(function* baz() {});
+const foo = bar(function *baz() {});
 ```
 
 Examples of **correct** code for this rule with the `"as-needed", { "generators": "never" }` options:
@@ -171,7 +168,7 @@ Examples of **correct** code for this rule with the `"as-needed", { "generators"
 ```js
 /* func-names: ["error", "as-needed", { "generators": "never" }] */
 
-const foo = bar(function*() {});
+const foo = bar(function *() {});
 ```
 
 Examples of **incorrect** code for this rule with the `"never", { "generators": "always" }` options:
@@ -179,7 +176,7 @@ Examples of **incorrect** code for this rule with the `"never", { "generators": 
 ```js
 /* func-names: ["error", "never", { "generators": "always" }] */
 
-const foo = bar(function*() {});
+const foo = bar(function *() {});
 ```
 
 Examples of **correct** code for this rule with the `"never", { "generators": "always" }` options:
@@ -187,7 +184,7 @@ Examples of **correct** code for this rule with the `"never", { "generators": "a
 ```js
 /* func-names: ["error", "never", { "generators": "always" }] */
 
-const foo = bar(function* baz() {});
+const foo = bar(function *baz() {});
 ```
 
 ## How to use
@@ -198,9 +195,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "func-names": "error"
-  }
+    "rules": {
+        "func-names": "error"
+    }
 }
 ```
 

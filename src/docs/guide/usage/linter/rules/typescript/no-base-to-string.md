@@ -35,17 +35,17 @@ Examples of **incorrect** code for this rule:
 ```ts
 // These will evaluate to '[object Object]'
 ({}).toString();
-({ foo: "bar" }).toString();
-({ foo: "bar" }).toLocaleString();
+({foo: 'bar'}).toString();
+({foo: 'bar'}).toLocaleString();
 
 // This will evaluate to 'Symbol()'
-Symbol("foo").toString();
+Symbol('foo').toString();
 ```
 
 Examples of **correct** code for this rule:
 
 ```ts
-const someString = "Hello world";
+const someString = 'Hello world';
 someString.toString();
 
 const someNumber = 42;
@@ -56,7 +56,7 @@ someBoolean.toString();
 
 class CustomToString {
   toString() {
-    return "CustomToString";
+    return 'CustomToString';
   }
 }
 new CustomToString().toString();
@@ -70,9 +70,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "typescript/no-base-to-string": "error"
-  }
+    "rules": {
+        "typescript/no-base-to-string": "error"
+    }
 }
 ```
 

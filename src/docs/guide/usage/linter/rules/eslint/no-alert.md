@@ -41,8 +41,8 @@ customConfirm("Are you sure?");
 customPrompt("Who are you?");
 
 function foo() {
-  var alert = myCustomLib.customAlert;
-  alert();
+    var alert = myCustomLib.customAlert;
+    alert();
 }
 ```
 
@@ -54,9 +54,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "no-alert": "error"
-  }
+    "rules": {
+        "no-alert": "error"
+    }
 }
 ```
 

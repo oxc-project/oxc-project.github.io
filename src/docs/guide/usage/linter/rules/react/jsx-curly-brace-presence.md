@@ -22,7 +22,8 @@ curly braces in JSX props and/or children.
 
 For situations where JSX expressions are unnecessary, please refer to
 [the React doc](https://facebook.github.io/react/docs/jsx-in-depth.html)
-and [this page about JSX gotchas](https://github.com/facebook/react/blob/v15.4.0-rc.3/docs/docs/02.3-jsx-gotchas.md#html-entities).
+and [this page about JSX
+gotchas](https://github.com/facebook/react/blob/v15.4.0-rc.3/docs/docs/02.3-jsx-gotchas.md#html-entities).
 
 ## Rule Details
 
@@ -79,21 +80,21 @@ Examples of **incorrect** code for this rule, when configured with `{ props: "al
 
 ```jsx
 <App>Hello world</App>;
-<App prop="Hello world">{"Hello world"}</App>;
+<App prop='Hello world'>{'Hello world'}</App>;
 ```
 
 They can be fixed to:
 
 ```jsx
 <App>{"Hello world"}</App>;
-<App prop={"Hello world"}>{"Hello world"}</App>;
+<App prop={"Hello world"}>{'Hello world'}</App>;
 ```
 
 Examples of **incorrect** code for this rule, when configured with `{ props: "never", children: "never" }`:
 
 ```jsx
-<App>{"Hello world"}</App>;
-<App prop={"Hello world"} attr={"foo"} />;
+<App>{'Hello world'}</App>;
+<App prop={'Hello world'} attr={"foo"} />;
 ```
 
 They can be fixed to:
@@ -140,7 +141,7 @@ Examples of **incorrect** code for this rule, when configured with `"always"`:
 
 ```jsx
 <App>Hello world</App>;
-<App prop="Hello world" attr="foo">Hello world</App>;
+<App prop='Hello world' attr="foo">Hello world</App>;
 ```
 
 They can be fixed to:
@@ -153,7 +154,7 @@ They can be fixed to:
 Examples of **incorrect** code for this rule, when configured with `"never"`:
 
 ```jsx
-<App prop={"foo"} attr={"bar"}>{"Hello world"}</App>;
+<App prop={'foo'} attr={"bar"}>{'Hello world'}</App>;
 ```
 
 It can fixed to:
@@ -200,7 +201,8 @@ will warned and fixed to:
 
 - If the rule is set to get rid of unnecessary curly braces(JSX
   expression) and there are characters that need to be escaped in its JSX
-  form, such as quote characters, [forbidden JSX text characters](https://facebook.github.io/jsx/), escaped characters and
+  form, such as quote characters, [forbidden JSX text
+  characters](https://facebook.github.io/jsx/), escaped characters and
   anything that looks like HTML entity names, the code will not be warned
   because the fix may make the code less readable.
 
@@ -255,10 +257,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["react"],
-  "rules": {
-    "react/jsx-curly-brace-presence": "error"
-  }
+    "plugins": ["react"],
+    "rules": {
+        "react/jsx-curly-brace-presence": "error"
+    }
 }
 ```
 

@@ -29,108 +29,119 @@ more maintainable.
 Examples of **incorrect** code for this rule:
 
 ```javascript
-describe("foo", () => {
-  beforeEach(() => {
-    seedMyDatabase();
-  });
-
-  it("accepts this input", () => {
-    // ...
-  });
-
-  beforeAll(() => {
-    createMyDatabase();
-  });
-
-  it("returns that value", () => {
-    // ...
-  });
-
-  describe("when the database has specific values", () => {
-    const specificValue = "...";
+describe('foo', () => {
     beforeEach(() => {
-      seedMyDatabase(specificValue);
+        seedMyDatabase();
     });
 
-    it("accepts that input", () => {
-      // ...
+    it('accepts this input', () => {
+        // ...
     });
 
-    it("throws an error", () => {
-      // ...
+    beforeAll(() => {
+        createMyDatabase();
     });
 
-    afterEach(() => {
-      clearLogger();
+    it('returns that value', () => {
+        // ...
     });
 
-    beforeEach(() => {
-      mockLogger();
+    describe('when the database has specific values', () => {
+        const specificValue = '...';
+        beforeEach(() => {
+            seedMyDatabase(specificValue);
+        });
+
+        it('accepts that input', () => {
+            // ...
+        });
+
+        it('throws an error', () => {
+            // ...
+        });
+
+        afterEach(() => {
+            clearLogger();
+        });
+
+        beforeEach(() => {
+            mockLogger();
+        });
+
+        it('logs a message', () => {
+            // ...
+        });
     });
 
-    it("logs a message", () => {
-      // ...
+    afterAll(() => {
+        removeMyDatabase();
     });
-  });
-
-  afterAll(() => {
-    removeMyDatabase();
-  });
 });
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
-describe("foo", () => {
-  beforeAll(() => {
-    createMyDatabase();
-  });
-
-  beforeEach(() => {
-    seedMyDatabase();
-  });
-
-  afterAll(() => {
-    clearMyDatabase();
-  });
-
-  it("accepts this input", () => {
-    // ...
-  });
-
-  it("returns that value", () => {
-    // ...
-  });
-
-  describe("when the database has specific values", () => {
-    const specificValue = "...";
-
-    beforeEach(() => {
-      seedMyDatabase(specificValue);
+describe('foo', () => {
+    beforeAll(() => {
+        createMyDatabase();
     });
 
     beforeEach(() => {
-      mockLogger();
+        seedMyDatabase();
     });
 
-    afterEach(() => {
-      clearLogger();
+    afterAll(() => {
+        clearMyDatabase();
     });
 
-    it("accepts that input", () => {
-      // ...
+    it('accepts this input', () => {
+        // ...
     });
 
-    it("throws an error", () => {
-      // ...
+    it('returns that value', () => {
+        // ...
     });
 
-    it("logs a message", () => {
-      // ...
+    describe('when the database has specific values', () => {
+        const specificValue = '...';
+
+        beforeEach(() => {
+            seedMyDatabase(specificValue);
+        });
+
+        beforeEach(() => {
+            mockLogger();
+        });
+
+        afterEach(() => {
+            clearLogger();
+        });
+
+        it('accepts that input', () => {
+            // ...
+        });
+
+        it('throws an error', () => {
+            // ...
+        });
+
+        it('logs a message', () => {
+            // ...
+        });
     });
-  });
 });
+```
+
+This rule is compatible with [eslint-plugin-vitest](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/prefer-hooks-on-top.md),
+to use it, add the following configuration to your `.oxlintrc.json`:
+
+```json
+{
+  "rules": {
+     "vitest/prefer-hooks-on-top": "error"
+  }
+}
 ```
 
 ## How to use
@@ -141,10 +152,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["jest"],
-  "rules": {
-    "jest/prefer-hooks-on-top": "error"
-  }
+    "plugins": ["jest"],
+    "rules": {
+        "jest/prefer-hooks-on-top": "error"
+    }
 }
 ```
 

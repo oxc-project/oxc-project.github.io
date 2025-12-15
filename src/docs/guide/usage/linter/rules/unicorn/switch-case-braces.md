@@ -29,9 +29,9 @@ Examples of **incorrect** code for this rule:
 
 ```javascript
 switch (num) {
-  case 1: {}
+  case 1: { }
   case 2:
-    console.log("Case 2");
+    console.log('Case 2');
     break;
 }
 ```
@@ -42,7 +42,7 @@ Examples of **correct** code for this rule:
 switch (num) {
   case 1:
   case 2: {
-    console.log("Case 2");
+    console.log('Case 2');
     break;
   }
 }
@@ -74,9 +74,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "unicorn/switch-case-braces": "error"
-  }
+    "rules": {
+        "unicorn/switch-case-braces": "error"
+    }
 }
 ```
 

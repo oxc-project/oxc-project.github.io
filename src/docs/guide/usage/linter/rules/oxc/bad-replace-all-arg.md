@@ -26,13 +26,13 @@ The `replaceAll` method replaces all occurrences of a string with another string
 Examples of **incorrect** code for this rule:
 
 ```javascript
-withSpaces.replaceAll(/\s+/, ",");
+withSpaces.replaceAll(/\s+/, ',');
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
-withSpaces.replaceAll(/\s+/g, ",");
+withSpaces.replaceAll(/\s+/g, ',');
 ```
 
 ## How to use
@@ -43,9 +43,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "oxc/bad-replace-all-arg": "error"
-  }
+    "rules": {
+        "oxc/bad-replace-all-arg": "error"
+    }
 }
 ```
 

@@ -30,42 +30,42 @@ It's considered good practice to only throw Error objects (or subclasses of Erro
 Examples of **incorrect** code for this rule:
 
 ```ts
-throw "error"; // throwing string
+throw 'error'; // throwing string
 
 throw 42; // throwing number
 
 throw true; // throwing boolean
 
-throw { message: "error" }; // throwing plain object
+throw { message: 'error' }; // throwing plain object
 
 throw null; // throwing null
 
 throw undefined; // throwing undefined
 
-const error = "Something went wrong";
+const error = 'Something went wrong';
 throw error; // throwing non-Error variable
 ```
 
 Examples of **correct** code for this rule:
 
 ```ts
-throw new Error("Something went wrong");
+throw new Error('Something went wrong');
 
-throw new TypeError("Invalid type");
+throw new TypeError('Invalid type');
 
-throw new RangeError("Value out of range");
+throw new RangeError('Value out of range');
 
 // Custom Error subclasses
 class CustomError extends Error {
   constructor(message: string) {
     super(message);
-    this.name = "CustomError";
+    this.name = 'CustomError';
   }
 }
-throw new CustomError("Custom error occurred");
+throw new CustomError('Custom error occurred');
 
 // Variables that are Error objects
-const error = new Error("Error message");
+const error = new Error('Error message');
 throw error;
 ```
 
@@ -142,9 +142,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "typescript/only-throw-error": "error"
-  }
+    "rules": {
+        "typescript/only-throw-error": "error"
+    }
 }
 ```
 

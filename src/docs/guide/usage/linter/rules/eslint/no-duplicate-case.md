@@ -29,25 +29,25 @@ Examples of **incorrect** code for this rule:
 ```js
 var a = 1, one = 1;
 switch (a) {
-  case 1:
-    break;
-  case 2:
-    break;
-  case 1: // duplicate test expression
-    break;
-  default:
-    break;
+    case 1:
+        break;
+    case 2:
+        break;
+    case 1: // duplicate test expression
+        break;
+    default:
+        break;
 }
 
 switch (a) {
-  case one:
-    break;
-  case 2:
-    break;
-  case one: // duplicate test expression
-    break;
-  default:
-    break;
+    case one:
+        break;
+    case 2:
+        break;
+    case one: // duplicate test expression
+        break;
+    default:
+        break;
 }
 ```
 
@@ -55,23 +55,23 @@ Examples of **correct** code for this rule:
 
 ```js
 var a = 1,
-  one = 1;
+    one = 1
 switch (a) {
-  case 1:
-    break;
-  case 2:
-    break;
-  default:
-    break;
+    case 1:
+        break
+    case 2:
+        break
+    default:
+        break
 }
 
 switch (a) {
-  case "1":
-    break;
-  case "2":
-    break;
-  default:
-    break;
+    case '1':
+        break
+    case '2':
+        break
+    default:
+        break
 }
 ```
 
@@ -83,9 +83,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "no-duplicate-case": "error"
-  }
+    "rules": {
+        "no-duplicate-case": "error"
+    }
 }
 ```
 

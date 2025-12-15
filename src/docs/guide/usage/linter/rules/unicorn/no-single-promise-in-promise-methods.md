@@ -31,10 +31,10 @@ Examples of **incorrect** code for this rule:
 
 ```javascript
 async function bad() {
-  const foo = await Promise.all([promise]);
-  const foo = await Promise.any([promise]);
-  const foo = await Promise.race([promise]);
-  const promise = Promise.all([nonPromise]);
+    const foo = await Promise.all([promise]);
+    const foo = await Promise.any([promise]);
+    const foo = await Promise.race([promise]);
+    const promise = Promise.all([nonPromise]);
 }
 ```
 
@@ -42,11 +42,11 @@ Examples of **correct** code for this rule:
 
 ```javascript
 async function good() {
-  const foo = await promise;
-  const promise = Promise.resolve(nonPromise);
-  const foo = await Promise.all(promises);
-  const foo = await Promise.any([promise, anotherPromise]);
-  const [{ value: foo, reason: error }] = await Promise.allSettled([promise]);
+    const foo = await promise;
+    const promise = Promise.resolve(nonPromise);
+    const foo = await Promise.all(promises);
+    const foo = await Promise.any([promise, anotherPromise]);
+    const [{ value: foo, reason: error }] = await Promise.allSettled([promise]);
 }
 ```
 
@@ -58,9 +58,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "unicorn/no-single-promise-in-promise-methods": "error"
-  }
+    "rules": {
+        "unicorn/no-single-promise-in-promise-methods": "error"
+    }
 }
 ```
 

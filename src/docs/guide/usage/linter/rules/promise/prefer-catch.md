@@ -35,17 +35,17 @@ preferring explicit `catch` calls over passing an argument to the second paramet
 Examples of **incorrect** code for this rule:
 
 ```js
-prom.then(fn1, fn2);
+prom.then(fn1, fn2)
 
-prom.then(null, fn2);
+prom.then(null, fn2)
 ```
 
 Examples of **correct** code for this rule:
 
 ```js
-prom.catch(fn2).then(fn1);
+prom.catch(fn2).then(fn1)
 
-prom.catch(fn2);
+prom.catch(fn2)
 ```
 
 ## How to use
@@ -56,10 +56,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["promise"],
-  "rules": {
-    "promise/prefer-catch": "error"
-  }
+    "plugins": ["promise"],
+    "rules": {
+        "promise/prefer-catch": "error"
+    }
 }
 ```
 

@@ -47,9 +47,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "unicorn/no-negation-in-equality-check": "error"
-  }
+    "rules": {
+        "unicorn/no-negation-in-equality-check": "error"
+    }
 }
 ```
 

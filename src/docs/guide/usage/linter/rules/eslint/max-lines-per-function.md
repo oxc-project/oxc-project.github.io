@@ -30,14 +30,14 @@ Examples of **incorrect** code for this rule with a particular max value:
 ```js
 /* { "eslint/max-lines-per-function": ["error", 2] } */
 function foo() {
-  const x = 0;
+    const x = 0;
 }
 
 /* { "eslint/max-lines-per-function": ["error", 4] } */
 function foo() {
-  // a comment followed by a blank line
+    // a comment followed by a blank line
 
-  const x = 0;
+    const x = 0;
 }
 ```
 
@@ -46,14 +46,14 @@ Examples of **correct** code for this rule with a particular max value:
 ```js
 /* { "eslint/max-lines-per-function": ["error", 3] } */
 function foo() {
-  const x = 0;
+    const x = 0;
 }
 
 /* { "eslint/max-lines-per-function": ["error", 5] } */
 function foo() {
-  // a comment followed by a blank line
+    // a comment followed by a blank line
 
-  const x = 0;
+    const x = 0;
 }
 ```
 
@@ -103,9 +103,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "max-lines-per-function": "error"
-  }
+    "rules": {
+        "max-lines-per-function": "error"
+    }
 }
 ```
 

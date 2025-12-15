@@ -26,7 +26,7 @@ one-time initializations.
 Examples of **incorrect** code for this rule:
 
 ```javascript
-import Script from "next/script";
+import Script from 'next/script';
 
 export default function Page() {
   return (
@@ -41,7 +41,7 @@ export default function Page() {
   return (
     <Script
       dangerouslySetInnerHTML={{
-        __html: `console.log('Hello world');`,
+        __html: `console.log('Hello world');`
       }}
     />
   );
@@ -51,7 +51,7 @@ export default function Page() {
 Examples of **correct** code for this rule:
 
 ```javascript
-import Script from "next/script";
+import Script from 'next/script';
 
 export default function Page() {
   return (
@@ -67,7 +67,7 @@ export default function Page() {
     <Script
       id="my-script"
       dangerouslySetInnerHTML={{
-        __html: `console.log('Hello world');`,
+        __html: `console.log('Hello world');`
       }}
     />
   );
@@ -75,7 +75,9 @@ export default function Page() {
 
 // No id required for external scripts
 export default function Page() {
-  return <Script src="https://example.com/script.js" />;
+  return (
+    <Script src="https://example.com/script.js" />
+  );
 }
 ```
 
@@ -87,10 +89,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["nextjs"],
-  "rules": {
-    "nextjs/inline-script-id": "error"
-  }
+    "plugins": ["nextjs"],
+    "rules": {
+        "nextjs/inline-script-id": "error"
+    }
 }
 ```
 

@@ -29,17 +29,17 @@ ensures consistent behavior, and helps avoid subtle bugs.
 Examples of **incorrect** code for this rule:
 
 ```javascript
-throw Error("🦄");
-throw TypeError("unicorn");
-throw lib.TypeError("unicorn");
+throw Error('🦄');
+throw TypeError('unicorn');
+throw lib.TypeError('unicorn');
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
-throw new Error("🦄");
-throw new TypeError("unicorn");
-throw new lib.TypeError("unicorn");
+throw new Error('🦄');
+throw new TypeError('unicorn');
+throw new lib.TypeError('unicorn');
 ```
 
 ## How to use
@@ -50,9 +50,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "unicorn/throw-new-error": "error"
-  }
+    "rules": {
+        "unicorn/throw-new-error": "error"
+    }
 }
 ```
 

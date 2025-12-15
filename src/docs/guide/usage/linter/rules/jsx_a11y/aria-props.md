@@ -30,13 +30,13 @@ This rule includes fixes for some common typos.
 Examples of **incorrect** code for this rule:
 
 ```jsx
-<input aria-labeledby="address_label" />;
+<input aria-labeledby="address_label" />
 ```
 
 Examples of **correct** code for this rule:
 
 ```jsx
-<input aria-labelledby="address_label" />;
+<input aria-labelledby="address_label" />
 ```
 
 ## How to use
@@ -47,10 +47,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["jsx-a11y"],
-  "rules": {
-    "jsx-a11y/aria-props": "error"
-  }
+    "plugins": ["jsx-a11y"],
+    "rules": {
+        "jsx-a11y/aria-props": "error"
+    }
 }
 ```
 

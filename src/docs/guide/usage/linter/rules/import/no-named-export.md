@@ -24,19 +24,20 @@ while default exports enforce a single, consistent module entry point.
 Examples of **incorrect** code for this rule:
 
 ```js
-export const foo = "foo";
+export const foo = 'foo';
 
-const bar = "bar";
-export { bar };
+const bar = 'bar';
+export { bar }
+
 ```
 
 Examples of **correct** code for this rule:
 
 ```js
-export default "bar";
+export default 'bar';
 
-const foo = "foo";
-export { foo as default };
+const foo = 'foo';
+export { foo as default }
 ```
 
 ## How to use
@@ -47,10 +48,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["import"],
-  "rules": {
-    "import/no-named-export": "error"
-  }
+    "plugins": ["import"],
+    "rules": {
+        "import/no-named-export": "error"
+    }
 }
 ```
 

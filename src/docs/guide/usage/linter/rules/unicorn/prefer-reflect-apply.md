@@ -14,9 +14,9 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 ### Why is this bad?
 
-Reflect.apply() is arguably less verbose and easier to understand.
+`Reflect.apply()` is arguably less verbose and easier to understand.
 In addition, when you accept arbitrary methods,
-it's not safe to assume .apply() exists or is not overridden.
+it's not safe to assume `.apply()` exists or is not overridden.
 
 ### Examples
 
@@ -40,9 +40,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "unicorn/prefer-reflect-apply": "error"
-  }
+    "rules": {
+        "unicorn/prefer-reflect-apply": "error"
+    }
 }
 ```
 

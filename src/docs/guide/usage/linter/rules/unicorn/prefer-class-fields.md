@@ -29,9 +29,9 @@ Examples of **incorrect** code for this rule:
 
 ```js
 class Foo {
-  constructor() {
-    this.bar = 1;
-  }
+    constructor() {
+        this.bar = 1;
+    }
 }
 ```
 
@@ -39,7 +39,7 @@ Examples of **correct** code for this rule:
 
 ```js
 class Foo {
-  bar = 1;
+    bar = 1;
 }
 ```
 
@@ -51,9 +51,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "unicorn/prefer-class-fields": "error"
-  }
+    "rules": {
+        "unicorn/prefer-class-fields": "error"
+    }
 }
 ```
 

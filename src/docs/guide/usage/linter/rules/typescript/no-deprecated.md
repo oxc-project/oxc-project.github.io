@@ -39,9 +39,9 @@ declare function apiV2(): Promise<string>;
 
 await apiV1(); // Using deprecated function
 
-import { parse } from "node:url";
+import { parse } from 'node:url';
 // 'parse' is deprecated. Use the WHATWG URL API instead.
-const url = parse("/foo");
+const url = parse('/foo');
 ```
 
 Examples of **correct** code for this rule:
@@ -54,7 +54,7 @@ declare function apiV2(): Promise<string>;
 await apiV2(); // Using non-deprecated function
 
 // Modern Node.js API, uses `new URL()`
-const url2 = new URL("/foo", "http://www.example.com");
+const url2 = new URL('/foo', 'http://www.example.com');
 ```
 
 ## How to use
@@ -65,9 +65,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "typescript/no-deprecated": "error"
-  }
+    "rules": {
+        "typescript/no-deprecated": "error"
+    }
 }
 ```
 

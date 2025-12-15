@@ -26,67 +26,78 @@ operations. This makes tests harder to maintain and debug.
 Examples of **incorrect** code for this rule:
 
 ```javascript
-describe("foo", () => {
-  beforeEach(() => {
-    // some setup
-  });
-  beforeEach(() => {
-    // some setup
-  });
-  test("foo_test", () => {
-    // some test
-  });
+describe('foo', () => {
+    beforeEach(() => {
+        // some setup
+    });
+    beforeEach(() => {
+        // some setup
+    });
+    test('foo_test', () => {
+        // some test
+    });
 });
 
 // Nested describe scenario
-describe("foo", () => {
-  beforeEach(() => {
-    // some setup
-  });
-  test("foo_test", () => {
-    // some test
-  });
-  describe("bar", () => {
-    test("bar_test", () => {
-      afterAll(() => {
-        // some teardown
-      });
-      afterAll(() => {
-        // some teardown
-      });
+describe('foo', () => {
+    beforeEach(() => {
+        // some setup
     });
-  });
+    test('foo_test', () => {
+        // some test
+    });
+    describe('bar', () => {
+        test('bar_test', () => {
+            afterAll(() => {
+                // some teardown
+            });
+            afterAll(() => {
+                // some teardown
+            });
+        });
+    });
 });
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
-describe("foo", () => {
-  beforeEach(() => {
-    // some setup
-  });
-  test("foo_test", () => {
-    // some test
-  });
+describe('foo', () => {
+    beforeEach(() => {
+        // some setup
+    });
+    test('foo_test', () => {
+        // some test
+    });
 });
 
 // Nested describe scenario
-describe("foo", () => {
-  beforeEach(() => {
-    // some setup
-  });
-  test("foo_test", () => {
-    // some test
-  });
-  describe("bar", () => {
-    test("bar_test", () => {
-      beforeEach(() => {
+describe('foo', () => {
+    beforeEach(() => {
         // some setup
-      });
     });
-  });
+    test('foo_test', () => {
+        // some test
+    });
+    describe('bar', () => {
+        test('bar_test', () => {
+            beforeEach(() => {
+                // some setup
+            });
+        });
+    });
 });
+```
+
+This rule is compatible with [eslint-plugin-vitest](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/no-duplicate-hooks.md),
+to use it, add the following configuration to your `.oxlintrc.json`:
+
+```json
+{
+  "rules": {
+     "vitest/no-duplicate-hooks": "error"
+  }
+}
 ```
 
 ## How to use
@@ -97,10 +108,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["jest"],
-  "rules": {
-    "jest/no-duplicate-hooks": "error"
-  }
+    "plugins": ["jest"],
+    "rules": {
+        "jest/no-duplicate-hooks": "error"
+    }
 }
 ```
 

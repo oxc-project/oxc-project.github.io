@@ -27,18 +27,18 @@ Examples of **incorrect** code for this rule:
 
 ```ts
 const a: number = 5;
-const b: string = "foo";
+const b: string = 'foo';
 const c: boolean = true;
-const fn = (a: number = 5, b: boolean = true, c: string = "foo") => {};
+const fn = (a: number = 5, b: boolean = true, c: string = 'foo') => {};
 ```
 
 Examples of **correct** code for this rule:
 
 ```ts
 const a = 5;
-const b = "foo";
+const b = 'foo';
 const c = true;
-const fn = (a = 5, b = true, c = "foo") => {};
+const fn = (a = 5, b = true, c = 'foo') => {};
 ```
 
 ## Configuration
@@ -69,9 +69,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "typescript/no-inferrable-types": "error"
-  }
+    "rules": {
+        "typescript/no-inferrable-types": "error"
+    }
 }
 ```
 

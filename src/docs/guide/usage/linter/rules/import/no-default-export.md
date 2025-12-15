@@ -27,17 +27,17 @@ auto-imports less reliable.
 Examples of **incorrect** code for this rule:
 
 ```javascript
-export default "bar";
+export default 'bar';
 
-const foo = "foo";
-export { foo as default };
+const foo = 'foo';
+export { foo as default }
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
-export const foo = "foo";
-export const bar = "bar";
+export const foo = 'foo';
+export const bar = 'bar';
 ```
 
 ## How to use
@@ -48,10 +48,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["import"],
-  "rules": {
-    "import/no-default-export": "error"
-  }
+    "plugins": ["import"],
+    "rules": {
+        "import/no-default-export": "error"
+    }
 }
 ```
 

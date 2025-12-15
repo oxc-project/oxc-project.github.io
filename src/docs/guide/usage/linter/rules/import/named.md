@@ -48,27 +48,27 @@ Examples of **incorrect** code for this rule:
 
 ```js
 // ./baz.js
-import { notFoo } from "./foo";
+import { notFoo } from './foo'
 
 // re-export
-export { notFoo as defNotBar } from "./foo";
+export { notFoo as defNotBar } from './foo'
 
 // will follow 'jsnext:main', if available
-import { dontCreateStore } from "redux";
+import { dontCreateStore } from 'redux'
 ```
 
 Examples of **correct** code for this rule:
 
 ```js
 // ./bar.js
-import { foo } from "./foo";
+import { foo } from './foo'
 
 // re-export
-export { foo as bar } from "./foo";
+export { foo as bar } from './foo'
 
 // node_modules without jsnext:main are not analyzed by default
 // (import/ignore setting)
-import { SomeNonsenseThatDoesntExist } from "react";
+import { SomeNonsenseThatDoesntExist } from 'react'
 ```
 
 ## How to use
@@ -79,10 +79,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["import"],
-  "rules": {
-    "import/named": "error"
-  }
+    "plugins": ["import"],
+    "rules": {
+        "import/named": "error"
+    }
 }
 ```
 

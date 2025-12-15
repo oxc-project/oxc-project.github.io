@@ -27,17 +27,17 @@ but an invalid string in RegExp constructors throws a SyntaxError only when the 
 Examples of **incorrect** code for this rule:
 
 ```js
-RegExp("[");
-RegExp(".", "z");
-new RegExp("\\");
+RegExp('[')
+RegExp('.', 'z')
+new RegExp('\\')
 ```
 
 Examples of **correct** code for this rule:
 
 ```js
-RegExp(".");
-new RegExp();
-this.RegExp("[");
+RegExp('.')
+new RegExp
+this.RegExp('[')
 ```
 
 ## Configuration
@@ -60,9 +60,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "no-invalid-regexp": "error"
-  }
+    "rules": {
+        "no-invalid-regexp": "error"
+    }
 }
 ```
 

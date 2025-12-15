@@ -39,7 +39,7 @@ Examples of **incorrect** code for this rule:
 
 ```js
 function foo(arg) {
-  return Boolean(arg);
+    return Boolean(arg);
 }
 ```
 
@@ -96,7 +96,7 @@ Examples of additional **correct** code for this rule with the `{ "newIsCapExcep
 ```js
 /*eslint new-cap: ["error", { "newIsCapExceptions": ["events"] }]*/
 
-var events = require("events");
+var events = require('events');
 
 var emitter = new events();
 ```
@@ -125,7 +125,7 @@ Examples of additional **correct** code for this rule with the `{ "capIsNewExcep
 /*eslint new-cap: ["error", { "capIsNewExceptions": ["Person"] }]*/
 
 function foo(arg) {
-  return Person(arg);
+    return Person(arg);
 }
 ```
 
@@ -237,7 +237,7 @@ Examples of additional **correct** code for this rule with the `{ "newIsCapExcep
 ```js
 /*eslint new-cap: ["error", { "newIsCapExceptions": ["events"] }]*/
 
-var events = require("events");
+var events = require('events');
 
 var emitter = new events();
 ```
@@ -268,7 +268,7 @@ Examples of additional **correct** code for this rule with the `{ "capIsNewExcep
 /*eslint new-cap: ["error", { "capIsNewExceptions": ["Person"] }]*/
 
 function foo(arg) {
-  return Person(arg);
+    return Person(arg);
 }
 ```
 
@@ -389,9 +389,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "new-cap": "error"
-  }
+    "rules": {
+        "new-cap": "error"
+    }
 }
 ```
 

@@ -15,7 +15,10 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 ### What it does
 
-Disallow `new` operators with global non-constructor functions (`Symbol`, `BigInt`)
+Disallow `new` operators with global non-constructor functions (`Symbol`, `BigInt`).
+
+This rule can be disabled for TypeScript code, as the TypeScript compiler
+enforces this check.
 
 ### Why is this bad?
 
@@ -51,9 +54,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "no-new-native-nonconstructor": "error"
-  }
+    "rules": {
+        "no-new-native-nonconstructor": "error"
+    }
 }
 ```
 

@@ -12,11 +12,11 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 ### What it does
 
-This rule will warn you if you try to use the ReactDOM.render() return value.
+This rule will warn you if you try to use the `ReactDOM.render()` return value.
 
 ### Why is this bad?
 
-Using the return value from ReactDOM.render() is a legacy feature and should not be used.
+Using the return value from `ReactDOM.render()` is a legacy feature and should not be used.
 
 ### Examples
 
@@ -43,10 +43,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["react"],
-  "rules": {
-    "react/no-render-return-value": "error"
-  }
+    "plugins": ["react"],
+    "rules": {
+        "react/no-render-return-value": "error"
+    }
 }
 ```
 

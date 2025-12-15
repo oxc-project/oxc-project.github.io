@@ -32,15 +32,15 @@ Example of **incorrect** code:
 
 ```ts
 enum E {
-  A = 0,
-  B = 0,
+    A = 0,
+    B = 0,
 }
 ```
 
 ```ts
 enum E {
-  A = "A",
-  B = "A",
+    A = 'A',
+    B = 'A',
 }
 ```
 
@@ -48,22 +48,22 @@ Example of **correct** code:
 
 ```ts
 enum E {
-  A = 0,
-  B = 1,
+   A = 0,
+   B = 1,
 }
 ```
 
 ```ts
 enum E {
-  A = "A",
-  B = "B",
+   A = 'A',
+   B = 'B',
 }
 ```
 
 ```ts
 enum E {
-  A,
-  B,
+   A,
+   B,
 }
 ```
 
@@ -75,9 +75,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "typescript/no-duplicate-enum-values": "error"
-  }
+    "rules": {
+        "typescript/no-duplicate-enum-values": "error"
+    }
 }
 ```
 

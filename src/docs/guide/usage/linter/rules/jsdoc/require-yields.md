@@ -24,24 +24,20 @@ The rule is intended to prevent the omission of `@yields` tags when they are nec
 Examples of **incorrect** code for this rule:
 
 ```javascript
-function* quux(foo) {
-  yield foo;
-}
+function * quux (foo) { yield foo; }
 
 /**
  * @yields {undefined}
  * @yields {void}
  */
-function* quux(foo) {}
+function * quux (foo) {}
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
 /** * @yields Foo */
-function* quux(foo) {
-  yield foo;
-}
+function * quux (foo) { yield foo; }
 ```
 
 ## Configuration
@@ -80,10 +76,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["jsdoc"],
-  "rules": {
-    "jsdoc/require-yields": "error"
-  }
+    "plugins": ["jsdoc"],
+    "rules": {
+        "jsdoc/require-yields": "error"
+    }
 }
 ```
 

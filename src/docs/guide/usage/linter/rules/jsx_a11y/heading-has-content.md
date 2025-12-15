@@ -28,13 +28,13 @@ from accessing information on the page's structure.
 Examples of **incorrect** code for this rule:
 
 ```jsx
-<h1 />;
+<h1 />
 ```
 
 Examples of **correct** code for this rule:
 
 ```jsx
-<h1>Foo</h1>;
+<h1>Foo</h1>
 ```
 
 ## Configuration
@@ -58,10 +58,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["jsx-a11y"],
-  "rules": {
-    "jsx-a11y/heading-has-content": "error"
-  }
+    "plugins": ["jsx-a11y"],
+    "rules": {
+        "jsx-a11y/heading-has-content": "error"
+    }
 }
 ```
 

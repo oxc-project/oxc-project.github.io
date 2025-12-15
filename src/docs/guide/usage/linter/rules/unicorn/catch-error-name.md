@@ -30,14 +30,10 @@ clear, consistent names to represent errors.
 Examples of **incorrect** code for this rule:
 
 ```javascript
-try {
-} catch (badName) {}
+try { } catch (badName) { }
 
 // `_` is not allowed if it's used
-try {
-} catch (_) {
-  console.log(_);
-}
+try {} catch (_) { console.log(_) }
 
 promise.catch(badName => {});
 
@@ -47,14 +43,10 @@ promise.then(undefined, badName => {});
 Examples of **correct** code for this rule:
 
 ```javascript
-try {
-} catch (error) {}
+try { } catch (error) { }
 
 // `_` is allowed if it's not used
-try {
-} catch (_) {
-  console.log(123);
-}
+try {} catch (_) { console.log(123) }
 
 promise.catch(error => {});
 
@@ -89,9 +81,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "unicorn/catch-error-name": "error"
-  }
+    "rules": {
+        "unicorn/catch-error-name": "error"
+    }
 }
 ```
 

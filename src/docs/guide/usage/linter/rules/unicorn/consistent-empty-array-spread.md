@@ -28,13 +28,13 @@ Examples of **incorrect** code for this rule:
 
 ```javascript
 const array = [
-  a,
-  ...(foo ? [b, c] : ""),
+   a,
+   ...(foo ? [b, c] : ''),
 ];
 
 const array = [
-  a,
-  ...(foo ? "bc" : []),
+	a,
+	...(foo ? 'bc' : []),
 ];
 ```
 
@@ -42,13 +42,13 @@ Examples of **correct** code for this rule:
 
 ```javascript
 const array = [
-  a,
-  ...(foo ? [b, c] : []),
+   a,
+   ...(foo ? [b, c] : []),
 ];
 
 const array = [
-  a,
-  ...(foo ? "bc" : ""),
+	a,
+	...(foo ? 'bc' : ''),
 ];
 ```
 
@@ -60,9 +60,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "unicorn/consistent-empty-array-spread": "error"
-  }
+    "rules": {
+        "unicorn/consistent-empty-array-spread": "error"
+    }
 }
 ```
 

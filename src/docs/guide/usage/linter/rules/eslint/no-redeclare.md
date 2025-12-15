@@ -56,9 +56,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "no-redeclare": "error"
-  }
+    "rules": {
+        "no-redeclare": "error"
+    }
 }
 ```
 

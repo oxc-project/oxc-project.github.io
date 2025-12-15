@@ -27,16 +27,16 @@ promise rejections can cause your application to crash.
 Examples of **incorrect** code for this rule:
 
 ```javascript
-myPromise.then(doSomething);
-myPromise.then(doSomething, catchErrors); // catch() may be a little better
+myPromise.then(doSomething)
+myPromise.then(doSomething, catchErrors) // catch() may be a little better
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
-myPromise.then(doSomething).catch(errors);
+myPromise.then(doSomething).catch(errors)
 function doSomethingElse() {
-  return myPromise.then(doSomething);
+ return myPromise.then(doSomething)
 }
 ```
 
@@ -76,10 +76,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["promise"],
-  "rules": {
-    "promise/catch-or-return": "error"
-  }
+    "plugins": ["promise"],
+    "rules": {
+        "promise/catch-or-return": "error"
+    }
 }
 ```
 

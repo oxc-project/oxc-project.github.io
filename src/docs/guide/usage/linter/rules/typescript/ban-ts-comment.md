@@ -29,7 +29,7 @@ Examples of **incorrect** code for this rule:
 ```ts
 if (false) {
   // @ts-ignore: Unreachable code error
-  console.log("hello");
+  console.log('hello');
 }
 ```
 
@@ -49,11 +49,11 @@ For example:
 
 ```json
 {
-  "ts-expect-error": "allow-with-description",
-  "ts-ignore": true,
-  "ts-nocheck": { "descriptionFormat": "^: TS\\d+ because .+$" },
-  "ts-check": false,
-  "minimumDescriptionLength": 3
+"ts-expect-error": "allow-with-description",
+"ts-ignore": true,
+"ts-nocheck": { "descriptionFormat": "^: TS\\d+ because .+$" },
+"ts-check": false,
+"minimumDescriptionLength": 3
 }
 ```
 
@@ -91,9 +91,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "typescript/ban-ts-comment": "error"
-  }
+    "rules": {
+        "typescript/ban-ts-comment": "error"
+    }
 }
 ```
 

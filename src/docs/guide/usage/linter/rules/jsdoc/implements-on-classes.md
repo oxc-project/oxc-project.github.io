@@ -27,7 +27,7 @@ Examples of **incorrect** code for this rule:
 /**
  * @implements {SomeClass}
  */
-function quux() {}
+function quux () {}
 ```
 
 Examples of **correct** code for this rule:
@@ -43,7 +43,7 @@ class Foo {
  * @implements {SomeClass}
  * @class
  */
-function quux() {}
+function quux () {}
 ```
 
 ## How to use
@@ -54,10 +54,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["jsdoc"],
-  "rules": {
-    "jsdoc/implements-on-classes": "error"
-  }
+    "plugins": ["jsdoc"],
+    "rules": {
+        "jsdoc/implements-on-classes": "error"
+    }
 }
 ```
 

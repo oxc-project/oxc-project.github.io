@@ -29,9 +29,9 @@ Examples of **incorrect** code for this rule:
 
 ```ts
 const enum Color {
-  Red,
-  Green,
-  Blue,
+    Red,
+    Green,
+    Blue
 }
 ```
 
@@ -43,9 +43,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "oxc/no-const-enum": "error"
-  }
+    "rules": {
+        "oxc/no-const-enum": "error"
+    }
 }
 ```
 

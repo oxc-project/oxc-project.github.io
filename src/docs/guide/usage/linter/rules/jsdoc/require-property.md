@@ -57,10 +57,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["jsdoc"],
-  "rules": {
-    "jsdoc/require-property": "error"
-  }
+    "plugins": ["jsdoc"],
+    "rules": {
+        "jsdoc/require-property": "error"
+    }
 }
 ```
 

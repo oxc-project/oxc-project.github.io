@@ -355,13 +355,13 @@ Example:
 
 ```json
 {
-  "settings": {
-    "jsx-a11y": {
-      "attributes": {
-        "for": ["htmlFor", "for"]
-      }
-    }
-  }
+"settings": {
+"jsx-a11y": {
+"attributes": {
+"for": ["htmlFor", "for"]
+}
+}
+}
 }
 ```
 
@@ -378,14 +378,14 @@ Example:
 
 ```json
 {
-  "settings": {
-    "jsx-a11y": {
-      "components": {
-        "Link": "a",
-        "IconButton": "button"
-      }
-    }
-  }
+"settings": {
+"jsx-a11y": {
+"components": {
+"Link": "a",
+"IconButton": "button"
+}
+}
+}
 }
 ```
 
@@ -400,7 +400,7 @@ require semantic context.
 For example, if you set the `polymorphicPropName` to `as`, then this element:
 
 ```jsx
-<Box as="h3">Hello</Box>;
+<Box as="h3">Hello</Box>
 ```
 
 Will be treated as an `h3`. If not set, this component will be treated
@@ -440,17 +440,17 @@ Example:
 
 ```jsonc
 {
-  "settings": {
-    "react": {
-      "formComponents": [
-        "CustomForm",
-        // OtherForm is considered a form component and has an endpoint attribute
-        { "name": "OtherForm", "formAttribute": "endpoint" },
-        // allows specifying multiple properties if necessary
-        { "name": "Form", "formAttribute": ["registerEndpoint", "loginEndpoint"] },
-      ],
-    },
-  },
+"settings": {
+"react": {
+"formComponents": [
+"CustomForm",
+// OtherForm is considered a form component and has an endpoint attribute
+{ "name": "OtherForm", "formAttribute": "endpoint" },
+// allows specifying multiple properties if necessary
+{ "name": "Form", "formAttribute": ["registerEndpoint", "loginEndpoint"] }
+]
+}
+}
 }
 ```
 
@@ -478,18 +478,18 @@ Example:
 
 ```jsonc
 {
-  "settings": {
-    "react": {
-      "linkComponents": [
-        "HyperLink",
-        // Use `linkAttribute` for components that use a different prop name
-        // than `href`.
-        { "name": "MyLink", "linkAttribute": "to" },
-        // allows specifying multiple properties if necessary
-        { "name": "Link", "linkAttribute": ["to", "href"] },
-      ],
-    },
-  },
+"settings": {
+"react": {
+"linkComponents": [
+"HyperLink",
+// Use `linkAttribute` for components that use a different prop name
+// than `href`.
+{ "name": "MyLink", "linkAttribute": "to" },
+// allows specifying multiple properties if necessary
+{ "name": "Link", "linkAttribute": ["to", "href"] }
+]
+}
+}
 }
 ```
 

@@ -23,17 +23,17 @@ JSX escape characters are used to inject characters into JSX statements that wou
 Incorrect
 
 ```jsx
-<div>></div>;
+<div> > </div>
 ```
 
 Correct
 
 ```jsx
-<div>&gt;</div>;
+<div> &gt; </div>
 ```
 
 ```jsx
-<div>{">"}</div>;
+<div> {'>'} </div>
 ```
 
 ## How to use
@@ -44,10 +44,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["react"],
-  "rules": {
-    "react/no-unescaped-entities": "error"
-  }
+    "plugins": ["react"],
+    "rules": {
+        "react/no-unescaped-entities": "error"
+    }
 }
 ```
 

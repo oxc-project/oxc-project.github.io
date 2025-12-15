@@ -56,7 +56,7 @@ function takesString(str: string): void {
 takesString(stringValue); // safe
 
 // Type guard to safely use unknown
-if (typeof unknownValue === "string") {
+if (typeof unknownValue === 'string') {
   takesString(unknownValue); // safe after type guard
 }
 
@@ -72,9 +72,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "typescript/no-unsafe-argument": "error"
-  }
+    "rules": {
+        "typescript/no-unsafe-argument": "error"
+    }
 }
 ```
 

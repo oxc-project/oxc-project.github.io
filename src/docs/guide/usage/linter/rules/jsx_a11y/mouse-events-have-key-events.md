@@ -24,13 +24,13 @@ AT compatibility, and screen reader users.
 Examples of **incorrect** code for this rule:
 
 ```jsx
-<div onMouseOver={() => void 0} />;
+<div onMouseOver={() => void 0} />
 ```
 
 Examples of **correct** code for this rule:
 
 ```jsx
-<div onMouseOver={() => void 0} onFocus={() => void 0} />;
+<div onMouseOver={() => void 0} onFocus={() => void 0} />
 ```
 
 ## Configuration
@@ -61,10 +61,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["jsx-a11y"],
-  "rules": {
-    "jsx-a11y/mouse-events-have-key-events": "error"
-  }
+    "plugins": ["jsx-a11y"],
+    "rules": {
+        "jsx-a11y/mouse-events-have-key-events": "error"
+    }
 }
 ```
 

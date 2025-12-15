@@ -24,13 +24,13 @@ This does not apply for interactive or hidden elements.
 Examples of **incorrect** code for this rule:
 
 ```jsx
-<div onClick={() => void 0} />;
+<div onClick={() => void 0} />
 ```
 
 Examples of **correct** code for this rule:
 
 ```jsx
-<div onClick={() => void 0} onKeyDown={() => void 0} />;
+<div onClick={() => void 0} onKeyDown={() => void 0} />
 ```
 
 ## How to use
@@ -41,10 +41,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["jsx-a11y"],
-  "rules": {
-    "jsx-a11y/click-events-have-key-events": "error"
-  }
+    "plugins": ["jsx-a11y"],
+    "rules": {
+        "jsx-a11y/click-events-have-key-events": "error"
+    }
 }
 ```
 

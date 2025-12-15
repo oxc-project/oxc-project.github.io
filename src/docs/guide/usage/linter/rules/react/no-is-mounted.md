@@ -25,15 +25,15 @@ Examples of **incorrect** code for this rule:
 
 ```jsx
 class Hello extends React.Component {
-  someMethod() {
-    if (!this.isMounted()) {
-      return;
+    someMethod() {
+        if (!this.isMounted()) {
+            return;
+        }
     }
-  }
-  render() {
-    return <div onClick={this.someMethod.bind(this)}>Hello</div>;
-  }
-}
+    render() {
+        return <div onClick={this.someMethod.bind(this)}>Hello</div>;
+    }
+};
 ```
 
 ## How to use
@@ -44,10 +44,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["react"],
-  "rules": {
-    "react/no-is-mounted": "error"
-  }
+    "plugins": ["react"],
+    "rules": {
+        "react/no-is-mounted": "error"
+    }
 }
 ```
 

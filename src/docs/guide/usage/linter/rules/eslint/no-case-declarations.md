@@ -27,16 +27,16 @@ Examples of **incorrect** code for this rule:
 ```javascript
 switch (foo) {
   case 1:
-    let x = 1;
-    break;
+      let x = 1;
+      break;
   case 2:
-    const y = 2;
-    break;
+      const y = 2;
+      break;
   case 3:
-    function f() {}
-    break;
+      function f() {}
+      break;
   default:
-    class C {}
+      class C {}
 }
 ```
 
@@ -45,19 +45,19 @@ Examples of **correct** code for this rule:
 ```javascript
 switch (foo) {
   case 1: {
-    let x = 1;
-    break;
+      let x = 1;
+      break;
   }
   case 2: {
-    const y = 2;
-    break;
+      const y = 2;
+      break;
   }
   case 3: {
-    function f() {}
-    break;
+      function f() {}
+      break;
   }
   default: {
-    class C {}
+      class C {}
   }
 }
 ```
@@ -70,9 +70,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "no-case-declarations": "error"
-  }
+    "rules": {
+        "no-case-declarations": "error"
+    }
 }
 ```
 

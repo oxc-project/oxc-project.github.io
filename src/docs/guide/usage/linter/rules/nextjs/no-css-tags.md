@@ -41,23 +41,21 @@ Examples of **correct** code for this rule:
 
 ```jsx
 // Importing CSS file directly
-import "../styles/global.css";
+import '../styles/global.css'
 
 // Using CSS Modules
-import styles from "./Button.module.css";
+import styles from './Button.module.css'
 
 // Using external stylesheets (allowed)
 <link
   href="https://fonts.googleapis.com/css?family=Open+Sans"
   rel="stylesheet"
-/>;
+/>
 
 // Using styled-jsx
-<style jsx>
-  {`
+<style jsx>{`
   .button { color: blue; }
-`}
-</style>;
+`}</style>
 ```
 
 ## How to use
@@ -68,10 +66,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["nextjs"],
-  "rules": {
-    "nextjs/no-css-tags": "error"
-  }
+    "plugins": ["nextjs"],
+    "rules": {
+        "nextjs/no-css-tags": "error"
+    }
 }
 ```
 

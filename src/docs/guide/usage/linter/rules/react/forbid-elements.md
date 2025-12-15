@@ -24,23 +24,20 @@ Examples of **incorrect** code for this rule:
 
 ```jsx
 // [1, { "forbid": ["button"] }]
-<button />;
-React.createElement("button");
+<button />
+React.createElement('button');
 
 // [1, { "forbid": ["Modal"] }]
-<Modal />;
+<Modal />
 React.createElement(Modal);
 
 // [1, { "forbid": ["Namespaced.Element"] }]
-<Namespaced.Element />;
+<Namespaced.Element />
 React.createElement(Namespaced.Element);
 
 // [1, { "forbid": [{ "element": "button", "message": "use <Button> instead" }, "input"] }]
-<div>
-  <button />
-  <input />
-</div>;
-React.createElement("div", {}, React.createElement("button", {}, React.createElement("input")));
+<div><button /><input /></div>
+React.createElement('div', {}, React.createElement('button', {}, React.createElement('input')));
 ```
 
 Examples of **correct** code for this rule:
@@ -61,10 +58,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["react"],
-  "rules": {
-    "react/forbid-elements": "error"
-  }
+    "plugins": ["react"],
+    "rules": {
+        "react/forbid-elements": "error"
+    }
 }
 ```
 

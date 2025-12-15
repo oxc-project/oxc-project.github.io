@@ -27,7 +27,7 @@ Examples of **incorrect** code for this rule:
 
 ```javascript
 if (Array.isArray(foo)) {
-  throw new Error("Expected foo to be an array");
+    throw new Error('Expected foo to be an array');
 }
 ```
 
@@ -35,7 +35,7 @@ Examples of **correct** code for this rule:
 
 ```javascript
 if (Array.isArray(foo)) {
-  throw new TypeError("Expected foo to be an array");
+    throw new TypeError('Expected foo to be an array');
 }
 ```
 
@@ -47,9 +47,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "unicorn/prefer-type-error": "error"
-  }
+    "rules": {
+        "unicorn/prefer-type-error": "error"
+    }
 }
 ```
 

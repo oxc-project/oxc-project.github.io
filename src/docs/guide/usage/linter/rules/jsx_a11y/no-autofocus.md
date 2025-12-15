@@ -38,7 +38,7 @@ Examples of **incorrect** code for this rule:
 Examples of **correct** code for this rule:
 
 ```jsx
-<div />;
+<div />
 ```
 
 ## Configuration
@@ -61,10 +61,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["jsx-a11y"],
-  "rules": {
-    "jsx-a11y/no-autofocus": "error"
-  }
+    "plugins": ["jsx-a11y"],
+    "rules": {
+        "jsx-a11y/no-autofocus": "error"
+    }
 }
 ```
 

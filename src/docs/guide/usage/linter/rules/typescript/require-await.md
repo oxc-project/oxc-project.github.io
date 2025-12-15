@@ -32,7 +32,7 @@ Examples of **incorrect** code for this rule:
 ```ts
 // Async function without await
 async function fetchData() {
-  return fetch("/api/data");
+  return fetch('/api/data');
 }
 
 // Async arrow function without await
@@ -49,7 +49,7 @@ class DataService {
 
 // Async function that returns Promise but doesn't await
 async function getPromise() {
-  return Promise.resolve("value");
+  return Promise.resolve('value');
 }
 ```
 
@@ -58,13 +58,13 @@ Examples of **correct** code for this rule:
 ```ts
 // Async function with await
 async function fetchData() {
-  const response = await fetch("/api/data");
+  const response = await fetch('/api/data');
   return response.json();
 }
 
 // Regular function returning Promise
 function fetchDataSync() {
-  return fetch("/api/data");
+  return fetch('/api/data');
 }
 
 // Async function with await in conditional
@@ -72,7 +72,7 @@ async function conditionalAwait(condition: boolean) {
   if (condition) {
     return await someAsyncOperation();
   }
-  return "default";
+  return 'default';
 }
 
 // Async function with await in loop
@@ -93,9 +93,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "typescript/require-await": "error"
-  }
+    "rules": {
+        "typescript/require-await": "error"
+    }
 }
 ```
 

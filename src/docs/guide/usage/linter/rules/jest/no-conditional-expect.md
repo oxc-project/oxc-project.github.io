@@ -28,25 +28,25 @@ thinking needed to understand what is actually being tested.
 Examples of **incorrect** code for this rule:
 
 ```js
-it("foo", () => {
+it('foo', () => {
   doTest && expect(1).toBe(2);
 });
 
-it("bar", () => {
+it('bar', () => {
   if (!skipTest) {
     expect(1).toEqual(2);
   }
 });
 
-it("baz", async () => {
+it('baz', async () => {
   try {
     await foo();
   } catch (err) {
-    expect(err).toMatchObject({ code: "MODULE_NOT_FOUND" });
+    expect(err).toMatchObject({ code: 'MODULE_NOT_FOUND' });
   }
 });
 
-it("throws an error", async () => {
+it('throws an error', async () => {
   await foo().catch(error => expect(error).toBeInstanceOf(error));
 });
 ```
@@ -54,7 +54,7 @@ it("throws an error", async () => {
 Examples of **correct** code for this rule:
 
 ```js
-it("foo", () => {
+it('foo', () => {
   expect(!value).toBe(false);
 });
 
@@ -65,22 +65,32 @@ function getValue() {
   return 2;
 }
 
-it("foo", () => {
+it('foo', () => {
   expect(getValue()).toBe(2);
 });
 
-it("validates the request", () => {
+it('validates the request', () => {
   try {
     processRequest(request);
-  } catch {
-  } finally {
+  } catch { } finally {
     expect(validRequest).toHaveBeenCalledWith(request);
   }
 });
 
-it("throws an error", async () => {
+it('throws an error', async () => {
   await expect(foo).rejects.toThrow(Error);
 });
+```
+
+This rule is compatible with [eslint-plugin-vitest](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/no-conditional-expect.md),
+to use it, add the following configuration to your `.oxlintrc.json`:
+
+```json
+{
+  "rules": {
+     "vitest/no-conditional-expect": "error"
+  }
+}
 ```
 
 ## How to use
@@ -91,10 +101,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "plugins": ["jest"],
-  "rules": {
-    "jest/no-conditional-expect": "error"
-  }
+    "plugins": ["jest"],
+    "rules": {
+        "jest/no-conditional-expect": "error"
+    }
 }
 ```
 

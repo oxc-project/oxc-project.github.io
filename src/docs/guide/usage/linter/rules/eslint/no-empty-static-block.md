@@ -32,8 +32,8 @@ Examples of **incorrect** code for this rule:
 
 ```js
 class Foo {
-  static {
-  }
+    static {
+    }
 }
 ```
 
@@ -41,14 +41,14 @@ Examples of **correct** code for this rule:
 
 ```js
 class Foo {
-  static {
-    // blocks with comments are allowed
-  }
+    static {
+        // blocks with comments are allowed
+    }
 }
 class Bar {
-  static {
-    doSomething();
-  }
+    static {
+        doSomething();
+    }
 }
 ```
 
@@ -60,9 +60,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-  "rules": {
-    "no-empty-static-block": "error"
-  }
+    "rules": {
+        "no-empty-static-block": "error"
+    }
 }
 ```
 
