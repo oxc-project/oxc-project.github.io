@@ -55,7 +55,7 @@ Or use the Extension Settings with `settings.json`:
 
 ```json
 {
-  "oxc.path.server": "./editors/vscode/target/debug/oxc_language_server"
+  "oxc.path.oxlint": "./editors/vscode/target/debug/oxc_language_server"
 }
 ```
 
