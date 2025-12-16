@@ -46,4 +46,4 @@ Depending on the configuration the tool can restart/rebuild itself.
 
 Your tool can tell the editor to watch for specific file (glob) patterns and notify the server, when the file is changed/created/deleted.
 This is mostly used for the `.ox**rc.json` configuration and the referenced files inside of it (example `extends` from `oxlint`).
-Depending on the configuration of the workspace and the tool, the tool maybe needs to restart/rebuild itself again.
+Depending on the configuration of the workspace and the tool, the tool may need to restart/rebuild itself again.
