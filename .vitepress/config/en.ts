@@ -258,6 +258,7 @@ export const enConfig = defineLocaleConfig("root", {
               link: "/docs/contribute/transformer",
             },
             { text: "Minifier", link: "/docs/contribute/minifier" },
+            { text: "Language Server", link: "/docs/contribute/language_server" },
             { text: "VSCode", link: "/docs/contribute/vscode" },
           ],
         },
