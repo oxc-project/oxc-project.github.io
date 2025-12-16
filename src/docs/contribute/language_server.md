@@ -38,7 +38,7 @@ Each workspace folder can have its own configuration. As an example: git project
 
 ### Changing Configuration
 
-Surprise! The user can change the language server configuration on the fly. The editor will send is the updated configuration.
+Surprise! The user can change the language server configuration on the fly. The editor will send us the updated configuration.
 Currently, the server will send each tool the old and new configuration, so it can handle all kinds of stuff.
 Depending on the configuration the tool can restart/rebuild itself.
 
