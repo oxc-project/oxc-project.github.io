@@ -11,7 +11,7 @@ Note: In this document we will talk a lot about "tools", this is an abstract con
 
 ## `oxc_language_server` concept of implementing tools
 
-`oxc_language_server` can be used to upgrade your own script with the capability to work as an language server.
+`oxc_language_server` can be used to upgrade your own script with the capability to work as a language server.
 The server on its own does not change your files or create suggestions. This is the responsibility of the tool.
 Instead, it manages the workspace folders and all the communication for loading the right configuration.
 To communicate with the provided tools, the server provides a [`ToolBuilder` and `Tool` trait](https://github.com/oxc-project/oxc/blob/main/crates/oxc_language_server/src/tool.rs).
@@ -38,7 +38,7 @@ Each workspace folder can have its own configuration. As an example: git project
 
 ### Changing Configuration
 
-Surprise! The user can change the language server configuration on the fly. The editor will send is the updated configuration.
+Surprise! The user can change the language server configuration on the fly. The editor will send us the updated configuration.
 Currently, the server will send each tool the old and new configuration, so it can handle all kinds of stuff.
 Depending on the configuration the tool can restart/rebuild itself.
 
@@ -46,4 +46,4 @@ Depending on the configuration the tool can restart/rebuild itself.
 
 Your tool can tell the editor to watch for specific file (glob) patterns and notify the server, when the file is changed/created/deleted.
 This is mostly used for the `.ox**rc.json` configuration and the referenced files inside of it (example `extends` from `oxlint`).
-Depending on the configuration of the workspace and the tool, the tool maybe needs to restart/rebuild itself again.
+Depending on the configuration of the workspace and the tool, the tool may need to restart/rebuild itself again.
