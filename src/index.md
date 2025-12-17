@@ -21,6 +21,8 @@ import { sponsors } from './sponsors'
 <FeatureMinifierFormatter/>
 <Spacer />
 <Sponsors
+  description="Oxc is free and open source, made possible by wonderful sponsors."
+  sponsorLink="/sponsor"
   :sponsors="sponsors"
   :side-by-side-tiers="['bronze', 'backers']"
 />
