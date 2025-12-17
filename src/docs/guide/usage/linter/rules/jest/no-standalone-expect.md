@@ -31,8 +31,8 @@ caught by proper testing.
 Examples of **incorrect** code for this rule:
 
 ```javascript
-describe('a test', () => {
-    expect(1).toBe(1);
+describe("a test", () => {
+  expect(1).toBe(1);
 });
 ```
 
@@ -42,7 +42,7 @@ to use it, add the following configuration to your `.oxlintrc.json`:
 ```json
 {
   "rules": {
-     "vitest/no-standalone-expect": "error"
+    "vitest/no-standalone-expect": "error"
   }
 }
 ```
@@ -67,10 +67,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "plugins": ["jest"],
-    "rules": {
-        "jest/no-standalone-expect": "error"
-    }
+  "plugins": ["jest"],
+  "rules": {
+    "jest/no-standalone-expect": "error"
+  }
 }
 ```
 

@@ -26,13 +26,14 @@ making the functionality inaccessible.
 Examples of **incorrect** code for this rule:
 
 ```jsx
-const Bad = <div aria-activedescendant={someID} />
+const Bad = <div aria-activedescendant={someID} />;
 ```
 
 Examples of **correct** code for this rule:
 
 ```jsx
-const Good = <>
+const Good = (
+  <>
     <CustomComponent />
     <CustomComponent aria-activedescendant={someID} />
     <CustomComponent aria-activedescendant={someID} tabIndex={0} />
@@ -48,7 +49,8 @@ const Good = <>
     <input aria-activedescendant={someID} />
     <input aria-activedescendant={someID} tabIndex={0} />
     <input aria-activedescendant={someID} tabIndex={-1} />
-</>
+  </>
+);
 ```
 
 ## How to use
@@ -59,10 +61,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "plugins": ["jsx-a11y"],
-    "rules": {
-        "jsx-a11y/aria-activedescendant-has-tabindex": "error"
-    }
+  "plugins": ["jsx-a11y"],
+  "rules": {
+    "jsx-a11y/aria-activedescendant-has-tabindex": "error"
+  }
 }
 ```
 

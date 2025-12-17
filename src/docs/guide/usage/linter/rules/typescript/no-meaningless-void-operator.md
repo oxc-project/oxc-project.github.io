@@ -55,7 +55,7 @@ function getValue(): number {
 
 void getValue(); // meaningful, converts number to void
 
-void console.log('hello'); // meaningful, console.log returns undefined but we want to be explicit
+void console.log("hello"); // meaningful, console.log returns undefined but we want to be explicit
 
 function processData() {
   // some processing
@@ -72,9 +72,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "typescript/no-meaningless-void-operator": "error"
-    }
+  "rules": {
+    "typescript/no-meaningless-void-operator": "error"
+  }
 }
 ```
 

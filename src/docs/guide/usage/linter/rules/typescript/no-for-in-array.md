@@ -79,9 +79,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "typescript/no-for-in-array": "error"
-    }
+  "rules": {
+    "typescript/no-for-in-array": "error"
+  }
 }
 ```
 

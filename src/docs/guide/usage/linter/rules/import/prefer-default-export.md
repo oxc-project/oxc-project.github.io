@@ -24,28 +24,28 @@ when a module only has one export, enhancing readability, maintainability.
 Examples of **incorrect** code for the `{ target: "single" }` option:
 
 ```js
-export const foo = 'foo';
+export const foo = "foo";
 ```
 
 Examples of **correct** code for the `{ target: "single" }` option:
 
 ```js
-export const foo = 'foo';
-const bar = 'bar';
+export const foo = "foo";
+const bar = "bar";
 export default bar;
 ```
 
 Examples of **incorrect** code for the `{ target: "any" }` option:
 
 ```js
-export const foo = 'foo';
-export const baz = 'baz';
+export const foo = "foo";
+export const baz = "baz";
 ```
 
 Examples of **correct** code for the `{ target: "any" }` option:
 
 ```js
-export default function bar() {};
+export default function bar() {}
 ```
 
 ## Configuration
@@ -71,10 +71,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "plugins": ["import"],
-    "rules": {
-        "import/prefer-default-export": "error"
-    }
+  "plugins": ["import"],
+  "rules": {
+    "import/prefer-default-export": "error"
+  }
 }
 ```
 

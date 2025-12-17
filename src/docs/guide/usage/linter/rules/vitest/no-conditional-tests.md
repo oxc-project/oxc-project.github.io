@@ -26,23 +26,23 @@ ensure reliable results and maintainability.
 Examples of **incorrect** code for this rule:
 
 ```js
-describe('my tests', () => {
-    if (true) {
-        it('is awesome', () => {
-            doTheThing()
-        })
-    }
-})
+describe("my tests", () => {
+  if (true) {
+    it("is awesome", () => {
+      doTheThing();
+    });
+  }
+});
 ```
 
 Examples of **correct** code for this rule:
 
 ```js
-describe('my tests', () => {
-    it('is awesome', () => {
-        doTheThing()
-    })
-})
+describe("my tests", () => {
+  it("is awesome", () => {
+    doTheThing();
+  });
+});
 ```
 
 ## How to use
@@ -53,10 +53,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "plugins": ["vitest"],
-    "rules": {
-        "vitest/no-conditional-tests": "error"
-    }
+  "plugins": ["vitest"],
+  "rules": {
+    "vitest/no-conditional-tests": "error"
+  }
 }
 ```
 

@@ -32,19 +32,17 @@ when it also contains a newline.
 Examples of **incorrect** code for this rule:
 
 ```jsx
-const elem = <Component linter="oxlint"></Component>
-const dom_elem = <div id="oxlint"></div>
-const welem = <div id="oxlint">
-
-</div>
+const elem = <Component linter="oxlint"></Component>;
+const dom_elem = <div id="oxlint"></div>;
+const welem = <div id="oxlint"></div>;
 ```
 
 Examples of **correct** code for this rule:
 
 ```jsx
-const elem = <Component linter="oxlint" />
-const welem = <Component linter="oxlint" > </Component>
-const dom_elem = <div id="oxlint" />
+const elem = <Component linter="oxlint" />;
+const welem = <Component linter="oxlint"> </Component>;
+const dom_elem = <div id="oxlint" />;
 ```
 
 ## Configuration
@@ -75,10 +73,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "plugins": ["react"],
-    "rules": {
-        "react/self-closing-comp": "error"
-    }
+  "plugins": ["react"],
+  "rules": {
+    "react/self-closing-comp": "error"
+  }
 }
 ```
 

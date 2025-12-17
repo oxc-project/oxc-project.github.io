@@ -29,27 +29,13 @@ of the correct size.
 Examples of **incorrect** code for this rule:
 
 ```javascript
-const invalid = [
-  1_23_4444,
-  1_234.56789,
-  0xAB_C_D_EF,
-  0b10_00_1111,
-  0o1_0_44_21,
-  1_294_28771_2n,
-];
+const invalid = [1_23_4444, 1_234.56789, 0xab_c_d_ef, 0b10_00_1111, 0o1_0_44_21, 1_294_28771_2n];
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
-const valid = [
-  1_234_567,
-  1_234.567_89,
-  0xAB_CD_EF,
-  0b1000_1111,
-  0o10_4421,
-  1_294_287_712n,
-];
+const valid = [1_234_567, 1_234.567_89, 0xab_cd_ef, 0b1000_1111, 0o10_4421, 1_294_287_712n];
 ```
 
 ## Configuration
@@ -159,9 +145,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "unicorn/numeric-separators-style": "error"
-    }
+  "rules": {
+    "unicorn/numeric-separators-style": "error"
+  }
 }
 ```
 

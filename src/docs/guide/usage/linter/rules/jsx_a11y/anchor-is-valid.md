@@ -29,9 +29,13 @@ Consider the following:
 
 ```jsx
 <>
-    <a href="javascript:void(0)" onClick={foo}>Perform action</a>
-    <a href="#" onClick={foo}>Perform action</a>
-    <a onClick={foo}>Perform action</a>
+  <a href="javascript:void(0)" onClick={foo}>
+    Perform action
+  </a>
+  <a href="#" onClick={foo}>
+    Perform action
+  </a>
+  <a onClick={foo}>Perform action</a>
 </>
 ```
 
@@ -55,9 +59,9 @@ Examples of **valid** code for this rule:
 
 ```jsx
 <>
-    <a href={`https://www.javascript.com`}>navigate here</a>
-    <a href={somewhere}>navigate here</a>
-    <a {...spread}>navigate here</a>
+  <a href={`https://www.javascript.com`}>navigate here</a>
+  <a href={somewhere}>navigate here</a>
+  <a {...spread}>navigate here</a>
 </>
 ```
 
@@ -65,11 +69,13 @@ Examples of **invalid** code for this rule:
 
 ```jsx
 <>
-    <a href={null}>navigate here</a>
-    <a href={undefined}>navigate here</a>
-    <a href>navigate here</a>
-    <a href="javascript:void(0)">navigate here</a>
-    <a href="https://example.com" onClick={something}>navigate here</a>
+  <a href={null}>navigate here</a>
+  <a href={undefined}>navigate here</a>
+  <a href>navigate here</a>
+  <a href="javascript:void(0)">navigate here</a>
+  <a href="https://example.com" onClick={something}>
+    navigate here
+  </a>
 </>
 ```
 
@@ -97,10 +103,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "plugins": ["jsx-a11y"],
-    "rules": {
-        "jsx-a11y/anchor-is-valid": "error"
-    }
+  "plugins": ["jsx-a11y"],
+  "rules": {
+    "jsx-a11y/anchor-is-valid": "error"
+  }
 }
 ```
 

@@ -69,9 +69,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "no-unneeded-ternary": "error"
-    }
+  "rules": {
+    "no-unneeded-ternary": "error"
+  }
 }
 ```
 

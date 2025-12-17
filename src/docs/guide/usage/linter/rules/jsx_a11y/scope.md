@@ -46,10 +46,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "plugins": ["jsx-a11y"],
-    "rules": {
-        "jsx-a11y/scope": "error"
-    }
+  "plugins": ["jsx-a11y"],
+  "rules": {
+    "jsx-a11y/scope": "error"
+  }
 }
 ```
 

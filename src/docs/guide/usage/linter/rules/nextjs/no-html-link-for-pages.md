@@ -44,7 +44,7 @@ function HomePage() {
 Examples of **correct** code for this rule:
 
 ```jsx
-import Link from 'next/link';
+import Link from "next/link";
 
 function HomePage() {
   return (
@@ -78,10 +78,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "plugins": ["nextjs"],
-    "rules": {
-        "nextjs/no-html-link-for-pages": "error"
-    }
+  "plugins": ["nextjs"],
+  "rules": {
+    "nextjs/no-html-link-for-pages": "error"
+  }
 }
 ```
 

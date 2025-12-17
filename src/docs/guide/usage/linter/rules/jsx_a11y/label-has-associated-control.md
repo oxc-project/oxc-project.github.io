@@ -35,18 +35,15 @@ Examples of **correct** code for this rule:
 
 ```jsx
 function Foo(props) {
-    const {
-        htmlFor,
-        ...otherProps
-    } = props;
+  const { htmlFor, ...otherProps } = props;
 
-    return <label htmlFor={htmlFor} {...otherProps} />
+  return <label htmlFor={htmlFor} {...otherProps} />;
 }
 
 <label>
-    <input type="text" />
-    Surname
-</label>
+  <input type="text" />
+  Surname
+</label>;
 ```
 
 ## Configuration
@@ -101,10 +98,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "plugins": ["jsx-a11y"],
-    "rules": {
-        "jsx-a11y/label-has-associated-control": "error"
-    }
+  "plugins": ["jsx-a11y"],
+  "rules": {
+    "jsx-a11y/label-has-associated-control": "error"
+  }
 }
 ```
 

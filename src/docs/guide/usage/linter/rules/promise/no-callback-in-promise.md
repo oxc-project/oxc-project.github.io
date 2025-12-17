@@ -28,21 +28,25 @@ Examples of **incorrect** code for this rule:
 
 ```js
 function callback(err, data) {
-    console.log('Callback got called with:', err, data)
-    throw new Error('My error')
-  }
+  console.log("Callback got called with:", err, data);
+  throw new Error("My error");
+}
 
 Promise.resolve()
-  .then(() => callback(null, 'data'))
-  .catch((err) => callback(err.message, null))
+  .then(() => callback(null, "data"))
+  .catch((err) => callback(err.message, null));
 ```
 
 Examples of **correct** code for this rule:
 
 ```js
 Promise.resolve()
-  .then((data) => { console.log(data) })
-  .catch((err) => { console.error(err) })
+  .then((data) => {
+    console.log(data);
+  })
+  .catch((err) => {
+    console.error(err);
+  });
 ```
 
 ## Configuration
@@ -81,10 +85,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "plugins": ["promise"],
-    "rules": {
-        "promise/no-callback-in-promise": "error"
-    }
+  "plugins": ["promise"],
+  "rules": {
+    "promise/no-callback-in-promise": "error"
+  }
 }
 ```
 

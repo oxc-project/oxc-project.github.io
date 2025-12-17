@@ -30,28 +30,30 @@ Examples of **incorrect** code for this rule:
 
 ```javascript
 new Promise((resolve, reject) => {
-    if (someCondition) {
-        return defaultResult;
+  if (someCondition) {
+    return defaultResult;
+  }
+  getSomething((err, result) => {
+    if (err) {
+      reject(err);
+    } else {
+      resolve(result);
     }
-    getSomething((err, result) => {
-        if (err) {
-            reject(err);
-        } else {
-            resolve(result);
-        }
-    });
+  });
 });
 
-new Promise((resolve, reject) => getSomething((err, data) => {
+new Promise((resolve, reject) =>
+  getSomething((err, data) => {
     if (err) {
-        reject(err);
+      reject(err);
     } else {
-        resolve(data);
+      resolve(data);
     }
-}));
+  }),
+);
 
 new Promise(() => {
-    return 1;
+  return 1;
 });
 ```
 
@@ -59,30 +61,32 @@ Examples of **correct** code for this rule:
 
 ```javascript
 new Promise((resolve, reject) => {
-    if (someCondition) {
-        resolve(defaultResult);
-        return;
+  if (someCondition) {
+    resolve(defaultResult);
+    return;
+  }
+  getSomething((err, result) => {
+    if (err) {
+      reject(err);
+    } else {
+      resolve(result);
     }
-    getSomething((err, result) => {
-        if (err) {
-            reject(err);
-        } else {
-            resolve(result);
-        }
-    });
+  });
 });
 
 new Promise((resolve, reject) => {
-    getSomething((err, data) => {
-        if (err) {
-            reject(err);
-        } else {
-            resolve(data);
-        }
-    });
+  getSomething((err, data) => {
+    if (err) {
+      reject(err);
+    } else {
+      resolve(data);
+    }
+  });
 });
 
-new Promise(r => { r(1) });
+new Promise((r) => {
+  r(1);
+});
 ```
 
 ## Configuration
@@ -105,9 +109,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "no-promise-executor-return": "error"
-    }
+  "rules": {
+    "no-promise-executor-return": "error"
+  }
 }
 ```
 

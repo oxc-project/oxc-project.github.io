@@ -36,7 +36,7 @@ let foo = null;
 Examples of **correct** code for this rule:
 
 ```javascript
-let foo
+let foo;
 ```
 
 ## Configuration
@@ -59,9 +59,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "unicorn/no-null": "error"
-    }
+  "rules": {
+    "unicorn/no-null": "error"
+  }
 }
 ```
 

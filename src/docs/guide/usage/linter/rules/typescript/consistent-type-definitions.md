@@ -54,7 +54,7 @@ Prefer `interface` over `type` for object type definitions:
 
 ```typescript
 interface T {
-x: number;
+  x: number;
 }
 ```
 
@@ -74,9 +74,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "typescript/consistent-type-definitions": "error"
-    }
+  "rules": {
+    "typescript/consistent-type-definitions": "error"
+  }
 }
 ```
 

@@ -31,9 +31,10 @@ Examples of **incorrect** code for this rule:
 
 ```ts
 class Builder {
-  private value: string = '';
+  private value: string = "";
 
-  setValue(value: string): Builder { // Should return 'this'
+  setValue(value: string): Builder {
+    // Should return 'this'
     this.value = value;
     return this;
   }
@@ -44,11 +45,13 @@ class Builder {
 }
 
 class FluentAPI {
-  method1(): FluentAPI { // Should return 'this'
+  method1(): FluentAPI {
+    // Should return 'this'
     return this;
   }
 
-  method2(): FluentAPI { // Should return 'this'
+  method2(): FluentAPI {
+    // Should return 'this'
     return this;
   }
 }
@@ -58,7 +61,7 @@ Examples of **correct** code for this rule:
 
 ```ts
 class Builder {
-  private value: string = '';
+  private value: string = "";
 
   setValue(value: string): this {
     this.value = value;
@@ -97,9 +100,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "typescript/prefer-return-this-type": "error"
-    }
+  "rules": {
+    "typescript/prefer-return-this-type": "error"
+  }
 }
 ```
 

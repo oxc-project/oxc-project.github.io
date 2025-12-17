@@ -39,10 +39,7 @@ Paths are resolved relative to the config file itself.
 ```json
 // .oxlintrc.json
 {
-  "jsPlugins": [
-    "./path/to/my-plugin.js",
-    "eslint-plugin-whatever"
-  ],
+  "jsPlugins": ["./path/to/my-plugin.js", "eslint-plugin-whatever"],
   "rules": {
     "my-plugin/rule1": "error",
     "my-plugin/rule2": "warn",
@@ -262,7 +259,9 @@ const rule = defineRule({
         // This always runs for every file, even if
         // it doesn't contain any `FunctionDeclaration`s
       },
-      FunctionDeclaration(node) {/* do stuff */},
+      FunctionDeclaration(node) {
+        /* do stuff */
+      },
     };
   },
 });

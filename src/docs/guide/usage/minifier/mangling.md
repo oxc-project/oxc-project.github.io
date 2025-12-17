@@ -36,10 +36,10 @@ Mangling variable names can change the `name` property values of functions / cla
 
 ```js
 // input
-var foo = function() {};
+var foo = function () {};
 
 // output
-var foo = function() {};
+var foo = function () {};
 ```
 
 ```js

@@ -29,15 +29,15 @@ comprehensive check for any falsy value, improving the robustness of the tests.
 Examples of **incorrect** code for this rule:
 
 ```javascript
-expect(foo).toBe(false)
-expectTypeOf(foo).toBe(false)
+expect(foo).toBe(false);
+expectTypeOf(foo).toBe(false);
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
-expect(foo).toBeFalsy()
-expectTypeOf(foo).toBeFalsy()
+expect(foo).toBeFalsy();
+expectTypeOf(foo).toBeFalsy();
 ```
 
 ## How to use
@@ -48,10 +48,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "plugins": ["vitest"],
-    "rules": {
-        "vitest/prefer-to-be-falsy": "error"
-    }
+  "plugins": ["vitest"],
+  "rules": {
+    "vitest/prefer-to-be-falsy": "error"
+  }
 }
 ```
 

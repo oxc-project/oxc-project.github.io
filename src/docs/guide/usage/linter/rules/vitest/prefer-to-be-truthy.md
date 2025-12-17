@@ -29,15 +29,15 @@ truthy value, which makes the tests more comprehensive and robust.
 Examples of **incorrect** code for this rule:
 
 ```javascript
-expect(foo).toBe(true)
-expectTypeOf(foo).toBe(true)
+expect(foo).toBe(true);
+expectTypeOf(foo).toBe(true);
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
-expect(foo).toBeTruthy()
-expectTypeOf(foo).toBeTruthy()
+expect(foo).toBeTruthy();
+expectTypeOf(foo).toBeTruthy();
 ```
 
 ## How to use
@@ -48,10 +48,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "plugins": ["vitest"],
-    "rules": {
-        "vitest/prefer-to-be-truthy": "error"
-    }
+  "plugins": ["vitest"],
+  "rules": {
+    "vitest/prefer-to-be-truthy": "error"
+  }
 }
 ```
 

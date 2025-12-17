@@ -28,28 +28,28 @@ can take.
 Examples of **incorrect** code for this rule:
 
 ```javascript
-function foo (bar, baz, qux, qxx) {
-    doSomething();
+function foo(bar, baz, qux, qxx) {
+  doSomething();
 }
 ```
 
 ```javascript
 let foo = (bar, baz, qux, qxx) => {
-    doSomething();
+  doSomething();
 };
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
-function foo (bar, baz, qux) {
-    doSomething();
+function foo(bar, baz, qux) {
+  doSomething();
 }
 ```
 
 ```javascript
 let foo = (bar, baz, qux) => {
-    doSomething();
+  doSomething();
 };
 ```
 
@@ -84,9 +84,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "max-params": "error"
-    }
+  "rules": {
+    "max-params": "error"
+  }
 }
 ```
 

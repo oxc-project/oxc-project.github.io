@@ -47,10 +47,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "plugins": ["react-perf"],
-    "rules": {
-        "react-perf/jsx-no-jsx-as-prop": "error"
-    }
+  "plugins": ["react-perf"],
+  "rules": {
+    "react-perf/jsx-no-jsx-as-prop": "error"
+  }
 }
 ```
 

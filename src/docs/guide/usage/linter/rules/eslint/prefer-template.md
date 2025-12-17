@@ -27,7 +27,7 @@ Examples of **incorrect** code for this rule:
 
 ```js
 const str = "Hello, " + name + "!";
-const str1 = "Time: " + (12 * 60 * 60 * 1000);
+const str1 = "Time: " + 12 * 60 * 60 * 1000;
 ```
 
 Examples of **correct** code for this rule:
@@ -46,9 +46,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "prefer-template": "error"
-    }
+  "rules": {
+    "prefer-template": "error"
+  }
 }
 ```
 

@@ -55,9 +55,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "unicorn/no-useless-promise-resolve-reject": "error"
-    }
+  "rules": {
+    "unicorn/no-useless-promise-resolve-reject": "error"
+  }
 }
 ```
 

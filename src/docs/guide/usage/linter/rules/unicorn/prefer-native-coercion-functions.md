@@ -27,10 +27,10 @@ Wrapping the built-in in a function is moot.
 Examples of **incorrect** code for this rule:
 
 ```javascript
-const foo = v => String(v);
+const foo = (v) => String(v);
 foo(1);
-const foo = v => Number(v);
-array.some((v, ) => /* comment */ v)
+const foo = (v) => Number(v);
+array.some((v) => /* comment */ v);
 ```
 
 Examples of **correct** code for this rule:
@@ -49,9 +49,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "unicorn/prefer-native-coercion-functions": "error"
-    }
+  "rules": {
+    "unicorn/prefer-native-coercion-functions": "error"
+  }
 }
 ```
 

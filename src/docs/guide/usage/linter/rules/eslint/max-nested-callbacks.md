@@ -28,14 +28,14 @@ nesting callbacks excessively, making code harder to read and understand.
 Examples of **incorrect** code for this rule with the `{ "max": 3 }` option:
 
 ```js
-foo1(function() {
-    foo2(function() {
-        foo3(function() {
-            foo4(function() {
-                // ...
-            });
-        });
+foo1(function () {
+  foo2(function () {
+    foo3(function () {
+      foo4(function () {
+        // ...
+      });
     });
+  });
 });
 ```
 
@@ -45,19 +45,19 @@ Examples of **correct** code for this rule with the `{ "max": 3 }` option:
 foo1(handleFoo1);
 
 function handleFoo1() {
-    foo2(handleFoo2);
+  foo2(handleFoo2);
 }
 
 function handleFoo2() {
-    foo3(handleFoo3);
+  foo3(handleFoo3);
 }
 
 function handleFoo3() {
-    foo4(handleFoo4);
+  foo4(handleFoo4);
 }
 
 function handleFoo4() {
-    foo5();
+  foo5();
 }
 ```
 
@@ -81,9 +81,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "max-nested-callbacks": "error"
-    }
+  "rules": {
+    "max-nested-callbacks": "error"
+  }
 }
 ```
 

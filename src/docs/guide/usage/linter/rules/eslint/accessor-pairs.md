@@ -26,15 +26,15 @@ Examples of **incorrect** code for this rule:
 
 ```js
 var o = {
-    set a(value) {
-        this.val = value;
-    }
+  set a(value) {
+    this.val = value;
+  },
 };
 
 class C {
-    set a(value) {
-        this.val = value;
-    }
+  set a(value) {
+    this.val = value;
+  }
 }
 ```
 
@@ -42,21 +42,21 @@ Examples of **correct** code for this rule:
 
 ```js
 var o = {
-    set a(value) {
-        this.val = value;
-    },
-    get a() {
-        return this.val;
-    }
+  set a(value) {
+    this.val = value;
+  },
+  get a() {
+    return this.val;
+  },
 };
 
 class C {
-    set a(value) {
-        this.val = value;
-    }
-    get a() {
-        return this.val;
-    }
+  set a(value) {
+    this.val = value;
+  }
+  get a() {
+    return this.val;
+  }
 }
 ```
 
@@ -104,9 +104,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "accessor-pairs": "error"
-    }
+  "rules": {
+    "accessor-pairs": "error"
+  }
 }
 ```
 

@@ -64,7 +64,7 @@ interface Count {
   [key: string]: number;
 }
 
-const counts = ['a', 'b', 'a'].reduce<Count>((acc, item) => {
+const counts = ["a", "b", "a"].reduce<Count>((acc, item) => {
   acc[item] = (acc[item] || 0) + 1;
   return acc;
 }, {});
@@ -78,9 +78,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "typescript/prefer-reduce-type-parameter": "error"
-    }
+  "rules": {
+    "typescript/prefer-reduce-type-parameter": "error"
+  }
 }
 ```
 

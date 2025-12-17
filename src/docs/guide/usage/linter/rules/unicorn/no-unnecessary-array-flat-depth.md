@@ -26,13 +26,13 @@ Passing `1` is unnecessary.
 Examples of **incorrect** code for this rule:
 
 ```js
-foo.flat(1)
+foo.flat(1);
 ```
 
 Examples of **correct** code for this rule:
 
 ```js
-foo.flat()
+foo.flat();
 ```
 
 ## How to use
@@ -43,9 +43,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "unicorn/no-unnecessary-array-flat-depth": "error"
-    }
+  "rules": {
+    "unicorn/no-unnecessary-array-flat-depth": "error"
+  }
 }
 ```
 

@@ -29,15 +29,15 @@ The latter behavior does have one potentially surprising effect in that
 in certain cases TS can leave behind a "side effect" import at runtime:
 
 ```ts
-import { type A, type B } from 'mod';
+import { type A, type B } from "mod";
 ```
 
 is transpiled to
 
 ```ts
-import {} from 'mod';
+import {} from "mod";
 // which is the same as
-import 'mod';
+import "mod";
 ```
 
 For the rare case of needing to import for side effects, this may be
@@ -49,19 +49,19 @@ unnecessary side effect import.
 Examples of **incorrect** code for this rule:
 
 ```ts
-import { type A } from 'mod';
-import { type A as AA } from 'mod';
-import { type A, type B } from 'mod';
-import { type A as AA, type B as BB } from 'mod';
+import { type A } from "mod";
+import { type A as AA } from "mod";
+import { type A, type B } from "mod";
+import { type A as AA, type B as BB } from "mod";
 ```
 
 Examples of **correct** code for this rule:
 
 ```ts
-import type { A } from 'mod';
-import type { A as AA } from 'mod';
-import type { A, B } from 'mod';
-import type { A as AA, B as BB } from 'mod';
+import type { A } from "mod";
+import type { A as AA } from "mod";
+import type { A, B } from "mod";
+import type { A as AA, B as BB } from "mod";
 ```
 
 ## How to use
@@ -72,9 +72,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "typescript/no-import-type-side-effects": "error"
-    }
+  "rules": {
+    "typescript/no-import-type-side-effects": "error"
+  }
 }
 ```
 

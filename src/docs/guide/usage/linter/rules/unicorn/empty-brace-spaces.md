@@ -30,9 +30,8 @@ makes the code easier to understand and maintain.
 Examples of **incorrect** code for this rule:
 
 ```javascript
-const a = {  };
-class A {
-}
+const a = {};
+class A {}
 ```
 
 Examples of **correct** code for this rule:
@@ -50,9 +49,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "unicorn/empty-brace-spaces": "error"
-    }
+  "rules": {
+    "unicorn/empty-brace-spaces": "error"
+  }
 }
 ```
 

@@ -32,19 +32,19 @@ result of a `typeof` operator to other string literals.
 Examples of **incorrect** code for this rule:
 
 ```js
-typeof foo === "strnig"
-typeof foo == "undefimed"
-typeof bar != "nunber"     // spellchecker:disable-line
-typeof bar !== "fucntion"     // spellchecker:disable-line
+typeof foo === "strnig";
+typeof foo == "undefimed";
+typeof bar != "nunber"; // spellchecker:disable-line
+typeof bar !== "fucntion"; // spellchecker:disable-line
 ```
 
 Examples of **correct** code for this rule:
 
 ```js
-typeof foo === "string"
-typeof bar == "undefined"
-typeof foo === baz
-typeof bar === typeof qux
+typeof foo === "string";
+typeof bar == "undefined";
+typeof foo === baz;
+typeof bar === typeof qux;
 ```
 
 ## Configuration
@@ -64,21 +64,21 @@ comparisons to any other value. Default is `false`.
 With `requireStringLiterals` set to `true`, the following are examples of **incorrect** code:
 
 ```js
-typeof foo === undefined
-typeof bar == Object
-typeof baz === "strnig"
-typeof qux === "some invalid type"
-typeof baz === anotherVariable
-typeof foo == 5
+typeof foo === undefined;
+typeof bar == Object;
+typeof baz === "strnig";
+typeof qux === "some invalid type";
+typeof baz === anotherVariable;
+typeof foo == 5;
 ```
 
 With `requireStringLiterals` set to `true`, the following are examples of **correct** code:
 
 ```js
-typeof foo === "undefined"
-typeof bar == "object"
-typeof baz === "string"
-typeof bar === typeof qux
+typeof foo === "undefined";
+typeof bar == "object";
+typeof baz === "string";
+typeof bar === typeof qux;
 ```
 
 ## How to use
@@ -89,9 +89,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "valid-typeof": "error"
-    }
+  "rules": {
+    "valid-typeof": "error"
+  }
 }
 ```
 

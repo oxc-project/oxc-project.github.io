@@ -77,7 +77,7 @@ Examples of **correct** code for this rule with `{ allowInterfaces: 'with-single
 
 ```ts
 interface Base {
-value: boolean;
+  value: boolean;
 }
 interface Derived extends Base {}
 ```
@@ -123,9 +123,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "typescript/no-empty-object-type": "error"
-    }
+  "rules": {
+    "typescript/no-empty-object-type": "error"
+  }
 }
 ```
 

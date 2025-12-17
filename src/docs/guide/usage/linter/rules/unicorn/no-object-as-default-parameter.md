@@ -23,13 +23,13 @@ Default parameters should not be passed to a function through an object literal.
 Examples of **incorrect** code for this rule:
 
 ```javascript
-function foo(foo = {a: false}) {}
+function foo(foo = { a: false }) {}
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
-function foo({a = false} = {}) {}
+function foo({ a = false } = {}) {}
 ```
 
 ## How to use
@@ -40,9 +40,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "unicorn/no-object-as-default-parameter": "error"
-    }
+  "rules": {
+    "unicorn/no-object-as-default-parameter": "error"
+  }
 }
 ```
 

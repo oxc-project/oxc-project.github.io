@@ -351,14 +351,16 @@ we need to convert from `Expression`s to `BindingPattern`s when the `=>` token i
 But this approach does not work for TypeScript as each item inside the `()` can have TypeScript syntax, there are just too many cases to cover, for example:
 
 ```typescript
-<x>a, b as c, d!;
+(<x>a, b as c, d!);
 (a?: b = {} as c!) => {};
 ```
 
 It is recommended to study the TypeScript source code for this specific case. The relevant code are:
 
 ```typescript
-function tryParseParenthesizedArrowFunctionExpression(allowReturnTypeInArrowFunction: boolean): Expression | undefined {
+function tryParseParenthesizedArrowFunctionExpression(
+  allowReturnTypeInArrowFunction: boolean,
+): Expression | undefined {
   const triState = isParenthesizedArrowFunctionExpression();
   if (triState === Tristate.False) {
     // It's definitely not a parenthesized arrow function expression.
@@ -370,8 +372,13 @@ function tryParseParenthesizedArrowFunctionExpression(allowReturnTypeInArrowFunc
   // it out, but don't allow any ambiguity, and return 'undefined' if this could be an
   // expression instead.
   return triState === Tristate.True
-    ? parseParenthesizedArrowFunctionExpression(/*allowAmbiguity*/ true, /*allowReturnTypeInArrowFunction*/ true)
-    : tryParse(() => parsePossibleParenthesizedArrowFunctionExpression(allowReturnTypeInArrowFunction));
+    ? parseParenthesizedArrowFunctionExpression(
+        /*allowAmbiguity*/ true,
+        /*allowReturnTypeInArrowFunction*/ true,
+      )
+    : tryParse(() =>
+        parsePossibleParenthesizedArrowFunctionExpression(allowReturnTypeInArrowFunction),
+      );
 }
 
 //  True        -> We definitely expect a parenthesized arrow function here.
@@ -380,9 +387,9 @@ function tryParseParenthesizedArrowFunctionExpression(allowReturnTypeInArrowFunc
 //                 Speculatively look ahead to be sure, and rollback if not.
 function isParenthesizedArrowFunctionExpression(): Tristate {
   if (
-    token() === SyntaxKind.OpenParenToken
-    || token() === SyntaxKind.LessThanToken
-    || token() === SyntaxKind.AsyncKeyword
+    token() === SyntaxKind.OpenParenToken ||
+    token() === SyntaxKind.LessThanToken ||
+    token() === SyntaxKind.AsyncKeyword
   ) {
     return lookAhead(isParenthesizedArrowFunctionExpressionWorker);
   }

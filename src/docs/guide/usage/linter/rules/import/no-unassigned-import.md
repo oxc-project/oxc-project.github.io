@@ -31,20 +31,20 @@ Doing so can mean either of the following things:
 Examples of **incorrect** code for this rule:
 
 ```js
-import 'should'
-require('should')
+import "should";
+require("should");
 ```
 
 Examples of **correct** code for this rule:
 
 ```js
-import _ from 'foo'
-import _, {foo} from 'foo'
-import _, {foo as bar} from 'foo'
-const _ = require('foo')
-const {foo} = require('foo')
-const {foo: bar} = require('foo')
-bar(require('foo'))
+import _ from "foo";
+import _, { foo } from "foo";
+import _, { foo as bar } from "foo";
+const _ = require("foo");
+const { foo } = require("foo");
+const { foo: bar } = require("foo");
+bar(require("foo"));
 ```
 
 ## Configuration
@@ -69,10 +69,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "plugins": ["import"],
-    "rules": {
-        "import/no-unassigned-import": "error"
-    }
+  "plugins": ["import"],
+  "rules": {
+    "import/no-unassigned-import": "error"
+  }
 }
 ```
 

@@ -30,13 +30,13 @@ mistake in most cases.
 Examples of **incorrect** code for this rule:
 
 ```javascript
-class A { }
+class A {}
 A = 0;
 ```
 
 ```javascript
 A = 0;
-class A { }
+class A {}
 ```
 
 ```javascript
@@ -53,13 +53,13 @@ let A = class A {
     A = 0;
     // `let A` is shadowed by the class name.
   }
-}
+};
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
-let A = class A { }
+let A = class A {};
 A = 0; // A is a variable.
 ```
 
@@ -68,7 +68,7 @@ let A = class {
   b() {
     A = 0; // A is a variable.
   }
-}
+};
 ```
 
 ```javascript
@@ -87,9 +87,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "no-class-assign": "error"
-    }
+  "rules": {
+    "no-class-assign": "error"
+  }
 }
 ```
 

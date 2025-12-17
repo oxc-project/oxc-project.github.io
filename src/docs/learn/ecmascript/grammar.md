@@ -228,8 +228,9 @@ but in Annex B `#sec-functiondeclarations-in-ifstatement-statement-clauses`,
 it allows declaration inside the statement position of `if` statements in non-strict mode:
 
 ```javascript
-if (x) { function foo() {} }
-else function bar() {}
+if (x) {
+  function foo() {}
+} else function bar() {}
 ```
 
 ---
@@ -245,7 +246,7 @@ The following syntax is correct, it returns a labelled statement (not object lit
   bar={() => {
     baz: "quaz";
   }}
-/>;
+/>
 //   ^^^^^^^^^^^ `LabelledStatement`
 ```
 
@@ -722,5 +723,5 @@ and throw the syntax error if it does not reach `=` for `ObjectAssignmentPattern
 As an exercise, which one of the following `=` should throw a syntax error?
 
 ```javascript
-let { x = 1 } = { x = 1 } = { x: 1 };
+let { x = 1 } = ({ x = 1 } = { x: 1 });
 ```

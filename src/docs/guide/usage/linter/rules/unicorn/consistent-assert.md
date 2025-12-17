@@ -26,7 +26,7 @@ Inconsistent usage of the `assert` module can lead to confusion and errors.
 Examples of **incorrect** code for this rule:
 
 ```js
-import assert from 'node:assert';
+import assert from "node:assert";
 
 assert(divide(10, 2) === 5);
 ```
@@ -34,7 +34,7 @@ assert(divide(10, 2) === 5);
 Examples of **correct** code for this rule:
 
 ```js
-import assert from 'node:assert';
+import assert from "node:assert";
 
 assert.ok(divide(10, 2) === 5);
 ```
@@ -47,9 +47,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "unicorn/consistent-assert": "error"
-    }
+  "rules": {
+    "unicorn/consistent-assert": "error"
+  }
 }
 ```
 

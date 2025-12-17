@@ -24,21 +24,21 @@ specify Webpack loader configuration is in a [Webpack configuration file](https:
 Examples of **incorrect** code for this rule:
 
 ```javascript
-import myModule from 'my-loader!my-module';
-import theme from 'style!css!./theme.css';
+import myModule from "my-loader!my-module";
+import theme from "style!css!./theme.css";
 
-var myModule = require('my-loader!./my-module');
-var theme = require('style!css!./theme.css');
+var myModule = require("my-loader!./my-module");
+var theme = require("style!css!./theme.css");
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
-import myModule from './my-module';
-import theme from './theme.css';
+import myModule from "./my-module";
+import theme from "./theme.css";
 
-var myModule = require('./my-module');
-var theme = require('./theme.css');
+var myModule = require("./my-module");
+var theme = require("./theme.css");
 ```
 
 ## How to use
@@ -49,10 +49,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "plugins": ["import"],
-    "rules": {
-        "import/no-webpack-loader-syntax": "error"
-    }
+  "plugins": ["import"],
+  "rules": {
+    "import/no-webpack-loader-syntax": "error"
+  }
 }
 ```
 

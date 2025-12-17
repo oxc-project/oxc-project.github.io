@@ -26,13 +26,13 @@ The `dataset` property is a map of strings that contains all the `data-*` attrib
 Examples of **incorrect** code for this rule:
 
 ```javascript
-element.setAttribute('data-unicorn', '🦄');
+element.setAttribute("data-unicorn", "🦄");
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
-element.dataset.unicorn = '🦄';
+element.dataset.unicorn = "🦄";
 ```
 
 ## How to use
@@ -43,9 +43,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "unicorn/prefer-dom-node-dataset": "error"
-    }
+  "rules": {
+    "unicorn/prefer-dom-node-dataset": "error"
+  }
 }
 ```
 

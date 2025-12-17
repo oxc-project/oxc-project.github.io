@@ -35,7 +35,7 @@ function identity<T = string>(arg: T): T {
 }
 
 // Unnecessary type argument - string is the default
-const result = identity<string>('hello');
+const result = identity<string>("hello");
 
 interface Container<T = number> {
   value: T;
@@ -60,7 +60,7 @@ function identity<T = string>(arg: T): T {
 }
 
 // Using default type
-const result1 = identity('hello');
+const result1 = identity("hello");
 
 // Using different type
 const result2 = identity<number>(42);
@@ -73,7 +73,7 @@ interface Container<T = number> {
 const container1: Container = { value: 42 };
 
 // Using different type
-const container2: Container<string> = { value: 'hello' };
+const container2: Container<string> = { value: "hello" };
 ```
 
 ## How to use
@@ -84,9 +84,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "typescript/no-unnecessary-type-arguments": "error"
-    }
+  "rules": {
+    "typescript/no-unnecessary-type-arguments": "error"
+  }
 }
 ```
 

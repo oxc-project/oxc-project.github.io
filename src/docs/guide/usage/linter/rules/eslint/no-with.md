@@ -33,7 +33,7 @@ Examples of **incorrect** code for this rule:
 
 ```javascript
 with (point) {
-    r = Math.sqrt(x * x + y * y); // is r a member of point?
+  r = Math.sqrt(x * x + y * y); // is r a member of point?
 }
 ```
 
@@ -45,9 +45,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "no-with": "error"
-    }
+  "rules": {
+    "no-with": "error"
+  }
 }
 ```
 

@@ -29,15 +29,19 @@ Given
 
 ```javascript
 // ./bar.js
-export function bar() { return null }
-export default () => { return 1 }
+export function bar() {
+  return null;
+}
+export default () => {
+  return 1;
+};
 ```
 
 Examples of **incorrect** code for this rule:
 
 ```javascript
 // ./foo.js
-import foo from './bar'
+import foo from "./bar";
 const bar = foo.bar; // Incorrect: trying to access named export via default
 ```
 
@@ -45,7 +49,7 @@ Examples of **correct** code for this rule:
 
 ```javascript
 // ./foo.js
-import { bar } from './bar'; // Correct: accessing named export directly
+import { bar } from "./bar"; // Correct: accessing named export directly
 ```
 
 ## How to use
@@ -56,10 +60,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "plugins": ["import"],
-    "rules": {
-        "import/no-named-as-default-member": "error"
-    }
+  "plugins": ["import"],
+  "rules": {
+    "import/no-named-as-default-member": "error"
+  }
 }
 ```
 

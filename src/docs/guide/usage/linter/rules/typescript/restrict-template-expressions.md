@@ -70,16 +70,16 @@ const result3 = `Boolean: ${bool}`;
 
 // Explicit conversions for complex types
 const result4 = `Object: ${JSON.stringify(obj)}`;
-const result5 = `Array: ${arr.join(', ')}`;
+const result5 = `Array: ${arr.join(", ")}`;
 
 // Handle undefined/null explicitly
 declare const maybeValue: string | undefined;
-const result6 = `Value: ${maybeValue ?? 'N/A'}`;
-const result7 = `Value: ${maybeValue || 'default'}`;
+const result6 = `Value: ${maybeValue ?? "N/A"}`;
+const result7 = `Value: ${maybeValue || "default"}`;
 
 // Type guards for unknown values
 declare const unknown: unknown;
-const result8 = typeof unknown === 'string' ? `Value: ${unknown}` : 'Invalid';
+const result8 = typeof unknown === "string" ? `Value: ${unknown}` : "Invalid";
 ```
 
 ## Configuration
@@ -195,9 +195,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "typescript/restrict-template-expressions": "error"
-    }
+  "rules": {
+    "typescript/restrict-template-expressions": "error"
+  }
 }
 ```
 

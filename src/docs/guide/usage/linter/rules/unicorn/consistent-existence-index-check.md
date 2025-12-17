@@ -31,21 +31,25 @@ codebases.
 Examples of **incorrect** code for this rule:
 
 ```javascript
-const index = foo.indexOf('bar');
-if (index < 0) {}
+const index = foo.indexOf("bar");
+if (index < 0) {
+}
 
-const index = foo.indexOf('bar');
-if (index >= 0) {}
+const index = foo.indexOf("bar");
+if (index >= 0) {
+}
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
-const index = foo.indexOf('bar');
-if (index === -1) {}
+const index = foo.indexOf("bar");
+if (index === -1) {
+}
 
-const index = foo.indexOf('bar');
-if (index !== -1) {}
+const index = foo.indexOf("bar");
+if (index !== -1) {
+}
 ```
 
 ## How to use
@@ -56,9 +60,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "unicorn/consistent-existence-index-check": "error"
-    }
+  "rules": {
+    "unicorn/consistent-existence-index-check": "error"
+  }
 }
 ```
 

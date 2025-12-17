@@ -34,7 +34,7 @@ Examples of **incorrect** code for this rule:
 
 ```ts
 function test(only_used_in_recursion) {
-    return test(only_used_in_recursion);
+  return test(only_used_in_recursion);
 }
 ```
 
@@ -42,11 +42,11 @@ Examples of **correct** code for this rule:
 
 ```ts
 function f(a: number): number {
-   if (a == 0) {
-       return 1
-   } else {
-       return f(a - 1)
-   }
+  if (a == 0) {
+    return 1;
+  } else {
+    return f(a - 1);
+  }
 }
 ```
 
@@ -58,9 +58,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "oxc/only-used-in-recursion": "error"
-    }
+  "rules": {
+    "oxc/only-used-in-recursion": "error"
+  }
 }
 ```
 

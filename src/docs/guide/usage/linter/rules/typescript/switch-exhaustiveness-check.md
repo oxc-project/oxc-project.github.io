@@ -30,14 +30,14 @@ When switching on a union type, it's important to handle all possible cases to a
 Examples of **incorrect** code for this rule:
 
 ```ts
-type Status = 'pending' | 'approved' | 'rejected';
+type Status = "pending" | "approved" | "rejected";
 
 function handleStatus(status: Status) {
   switch (status) {
-    case 'pending':
-      return 'Waiting for approval';
-    case 'approved':
-      return 'Request approved';
+    case "pending":
+      return "Waiting for approval";
+    case "approved":
+      return "Request approved";
     // Missing 'rejected' case
   }
 }
@@ -51,9 +51,9 @@ enum Color {
 function getColorName(color: Color) {
   switch (color) {
     case Color.Red:
-      return 'red';
+      return "red";
     case Color.Green:
-      return 'green';
+      return "green";
     // Missing Color.Blue case
   }
 }
@@ -62,28 +62,28 @@ function getColorName(color: Color) {
 Examples of **correct** code for this rule:
 
 ```ts
-type Status = 'pending' | 'approved' | 'rejected';
+type Status = "pending" | "approved" | "rejected";
 
 function handleStatus(status: Status) {
   switch (status) {
-    case 'pending':
-      return 'Waiting for approval';
-    case 'approved':
-      return 'Request approved';
-    case 'rejected':
-      return 'Request rejected';
+    case "pending":
+      return "Waiting for approval";
+    case "approved":
+      return "Request approved";
+    case "rejected":
+      return "Request rejected";
   }
 }
 
 // Or with default case for exhaustiveness checking
 function handleStatusWithDefault(status: Status) {
   switch (status) {
-    case 'pending':
-      return 'Waiting for approval';
-    case 'approved':
-      return 'Request approved';
-    case 'rejected':
-      return 'Request rejected';
+    case "pending":
+      return "Waiting for approval";
+    case "approved":
+      return "Request approved";
+    case "rejected":
+      return "Request rejected";
     default:
       const _exhaustiveCheck: never = status;
       return _exhaustiveCheck;
@@ -99,11 +99,11 @@ enum Color {
 function getColorName(color: Color) {
   switch (color) {
     case Color.Red:
-      return 'red';
+      return "red";
     case Color.Green:
-      return 'green';
+      return "green";
     case Color.Blue:
-      return 'blue';
+      return "blue";
     default:
       const _exhaustiveCheck: never = color;
       return _exhaustiveCheck;
@@ -159,9 +159,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "typescript/switch-exhaustiveness-check": "error"
-    }
+  "rules": {
+    "typescript/switch-exhaustiveness-check": "error"
+  }
 }
 ```
 

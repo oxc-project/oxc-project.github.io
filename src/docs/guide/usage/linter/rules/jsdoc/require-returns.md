@@ -25,20 +25,26 @@ Examples of **incorrect** code for this rule:
 
 ```javascript
 /** Foo. */
-function quux () { return foo; }
+function quux() {
+  return foo;
+}
 
 /**
  * @returns Foo!
  * @returns Foo?
  */
-function quux () { return foo; }
+function quux() {
+  return foo;
+}
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
 /** @returns Foo. */
-function quux () { return foo; }
+function quux() {
+  return foo;
+}
 ```
 
 ## Configuration
@@ -93,10 +99,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "plugins": ["jsdoc"],
-    "rules": {
-        "jsdoc/require-returns": "error"
-    }
+  "plugins": ["jsdoc"],
+  "rules": {
+    "jsdoc/require-returns": "error"
+  }
 }
 ```
 

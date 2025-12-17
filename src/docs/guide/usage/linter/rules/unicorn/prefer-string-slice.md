@@ -26,13 +26,13 @@ Prefer [`String#slice()`](https://developer.mozilla.org/en-US/docs/Web/JavaScrip
 Examples of **incorrect** code for this rule:
 
 ```javascript
-"foo".substr(1, 2)
+"foo".substr(1, 2);
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
-"foo".slice(1, 2)
+"foo".slice(1, 2);
 ```
 
 ## How to use
@@ -43,9 +43,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "unicorn/prefer-string-slice": "error"
-    }
+  "rules": {
+    "unicorn/prefer-string-slice": "error"
+  }
 }
 ```
 

@@ -31,17 +31,17 @@ needed in test mocks when the source module changes.
 Examples of **incorrect** code for this rule:
 
 ```typescript
-jest.mock('../moduleName', () => {
-    return jest.fn(() => 42);
+jest.mock("../moduleName", () => {
+  return jest.fn(() => 42);
 });
 
-jest.mock('./module', () => ({
-    ...jest.requireActual('./module'),
-    foo: jest.fn(),
+jest.mock("./module", () => ({
+  ...jest.requireActual("./module"),
+  foo: jest.fn(),
 }));
 
-jest.mock('random-num', () => {
-    return jest.fn(() => 42);
+jest.mock("random-num", () => {
+  return jest.fn(() => 42);
 });
 ```
 
@@ -49,30 +49,30 @@ Examples of **correct** code for this rule:
 
 ```typescript
 // Uses typeof import()
-jest.mock<typeof import('../moduleName')>('../moduleName', () => {
-    return jest.fn(() => 42);
+jest.mock<typeof import("../moduleName")>("../moduleName", () => {
+  return jest.fn(() => 42);
 });
 
-jest.mock<typeof import('./module')>('./module', () => ({
-    ...jest.requireActual('./module'),
-    foo: jest.fn(),
+jest.mock<typeof import("./module")>("./module", () => ({
+  ...jest.requireActual("./module"),
+  foo: jest.fn(),
 }));
 
 // Uses custom type
-jest.mock<() => number>('random-num', () => {
-    return jest.fn(() => 42);
+jest.mock<() => number>("random-num", () => {
+  return jest.fn(() => 42);
 });
 
 // No factory
-jest.mock('random-num');
+jest.mock("random-num");
 
 // Virtual mock
 jest.mock(
-    '../moduleName',
-    () => {
-        return jest.fn(() => 42);
-    },
-    { virtual: true },
+  "../moduleName",
+  () => {
+    return jest.fn(() => 42);
+  },
+  { virtual: true },
 );
 ```
 
@@ -84,10 +84,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "plugins": ["jest"],
-    "rules": {
-        "jest/no-untyped-mock-factory": "error"
-    }
+  "plugins": ["jest"],
+  "rules": {
+    "jest/no-untyped-mock-factory": "error"
+  }
 }
 ```
 

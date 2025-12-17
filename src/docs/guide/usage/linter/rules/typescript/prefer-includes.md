@@ -34,28 +34,28 @@ Examples of **incorrect** code for this rule:
 
 ```ts
 // Using indexOf
-const str = 'hello world';
-if (str.indexOf('world') !== -1) {
-  console.log('found');
+const str = "hello world";
+if (str.indexOf("world") !== -1) {
+  console.log("found");
 }
 
-if (str.indexOf('world') != -1) {
-  console.log('found');
+if (str.indexOf("world") != -1) {
+  console.log("found");
 }
 
-if (str.indexOf('world') > -1) {
-  console.log('found');
+if (str.indexOf("world") > -1) {
+  console.log("found");
 }
 
 // Using regex test for simple strings
 if (/world/.test(str)) {
-  console.log('found');
+  console.log("found");
 }
 
 // Arrays
 const arr = [1, 2, 3];
 if (arr.indexOf(2) !== -1) {
-  console.log('found');
+  console.log("found");
 }
 ```
 
@@ -63,25 +63,25 @@ Examples of **correct** code for this rule:
 
 ```ts
 // Using includes for strings
-const str = 'hello world';
-if (str.includes('world')) {
-  console.log('found');
+const str = "hello world";
+if (str.includes("world")) {
+  console.log("found");
 }
 
 // Using includes for arrays
 const arr = [1, 2, 3];
 if (arr.includes(2)) {
-  console.log('found');
+  console.log("found");
 }
 
 // Complex regex patterns are allowed
 if (/wo+rld/.test(str)) {
-  console.log('found');
+  console.log("found");
 }
 
 // Regex with flags
 if (/world/i.test(str)) {
-  console.log('found');
+  console.log("found");
 }
 ```
 
@@ -93,9 +93,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "typescript/prefer-includes": "error"
-    }
+  "rules": {
+    "typescript/prefer-includes": "error"
+  }
 }
 ```
 

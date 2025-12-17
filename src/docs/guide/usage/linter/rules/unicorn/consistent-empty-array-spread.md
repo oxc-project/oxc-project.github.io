@@ -27,29 +27,17 @@ Having consistent types in both branches makes the code easier to read and under
 Examples of **incorrect** code for this rule:
 
 ```javascript
-const array = [
-   a,
-   ...(foo ? [b, c] : ''),
-];
+const array = [a, ...(foo ? [b, c] : "")];
 
-const array = [
-	a,
-	...(foo ? 'bc' : []),
-];
+const array = [a, ...(foo ? "bc" : [])];
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
-const array = [
-   a,
-   ...(foo ? [b, c] : []),
-];
+const array = [a, ...(foo ? [b, c] : [])];
 
-const array = [
-	a,
-	...(foo ? 'bc' : ''),
-];
+const array = [a, ...(foo ? "bc" : "")];
 ```
 
 ## How to use
@@ -60,9 +48,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "unicorn/consistent-empty-array-spread": "error"
-    }
+  "rules": {
+    "unicorn/consistent-empty-array-spread": "error"
+  }
 }
 ```
 

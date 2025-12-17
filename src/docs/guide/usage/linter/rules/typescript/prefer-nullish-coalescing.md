@@ -41,14 +41,14 @@ Examples of **incorrect** code for this rule:
 declare const x: string | null;
 
 // Using || when ?? would be more appropriate
-const foo = x || 'default';
+const foo = x || "default";
 
 // Ternary that could use ??
-const bar = x !== null && x !== undefined ? x : 'default';
-const baz = x != null ? x : 'default';
+const bar = x !== null && x !== undefined ? x : "default";
+const baz = x != null ? x : "default";
 
 // If statement that could use ??
-let value = 'default';
+let value = "default";
 if (x !== null && x !== undefined) {
   value = x;
 }
@@ -60,11 +60,11 @@ Examples of **correct** code for this rule:
 declare const x: string | null;
 
 // Using nullish coalescing
-const foo = x ?? 'default';
+const foo = x ?? "default";
 
 // || is fine when you want falsy behavior
 declare const y: string;
-const bar = y || 'default';
+const bar = y || "default";
 
 // Boolean coercion (can be ignored with ignoreBooleanCoercion)
 const bool = Boolean(x || y);
@@ -147,9 +147,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "typescript/prefer-nullish-coalescing": "error"
-    }
+  "rules": {
+    "typescript/prefer-nullish-coalescing": "error"
+  }
 }
 ```
 

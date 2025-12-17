@@ -31,7 +31,7 @@ class Foo extends React.PureComponent {
   }
 
   render() {
-    return <div>Radical!</div>
+    return <div>Radical!</div>;
   }
 }
 
@@ -42,9 +42,9 @@ function Bar() {
     }
 
     render() {
-      return <div>Groovy!</div>
+      return <div>Groovy!</div>;
     }
-  }
+  };
 }
 ```
 
@@ -57,7 +57,7 @@ class Foo extends React.Component {
   }
 
   render() {
-    return <div>Radical!</div>
+    return <div>Radical!</div>;
   }
 }
 
@@ -68,14 +68,14 @@ function Bar() {
     }
 
     render() {
-      return <div>Groovy!</div>
+      return <div>Groovy!</div>;
     }
-  }
+  };
 }
 
 class Qux extends React.PureComponent {
   render() {
-    return <div>Tubular!</div>
+    return <div>Tubular!</div>;
   }
 }
 ```
@@ -88,10 +88,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "plugins": ["react"],
-    "rules": {
-        "react/no-redundant-should-component-update": "error"
-    }
+  "plugins": ["react"],
+  "rules": {
+    "react/no-redundant-should-component-update": "error"
+  }
 }
 ```
 

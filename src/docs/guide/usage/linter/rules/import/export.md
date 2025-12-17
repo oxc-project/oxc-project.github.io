@@ -46,10 +46,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "plugins": ["import"],
-    "rules": {
-        "import/export": "error"
-    }
+  "plugins": ["import"],
+  "rules": {
+    "import/export": "error"
+  }
 }
 ```
 

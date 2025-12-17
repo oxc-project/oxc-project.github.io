@@ -28,14 +28,11 @@ Examples of **incorrect** code for this rule:
 import Head from "next/head";
 
 export default Test = () => {
-    return (
-        <Head>
-            <link
-                href="https://fonts.googleapis.com/css2?family=Krona+One"
-                rel="stylesheet"
-            />
-        </Head>
-    );
+  return (
+    <Head>
+      <link href="https://fonts.googleapis.com/css2?family=Krona+One" rel="stylesheet" />
+    </Head>
+  );
 };
 ```
 
@@ -45,14 +42,14 @@ Examples of **correct** code for this rule:
 import Head from "next/head";
 
 export default Test = () => {
-    return (
-        <Head>
-            <link
-                href="https://fonts.googleapis.com/css2?family=Krona+One&display=optional"
-                rel="stylesheet"
-            />
-        </Head>
-    );
+  return (
+    <Head>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Krona+One&display=optional"
+        rel="stylesheet"
+      />
+    </Head>
+  );
 };
 ```
 
@@ -64,10 +61,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "plugins": ["nextjs"],
-    "rules": {
-        "nextjs/google-font-display": "error"
-    }
+  "plugins": ["nextjs"],
+  "rules": {
+    "nextjs/google-font-display": "error"
+  }
 }
 ```
 

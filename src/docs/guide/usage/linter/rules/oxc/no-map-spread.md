@@ -34,9 +34,9 @@ re-allocation for a new object, plus `O(n)` memory copies.
 // each object in scores gets shallow-copied. Since `scores` is never
 // reused, spreading is inefficient.
 function getDisplayData() {
-    const scores: Array<{ username: string, score: number }> = getScores();
-    const displayData = scores.map(score => ({ ...score, rank: getRank(score) }));
-    return displayData
+  const scores: Array<{ username: string; score: number }> = getScores();
+  const displayData = scores.map((score) => ({ ...score, rank: getRank(score) }));
+  return displayData;
 }
 ```
 
@@ -46,9 +46,9 @@ better to use [`Object.assign`](https://developer.mozilla.org/en-US/docs/Web/Jav
 ```ts
 // `score` is mutated in place and is more performant.
 function getDisplayData() {
-    const scores: Array<{ username: string, score: number }> = getScores();
-    const displayData = scores.map(score => Object.assign(score, { rank: getRank(score) }));
-    return displayData
+  const scores: Array<{ username: string; score: number }> = getScores();
+  const displayData = scores.map((score) => Object.assign(score, { rank: getRank(score) }));
+  return displayData;
 }
 ```
 
@@ -63,15 +63,15 @@ Spreads on class instance properties are completely ignored:
 
 ```ts
 class AuthorsDb {
-    #authors = [];
-    public getAuthorsWithBooks() {
-        return this.#authors.map(author => ({
-            // protects against mutations, giving the callee their own
-            // deep(ish) copy of the author object.
-            ...author,
-            books: getBooks(author)
-        }));
-    }
+  #authors = [];
+  public getAuthorsWithBooks() {
+    return this.#authors.map((author) => ({
+      // protects against mutations, giving the callee their own
+      // deep(ish) copy of the author object.
+      ...author,
+      books: getBooks(author),
+    }));
+  }
 }
 ```
 
@@ -97,10 +97,10 @@ and `push` work only on arrays.
 
 ```ts
 let arr = [1, 2, 3];
-let set = new Set([4])
+let set = new Set([4]);
 
 let a = [...arr, ...set]; // [1, 2, 3, 4]
-let b = arr.concat(set);  // [1, 2, 3, Set(1)]
+let b = arr.concat(set); // [1, 2, 3, Set(1)]
 
 // Alternative that is more performant than spreading but still has the
 // same semantics. Unfortunately, it is more verbose.
@@ -120,7 +120,7 @@ does not fix arrays. Object spreads will get replaced with
 Object expressions with a single element (the spread) are not fixed.
 
 ```js
-arr.map(x => ({ ...x })) // not fixed
+arr.map((x) => ({ ...x })); // not fixed
 ```
 
 A `fix` is available (using `--fix`) for objects with "normal" elements before the
@@ -130,10 +130,10 @@ not be mutated. In effect, the spread semantics are preserved
 
 ```js
 // before
-arr.map(({ x, y }) => ({ x, ...y }))
+arr.map(({ x, y }) => ({ x, ...y }));
 
 // after
-arr.map(({ x, y }) => (Object.assign({ x }, y)))
+arr.map(({ x, y }) => Object.assign({ x }, y));
 ```
 
 A suggestion (using `--fix-suggestions`) is provided when a spread is
@@ -142,12 +142,12 @@ meaning it could have unintended side effects.
 
 ```js
 // before
-arr.map(({ x, y }) => ({ ...x, y }))
-arr.map(({ x, y }) => ({ ...x, y }))
+arr.map(({ x, y }) => ({ ...x, y }));
+arr.map(({ x, y }) => ({ ...x, y }));
 
 // after
-arr.map(({ x, y }) => (Object.assign(x, { y })))
-arr.map(({ x, y }) => (Object.assign(x, y)))
+arr.map(({ x, y }) => Object.assign(x, { y }));
+arr.map(({ x, y }) => Object.assign(x, y));
 ```
 
 ### Examples
@@ -156,35 +156,35 @@ Examples of **incorrect** code for this rule:
 
 ```js
 const arr = [{ a: 1 }, { a: 2 }, { a: 3 }];
-const arr2 = arr.map(obj => ({ ...obj, b: obj.a * 2 }));
+const arr2 = arr.map((obj) => ({ ...obj, b: obj.a * 2 }));
 ```
 
 Examples of **correct** code for this rule:
 
 ```ts
 const arr = [{ a: 1 }, { a: 2 }, { a: 3 }];
-arr.map(obj => Object.assign(obj, { b: obj.a * 2 }));
+arr.map((obj) => Object.assign(obj, { b: obj.a * 2 }));
 
 // instance properties are ignored
 class UsersDb {
   #users = [];
   public get users() {
     // clone users, providing caller with their own deep(ish) copy.
-    return this.#users.map(user => ({ ...user }));
+    return this.#users.map((user) => ({ ...user }));
   }
 }
 ```
 
 ```tsx
 function UsersTable({ users }) {
-  const usersWithRoles = users.map(user => ({ ...user, role: getRole(user) }));
+  const usersWithRoles = users.map((user) => ({ ...user, role: getRole(user) }));
 
   return (
     <table>
-      {usersWithRoles.map(user => (
+      {usersWithRoles.map((user) => (
         <tr>
-        <td>{user.name}</td>
-        <td>{user.role}</td>
+          <td>{user.name}</td>
+          <td>{user.role}</td>
         </tr>
       ))}
       <tfoot>
@@ -194,7 +194,7 @@ function UsersTable({ users }) {
         </tr>
       </tfoot>
     </table>
-  )
+  );
 }
 ```
 
@@ -226,8 +226,8 @@ Examples of **incorrect** code for this rule when `ignoreArgs` is `true`:
 ```ts
 /* "oxc/no-map-spread": ["error", { "ignoreArgs": true }] */
 function foo(arr) {
-let arr2 = arr.filter(x => x.a > 0);
-return arr2.map(x => ({ ...x }));
+  let arr2 = arr.filter((x) => x.a > 0);
+  return arr2.map((x) => ({ ...x }));
 }
 ```
 
@@ -236,7 +236,7 @@ Examples of **correct** code for this rule when `ignoreArgs` is `true`:
 ```ts
 /* "oxc/no-map-spread": ["error", { "ignoreArgs": true }] */
 function foo(arr) {
-return arr.map(x => ({ ...x }));
+  return arr.map((x) => ({ ...x }));
 }
 ```
 
@@ -259,9 +259,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "oxc/no-map-spread": "error"
-    }
+  "rules": {
+    "oxc/no-map-spread": "error"
+  }
 }
 ```
 

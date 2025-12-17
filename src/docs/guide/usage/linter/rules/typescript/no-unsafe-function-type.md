@@ -24,13 +24,13 @@ Examples of **incorrect** code for this rule:
 
 ```ts
 let noParametersOrReturn: Function;
- noParametersOrReturn = () => {};
+noParametersOrReturn = () => {};
 
- let stringToNumber: Function;
- stringToNumber = (text: string) => text.length;
+let stringToNumber: Function;
+stringToNumber = (text: string) => text.length;
 
- let identity: Function;
- identity = value => value;
+let identity: Function;
+identity = (value) => value;
 ```
 
 Examples of **correct** code for this rule:
@@ -40,10 +40,10 @@ let noParametersOrReturn: () => void;
 noParametersOrReturn = () => {};
 
 let stringToNumber: (text: string) => number;
-stringToNumber = text => text.length;
+stringToNumber = (text) => text.length;
 
 let identity: <T>(value: T) => T;
-identity = value => value;
+identity = (value) => value;
 ```
 
 ## How to use
@@ -54,9 +54,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "typescript/no-unsafe-function-type": "error"
-    }
+  "rules": {
+    "typescript/no-unsafe-function-type": "error"
+  }
 }
 ```
 

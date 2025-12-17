@@ -62,9 +62,12 @@ Examples of **incorrect** code for this rule:
 ```js
 /* eslint eqeqeq: "error" */
 
-if (x == 42) {}
-if ("" == text) {}
-if (obj.getStuff() != undefined) {}
+if (x == 42) {
+}
+if ("" == text) {
+}
+if (obj.getStuff() != undefined) {
+}
 ```
 
 Examples of **correct** code for this rule:
@@ -72,9 +75,12 @@ Examples of **correct** code for this rule:
 ```js
 /* eslint eqeqeq: "error" */
 
-if (x === 42) {}
-if ("" === text) {}
-if (obj.getStuff() !== undefined) {}
+if (x === 42) {
+}
+if ("" === text) {
+}
+if (obj.getStuff() !== undefined) {
+}
 ```
 
 #### `"smart"`
@@ -84,8 +90,10 @@ Examples of **incorrect** code for this rule with the `"smart"` option:
 ```js
 /* eslint eqeqeq: ["error", "smart"] */
 
-if (x == 42) {}
-if ("" == text) {}
+if (x == 42) {
+}
+if ("" == text) {
+}
 ```
 
 Examples of **correct** code for this rule with the `"smart"` option:
@@ -93,9 +101,12 @@ Examples of **correct** code for this rule with the `"smart"` option:
 ```js
 /* eslint eqeqeq: ["error", "smart"] */
 
-if (typeof foo == "undefined") {}
-if (foo == null) {}
-if (foo != null) {}
+if (typeof foo == "undefined") {
+}
+if (foo == null) {
+}
+if (foo != null) {
+}
 ```
 
 #### `{"null": "ignore"}` (with `"always"` first option)
@@ -104,16 +115,20 @@ Examples of **incorrect** code for this rule with the `{ "null": "ignore" }` opt
 
 ```js
 /* eslint eqeqeq: ["error", "always", { "null": "ignore" }] */
-if (x == 42) {}
-if ("" == text) {}
+if (x == 42) {
+}
+if ("" == text) {
+}
 ```
 
 Examples of **correct** code for this rule with the `{ "null": "ignore" }` option:
 
 ```js
 /* eslint eqeqeq: ["error", "always", { "null": "ignore" }] */
-if (foo == null) {}
-if (foo != null) {}
+if (foo == null) {
+}
+if (foo != null) {
+}
 ```
 
 #### `{"null": "always"}` (default - with `"always"` first option)
@@ -123,8 +138,10 @@ Examples of **incorrect** code for this rule with the `{ "null": "always" }` opt
 ```js
 /* eslint eqeqeq: ["error", "always", { "null": "always" }] */
 
-if (foo == null) {}
-if (foo != null) {}
+if (foo == null) {
+}
+if (foo != null) {
+}
 ```
 
 Examples of **correct** code for this rule with the `{ "null": "always" }` option:
@@ -132,8 +149,10 @@ Examples of **correct** code for this rule with the `{ "null": "always" }` optio
 ```js
 /* eslint eqeqeq: ["error", "always", { "null": "always" }] */
 
-if (foo === null) {}
-if (foo !== null) {}
+if (foo === null) {
+}
+if (foo !== null) {
+}
 ```
 
 #### `{"null": "never"}` (with `"always"` first option)
@@ -143,10 +162,14 @@ Examples of **incorrect** code for this rule with the `{ "null": "never" }` opti
 ```js
 /* eslint eqeqeq: ["error", "always", { "null": "never" }] */
 
-if (x == 42) {}
-if ("" == text) {}
-if (foo === null) {}
-if (foo !== null) {}
+if (x == 42) {
+}
+if ("" == text) {
+}
+if (foo === null) {
+}
+if (foo !== null) {
+}
 ```
 
 Examples of **correct** code for this rule with the `{ "null": "never" }` option:
@@ -154,10 +177,14 @@ Examples of **correct** code for this rule with the `{ "null": "never" }` option
 ```js
 /* eslint eqeqeq: ["error", "always", { "null": "never" }] */
 
-if (x === 42) {}
-if ("" === text) {}
-if (foo == null) {}
-if (foo != null) {}
+if (x === 42) {
+}
+if ("" === text) {
+}
+if (foo == null) {
+}
+if (foo != null) {
+}
 ```
 
 ## Configuration
@@ -180,9 +207,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "eqeqeq": "error"
-    }
+  "rules": {
+    "eqeqeq": "error"
+  }
 }
 ```
 

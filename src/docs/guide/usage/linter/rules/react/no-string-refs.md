@@ -24,19 +24,19 @@ Examples of **incorrect** code for this rule:
 
 ```jsx
 var Hello = createReactClass({
-  render: function() {
+  render: function () {
     return <div ref="hello">Hello, world.</div>;
-  }
+  },
 });
 
 var Hello = createReactClass({
-  componentDidMount: function() {
+  componentDidMount: function () {
     var component = this.refs.hello;
     // ...do something with component
   },
-  render: function() {
+  render: function () {
     return <div ref="hello">Hello, world.</div>;
-  }
+  },
 });
 ```
 
@@ -44,13 +44,21 @@ Examples of **correct** code for this rule:
 
 ```jsx
 var Hello = createReactClass({
-  componentDidMount: function() {
+  componentDidMount: function () {
     var component = this.hello;
     // ...do something with component
   },
   render() {
-    return <div ref={(c) => { this.hello = c; }}>Hello, world.</div>;
-  }
+    return (
+      <div
+        ref={(c) => {
+          this.hello = c;
+        }}
+      >
+        Hello, world.
+      </div>
+    );
+  },
 });
 ```
 
@@ -74,10 +82,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "plugins": ["react"],
-    "rules": {
-        "react/no-string-refs": "error"
-    }
+  "plugins": ["react"],
+  "rules": {
+    "react/no-string-refs": "error"
+  }
 }
 ```
 

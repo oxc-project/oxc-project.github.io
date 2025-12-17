@@ -27,28 +27,28 @@ The `keyCode`, `which`, and `charCode` properties are deprecated and should be a
 Examples of **incorrect** code for this rule:
 
 ```js
-window.addEventListener('keydown', event => {
-	if (event.keyCode === 8) {
-		console.log('Backspace was pressed');
-	}
+window.addEventListener("keydown", (event) => {
+  if (event.keyCode === 8) {
+    console.log("Backspace was pressed");
+  }
 });
 
-window.addEventListener('keydown', event => {
-	console.log(event.keyCode);
+window.addEventListener("keydown", (event) => {
+  console.log(event.keyCode);
 });
 ```
 
 Examples of **correct** code for this rule:
 
 ```js
-window.addEventListener('keydown', event => {
-    if (event.key === 'Backspace') {
-    	console.log('Backspace was pressed');
-    }
+window.addEventListener("keydown", (event) => {
+  if (event.key === "Backspace") {
+    console.log("Backspace was pressed");
+  }
 });
 
-window.addEventListener('click', event => {
-	console.log(event.key);
+window.addEventListener("click", (event) => {
+  console.log(event.key);
 });
 ```
 
@@ -60,9 +60,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "unicorn/prefer-keyboard-event-key": "error"
-    }
+  "rules": {
+    "unicorn/prefer-keyboard-event-key": "error"
+  }
 }
 ```
 

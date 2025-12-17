@@ -24,13 +24,13 @@ is not always the case this can be confusing.
 Examples of **incorrect** code for this rule:
 
 ```js
-var appHeader = new require('app-header');
+var appHeader = new require("app-header");
 ```
 
 Examples of **correct** code for this rule:
 
 ```js
-var AppHeader = require('app-header');
+var AppHeader = require("app-header");
 var appHeader = new AppHeader();
 ```
 
@@ -42,10 +42,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "plugins": ["node"],
-    "rules": {
-        "node/no-new-require": "error"
-    }
+  "plugins": ["node"],
+  "rules": {
+    "node/no-new-require": "error"
+  }
 }
 ```
 

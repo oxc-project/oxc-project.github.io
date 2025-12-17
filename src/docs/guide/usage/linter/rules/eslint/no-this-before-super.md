@@ -31,11 +31,11 @@ Examples of **incorrect** code for this rule:
 
 ```javascript
 class A1 extends B {
-    constructor() {
-        // super() needs to be called first
-        this.a = 0;
-        super();
-    }
+  constructor() {
+    // super() needs to be called first
+    this.a = 0;
+    super();
+  }
 }
 ```
 
@@ -47,9 +47,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "no-this-before-super": "error"
-    }
+  "rules": {
+    "no-this-before-super": "error"
+  }
 }
 ```
 

@@ -26,11 +26,11 @@ Examples of **incorrect** code for this rule:
 
 ```vue
 <script setup lang="ts">
-  const props = defineProps(['foo']);
-  const propsWithDefaults = withDefaults(defineProps(['foo']), { foo: 'default' });
-  const { baz } = withDefaults(defineProps(['baz']), { baz: 'default' });
-  const props = defineProps<{ foo?: string }>()
-  const propsWithDefaults = withDefaults(defineProps<{ foo?: string }>(), { foo: 'default' })
+const props = defineProps(["foo"]);
+const propsWithDefaults = withDefaults(defineProps(["foo"]), { foo: "default" });
+const { baz } = withDefaults(defineProps(["baz"]), { baz: "default" });
+const props = defineProps<{ foo?: string }>();
+const propsWithDefaults = withDefaults(defineProps<{ foo?: string }>(), { foo: "default" });
 </script>
 ```
 
@@ -38,10 +38,10 @@ Examples of **correct** code for this rule:
 
 ```vue
 <script setup lang="ts">
-  const { foo } = defineProps(['foo'])
-  const { bar = 'default' } = defineProps(['bar'])
-  const { foo } = defineProps<{ foo?: string }>()
-  const { bar = 'default' } = defineProps<{ bar?: string }>()
+const { foo } = defineProps(["foo"]);
+const { bar = "default" } = defineProps(["bar"]);
+const { foo } = defineProps<{ foo?: string }>();
+const { bar = "default" } = defineProps<{ bar?: string }>();
 </script>
 ```
 
@@ -73,10 +73,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "plugins": ["vue"],
-    "rules": {
-        "vue/define-props-destructuring": "error"
-    }
+  "plugins": ["vue"],
+  "rules": {
+    "vue/define-props-destructuring": "error"
+  }
 }
 ```
 

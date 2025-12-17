@@ -31,13 +31,13 @@ for more information.
 Examples of **incorrect** code for this rule:
 
 ```javascript
-var num = parseInt("071");      // 57
+var num = parseInt("071"); // 57
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
-var num = parseInt("071", 10);  // 71
+var num = parseInt("071", 10); // 71
 ```
 
 ## Configuration
@@ -60,9 +60,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "radix": "error"
-    }
+  "rules": {
+    "radix": "error"
+  }
 }
 ```
 

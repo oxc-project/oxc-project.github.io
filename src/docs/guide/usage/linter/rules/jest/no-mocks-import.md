@@ -27,15 +27,15 @@ inconsistencies between test and production environments.
 Examples of **incorrect** code for this rule:
 
 ```ts
-import thing from './__mocks__/index';
-require('./__mocks__/index');
+import thing from "./__mocks__/index";
+require("./__mocks__/index");
 ```
 
 Examples of **correct** code for this rule:
 
 ```ts
-import thing from 'thing';
-require('thing');
+import thing from "thing";
+require("thing");
 ```
 
 This rule is compatible with [eslint-plugin-vitest](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/no-mocks-import.md),
@@ -44,7 +44,7 @@ to use it, add the following configuration to your `.oxlintrc.json`:
 ```json
 {
   "rules": {
-     "vitest/no-mocks-import": "error"
+    "vitest/no-mocks-import": "error"
   }
 }
 ```
@@ -57,10 +57,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "plugins": ["jest"],
-    "rules": {
-        "jest/no-mocks-import": "error"
-    }
+  "plugins": ["jest"],
+  "rules": {
+    "jest/no-mocks-import": "error"
+  }
 }
 ```
 

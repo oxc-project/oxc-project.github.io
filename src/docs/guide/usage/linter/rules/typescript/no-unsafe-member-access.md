@@ -36,7 +36,7 @@ anyValue.foo; // unsafe member access
 
 anyValue.bar.baz; // unsafe nested member access
 
-anyValue['key']; // unsafe computed member access
+anyValue["key"]; // unsafe computed member access
 
 const result = anyValue.method(); // unsafe method access
 ```
@@ -51,10 +51,10 @@ obj.foo; // safe
 
 obj.bar.baz; // safe
 
-obj['foo']; // safe
+obj["foo"]; // safe
 
 // Type guard for unknown
-if (typeof unknownValue === 'object' && unknownValue !== null && 'foo' in unknownValue) {
+if (typeof unknownValue === "object" && unknownValue !== null && "foo" in unknownValue) {
   console.log(unknownValue.foo); // safe after type guard
 }
 
@@ -70,9 +70,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "typescript/no-unsafe-member-access": "error"
-    }
+  "rules": {
+    "typescript/no-unsafe-member-access": "error"
+  }
 }
 ```
 

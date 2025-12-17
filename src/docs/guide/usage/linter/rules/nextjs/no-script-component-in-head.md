@@ -24,8 +24,8 @@ Instead move the `<Script />` component outside of `<Head>` instead.
 Examples of **incorrect** code for this rule:
 
 ```jsx
-import Script from 'next/script'
-import Head from 'next/head'
+import Script from "next/script";
+import Head from "next/head";
 
 export default function Index() {
   return (
@@ -33,15 +33,15 @@ export default function Index() {
       <title>Next.js</title>
       <Script src="/my-script.js" />
     </Head>
-  )
+  );
 }
 ```
 
 Examples of **correct** code for this rule:
 
 ```jsx
-import Script from 'next/script'
-import Head from 'next/head'
+import Script from "next/script";
+import Head from "next/head";
 
 export default function Index() {
   return (
@@ -51,7 +51,7 @@ export default function Index() {
       </Head>
       <Script src="/my-script.js" />
     </>
-  )
+  );
 }
 ```
 
@@ -63,10 +63,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "plugins": ["nextjs"],
-    "rules": {
-        "nextjs/no-script-component-in-head": "error"
-    }
+  "plugins": ["nextjs"],
+  "rules": {
+    "nextjs/no-script-component-in-head": "error"
+  }
 }
 ```
 

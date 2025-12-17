@@ -26,15 +26,15 @@ code clarity and helps developers quickly identify issues.
 Examples of **incorrect** code for this rule:
 
 ```javascript
-throw Error()
-throw new TypeError()
+throw Error();
+throw new TypeError();
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
-throw new Error('Unexpected token')
-throw new TypeError('Number expected')
+throw new Error("Unexpected token");
+throw new TypeError("Number expected");
 ```
 
 ## How to use
@@ -45,9 +45,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "unicorn/error-message": "error"
-    }
+  "rules": {
+    "unicorn/error-message": "error"
+  }
 }
 ```
 

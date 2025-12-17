@@ -25,14 +25,14 @@ Examples of **incorrect** code for this rule:
 
 ```javascript
 /** @param foo */
-function quux (foo, bar) {}
+function quux(foo, bar) {}
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
 /** @param foo */
-function quux (foo) {}
+function quux(foo) {}
 ```
 
 ## Configuration
@@ -114,10 +114,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "plugins": ["jsdoc"],
-    "rules": {
-        "jsdoc/require-param": "error"
-    }
+  "plugins": ["jsdoc"],
+  "rules": {
+    "jsdoc/require-param": "error"
+  }
 }
 ```
 

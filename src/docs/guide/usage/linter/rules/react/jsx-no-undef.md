@@ -23,8 +23,8 @@ It is most likely a potential ReferenceError caused by a misspelling of a variab
 Examples of **incorrect** code for this rule:
 
 ```jsx
-const A = () => <App />
-const C = <B />
+const A = () => <App />;
+const C = <B />;
 ```
 
 ## How to use
@@ -35,10 +35,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "plugins": ["react"],
-    "rules": {
-        "react/jsx-no-undef": "error"
-    }
+  "plugins": ["react"],
+  "rules": {
+    "react/jsx-no-undef": "error"
+  }
 }
 ```
 

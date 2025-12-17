@@ -29,9 +29,9 @@ Examples of **incorrect** code for this rule:
 
 ```js
 for (var i = 0; i < 10; i++) {
-    funcs[i] = function() {
-        return i;
-    };
+  funcs[i] = function () {
+    return i;
+  };
 }
 ```
 
@@ -39,9 +39,9 @@ Examples of **correct** code for this rule:
 
 ```js
 for (let i = 0; i < 10; i++) {
-    funcs[i] = function() {
-        return i;
-    };
+  funcs[i] = function () {
+    return i;
+  };
 }
 ```
 
@@ -53,9 +53,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "no-loop-func": "error"
-    }
+  "rules": {
+    "no-loop-func": "error"
+  }
 }
 ```
 

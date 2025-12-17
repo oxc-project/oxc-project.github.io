@@ -49,27 +49,27 @@ Examples of **incorrect** code for this rule:
 
 ```ts
 class StaticConstants {
-	static readonly version = 42;
+  static readonly version = 42;
 
-	static isProduction() {
-	  return process.env.NODE_ENV === 'production';
-	}
+  static isProduction() {
+    return process.env.NODE_ENV === "production";
   }
+}
 
-  class HelloWorldLogger {
-	constructor() {
-	  console.log('Hello, world!');
-	}
+class HelloWorldLogger {
+  constructor() {
+    console.log("Hello, world!");
   }
+}
 
-  abstract class Foo {}
+abstract class Foo {}
 ```
 
 Examples of **correct** code for this rule:
 
 ```ts
 const version = 42;
-const isProduction = () => process.env.NODE_ENV === 'production';
+const isProduction = () => process.env.NODE_ENV === "production";
 ```
 
 ## Configuration
@@ -116,9 +116,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "typescript/no-extraneous-class": "error"
-    }
+  "rules": {
+    "typescript/no-extraneous-class": "error"
+  }
 }
 ```
 

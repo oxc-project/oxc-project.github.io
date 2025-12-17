@@ -43,7 +43,7 @@ if (condition) {
   if (anotherCondition) {
     // ...
   } else {
-      // ...
+    // ...
   }
 }
 ```
@@ -87,9 +87,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "no-lonely-if": "error"
-    }
+  "rules": {
+    "no-lonely-if": "error"
+  }
 }
 ```
 

@@ -31,18 +31,22 @@ Examples of **incorrect** code for this rule:
 
 ```javascript
 class A {
-  foo() { console.log("foo") }
+  foo() {
+    console.log("foo");
+  }
   foo = 123;
 }
 let a = new A();
-a.foo() // Uncaught TypeError: a.foo is not a function
+a.foo(); // Uncaught TypeError: a.foo is not a function
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
 class A {
-  foo() { console.log("foo") }
+  foo() {
+    console.log("foo");
+  }
 }
 let a = new A();
 a.foo();
@@ -56,9 +60,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "no-dupe-class-members": "error"
-    }
+  "rules": {
+    "no-dupe-class-members": "error"
+  }
 }
 ```
 

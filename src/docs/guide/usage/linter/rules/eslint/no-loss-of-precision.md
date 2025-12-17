@@ -49,7 +49,7 @@ var x = 1230000000000000000000000.0;
 ```
 
 ```javascript
-var x = 0X200000_0000000_1;
+var x = 0x200000_0000000_1;
 ```
 
 Examples of **correct** code for this rule:
@@ -63,7 +63,7 @@ var x = 123.456;
 ```
 
 ```javascript
-var x = 123.0000000000000000000000;
+var x = 123.0;
 ```
 
 ```javascript
@@ -71,7 +71,7 @@ var x = 123e34;
 ```
 
 ```javascript
-var x = 0x1FFF_FFFF_FFF_FFF;
+var x = 0x1fff_ffff_fff_fff;
 ```
 
 ## How to use
@@ -82,9 +82,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "no-loss-of-precision": "error"
-    }
+  "rules": {
+    "no-loss-of-precision": "error"
+  }
 }
 ```
 

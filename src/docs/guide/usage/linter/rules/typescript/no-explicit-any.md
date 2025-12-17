@@ -32,9 +32,9 @@ annotation.
 Examples of **incorrect** code for this rule:
 
 ```typescript
-const age: any = 'seventeen';
-const ages: any[] = ['seventeen']
-const ages: Array<any> = ['seventeen'];
+const age: any = "seventeen";
+const ages: any[] = ["seventeen"];
+const ages: Array<any> = ["seventeen"];
 function greet(): any {}
 function greet(): any[] {}
 function greet(): Array<any> {}
@@ -85,9 +85,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "typescript/no-explicit-any": "error"
-    }
+  "rules": {
+    "typescript/no-explicit-any": "error"
+  }
 }
 ```
 

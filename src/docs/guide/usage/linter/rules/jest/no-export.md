@@ -26,7 +26,7 @@ Examples of **incorrect** code for this rule:
 
 ```javascript
 export function myHelper() {}
-describe('a test', () => {
+describe("a test", () => {
   expect(1).toBe(1);
 });
 ```
@@ -39,10 +39,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "plugins": ["jest"],
-    "rules": {
-        "jest/no-export": "error"
-    }
+  "plugins": ["jest"],
+  "rules": {
+    "jest/no-export": "error"
+  }
 }
 ```
 

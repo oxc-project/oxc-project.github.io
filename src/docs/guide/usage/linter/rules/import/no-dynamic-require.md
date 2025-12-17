@@ -34,7 +34,7 @@ require(`../${name}`);
 Examples of **correct** code for this rule:
 
 ```javascript
-require('../name');
+require("../name");
 require(`../name`);
 ```
 
@@ -58,10 +58,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "plugins": ["import"],
-    "rules": {
-        "import/no-dynamic-require": "error"
-    }
+  "plugins": ["import"],
+  "rules": {
+    "import/no-dynamic-require": "error"
+  }
 }
 ```
 

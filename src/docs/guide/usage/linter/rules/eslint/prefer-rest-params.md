@@ -25,17 +25,17 @@ Examples of **incorrect** code for this rule:
 
 ```javascript
 function foo() {
-    console.log(arguments);
+  console.log(arguments);
 }
 
 function foo(action) {
-    var args = Array.prototype.slice.call(arguments, 1);
-    action.apply(null, args);
+  var args = Array.prototype.slice.call(arguments, 1);
+  action.apply(null, args);
 }
 
 function foo(action) {
-    var args = [].slice.call(arguments, 1);
-    action.apply(null, args);
+  var args = [].slice.call(arguments, 1);
+  action.apply(null, args);
 }
 ```
 
@@ -43,20 +43,20 @@ Examples of **correct** code for this rule:
 
 ```javascript
 function foo(...args) {
-    console.log(args);
+  console.log(args);
 }
 
 function foo(action, ...args) {
-    action.apply(null, args); // Or use `action(...args)` (related to `prefer-spread` rule).
+  action.apply(null, args); // Or use `action(...args)` (related to `prefer-spread` rule).
 }
 
 // Note: Implicit `arguments` can be shadowed.
 function foo(arguments) {
-    console.log(arguments); // This refers to the first argument.
+  console.log(arguments); // This refers to the first argument.
 }
 function foo() {
-    var arguments = 0;
-    console.log(arguments); // This is a local variable.
+  var arguments = 0;
+  console.log(arguments); // This is a local variable.
 }
 ```
 
@@ -68,9 +68,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "prefer-rest-params": "error"
-    }
+  "rules": {
+    "prefer-rest-params": "error"
+  }
 }
 ```
 

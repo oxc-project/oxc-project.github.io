@@ -25,9 +25,9 @@ Examples of **incorrect** code for this rule:
 ```javascript
 const foo = this;
 class Bar {
-	method() {
-		foo.baz();
-	}
+  method() {
+    foo.baz();
+  }
 }
 
 new Bar().method();
@@ -37,12 +37,12 @@ Examples of **correct** code for this rule:
 
 ```javascript
 class Bar {
-	constructor(fooInstance) {
-		this.fooInstance = fooInstance;
-	}
-	method() {
-		this.fooInstance.baz();
-	}
+  constructor(fooInstance) {
+    this.fooInstance = fooInstance;
+  }
+  method() {
+    this.fooInstance.baz();
+  }
 }
 
 new Bar(this).method();
@@ -56,9 +56,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "unicorn/no-this-assignment": "error"
-    }
+  "rules": {
+    "unicorn/no-this-assignment": "error"
+  }
 }
 ```
 

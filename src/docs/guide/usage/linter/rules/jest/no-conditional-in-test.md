@@ -23,30 +23,28 @@ Conditional statements in tests can make the test harder to read and understand.
 Examples of **incorrect** code for this rule:
 
 ```js
-it('foo', () => {
+it("foo", () => {
   if (true) {
-	doTheThing();
+    doTheThing();
   }
 });
 
-it('bar', () => {
+it("bar", () => {
   switch (mode) {
-    case 'none':
+    case "none":
       generateNone();
-    case 'single':
+    case "single":
       generateOne();
-    case 'multiple':
+    case "multiple":
       generateMany();
   }
 
   expect(fixtures.length).toBeGreaterThan(-1);
 });
 
-it('baz', async () => {
+it("baz", async () => {
   const promiseValue = () => {
-    return something instanceof Promise
-      ? something
-      : Promise.resolve(something);
+    return something instanceof Promise ? something : Promise.resolve(something);
   };
 
   await expect(promiseValue()).resolves.toBe(1);
@@ -56,9 +54,9 @@ it('baz', async () => {
 Examples of **correct** code for this rule:
 
 ```js
-describe('my tests', () => {
+describe("my tests", () => {
   if (true) {
-    it('foo', () => {
+    it("foo", () => {
       doTheThing();
     });
   }
@@ -66,24 +64,24 @@ describe('my tests', () => {
 
 beforeEach(() => {
   switch (mode) {
-    case 'none':
+    case "none":
       generateNone();
-    case 'single':
+    case "single":
       generateOne();
-    case 'multiple':
+    case "multiple":
       generateMany();
   }
 });
 
-it('bar', () => {
+it("bar", () => {
   expect(fixtures.length).toBeGreaterThan(-1);
 });
 
-const promiseValue = something => {
+const promiseValue = (something) => {
   return something instanceof Promise ? something : Promise.resolve(something);
 };
 
-it('baz', async () => {
+it("baz", async () => {
   await expect(promiseValue()).resolves.toBe(1);
 });
 ```
@@ -94,7 +92,7 @@ to use it, add the following configuration to your `.oxlintrc.json`:
 ```json
 {
   "rules": {
-     "vitest/no-conditional-in-test": "error"
+    "vitest/no-conditional-in-test": "error"
   }
 }
 ```
@@ -107,10 +105,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "plugins": ["jest"],
-    "rules": {
-        "jest/no-conditional-in-test": "error"
-    }
+  "plugins": ["jest"],
+  "rules": {
+    "jest/no-conditional-in-test": "error"
+  }
 }
 ```
 

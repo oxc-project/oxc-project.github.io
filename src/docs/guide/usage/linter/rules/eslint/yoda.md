@@ -31,7 +31,7 @@ This is called a Yoda condition because it reads as, "if red equals the color", 
 
 ```js
 if (color === "red") {
-    // ...
+  // ...
 }
 ```
 
@@ -56,23 +56,21 @@ Examples of **incorrect** code for the default `"never"` option:
 
 ```js
 if ("red" === color) {
-    // ...
+  // ...
 }
 if (`red` === color) {
-     // ...
+  // ...
 }
 if (`red` === `${color}`) {
-    // ...
+  // ...
 }
 
 if (true == flag) {
-   // ...
+  // ...
 }
 
-
-
 if (0 <= x && x < 1) {
-    // ...
+  // ...
 }
 ```
 
@@ -80,19 +78,18 @@ Examples of **correct** code for the default `"never"` option:
 
 ```js
 if (5 & value) {
-    // ...
+  // ...
 }
 
 if (value === "red") {
-    // ...
+  // ...
 }
 
 if (value === `red`) {
-    // ...
+  // ...
 }
 
 if (`${value}` === `red`) {
-
 }
 ```
 
@@ -102,23 +99,23 @@ Examples of **correct** code for the `"never", { "exceptRange": true }` options:
 
 ```js
 function isReddish(color) {
-    return (color.hue < 60 || 300 < color.hue);
+  return color.hue < 60 || 300 < color.hue;
 }
 
 if (x < -1 || 1 < x) {
-    // ...
+  // ...
 }
 
-if (count < 10 && (0 <= rand && rand < 1)) {
-    // ...
+if (count < 10 && 0 <= rand && rand < 1) {
+  // ...
 }
 
 if (`blue` < x && x < `green`) {
-    // ...
+  // ...
 }
 
 function howLong(arr) {
-    return (0 <= arr.length && arr.length < 10) ? "short" : "long";
+  return 0 <= arr.length && arr.length < 10 ? "short" : "long";
 }
 ```
 
@@ -130,7 +127,7 @@ Examples of **correct** code for the `"never", { "onlyEquality": true }` options
 if (x < -1 || 9 < x) {
 }
 
-if (x !== 'foo' && 'bar' != x) {
+if (x !== "foo" && "bar" != x) {
 }
 
 if (x !== `foo` && `bar` != x) {
@@ -143,11 +140,11 @@ Examples of **incorrect** code for the `"always"` option:
 
 ```js
 if (color == "blue") {
-    // ...
+  // ...
 }
 
 if (color == `blue`) {
-    // ...
+  // ...
 }
 ```
 
@@ -155,19 +152,19 @@ Examples of **correct** code for the `"always"` option:
 
 ```js
 if ("blue" == value) {
-    // ...
+  // ...
 }
 
 if (`blue` == value) {
-    // ...
+  // ...
 }
 
 if (`blue` == `${value}`) {
-    // ...
+  // ...
 }
 
 if (-1 < str.indexOf(substr)) {
-    // ...
+  // ...
 }
 ```
 
@@ -179,9 +176,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "yoda": "error"
-    }
+  "rules": {
+    "yoda": "error"
+  }
 }
 ```
 

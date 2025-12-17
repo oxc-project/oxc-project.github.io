@@ -26,8 +26,8 @@ can change the semantics of source code. For example, these two code blocks are 
 var i = 10;
 var j = 20;
 
-i ++
-j
+i++;
+j;
 // => i = 11, j = 20
 ```
 
@@ -35,9 +35,8 @@ j
 var i = 10;
 var j = 20;
 
-i
-++
-j
+i;
+++j;
 // => i = 10, j = 21
 ```
 
@@ -46,20 +45,24 @@ j
 Examples of **incorrect** code for this rule:
 
 ```js
-var x = 0; x++;
-var y = 0; y--;
+var x = 0;
+x++;
+var y = 0;
+y--;
 for (let i = 0; i < l; i++) {
-    doSomething(i);
+  doSomething(i);
 }
 ```
 
 Examples of **correct** code for this rule:
 
 ```js
-var x = 0; x += 1;
-var y = 0; y -= 1;
+var x = 0;
+x += 1;
+var y = 0;
+y -= 1;
 for (let i = 0; i < l; i += 1) {
-   doSomething(i);
+  doSomething(i);
 }
 ```
 
@@ -83,9 +86,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "no-plusplus": "error"
-    }
+  "rules": {
+    "no-plusplus": "error"
+  }
 }
 ```
 

@@ -37,20 +37,20 @@ const str2 = `42`;
 const str3 = `true`;
 
 // Template with only literal expressions
-const str4 = `${'Hello'} ${'world'}`;
+const str4 = `${"Hello"} ${"world"}`;
 ```
 
 Examples of **correct** code for this rule:
 
 ```ts
-const str1 = 'Hello world';
+const str1 = "Hello world";
 
-const str2 = '42';
+const str2 = "42";
 
-const str3 = 'true';
+const str3 = "true";
 
 // Template with variable interpolation
-const name = 'world';
+const name = "world";
 const str4 = `Hello ${name}`;
 
 // Multi-line string
@@ -71,9 +71,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "typescript/no-unnecessary-template-expression": "error"
-    }
+  "rules": {
+    "typescript/no-unnecessary-template-expression": "error"
+  }
 }
 ```
 

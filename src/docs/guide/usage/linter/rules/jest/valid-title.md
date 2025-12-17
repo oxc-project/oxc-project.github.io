@@ -33,36 +33,36 @@ Titles that are not valid can be misleading and make it harder to understand the
 Examples of **incorrect** code for this rule:
 
 ```javascript
-describe('', () => {});
-describe('foo', () => {
-  it('', () => {});
+describe("", () => {});
+describe("foo", () => {
+  it("", () => {});
 });
-it('', () => {});
-test('', () => {});
-xdescribe('', () => {});
-xit('', () => {});
-xtest('', () => {});
+it("", () => {});
+test("", () => {});
+xdescribe("", () => {});
+xit("", () => {});
+xtest("", () => {});
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
-describe('foo', () => {});
-it('bar', () => {});
-test('baz', () => {});
+describe("foo", () => {});
+it("bar", () => {});
+test("baz", () => {});
 ```
 
 ### Options
 
 ```typescript
 interface Options {
-    ignoreSpaces?: boolean;
-    ignoreTypeOfTestName?: boolean;
-    ignoreTypeOfDescribeName?: boolean;
-    allowArguments?: boolean;
-    disallowedWords?: string[];
-    mustNotMatch?: Partial<Record<'describe' | 'test' | 'it', string>> | string;
-    mustMatch?: Partial<Record<'describe' | 'test' | 'it', string>> | string;
+  ignoreSpaces?: boolean;
+  ignoreTypeOfTestName?: boolean;
+  ignoreTypeOfDescribeName?: boolean;
+  allowArguments?: boolean;
+  disallowedWords?: string[];
+  mustNotMatch?: Partial<Record<"describe" | "test" | "it", string>> | string;
+  mustMatch?: Partial<Record<"describe" | "test" | "it", string>> | string;
 }
 ```
 
@@ -74,10 +74,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "plugins": ["jest"],
-    "rules": {
-        "jest/valid-title": "error"
-    }
+  "plugins": ["jest"],
+  "rules": {
+    "jest/valid-title": "error"
+  }
 }
 ```
 

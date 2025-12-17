@@ -32,8 +32,8 @@ Examples of **incorrect** code for this rule:
 
 ```js
 // Check the user's job title
-if (user.jobTitle = "manager") {
-    // user.jobTitle is now incorrect
+if ((user.jobTitle = "manager")) {
+  // user.jobTitle is now incorrect
 }
 ```
 
@@ -42,7 +42,7 @@ Examples of **correct** code for this rule:
 ```js
 // Check the user's job title
 if (user.jobTitle === "manager") {
-    // correctly compared `jobTitle`
+  // correctly compared `jobTitle`
 }
 ```
 
@@ -67,9 +67,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "no-cond-assign": "error"
-    }
+  "rules": {
+    "no-cond-assign": "error"
+  }
 }
 ```
 

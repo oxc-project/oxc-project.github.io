@@ -32,32 +32,36 @@ This rule reports for the following function calls:
 Examples of **incorrect** code for this rule:
 
 ```javascript
-function setupFoo(options) { /* ... */ }
-function setupBar(options) { /* ... */ }
+function setupFoo(options) {
+  /* ... */
+}
+function setupBar(options) {
+  /* ... */
+}
 
-describe('foo', () => {
-    let foo;
+describe("foo", () => {
+  let foo;
+  beforeEach(() => {
+    foo = setupFoo();
+  });
+  afterEach(() => {
+    foo = null;
+  });
+  it("does something", () => {
+    expect(foo.doesSomething()).toBe(true);
+  });
+  describe("with bar", () => {
+    let bar;
     beforeEach(() => {
-        foo = setupFoo();
+      bar = setupBar();
     });
     afterEach(() => {
-        foo = null;
+      bar = null;
     });
-    it('does something', () => {
-        expect(foo.doesSomething()).toBe(true);
+    it("does something with bar", () => {
+      expect(foo.doesSomething(bar)).toBe(true);
     });
-    describe('with bar', () => {
-        let bar;
-        beforeEach(() => {
-            bar = setupBar();
-        });
-        afterEach(() => {
-            bar = null;
-        });
-        it('does something with bar', () => {
-            expect(foo.doesSomething(bar)).toBe(true);
-        });
-    });
+  });
 });
 ```
 
@@ -67,7 +71,7 @@ to use it, add the following configuration to your `.oxlintrc.json`:
 ```json
 {
   "rules": {
-     "vitest/no-hooks": "error"
+    "vitest/no-hooks": "error"
   }
 }
 ```
@@ -92,10 +96,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "plugins": ["jest"],
-    "rules": {
-        "jest/no-hooks": "error"
-    }
+  "plugins": ["jest"],
+  "rules": {
+    "jest/no-hooks": "error"
+  }
 }
 ```
 

@@ -26,14 +26,14 @@ Examples of **incorrect** code for this rule:
 
 ```typescript
 const count = ref();
-const name = shallowRef()
+const name = shallowRef();
 ```
 
 Examples of **correct** code for this rule:
 
 ```typescript
-const count = ref<number>()
-const a = ref(0)
+const count = ref<number>();
+const a = ref(0);
 ```
 
 ## How to use
@@ -44,10 +44,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "plugins": ["vue"],
-    "rules": {
-        "vue/require-typed-ref": "error"
-    }
+  "plugins": ["vue"],
+  "rules": {
+    "vue/require-typed-ref": "error"
+  }
 }
 ```
 

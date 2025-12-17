@@ -29,107 +29,107 @@ more maintainable.
 Examples of **incorrect** code for this rule:
 
 ```javascript
-describe('foo', () => {
+describe("foo", () => {
+  beforeEach(() => {
+    seedMyDatabase();
+  });
+
+  it("accepts this input", () => {
+    // ...
+  });
+
+  beforeAll(() => {
+    createMyDatabase();
+  });
+
+  it("returns that value", () => {
+    // ...
+  });
+
+  describe("when the database has specific values", () => {
+    const specificValue = "...";
     beforeEach(() => {
-        seedMyDatabase();
+      seedMyDatabase(specificValue);
     });
 
-    it('accepts this input', () => {
-        // ...
+    it("accepts that input", () => {
+      // ...
     });
 
-    beforeAll(() => {
-        createMyDatabase();
+    it("throws an error", () => {
+      // ...
     });
 
-    it('returns that value', () => {
-        // ...
+    afterEach(() => {
+      clearLogger();
     });
 
-    describe('when the database has specific values', () => {
-        const specificValue = '...';
-        beforeEach(() => {
-            seedMyDatabase(specificValue);
-        });
-
-        it('accepts that input', () => {
-            // ...
-        });
-
-        it('throws an error', () => {
-            // ...
-        });
-
-        afterEach(() => {
-            clearLogger();
-        });
-
-        beforeEach(() => {
-            mockLogger();
-        });
-
-        it('logs a message', () => {
-            // ...
-        });
+    beforeEach(() => {
+      mockLogger();
     });
 
-    afterAll(() => {
-        removeMyDatabase();
+    it("logs a message", () => {
+      // ...
     });
+  });
+
+  afterAll(() => {
+    removeMyDatabase();
+  });
 });
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
-describe('foo', () => {
-    beforeAll(() => {
-        createMyDatabase();
+describe("foo", () => {
+  beforeAll(() => {
+    createMyDatabase();
+  });
+
+  beforeEach(() => {
+    seedMyDatabase();
+  });
+
+  afterAll(() => {
+    clearMyDatabase();
+  });
+
+  it("accepts this input", () => {
+    // ...
+  });
+
+  it("returns that value", () => {
+    // ...
+  });
+
+  describe("when the database has specific values", () => {
+    const specificValue = "...";
+
+    beforeEach(() => {
+      seedMyDatabase(specificValue);
     });
 
     beforeEach(() => {
-        seedMyDatabase();
+      mockLogger();
     });
 
-    afterAll(() => {
-        clearMyDatabase();
+    afterEach(() => {
+      clearLogger();
     });
 
-    it('accepts this input', () => {
-        // ...
+    it("accepts that input", () => {
+      // ...
     });
 
-    it('returns that value', () => {
-        // ...
+    it("throws an error", () => {
+      // ...
     });
 
-    describe('when the database has specific values', () => {
-        const specificValue = '...';
-
-        beforeEach(() => {
-            seedMyDatabase(specificValue);
-        });
-
-        beforeEach(() => {
-            mockLogger();
-        });
-
-        afterEach(() => {
-            clearLogger();
-        });
-
-        it('accepts that input', () => {
-            // ...
-        });
-
-        it('throws an error', () => {
-            // ...
-        });
-
-        it('logs a message', () => {
-            // ...
-        });
+    it("logs a message", () => {
+      // ...
     });
+  });
 });
 ```
 
@@ -139,7 +139,7 @@ to use it, add the following configuration to your `.oxlintrc.json`:
 ```json
 {
   "rules": {
-     "vitest/prefer-hooks-on-top": "error"
+    "vitest/prefer-hooks-on-top": "error"
   }
 }
 ```
@@ -152,10 +152,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "plugins": ["jest"],
-    "rules": {
-        "jest/prefer-hooks-on-top": "error"
-    }
+  "plugins": ["jest"],
+  "rules": {
+    "jest/prefer-hooks-on-top": "error"
+  }
 }
 ```
 

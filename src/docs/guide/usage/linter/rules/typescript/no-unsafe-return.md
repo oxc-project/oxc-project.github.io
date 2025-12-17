@@ -62,7 +62,7 @@ function processUnknown(): unknown {
 
 // Type guard to safely return
 function safeGetString(): string | null {
-  if (typeof unknownValue === 'string') {
+  if (typeof unknownValue === "string") {
     return unknownValue; // safe after type guard
   }
   return null;
@@ -77,9 +77,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "typescript/no-unsafe-return": "error"
-    }
+  "rules": {
+    "typescript/no-unsafe-return": "error"
+  }
 }
 ```
 

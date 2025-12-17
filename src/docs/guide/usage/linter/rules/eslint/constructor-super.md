@@ -59,25 +59,25 @@ Examples of **correct** code for this rule:
 ```js
 // Proper super() call in derived class
 class A extends B {
-    constructor() {
-        super();
-    }
+  constructor() {
+    super();
+  }
 }
 
 // No super() in non-derived class
 class A {
-    constructor() { }
+  constructor() {}
 }
 
 // super() in all code paths
 class C extends D {
-    constructor() {
-        if (condition) {
-            super();
-        } else {
-            super();
-        }
+  constructor() {
+    if (condition) {
+      super();
+    } else {
+      super();
     }
+  }
 }
 ```
 
@@ -89,9 +89,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "constructor-super": "error"
-    }
+  "rules": {
+    "constructor-super": "error"
+  }
 }
 ```
 

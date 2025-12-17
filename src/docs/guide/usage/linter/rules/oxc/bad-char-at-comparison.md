@@ -26,15 +26,15 @@ The `charAt` method returns a string of length 1. If the return value is compare
 Examples of **incorrect** code for this rule:
 
 ```javascript
-a.charAt(4) === 'a2';
-a.charAt(4) === '/n';
+a.charAt(4) === "a2";
+a.charAt(4) === "/n";
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
-a.charAt(4) === 'a'
-a.charAt(4) === '\n';
+a.charAt(4) === "a";
+a.charAt(4) === "\n";
 ```
 
 ## How to use
@@ -45,9 +45,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "oxc/bad-char-at-comparison": "error"
-    }
+  "rules": {
+    "oxc/bad-char-at-comparison": "error"
+  }
 }
 ```
 

@@ -45,9 +45,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "unicorn/prefer-string-trim-start-end": "error"
-    }
+  "rules": {
+    "unicorn/prefer-string-trim-start-end": "error"
+  }
 }
 ```
 

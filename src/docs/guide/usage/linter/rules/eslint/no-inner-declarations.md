@@ -26,14 +26,14 @@ Examples of **incorrect** code for this rule:
 
 ```javascript
 if (test) {
-    function doSomethingElse () { }
+  function doSomethingElse() {}
 }
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
-function doSomethingElse () { }
+function doSomethingElse() {}
 if (test) {
   // your code here
 }
@@ -83,9 +83,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "no-inner-declarations": "error"
-    }
+  "rules": {
+    "no-inner-declarations": "error"
+  }
 }
 ```
 

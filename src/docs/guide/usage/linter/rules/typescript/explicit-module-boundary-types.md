@@ -33,7 +33,7 @@ export function test() {
 }
 
 // Should indicate that a string is returned
-export var arrowFn = () => 'test';
+export var arrowFn = () => "test";
 
 // All arguments should be typed
 export var arrowFn = (arg): string => `test ${arg}`;
@@ -56,7 +56,7 @@ export function test(): void {
 }
 
 // A return value of type string
-export var arrowFn = (): string => 'test';
+export var arrowFn = (): string => "test";
 
 // All arguments should be typed
 export var arrowFn = (arg: string): string => `test ${arg}`;
@@ -142,9 +142,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "typescript/explicit-module-boundary-types": "error"
-    }
+  "rules": {
+    "typescript/explicit-module-boundary-types": "error"
+  }
 }
 ```
 

@@ -53,7 +53,7 @@ const bar = foo!.bar;
 
 ```ts
 function foo(bar: number | undefined) {
- const bar: number = bar!;
+  const bar: number = bar!;
 }
 ```
 
@@ -71,9 +71,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "typescript/no-extra-non-null-assertion": "error"
-    }
+  "rules": {
+    "typescript/no-extra-non-null-assertion": "error"
+  }
 }
 ```
 

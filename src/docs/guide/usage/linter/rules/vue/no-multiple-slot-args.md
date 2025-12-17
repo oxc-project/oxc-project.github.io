@@ -33,10 +33,10 @@ Examples of **incorrect** code for this rule:
 <script>
 export default {
   render(h) {
-    var children = this.$scopedSlots.default(foo, bar)
-    var children = this.$scopedSlots.default(...foo)
-  }
-}
+    var children = this.$scopedSlots.default(foo, bar);
+    var children = this.$scopedSlots.default(...foo);
+  },
+};
 </script>
 ```
 
@@ -46,11 +46,11 @@ Examples of **correct** code for this rule:
 <script>
 export default {
   render(h) {
-    var children = this.$scopedSlots.default()
-    var children = this.$scopedSlots.default(foo)
-    var children = this.$scopedSlots.default({ foo, bar })
-  }
-}
+    var children = this.$scopedSlots.default();
+    var children = this.$scopedSlots.default(foo);
+    var children = this.$scopedSlots.default({ foo, bar });
+  },
+};
 </script>
 ```
 
@@ -62,10 +62,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "plugins": ["vue"],
-    "rules": {
-        "vue/no-multiple-slot-args": "error"
-    }
+  "plugins": ["vue"],
+  "rules": {
+    "vue/no-multiple-slot-args": "error"
+  }
 }
 ```
 

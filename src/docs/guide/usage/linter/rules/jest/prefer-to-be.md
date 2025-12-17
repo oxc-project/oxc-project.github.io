@@ -35,18 +35,18 @@ Examples of **incorrect** code for this rule:
 
 ```javascript
 expect(value).not.toEqual(5);
-expect(getMessage()).toStrictEqual('hello world');
-expect(loadMessage()).resolves.toEqual('hello world');
+expect(getMessage()).toStrictEqual("hello world");
+expect(loadMessage()).resolves.toEqual("hello world");
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
 expect(value).not.toBe(5);
-expect(getMessage()).toBe('hello world');
-expect(loadMessage()).resolves.toBe('hello world');
+expect(getMessage()).toBe("hello world");
+expect(loadMessage()).resolves.toBe("hello world");
 expect(didError).not.toBe(true);
-expect(catchError()).toStrictEqual({ message: 'oh noes!' });
+expect(catchError()).toStrictEqual({ message: "oh noes!" });
 ```
 
 This rule is compatible with [eslint-plugin-vitest](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/prefer-to-be.md),
@@ -55,7 +55,7 @@ to use it, add the following configuration to your `.oxlintrc.json`:
 ```json
 {
   "rules": {
-     "vitest/prefer-to-be": "error"
+    "vitest/prefer-to-be": "error"
   }
 }
 ```
@@ -68,10 +68,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "plugins": ["jest"],
-    "rules": {
-        "jest/prefer-to-be": "error"
-    }
+  "plugins": ["jest"],
+  "rules": {
+    "jest/prefer-to-be": "error"
+  }
 }
 ```
 
