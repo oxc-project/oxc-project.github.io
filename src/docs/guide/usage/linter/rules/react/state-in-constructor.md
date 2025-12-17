@@ -31,9 +31,9 @@ Examples of **incorrect** code for this rule:
 
 ```jsx
 class Foo extends React.Component {
-  state = { bar: 0 }
+  state = { bar: 0 };
   render() {
-    return <div>Foo</div>
+    return <div>Foo</div>;
   }
 }
 ```
@@ -43,11 +43,11 @@ Examples of **correct** code for this rule:
 ```jsx
 class Foo extends React.Component {
   constructor(props) {
-    super(props)
-    this.state = { bar: 0 }
+    super(props);
+    this.state = { bar: 0 };
   }
   render() {
-    return <div>Foo</div>
+    return <div>Foo</div>;
   }
 }
 ```
@@ -61,11 +61,11 @@ Examples of **incorrect** code for this rule:
 ```jsx
 class Foo extends React.Component {
   constructor(props) {
-    super(props)
-    this.state = { bar: 0 }
+    super(props);
+    this.state = { bar: 0 };
   }
   render() {
-    return <div>Foo</div>
+    return <div>Foo</div>;
   }
 }
 ```
@@ -74,9 +74,9 @@ Examples of **correct** code for this rule:
 
 ```jsx
 class Foo extends React.Component {
-  state = { bar: 0 }
+  state = { bar: 0 };
   render() {
-    return <div>Foo</div>
+    return <div>Foo</div>;
   }
 }
 ```
@@ -101,10 +101,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "plugins": ["react"],
-    "rules": {
-        "react/state-in-constructor": "error"
-    }
+  "plugins": ["react"],
+  "rules": {
+    "react/state-in-constructor": "error"
+  }
 }
 ```
 

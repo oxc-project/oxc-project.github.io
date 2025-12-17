@@ -27,30 +27,30 @@ used in an await expression, it may cause problems:
 Examples of **incorrect** code for this rule:
 
 ```javascript
-    async function example() {
-    const foo = {
-        unicorn: 1,
-        then() {},
-    };
+async function example() {
+  const foo = {
+    unicorn: 1,
+    then() {},
+  };
 
-    const { unicorn } = await foo;
+  const { unicorn } = await foo;
 
-    console.log('after'); //<- This will never execute
+  console.log("after"); //<- This will never execute
 }
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
-    async function example() {
-    const foo = {
-        unicorn: 1,
-        bar() {},
-    };
+async function example() {
+  const foo = {
+    unicorn: 1,
+    bar() {},
+  };
 
-    const { unicorn } = await foo;
+  const { unicorn } = await foo;
 
-    console.log('after');
+  console.log("after");
 }
 ```
 
@@ -62,9 +62,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "unicorn/no-thenable": "error"
-    }
+  "rules": {
+    "unicorn/no-thenable": "error"
+  }
 }
 ```
 

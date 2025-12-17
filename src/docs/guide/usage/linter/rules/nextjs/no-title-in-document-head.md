@@ -24,7 +24,7 @@ Title tags should be defined at the page-level using `next/head` instead.
 Examples of **incorrect** code for this rule:
 
 ```javascript
-import {Head} from 'next/document'
+import { Head } from "next/document";
 
 export function Home() {
   return (
@@ -33,14 +33,14 @@ export function Home() {
         <title>My page title</title>
       </Head>
     </div>
-  )
+  );
 }
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
-import Head from 'next/head'
+import Head from "next/head";
 
 export function Home() {
   return (
@@ -49,7 +49,7 @@ export function Home() {
         <title>My page title</title>
       </Head>
     </div>
-  )
+  );
 }
 ```
 
@@ -61,10 +61,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "plugins": ["nextjs"],
-    "rules": {
-        "nextjs/no-title-in-document-head": "error"
-    }
+  "plugins": ["nextjs"],
+  "rules": {
+    "nextjs/no-title-in-document-head": "error"
+  }
 }
 ```
 

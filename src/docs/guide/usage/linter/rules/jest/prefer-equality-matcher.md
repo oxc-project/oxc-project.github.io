@@ -29,7 +29,7 @@ Examples of **incorrect** code for this rule:
 
 ```javascript
 expect(x === 5).toBe(true);
-expect(name === 'Carl').not.toEqual(true);
+expect(name === "Carl").not.toEqual(true);
 expect(myObj !== thatObj).toStrictEqual(true);
 ```
 
@@ -37,7 +37,7 @@ Examples of **correct** code for this rule:
 
 ```javascript
 expect(x).toBe(5);
-expect(name).not.toEqual('Carl');
+expect(name).not.toEqual("Carl");
 expect(myObj).toStrictEqual(thatObj);
 ```
 
@@ -47,7 +47,7 @@ to use it, add the following configuration to your `.oxlintrc.json`:
 ```json
 {
   "rules": {
-     "vitest/prefer-equality-matcher": "error"
+    "vitest/prefer-equality-matcher": "error"
   }
 }
 ```
@@ -60,10 +60,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "plugins": ["jest"],
-    "rules": {
-        "jest/prefer-equality-matcher": "error"
-    }
+  "plugins": ["jest"],
+  "rules": {
+    "jest/prefer-equality-matcher": "error"
+  }
 }
 ```
 

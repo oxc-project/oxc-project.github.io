@@ -29,9 +29,9 @@ Examples of **incorrect** code for this rule:
 
 ```js
 try {
-    doSomething();
+  doSomething();
 } catch (err) {
-    throw new Error("Something failed");
+  throw new Error("Something failed");
 }
 ```
 
@@ -39,9 +39,9 @@ Examples of **correct** code for this rule:
 
 ```js
 try {
-    doSomething();
+  doSomething();
 } catch (err) {
-    throw new Error("Something failed", { cause: err });
+  throw new Error("Something failed", { cause: err });
 }
 ```
 
@@ -65,9 +65,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "preserve-caught-error": "error"
-    }
+  "rules": {
+    "preserve-caught-error": "error"
+  }
 }
 ```
 

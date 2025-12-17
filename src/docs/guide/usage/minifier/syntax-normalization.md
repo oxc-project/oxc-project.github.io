@@ -28,7 +28,8 @@ var foo = 1;
 var bar = 2;
 
 // output
-var foo = 1, bar = 2;
+var foo = 1,
+  bar = 2;
 ```
 
 ```js
@@ -52,7 +53,7 @@ foo();
 bar();
 
 // output
-foo(), bar();
+(foo(), bar());
 ```
 
 ```js

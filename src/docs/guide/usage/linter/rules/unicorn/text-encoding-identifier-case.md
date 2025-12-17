@@ -32,22 +32,22 @@ conventional and widely recognized style.
 Examples of **incorrect** code for this rule:
 
 ```javascript
-import fs from 'node:fs/promises';
+import fs from "node:fs/promises";
 async function bad() {
-  await fs.readFile(file, 'UTF-8');
-  await fs.readFile(file, 'ASCII');
-  const string = buffer.toString('utf-8');
+  await fs.readFile(file, "UTF-8");
+  await fs.readFile(file, "ASCII");
+  const string = buffer.toString("utf-8");
 }
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
-import fs from 'node:fs/promises';
+import fs from "node:fs/promises";
 async function good() {
-  await fs.readFile(file, 'utf8');
-  await fs.readFile(file, 'ascii');
-  const string = buffer.toString('utf8');
+  await fs.readFile(file, "utf8");
+  await fs.readFile(file, "ascii");
+  const string = buffer.toString("utf8");
 }
 ```
 
@@ -59,9 +59,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "unicorn/text-encoding-identifier-case": "error"
-    }
+  "rules": {
+    "unicorn/text-encoding-identifier-case": "error"
+  }
 }
 ```
 

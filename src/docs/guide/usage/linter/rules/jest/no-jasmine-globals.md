@@ -30,10 +30,10 @@ Examples of **incorrect** code for this rule:
 
 ```javascript
 jasmine.DEFAULT_TIMEOUT_INTERVAL = 5000;
-test('my test', () => {
+test("my test", () => {
   pending();
 });
-test('my test', () => {
+test("my test", () => {
   jasmine.createSpy();
 });
 ```
@@ -42,13 +42,13 @@ Examples of **correct** code for this rule:
 
 ```javascript
 jest.setTimeout(5000);
-test('my test', () => {
+test("my test", () => {
   // Use test.skip() instead of pending()
 });
-test.skip('my test', () => {
+test.skip("my test", () => {
   // Skipped test
 });
-test('my test', () => {
+test("my test", () => {
   jest.fn(); // Use jest.fn() instead of jasmine.createSpy()
 });
 ```
@@ -61,10 +61,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "plugins": ["jest"],
-    "rules": {
-        "jest/no-jasmine-globals": "error"
-    }
+  "plugins": ["jest"],
+  "rules": {
+    "jest/no-jasmine-globals": "error"
+  }
 }
 ```
 

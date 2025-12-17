@@ -26,9 +26,9 @@ now obsolete, so it should not be used. Here’s an example of how this
 used to work:
 
 ```js
-Foo.prototype.__iterator__ = function() {
-    return new FooIterator(this);
-}
+Foo.prototype.__iterator__ = function () {
+  return new FooIterator(this);
+};
 ```
 
 ### Examples
@@ -36,8 +36,8 @@ Foo.prototype.__iterator__ = function() {
 Examples of **incorrect** code for this rule:
 
 ```javascript
-Foo.prototype.__iterator__ = function() {
-    return new FooIterator(this);
+Foo.prototype.__iterator__ = function () {
+  return new FooIterator(this);
 };
 
 foo.__iterator__ = function () {};
@@ -50,8 +50,8 @@ Examples of **correct** code for this rule:
 ```js
 const __iterator__ = 42; // not using the __iterator__ property
 
-Foo.prototype[Symbol.iterator] = function() {
-   return new FooIterator(this);
+Foo.prototype[Symbol.iterator] = function () {
+  return new FooIterator(this);
 };
 ```
 
@@ -63,9 +63,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "no-iterator": "error"
-    }
+  "rules": {
+    "no-iterator": "error"
+  }
 }
 ```
 

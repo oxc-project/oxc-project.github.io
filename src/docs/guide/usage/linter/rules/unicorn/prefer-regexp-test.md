@@ -30,15 +30,18 @@ as it exclusively returns a boolean and therefore is more efficient.
 Examples of **incorrect** code for this rule:
 
 ```javascript
-if (string.match(/unicorn/)) { }
-if (/unicorn/.exec(string)) {}
+if (string.match(/unicorn/)) {
+}
+if (/unicorn/.exec(string)) {
+}
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
-if (/unicorn/.test(string)) {}
-Boolean(string.match(/unicorn/))
+if (/unicorn/.test(string)) {
+}
+Boolean(string.match(/unicorn/));
 ```
 
 ## How to use
@@ -49,9 +52,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "unicorn/prefer-regexp-test": "error"
-    }
+  "rules": {
+    "unicorn/prefer-regexp-test": "error"
+  }
 }
 ```
 

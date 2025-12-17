@@ -27,13 +27,15 @@ The `.includes()` method is more readable and less error-prone than `.indexOf()`
 Examples of **incorrect** code for this rule:
 
 ```javascript
-if (str.indexOf('foo') !== -1) { }
+if (str.indexOf("foo") !== -1) {
+}
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
-if (str.includes('foo')) { }
+if (str.includes("foo")) {
+}
 ```
 
 ## How to use
@@ -44,9 +46,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "unicorn/prefer-includes": "error"
-    }
+  "rules": {
+    "unicorn/prefer-includes": "error"
+  }
 }
 ```
 

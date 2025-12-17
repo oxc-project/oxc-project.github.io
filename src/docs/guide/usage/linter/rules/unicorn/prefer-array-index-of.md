@@ -29,8 +29,8 @@ of creating a callback function.
 Examples of **incorrect** code for this rule:
 
 ```js
-values.findIndex(x => x === "foo");
-values.findLastIndex(x => x === "bar");
+values.findIndex((x) => x === "foo");
+values.findLastIndex((x) => x === "bar");
 ```
 
 Examples of **correct** code for this rule:
@@ -48,9 +48,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "unicorn/prefer-array-index-of": "error"
-    }
+  "rules": {
+    "unicorn/prefer-array-index-of": "error"
+  }
 }
 ```
 

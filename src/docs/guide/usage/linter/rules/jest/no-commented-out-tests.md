@@ -41,7 +41,7 @@ to use it, add the following configuration to your `.oxlintrc.json`:
 ```json
 {
   "rules": {
-     "vitest/no-commented-out-tests": "error"
+    "vitest/no-commented-out-tests": "error"
   }
 }
 ```
@@ -54,10 +54,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "plugins": ["jest"],
-    "rules": {
-        "jest/no-commented-out-tests": "error"
-    }
+  "plugins": ["jest"],
+  "rules": {
+    "jest/no-commented-out-tests": "error"
+  }
 }
 ```
 

@@ -25,13 +25,13 @@ preferable than the function notation.
 Examples of **incorrect** code for this rule:
 
 ```javascript
-Math.pow(a, b)
+Math.pow(a, b);
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
-a ** b
+a ** b;
 ```
 
 ## How to use
@@ -42,9 +42,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "prefer-exponentiation-operator": "error"
-    }
+  "rules": {
+    "prefer-exponentiation-operator": "error"
+  }
 }
 ```
 

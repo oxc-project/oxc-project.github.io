@@ -26,73 +26,73 @@ The following patterns are considered warnings (with the default option of
 Examples of **incorrect** code for this rule:
 
 ```javascript
-describe('foo', () => {
-    describe('bar', () => {
-        describe('baz', () => {
-            describe('qux', () => {
-                describe('quxx', () => {
-                    describe('too many', () => {
-                        it('should get something', () => {
-                            expect(getSomething()).toBe('Something');
-                        });
-                    });
-                });
+describe("foo", () => {
+  describe("bar", () => {
+    describe("baz", () => {
+      describe("qux", () => {
+        describe("quxx", () => {
+          describe("too many", () => {
+            it("should get something", () => {
+              expect(getSomething()).toBe("Something");
             });
+          });
         });
+      });
     });
+  });
 });
 
-describe('foo', function () {
-    describe('bar', function () {
-        describe('baz', function () {
-            describe('qux', function () {
-                describe('quxx', function () {
-                    describe('too many', function () {
-                        it('should get something', () => {
-                            expect(getSomething()).toBe('Something');
-                        });
-                    });
-                });
+describe("foo", function () {
+  describe("bar", function () {
+    describe("baz", function () {
+      describe("qux", function () {
+        describe("quxx", function () {
+          describe("too many", function () {
+            it("should get something", () => {
+              expect(getSomething()).toBe("Something");
             });
+          });
         });
+      });
     });
+  });
 });
 ```
 
 Examples of **correct** code for this rule:
 
 ```ts
-describe('foo', () => {
-    describe('bar', () => {
-        it('should get something', () => {
-            expect(getSomething()).toBe('Something');
-        });
+describe("foo", () => {
+  describe("bar", () => {
+    it("should get something", () => {
+      expect(getSomething()).toBe("Something");
     });
-    describe('qux', () => {
-        it('should get something', () => {
-            expect(getSomething()).toBe('Something');
-        });
+  });
+  describe("qux", () => {
+    it("should get something", () => {
+      expect(getSomething()).toBe("Something");
     });
+  });
 });
 
-describe('foo2', function () {
-    it('should get something', () => {
-        expect(getSomething()).toBe('Something');
-    });
+describe("foo2", function () {
+  it("should get something", () => {
+    expect(getSomething()).toBe("Something");
+  });
 });
 
-describe('foo', function () {
-    describe('bar', function () {
-        describe('baz', function () {
-            describe('qux', function () {
-                describe('this is the limit', function () {
-                    it('should get something', () => {
-                        expect(getSomething()).toBe('Something');
-                    });
-                });
-            });
+describe("foo", function () {
+  describe("bar", function () {
+    describe("baz", function () {
+      describe("qux", function () {
+        describe("this is the limit", function () {
+          it("should get something", () => {
+            expect(getSomething()).toBe("Something");
+          });
         });
+      });
     });
+  });
 });
 ```
 
@@ -102,7 +102,7 @@ to use it, add the following configuration to your `.oxlintrc.json`:
 ```json
 {
   "rules": {
-     "vitest/max-nested-describe": "error"
+    "vitest/max-nested-describe": "error"
   }
 }
 ```
@@ -127,10 +127,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "plugins": ["jest"],
-    "rules": {
-        "jest/max-nested-describe": "error"
-    }
+  "plugins": ["jest"],
+  "rules": {
+    "jest/max-nested-describe": "error"
+  }
 }
 ```
 

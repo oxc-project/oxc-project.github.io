@@ -26,7 +26,7 @@ It is unnecessary to rename a variable to the same name.
 Examples of **incorrect** code for this rule:
 
 ```javascript
-import { foo as foo } from 'foo';
+import { foo as foo } from "foo";
 const { bar: bar } = obj;
 export { baz as baz };
 ```
@@ -34,7 +34,7 @@ export { baz as baz };
 Examples of **correct** code for this rule:
 
 ```javascript
-import { foo } from 'foo';
+import { foo } from "foo";
 const { bar: renamed } = obj;
 export { baz };
 ```
@@ -75,9 +75,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "no-useless-rename": "error"
-    }
+  "rules": {
+    "no-useless-rename": "error"
+  }
 }
 ```
 

@@ -27,8 +27,8 @@ Examples of **incorrect** code for this rule:
 
 ```ts
 function foo() {
-    return 2;
-    console.log("this will never be executed");
+  return 2;
+  console.log("this will never be executed");
 }
 ```
 
@@ -36,8 +36,8 @@ Examples of **correct** code for this rule:
 
 ```ts
 function foo() {
-    console.log("this will be executed");
-    return 2;
+  console.log("this will be executed");
+  return 2;
 }
 ```
 
@@ -49,9 +49,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "no-unreachable": "error"
-    }
+  "rules": {
+    "no-unreachable": "error"
+  }
 }
 ```
 

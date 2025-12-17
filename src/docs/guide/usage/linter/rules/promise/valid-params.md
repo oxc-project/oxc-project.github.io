@@ -26,13 +26,13 @@ behavior or hard to spot bugs.
 Examples of **incorrect** code for this rule:
 
 ```javascript
-Promise.resolve(1, 2)
+Promise.resolve(1, 2);
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
-Promise.resolve(1)
+Promise.resolve(1);
 ```
 
 ## How to use
@@ -43,10 +43,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "plugins": ["promise"],
-    "rules": {
-        "promise/valid-params": "error"
-    }
+  "plugins": ["promise"],
+  "rules": {
+    "promise/valid-params": "error"
+  }
 }
 ```
 

@@ -27,16 +27,16 @@ Examples of **incorrect** code for this rule:
 
 ```javascript
 try {
- // ...
-} catch (e) { }
+  // ...
+} catch (e) {}
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
 try {
- // ...
-} catch { }
+  // ...
+} catch {}
 ```
 
 ## How to use
@@ -47,9 +47,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "unicorn/prefer-optional-catch-binding": "error"
-    }
+  "rules": {
+    "unicorn/prefer-optional-catch-binding": "error"
+  }
 }
 ```
 

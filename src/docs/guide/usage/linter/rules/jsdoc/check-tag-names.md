@@ -54,7 +54,8 @@ You can add custom tags by adding a key-value pair where both match the name of 
   "rules": {
     "jsdoc/check-tag-names": "error"
   },
-  "settings": { // [!code highlight:7]
+  "settings": {
+    // [!code highlight:7]
     "jsdoc": {
       "tagNamePreference": {
         "customTagName": "customTagName"
@@ -115,10 +116,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "plugins": ["jsdoc"],
-    "rules": {
-        "jsdoc/check-tag-names": "error"
-    }
+  "plugins": ["jsdoc"],
+  "rules": {
+    "jsdoc/check-tag-names": "error"
+  }
 }
 ```
 

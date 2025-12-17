@@ -27,15 +27,15 @@ Nesting ternary expressions can make code more difficult to understand.
 Examples of **incorrect** code for this rule:
 
 ```javascript
-const foo = i > 5 ? i < 100 ? true : false : true;
-const foo = i > 5 ? true : (i < 100 ? true : (i < 1000 ? true : false));
+const foo = i > 5 ? (i < 100 ? true : false) : true;
+const foo = i > 5 ? true : i < 100 ? true : i < 1000 ? true : false;
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
 const foo = i > 5 ? (i < 100 ? true : false) : true;
-const foo = i > 5 ? (i < 100 ? true : false) : (i < 100 ? true : false);
+const foo = i > 5 ? (i < 100 ? true : false) : i < 100 ? true : false;
 ```
 
 ## How to use
@@ -46,9 +46,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "unicorn/no-nested-ternary": "error"
-    }
+  "rules": {
+    "unicorn/no-nested-ternary": "error"
+  }
 }
 ```
 

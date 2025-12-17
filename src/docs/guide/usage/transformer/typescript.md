@@ -102,8 +102,7 @@ _decorate(
     test,
     _decorateMetadata("design:type", Function),
     _decorateMetadata("design:paramtypes", [
-      typeof (_ref = typeof Something1 !== "undefined" && Something1)
-          === "function"
+      typeof (_ref = typeof Something1 !== "undefined" && Something1) === "function"
         ? _ref
         : Object,
       Object, // [!code highlight]
@@ -128,10 +127,7 @@ __decorate(
     test,
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [
-      typeof (_a = typeof Something1 !== "undefined" && Something1)
-          === "function"
-        ? _a
-        : Object,
+      typeof (_a = typeof Something1 !== "undefined" && Something1) === "function" ? _a : Object,
       Number, // [!code highlight]
     ]),
     __metadata("design:returntype", void 0),

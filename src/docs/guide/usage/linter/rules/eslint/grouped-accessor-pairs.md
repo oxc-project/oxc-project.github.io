@@ -28,13 +28,13 @@ Examples of **incorrect** code for this rule:
 
 ```js
 const foo = {
-    get a() {
-        return this.val;
-    },
-    b: 1,
-    set a(value) {
-        this.val = value;
-    }
+  get a() {
+    return this.val;
+  },
+  b: 1,
+  set a(value) {
+    this.val = value;
+  },
 };
 ```
 
@@ -42,13 +42,13 @@ Examples of **correct** code for this rule:
 
 ```js
 const foo = {
-    get a() {
-        return this.val;
-    },
-    set a(value) {
-        this.val = value;
-    },
-    b: 1
+  get a() {
+    return this.val;
+  },
+  set a(value) {
+    this.val = value;
+  },
+  b: 1,
 };
 ```
 
@@ -56,12 +56,12 @@ Examples of **incorrect** code for this rule with the `getBeforeSet` option:
 
 ```js
 const foo = {
-    set a(value) {
-        this.val = value;
-    },
-    get a() {
-        return this.val;
-    }
+  set a(value) {
+    this.val = value;
+  },
+  get a() {
+    return this.val;
+  },
 };
 ```
 
@@ -69,12 +69,12 @@ Examples of **correct** code for this rule with the `getBeforeSet` option:
 
 ```js
 const foo = {
-    get a() {
-        return this.val;
-    },
-    set a(value) {
-        this.val = value;
-    }
+  get a() {
+    return this.val;
+  },
+  set a(value) {
+    this.val = value;
+  },
 };
 ```
 
@@ -82,12 +82,12 @@ Examples of **incorrect** code for this rule with the `setBeforeGet` option:
 
 ```js
 const foo = {
-    get a() {
-        return this.val;
-    },
-    set a(value) {
-        this.val = value;
-    }
+  get a() {
+    return this.val;
+  },
+  set a(value) {
+    this.val = value;
+  },
 };
 ```
 
@@ -95,12 +95,12 @@ Examples of **correct** code for this rule with the `setBeforeGet` option:
 
 ```js
 const foo = {
-    set a(value) {
-        this.val = value;
-    },
-    get a() {
-        return this.val;
-    }
+  set a(value) {
+    this.val = value;
+  },
+  get a() {
+    return this.val;
+  },
 };
 ```
 
@@ -120,15 +120,15 @@ Examples of **incorrect** TypeScript code:
 
 ```ts
 interface Foo {
-get a(): string;
-someProperty: string;
-set a(value: string);
+  get a(): string;
+  someProperty: string;
+  set a(value: string);
 }
 
 type Bar = {
-get b(): string;
-someProperty: string;
-set b(value: string);
+  get b(): string;
+  someProperty: string;
+  set b(value: string);
 };
 ```
 
@@ -136,15 +136,15 @@ Examples of **correct** TypeScript code:
 
 ```ts
 interface Foo {
-get a(): string;
-set a(value: string);
-someProperty: string;
+  get a(): string;
+  set a(value: string);
+  someProperty: string;
 }
 
 type Bar = {
-get b(): string;
-set b(value: string);
-someProperty: string;
+  get b(): string;
+  set b(value: string);
+  someProperty: string;
 };
 ```
 
@@ -168,9 +168,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "grouped-accessor-pairs": "error"
-    }
+  "rules": {
+    "grouped-accessor-pairs": "error"
+  }
 }
 ```
 

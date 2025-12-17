@@ -30,21 +30,21 @@ Examples of **correct** code for this rule:
 
 ```js
 class A {
-    foo() {
-        this.bar = "Hello World"; // OK, this is used
-    }
+  foo() {
+    this.bar = "Hello World"; // OK, this is used
+  }
 }
 
 class B {
-    constructor() {
-        // OK. constructor is exempt
-    }
+  constructor() {
+    // OK. constructor is exempt
+  }
 }
 
 class C {
-    static foo() {
-        // OK. static methods aren't expected to use this.
-    }
+  static foo() {
+    // OK. static methods aren't expected to use this.
+  }
 }
 ```
 
@@ -104,9 +104,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "class-methods-use-this": "error"
-    }
+  "rules": {
+    "class-methods-use-this": "error"
+  }
 }
 ```
 

@@ -28,15 +28,19 @@ If you want to check if an object or array is empty, use `Object.entries()` or `
 Examples of **incorrect** code for this rule:
 
 ```javascript
-if (x === {}) { }
-if (arr !== []) { }
+if (x === {}) {
+}
+if (arr !== []) {
+}
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
-if (typeof x === 'object' && Object.keys(x).length === 0) { }
-if (Array.isArray(x) && x.length === 0) { }
+if (typeof x === "object" && Object.keys(x).length === 0) {
+}
+if (Array.isArray(x) && x.length === 0) {
+}
 ```
 
 ## How to use
@@ -47,9 +51,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "oxc/bad-object-literal-comparison": "error"
-    }
+  "rules": {
+    "oxc/bad-object-literal-comparison": "error"
+  }
 }
 ```
 

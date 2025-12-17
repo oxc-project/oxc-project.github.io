@@ -13,13 +13,14 @@ const authors = computed(() =>
 
     if (member) {
       const { avatar, links, name, title } = member;
-      const { link = "" } = links?.find((link) => link.link.startsWith("https://github.com/")) ?? {};
+      const { link = "" } =
+        links?.find((link) => link.link.startsWith("https://github.com/")) ?? {};
 
       return [{ avatar, link, name, title }];
     }
 
     return [];
-  })
+  }),
 );
 const date = computed(() => {
   const filePath = vitePressData.page.value.filePath;
@@ -39,7 +40,9 @@ const datetime = ref("");
 onMounted(() => {
   watchEffect(() => {
     if (date.value) {
-      datetime.value = new Intl.DateTimeFormat(lang.value, { dateStyle: "long" }).format(date.value);
+      datetime.value = new Intl.DateTimeFormat(lang.value, { dateStyle: "long" }).format(
+        date.value,
+      );
     }
   });
 });
@@ -52,7 +55,7 @@ onMounted(() => {
       <time :datetime="isoDatetime">{{ datetime }}</time>
     </p>
     <ul class="authors">
-      <li v-for="({ avatar, link, name, title }) in authors" :key="name" class="author">
+      <li v-for="{ avatar, link, name, title } in authors" :key="name" class="author">
         <img :src="avatar" :alt="name" class="author-avatar" />
         <p class="author-text">
           <a v-if="link" :href="link" target="_blank" class="author-name">{{ name }}</a>

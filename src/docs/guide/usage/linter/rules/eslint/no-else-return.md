@@ -45,54 +45,54 @@ Examples of **incorrect** code for this rule:
 
 ```javascript
 function foo1() {
-    if (x) {
-        return y;
-    } else {
-        return z;
-    }
+  if (x) {
+    return y;
+  } else {
+    return z;
+  }
 }
 
 function foo2() {
-    if (x) {
-        return y;
-    } else if (z) {
-        return w;
-    } else {
-        return t;
-    }
+  if (x) {
+    return y;
+  } else if (z) {
+    return w;
+  } else {
+    return t;
+  }
 }
 
 function foo3() {
-    if (x) {
-        return y;
-    } else {
-        var t = "foo";
-    }
+  if (x) {
+    return y;
+  } else {
+    var t = "foo";
+  }
 
-    return t;
+  return t;
 }
 
 function foo4() {
-    if (error) {
-        return 'It failed';
-    } else {
-        if (loading) {
-            return "It's still loading";
-        }
+  if (error) {
+    return "It failed";
+  } else {
+    if (loading) {
+      return "It's still loading";
     }
+  }
 }
 
 // Two warnings for nested occurrences
 function foo5() {
-    if (x) {
-        if (y) {
-            return y;
-        } else {
-            return x;
-        }
+  if (x) {
+    if (y) {
+      return y;
     } else {
-        return z;
+      return x;
     }
+  } else {
+    return z;
+  }
 }
 ```
 
@@ -100,39 +100,39 @@ Examples of **correct** code for this rule:
 
 ```javascript
 function foo1() {
-    if (x) {
-        return y;
-    }
+  if (x) {
+    return y;
+  }
 
-    return z;
+  return z;
 }
 
 function foo2() {
-    if (x) {
-        return y;
-    } else if (z) {
-        var t = "foo";
-    } else {
-        return w;
-    }
+  if (x) {
+    return y;
+  } else if (z) {
+    var t = "foo";
+  } else {
+    return w;
+  }
 }
 
 function foo3() {
-    if (x) {
-        if (z) {
-            return y;
-        }
-    } else {
-        return z;
+  if (x) {
+    if (z) {
+      return y;
     }
+  } else {
+    return z;
+  }
 }
 
 function foo4() {
-    if (error) {
-        return 'It failed';
-    } else if (loading) {
-        return "It's still loading";
-    }
+  if (error) {
+    return "It failed";
+  } else if (loading) {
+    return "It's still loading";
+  }
 }
 ```
 
@@ -152,11 +152,11 @@ Examples of **incorrect** code for this rule with `allowElseIf: false`:
 
 ```javascript
 function foo() {
-if (error) {
-return 'It failed';
-} else if (loading) {
-return "It's still loading";
-}
+  if (error) {
+    return "It failed";
+  } else if (loading) {
+    return "It's still loading";
+  }
 }
 ```
 
@@ -164,13 +164,13 @@ Examples of **correct** code for this rule with `allowElseIf: false`:
 
 ```javascript
 function foo() {
-if (error) {
-return 'It failed';
-}
+  if (error) {
+    return "It failed";
+  }
 
-if (loading) {
-return "It's still loading";
-}
+  if (loading) {
+    return "It's still loading";
+  }
 }
 ```
 
@@ -182,9 +182,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "no-else-return": "error"
-    }
+  "rules": {
+    "no-else-return": "error"
+  }
 }
 ```
 

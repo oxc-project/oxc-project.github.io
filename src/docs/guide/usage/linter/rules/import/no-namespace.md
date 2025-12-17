@@ -41,18 +41,18 @@ Namespaced imports, while sometimes used, are generally considered less ideal in
 Examples of **incorrect** code for this rule:
 
 ```js
-import * as user from 'user-lib';
+import * as user from "user-lib";
 
-import some, * as user from './user';
+import some, * as user from "./user";
 ```
 
 Examples of **correct** code for this rule:
 
 ```js
-import { getUserName, isUser } from 'user-lib';
+import { getUserName, isUser } from "user-lib";
 
-import user from 'user-lib';
-import defaultExport, { isUser } from './user';
+import user from "user-lib";
+import defaultExport, { isUser } from "./user";
 ```
 
 ## Configuration
@@ -76,10 +76,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "plugins": ["import"],
-    "rules": {
-        "import/no-namespace": "error"
-    }
+  "plugins": ["import"],
+  "rules": {
+    "import/no-namespace": "error"
+  }
 }
 ```
 

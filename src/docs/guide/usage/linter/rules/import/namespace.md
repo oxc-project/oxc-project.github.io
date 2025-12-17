@@ -40,7 +40,7 @@ Examples of **incorrect** code for this rule:
 
 ```javascript
 // ./qux.js
-import * as foo from './foo';
+import * as foo from "./foo";
 foo.notExported(); // Error: notExported is not exported
 
 // Assignment to a member of an imported namespace
@@ -55,7 +55,7 @@ Examples of **correct** code for this rule:
 
 ```javascript
 // ./baz.js
-import * as foo from './foo';
+import * as foo from "./foo";
 console.log(foo.bar); // Valid: bar is exported
 
 // Computed reference
@@ -83,10 +83,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "plugins": ["import"],
-    "rules": {
-        "import/namespace": "error"
-    }
+  "plugins": ["import"],
+  "rules": {
+    "import/namespace": "error"
+  }
 }
 ```
 

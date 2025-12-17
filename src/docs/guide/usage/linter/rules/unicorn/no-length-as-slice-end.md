@@ -26,13 +26,13 @@ Passing `length` as the end argument of a `slice` call is unnecessary and can be
 Examples of **incorrect** code for this rule:
 
 ```javascript
-foo.slice(1, foo.length)
+foo.slice(1, foo.length);
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
-foo.slice(1)
+foo.slice(1);
 ```
 
 ## How to use
@@ -43,9 +43,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "unicorn/no-length-as-slice-end": "error"
-    }
+  "rules": {
+    "unicorn/no-length-as-slice-end": "error"
+  }
 }
 ```
 

@@ -24,8 +24,8 @@ unexpected issues in your Next.js application.
 Examples of **incorrect** code for this rule:
 
 ```jsx
-import Document, { Html, Main, NextScript } from 'next/document'
-import Head from 'next/head';
+import Document, { Html, Main, NextScript } from "next/document";
+import Head from "next/head";
 
 class MyDocument extends Document {
   static async getInitialProps(ctx) {
@@ -37,17 +37,17 @@ class MyDocument extends Document {
       <Html>
         <Head></Head>
       </Html>
-    )
+    );
   }
 }
 
-export default MyDocument
+export default MyDocument;
 ```
 
 Examples of **correct** code for this rule:
 
 ```jsx
-import Document, { Html, Head, Main, NextScript } from 'next/document'
+import Document, { Html, Head, Main, NextScript } from "next/document";
 
 class MyDocument extends Document {
   static async getInitialProps(ctx) {
@@ -59,11 +59,11 @@ class MyDocument extends Document {
       <Html>
         <Head></Head>
       </Html>
-    )
+    );
   }
 }
 
-export default MyDocument
+export default MyDocument;
 ```
 
 ## How to use
@@ -74,10 +74,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "plugins": ["nextjs"],
-    "rules": {
-        "nextjs/no-head-import-in-document": "error"
-    }
+  "plugins": ["nextjs"],
+  "rules": {
+    "nextjs/no-head-import-in-document": "error"
+  }
 }
 ```
 

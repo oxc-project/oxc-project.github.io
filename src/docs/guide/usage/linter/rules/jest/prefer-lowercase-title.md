@@ -24,16 +24,16 @@ enabled by default.
 Examples of **incorrect** code for this rule:
 
 ```javascript
-it('Adds 1 + 2 to equal 3', () => {
-    expect(sum(1, 2)).toBe(3);
+it("Adds 1 + 2 to equal 3", () => {
+  expect(sum(1, 2)).toBe(3);
 });
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
-it('adds 1 + 2 to equal 3', () => {
-    expect(sum(1, 2)).toBe(3);
+it("adds 1 + 2 to equal 3", () => {
+  expect(sum(1, 2)).toBe(3);
 });
 ```
 
@@ -43,7 +43,7 @@ to use it, add the following configuration to your `.oxlintrc.json`:
 ```json
 {
   "rules": {
-     "vitest/prefer-lowercase-title": "error"
+    "vitest/prefer-lowercase-title": "error"
   }
 }
 ```
@@ -67,7 +67,7 @@ Example of **correct** code for the `{ "allowedPrefixes": ["GET"] }` option:
 
 ```js
 /* jest/prefer-lowercase-title: ["error", { "allowedPrefixes": ["GET"] }] */
-describe('GET /live');
+describe("GET /live");
 ```
 
 ### ignore
@@ -91,21 +91,21 @@ Example of **correct** code for the `{ "ignore": ["describe"] }` option:
 
 ```js
 /* jest/prefer-lowercase-title: ["error", { "ignore": ["describe"] }] */
-describe('Uppercase description');
+describe("Uppercase description");
 ```
 
 Example of **correct** code for the `{ "ignore": ["test"] }` option:
 
 ```js
 /* jest/prefer-lowercase-title: ["error", { "ignore": ["test"] }] */
-test('Uppercase description');
+test("Uppercase description");
 ```
 
 Example of **correct** code for the `{ "ignore": ["it"] }` option:
 
 ```js
 /* jest/prefer-lowercase-title: ["error", { "ignore": ["it"] }] */
-it('Uppercase description');
+it("Uppercase description");
 ```
 
 ### ignoreTopLevelDescribe
@@ -121,12 +121,12 @@ Example of **correct** code for the `{ "ignoreTopLevelDescribe": true }` option:
 
 ```js
 /* jest/prefer-lowercase-title: ["error", { "ignoreTopLevelDescribe": true }] */
-describe('MyClass', () => {
-describe('#myMethod', () => {
-it('does things', () => {
-//
-});
-});
+describe("MyClass", () => {
+  describe("#myMethod", () => {
+    it("does things", () => {
+      //
+    });
+  });
 });
 ```
 
@@ -142,12 +142,12 @@ Example of **correct** code for the `{ "lowercaseFirstCharacterOnly": true }` op
 
 ```js
 /* vitest/prefer-lowercase-title: ["error", { "lowercaseFirstCharacterOnly": true }] */
-describe('myClass', () => {
-describe('myMethod', () => {
-it('does things', () => {
-//
-});
-});
+describe("myClass", () => {
+  describe("myMethod", () => {
+    it("does things", () => {
+      //
+    });
+  });
 });
 ```
 
@@ -155,12 +155,12 @@ Example of **incorrect** code for the `{ "lowercaseFirstCharacterOnly": true }` 
 
 ```js
 /* vitest/prefer-lowercase-title: ["error", { "lowercaseFirstCharacterOnly": true }] */
-describe('MyClass', () => {
-describe('MyMethod', () => {
-it('does things', () => {
-//
-});
-});
+describe("MyClass", () => {
+  describe("MyMethod", () => {
+    it("does things", () => {
+      //
+    });
+  });
 });
 ```
 
@@ -172,10 +172,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "plugins": ["jest"],
-    "rules": {
-        "jest/prefer-lowercase-title": "error"
-    }
+  "plugins": ["jest"],
+  "rules": {
+    "jest/prefer-lowercase-title": "error"
+  }
 }
 ```
 

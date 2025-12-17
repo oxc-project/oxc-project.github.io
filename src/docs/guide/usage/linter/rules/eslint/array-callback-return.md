@@ -28,7 +28,7 @@ Examples of **incorrect** code for this rule:
 ```javascript
 let foo = [1, 2, 3, 4];
 foo.map((a) => {
-  console.log(a)
+  console.log(a);
 });
 ```
 
@@ -37,8 +37,8 @@ Examples of **correct** code for this rule:
 ```javascript
 let foo = [1, 2, 3, 4];
 foo.map((a) => {
-  console.log(a)
-  return a
+  console.log(a);
+  return a;
 });
 ```
 
@@ -71,9 +71,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "array-callback-return": "error"
-    }
+  "rules": {
+    "array-callback-return": "error"
+  }
 }
 ```
 

@@ -80,21 +80,21 @@ Examples of **incorrect** code for this rule, when configured with `{ props: "al
 
 ```jsx
 <App>Hello world</App>;
-<App prop='Hello world'>{'Hello world'}</App>;
+<App prop="Hello world">{"Hello world"}</App>;
 ```
 
 They can be fixed to:
 
 ```jsx
 <App>{"Hello world"}</App>;
-<App prop={"Hello world"}>{'Hello world'}</App>;
+<App prop={"Hello world"}>{"Hello world"}</App>;
 ```
 
 Examples of **incorrect** code for this rule, when configured with `{ props: "never", children: "never" }`:
 
 ```jsx
-<App>{'Hello world'}</App>;
-<App prop={'Hello world'} attr={"foo"} />;
+<App>{"Hello world"}</App>;
+<App prop={"Hello world"} attr={"foo"} />;
 ```
 
 They can be fixed to:
@@ -107,25 +107,25 @@ They can be fixed to:
 Examples of **incorrect** code for this rule, when configured with `{ props: "always", children: "always", "propElementValues": "always" }`:
 
 ```jsx
-<App prop=<div /> />;
+<App prop=<div /> />
 ```
 
 They can be fixed to:
 
 ```jsx
-<App prop={<div />} />;
+<App prop={<div />} />
 ```
 
 Examples of **incorrect** code for this rule, when configured with `{ props: "never", children: "never", "propElementValues": "never" }`:
 
 ```jsx
-<App prop={<div />} />;
+<App prop={<div />} />
 ```
 
 They can be fixed to:
 
 ```jsx
-<App prop=<div /> />;
+<App prop=<div /> />
 ```
 
 ### Alternative syntax
@@ -141,26 +141,34 @@ Examples of **incorrect** code for this rule, when configured with `"always"`:
 
 ```jsx
 <App>Hello world</App>;
-<App prop='Hello world' attr="foo">Hello world</App>;
+<App prop="Hello world" attr="foo">
+  Hello world
+</App>;
 ```
 
 They can be fixed to:
 
 ```jsx
 <App>{"Hello world"}</App>;
-<App prop={"Hello world"} attr={"foo"}>{"Hello world"}</App>;
+<App prop={"Hello world"} attr={"foo"}>
+  {"Hello world"}
+</App>;
 ```
 
 Examples of **incorrect** code for this rule, when configured with `"never"`:
 
 ```jsx
-<App prop={'foo'} attr={"bar"}>{'Hello world'}</App>;
+<App prop={"foo"} attr={"bar"}>
+  {"Hello world"}
+</App>
 ```
 
 It can fixed to:
 
 ```jsx
-<App prop="foo" attr="bar">Hello world</App>;
+<App prop="foo" attr="bar">
+  Hello world
+</App>
 ```
 
 ## Edge cases
@@ -173,13 +181,13 @@ strings with escapes characters.
   throw a warning and be fixed with double quotes. For example:
 
 ```jsx
-<App prop={`Hello world`}>{`Hello world`}</App>;
+<App prop={`Hello world`}>{`Hello world`}</App>
 ```
 
 will be warned and fixed to:
 
 ```jsx
-<App prop="Hello world">Hello world</App>;
+<App prop="Hello world">Hello world</App>
 ```
 
 - If the rule is set to enforce curly braces and the strings have
@@ -190,13 +198,13 @@ will be warned and fixed to:
 For example:
 
 ```jsx
-<App prop='Hello "foo" world'>Hello 'foo' "bar" world</App>;
+<App prop='Hello "foo" world'>Hello 'foo' "bar" world</App>
 ```
 
 will warned and fixed to:
 
 ```jsx
-<App prop={"Hello \"foo\" world"}>{"Hello 'foo' \"bar\" world"}</App>;
+<App prop={'Hello "foo" world'}>{"Hello 'foo' \"bar\" world"}</App>
 ```
 
 - If the rule is set to get rid of unnecessary curly braces(JSX
@@ -257,10 +265,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "plugins": ["react"],
-    "rules": {
-        "react/jsx-curly-brace-presence": "error"
-    }
+  "plugins": ["react"],
+  "rules": {
+    "react/jsx-curly-brace-presence": "error"
+  }
 }
 ```
 

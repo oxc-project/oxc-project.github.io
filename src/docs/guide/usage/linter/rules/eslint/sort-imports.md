@@ -28,10 +28,10 @@ the code and find necessary imports later.
 Examples of **incorrect** code for this rule:
 
 ```javascript
-import {b, a, c} from 'foo.js'
+import { b, a, c } from "foo.js";
 
-import d from 'foo.js';
-import e from 'bar.js';
+import d from "foo.js";
+import e from "bar.js";
 ```
 
 ## Configuration
@@ -88,9 +88,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "sort-imports": "error"
-    }
+  "rules": {
+    "sort-imports": "error"
+  }
 }
 ```
 

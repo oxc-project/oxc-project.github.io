@@ -36,9 +36,11 @@ const result = array.filter(lib.method);
 Examples of **correct** code for this rule:
 
 ```js
-const foo = array.map(element => callback(element));
-array.forEach(element => { callback(element); });
-const result = array.filter(element => lib.method(element));
+const foo = array.map((element) => callback(element));
+array.forEach((element) => {
+  callback(element);
+});
+const result = array.filter((element) => lib.method(element));
 
 // Built-in functions are allowed
 const foo = array.map(String);
@@ -53,9 +55,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "unicorn/no-array-callback-reference": "error"
-    }
+  "rules": {
+    "unicorn/no-array-callback-reference": "error"
+  }
 }
 ```
 

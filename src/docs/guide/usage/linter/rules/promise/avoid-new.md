@@ -25,7 +25,9 @@ Examples of **incorrect** code for this rule:
 
 ```javascript
 function foo() {
-    return new Promise((resolve, reject) => { /* ... */ });
+  return new Promise((resolve, reject) => {
+    /* ... */
+  });
 }
 ```
 
@@ -33,7 +35,7 @@ Examples of **correct** code for this rule:
 
 ```javascript
 async function foo() {
-    // ...
+  // ...
 }
 const bar = await Promise.all([baz(), bang()]);
 ```
@@ -46,10 +48,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "plugins": ["promise"],
-    "rules": {
-        "promise/avoid-new": "error"
-    }
+  "plugins": ["promise"],
+  "rules": {
+    "promise/avoid-new": "error"
+  }
 }
 ```
 

@@ -23,7 +23,7 @@ If a loop contains no nested loops or switches, labeling the loop is unnecessary
 
 ```js
 A: while (a) {
-    break A;
+  break A;
 }
 ```
 
@@ -36,16 +36,16 @@ Examples of **incorrect** code for this rule:
 
 ```js
 A: while (a) {
-    break A;
+  break A;
 }
 
 B: for (let i = 0; i < 10; ++i) {
-    break B;
+  break B;
 }
 
 C: switch (a) {
-    case 0:
-        break C;
+  case 0:
+    break C;
 }
 ```
 
@@ -53,34 +53,34 @@ Examples of **correct** code for this rule:
 
 ```js
 while (a) {
-    break;
+  break;
 }
 
 for (let i = 0; i < 10; ++i) {
-    break;
+  break;
 }
 
 switch (a) {
-    case 0:
-        break;
+  case 0:
+    break;
 }
 
 A: {
-    break A;
+  break A;
 }
 
 B: while (a) {
-    while (b) {
-        break B;
-    }
+  while (b) {
+    break B;
+  }
 }
 
 C: switch (a) {
-    case 0:
-        while (b) {
-            break C;
-        }
-        break;
+  case 0:
+    while (b) {
+      break C;
+    }
+    break;
 }
 ```
 
@@ -92,9 +92,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "no-extra-label": "error"
-    }
+  "rules": {
+    "no-extra-label": "error"
+  }
 }
 ```
 

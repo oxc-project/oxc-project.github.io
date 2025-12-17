@@ -30,7 +30,7 @@ Examples of **incorrect** code for this rule:
 
 ```javascript
 "Hello ${name}!";
-'Hello ${name}!';
+"Hello ${name}!";
 "Time: ${12 * 60 * 60 * 1000}";
 ```
 
@@ -50,9 +50,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "no-template-curly-in-string": "error"
-    }
+  "rules": {
+    "no-template-curly-in-string": "error"
+  }
 }
 ```
 

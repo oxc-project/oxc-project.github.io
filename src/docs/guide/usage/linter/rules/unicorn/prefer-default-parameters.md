@@ -32,23 +32,23 @@ Examples of **incorrect** code for this rule:
 
 ```js
 function abc(foo) {
-	foo = foo || 'bar';
+  foo = foo || "bar";
 }
 
 function abc(foo) {
-	const bar = foo || 'bar';
+  const bar = foo || "bar";
 }
 ```
 
 Examples of **correct** code for this rule:
 
 ```js
-function abc(foo = 'bar') {}
+function abc(foo = "bar") {}
 
-function abc(bar = 'bar') {}
+function abc(bar = "bar") {}
 
 function abc(foo) {
-	foo = foo || bar();
+  foo = foo || bar();
 }
 ```
 
@@ -60,9 +60,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "unicorn/prefer-default-parameters": "error"
-    }
+  "rules": {
+    "unicorn/prefer-default-parameters": "error"
+  }
 }
 ```
 

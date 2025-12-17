@@ -28,14 +28,18 @@ Examples of **incorrect** code for this rule:
 
 ```javascript
 // dep-b.js
-import './dep-a.js'
-export function b() { /* ... */ }
+import "./dep-a.js";
+export function b() {
+  /* ... */
+}
 ```
 
 ```javascript
 // dep-a.js
-import { b } from './dep-b.js' // reported: Dependency cycle detected.
-export function a() { /* ... */ }
+import { b } from "./dep-b.js"; // reported: Dependency cycle detected.
+export function a() {
+  /* ... */
+}
 ```
 
 In this example, `dep-a.js` and `dep-b.js` import each other, creating a circular
@@ -45,13 +49,17 @@ Examples of **correct** code for this rule:
 
 ```javascript
 // dep-b.js
-export function b() { /* ... */ }
+export function b() {
+  /* ... */
+}
 ```
 
 ```javascript
 // dep-a.js
-import { b } from './dep-b.js' // no circular dependency
-export function a() { /* ... */ }
+import { b } from "./dep-b.js"; // no circular dependency
+export function a() {
+  /* ... */
+}
 ```
 
 In this corrected version, `dep-b.js` no longer imports `dep-a.js`, breaking the cycle.
@@ -100,10 +108,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "plugins": ["import"],
-    "rules": {
-        "import/no-cycle": "error"
-    }
+  "plugins": ["import"],
+  "rules": {
+    "import/no-cycle": "error"
+  }
 }
 ```
 

@@ -26,8 +26,7 @@ Examples of **incorrect** code for this rule:
 ```js
 var x = foo;
 function bar() {
-x:
-  for (;;) {
+  x: for (;;) {
     break x;
   }
 }
@@ -39,14 +38,13 @@ Examples of **correct** code for this rule:
 // The variable that has the same name as the label is not in scope.
 
 function foo() {
-    var q = t;
+  var q = t;
 }
 
 function bar() {
-q:
-    for(;;) {
-        break q;
-    }
+  q: for (;;) {
+    break q;
+  }
 }
 ```
 
@@ -58,9 +56,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "no-label-var": "error"
-    }
+  "rules": {
+    "no-label-var": "error"
+  }
 }
 ```
 

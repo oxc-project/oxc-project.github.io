@@ -33,17 +33,23 @@ Keys or attributes are not supported by the shorthand syntax, so the rule will n
 Examples of **incorrect** code for this rule:
 
 ```jsx
-<React.Fragment><Foo /></React.Fragment>
+<React.Fragment>
+  <Foo />
+</React.Fragment>
 ```
 
 Examples of **correct** code for this rule:
 
 ```jsx
-<><Foo /></>
+<>
+  <Foo />
+</>
 ```
 
 ```jsx
-<React.Fragment key="key"><Foo /></React.Fragment>
+<React.Fragment key="key">
+  <Foo />
+</React.Fragment>
 ```
 
 ### `"element"`
@@ -53,17 +59,23 @@ This mode enforces the standard form for React fragments.
 Examples of **incorrect** code for this rule:
 
 ```jsx
-<><Foo /></>
+<>
+  <Foo />
+</>
 ```
 
 Examples of **correct** code for this rule:
 
 ```jsx
-<React.Fragment><Foo /></React.Fragment>
+<React.Fragment>
+  <Foo />
+</React.Fragment>
 ```
 
 ```jsx
-<React.Fragment key="key"><Foo /></React.Fragment>
+<React.Fragment key="key">
+  <Foo />
+</React.Fragment>
 ```
 
 ## How to use
@@ -74,10 +86,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "plugins": ["react"],
-    "rules": {
-        "react/jsx-fragments": "error"
-    }
+  "plugins": ["react"],
+  "rules": {
+    "react/jsx-fragments": "error"
+  }
 }
 ```
 

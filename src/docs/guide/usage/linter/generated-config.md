@@ -21,11 +21,7 @@ Example
 ```json
 {
   "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": [
-    "import",
-    "typescript",
-    "unicorn"
-  ],
+  "plugins": ["import", "typescript", "unicorn"],
   "env": {
     "browser": true
   },
@@ -45,10 +41,7 @@ Example
   },
   "overrides": [
     {
-      "files": [
-        "*.test.ts",
-        "*.spec.ts"
-      ],
+      "files": ["*.test.ts", "*.spec.ts"],
       "rules": {
         "@typescript-eslint/no-explicit-any": "off"
       }
@@ -355,13 +348,13 @@ Example:
 
 ```json
 {
-"settings": {
-"jsx-a11y": {
-"attributes": {
-"for": ["htmlFor", "for"]
-}
-}
-}
+  "settings": {
+    "jsx-a11y": {
+      "attributes": {
+        "for": ["htmlFor", "for"]
+      }
+    }
+  }
 }
 ```
 
@@ -378,14 +371,14 @@ Example:
 
 ```json
 {
-"settings": {
-"jsx-a11y": {
-"components": {
-"Link": "a",
-"IconButton": "button"
-}
-}
-}
+  "settings": {
+    "jsx-a11y": {
+      "components": {
+        "Link": "a",
+        "IconButton": "button"
+      }
+    }
+  }
 }
 ```
 
@@ -440,17 +433,17 @@ Example:
 
 ```jsonc
 {
-"settings": {
-"react": {
-"formComponents": [
-"CustomForm",
-// OtherForm is considered a form component and has an endpoint attribute
-{ "name": "OtherForm", "formAttribute": "endpoint" },
-// allows specifying multiple properties if necessary
-{ "name": "Form", "formAttribute": ["registerEndpoint", "loginEndpoint"] }
-]
-}
-}
+  "settings": {
+    "react": {
+      "formComponents": [
+        "CustomForm",
+        // OtherForm is considered a form component and has an endpoint attribute
+        { "name": "OtherForm", "formAttribute": "endpoint" },
+        // allows specifying multiple properties if necessary
+        { "name": "Form", "formAttribute": ["registerEndpoint", "loginEndpoint"] },
+      ],
+    },
+  },
 }
 ```
 
@@ -478,18 +471,18 @@ Example:
 
 ```jsonc
 {
-"settings": {
-"react": {
-"linkComponents": [
-"HyperLink",
-// Use `linkAttribute` for components that use a different prop name
-// than `href`.
-{ "name": "MyLink", "linkAttribute": "to" },
-// allows specifying multiple properties if necessary
-{ "name": "Link", "linkAttribute": ["to", "href"] }
-]
-}
-}
+  "settings": {
+    "react": {
+      "linkComponents": [
+        "HyperLink",
+        // Use `linkAttribute` for components that use a different prop name
+        // than `href`.
+        { "name": "MyLink", "linkAttribute": "to" },
+        // allows specifying multiple properties if necessary
+        { "name": "Link", "linkAttribute": ["to", "href"] },
+      ],
+    },
+  },
 }
 ```
 

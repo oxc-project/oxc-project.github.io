@@ -26,17 +26,17 @@ The [`String#replaceAll()`](https://developer.mozilla.org/en-US/docs/Web/JavaScr
 Examples of **incorrect** code for this rule:
 
 ```js
-foo.replace(/a/g, bar)
+foo.replace(/a/g, bar);
 ```
 
 Examples of **correct** code for this rule:
 
 ```js
-foo.replace(/a/, bar)
-foo.replaceAll(/a/, bar)
+foo.replace(/a/, bar);
+foo.replaceAll(/a/, bar);
 
-const pattern = "not-a-regexp"
-foo.replace(pattern, bar)
+const pattern = "not-a-regexp";
+foo.replace(pattern, bar);
 ```
 
 ## How to use
@@ -47,9 +47,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "unicorn/prefer-string-replace-all": "error"
-    }
+  "rules": {
+    "unicorn/prefer-string-replace-all": "error"
+  }
 }
 ```
 

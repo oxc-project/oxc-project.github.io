@@ -27,25 +27,25 @@ Examples of **incorrect** code for this rule:
 
 ```javascript
 class Person {
-    get name() {
-        // no return
-    }
+  get name() {
+    // no return
+  }
 }
 
 const obj = {
-    get foo() {
-        // object getter are also checked
-    }
-}
+  get foo() {
+    // object getter are also checked
+  },
+};
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
 class Person {
-    get name() {
-        return this._name;
-    }
+  get name() {
+    return this._name;
+  }
 }
 ```
 
@@ -69,9 +69,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "getter-return": "error"
-    }
+  "rules": {
+    "getter-return": "error"
+  }
 }
 ```
 

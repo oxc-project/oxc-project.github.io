@@ -26,17 +26,17 @@ Examples of **incorrect** code for this rule:
 
 ```javascript
 /** @param {number} [foo="7"] */
-function quux (foo) {}
+function quux(foo) {}
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
 /** @param {number} foo */
-function quux (foo) {}
+function quux(foo) {}
 
 /** @param foo */
-function quux (foo) {}
+function quux(foo) {}
 ```
 
 ## Configuration
@@ -59,10 +59,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "plugins": ["jsdoc"],
-    "rules": {
-        "jsdoc/no-defaults": "error"
-    }
+  "plugins": ["jsdoc"],
+  "rules": {
+    "jsdoc/no-defaults": "error"
+  }
 }
 ```
 

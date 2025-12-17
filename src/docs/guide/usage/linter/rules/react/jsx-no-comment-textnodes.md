@@ -24,21 +24,20 @@ Examples of **incorrect** code for this rule:
 
 ```jsx
 const Hello = () => {
-    return <div>// empty div</div>;
-}
+  return <div>// empty div</div>;
+};
 
 const Hello = () => {
-    return <div>/* empty div */</div>;
-}
-
+  return <div>/* empty div */</div>;
+};
 ```
 
 Examples of **correct** code for this rule:
 
 ```jsx
 const Hello = () => {
-    return <div>{/* empty div */}</div>;
-}
+  return <div>{/* empty div */}</div>;
+};
 ```
 
 ## How to use
@@ -49,10 +48,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "plugins": ["react"],
-    "rules": {
-        "react/jsx-no-comment-textnodes": "error"
-    }
+  "plugins": ["react"],
+  "rules": {
+    "react/jsx-no-comment-textnodes": "error"
+  }
 }
 ```
 

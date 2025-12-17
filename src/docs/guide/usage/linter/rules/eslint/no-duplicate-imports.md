@@ -30,16 +30,16 @@ In the following example the module import on line 1 is repeated on line 3. Thes
 combined to make the list of imports more succinct.
 
 ```js
-import { merge } from 'module';
-import something from 'another-module';
-import { find } from 'module';
+import { merge } from "module";
+import something from "another-module";
+import { find } from "module";
 ```
 
 Examples of **correct** code for this rule:
 
 ```js
-import { merge, find } from 'module';
-import something from 'another-module';
+import { merge, find } from "module";
+import something from "another-module";
 ```
 
 ## Configuration
@@ -82,9 +82,9 @@ importing from the same module.
 Examples of **incorrect** code when `includeExports` is set to `true`:
 
 ```js
-import { merge } from 'module';
+import { merge } from "module";
 
-export { find } from 'module'; // re-export which is an import and an export.
+export { find } from "module"; // re-export which is an import and an export.
 ```
 
 Examples of **correct** code when `includeExports` is set to `true`:
@@ -94,17 +94,17 @@ If re-exporting from an imported module, you should add the imports to the
 
 ```js
 import { merge } from "lodash-es";
-export { merge as lodashMerge }
+export { merge as lodashMerge };
 ```
 
 ```js
-import { merge, find } from 'module';
+import { merge, find } from "module";
 
 // cannot be merged with the above import
-export * as something from 'module';
+export * as something from "module";
 
 // cannot be written differently
-export * from 'module';
+export * from "module";
 ```
 
 ## How to use
@@ -115,9 +115,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "no-duplicate-imports": "error"
-    }
+  "rules": {
+    "no-duplicate-imports": "error"
+  }
 }
 ```
 

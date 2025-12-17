@@ -41,7 +41,7 @@ throw "an " + err;
 // err is recast to a string literal
 
 var err = new Error();
-throw `${err}`
+throw `${err}`;
 ```
 
 Examples of **correct** code for this rule:
@@ -55,9 +55,9 @@ var e = new Error("error");
 throw e;
 
 try {
-    throw new Error("error");
+  throw new Error("error");
 } catch (e) {
-    throw e;
+  throw e;
 }
 ```
 
@@ -69,9 +69,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "no-throw-literal": "error"
-    }
+  "rules": {
+    "no-throw-literal": "error"
+  }
 }
 ```
 

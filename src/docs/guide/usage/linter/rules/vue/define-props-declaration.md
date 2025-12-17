@@ -22,16 +22,16 @@ Examples of **incorrect** code for this rule:
 ```vue
 // "vue/define-props-declaration": ["error", "type-based"]
 <script setup lang="ts">
-	const props = defineProps({
-	  kind: { type: String },
-	})
-	</script>
+const props = defineProps({
+  kind: { type: String },
+});
+</script>
 
 // "vue/define-props-declaration": ["error", "runtime"]
 <script setup lang="ts">
 const props = defineProps<{
   kind: string;
-}>()
+}>();
 </script>
 ```
 
@@ -42,15 +42,15 @@ Examples of **correct** code for this rule:
 <script setup lang="ts">
 const props = defineProps<{
   kind: string;
-}>()
+}>();
 </script>
 
 // "vue/define-props-declaration": ["error", "runtime"]
 <script setup lang="ts">
-	const props = defineProps({
-	  kind: { type: String },
-	})
-	</script>
+const props = defineProps({
+  kind: { type: String },
+});
+</script>
 ```
 
 ## Configuration
@@ -73,10 +73,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "plugins": ["vue"],
-    "rules": {
-        "vue/define-props-declaration": "error"
-    }
+  "plugins": ["vue"],
+  "rules": {
+    "vue/define-props-declaration": "error"
+  }
 }
 ```
 

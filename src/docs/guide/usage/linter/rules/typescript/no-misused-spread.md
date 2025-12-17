@@ -42,7 +42,7 @@ const promise = Promise.resolve([1, 2, 3]);
 const arr2 = [...promise]; // Runtime error: Promise is not iterable
 
 // Spreading non-object in object literal
-const str = 'hello';
+const str = "hello";
 const obj = { ...str }; // Creates { '0': 'h', '1': 'e', ... } which might be unexpected
 ```
 
@@ -62,7 +62,7 @@ const promise = Promise.resolve([1, 2, 3]);
 const arr3 = [...(await promise)];
 
 // Using Array.from for non-iterables if needed
-const str = 'hello';
+const str = "hello";
 const arr4 = Array.from(str); // ['h', 'e', 'l', 'l', 'o']
 ```
 
@@ -74,9 +74,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "typescript/no-misused-spread": "error"
-    }
+  "rules": {
+    "typescript/no-misused-spread": "error"
+  }
 }
 ```
 

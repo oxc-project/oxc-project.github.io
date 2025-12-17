@@ -26,7 +26,7 @@ Examples of **incorrect** code for this rule:
 
 ```vue
 <script setup>
-  export let msg = 'Hello!'
+export let msg = "Hello!";
 </script>
 ```
 
@@ -34,7 +34,7 @@ Examples of **correct** code for this rule:
 
 ```vue
 <script setup>
-  let msg = 'Hello!'
+let msg = "Hello!";
 </script>
 ```
 
@@ -46,10 +46,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "plugins": ["vue"],
-    "rules": {
-        "vue/no-export-in-script-setup": "error"
-    }
+  "plugins": ["vue"],
+  "rules": {
+    "vue/no-export-in-script-setup": "error"
+  }
 }
 ```
 

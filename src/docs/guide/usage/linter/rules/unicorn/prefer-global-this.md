@@ -37,7 +37,8 @@ Examples of **incorrect** code for this rule:
 window.alert("Hi");
 
 // Node‑only
-if (typeof global.Buffer !== "undefined") {}
+if (typeof global.Buffer !== "undefined") {
+}
 
 // Web Worker‑only
 self.postMessage("done");
@@ -48,7 +49,8 @@ Examples of **correct** code for this rule:
 ```js
 globalThis.alert("Hi");
 
-if (typeof globalThis.Buffer !== "undefined") {}
+if (typeof globalThis.Buffer !== "undefined") {
+}
 
 globalThis.postMessage("done");
 ```
@@ -61,9 +63,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "unicorn/prefer-global-this": "error"
-    }
+  "rules": {
+    "unicorn/prefer-global-this": "error"
+  }
 }
 ```
 

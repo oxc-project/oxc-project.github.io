@@ -43,10 +43,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "plugins": ["react"],
-    "rules": {
-        "react/no-render-return-value": "error"
-    }
+  "plugins": ["react"],
+  "rules": {
+    "react/no-render-return-value": "error"
+  }
 }
 ```
 

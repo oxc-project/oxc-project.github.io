@@ -37,9 +37,9 @@ restrictions.
 Examples of **incorrect** code for this rule:
 
 ```jsx
-<iframe/>;
+<iframe />;
 <iframe sandbox="invalid-value" />;
-<iframe sandbox="allow-same-origin allow-scripts"/>;
+<iframe sandbox="allow-same-origin allow-scripts" />;
 ```
 
 Examples of **correct** code for this rule:
@@ -57,10 +57,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "plugins": ["react"],
-    "rules": {
-        "react/iframe-missing-sandbox": "error"
-    }
+  "plugins": ["react"],
+  "rules": {
+    "react/iframe-missing-sandbox": "error"
+  }
 }
 ```
 

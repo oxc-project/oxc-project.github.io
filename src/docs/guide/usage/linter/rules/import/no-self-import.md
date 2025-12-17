@@ -26,15 +26,15 @@ Examples of **incorrect** code for this rule:
 
 ```javascript
 // foo.js
-import foo from './foo.js';  // Incorrect: module imports itself
-const foo = require('./foo'); // Incorrect: module imports itself
+import foo from "./foo.js"; // Incorrect: module imports itself
+const foo = require("./foo"); // Incorrect: module imports itself
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
 // foo.js
-import bar from './bar.js';  // Correct: module imports another module
+import bar from "./bar.js"; // Correct: module imports another module
 ```
 
 ## How to use
@@ -45,10 +45,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "plugins": ["import"],
-    "rules": {
-        "import/no-self-import": "error"
-    }
+  "plugins": ["import"],
+  "rules": {
+    "import/no-self-import": "error"
+  }
 }
 ```
 

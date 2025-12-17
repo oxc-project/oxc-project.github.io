@@ -33,10 +33,10 @@ Examples of **correct** code for this rule:
 
 ```ts
 interface Foo {
-    member: string;
+  member: string;
 }
 interface Bar extends Foo {
-    member: string;
+  member: string;
 }
 ```
 
@@ -60,9 +60,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "typescript/no-empty-interface": "error"
-    }
+  "rules": {
+    "typescript/no-empty-interface": "error"
+  }
 }
 ```
 

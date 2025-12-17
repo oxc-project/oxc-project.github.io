@@ -32,28 +32,28 @@ that order within tests.
 Examples of **incorrect** code for this rule:
 
 ```javascript
-describe('foo', () => {
+describe("foo", () => {
   beforeEach(() => {
     seedMyDatabase();
   });
   beforeAll(() => {
     createMyDatabase();
   });
-  it('accepts this input', () => {
+  it("accepts this input", () => {
     // ...
   });
-  it('returns that value', () => {
+  it("returns that value", () => {
     // ...
   });
-  describe('when the database has specific values', () => {
-    const specificValue = '...';
+  describe("when the database has specific values", () => {
+    const specificValue = "...";
     beforeEach(() => {
       seedMyDatabase(specificValue);
     });
-    it('accepts that input', () => {
+    it("accepts that input", () => {
       // ...
     });
-    it('throws an error', () => {
+    it("throws an error", () => {
       // ...
     });
     afterEach(() => {
@@ -62,8 +62,8 @@ describe('foo', () => {
     beforeEach(() => {
       mockLogger();
     });
-    it('logs a message', () => {
-       // ...
+    it("logs a message", () => {
+      // ...
     });
   });
   afterAll(() => {
@@ -75,28 +75,28 @@ describe('foo', () => {
 Examples of **correct** code for this rule:
 
 ```javascript
-describe('foo', () => {
+describe("foo", () => {
   beforeAll(() => {
     createMyDatabase();
   });
   beforeEach(() => {
     seedMyDatabase();
   });
-  it('accepts this input', () => {
+  it("accepts this input", () => {
     // ...
   });
-  it('returns that value', () => {
+  it("returns that value", () => {
     // ...
   });
-  describe('when the database has specific values', () => {
-    const specificValue = '...';
+  describe("when the database has specific values", () => {
+    const specificValue = "...";
     beforeEach(() => {
       seedMyDatabase(specificValue);
     });
-    it('accepts that input', () => {
+    it("accepts that input", () => {
       // ...
     });
-    it('throws an error', () => {
+    it("throws an error", () => {
       // ...
     });
     beforeEach(() => {
@@ -105,7 +105,7 @@ describe('foo', () => {
     afterEach(() => {
       clearLogger();
     });
-    it('logs a message', () => {
+    it("logs a message", () => {
       // ...
     });
   });
@@ -121,7 +121,7 @@ to use it, add the following configuration to your `.oxlintrc.json`:
 ```json
 {
   "rules": {
-     "vitest/prefer-hooks-in-order": "error"
+    "vitest/prefer-hooks-in-order": "error"
   }
 }
 ```
@@ -134,10 +134,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "plugins": ["jest"],
-    "rules": {
-        "jest/prefer-hooks-in-order": "error"
-    }
+  "plugins": ["jest"],
+  "rules": {
+    "jest/prefer-hooks-in-order": "error"
+  }
 }
 ```
 

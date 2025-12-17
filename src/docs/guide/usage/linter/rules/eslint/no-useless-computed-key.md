@@ -22,13 +22,13 @@ Disallow unnecessary computed property keys in objects and classes
 It’s unnecessary to use computed properties with literals such as:
 
 ```js
-const foo = {["a"]: "b"};
+const foo = { ["a"]: "b" };
 ```
 
 The code can be rewritten as:
 
 ```js
-const foo = {"a": "b"};
+const foo = { a: "b" };
 ```
 
 ### Examples
@@ -36,49 +36,48 @@ const foo = {"a": "b"};
 Examples of **incorrect** code for this rule:
 
 ```js
-const a = { ['0']: 0 };
-const b = { ['0+1,234']: 0 };
+const a = { ["0"]: 0 };
+const b = { ["0+1,234"]: 0 };
 const c = { [0]: 0 };
-const e = { ['x']() {} };
+const e = { ["x"]() {} };
 
 class Foo {
-    ["foo"] = "bar";
-    [0]() {}
-    static ["foo"] = "bar";
-    get ['b']() {}
-    set ['c'](value) {}
+  ["foo"] = "bar";
+  [0]() {}
+  static ["foo"] = "bar";
+  get ["b"]() {}
+  set ["c"](value) {}
 }
 ```
 
 Examples of **correct** code for this rule:
 
 ```js
-const a = { 'a': 0 };
+const a = { a: 0 };
 const b = { 0: 0 };
 const c = { x() {} };
-const e = { '0+1,234': 0 };
+const e = { "0+1,234": 0 };
 
 class Foo {
-    "foo" = "bar";
-    0() {}
-    'a'() {}
-    static "foo" = "bar";
+  foo = "bar";
+  0() {}
+  a() {}
+  static foo = "bar";
 }
 ```
 
 Examples of additional **correct** code for this rule:
 
 ```js
-
 const c = {
-    "__proto__": foo, // defines object's prototype
-    ["__proto__"]: bar // defines a property named "__proto__"
+  __proto__: foo, // defines object's prototype
+  ["__proto__"]: bar, // defines a property named "__proto__"
 };
 class Foo {
-    ["constructor"]; // instance field named "constructor"
-    "constructor"() {} // the constructor of this class
-    static ["constructor"]; // static field named "constructor"
-    static ["prototype"]; // runtime error, it would be a parsing error without `[]`
+  ["constructor"]; // instance field named "constructor"
+  constructor() {} // the constructor of this class
+  static ["constructor"]; // static field named "constructor"
+  static ["prototype"]; // runtime error, it would be a parsing error without `[]`
 }
 ```
 
@@ -99,11 +98,11 @@ Examples of **correct** code for this rule with the `{ "enforceForClassMembers":
 
 ```js
 class SomeClass {
-["foo"] = "bar";
-[42] = "baz";
-get ['b']() {}
-set ['c'](value) {}
-static ["foo"] = "bar";
+  ["foo"] = "bar";
+  [42] = "baz";
+  get ["b"]() {}
+  set ["c"](value) {}
+  static ["foo"] = "bar";
 }
 ```
 
@@ -115,9 +114,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "no-useless-computed-key": "error"
-    }
+  "rules": {
+    "no-useless-computed-key": "error"
+  }
 }
 ```
 

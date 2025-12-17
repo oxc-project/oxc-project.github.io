@@ -43,17 +43,17 @@ In summary, while `require` works, the benefits of ES modules in terms of static
 Examples of **incorrect** code for this rule:
 
 ```ts
-const lib1 = require('lib1');
-const { lib2 } = require('lib2');
-import lib3 = require('lib3');
+const lib1 = require("lib1");
+const { lib2 } = require("lib2");
+import lib3 = require("lib3");
 ```
 
 Examples of **correct** code for this rule:
 
 ```ts
-import * as lib1 from 'lib1';
-import { lib2 } from 'lib2';
-import * as lib3 from 'lib3';
+import * as lib1 from "lib1";
+import { lib2 } from "lib2";
+import * as lib3 from "lib3";
 ```
 
 ## Configuration
@@ -76,7 +76,7 @@ With `{ allow: ['/package\\.json$'] }`:
 Examples of **correct** code for this rule:
 
 ```ts
-console.log(require('../package.json').version);
+console.log(require("../package.json").version);
 ```
 
 ### allowAsImport
@@ -93,16 +93,16 @@ When set to `true`:
 Examples of **incorrect** code for this rule:
 
 ```ts
-var foo = require('foo');
-const foo = require('foo');
-let foo = require('foo');
+var foo = require("foo");
+const foo = require("foo");
+let foo = require("foo");
 ```
 
 Examples of **correct** code for this rule:
 
 ```ts
-import foo = require('foo');
-import foo from 'foo';
+import foo = require("foo");
+import foo from "foo";
 ```
 
 ## How to use
@@ -113,9 +113,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "typescript/no-require-imports": "error"
-    }
+  "rules": {
+    "typescript/no-require-imports": "error"
+  }
 }
 ```
 

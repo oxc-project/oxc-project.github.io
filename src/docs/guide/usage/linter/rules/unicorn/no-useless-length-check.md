@@ -35,7 +35,7 @@ Examples of **incorrect** code for this rule:
 
 ```javascript
 if (array.length === 0 || array.every(Boolean)) {
-   // do something!
+  // do something!
 }
 ```
 
@@ -43,7 +43,7 @@ Examples of **correct** code for this rule:
 
 ```javascript
 if (array.every(Boolean)) {
-   // do something!
+  // do something!
 }
 ```
 
@@ -55,9 +55,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "unicorn/no-useless-length-check": "error"
-    }
+  "rules": {
+    "unicorn/no-useless-length-check": "error"
+  }
 }
 ```
 

@@ -28,13 +28,13 @@ maintainability and consistency across the codebase.
 Examples of **incorrect** code for this rule:
 
 ```javascript
-require([a, b], function() {} );
+require([a, b], function () {});
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
-require('../name');
+require("../name");
 require(`../name`);
 ```
 
@@ -46,10 +46,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "plugins": ["import"],
-    "rules": {
-        "import/no-amd": "error"
-    }
+  "plugins": ["import"],
+  "rules": {
+    "import/no-amd": "error"
+  }
 }
 ```
 

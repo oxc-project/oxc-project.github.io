@@ -41,7 +41,7 @@ import { print } from "esrap";
 import ts from "esrap/languages/ts";
 import { parseSync } from "oxc-parser";
 
-const { program } = parseSync("test.js", "alert(\"hello oxc & esrap\");");
+const { program } = parseSync("test.js", 'alert("hello oxc & esrap");');
 const { code } = print(program, ts());
 
 console.log(code); // alert("hello oxc & esrap");

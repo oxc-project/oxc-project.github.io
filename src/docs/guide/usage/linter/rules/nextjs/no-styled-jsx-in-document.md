@@ -24,7 +24,7 @@ Examples of **incorrect** code for this rule:
 
 ```javascript
 // pages/_document.js
-import Document, { Html, Head, Main, NextScript } from 'next/document'
+import Document, { Html, Head, Main, NextScript } from "next/document";
 
 class MyDocument extends Document {
   render() {
@@ -41,7 +41,7 @@ class MyDocument extends Document {
           `}</style>
         </body>
       </Html>
-    )
+    );
   }
 }
 ```
@@ -50,7 +50,7 @@ Examples of **correct** code for this rule:
 
 ```javascript
 // pages/_document.js
-import Document, { Html, Head, Main, NextScript } from 'next/document'
+import Document, { Html, Head, Main, NextScript } from "next/document";
 
 class MyDocument extends Document {
   render() {
@@ -62,7 +62,7 @@ class MyDocument extends Document {
           <NextScript />
         </body>
       </Html>
-    )
+    );
   }
 }
 ```
@@ -75,10 +75,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "plugins": ["nextjs"],
-    "rules": {
-        "nextjs/no-styled-jsx-in-document": "error"
-    }
+  "plugins": ["nextjs"],
+  "rules": {
+    "nextjs/no-styled-jsx-in-document": "error"
+  }
 }
 ```
 

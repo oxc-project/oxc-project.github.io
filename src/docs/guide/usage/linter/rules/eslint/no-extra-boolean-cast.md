@@ -33,11 +33,14 @@ Examples of **incorrect** code for this rule:
 var foo = !!!bar;
 var foo = Boolean(!!bar);
 
-if (!!foo) {}
-if (Boolean(foo)) {}
+if (!!foo) {
+}
+if (Boolean(foo)) {
+}
 
 // with "enforceForInnerExpressions" option enabled
-if (!!foo || bar) {}
+if (!!foo || bar) {
+}
 ```
 
 Examples of **correct** code for this rule:
@@ -46,11 +49,14 @@ Examples of **correct** code for this rule:
 var foo = !bar;
 var foo = Boolean(bar);
 
-if (foo) {}
-if (foo) {}
+if (foo) {
+}
+if (foo) {
+}
 
 // with "enforceForInnerExpressions" option enabled
-if (foo || bar) {}
+if (foo || bar) {
+}
 ```
 
 ## Configuration
@@ -77,9 +83,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "no-extra-boolean-cast": "error"
-    }
+  "rules": {
+    "no-extra-boolean-cast": "error"
+  }
 }
 ```
 

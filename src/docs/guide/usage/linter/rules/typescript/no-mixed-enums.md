@@ -32,13 +32,13 @@ Examples of **incorrect** code for this rule:
 ```ts
 enum Status {
   Open = 1,
-  Closed = 'closed',
+  Closed = "closed",
 }
 
 enum Direction {
-  Up = 'up',
+  Up = "up",
   Down = 2,
-  Left = 'left',
+  Left = "left",
   Right = 4,
 }
 ```
@@ -54,10 +54,10 @@ enum Status {
 
 // All string
 enum Direction {
-  Up = 'up',
-  Down = 'down',
-  Left = 'left',
-  Right = 'right',
+  Up = "up",
+  Down = "down",
+  Left = "left",
+  Right = "right",
 }
 
 // Auto-incremented numeric
@@ -76,9 +76,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "typescript/no-mixed-enums": "error"
-    }
+  "rules": {
+    "typescript/no-mixed-enums": "error"
+  }
 }
 ```
 

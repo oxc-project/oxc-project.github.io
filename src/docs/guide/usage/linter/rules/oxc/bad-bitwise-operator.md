@@ -25,9 +25,9 @@ Bitwise operators have different results from logical operators and a `TypeError
 It is obvious that logical operators are expected in the following code patterns:
 
 ```javascript
-e && e.x
-e || {}
-e || ''
+e && e.x;
+e || {};
+e || "";
 ```
 
 ### Examples
@@ -36,20 +36,20 @@ Examples of **incorrect** code for this rule:
 
 ```javascript
 if (obj & obj.prop) {
- console.log(obj.prop);
+  console.log(obj.prop);
 }
 options = options | {};
-input |= '';
+input |= "";
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
 if (obj && obj.prop) {
- console.log(obj.prop);
+  console.log(obj.prop);
 }
 options = options || {};
-input ||= '';
+input ||= "";
 ```
 
 ## How to use
@@ -60,9 +60,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "oxc/bad-bitwise-operator": "error"
-    }
+  "rules": {
+    "oxc/bad-bitwise-operator": "error"
+  }
 }
 ```
 

@@ -42,7 +42,7 @@ Examples of **correct** code for this rule with the default `always` option:
 x = y;
 x += y;
 x = y * z;
-x = (x * y) * z;
+x = x * y * z;
 x[0] /= y;
 x[foo()] = x[foo()] % 2;
 x = y + x; // `+` is not always commutative (e.g. x = "abc")
@@ -82,9 +82,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "operator-assignment": "error"
-    }
+  "rules": {
+    "operator-assignment": "error"
+  }
 }
 ```
 

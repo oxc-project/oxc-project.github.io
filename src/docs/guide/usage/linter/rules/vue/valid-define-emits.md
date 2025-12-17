@@ -36,32 +36,32 @@ Examples of **incorrect** code for this rule:
 
 ```vue
 <script setup>
-const def = { notify: null }
-defineEmits(def)
+const def = { notify: null };
+defineEmits(def);
 </script>
 ```
 
 ```vue
 <script setup lang="ts">
-defineEmits<(e: 'notify') => void>({ submit: null })
+defineEmits<(e: "notify") => void>({ submit: null });
 </script>
 ```
 
 ```vue
 <script setup>
-defineEmits({ notify: null })
-defineEmits({ submit: null })
+defineEmits({ notify: null });
+defineEmits({ submit: null });
 </script>
 ```
 
 ```vue
 <script>
 export default {
-  emits: ['notify']
-}
+  emits: ["notify"],
+};
 </script>
 <script setup>
-defineEmits({ submit: null })
+defineEmits({ submit: null });
 </script>
 ```
 
@@ -69,30 +69,30 @@ Examples of **correct** code for this rule:
 
 ```vue
 <script setup>
-defineEmits({ notify: null })
+defineEmits({ notify: null });
 </script>
 ```
 
 ```vue
 <script setup>
-defineEmits(['notify'])
+defineEmits(["notify"]);
 </script>
 ```
 
 ```vue
 <script setup lang="ts">
-defineEmits<(e: 'notify') => void>()
+defineEmits<(e: "notify") => void>();
 </script>
 ```
 
 ```vue
 <script>
 export default {
-  emits: ['notify']
-}
+  emits: ["notify"],
+};
 </script>
 <script setup>
-defineEmits()
+defineEmits();
 </script>
 ```
 
@@ -104,10 +104,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "plugins": ["vue"],
-    "rules": {
-        "vue/valid-define-emits": "error"
-    }
+  "plugins": ["vue"],
+  "rules": {
+    "vue/valid-define-emits": "error"
+  }
 }
 ```
 

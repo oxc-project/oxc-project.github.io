@@ -30,11 +30,11 @@ Examples of **incorrect** code for this rule:
 
 ```js
 const x = function () {
-foo();
+  foo();
 }.bind(bar);
 
 const z = (() => {
-    this.foo();
+  this.foo();
 }).bind(this);
 ```
 
@@ -42,10 +42,10 @@ Examples of **correct** code for this rule:
 
 ```js
 const x = function () {
-    this.foo();
+  this.foo();
 }.bind(bar);
 const y = function (a) {
-    return a + 1;
+  return a + 1;
 }.bind(foo, bar);
 ```
 
@@ -57,9 +57,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "no-extra-bind": "error"
-    }
+  "rules": {
+    "no-extra-bind": "error"
+  }
 }
 ```
 

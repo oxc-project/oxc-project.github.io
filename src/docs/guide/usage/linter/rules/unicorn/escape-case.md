@@ -51,9 +51,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "unicorn/escape-case": "error"
-    }
+  "rules": {
+    "unicorn/escape-case": "error"
+  }
 }
 ```
 

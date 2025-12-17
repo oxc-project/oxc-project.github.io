@@ -39,13 +39,13 @@ if (false) {
 if (new Boolean(x)) {
   doSomethingAlways();
 }
-if (x ||= true) {
+if ((x ||= true)) {
   doSomethingAlways();
 }
 
 do {
   doSomethingForever();
-} while (x = -1);
+} while ((x = -1));
 ```
 
 Examples of **correct** code for this rule:
@@ -84,9 +84,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "no-constant-condition": "error"
-    }
+  "rules": {
+    "no-constant-condition": "error"
+  }
 }
 ```
 

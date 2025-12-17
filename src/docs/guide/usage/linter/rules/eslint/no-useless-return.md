@@ -28,35 +28,39 @@ to disallow these redundant statements.
 Examples of **incorrect** code for this rule:
 
 ```js
-function foo() { return; }
+function foo() {
+  return;
+}
 
 function bar() {
-    doSomething();
-    return;
+  doSomething();
+  return;
 }
 
 function baz() {
-    if (condition) {
-        doSomething();
-        return;
-    }
+  if (condition) {
+    doSomething();
+    return;
+  }
 }
 ```
 
 Examples of **correct** code for this rule:
 
 ```js
-function foo() { return 5; }
+function foo() {
+  return 5;
+}
 
 function bar() {
-    if (condition) {
-        return;
-    }
-    doSomething();
+  if (condition) {
+    return;
+  }
+  doSomething();
 }
 
 function baz() {
-    return doSomething();
+  return doSomething();
 }
 ```
 
@@ -68,9 +72,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "no-useless-return": "error"
-    }
+  "rules": {
+    "no-useless-return": "error"
+  }
 }
 ```
 

@@ -32,10 +32,7 @@ Example:
 
 ```json
 {
-  "no-empty-function": [
-    "error",
-    { "allow": ["functions"] }
-  ]
+  "no-empty-function": ["error", { "allow": ["functions"] }]
 }
 ```
 
@@ -61,13 +58,12 @@ Example:
 Examples of **incorrect** code for this rule:
 
 ```typescript
-function foo() {
-}
+function foo() {}
 
 const bar = () => {};
 
 class Foo {
-  constructor()
+  constructor();
   someMethod() {}
   set bar(value) {}
 }
@@ -77,13 +73,13 @@ Examples of **correct** code for this rule:
 
 ```typescript
 function foo() {
-    // do nothing
+  // do nothing
 }
 
 function foo() {
   return;
 }
-const add = (a, b) => a + b
+const add = (a, b) => a + b;
 
 class Foo {
   // constructor body is empty, but it declares a private property named
@@ -104,9 +100,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "no-empty-function": "error"
-    }
+  "rules": {
+    "no-empty-function": "error"
+  }
 }
 ```
 

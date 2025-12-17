@@ -30,7 +30,7 @@ Examples of **incorrect** code for this rule:
 ```js
 BigInt(0);
 BigInt(123);
-BigInt(0xFF);
+BigInt(0xff);
 BigInt(1e3);
 BigInt("42");
 BigInt("0x10");
@@ -41,7 +41,7 @@ Examples of **correct** code for this rule:
 ```js
 0n;
 123n;
-0xFFn;
+0xffn;
 1000n;
 // Non-integer, dynamic, or non-literal input:
 BigInt(x);
@@ -57,9 +57,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "unicorn/prefer-bigint-literals": "error"
-    }
+  "rules": {
+    "unicorn/prefer-bigint-literals": "error"
+  }
 }
 ```
 

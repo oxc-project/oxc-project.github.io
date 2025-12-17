@@ -26,34 +26,34 @@ This causes the next `then()` in the chain to execute immediately without waitin
 Examples of **incorrect** code for this rule:
 
 ```javascript
-myPromise.then(function (val) {})
+myPromise.then(function (val) {});
 myPromise.then(() => {
-    doSomething()
-})
+  doSomething();
+});
 myPromise.then((b) => {
-    if (b) {
-        return 'yes'
-    } else {
-        forgotToReturn()
-    }
-})
+  if (b) {
+    return "yes";
+  } else {
+    forgotToReturn();
+  }
+});
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
-myPromise.then((val) => val * 2)
+myPromise.then((val) => val * 2);
 myPromise.then(function (val) {
-    return val * 2
-})
-myPromise.then(doSomething) // could be either
+  return val * 2;
+});
+myPromise.then(doSomething); // could be either
 myPromise.then((b) => {
-    if (b) {
-        return 'yes'
-    } else {
-        return 'no'
-    }
-})
+  if (b) {
+    return "yes";
+  } else {
+    return "no";
+  }
+});
 ```
 
 ## Configuration
@@ -76,32 +76,32 @@ chain does not warn if it does an assignment to a global variable. Default is
 
 // OK
 promise.then((x) => {
-globalThis = x
-})
+  globalThis = x;
+});
 
 promise.then((x) => {
-globalThis.x = x
-})
+  globalThis.x = x;
+});
 
 // OK
 promise.then((x) => {
-globalThis.x.y = x
-})
+  globalThis.x.y = x;
+});
 
 // NG
 promise.then((x) => {
-anyOtherVariable = x
-})
+  anyOtherVariable = x;
+});
 
 // NG
 promise.then((x) => {
-anyOtherVariable.x = x
-})
+  anyOtherVariable.x = x;
+});
 
 // NG
 promise.then((x) => {
-x()
-})
+  x();
+});
 ```
 
 ### ignoreLastCallback
@@ -117,40 +117,40 @@ a `return`. Default is `false`.
 ```javascript
 // OK
 promise.then((x) => {
-console.log(x)
-})
+  console.log(x);
+});
 // OK
 void promise.then((x) => {
-console.log(x)
-})
+  console.log(x);
+});
 // OK
 await promise.then((x) => {
-console.log(x)
-})
+  console.log(x);
+});
 
 promise
-// NG
-.then((x) => {
-console.log(x)
-})
-// OK
-.then((x) => {
-console.log(x)
-})
+  // NG
+  .then((x) => {
+    console.log(x);
+  })
+  // OK
+  .then((x) => {
+    console.log(x);
+  });
 
 // NG
 const v = promise.then((x) => {
-console.log(x)
-})
+  console.log(x);
+});
 // NG
 const v = await promise.then((x) => {
-console.log(x)
-})
+  console.log(x);
+});
 function foo() {
-// NG
-return promise.then((x) => {
-console.log(x)
-})
+  // NG
+  return promise.then((x) => {
+    console.log(x);
+  });
 }
 ```
 
@@ -162,10 +162,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "plugins": ["promise"],
-    "rules": {
-        "promise/always-return": "error"
-    }
+  "plugins": ["promise"],
+  "rules": {
+    "promise/always-return": "error"
+  }
 }
 ```
 

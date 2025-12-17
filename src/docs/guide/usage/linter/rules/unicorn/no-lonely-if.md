@@ -24,8 +24,8 @@ Examples of **incorrect** code for this rule:
 
 ```javascript
 if (foo) {
-    if (bar) {
-    }
+  if (bar) {
+  }
 }
 if (foo) if (bar) baz();
 ```
@@ -46,9 +46,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "unicorn/no-lonely-if": "error"
-    }
+  "rules": {
+    "unicorn/no-lonely-if": "error"
+  }
 }
 ```
 

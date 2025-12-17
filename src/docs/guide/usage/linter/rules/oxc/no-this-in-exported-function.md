@@ -60,9 +60,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "oxc/no-this-in-exported-function": "error"
-    }
+  "rules": {
+    "oxc/no-this-in-exported-function": "error"
+  }
 }
 ```
 

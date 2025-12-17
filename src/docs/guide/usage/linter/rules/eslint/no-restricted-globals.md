@@ -35,7 +35,7 @@ The following patterns are considered problems:
 
 ```javascript
 function onClick() {
-   console.log(event);    // Unexpected global variable 'event'. Use local parameter instead.
+  console.log(event); // Unexpected global variable 'event'. Use local parameter instead.
 }
 ```
 
@@ -61,9 +61,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "no-restricted-globals": "error"
-    }
+  "rules": {
+    "no-restricted-globals": "error"
+  }
 }
 ```
 

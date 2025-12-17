@@ -30,7 +30,7 @@ space in the code and can lead to confusion by readers.
 ```ts
 // `b` is unused; this indicates a bug.
 function add(a: number, b: number) {
-    return a;
+  return a;
 }
 console.log(add(1, 2));
 ```
@@ -105,20 +105,20 @@ var z = 0;
 z = z + 1;
 
 // By default, unused arguments cause warnings.
-(function(foo) {
-    return 5;
+(function (foo) {
+  return 5;
 })();
 
 // Unused recursive functions also cause warnings.
 function fact(n) {
-    if (n < 2) return 1;
-    return n * fact(n - 1);
+  if (n < 2) return 1;
+  return n * fact(n - 1);
 }
 
 // When a function definition destructures an array, unused entries from
 // the array also cause warnings.
 function getY([x, y]) {
-    return y;
+  return y;
 }
 ```
 
@@ -126,9 +126,9 @@ function getY([x, y]) {
 type A = Array<A>;
 
 enum Color {
-    Red,
-    Green,
-    Blue
+  Red,
+  Green,
+  Blue,
 }
 ```
 
@@ -141,23 +141,25 @@ var x = 10;
 alert(x);
 
 // foo is considered used here
-myFunc(function foo() {
+myFunc(
+  function foo() {
     // ...
-}.bind(this));
+  }.bind(this),
+);
 
-(function(foo) {
-    return foo;
+(function (foo) {
+  return foo;
 })();
 
 var myFunc;
-myFunc = setTimeout(function() {
-    // myFunc is considered used
-    myFunc();
+myFunc = setTimeout(function () {
+  // myFunc is considered used
+  myFunc();
 }, 50);
 
 // Only the second argument from the destructured array is used.
 function getY([, y]) {
-    return y;
+  return y;
 }
 ```
 
@@ -168,7 +170,7 @@ export { y };
 
 type A = Record<string, unknown>;
 type B<T> = T extends Record<infer K, any> ? K : never;
-const x = 'foo' as B<A>;
+const x = "foo" as B<A>;
 console.log(x);
 ```
 
@@ -245,16 +247,16 @@ Examples of **incorrect** code for the `{ "ignoreClassWithStaticInitBlock": true
 /*eslint no-unused-vars: ["error", { "ignoreClassWithStaticInitBlock": true }]*/
 
 class Foo {
-static myProperty = "some string";
-static mymethod() {
-return "some string";
-}
+  static myProperty = "some string";
+  static mymethod() {
+    return "some string";
+  }
 }
 
 class Bar {
-static {
-let baz; // unused variable
-}
+  static {
+    let baz; // unused variable
+  }
 }
 ```
 
@@ -264,11 +266,11 @@ Examples of **correct** code for the `{ "ignoreClassWithStaticInitBlock": true }
 /*eslint no-unused-vars: ["error", { "ignoreClassWithStaticInitBlock": true }]*/
 
 class Foo {
-static {
-let bar = "some string";
+  static {
+    let bar = "some string";
 
-console.log(bar);
-}
+    console.log(bar);
+  }
 }
 ```
 
@@ -411,9 +413,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "no-unused-vars": "error"
-    }
+  "rules": {
+    "no-unused-vars": "error"
+  }
 }
 ```
 

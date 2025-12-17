@@ -31,12 +31,12 @@ Examples of **incorrect** code for this rule:
 <script setup lang="ts">
 const props = withDefaults(
   defineProps<{
-    name: string | number
-    age?: number
+    name: string | number;
+    age?: number;
   }>(),
   {
-    name: 'Foo',
-  }
+    name: "Foo",
+  },
 );
 </script>
 ```
@@ -47,12 +47,12 @@ Examples of **correct** code for this rule:
 <script setup lang="ts">
 const props = withDefaults(
   defineProps<{
-    name?: string | number
-    age?: number
+    name?: string | number;
+    age?: number;
   }>(),
   {
-    name: 'Foo',
-  }
+    name: "Foo",
+  },
 );
 </script>
 ```
@@ -65,10 +65,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "plugins": ["vue"],
-    "rules": {
-        "vue/no-required-prop-with-default": "error"
-    }
+  "plugins": ["vue"],
+  "rules": {
+    "vue/no-required-prop-with-default": "error"
+  }
 }
 ```
 

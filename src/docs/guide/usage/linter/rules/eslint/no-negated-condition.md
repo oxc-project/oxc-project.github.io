@@ -27,24 +27,24 @@ Examples of **incorrect** code for this rule:
 
 ```javascript
 if (!a) {
-	doSomethingC();
+  doSomethingC();
 } else {
-	doSomethingB();
+  doSomethingB();
 }
 
-!a ? doSomethingC() : doSomethingB()
+!a ? doSomethingC() : doSomethingB();
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
 if (a) {
-	doSomethingB();
+  doSomethingB();
 } else {
-	doSomethingC();
+  doSomethingC();
 }
 
-a ? doSomethingB() : doSomethingC()
+a ? doSomethingB() : doSomethingC();
 ```
 
 ## How to use
@@ -55,9 +55,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "no-negated-condition": "error"
-    }
+  "rules": {
+    "no-negated-condition": "error"
+  }
 }
 ```
 

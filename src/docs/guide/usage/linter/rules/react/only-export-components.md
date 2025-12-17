@@ -37,8 +37,8 @@ Examples of **incorrect** code for this rule:
 
 ```jsx
 // 1) Mixing util exports with components in unsupported ways
-export const foo = () => {};      // util, not a component
-export const Bar = () => <></>;   // component
+export const foo = () => {}; // util, not a component
+export const Bar = () => <></>; // component
 ```
 
 ```jsx
@@ -141,10 +141,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "plugins": ["react"],
-    "rules": {
-        "react/only-export-components": "error"
-    }
+  "plugins": ["react"],
+  "rules": {
+    "react/only-export-components": "error"
+  }
 }
 ```
 

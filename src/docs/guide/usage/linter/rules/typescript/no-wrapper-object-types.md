@@ -35,7 +35,7 @@ let myNumber: Number;
 let myString: String;
 let mySymbol: Symbol;
 
-let myObject: Object = 'allowed by TypeScript';
+let myObject: Object = "allowed by TypeScript";
 ```
 
 Examples of **correct** code for this rule:
@@ -58,9 +58,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "typescript/no-wrapper-object-types": "error"
-    }
+  "rules": {
+    "typescript/no-wrapper-object-types": "error"
+  }
 }
 ```
 

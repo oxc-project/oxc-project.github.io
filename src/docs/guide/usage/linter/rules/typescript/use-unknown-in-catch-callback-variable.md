@@ -32,7 +32,8 @@ Examples of **incorrect** code for this rule:
 ```ts
 try {
   somethingRisky();
-} catch (error: any) { // Should use 'unknown'
+} catch (error: any) {
+  // Should use 'unknown'
   console.log(error.message); // Unsafe access
   error.someMethod(); // Unsafe call
 }
@@ -40,7 +41,8 @@ try {
 // Default catch variable is 'any' in older TypeScript
 try {
   somethingRisky();
-} catch (error) { // Implicitly 'any'
+} catch (error) {
+  // Implicitly 'any'
   console.log(error.message); // Unsafe access
 }
 ```
@@ -56,7 +58,7 @@ try {
     console.log(error.message); // Safe access
     console.log(error.stack);
   } else {
-    console.log('Unknown error:', error);
+    console.log("Unknown error:", error);
   }
 }
 
@@ -66,13 +68,13 @@ try {
 } catch (error: unknown) {
   if (error instanceof Error) {
     // Handle Error objects
-    console.error('Error:', error.message);
-  } else if (typeof error === 'string') {
+    console.error("Error:", error.message);
+  } else if (typeof error === "string") {
     // Handle string errors
-    console.error('String error:', error);
+    console.error("String error:", error);
   } else {
     // Handle unknown error types
-    console.error('Unknown error type:', error);
+    console.error("Unknown error type:", error);
   }
 }
 
@@ -98,9 +100,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "typescript/use-unknown-in-catch-callback-variable": "error"
-    }
+  "rules": {
+    "typescript/use-unknown-in-catch-callback-variable": "error"
+  }
 }
 ```
 

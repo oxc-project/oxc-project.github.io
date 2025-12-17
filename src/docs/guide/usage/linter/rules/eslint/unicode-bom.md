@@ -30,7 +30,7 @@ option.
 Examples of **incorrect** code for this rule:
 
 ```javascript
-﻿var a = 123;
+var a = 123;
 ```
 
 ## Configuration
@@ -54,9 +54,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "unicode-bom": "error"
-    }
+  "rules": {
+    "unicode-bom": "error"
+  }
 }
 ```
 

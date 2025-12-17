@@ -27,13 +27,13 @@ instead of relying on the default comma (',') separator.
 Examples of **incorrect** code for this rule:
 
 ```javascript
-foo.join()
+foo.join();
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
-foo.join(",")
+foo.join(",");
 ```
 
 ## How to use
@@ -44,9 +44,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "unicorn/require-array-join-separator": "error"
-    }
+  "rules": {
+    "unicorn/require-array-join-separator": "error"
+  }
 }
 ```
 

@@ -27,16 +27,16 @@ Given `{"max": 2}`
 Examples of **incorrect** code for this rule:
 
 ```javascript
-import a from './a';
-import b from './b';
-import c from './c'; // Too many dependencies: 3 (max: 2)
+import a from "./a";
+import b from "./b";
+import c from "./c"; // Too many dependencies: 3 (max: 2)
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
-import a from './a';
-import b from './b'; // Allowed: 2 dependencies (max: 2)
+import a from "./a";
+import b from "./b"; // Allowed: 2 dependencies (max: 2)
 ```
 
 ## Configuration
@@ -67,10 +67,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "plugins": ["import"],
-    "rules": {
-        "import/max-dependencies": "error"
-    }
+  "plugins": ["import"],
+  "rules": {
+    "import/max-dependencies": "error"
+  }
 }
 ```
 

@@ -42,7 +42,7 @@ const result3 = num + bool; // number + boolean
 const result4 = obj + str; // object + string
 
 // Literals with different types
-const result5 = 42 + 'hello'; // number literal + string literal
+const result5 = 42 + "hello"; // number literal + string literal
 const result6 = true + 5; // boolean literal + number literal
 ```
 
@@ -68,7 +68,7 @@ const result4 = `${num1}${str1}`; // Clear intent to concatenate
 
 // Literals of same type
 const numResult = 42 + 58; // number + number
-const strResult = 'hello' + 'world'; // string + string
+const strResult = "hello" + "world"; // string + string
 ```
 
 ## Configuration
@@ -131,9 +131,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "typescript/restrict-plus-operands": "error"
-    }
+  "rules": {
+    "typescript/restrict-plus-operands": "error"
+  }
 }
 ```
 

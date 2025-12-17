@@ -33,12 +33,12 @@ Promise.reject(5);
 
 Promise.reject();
 
-new Promise(function(resolve, reject) {
-    reject("something bad happened")
+new Promise(function (resolve, reject) {
+  reject("something bad happened");
 });
 
-new Promise(function(resolve, reject) {
-    reject();
+new Promise(function (resolve, reject) {
+  reject();
 });
 ```
 
@@ -49,8 +49,8 @@ Promise.reject(new Error("something bad happened"));
 
 Promise.reject(new TypeError("something bad happened"));
 
-new Promise(function(resolve, reject) {
-    reject(new Error("something bad happened"));
+new Promise(function (resolve, reject) {
+  reject(new Error("something bad happened"));
 });
 
 var foo = getUnknownValue();
@@ -77,9 +77,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "prefer-promise-reject-errors": "error"
-    }
+  "rules": {
+    "prefer-promise-reject-errors": "error"
+  }
 }
 ```
 

@@ -87,10 +87,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "plugins": ["nextjs"],
-    "rules": {
-        "nextjs/no-async-client-component": "error"
-    }
+  "plugins": ["nextjs"],
+  "rules": {
+    "nextjs/no-async-client-component": "error"
+  }
 }
 ```
 

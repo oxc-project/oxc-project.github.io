@@ -27,7 +27,7 @@ Examples of **incorrect** code for this rule:
 
 ```javascript
 class A {
-    static a() {}
+  static a() {}
 }
 ```
 
@@ -35,23 +35,23 @@ Examples of **correct** code for this rule:
 
 ```javascript
 class A {
-    static a() {}
+  static a() {}
 
-    constructor() {}
+  constructor() {}
 }
 ```
 
 ```javascript
 const X = {
-    foo: false,
-    bar() {}
+  foo: false,
+  bar() {},
 };
 ```
 
 ```javascript
 class X {
-    static #foo = false; // private field
-    static bar() {}
+  static #foo = false; // private field
+  static bar() {}
 }
 ```
 
@@ -63,9 +63,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "unicorn/no-static-only-class": "error"
-    }
+  "rules": {
+    "unicorn/no-static-only-class": "error"
+  }
 }
 ```
 

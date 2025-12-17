@@ -39,9 +39,7 @@ expect(something).toMatchInlineSnapshot(
   }`,
 );
 
-expect(errorThrowingFunction).toThrowErrorMatchingInlineSnapshot(
-  `${interpolated}`,
-);
+expect(errorThrowingFunction).toThrowErrorMatchingInlineSnapshot(`${interpolated}`);
 ```
 
 This rule is compatible with [eslint-plugin-vitest](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/no-interpolation-in-snapshots.md),
@@ -50,7 +48,7 @@ to use it, add the following configuration to your `.oxlintrc.json`:
 ```json
 {
   "rules": {
-     "vitest/no-interpolation-in-snapshots": "error"
+    "vitest/no-interpolation-in-snapshots": "error"
   }
 }
 ```
@@ -63,10 +61,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "plugins": ["jest"],
-    "rules": {
-        "jest/no-interpolation-in-snapshots": "error"
-    }
+  "plugins": ["jest"],
+  "rules": {
+    "jest/no-interpolation-in-snapshots": "error"
+  }
 }
 ```
 

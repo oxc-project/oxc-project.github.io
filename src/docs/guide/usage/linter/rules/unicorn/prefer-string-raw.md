@@ -27,7 +27,7 @@ Examples of **incorrect** code for this rule:
 
 ```javascript
 const file = "C:\\windows\\style\\path\\to\\file.js";
-const regexp = new RegExp('foo\\.bar');
+const regexp = new RegExp("foo\\.bar");
 ```
 
 Examples of **correct** code for this rule:
@@ -45,9 +45,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "unicorn/prefer-string-raw": "error"
-    }
+  "rules": {
+    "unicorn/prefer-string-raw": "error"
+  }
 }
 ```
 

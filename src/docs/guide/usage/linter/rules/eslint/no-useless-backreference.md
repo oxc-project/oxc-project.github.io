@@ -33,19 +33,19 @@ harder to understand and maintain.
 Examples of **incorrect** code for this rule:
 
 ```js
-/\1(a)/;                     // backreference appears before group
-/(a|\1b)/;                   // group and reference are in different alternatives
-/(?<=\1(a))b/;               // backreference used before group in lookbehind
-/\1(?!(a))/;                 // group is inside negative lookahead
-/(a\1)/;                     // backreference is inside its own group
+/\1(a)/; // backreference appears before group
+/(a|\1b)/; // group and reference are in different alternatives
+/(?<=\1(a))b/; // backreference used before group in lookbehind
+/\1(?!(a))/; // group is inside negative lookahead
+/(a\1)/; // backreference is inside its own group
 ```
 
 Examples of **correct** code for this rule:
 
 ```js
-/(a)\1/;                     // valid — backreference follows completed group
-/(?<name>a)\k<name>/;        // named group used properly
-/(?:a|(b))\1/;               // backreference only used when group matches
+/(a)\1/; // valid — backreference follows completed group
+/(?<name>a)\k<name>/; // named group used properly
+/(?:a|(b))\1/; // backreference only used when group matches
 ```
 
 ## How to use
@@ -56,9 +56,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "no-useless-backreference": "error"
-    }
+  "rules": {
+    "no-useless-backreference": "error"
+  }
 }
 ```
 

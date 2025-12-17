@@ -30,9 +30,9 @@ obscures side effects, and its use is often an accident.
 Examples of **incorrect** code for this rule:
 
 ```javascript
-foo = doSomething(), val;
+((foo = doSomething()), val);
 
-0, eval("doSomething();");
+(0, eval("doSomething();"));
 
 // Arrow function body needs double parentheses
 const fn = () => (doSomething(), val);
@@ -54,7 +54,7 @@ do {} while ((doSomething(), !!test));
 for (i = 0, j = 10; i < j; i++, j--) {}
 
 // Arrow function body needs double parentheses
-const fn = () => ((doSomething(), val));
+const fn = () => (doSomething(), val);
 ```
 
 ## Configuration
@@ -79,9 +79,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "no-sequences": "error"
-    }
+  "rules": {
+    "no-sequences": "error"
+  }
 }
 ```
 

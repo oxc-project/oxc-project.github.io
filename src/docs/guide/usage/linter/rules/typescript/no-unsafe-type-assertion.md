@@ -35,11 +35,11 @@ Examples of **incorrect** code for this rule:
 
 ```ts
 function f() {
-  return Math.random() < 0.5 ? 42 : 'oops';
+  return Math.random() < 0.5 ? 42 : "oops";
 }
 const z = f() as number;
 
-const items = [1, '2', 3, '4'];
+const items = [1, "2", 3, "4"];
 const number = items[0] as number;
 ```
 
@@ -47,11 +47,11 @@ Examples of **correct** code for this rule:
 
 ```ts
 function f() {
-  return Math.random() < 0.5 ? 42 : 'oops';
+  return Math.random() < 0.5 ? 42 : "oops";
 }
 const z = f() as number | string | boolean;
 
-const items = [1, '2', 3, '4'];
+const items = [1, "2", 3, "4"];
 const number = items[0] as number | string | undefined;
 ```
 
@@ -63,9 +63,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "typescript/no-unsafe-type-assertion": "error"
-    }
+  "rules": {
+    "typescript/no-unsafe-type-assertion": "error"
+  }
 }
 ```
 

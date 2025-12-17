@@ -30,7 +30,7 @@ Examples of **incorrect** code for this rule:
 
 ```javascript
 async function bad() {
-    await await promise;
+  await await promise;
 }
 ```
 
@@ -38,7 +38,7 @@ Examples of **correct** code for this rule:
 
 ```javascript
 async function bad() {
-    await promise;
+  await promise;
 }
 ```
 
@@ -50,9 +50,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "unicorn/no-unnecessary-await": "error"
-    }
+  "rules": {
+    "unicorn/no-unnecessary-await": "error"
+  }
 }
 ```
 

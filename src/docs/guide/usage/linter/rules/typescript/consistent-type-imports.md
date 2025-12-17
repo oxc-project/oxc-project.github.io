@@ -26,7 +26,7 @@ Inconsistent usage of type imports can make the code harder to read and understa
 Examples of **incorrect** code for this rule:
 
 ```ts
-import { Foo } from 'Foo';
+import { Foo } from "Foo";
 type T = Foo;
 
 type S = import("Foo");
@@ -35,7 +35,7 @@ type S = import("Foo");
 Examples of **correct** code for this rule:
 
 ```ts
-import type { Foo } from 'Foo';
+import type { Foo } from "Foo";
 ```
 
 #### Examples with `"prefer": "type-imports"` (default)
@@ -43,14 +43,14 @@ import type { Foo } from 'Foo';
 Examples of **incorrect** code:
 
 ```ts
-import { Foo } from 'foo';
+import { Foo } from "foo";
 let foo: Foo;
 ```
 
 Examples of **correct** code:
 
 ```ts
-import type { Foo } from 'foo';
+import type { Foo } from "foo";
 let foo: Foo;
 ```
 
@@ -59,14 +59,14 @@ let foo: Foo;
 Examples of **incorrect** code:
 
 ```ts
-import type { Foo } from 'foo';
+import type { Foo } from "foo";
 let foo: Foo;
 ```
 
 Examples of **correct** code:
 
 ```ts
-import { Foo } from 'foo';
+import { Foo } from "foo";
 let foo: Foo;
 ```
 
@@ -76,12 +76,12 @@ When fixing type imports, this option will use inline `type` modifiers:
 
 ```ts
 // Before fixing
-import { A, B } from 'foo';
+import { A, B } from "foo";
 type T = A;
 const b = B;
 
 // After fixing
-import { type A, B } from 'foo';
+import { type A, B } from "foo";
 type T = A;
 const b = B;
 ```
@@ -91,7 +91,7 @@ const b = B;
 When set to `false`, allows `import()` type annotations:
 
 ```ts
-type T = import('foo').Bar;
+type T = import("foo").Bar;
 ```
 
 ## Configuration
@@ -142,9 +142,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "typescript/consistent-type-imports": "error"
-    }
+  "rules": {
+    "typescript/consistent-type-imports": "error"
+  }
 }
 ```
 

@@ -49,12 +49,13 @@ let a = function hello() {
 Examples of **correct** code for this rule:
 
 ```javascript
-let foo = function () {}
+let foo = function () {};
 foo = bar;
 ```
 
 ```javascript
-function baz(baz) { // `baz` is shadowed.
+function baz(baz) {
+  // `baz` is shadowed.
   baz = bar;
 }
 ```
@@ -73,9 +74,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "no-func-assign": "error"
-    }
+  "rules": {
+    "no-func-assign": "error"
+  }
 }
 ```
 

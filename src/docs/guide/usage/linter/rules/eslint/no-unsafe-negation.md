@@ -35,17 +35,21 @@ as `(!a) in b` instead of `!(a in b)`, which is not the intended logic.
 Examples of **incorrect** code for this rule:
 
 ```javascript
-if (!key in object) {}
+if ((!key) in object) {
+}
 
-if (!obj instanceof Ctor) {}
+if ((!obj) instanceof Ctor) {
+}
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
-if (!(key in object)) {}
+if (!(key in object)) {
+}
 
-if (!(obj instanceof Ctor)) {}
+if (!(obj instanceof Ctor)) {
+}
 ```
 
 ## Configuration
@@ -72,9 +76,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "no-unsafe-negation": "error"
-    }
+  "rules": {
+    "no-unsafe-negation": "error"
+  }
 }
 ```
 

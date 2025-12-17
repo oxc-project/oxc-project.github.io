@@ -25,22 +25,22 @@ the problem is easy to identify.
 Examples of **incorrect** code for this rule:
 
 ```javascript
-test('should not pass', () => {
-    expect(true).toBeDefined();
-    expect(true).toBeDefined();
-    expect(true).toBeDefined();
-    expect(true).toBeDefined();
-    expect(true).toBeDefined();
-    expect(true).toBeDefined();
+test("should not pass", () => {
+  expect(true).toBeDefined();
+  expect(true).toBeDefined();
+  expect(true).toBeDefined();
+  expect(true).toBeDefined();
+  expect(true).toBeDefined();
+  expect(true).toBeDefined();
 });
 
-it('should not pass', () => {
-    expect(true).toBeDefined();
-    expect(true).toBeDefined();
-    expect(true).toBeDefined();
-    expect(true).toBeDefined();
-    expect(true).toBeDefined();
-    expect(true).toBeDefined();
+it("should not pass", () => {
+  expect(true).toBeDefined();
+  expect(true).toBeDefined();
+  expect(true).toBeDefined();
+  expect(true).toBeDefined();
+  expect(true).toBeDefined();
+  expect(true).toBeDefined();
 });
 ```
 
@@ -50,7 +50,7 @@ to use it, add the following configuration to your `.oxlintrc.json`:
 ```json
 {
   "rules": {
-     "vitest/max-expects": "error"
+    "vitest/max-expects": "error"
   }
 }
 ```
@@ -75,10 +75,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "plugins": ["jest"],
-    "rules": {
-        "jest/max-expects": "error"
-    }
+  "plugins": ["jest"],
+  "rules": {
+    "jest/max-expects": "error"
+  }
 }
 ```
 

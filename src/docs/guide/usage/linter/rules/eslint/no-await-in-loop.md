@@ -25,9 +25,9 @@ Examples of **incorrect** code for this rule:
 
 ```javascript
 async function bad() {
-    for (const user of users) {
-      const userRecord = await getUserRecord(user);
-    }
+  for (const user of users) {
+    const userRecord = await getUserRecord(user);
+  }
 }
 ```
 
@@ -35,7 +35,7 @@ Examples of **correct** code for this rule:
 
 ```javascript
 async function good() {
-    await Promise.all(users.map(user => getUserRecord(user)));
+  await Promise.all(users.map((user) => getUserRecord(user)));
 }
 ```
 
@@ -47,9 +47,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "no-await-in-loop": "error"
-    }
+  "rules": {
+    "no-await-in-loop": "error"
+  }
 }
 ```
 

@@ -49,7 +49,7 @@ let newReflect = new Reflect();
 Examples of **correct** code for this rule:
 
 ```javascript
-let area = r => 2 * Math.PI * r * r;
+let area = (r) => 2 * Math.PI * r * r;
 let object = JSON.parse("{}");
 let first = Atomics.load(sharedArray, 0);
 let segmenterFrom = Intl.Segmenter("fr", { granularity: "word" });
@@ -63,9 +63,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "no-obj-calls": "error"
-    }
+  "rules": {
+    "no-obj-calls": "error"
+  }
 }
 ```
 

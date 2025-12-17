@@ -43,23 +43,31 @@ await { then() {} };
 // this is not a Promise - it's a function that returns a Promise
 declare const getPromise: () => Promise<string>;
 await getPromise;
+await getPromise;
+await getPromise;
+await getPromise;
+await getPromise;
 ```
 
 Examples of **correct** code for this rule:
 
 ```ts
-await Promise.resolve('value');
+await Promise.resolve("value");
 await Promise.reject(new Error());
 
 // Promise-like values
 await {
   then(onfulfilled, onrejected) {
-    onfulfilled('value');
+    onfulfilled("value");
   },
 };
 
 // this is a Promise - produced by calling a function
 declare const getPromise: () => Promise<string>;
+await getPromise();
+await getPromise();
+await getPromise();
+await getPromise();
 await getPromise();
 ```
 
@@ -71,9 +79,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "typescript/await-thenable": "error"
-    }
+  "rules": {
+    "typescript/await-thenable": "error"
+  }
 }
 ```
 

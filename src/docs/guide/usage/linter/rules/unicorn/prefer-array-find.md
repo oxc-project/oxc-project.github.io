@@ -29,14 +29,14 @@ whereas `filter` evaluates the entire array.
 Examples of **incorrect** code for this rule:
 
 ```js
-const match = users.filter(u => u.id === id)[0];
+const match = users.filter((u) => u.id === id)[0];
 const match = users.filter(fn).shift();
 ```
 
 Examples of **correct** code for this rule:
 
 ```js
-const match = users.find(u => u.id === id);
+const match = users.find((u) => u.id === id);
 const match = users.find(fn);
 ```
 
@@ -48,9 +48,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "unicorn/prefer-array-find": "error"
-    }
+  "rules": {
+    "unicorn/prefer-array-find": "error"
+  }
 }
 ```
 

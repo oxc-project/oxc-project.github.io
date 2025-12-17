@@ -33,14 +33,14 @@ const foo = array[0];
 bar.baz = array[0];
 // With `object` enabled
 const qux = object.qux;
-const quux = object['quux'];
+const quux = object["quux"];
 ```
 
 Examples of **correct** code for this rule:
 
 ```js
 // With `array` enabled
-const [ foo ] = array;
+const [foo] = array;
 const arr = array[someIndex];
 [bar.baz] = array;
 
@@ -109,9 +109,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "prefer-destructuring": "error"
-    }
+  "rules": {
+    "prefer-destructuring": "error"
+  }
 }
 ```
 

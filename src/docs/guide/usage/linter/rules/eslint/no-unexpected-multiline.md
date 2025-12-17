@@ -30,33 +30,29 @@ developer intended. This can lead to bugs that are difficult to track down.
 Examples of **incorrect** code for this rule:
 
 ```js
-var a = b
-(x || y).doSomething()
+var a = b(x || y).doSomething();
 
-var a = b
-[a, b, c].forEach(doSomething)
+var a = b[(a, b, c)].forEach(doSomething);
 
-let x = function() {}
- `hello`
+let x = (function () {})`hello`;
 
-	foo
-	/bar/g.test(baz)
+foo / bar / g.test(baz);
 ```
 
 Examples of **correct** code for this rule:
 
 ```js
 var a = b;
-(x || y).doSomething()
+(x || y).doSomething();
 
 var a = b;
-[a, b, c].forEach(doSomething)
+[a, b, c].forEach(doSomething);
 
-let x = function() {};
-`hello`
+let x = function () {};
+`hello`;
 
 foo;
-/bar/g.test(baz)
+/bar/g.test(baz);
 ```
 
 ## How to use
@@ -67,9 +63,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "no-unexpected-multiline": "error"
-    }
+  "rules": {
+    "no-unexpected-multiline": "error"
+  }
 }
 ```
 

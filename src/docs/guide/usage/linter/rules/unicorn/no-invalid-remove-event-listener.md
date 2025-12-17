@@ -26,15 +26,15 @@ The [`removeEventListener`](https://developer.mozilla.org/en-US/docs/Web/API/Eve
 Examples of **incorrect** code for this rule:
 
 ```javascript
-el.removeEventListener('click', () => {});
-el.removeEventListener('click', function () {});
+el.removeEventListener("click", () => {});
+el.removeEventListener("click", function () {});
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
-el.removeEventListener('click', handler);
-el.removeEventListener('click', handler.bind(this));
+el.removeEventListener("click", handler);
+el.removeEventListener("click", handler.bind(this));
 ```
 
 ## How to use
@@ -45,9 +45,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "unicorn/no-invalid-remove-event-listener": "error"
-    }
+  "rules": {
+    "unicorn/no-invalid-remove-event-listener": "error"
+  }
 }
 ```
 

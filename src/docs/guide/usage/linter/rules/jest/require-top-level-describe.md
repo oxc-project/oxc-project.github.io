@@ -30,19 +30,19 @@ Examples of **incorrect** code for this rule:
 
 ```javascript
 // Above a describe block
-test('my test', () => {});
-describe('test suite', () => {
-    it('test', () => {});
+test("my test", () => {});
+describe("test suite", () => {
+  it("test", () => {});
 });
 
 // Below a describe block
-describe('test suite', () => {});
-test('my test', () => {});
+describe("test suite", () => {});
+test("my test", () => {});
 
 // Same for hooks
-beforeAll('my beforeAll', () => {});
-describe('test suite', () => {});
-afterEach('my afterEach', () => {});
+beforeAll("my beforeAll", () => {});
+describe("test suite", () => {});
+afterEach("my afterEach", () => {});
 ```
 
 Examples of **correct** code for this rule:
@@ -50,16 +50,16 @@ Examples of **correct** code for this rule:
 ```javascript
 // Above a describe block
 // In a describe block
-describe('test suite', () => {
-    test('my test', () => {});
+describe("test suite", () => {
+  test("my test", () => {});
 });
 
 // In a nested describe block
-describe('test suite', () => {
-    test('my test', () => {});
-    describe('another test suite', () => {
-        test('my other test', () => {});
-    });
+describe("test suite", () => {
+  test("my test", () => {});
+  describe("another test suite", () => {
+    test("my other test", () => {});
+  });
 });
 ```
 
@@ -69,7 +69,7 @@ to use it, add the following configuration to your `.oxlintrc.json`:
 ```json
 {
   "rules": {
-     "vitest/require-top-level-describe": "error"
+    "vitest/require-top-level-describe": "error"
   }
 }
 ```
@@ -94,10 +94,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "plugins": ["jest"],
-    "rules": {
-        "jest/require-top-level-describe": "error"
-    }
+  "plugins": ["jest"],
+  "rules": {
+    "jest/require-top-level-describe": "error"
+  }
 }
 ```
 

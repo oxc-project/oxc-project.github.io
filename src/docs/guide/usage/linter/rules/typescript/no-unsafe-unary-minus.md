@@ -78,9 +78,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "typescript/no-unsafe-unary-minus": "error"
-    }
+  "rules": {
+    "typescript/no-unsafe-unary-minus": "error"
+  }
 }
 ```
 

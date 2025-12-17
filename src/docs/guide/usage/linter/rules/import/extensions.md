@@ -28,19 +28,19 @@ Examples of **incorrect** code for this rule:
 The following patterns are considered problems when configuration set to "always":
 
 ```js
-import foo from './foo';
-import bar from './bar';
-import Component from './Component';
-import foo from '@/foo';
+import foo from "./foo";
+import bar from "./bar";
+import Component from "./Component";
+import foo from "@/foo";
 ```
 
 The following patterns are considered problems when configuration set to "never":
 
 ```js
-import foo from './foo.js';
-import bar from './bar.json';
-import Component from './Component.jsx';
-import express from 'express/index.js';
+import foo from "./foo.js";
+import bar from "./bar.json";
+import Component from "./Component.jsx";
+import express from "express/index.js";
 ```
 
 Examples of **correct** code for this rule:
@@ -48,21 +48,21 @@ Examples of **correct** code for this rule:
 The following patterns are not considered problems when configuration set to "always":
 
 ```js
-import foo from './foo.js';
-import bar from './bar.json';
-import Component from './Component.jsx';
-import * as path from 'path';
-import foo from '@/foo.js';
+import foo from "./foo.js";
+import bar from "./bar.json";
+import Component from "./Component.jsx";
+import * as path from "path";
+import foo from "@/foo.js";
 ```
 
 The following patterns are not considered problems when configuration set to "never":
 
 ```js
-import foo from './foo';
-import bar from './bar';
-import Component from './Component';
-import express from 'express/index';
-import * as path from 'path';
+import foo from "./foo";
+import bar from "./bar";
+import Component from "./Component";
+import express from "express/index";
+import * as path from "path";
 ```
 
 ## Configuration
@@ -141,10 +141,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "plugins": ["import"],
-    "rules": {
-        "import/extensions": "error"
-    }
+  "plugins": ["import"],
+  "rules": {
+    "import/extensions": "error"
+  }
 }
 ```
 

@@ -35,8 +35,8 @@ Examples of **correct** code for this rule:
 ```js
 Object("foo");
 const obj = { a: 1, b: 2 };
-const isObject = value => value === Object(value);
-const createObject = Object => new Object();
+const isObject = (value) => value === Object(value);
+const createObject = (Object) => new Object();
 ```
 
 ## How to use
@@ -47,9 +47,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "no-object-constructor": "error"
-    }
+  "rules": {
+    "no-object-constructor": "error"
+  }
 }
 ```
 

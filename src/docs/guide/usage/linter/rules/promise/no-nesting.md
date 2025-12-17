@@ -26,39 +26,42 @@ Nesting promises makes code harder to read and understand.
 Examples of **incorrect** code for this rule:
 
 ```javascript
-doThing().then(() => a.then())
+doThing().then(() => a.then());
 
-doThing().then(function() { a.then() })
+doThing().then(function () {
+  a.then();
+});
 
-doThing().then(() => { b.catch() })
+doThing().then(() => {
+  b.catch();
+});
 
-doThing().catch((val) => doSomething(val).catch(errors))
+doThing().catch((val) => doSomething(val).catch(errors));
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
-doThing().then(() => 4)
+doThing().then(() => 4);
 
-doThing().then(function() { return 4 })
+doThing().then(function () {
+  return 4;
+});
 
-doThing().catch(() => 4)
+doThing().catch(() => 4);
 ```
 
 ```javascript
 doThing()
   .then(() => Promise.resolve(1))
-  .then(() => Promise.resolve(2))
+  .then(() => Promise.resolve(2));
 ```
 
 This example is not a rule violation as unnesting here would
 result in `a` being undefined in the expression `getC(a, b)`.
 
 ```javascript
-doThing()
-	  .then(a => getB(a)
-     .then(b => getC(a, b))
-   )
+doThing().then((a) => getB(a).then((b) => getC(a, b)));
 ```
 
 ## How to use
@@ -69,10 +72,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "plugins": ["promise"],
-    "rules": {
-        "promise/no-nesting": "error"
-    }
+  "plugins": ["promise"],
+  "rules": {
+    "promise/no-nesting": "error"
+  }
 }
 ```
 

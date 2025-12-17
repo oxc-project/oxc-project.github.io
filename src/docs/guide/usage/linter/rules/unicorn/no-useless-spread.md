@@ -53,16 +53,16 @@ Examples of **incorrect** code for this rule:
 ```javascript
 const array = [firstElement, ...[secondElement], thirdElement];
 
-await Promise.all([...iterable])
+await Promise.all([...iterable]);
 
 for (const foo of [...set]);
 
-function * foo() {
-	yield * [...anotherGenerator()];
+function* foo() {
+  yield* [...anotherGenerator()];
 }
 
 function foo(bar) {
-	return [...bar.map(x => x * 2)];
+  return [...bar.map((x) => x * 2)];
 }
 ```
 
@@ -75,12 +75,12 @@ await Promise.all(iterable);
 
 for (const foo of set);
 
-function * foo() {
-	yield * anotherGenerator();
+function* foo() {
+  yield* anotherGenerator();
 }
 
 function foo(bar) {
-	return bar.map(x => x * 2);
+  return bar.map((x) => x * 2);
 }
 ```
 
@@ -92,9 +92,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "unicorn/no-useless-spread": "error"
-    }
+  "rules": {
+    "unicorn/no-useless-spread": "error"
+  }
 }
 ```
 

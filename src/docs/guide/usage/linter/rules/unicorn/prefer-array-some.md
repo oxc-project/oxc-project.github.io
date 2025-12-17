@@ -29,10 +29,10 @@ Examples of **incorrect** code for this rule:
 
 ```javascript
 const foo = array.find(fn) ? bar : baz;
-const foo = array.findLast(elem => hasRole(elem)) !== null;
+const foo = array.findLast((elem) => hasRole(elem)) !== null;
 foo.findIndex(bar) < 0;
-foo.findIndex(element => element.bar === 1) !== -1;
-foo.findLastIndex(element => element.bar === 1) !== -1;
+foo.findIndex((element) => element.bar === 1) !== -1;
+foo.findLastIndex((element) => element.bar === 1) !== -1;
 array.filter(fn).length === 0;
 ```
 
@@ -40,7 +40,7 @@ Examples of **correct** code for this rule:
 
 ```javascript
 const foo = array.some(fn) ? bar : baz;
-foo.some(element => element.bar === 1);
+foo.some((element) => element.bar === 1);
 !array.some(fn);
 ```
 
@@ -52,9 +52,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "unicorn/prefer-array-some": "error"
-    }
+  "rules": {
+    "unicorn/prefer-array-some": "error"
+  }
 }
 ```
 

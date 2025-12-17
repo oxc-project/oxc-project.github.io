@@ -28,7 +28,7 @@ Examples of **incorrect** code for this rule:
 
 ```javascript
 async function bad() {
-    const secondElement = (await getArray())[1];
+  const secondElement = (await getArray())[1];
 }
 ```
 
@@ -36,7 +36,7 @@ Examples of **correct** code for this rule:
 
 ```javascript
 async function good() {
-    const [, secondElement] = await getArray();
+  const [, secondElement] = await getArray();
 }
 ```
 
@@ -48,9 +48,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "unicorn/no-await-expression-member": "error"
-    }
+  "rules": {
+    "unicorn/no-await-expression-member": "error"
+  }
 }
 ```
 

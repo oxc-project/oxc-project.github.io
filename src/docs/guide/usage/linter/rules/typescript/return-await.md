@@ -35,7 +35,7 @@ Examples of **incorrect** code for this rule (depending on configuration):
 ```ts
 // If configured to require await:
 async function fetchData() {
-  return fetch('/api/data'); // Should be: return await fetch('/api/data');
+  return fetch("/api/data"); // Should be: return await fetch('/api/data');
 }
 
 async function processData() {
@@ -44,7 +44,7 @@ async function processData() {
 
 // If configured to disallow unnecessary await:
 async function fetchData() {
-  return await fetch('/api/data'); // Should be: return fetch('/api/data');
+  return await fetch("/api/data"); // Should be: return fetch('/api/data');
 }
 
 async function processData() {
@@ -58,21 +58,21 @@ Examples of **correct** code for this rule:
 // When await is required for error handling:
 async function fetchData() {
   try {
-    return await fetch('/api/data');
+    return await fetch("/api/data");
   } catch (error) {
-    console.error('Fetch failed:', error);
+    console.error("Fetch failed:", error);
     throw error;
   }
 }
 
 // When returning Promise directly for performance:
 async function fetchData() {
-  return fetch('/api/data');
+  return fetch("/api/data");
 }
 
 // Processing before return requires await:
 async function fetchAndProcess() {
-  const response = await fetch('/api/data');
+  const response = await fetch("/api/data");
   return response.json();
 }
 
@@ -116,9 +116,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "typescript/return-await": "error"
-    }
+  "rules": {
+    "typescript/return-await": "error"
+  }
 }
 ```
 

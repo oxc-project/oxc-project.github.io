@@ -25,19 +25,27 @@ Examples of **incorrect** code for this rule:
 ```js
 function x() {}
 
-(function x() { return 42 })()
+(function x() {
+  return 42;
+})();
 ```
 
 Examples of **correct** code for this rule:
 
 ```js
-import 'foo'
-function x() { return 42 }
+import "foo";
+function x() {
+  return 42;
+}
 
-export function x() { return 42 }
+export function x() {
+  return 42;
+}
 
-(function x() { return 42 })()
-export {} // simple way to mark side-effects-only file as 'module' without any imports/exports
+(function x() {
+  return 42;
+})();
+export {}; // simple way to mark side-effects-only file as 'module' without any imports/exports
 ```
 
 ## How to use
@@ -48,10 +56,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "plugins": ["import"],
-    "rules": {
-        "import/unambiguous": "error"
-    }
+  "plugins": ["import"],
+  "rules": {
+    "import/unambiguous": "error"
+  }
 }
 ```
 

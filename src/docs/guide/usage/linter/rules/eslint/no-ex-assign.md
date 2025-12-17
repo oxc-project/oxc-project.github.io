@@ -31,9 +31,9 @@ Examples of **incorrect** code for this rule:
 
 ```javascript
 try {
-    // code
+  // code
 } catch (e) {
-    e = 10;
+  e = 10;
 }
 ```
 
@@ -41,9 +41,9 @@ Examples of **correct** code for this rule:
 
 ```javascript
 try {
-    // code
+  // code
 } catch (e) {
-    let val = 10;
+  let val = 10;
 }
 ```
 
@@ -55,9 +55,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "no-ex-assign": "error"
-    }
+  "rules": {
+    "no-ex-assign": "error"
+  }
 }
 ```
 

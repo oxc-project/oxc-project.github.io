@@ -29,11 +29,11 @@ Examples of **incorrect** code for this rule:
 
 ```javascript
 var obj = undefined;
-1 in obj?.foo;  // TypeError
-with (obj?.foo);  // TypeError
-for (bar of obj?.foo);  // TypeError
-bar instanceof obj?.foo;  // TypeError
-const { bar } = obj?.foo;  // TypeError
+1 in obj?.foo; // TypeError
+with (obj?.foo); // TypeError
+for (bar of obj?.foo); // TypeError
+bar instanceof obj?.foo; // TypeError
+const { bar } = obj?.foo; // TypeError
 ```
 
 ## Configuration
@@ -57,9 +57,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "no-unsafe-optional-chaining": "error"
-    }
+  "rules": {
+    "no-unsafe-optional-chaining": "error"
+  }
 }
 ```
 

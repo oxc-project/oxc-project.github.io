@@ -27,14 +27,14 @@ Examples of **incorrect** code for this rule:
 
 ```javascript
 array instanceof Array;
-[1,2,3] instanceof Array;
+[1, 2, 3] instanceof Array;
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
 Array.isArray(array);
-Array.isArray([1,2,3]);
+Array.isArray([1, 2, 3]);
 ```
 
 ## How to use
@@ -45,9 +45,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "unicorn/no-instanceof-array": "error"
-    }
+  "rules": {
+    "unicorn/no-instanceof-array": "error"
+  }
 }
 ```
 

@@ -23,17 +23,17 @@ In general, we should always export constants
 Examples of **incorrect** code for this rule:
 
 ```js
-export let count = 2
-export var count = 3
+export let count = 2;
+export var count = 3;
 
-let count = 4
-export { count }
+let count = 4;
+export { count };
 ```
 
 Examples of **correct** code for this rule:
 
 ```js
-export const count = 1
+export const count = 1;
 export function getCount() {}
 export class Counter {}
 ```
@@ -51,10 +51,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "plugins": ["import"],
-    "rules": {
-        "import/no-mutable-exports": "error"
-    }
+  "plugins": ["import"],
+  "rules": {
+    "import/no-mutable-exports": "error"
+  }
 }
 ```
 

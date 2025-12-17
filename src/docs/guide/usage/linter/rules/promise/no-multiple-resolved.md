@@ -31,12 +31,12 @@ Examples of **incorrect** code for this rule:
 new Promise((resolve, reject) => {
   fn((error, value) => {
     if (error) {
-      reject(error)
+      reject(error);
     }
 
-    resolve(value) // Both `reject` and `resolve` may be called.
-  })
-})
+    resolve(value); // Both `reject` and `resolve` may be called.
+  });
+});
 ```
 
 Examples of **correct** code for this rule:
@@ -45,12 +45,12 @@ Examples of **correct** code for this rule:
 new Promise((resolve, reject) => {
   fn((error, value) => {
     if (error) {
-      reject(error)
+      reject(error);
     } else {
-      resolve(value)
+      resolve(value);
     }
-  })
-})
+  });
+});
 ```
 
 ## How to use
@@ -61,10 +61,10 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "plugins": ["promise"],
-    "rules": {
-        "promise/no-multiple-resolved": "error"
-    }
+  "plugins": ["promise"],
+  "rules": {
+    "promise/no-multiple-resolved": "error"
+  }
 }
 ```
 

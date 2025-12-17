@@ -52,7 +52,7 @@ Example configuration:
 
 ```json
 {
-    "arrow-body-style": ["error", "as-needed", { "requireReturnForObjectLiteral": true }]
+  "arrow-body-style": ["error", "as-needed", { "requireReturnForObjectLiteral": true }]
 }
 ```
 
@@ -67,7 +67,7 @@ Examples of **incorrect** code for this rule with the `never` option:
 
 /* ✘ Bad: */
 const foo = () => {
-    return 0;
+  return 0;
 };
 ```
 
@@ -99,7 +99,7 @@ Examples of **correct** code for this rule with the `always` option:
 
 /* ✔ Good: */
 const foo = () => {
-    return 0;
+  return 0;
 };
 ```
 
@@ -112,7 +112,7 @@ Examples of **incorrect** code for this rule with the `as-needed` option:
 
 /* ✘ Bad: */
 const foo = () => {
-    return 0;
+  return 0;
 };
 ```
 
@@ -125,12 +125,12 @@ Examples of **correct** code for this rule with the `as-needed` option:
 const foo1 = () => 0;
 
 const foo2 = (retv, name) => {
-    retv[name] = true;
-    return retv;
+  retv[name] = true;
+  return retv;
 };
 
 const foo3 = () => {
-    bar();
+  bar();
 };
 ```
 
@@ -153,7 +153,9 @@ Examples of **correct** code for this rule with the `{ "requireReturnForObjectLi
 
 /* ✔ Good: */
 const foo = () => {};
-const bar = () => { return { bar: 0 }; };
+const bar = () => {
+  return { bar: 0 };
+};
 ```
 
 ## How to use
@@ -164,9 +166,9 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```json [Config (.oxlintrc.json)]
 {
-    "rules": {
-        "arrow-body-style": "error"
-    }
+  "rules": {
+    "arrow-body-style": "error"
+  }
 }
 ```
 
