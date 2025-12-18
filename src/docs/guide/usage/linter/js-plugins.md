@@ -50,6 +50,38 @@ Paths are resolved relative to the config file itself.
 }
 ```
 
+### Plugin aliases
+
+You can also define a different name (alias) for a plugin. This is useful if:
+
+- Plugin name clashes with name of a native Oxlint plugin.
+- Plugin name is very long.
+- You want to use a plugin that Oxlint supports natively, but a specific rule you need is not yet implemented in Oxlint's native version.
+
+```json
+{
+  "jsPlugins": [
+    // `jsdoc` is a reserved name, as Oxlint supports it natively
+    {
+      "name": "jsdoc-js",
+      "specifier": "eslint-plugin-jsdoc"
+    },
+    // Shorten name
+    {
+      "name": "short",
+      "specifier": "eslint-plugin-with-name-so-very-very-long"
+    },
+    // List plugins you don't want to alias as just specifiers
+    "eslint-plugin-whatever"
+  ],
+  "rules": {
+    "jsdoc-js/check-alignment": "error",
+    "short/rule1": "error",
+    "whatever/rule2": "error"
+  }
+}
+```
+
 ## Writing JS plugins
 
 ### ESLint-compatible API
