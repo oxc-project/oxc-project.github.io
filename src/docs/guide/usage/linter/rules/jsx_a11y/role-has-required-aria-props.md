@@ -25,24 +25,20 @@ semantics for assistive technology.
 Examples of **incorrect** code for this rule:
 
 ```jsx
-<div role="checkbox" />;
+<div role="checkbox" />
 ```
 
 Examples of **correct** code for this rule:
 
 ```jsx
-<div role="checkbox" aria-checked="false" />;
+<div role="checkbox" aria-checked="false" />
 ```
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny jsx-a11y/role-has-required-aria-props --jsx-a11y-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -51,6 +47,10 @@ oxlint --deny jsx-a11y/role-has-required-aria-props --jsx-a11y-plugin
     "jsx-a11y/role-has-required-aria-props": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny jsx-a11y/role-has-required-aria-props --jsx-a11y-plugin
 ```
 
 :::

@@ -9,7 +9,7 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 <div class="rule-meta">
 <Alert class="fix" type="info">
-<span class="emoji">🚧</span> An auto-fix is still under development.
+<span class="emoji">🚧</span> An auto-fix is planned for this rule, but not implemented at this time.
 </Alert>
 </div>
 
@@ -36,11 +36,11 @@ const result = array.filter(lib.method);
 Examples of **correct** code for this rule:
 
 ```js
-const foo = array.map(element => callback(element));
-array.forEach(element => {
+const foo = array.map((element) => callback(element));
+array.forEach((element) => {
   callback(element);
 });
-const result = array.filter(element => lib.method(element));
+const result = array.filter((element) => lib.method(element));
 
 // Built-in functions are allowed
 const foo = array.map(String);
@@ -49,13 +49,9 @@ const bar = array.filter(Boolean);
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny unicorn/no-array-callback-reference
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -63,6 +59,10 @@ oxlint --deny unicorn/no-array-callback-reference
     "unicorn/no-array-callback-reference": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny unicorn/no-array-callback-reference
 ```
 
 :::

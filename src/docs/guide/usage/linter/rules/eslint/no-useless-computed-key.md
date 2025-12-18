@@ -9,7 +9,7 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 <div class="rule-meta">
 <Alert class="fix" type="info">
-<span class="emoji">🚧</span> An auto-fix is still under development.
+<span class="emoji">🚧</span> An auto-fix is planned for this rule, but not implemented at this time.
 </Alert>
 </div>
 
@@ -28,7 +28,7 @@ const foo = { ["a"]: "b" };
 The code can be rewritten as:
 
 ```js
-const foo = { "a": "b" };
+const foo = { a: "b" };
 ```
 
 ### Examples
@@ -53,16 +53,16 @@ class Foo {
 Examples of **correct** code for this rule:
 
 ```js
-const a = { "a": 0 };
+const a = { a: 0 };
 const b = { 0: 0 };
 const c = { x() {} };
 const e = { "0+1,234": 0 };
 
 class Foo {
-  "foo" = "bar";
+  foo = "bar";
   0() {}
-  "a"() {}
-  static "foo" = "bar";
+  a() {}
+  static foo = "bar";
 }
 ```
 
@@ -70,12 +70,12 @@ Examples of additional **correct** code for this rule:
 
 ```js
 const c = {
-  "__proto__": foo, // defines object's prototype
+  __proto__: foo, // defines object's prototype
   ["__proto__"]: bar, // defines a property named "__proto__"
 };
 class Foo {
   ["constructor"]; // instance field named "constructor"
-  "constructor"() {} // the constructor of this class
+  constructor() {} // the constructor of this class
   static ["constructor"]; // static field named "constructor"
   static ["prototype"]; // runtime error, it would be a parsing error without `[]`
 }
@@ -108,13 +108,9 @@ class SomeClass {
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny no-useless-computed-key
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -122,6 +118,10 @@ oxlint --deny no-useless-computed-key
     "no-useless-computed-key": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny no-useless-computed-key
 ```
 
 :::

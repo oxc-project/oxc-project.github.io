@@ -50,13 +50,9 @@ export {}; // simple way to mark side-effects-only file as 'module' without any 
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny import/unambiguous --import-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -65,6 +61,10 @@ oxlint --deny import/unambiguous --import-plugin
     "import/unambiguous": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny import/unambiguous --import-plugin
 ```
 
 :::

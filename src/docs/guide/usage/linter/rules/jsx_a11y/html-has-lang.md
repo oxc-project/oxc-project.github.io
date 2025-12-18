@@ -26,24 +26,20 @@ and access website in more than one language.
 Examples of **incorrect** code for this rule:
 
 ```jsx
-<html />;
+<html />
 ```
 
 Examples of **correct** code for this rule:
 
 ```jsx
-<html lang="en" />;
+<html lang="en" />
 ```
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny jsx-a11y/html-has-lang --jsx-a11y-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -52,6 +48,10 @@ oxlint --deny jsx-a11y/html-has-lang --jsx-a11y-plugin
     "jsx-a11y/html-has-lang": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny jsx-a11y/html-has-lang --jsx-a11y-plugin
 ```
 
 :::

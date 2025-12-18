@@ -17,6 +17,9 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 Disallow reassigning class variables.
 
+This rule can be disabled for TypeScript code, as the TypeScript compiler
+enforces this check.
+
 ### Why is this bad?
 
 `ClassDeclaration` creates a variable that can be re-assigned, but the re-assignment is a
@@ -78,13 +81,9 @@ class A {
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny no-class-assign
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -92,6 +91,10 @@ oxlint --deny no-class-assign
     "no-class-assign": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny no-class-assign
 ```
 
 :::

@@ -17,8 +17,8 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 Disallow calling some global objects as functions.
 
-It is safe to disable this rule when using TypeScript, because
-TypeScript's compiler enforces this check.
+This rule can be disabled for TypeScript code, as the TypeScript compiler
+enforces this check.
 
 ### Why is this bad?
 
@@ -49,7 +49,7 @@ let newReflect = new Reflect();
 Examples of **correct** code for this rule:
 
 ```javascript
-let area = r => 2 * Math.PI * r * r;
+let area = (r) => 2 * Math.PI * r * r;
 let object = JSON.parse("{}");
 let first = Atomics.load(sharedArray, 0);
 let segmenterFrom = Intl.Segmenter("fr", { granularity: "word" });
@@ -57,13 +57,9 @@ let segmenterFrom = Intl.Segmenter("fr", { granularity: "word" });
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny no-obj-calls
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -71,6 +67,10 @@ oxlint --deny no-obj-calls
     "no-obj-calls": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny no-obj-calls
 ```
 
 :::

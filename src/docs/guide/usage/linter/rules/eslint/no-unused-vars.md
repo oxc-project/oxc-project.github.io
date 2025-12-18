@@ -45,7 +45,7 @@ true:
   (`doSomething(function() { foo(); })`)
 - It is exported (`export const foo = 42`)
 - It is used as an operand to TypeScript's `typeof` operator (`const bar:
-  typeof foo = 4`)
+typeof foo = 4`)
 
 A variable is _not_ considered to be used if it is only ever declared
 (`var foo = 5`) or assigned to (`foo = 7`).
@@ -105,7 +105,7 @@ var z = 0;
 z = z + 1;
 
 // By default, unused arguments cause warnings.
-(function(foo) {
+(function (foo) {
   return 5;
 })();
 
@@ -141,16 +141,18 @@ var x = 10;
 alert(x);
 
 // foo is considered used here
-myFunc(function foo() {
-  // ...
-}.bind(this));
+myFunc(
+  function foo() {
+    // ...
+  }.bind(this),
+);
 
-(function(foo) {
+(function (foo) {
   return foo;
 })();
 
 var myFunc;
-myFunc = setTimeout(function() {
+myFunc = setTimeout(function () {
   // myFunc is considered used
   myFunc();
 }, 50);
@@ -223,7 +225,8 @@ Used for `catch` block validation.
 It has two settings:
 
 - `none` - do not check error objects. This is the default setting.
-- `all` - all named arguments must be used`.`none`corresponds to`false`, while`all`corresponds to`true`.
+- `all` - all named arguments must be used`.
+`none`corresponds to`false`, while `all`corresponds to`true`.
 
 ### ignoreClassWithStaticInitBlock
 
@@ -404,13 +407,9 @@ global variables to be unused.
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny no-unused-vars
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -418,6 +417,10 @@ oxlint --deny no-unused-vars
     "no-unused-vars": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny no-unused-vars
 ```
 
 :::

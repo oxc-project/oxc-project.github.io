@@ -9,7 +9,7 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 <div class="rule-meta">
 <Alert class="fix" type="info">
-<span class="emoji">🚧</span> An auto-fix is still under development.
+<span class="emoji">🚧</span> An auto-fix is planned for this rule, but not implemented at this time.
 </Alert>
 </div>
 
@@ -28,7 +28,7 @@ Examples of **incorrect** code for this rule:
 ```javascript
 doThing().then(() => a.then());
 
-doThing().then(function() {
+doThing().then(function () {
   a.then();
 });
 
@@ -44,7 +44,7 @@ Examples of **correct** code for this rule:
 ```javascript
 doThing().then(() => 4);
 
-doThing().then(function() {
+doThing().then(function () {
   return 4;
 });
 
@@ -61,22 +61,14 @@ This example is not a rule violation as unnesting here would
 result in `a` being undefined in the expression `getC(a, b)`.
 
 ```javascript
-doThing()
-  .then(a =>
-    getB(a)
-      .then(b => getC(a, b))
-  );
+doThing().then((a) => getB(a).then((b) => getC(a, b)));
 ```
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny promise/no-nesting --promise-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -85,6 +77,10 @@ oxlint --deny promise/no-nesting --promise-plugin
     "promise/no-nesting": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny promise/no-nesting --promise-plugin
 ```
 
 :::

@@ -24,8 +24,8 @@ Instead move the `<Script />` component outside of `<Head>` instead.
 Examples of **incorrect** code for this rule:
 
 ```jsx
-import Head from "next/head";
 import Script from "next/script";
+import Head from "next/head";
 
 export default function Index() {
   return (
@@ -40,8 +40,8 @@ export default function Index() {
 Examples of **correct** code for this rule:
 
 ```jsx
-import Head from "next/head";
 import Script from "next/script";
+import Head from "next/head";
 
 export default function Index() {
   return (
@@ -57,13 +57,9 @@ export default function Index() {
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny nextjs/no-script-component-in-head --nextjs-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -72,6 +68,10 @@ oxlint --deny nextjs/no-script-component-in-head --nextjs-plugin
     "nextjs/no-script-component-in-head": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny nextjs/no-script-component-in-head --nextjs-plugin
 ```
 
 :::

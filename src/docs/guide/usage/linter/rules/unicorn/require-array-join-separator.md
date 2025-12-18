@@ -38,13 +38,9 @@ foo.join(",");
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny unicorn/require-array-join-separator
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -52,6 +48,10 @@ oxlint --deny unicorn/require-array-join-separator
     "unicorn/require-array-join-separator": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny unicorn/require-array-join-separator
 ```
 
 :::

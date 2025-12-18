@@ -9,7 +9,7 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 <div class="rule-meta">
 <Alert class="fix" type="info">
-<span class="emoji">🚧</span> An auto-fix is still under development.
+<span class="emoji">🚧</span> An auto-fix is planned for this rule, but not implemented at this time.
 </Alert>
 </div>
 
@@ -27,24 +27,22 @@ The `.includes()` method is more readable and less error-prone than `.indexOf()`
 Examples of **incorrect** code for this rule:
 
 ```javascript
-if (str.indexOf("foo") !== -1) {}
+if (str.indexOf("foo") !== -1) {
+}
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
-if (str.includes("foo")) {}
+if (str.includes("foo")) {
+}
 ```
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny unicorn/prefer-includes
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -52,6 +50,10 @@ oxlint --deny unicorn/prefer-includes
     "unicorn/prefer-includes": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny unicorn/prefer-includes
 ```
 
 :::

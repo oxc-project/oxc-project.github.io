@@ -54,13 +54,9 @@ import { bar } from "./bar"; // Correct: accessing named export directly
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny import/no-named-as-default-member --import-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -69,6 +65,10 @@ oxlint --deny import/no-named-as-default-member --import-plugin
     "import/no-named-as-default-member": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny import/no-named-as-default-member --import-plugin
 ```
 
 :::

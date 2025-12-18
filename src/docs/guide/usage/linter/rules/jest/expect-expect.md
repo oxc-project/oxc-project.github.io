@@ -30,7 +30,7 @@ test("should assert something", () => {});
 ```
 
 This rule is compatible with [eslint-plugin-vitest](https://github.com/veritem/eslint-plugin-vitest/blob/v1.1.9/docs/rules/expect-expect.md),
-to use it, add the following configuration to your `.eslintrc.json`:
+to use it, add the following configuration to your `.oxlintrc.json`:
 
 ```json
 {
@@ -52,7 +52,7 @@ default: `[]`
 
 An array of function names that should also be treated as test blocks.
 
-### assertFunctionNamesJest
+### assertFunctionNames
 
 type: `string[]`
 
@@ -60,23 +60,14 @@ default: `["expect"]`
 
 A list of function names that should be treated as assertion functions.
 
-### assertFunctionNamesVitest
-
-type: `string[]`
-
-default: `["expect", "expectTypeOf", "assert", "assertType"]`
-
-A list of function names that should be treated as assertion functions for Vitest.
+NOTE: The default value is `["expect"]` for Jest and
+`["expect", "expectTypeOf", "assert", "assertType"]` for Vitest.
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny jest/expect-expect --jest-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -85,6 +76,10 @@ oxlint --deny jest/expect-expect --jest-plugin
     "jest/expect-expect": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny jest/expect-expect --jest-plugin
 ```
 
 :::

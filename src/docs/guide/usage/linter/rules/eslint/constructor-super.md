@@ -5,15 +5,21 @@ import { data } from '../version.data.js';
 const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_linter/src/rules/eslint/constructor_super.rs`;
 </script>
 
-# eslint/constructor-super <Badge type="info" text="Nursery" />
+# eslint/constructor-super <Badge type="info" text="Correctness" />
 
 <div class="rule-meta">
+<Alert class="default-on" type="success">
+<span class="emoji">✅</span> This rule is turned on by default.
+</Alert>
 </div>
 
 ### What it does
 
 Requires `super()` calls in constructors of derived classes and disallows `super()` calls
 in constructors of non-derived classes.
+
+This rule can be disabled for TypeScript code, as the TypeScript compiler
+enforces this check.
 
 ### Why is this bad?
 
@@ -28,23 +34,23 @@ Examples of **incorrect** code for this rule:
 ```js
 // Missing super() call
 class A extends B {
-  constructor() {}
+    constructor() { }
 }
 
 // super() in non-derived class
 class A {
-  constructor() {
-    super();
-  }
+    constructor() {
+        super();
+    }
 }
 
 // super() only in some code paths
 class C extends D {
-  constructor() {
-    if (condition) {
-      super();
+    constructor() {
+        if (condition) {
+            super();
+        }
     }
-  }
 }
 ```
 
@@ -77,13 +83,9 @@ class C extends D {
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny constructor-super
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -91,6 +93,10 @@ oxlint --deny constructor-super
     "constructor-super": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny constructor-super
 ```
 
 :::

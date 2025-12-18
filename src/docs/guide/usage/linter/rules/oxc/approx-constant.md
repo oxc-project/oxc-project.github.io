@@ -9,7 +9,7 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 <div class="rule-meta">
 <Alert class="fix" type="info">
-<span class="emoji">🚧</span> An auto-fix is still under development.
+<span class="emoji">💡</span> A suggestion is available for this rule.
 </Alert>
 </div>
 
@@ -41,13 +41,9 @@ let log10e = Math.LOG10E;
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny oxc/approx-constant
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -55,6 +51,10 @@ oxlint --deny oxc/approx-constant
     "oxc/approx-constant": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny oxc/approx-constant
 ```
 
 :::

@@ -39,9 +39,9 @@ try {
   console.log(_);
 }
 
-promise.catch(badName => {});
+promise.catch((badName) => {});
 
-promise.then(undefined, badName => {});
+promise.then(undefined, (badName) => {});
 ```
 
 Examples of **correct** code for this rule:
@@ -56,9 +56,9 @@ try {
   console.log(123);
 }
 
-promise.catch(error => {});
+promise.catch((error) => {});
 
-promise.then(undefined, error => {});
+promise.then(undefined, (error) => {});
 ```
 
 ## Configuration
@@ -83,13 +83,9 @@ to something other than `'error'` (e.g., `'exception'`).
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny unicorn/catch-error-name
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -97,6 +93,10 @@ oxlint --deny unicorn/catch-error-name
     "unicorn/catch-error-name": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny unicorn/catch-error-name
 ```
 
 :::

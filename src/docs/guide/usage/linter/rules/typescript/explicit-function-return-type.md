@@ -34,7 +34,7 @@ function test() {
 }
 
 // Should indicate that a number is returned
-var fn = function() {
+var fn = function () {
   return 1;
 };
 
@@ -58,7 +58,7 @@ function test(): void {
 }
 
 // A return value of type number
-var fn = function(): number {
+var fn = function (): number {
   return 1;
 };
 
@@ -143,13 +143,9 @@ Array of function names that are exempt from requiring return type annotations.
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny typescript/explicit-function-return-type
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -157,6 +153,10 @@ oxlint --deny typescript/explicit-function-return-type
     "typescript/explicit-function-return-type": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny typescript/explicit-function-return-type
 ```
 
 :::

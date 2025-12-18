@@ -99,14 +99,14 @@ Examples of **correct** code for the `"never", { "exceptRange": true }` options:
 
 ```js
 function isReddish(color) {
-  return (color.hue < 60 || 300 < color.hue);
+  return color.hue < 60 || 300 < color.hue;
 }
 
 if (x < -1 || 1 < x) {
   // ...
 }
 
-if (count < 10 && (0 <= rand && rand < 1)) {
+if (count < 10 && 0 <= rand && rand < 1) {
   // ...
 }
 
@@ -115,7 +115,7 @@ if (`blue` < x && x < `green`) {
 }
 
 function howLong(arr) {
-  return (0 <= arr.length && arr.length < 10) ? "short" : "long";
+  return 0 <= arr.length && arr.length < 10 ? "short" : "long";
 }
 ```
 
@@ -170,13 +170,9 @@ if (-1 < str.indexOf(substr)) {
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny yoda
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -184,6 +180,10 @@ oxlint --deny yoda
     "yoda": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny yoda
 ```
 
 :::

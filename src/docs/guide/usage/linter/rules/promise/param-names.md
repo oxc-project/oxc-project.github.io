@@ -26,14 +26,18 @@ makes code more uniform and easier to understand.
 Examples of **incorrect** code for this rule:
 
 ```javascript
-new Promise(function(reject, resolve) {/* ... */}); // incorrect order
-new Promise(function(ok, fail) {/* ... */}); // non-standard parameter names
+new Promise(function (reject, resolve) {
+  /* ... */
+}); // incorrect order
+new Promise(function (ok, fail) {
+  /* ... */
+}); // non-standard parameter names
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
-new Promise(function(resolve, reject) {});
+new Promise(function (resolve, reject) {});
 ```
 
 ## Configuration
@@ -42,33 +46,23 @@ This rule accepts a configuration object with the following properties:
 
 ### rejectPattern
 
-type: `[
-  string,
-  null
-]`
+type: `string | null`
 
 Regex pattern used to validate the `reject` parameter name. If provided, this pattern
 is used instead of the default `^_?reject$` check.
 
 ### resolvePattern
 
-type: `[
-  string,
-  null
-]`
+type: `string | null`
 
 Regex pattern used to validate the `resolve` parameter name. If provided, this pattern
 is used instead of the default `^_?resolve$` check.
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny promise/param-names --promise-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -77,6 +71,10 @@ oxlint --deny promise/param-names --promise-plugin
     "promise/param-names": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny promise/param-names --promise-plugin
 ```
 
 :::

@@ -33,11 +33,14 @@ Examples of **incorrect** code for this rule:
 var foo = !!!bar;
 var foo = Boolean(!!bar);
 
-if (!!foo) {}
-if (Boolean(foo)) {}
+if (!!foo) {
+}
+if (Boolean(foo)) {
+}
 
-// with "enforceForLogicalOperands" option enabled
-if (!!foo || bar) {}
+// with "enforceForInnerExpressions" option enabled
+if (!!foo || bar) {
+}
 ```
 
 Examples of **correct** code for this rule:
@@ -46,11 +49,14 @@ Examples of **correct** code for this rule:
 var foo = !bar;
 var foo = Boolean(bar);
 
-if (foo) {}
-if (foo) {}
+if (foo) {
+}
+if (foo) {
+}
 
-// with "enforceForLogicalOperands" option enabled
-if (foo || bar) {}
+// with "enforceForInnerExpressions" option enabled
+if (foo || bar) {
+}
 ```
 
 ## Configuration
@@ -71,13 +77,9 @@ cast inside inner expressions.
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny no-extra-boolean-cast
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -85,6 +87,10 @@ oxlint --deny no-extra-boolean-cast
     "no-extra-boolean-cast": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny no-extra-boolean-cast
 ```
 
 :::

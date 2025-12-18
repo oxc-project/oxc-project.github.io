@@ -32,12 +32,11 @@ Examples of **incorrect** code for this rule:
 ```js
 var a = b(x || y).doSomething();
 
-var a = b[a, b, c].forEach(doSomething);
+var a = b[(a, b, c)].forEach(doSomething);
 
-let x = function() {}`hello`;
+let x = (function () {})`hello`;
 
-foo
-  / bar / g.test(baz);
+foo / bar / g.test(baz);
 ```
 
 Examples of **correct** code for this rule:
@@ -49,7 +48,7 @@ var a = b;
 var a = b;
 [a, b, c].forEach(doSomething);
 
-let x = function() {};
+let x = function () {};
 `hello`;
 
 foo;
@@ -58,13 +57,9 @@ foo;
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny no-unexpected-multiline
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -72,6 +67,10 @@ oxlint --deny no-unexpected-multiline
     "no-unexpected-multiline": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny no-unexpected-multiline
 ```
 
 :::

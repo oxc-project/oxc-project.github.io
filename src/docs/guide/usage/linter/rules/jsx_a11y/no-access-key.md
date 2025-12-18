@@ -27,24 +27,20 @@ Inconsistencies between keyboard shortcuts and keyboard commands used by screenr
 Examples of **incorrect** code for this rule:
 
 ```jsx
-<div accessKey="h" />;
+<div accessKey="h" />
 ```
 
 Examples of **correct** code for this rule:
 
 ```jsx
-<div />;
+<div />
 ```
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny jsx-a11y/no-access-key --jsx-a11y-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -53,6 +49,10 @@ oxlint --deny jsx-a11y/no-access-key --jsx-a11y-plugin
     "jsx-a11y/no-access-key": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny jsx-a11y/no-access-key --jsx-a11y-plugin
 ```
 
 :::

@@ -34,20 +34,16 @@ var f = Function.bind(null, "a", "b", "return a + b");
 Examples of **correct** code for this rule:
 
 ```js
-let x = function(a, b) {
+let x = function (a, b) {
   return a + b;
 };
 ```
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny no-new-func
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -55,6 +51,10 @@ oxlint --deny no-new-func
     "no-new-func": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny no-new-func
 ```
 
 :::

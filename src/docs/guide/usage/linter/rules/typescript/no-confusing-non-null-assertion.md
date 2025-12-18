@@ -9,7 +9,7 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 <div class="rule-meta">
 <Alert class="fix" type="info">
-<span class="emoji">🚧</span> An auto-fix is still under development.
+<span class="emoji">🚧</span> An auto-fix is planned for this rule, but not implemented at this time.
 </Alert>
 </div>
 
@@ -41,13 +41,9 @@ a === b;
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny typescript/no-confusing-non-null-assertion
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -55,6 +51,10 @@ oxlint --deny typescript/no-confusing-non-null-assertion
     "typescript/no-confusing-non-null-assertion": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny typescript/no-confusing-non-null-assertion
 ```
 
 :::

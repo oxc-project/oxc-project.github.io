@@ -45,13 +45,13 @@ Examples of **incorrect** code for this rule:
 Examples of **correct** code for this rule:
 
 ```jsx
-import Script from "next/script";
+import Script from 'next/script'
 
 // Using next/script for GA source
 <Script
   src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"
   strategy="lazyOnload"
-/>;
+/>
 
 // Using next/script for GA initialization
 <Script id="google-analytics">
@@ -61,18 +61,14 @@ import Script from "next/script";
     gtag('js', new Date());
     gtag('config', 'GA_MEASUREMENT_ID');
   `}
-</Script>;
+</Script>
 ```
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny nextjs/next-script-for-ga --nextjs-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -81,6 +77,10 @@ oxlint --deny nextjs/next-script-for-ga --nextjs-plugin
     "nextjs/next-script-for-ga": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny nextjs/next-script-for-ga --nextjs-plugin
 ```
 
 :::

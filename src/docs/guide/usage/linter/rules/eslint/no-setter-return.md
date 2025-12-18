@@ -17,6 +17,9 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 Setters cannot return values.
 
+This rule can be disabled for TypeScript code, as the TypeScript compiler
+enforces this check.
+
 ### Why is this bad?
 
 While returning a value from a setter does not produce an error, the returned value is
@@ -37,13 +40,9 @@ class URL {
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny no-setter-return
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -51,6 +50,10 @@ oxlint --deny no-setter-return
     "no-setter-return": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny no-setter-return
 ```
 
 :::

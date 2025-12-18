@@ -52,10 +52,7 @@ This rule accepts a configuration object with the following properties:
 
 ### additionalHooks
 
-type: `[
-  string,
-  null
-]`
+type: `string | null`
 
 default: `null`
 
@@ -63,13 +60,9 @@ Optionally provide a regex of additional hooks to check.
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny react/exhaustive-deps --react-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -78,6 +71,10 @@ oxlint --deny react/exhaustive-deps --react-plugin
     "react/exhaustive-deps": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny react/exhaustive-deps --react-plugin
 ```
 
 :::

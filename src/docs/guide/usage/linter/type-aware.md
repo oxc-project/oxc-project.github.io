@@ -1,6 +1,6 @@
 # Type-Aware Linting
 
-Read our [technical preview announcement](/blog/2025-08-17-oxlint-type-aware) for background details, and the rationale for the architecture we have chosen for type-aware linting.
+Read our [technical preview announcement](/blog/2025-08-17-oxlint-type-aware) and [alpha announcement](/blog/2025-12-08-type-aware-alpha) for background details, and the rationale for the architecture we have chosen for type-aware linting.
 
 ## Installation
 
@@ -29,12 +29,6 @@ Run `oxlint` with `--type-aware`
 ```bash
 oxlint --type-aware
 ```
-
-## Unsupported Features
-
-The following issues will be addressed for the alpha version.
-
-- Auto-fixes for type-aware rules only work in the VS Code extension, not in the CLI (`oxlint --fix`)
 
 ## Unimplemented Rules
 
@@ -73,6 +67,7 @@ List of supported rules:
 - [typescript/non-nullable-type-assertion-style](/docs/guide/usage/linter/rules/typescript/non-nullable-type-assertion-style)
 - [typescript/only-throw-error](/docs/guide/usage/linter/rules/typescript/only-throw-error)
 - [typescript/prefer-includes](/docs/guide/usage/linter/rules/typescript/prefer-includes)
+- [typescript/prefer-nullish-coalescing](/docs/guide/usage/linter/rules/typescript/prefer-nullish-coalescing)
 - [typescript/prefer-promise-reject-errors](/docs/guide/usage/linter/rules/typescript/prefer-promise-reject-errors)
 - [typescript/prefer-reduce-type-parameter](/docs/guide/usage/linter/rules/typescript/prefer-reduce-type-parameter)
 - [typescript/prefer-return-this-type](/docs/guide/usage/linter/rules/typescript/prefer-return-this-type)
@@ -88,6 +83,62 @@ List of supported rules:
 - [typescript/unbound-method](/docs/guide/usage/linter/rules/typescript/unbound-method)
 - [typescript/use-unknown-in-catch-callback-variable](/docs/guide/usage/linter/rules/typescript/use-unknown-in-catch-callback-variable)
 
+## Troubleshooting
+
+### Debugging Unexpected Errors
+
+If you encounter unexpected errors or rules not triggering when expected, types may not be resolving correctly. Run with `--type-check` to verify that all imports are being resolved:
+
+```bash
+oxlint --type-aware --type-check
+```
+
+This will report TypeScript errors alongside lint diagnostics, helping identify missing or unresolved types.
+
+**Common causes of unresolved types:**
+
+- **Monorepo with bundler (tsdown, tsup, etc.)**: Pre-build dependent packages so their types are available. For example, if package `A` depends on package `B`, build `B` first so its `.d.ts` files exist.
+- **Missing dependencies**: Ensure all dependencies are installed (`npm install` / `pnpm install`)
+
+### Debugging Slow Performance
+
+If type-aware linting is running slower than expected:
+
+1. **Update to the latest versions** of both `oxlint` and `oxlint-tsgolint`
+
+2. **Enable debug logging** to see detailed timing information:
+
+```bash
+OXC_LOG=debug oxlint --type-aware
+```
+
+Example output (showing key timing milestones):
+
+```
+2025/01/01 12:00:00.000000 Starting tsgolint
+2025/01/01 12:00:00.001000 Starting to assign files to programs. Total files: 259
+2025/01/01 12:00:01.000000 Done assigning files to programs. Total programs: 8. Unmatched files: 75
+2025/01/01 12:00:01.001000 Starting linter with 12 workers
+2025/01/01 12:00:01.001000 Workload distribution: 8 programs
+2025/01/01 12:00:01.002000 [1/8] Running linter on program: /path/to/project/jsconfig.json
+...
+2025/01/01 12:00:01.100000 [4/8] Running linter on program: /path/to/project/tsconfig.json
+2025/01/01 12:00:02.500000 Program created with 26140 source files
+2025/01/01 12:00:14.000000 /path/to/project/oxlint-plugin.mts
+...
+2025/01/01 12:00:14.100000 [5/8] Running linter on program: /path/to/project/apps/tsconfig.json
+...
+2025/01/01 12:00:15.000000 Linting Complete
+Finished in 16.4s on 259 files with 161 rules using 12 threads.
+```
+
+**How to interpret the log:**
+
+- **File assignment phase** (`Starting to assign files...` → `Done assigning files...`): Maps source files to their tsconfig projects. This phase should be fast. If slow, please file an issue.
+- **Program linting** (`[N/M] Running linter on program...`): Each TypeScript project is linted separately. Programs that take significantly longer may indicate expensive type resolution or an overly large project.
+  - Look for programs with an unusually high number of source files (e.g., `Program created with 26140 source files`). This may indicate misconfigured tsconfig `includes`/`excludes` pulling in unnecessary files like `node_modules`.
+  - Each file path logged indicates when that file is being linted. Large time gaps between files may indicate expensive type resolution for certain files.
+
 ## TypeScript Compatibility
 
 tsgolint is based on [typescript-go](https://github.com/microsoft/typescript-go) (Microsoft's TypeScript v7.0 rewrite in Go), not the original TypeScript compiler written in TypeScript.
@@ -99,3 +150,22 @@ tsgolint is based on [typescript-go](https://github.com/microsoft/typescript-go)
 - If you're using deprecated features that were deprecated in TypeScript 6.0 or removed in TypeScript 7.0, you'll need to migrate your codebase first
 
 For help migrating deprecated tsconfig options, see the [TypeScript migration guide](https://github.com/microsoft/TypeScript/issues/62508#issuecomment-3348649259).
+
+## Architecture
+
+Type-aware linting in Oxlint uses a unique two-binary architecture:
+
+```
+oxlint CLI (Rust)
+  ├─ Handles file traversal, ignore logic, and diagnostics
+  ├─ Runs non-type-aware rules and custom JS plugins
+  ├─ Passes paths and configuration to tsgolint
+  └─ Formats and displays results
+
+tsgolint (Go)
+  ├─ Uses typescript-go directly for type checking
+  ├─ Executes type-aware rules
+  └─ Returns structured diagnostics
+```
+
+This design keeps Oxlint's core fast while leveraging TypeScript's type system through typescript-go. The frontend-backend separation means `oxlint` controls the user experience while `tsgolint` handles the heavy lifting of type analysis.

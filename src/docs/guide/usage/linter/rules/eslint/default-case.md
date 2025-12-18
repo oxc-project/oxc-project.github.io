@@ -58,7 +58,7 @@ switch (a) {
 switch (a) {
   case 1:
     break;
-    // no default
+  // no default
 }
 ```
 
@@ -68,10 +68,7 @@ This rule accepts a configuration object with the following properties:
 
 ### commentPattern
 
-type: `[
-  string,
-  null
-]`
+type: `string | null`
 
 A regex pattern used to detect comments that mark the absence
 of a `default` case as intentional.
@@ -86,7 +83,7 @@ Examples of **incorrect** code for this rule with the `{ "commentPattern": "^ski
 switch (a) {
   case 1:
     break;
-    // no default
+  // no default
 }
 ```
 
@@ -98,19 +95,15 @@ Examples of **correct** code for this rule with the `{ "commentPattern": "^skip\
 switch (a) {
   case 1:
     break;
-    // skip default
+  // skip default
 }
 ```
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny default-case
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -118,6 +111,10 @@ oxlint --deny default-case
     "default-case": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny default-case
 ```
 
 :::

@@ -15,15 +15,15 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 ### What it does
 
-Disallow duplicate keys in object literals
+Disallow duplicate keys in object literals.
+
+This rule can be disabled for TypeScript code, as the TypeScript compiler
+enforces this check.
 
 ### Why is this bad?
 
 Multiple properties with the same key in object literals can cause
 unexpected behavior in your application.
-
-It is safe to disable this rule when using TypeScript because
-TypeScript's compiler enforces this check.
 
 ### Examples
 
@@ -36,7 +36,7 @@ var foo = {
 };
 
 var foo = {
-  "bar": "baz",
+  bar: "baz",
   bar: "qux",
 };
 
@@ -57,13 +57,9 @@ var foo = {
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny no-dupe-keys
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -71,6 +67,10 @@ oxlint --deny no-dupe-keys
     "no-dupe-keys": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny no-dupe-keys
 ```
 
 :::

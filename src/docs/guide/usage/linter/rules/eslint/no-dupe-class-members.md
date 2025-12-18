@@ -15,7 +15,10 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 ### What it does
 
-Disallow duplicate class members
+Disallow duplicate class members.
+
+This rule can be disabled for TypeScript code, as the TypeScript compiler
+enforces this check.
 
 ### Why is this bad?
 
@@ -51,13 +54,9 @@ a.foo();
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny no-dupe-class-members
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -65,6 +64,10 @@ oxlint --deny no-dupe-class-members
     "no-dupe-class-members": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny no-dupe-class-members
 ```
 
 :::

@@ -9,7 +9,7 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 <div class="rule-meta">
 <Alert class="fix" type="info">
-<span class="emoji">🚧</span> An auto-fix is still under development.
+<span class="emoji">🚧</span> An auto-fix is planned for this rule, but not implemented at this time.
 </Alert>
 </div>
 
@@ -29,7 +29,7 @@ This rule won’t flag usage of bind() that includes function argument binding.
 Examples of **incorrect** code for this rule:
 
 ```js
-const x = function() {
+const x = function () {
   foo();
 }.bind(bar);
 
@@ -41,23 +41,19 @@ const z = (() => {
 Examples of **correct** code for this rule:
 
 ```js
-const x = function() {
+const x = function () {
   this.foo();
 }.bind(bar);
-const y = function(a) {
+const y = function (a) {
   return a + 1;
 }.bind(foo, bar);
 ```
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny no-extra-bind
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -65,6 +61,10 @@ oxlint --deny no-extra-bind
     "no-extra-bind": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny no-extra-bind
 ```
 
 :::

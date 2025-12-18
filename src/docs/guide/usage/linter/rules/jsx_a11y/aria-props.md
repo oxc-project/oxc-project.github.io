@@ -30,24 +30,20 @@ This rule includes fixes for some common typos.
 Examples of **incorrect** code for this rule:
 
 ```jsx
-<input aria-labeledby="address_label" />;
+<input aria-labeledby="address_label" />
 ```
 
 Examples of **correct** code for this rule:
 
 ```jsx
-<input aria-labelledby="address_label" />;
+<input aria-labelledby="address_label" />
 ```
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny jsx-a11y/aria-props --jsx-a11y-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -56,6 +52,10 @@ oxlint --deny jsx-a11y/aria-props --jsx-a11y-plugin
     "jsx-a11y/aria-props": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny jsx-a11y/aria-props --jsx-a11y-plugin
 ```
 
 :::

@@ -47,7 +47,7 @@ function foo(n) {
   arguments.callee(n - 1);
 }
 
-[1, 2, 3, 4, 5].map(function(n) {
+[1, 2, 3, 4, 5].map(function (n) {
   return !(n > 1) ? 1 : arguments.callee(n - 1) * n;
 });
 ```
@@ -70,13 +70,9 @@ function foo(n) {
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny no-caller
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -84,6 +80,10 @@ oxlint --deny no-caller
     "no-caller": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny no-caller
 ```
 
 :::

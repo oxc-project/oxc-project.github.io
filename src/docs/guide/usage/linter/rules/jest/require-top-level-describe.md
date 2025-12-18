@@ -63,6 +63,17 @@ describe("test suite", () => {
 });
 ```
 
+This rule is compatible with [eslint-plugin-vitest](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/require-top-level-describe.md),
+to use it, add the following configuration to your `.oxlintrc.json`:
+
+```json
+{
+  "rules": {
+    "vitest/require-top-level-describe": "error"
+  }
+}
+```
+
 ## Configuration
 
 This rule accepts a configuration object with the following properties:
@@ -77,13 +88,9 @@ The maximum number of top-level `describe` blocks allowed in a test file.
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny jest/require-top-level-describe --jest-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -92,6 +99,10 @@ oxlint --deny jest/require-top-level-describe --jest-plugin
     "jest/require-top-level-describe": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny jest/require-top-level-describe --jest-plugin
 ```
 
 :::

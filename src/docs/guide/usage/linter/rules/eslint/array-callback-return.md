@@ -46,7 +46,7 @@ foo.map((a) => {
 
 This rule accepts a configuration object with the following properties:
 
-### allowImplicitReturn
+### allowImplicit
 
 type: `boolean`
 
@@ -65,13 +65,9 @@ When set to true, rule will also report forEach callbacks that return a value.
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny array-callback-return
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -79,6 +75,10 @@ oxlint --deny array-callback-return
     "array-callback-return": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny array-callback-return
 ```
 
 :::

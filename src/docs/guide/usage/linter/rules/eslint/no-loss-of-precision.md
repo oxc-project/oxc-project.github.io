@@ -15,18 +15,18 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 ### What it does
 
-Disallow precision loss of number literal
+Disallow precision loss of number literal.
 
 ### Why is this bad?
 
-It can lead to unexpected results in certain situations
-For example, when performing mathematical operations
+It can lead to unexpected results in certain situations.
+For example, when performing mathematical operations.
 
-In JS, Numbers are stored as double-precision floating-point numbers
+In JavaScript, Numbers are stored as double-precision floating-point numbers
 according to the IEEE 754 standard. Because of this, numbers can only
 retain accuracy up to a certain amount of digits. If the programmer
 enters additional digits, those digits will be lost in the conversion
-to the Number type and will result in unexpected behavior.
+to the Number type and will result in unexpected/incorrect behavior.
 
 ### Examples
 
@@ -49,7 +49,7 @@ var x = 1230000000000000000000000.0;
 ```
 
 ```javascript
-var x = 0X200000_0000000_1;
+var x = 0x200000_0000000_1;
 ```
 
 Examples of **correct** code for this rule:
@@ -63,7 +63,7 @@ var x = 123.456;
 ```
 
 ```javascript
-var x = 123.0000000000000000000000;
+var x = 123.0;
 ```
 
 ```javascript
@@ -71,18 +71,14 @@ var x = 123e34;
 ```
 
 ```javascript
-var x = 0x1FFF_FFFF_FFF_FFF;
+var x = 0x1fff_ffff_fff_fff;
 ```
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny no-loss-of-precision
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -90,6 +86,10 @@ oxlint --deny no-loss-of-precision
     "no-loss-of-precision": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny no-loss-of-precision
 ```
 
 :::

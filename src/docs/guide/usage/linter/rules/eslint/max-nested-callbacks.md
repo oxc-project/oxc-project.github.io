@@ -28,10 +28,10 @@ nesting callbacks excessively, making code harder to read and understand.
 Examples of **incorrect** code for this rule with the `{ "max": 3 }` option:
 
 ```js
-foo1(function() {
-  foo2(function() {
-    foo3(function() {
-      foo4(function() {
+foo1(function () {
+  foo2(function () {
+    foo3(function () {
+      foo4(function () {
         // ...
       });
     });
@@ -75,13 +75,9 @@ The `max` enforces a maximum depth that callbacks can be nested.
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny max-nested-callbacks
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -89,6 +85,10 @@ oxlint --deny max-nested-callbacks
     "max-nested-callbacks": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny max-nested-callbacks
 ```
 
 :::

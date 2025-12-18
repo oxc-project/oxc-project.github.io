@@ -33,9 +33,7 @@ Examples of **incorrect** code for this rule:
 
 ```javascript
 jest.fn().mockImplementation(() => Promise.resolve(123));
-jest
-  .spyOn(fs.promises, "readFile")
-  .mockReturnValue(Promise.reject(new Error("oh noes!")));
+jest.spyOn(fs.promises, "readFile").mockReturnValue(Promise.reject(new Error("oh noes!")));
 
 myFunction
   .mockReturnValueOnce(Promise.resolve(42))
@@ -55,15 +53,22 @@ myFunction
   .mockRejectedValue(new Error("too many calls!"));
 ```
 
+This rule is compatible with [eslint-plugin-vitest](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/prefer-mock-promise-shorthand.md),
+to use it, add the following configuration to your `.oxlintrc.json`:
+
+```json
+{
+  "rules": {
+    "vitest/prefer-mock-promise-shorthand": "error"
+  }
+}
+```
+
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny jest/prefer-mock-promise-shorthand --jest-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -72,6 +77,10 @@ oxlint --deny jest/prefer-mock-promise-shorthand --jest-plugin
     "jest/prefer-mock-promise-shorthand": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny jest/prefer-mock-promise-shorthand --jest-plugin
 ```
 
 :::

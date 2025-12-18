@@ -30,7 +30,7 @@ let stringToNumber: Function;
 stringToNumber = (text: string) => text.length;
 
 let identity: Function;
-identity = value => value;
+identity = (value) => value;
 ```
 
 Examples of **correct** code for this rule:
@@ -40,21 +40,17 @@ let noParametersOrReturn: () => void;
 noParametersOrReturn = () => {};
 
 let stringToNumber: (text: string) => number;
-stringToNumber = text => text.length;
+stringToNumber = (text) => text.length;
 
 let identity: <T>(value: T) => T;
-identity = value => value;
+identity = (value) => value;
 ```
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny typescript/no-unsafe-function-type
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -62,6 +58,10 @@ oxlint --deny typescript/no-unsafe-function-type
     "typescript/no-unsafe-function-type": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny typescript/no-unsafe-function-type
 ```
 
 :::

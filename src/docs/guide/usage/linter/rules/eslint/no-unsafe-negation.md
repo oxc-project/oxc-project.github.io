@@ -21,6 +21,9 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 Disallows negating the left operand of relational operators to prevent logical errors
 caused by misunderstanding operator precedence or accidental use of negation.
 
+This rule can be disabled for TypeScript code, as the TypeScript compiler
+enforces this check.
+
 ### Why is this bad?
 
 Negating the left operand of relational operators can result in unexpected behavior due to
@@ -32,17 +35,21 @@ as `(!a) in b` instead of `!(a in b)`, which is not the intended logic.
 Examples of **incorrect** code for this rule:
 
 ```javascript
-if ((!key) in object) {}
+if ((!key) in object) {
+}
 
-if ((!obj) instanceof Ctor) {}
+if ((!obj) instanceof Ctor) {
+}
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
-if (!(key in object)) {}
+if (!(key in object)) {
+}
 
-if (!(obj instanceof Ctor)) {}
+if (!(obj instanceof Ctor)) {
+}
 ```
 
 ## Configuration
@@ -63,13 +70,9 @@ when what is really intended is `!(a < b)`.
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny no-unsafe-negation
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -77,6 +80,10 @@ oxlint --deny no-unsafe-negation
     "no-unsafe-negation": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny no-unsafe-negation
 ```
 
 :::

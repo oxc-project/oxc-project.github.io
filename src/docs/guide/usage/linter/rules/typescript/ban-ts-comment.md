@@ -33,15 +33,61 @@ if (false) {
 }
 ```
 
+## Configuration
+
+This rule allows you to specify how different TypeScript directive comments
+should be handled.
+
+For each directive (`@ts-expect-error`, `@ts-ignore`, `@ts-nocheck`, `@ts-check`), you can choose one of the following options:
+
+- `true`: Disallow the directive entirely, preventing its use in the entire codebase.
+- `false`: Allow the directive without any restrictions.
+- `"allow-with-description"`: Allow the directive only if it is followed by a description explaining its use. The description must meet the minimum length specified by `minimumDescriptionLength`.
+- `{ "descriptionFormat": "<regex>" }`: Allow the directive only if the description matches the specified regex pattern.
+
+For example:
+
+```json
+{
+  "ts-expect-error": "allow-with-description",
+  "ts-ignore": true,
+  "ts-nocheck": { "descriptionFormat": "^: TS\\d+ because .+$" },
+  "ts-check": false,
+  "minimumDescriptionLength": 3
+}
+```
+
+This rule accepts a configuration object with the following properties:
+
+### minimumDescriptionLength
+
+type: `integer`
+
+default: `3`
+
+Minimum description length required when using directives with `allow-with-description`.
+
+### ts-check
+
+How to handle the `@ts-check` directive.
+
+### ts-expect-error
+
+How to handle the `@ts-expect-error` directive.
+
+### ts-ignore
+
+How to handle the `@ts-ignore` directive.
+
+### ts-nocheck
+
+How to handle the `@ts-nocheck` directive.
+
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny typescript/ban-ts-comment
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -49,6 +95,10 @@ oxlint --deny typescript/ban-ts-comment
     "typescript/ban-ts-comment": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny typescript/ban-ts-comment
 ```
 
 :::

@@ -12,7 +12,7 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 ### What it does
 
-Prevent usage of styled-jsx in pages/_document.js.
+Prevent usage of styled-jsx in pages/\_document.js.
 
 ### Why is this bad?
 
@@ -24,7 +24,7 @@ Examples of **incorrect** code for this rule:
 
 ```javascript
 // pages/_document.js
-import Document, { Head, Html, Main, NextScript } from "next/document";
+import Document, { Html, Head, Main, NextScript } from "next/document";
 
 class MyDocument extends Document {
   render() {
@@ -34,13 +34,11 @@ class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
-          <style jsx>
-            {`
+          <style jsx>{`
             body {
               background: hotpink;
             }
-          `}
-          </style>
+          `}</style>
         </body>
       </Html>
     );
@@ -52,7 +50,7 @@ Examples of **correct** code for this rule:
 
 ```javascript
 // pages/_document.js
-import Document, { Head, Html, Main, NextScript } from "next/document";
+import Document, { Html, Head, Main, NextScript } from "next/document";
 
 class MyDocument extends Document {
   render() {
@@ -71,13 +69,9 @@ class MyDocument extends Document {
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny nextjs/no-styled-jsx-in-document --nextjs-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -86,6 +80,10 @@ oxlint --deny nextjs/no-styled-jsx-in-document --nextjs-plugin
     "nextjs/no-styled-jsx-in-document": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny nextjs/no-styled-jsx-in-document --nextjs-plugin
 ```
 
 :::

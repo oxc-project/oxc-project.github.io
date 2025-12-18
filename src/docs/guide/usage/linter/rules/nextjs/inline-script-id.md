@@ -26,7 +26,7 @@ one-time initializations.
 Examples of **incorrect** code for this rule:
 
 ```javascript
-import Script from "next/script";
+import Script from 'next/script';
 
 export default function Page() {
   return (
@@ -41,7 +41,7 @@ export default function Page() {
   return (
     <Script
       dangerouslySetInnerHTML={{
-        __html: `console.log('Hello world');`,
+        __html: `console.log('Hello world');`
       }}
     />
   );
@@ -51,7 +51,7 @@ export default function Page() {
 Examples of **correct** code for this rule:
 
 ```javascript
-import Script from "next/script";
+import Script from 'next/script';
 
 export default function Page() {
   return (
@@ -67,7 +67,7 @@ export default function Page() {
     <Script
       id="my-script"
       dangerouslySetInnerHTML={{
-        __html: `console.log('Hello world');`,
+        __html: `console.log('Hello world');`
       }}
     />
   );
@@ -75,19 +75,17 @@ export default function Page() {
 
 // No id required for external scripts
 export default function Page() {
-  return <Script src="https://example.com/script.js" />;
+  return (
+    <Script src="https://example.com/script.js" />
+  );
 }
 ```
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny nextjs/inline-script-id --nextjs-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -96,6 +94,10 @@ oxlint --deny nextjs/inline-script-id --nextjs-plugin
     "nextjs/inline-script-id": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny nextjs/inline-script-id --nextjs-plugin
 ```
 
 :::

@@ -37,13 +37,9 @@ class MyComponent extends Component {
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny react/no-find-dom-node --react-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -52,6 +48,10 @@ oxlint --deny react/no-find-dom-node --react-plugin
     "react/no-find-dom-node": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny react/no-find-dom-node --react-plugin
 ```
 
 :::

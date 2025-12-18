@@ -5,7 +5,7 @@ import { data } from '../version.data.js';
 const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_linter/src/rules/oxc/no_map_spread.rs`;
 </script>
 
-# oxc/no-map-spread <Badge type="info" text="Nursery" />
+# oxc/no-map-spread <Badge type="info" text="Perf" />
 
 <div class="rule-meta">
 <Alert class="fix" type="info">
@@ -35,7 +35,7 @@ re-allocation for a new object, plus `O(n)` memory copies.
 // reused, spreading is inefficient.
 function getDisplayData() {
   const scores: Array<{ username: string; score: number }> = getScores();
-  const displayData = scores.map(score => ({ ...score, rank: getRank(score) }));
+  const displayData = scores.map((score) => ({ ...score, rank: getRank(score) }));
   return displayData;
 }
 ```
@@ -47,7 +47,7 @@ better to use [`Object.assign`](https://developer.mozilla.org/en-US/docs/Web/Jav
 // `score` is mutated in place and is more performant.
 function getDisplayData() {
   const scores: Array<{ username: string; score: number }> = getScores();
-  const displayData = scores.map(score => Object.assign(score, { rank: getRank(score) }));
+  const displayData = scores.map((score) => Object.assign(score, { rank: getRank(score) }));
   return displayData;
 }
 ```
@@ -65,7 +65,7 @@ Spreads on class instance properties are completely ignored:
 class AuthorsDb {
   #authors = [];
   public getAuthorsWithBooks() {
-    return this.#authors.map(author => ({
+    return this.#authors.map((author) => ({
       // protects against mutations, giving the callee their own
       // deep(ish) copy of the author object.
       ...author,
@@ -120,7 +120,7 @@ does not fix arrays. Object spreads will get replaced with
 Object expressions with a single element (the spread) are not fixed.
 
 ```js
-arr.map(x => ({ ...x })); // not fixed
+arr.map((x) => ({ ...x })); // not fixed
 ```
 
 A `fix` is available (using `--fix`) for objects with "normal" elements before the
@@ -133,7 +133,7 @@ not be mutated. In effect, the spread semantics are preserved
 arr.map(({ x, y }) => ({ x, ...y }));
 
 // after
-arr.map(({ x, y }) => (Object.assign({ x }, y)));
+arr.map(({ x, y }) => Object.assign({ x }, y));
 ```
 
 A suggestion (using `--fix-suggestions`) is provided when a spread is
@@ -146,8 +146,8 @@ arr.map(({ x, y }) => ({ ...x, y }));
 arr.map(({ x, y }) => ({ ...x, y }));
 
 // after
-arr.map(({ x, y }) => (Object.assign(x, { y })));
-arr.map(({ x, y }) => (Object.assign(x, y)));
+arr.map(({ x, y }) => Object.assign(x, { y }));
+arr.map(({ x, y }) => Object.assign(x, y));
 ```
 
 ### Examples
@@ -156,32 +156,32 @@ Examples of **incorrect** code for this rule:
 
 ```js
 const arr = [{ a: 1 }, { a: 2 }, { a: 3 }];
-const arr2 = arr.map(obj => ({ ...obj, b: obj.a * 2 }));
+const arr2 = arr.map((obj) => ({ ...obj, b: obj.a * 2 }));
 ```
 
 Examples of **correct** code for this rule:
 
 ```ts
 const arr = [{ a: 1 }, { a: 2 }, { a: 3 }];
-arr.map(obj => Object.assign(obj, { b: obj.a * 2 }));
+arr.map((obj) => Object.assign(obj, { b: obj.a * 2 }));
 
 // instance properties are ignored
 class UsersDb {
   #users = [];
   public get users() {
     // clone users, providing caller with their own deep(ish) copy.
-    return this.#users.map(user => ({ ...user }));
+    return this.#users.map((user) => ({ ...user }));
   }
 }
 ```
 
 ```tsx
 function UsersTable({ users }) {
-  const usersWithRoles = users.map(user => ({ ...user, role: getRole(user) }));
+  const usersWithRoles = users.map((user) => ({ ...user, role: getRole(user) }));
 
   return (
     <table>
-      {usersWithRoles.map(user => (
+      {usersWithRoles.map((user) => (
         <tr>
           <td>{user.name}</td>
           <td>{user.role}</td>
@@ -226,8 +226,8 @@ Examples of **incorrect** code for this rule when `ignoreArgs` is `true`:
 ```ts
 /* "oxc/no-map-spread": ["error", { "ignoreArgs": true }] */
 function foo(arr) {
-  let arr2 = arr.filter(x => x.a > 0);
-  return arr2.map(x => ({ ...x }));
+  let arr2 = arr.filter((x) => x.a > 0);
+  return arr2.map((x) => ({ ...x }));
 }
 ```
 
@@ -236,7 +236,7 @@ Examples of **correct** code for this rule when `ignoreArgs` is `true`:
 ```ts
 /* "oxc/no-map-spread": ["error", { "ignoreArgs": true }] */
 function foo(arr) {
-  return arr.map(x => ({ ...x }));
+  return arr.map((x) => ({ ...x }));
 }
 ```
 
@@ -253,13 +253,9 @@ In these cases, `Object.assign` is not really more performant than spreads.
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny oxc/no-map-spread
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -267,6 +263,10 @@ oxlint --deny oxc/no-map-spread
     "oxc/no-map-spread": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny oxc/no-map-spread
 ```
 
 :::

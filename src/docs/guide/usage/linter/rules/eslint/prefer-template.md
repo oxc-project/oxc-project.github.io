@@ -9,7 +9,7 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 <div class="rule-meta">
 <Alert class="fix" type="info">
-<span class="emoji">🚧</span> An auto-fix is still under development.
+<span class="emoji">🚧</span> An auto-fix is planned for this rule, but not implemented at this time.
 </Alert>
 </div>
 
@@ -27,7 +27,7 @@ Examples of **incorrect** code for this rule:
 
 ```js
 const str = "Hello, " + name + "!";
-const str1 = "Time: " + (12 * 60 * 60 * 1000);
+const str1 = "Time: " + 12 * 60 * 60 * 1000;
 ```
 
 Examples of **correct** code for this rule:
@@ -40,13 +40,9 @@ const str4 = "Hello, " + "World!";
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny prefer-template
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -54,6 +50,10 @@ oxlint --deny prefer-template
     "prefer-template": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny prefer-template
 ```
 
 :::

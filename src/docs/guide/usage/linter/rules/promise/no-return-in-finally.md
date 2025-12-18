@@ -24,7 +24,7 @@ consume what's returned.
 Examples of **incorrect** code for this rule:
 
 ```javascript
-myPromise.finally(function(val) {
+myPromise.finally(function (val) {
   return val;
 });
 ```
@@ -39,13 +39,9 @@ Promise.resolve(1).finally(() => {
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny promise/no-return-in-finally --promise-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -54,6 +50,10 @@ oxlint --deny promise/no-return-in-finally --promise-plugin
     "promise/no-return-in-finally": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny promise/no-return-in-finally --promise-plugin
 ```
 
 :::

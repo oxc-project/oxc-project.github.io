@@ -43,13 +43,9 @@ const bar = new Array(1, 2, 3);
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny unicorn/new-for-builtins
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -57,6 +53,10 @@ oxlint --deny unicorn/new-for-builtins
     "unicorn/new-for-builtins": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny unicorn/new-for-builtins
 ```
 
 :::

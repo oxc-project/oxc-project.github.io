@@ -150,6 +150,55 @@ Take a look at the [real world implementation from swc](https://github.com/swc-p
 we can see that an AST can have lots of `Box`s and `Vec`s, and also note that the `Statement` and `Expression` enums contain
 a dozen of enum variants.
 
+### Memory Arena
+
+Using the global memory allocator for the AST is actually not really efficient.
+Every `Box` and `Vec` are allocated on demand and then dropped separately.
+What we would like to do is pre-allocate memory and drop it in wholesale.
+
+:::info
+See also [Arenas in Rust](https://manishearth.github.io/blog/2021/03/15/arenas-in-rust) and [Flattening ASTs](https://www.cs.cornell.edu/~asampson/blog/flattening.html) for more background on storing ASTs in memory arenas.
+:::
+
+[`bumpalo`](https://docs.rs/bumpalo/latest/bumpalo/) is a very good candidate for our use case, according to its documentation:
+
+> Bump allocation is a fast, but limited approach to allocation.
+> We have a chunk of memory, and we maintain a pointer within that memory. Whenever we allocate an object,
+> we do a quick check that we have enough capacity left in our chunk to allocate the object and then update the pointer by the object’s size. That’s it!
+>
+> The disadvantage of bump allocation is that there is no general way to deallocate individual objects or reclaim the memory region for a no-longer-in-use object.
+>
+> These trade offs make bump allocation well-suited for phase-oriented allocations. That is, a group of objects that will all be allocated during the same program phase, used, and then can all be deallocated together as a group.
+
+By using `bumpalo::collections::Vec` and `bumpalo::boxed::Box`, our AST will have lifetimes added to it:
+
+```rust
+use bumpalo::collections::Vec;
+use bumpalo::boxed::Box;
+
+pub enum Expression<'a> {
+    AwaitExpression(Box<'a, AwaitExpression>),
+    YieldExpression(Box<'a, YieldExpression>),
+}
+
+pub struct AwaitExpression<'a> {
+    pub node: Node,
+    pub expression: Expression<'a>,
+}
+
+pub struct YieldExpression<'a> {
+    pub node: Node,
+    pub expression: Expression<'a>,
+}
+```
+
+:::info
+Please be cautious if we are not comfortable dealing with lifetimes at this stage.
+Our program will work fine without a memory arena.
+
+Code in the following chapters does not demonstrate the use of a memory arena for simplicity.
+:::
+
 ### Enum Size
 
 The first optimization we are going to make is to reduce the size of the enums.
@@ -241,55 +290,6 @@ print-type-size         field `.0`: 8 bytes
 print-type-size     variant `DebuggerStatement`: 8 bytes
 print-type-size         field `.0`: 8 bytes
 ```
-
-#### Memory Arena
-
-Using the global memory allocator for the AST is actually not really efficient.
-Every `Box` and `Vec` are allocated on demand and then dropped separately.
-What we would like to do is pre-allocate memory and drop it in wholesale.
-
-:::info
-[This blog post](https://manishearth.github.io/blog/2021/03/15/arenas-in-rust/) explains memory arena in more detail.
-:::
-
-[`bumpalo`](https://docs.rs/bumpalo/latest/bumpalo/) is a very good candidate for our use case, according to its documentation:
-
-> Bump allocation is a fast, but limited approach to allocation.
-> We have a chunk of memory, and we maintain a pointer within that memory. Whenever we allocate an object,
-> we do a quick check that we have enough capacity left in our chunk to allocate the object and then update the pointer by the object’s size. That’s it!
->
-> The disadvantage of bump allocation is that there is no general way to deallocate individual objects or reclaim the memory region for a no-longer-in-use object.
->
-> These trade offs make bump allocation well-suited for phase-oriented allocations. That is, a group of objects that will all be allocated during the same program phase, used, and then can all be deallocated together as a group.
-
-By using `bumpalo::collections::Vec` and `bumpalo::boxed::Box`, our AST will have lifetimes added to it:
-
-```rust
-use bumpalo::collections::Vec;
-use bumpalo::boxed::Box;
-
-pub enum Expression<'a> {
-    AwaitExpression(Box<'a, AwaitExpression>),
-    YieldExpression(Box<'a, YieldExpression>),
-}
-
-pub struct AwaitExpression<'a> {
-    pub node: Node,
-    pub expression: Expression<'a>,
-}
-
-pub struct YieldExpression<'a> {
-    pub node: Node,
-    pub expression: Expression<'a>,
-}
-```
-
-:::info
-Please be cautious if we are not comfortable dealing with lifetimes at this stage.
-Our program will work fine without a memory arena.
-
-Code in the following chapters does not demonstrate the use of a memory arena for simplicity.
-:::
 
 ## JSON Serialization
 

@@ -9,7 +9,7 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 <div class="rule-meta">
 <Alert class="fix" type="info">
-<span class="emoji">🚧</span> An auto-fix is still under development.
+<span class="emoji">🚧</span> An auto-fix is planned for this rule, but not implemented at this time.
 </Alert>
 </div>
 
@@ -37,8 +37,8 @@ var f = require("/some/path");
 Examples of **correct** code for this rule:
 
 ```js
-import foo from "foo";
 import _ from "lodash";
+import foo from "foo";
 import foo from "./foo";
 
 var _ = require("lodash");
@@ -49,15 +49,15 @@ var foo = require("./foo");
 Examples of **incorrect** code for the `{ amd: true }` option:
 
 ```js
-define("/foo", function(foo) {});
-require("/foo", function(foo) {});
+define("/foo", function (foo) {});
+require("/foo", function (foo) {});
 ```
 
 Examples of **correct** code for the `{ amd: true }` option:
 
 ```js
-define("./foo", function(foo) {});
-require("./foo", function(foo) {});
+define("./foo", function (foo) {});
+require("./foo", function (foo) {});
 ```
 
 ## Configuration
@@ -74,8 +74,12 @@ If set to `true`, dependency paths for AMD-style define and require calls will b
 
 ```js
 /* eslint import/no-absolute-path: ['error', { commonjs: false, amd: true }] */
-define(["/foo"], function(foo) {/*...*/}); // reported
-require(["/foo"], function(foo) {/*...*/}); // reported
+define(["/foo"], function (foo) {
+  /*...*/
+}); // reported
+require(["/foo"], function (foo) {
+  /*...*/
+}); // reported
 
 const foo = require("/foo"); // ignored because of explicit `commonjs: false`
 ```
@@ -106,13 +110,9 @@ import foo from "/foo"; // reported
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny import/no-absolute-path --import-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -121,6 +121,10 @@ oxlint --deny import/no-absolute-path --import-plugin
     "import/no-absolute-path": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny import/no-absolute-path --import-plugin
 ```
 
 :::

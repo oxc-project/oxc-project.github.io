@@ -63,13 +63,9 @@ try {
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny no-throw-literal
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -77,6 +73,10 @@ oxlint --deny no-throw-literal
     "no-throw-literal": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny no-throw-literal
 ```
 
 :::

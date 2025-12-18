@@ -3,6 +3,7 @@
 <script setup>
 import { data } from '../version.data.js';
 const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_linter/src/rules/typescript/prefer_return_this_type.rs`;
+const tsgolintSource = `https://github.com/oxc-project/tsgolint/blob/main/internal/rules/prefer_return_this_type/prefer_return_this_type.go`;
 </script>
 
 # typescript/prefer-return-this-type <Badge type="info" text="Style" />
@@ -12,7 +13,7 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 <span class="emoji">💭</span> This rule requires <a href="https://oxc.rs/docs/guide/usage/linter/type-aware.html" target="_blank" rel="noreferrer">type information</a>.
 </Alert>
 <Alert class="fix" type="info">
-<span class="emoji">🚧</span> An auto-fix is still under development.
+<span class="emoji">🚧</span> An auto-fix is planned for this rule, but not implemented at this time.
 </Alert>
 </div>
 
@@ -32,7 +33,8 @@ Examples of **incorrect** code for this rule:
 class Builder {
   private value: string = "";
 
-  setValue(value: string): Builder { // Should return 'this'
+  setValue(value: string): Builder {
+    // Should return 'this'
     this.value = value;
     return this;
   }
@@ -43,11 +45,13 @@ class Builder {
 }
 
 class FluentAPI {
-  method1(): FluentAPI { // Should return 'this'
+  method1(): FluentAPI {
+    // Should return 'this'
     return this;
   }
 
-  method2(): FluentAPI { // Should return 'this'
+  method2(): FluentAPI {
+    // Should return 'this'
     return this;
   }
 }
@@ -90,13 +94,9 @@ class ExtendedBuilder extends Builder {
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --type-aware --deny typescript/prefer-return-this-type
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -106,8 +106,13 @@ oxlint --type-aware --deny typescript/prefer-return-this-type
 }
 ```
 
+```bash [CLI]
+oxlint --type-aware --deny typescript/prefer-return-this-type
+```
+
 :::
 
 ## References
 
 - <a v-bind:href="source" target="_blank" rel="noreferrer">Rule Source</a>
+- <a v-bind:href="tsgolintSource" target="_blank" rel="noreferrer">Rule Source (tsgolint)</a>

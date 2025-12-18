@@ -28,7 +28,7 @@ A screen reader operates under the assumption that a table has a header and that
 Examples of **incorrect** code for this rule:
 
 ```jsx
-<div scope />;
+<div scope />
 ```
 
 Examples of **correct** code for this rule:
@@ -40,13 +40,9 @@ Examples of **correct** code for this rule:
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny jsx-a11y/scope --jsx-a11y-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -55,6 +51,10 @@ oxlint --deny jsx-a11y/scope --jsx-a11y-plugin
     "jsx-a11y/scope": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny jsx-a11y/scope --jsx-a11y-plugin
 ```
 
 :::

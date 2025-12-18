@@ -35,10 +35,7 @@ Examples of **correct** code for this rule:
 
 ```jsx
 function Foo(props) {
-  const {
-    htmlFor,
-    ...otherProps
-  } = props;
+  const { htmlFor, ...otherProps } = props;
 
   return <label htmlFor={htmlFor} {...otherProps} />;
 }
@@ -95,13 +92,9 @@ Custom JSX components to be treated as labels.
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny jsx-a11y/label-has-associated-control --jsx-a11y-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -110,6 +103,10 @@ oxlint --deny jsx-a11y/label-has-associated-control --jsx-a11y-plugin
     "jsx-a11y/label-has-associated-control": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny jsx-a11y/label-has-associated-control --jsx-a11y-plugin
 ```
 
 :::

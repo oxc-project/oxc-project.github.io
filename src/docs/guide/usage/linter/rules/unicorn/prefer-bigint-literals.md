@@ -30,7 +30,7 @@ Examples of **incorrect** code for this rule:
 ```js
 BigInt(0);
 BigInt(123);
-BigInt(0xFF);
+BigInt(0xff);
 BigInt(1e3);
 BigInt("42");
 BigInt("0x10");
@@ -41,7 +41,7 @@ Examples of **correct** code for this rule:
 ```js
 0n;
 123n;
-0xFFn;
+0xffn;
 1000n;
 // Non-integer, dynamic, or non-literal input:
 BigInt(x);
@@ -51,13 +51,9 @@ BigInt("1.23");
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny unicorn/prefer-bigint-literals
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -65,6 +61,10 @@ oxlint --deny unicorn/prefer-bigint-literals
     "unicorn/prefer-bigint-literals": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny unicorn/prefer-bigint-literals
 ```
 
 :::

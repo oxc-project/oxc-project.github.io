@@ -27,40 +27,24 @@ Having consistent types in both branches makes the code easier to read and under
 Examples of **incorrect** code for this rule:
 
 ```javascript
-const array = [
-  a,
-  ...(foo ? [b, c] : ""),
-];
+const array = [a, ...(foo ? [b, c] : "")];
 
-const array = [
-  a,
-  ...(foo ? "bc" : []),
-];
+const array = [a, ...(foo ? "bc" : [])];
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
-const array = [
-  a,
-  ...(foo ? [b, c] : []),
-];
+const array = [a, ...(foo ? [b, c] : [])];
 
-const array = [
-  a,
-  ...(foo ? "bc" : ""),
-];
+const array = [a, ...(foo ? "bc" : "")];
 ```
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny unicorn/consistent-empty-array-spread
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -68,6 +52,10 @@ oxlint --deny unicorn/consistent-empty-array-spread
     "unicorn/consistent-empty-array-spread": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny unicorn/consistent-empty-array-spread
 ```
 
 :::

@@ -27,7 +27,7 @@ if (foo) {
   if (bar) {
   }
 }
-if (foo) { if (bar) baz(); }
+if (foo) if (bar) baz();
 ```
 
 Examples of **correct** code for this rule:
@@ -40,13 +40,9 @@ if (foo && bar) baz();
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny unicorn/no-lonely-if
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -54,6 +50,10 @@ oxlint --deny unicorn/no-lonely-if
     "unicorn/no-lonely-if": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny unicorn/no-lonely-if
 ```
 
 :::

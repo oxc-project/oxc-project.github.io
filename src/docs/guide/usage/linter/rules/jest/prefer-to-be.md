@@ -49,15 +49,22 @@ expect(didError).not.toBe(true);
 expect(catchError()).toStrictEqual({ message: "oh noes!" });
 ```
 
+This rule is compatible with [eslint-plugin-vitest](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/prefer-to-be.md),
+to use it, add the following configuration to your `.oxlintrc.json`:
+
+```json
+{
+  "rules": {
+    "vitest/prefer-to-be": "error"
+  }
+}
+```
+
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny jest/prefer-to-be --jest-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -66,6 +73,10 @@ oxlint --deny jest/prefer-to-be --jest-plugin
     "jest/prefer-to-be": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny jest/prefer-to-be --jest-plugin
 ```
 
 :::

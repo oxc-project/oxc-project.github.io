@@ -19,8 +19,7 @@ Disallow labeled statements.
 Labeled statements in JavaScript are used in conjunction with `break` and `continue` to control flow around multiple loops. For example:
 
 ```js
-outer:
-while (true) {
+outer: while (true) {
   while (true) {
     break outer;
   }
@@ -35,34 +34,28 @@ While convenient in some cases, labels tend to be used only rarely and are frown
 Examples of **incorrect** code for this rule:
 
 ```js
-label:
-while (true) {
+label: while (true) {
   // ...
 }
 
-label:
-while (true) {
+label: while (true) {
   break label;
 }
 
-label:
-while (true) {
+label: while (true) {
   continue label;
 }
 
-label:
-switch (a) {
+label: switch (a) {
   case 0:
     break label;
 }
 
-label:
-{
+label: {
   break label;
 }
 
-label:
-if (a) {
+label: if (a) {
   break label;
 }
 ```
@@ -97,8 +90,7 @@ If set to `true`, this rule ignores labels which are sticking to loop statements
 Examples of **correct** code with this option set to `true`:
 
 ```js
-label:
-while (true) {
+label: while (true) {
   break label;
 }
 ```
@@ -113,8 +105,7 @@ If set to `true`, this rule ignores labels which are sticking to switch statemen
 Examples of **correct** code with this option set to `true`:
 
 ```js
-label:
-switch (a) {
+label: switch (a) {
   case 0:
     break label;
 }
@@ -122,13 +113,9 @@ switch (a) {
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny no-labels
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -136,6 +123,10 @@ oxlint --deny no-labels
     "no-labels": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny no-labels
 ```
 
 :::

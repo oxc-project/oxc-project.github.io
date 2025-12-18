@@ -42,13 +42,9 @@ x >= y;
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny oxc/double-comparisons
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -56,6 +52,10 @@ oxlint --deny oxc/double-comparisons
     "oxc/double-comparisons": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny oxc/double-comparisons
 ```
 
 :::

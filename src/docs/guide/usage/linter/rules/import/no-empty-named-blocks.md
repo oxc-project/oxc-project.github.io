@@ -28,7 +28,7 @@ Examples of **incorrect** code for this rule:
 
 ```js
 import {} from "mod";
-import Default, {} from "mod";
+import Default from "mod";
 ```
 
 Examples of **correct** code for this rule:
@@ -40,13 +40,9 @@ import Default, { mod } from "mod";
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny import/no-empty-named-blocks --import-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -55,6 +51,10 @@ oxlint --deny import/no-empty-named-blocks --import-plugin
     "import/no-empty-named-blocks": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny import/no-empty-named-blocks --import-plugin
 ```
 
 :::

@@ -54,7 +54,8 @@ You can add custom tags by adding a key-value pair where both match the name of 
   "rules": {
     "jsdoc/check-tag-names": "error"
   },
-  "settings": { // [!code highlight:7]
+  "settings": {
+    // [!code highlight:7]
     "jsdoc": {
       "tagNamePreference": {
         "customTagName": "customTagName"
@@ -109,13 +110,9 @@ If typed is `true`, disallow tags that are unnecessary/duplicative of TypeScript
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny jsdoc/check-tag-names --jsdoc-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -124,6 +121,10 @@ oxlint --deny jsdoc/check-tag-names --jsdoc-plugin
     "jsdoc/check-tag-names": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny jsdoc/check-tag-names --jsdoc-plugin
 ```
 
 :::

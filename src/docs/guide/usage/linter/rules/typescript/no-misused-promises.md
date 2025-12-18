@@ -3,6 +3,7 @@
 <script setup>
 import { data } from '../version.data.js';
 const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_linter/src/rules/typescript/no_misused_promises.rs`;
+const tsgolintSource = `https://github.com/oxc-project/tsgolint/blob/main/internal/rules/no_misused_promises/no_misused_promises.go`;
 </script>
 
 # typescript/no-misused-promises <Badge type="info" text="Pedantic" />
@@ -12,13 +13,15 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 <span class="emoji">💭</span> This rule requires <a href="https://oxc.rs/docs/guide/usage/linter/type-aware.html" target="_blank" rel="noreferrer">type information</a>.
 </Alert>
 <Alert class="fix" type="info">
-<span class="emoji">🚧</span> An auto-fix is still under development.
+<span class="emoji">🚧</span> An auto-fix is planned for this rule, but not implemented at this time.
 </Alert>
 </div>
 
 ### What it does
 
-This rule forbids providing Promises to logical locations such as if statements in places where the TypeScript compiler allows them but they are not handled properly. These situations can often arise due to a missing await keyword or just a misunderstanding of the way async functions are handled/awaited.
+This rule forbids providing Promises to logical locations such as if statements in places where the TypeScript
+compiler allows them but they are not handled properly. These situations can often arise due to a missing
+`await` keyword or just a misunderstanding of the way async functions are handled/awaited.
 
 ### Why is this bad?
 
@@ -36,7 +39,7 @@ if (promise) {
 }
 
 // Promises where `void` return was expected:
-[1, 2, 3].forEach(async value => {
+[1, 2, 3].forEach(async (value) => {
   await fetch(`/${value}`);
 });
 
@@ -88,17 +91,61 @@ When true, disallows spreading Promise values.
 
 ### checksVoidReturn
 
-type: `boolean | object`
+type: `object | boolean`
+
+#### checksVoidReturn.arguments
+
+type: `boolean`
+
+default: `true`
+
+Whether to check Promise-returning functions passed as arguments to void-returning functions.
+
+#### checksVoidReturn.attributes
+
+type: `boolean`
+
+default: `true`
+
+Whether to check Promise-returning functions in JSX attributes expecting void.
+
+#### checksVoidReturn.inheritedMethods
+
+type: `boolean`
+
+default: `true`
+
+Whether to check Promise-returning methods that override void-returning inherited methods.
+
+#### checksVoidReturn.properties
+
+type: `boolean`
+
+default: `true`
+
+Whether to check Promise-returning functions assigned to object properties expecting void.
+
+#### checksVoidReturn.returns
+
+type: `boolean`
+
+default: `true`
+
+Whether to check Promise values returned from void-returning functions.
+
+#### checksVoidReturn.variables
+
+type: `boolean`
+
+default: `true`
+
+Whether to check Promise-returning functions assigned to variables typed as void-returning.
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --type-aware --deny typescript/no-misused-promises
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -108,8 +155,13 @@ oxlint --type-aware --deny typescript/no-misused-promises
 }
 ```
 
+```bash [CLI]
+oxlint --type-aware --deny typescript/no-misused-promises
+```
+
 :::
 
 ## References
 
 - <a v-bind:href="source" target="_blank" rel="noreferrer">Rule Source</a>
+- <a v-bind:href="tsgolintSource" target="_blank" rel="noreferrer">Rule Source (tsgolint)</a>

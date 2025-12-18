@@ -34,17 +34,14 @@ Examples of **incorrect** code for this rule:
 ```jsx
 const elem = <Component linter="oxlint"></Component>;
 const dom_elem = <div id="oxlint"></div>;
-const welem = (
-  <div id="oxlint">
-  </div>
-);
+const welem = <div id="oxlint"></div>;
 ```
 
 Examples of **correct** code for this rule:
 
 ```jsx
 const elem = <Component linter="oxlint" />;
-const welem = <Component linter="oxlint"></Component>;
+const welem = <Component linter="oxlint"> </Component>;
 const dom_elem = <div id="oxlint" />;
 ```
 
@@ -70,13 +67,9 @@ Whether to enforce self-closing for native HTML elements.
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny react/self-closing-comp --react-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -85,6 +78,10 @@ oxlint --deny react/self-closing-comp --react-plugin
     "react/self-closing-comp": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny react/self-closing-comp --react-plugin
 ```
 
 :::

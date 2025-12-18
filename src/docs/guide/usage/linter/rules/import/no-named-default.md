@@ -25,7 +25,7 @@ Examples of **incorrect** code for this rule:
 ```js
 // message: Using exported name 'bar' as identifier for default export.
 import { default as foo } from "./foo.js";
-import { bar, default as foo } from "./foo.js";
+import { default as foo, bar } from "./foo.js";
 ```
 
 Examples of **correct** code for this rule:
@@ -37,13 +37,9 @@ import foo, { bar } from "./foo.js";
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny import/no-named-default --import-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -52,6 +48,10 @@ oxlint --deny import/no-named-default --import-plugin
     "import/no-named-default": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny import/no-named-default --import-plugin
 ```
 
 :::

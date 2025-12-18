@@ -9,7 +9,7 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 <div class="rule-meta">
 <Alert class="fix" type="info">
-<span class="emoji">🚧</span> An auto-fix is still under development.
+<span class="emoji">🚧</span> An auto-fix is planned for this rule, but not implemented at this time.
 </Alert>
 </div>
 
@@ -106,13 +106,9 @@ using an array or object, e.g. `defineEmits(['event1', 'event2'])`.
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny vue/define-emits-declaration --vue-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -121,6 +117,10 @@ oxlint --deny vue/define-emits-declaration --vue-plugin
     "vue/define-emits-declaration": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny vue/define-emits-declaration --vue-plugin
 ```
 
 :::

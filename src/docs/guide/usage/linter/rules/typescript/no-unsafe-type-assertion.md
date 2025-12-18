@@ -3,6 +3,7 @@
 <script setup>
 import { data } from '../version.data.js';
 const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_linter/src/rules/typescript/no_unsafe_type_assertion.rs`;
+const tsgolintSource = `https://github.com/oxc-project/tsgolint/blob/main/internal/rules/no_unsafe_type_assertion/no_unsafe_type_assertion.go`;
 </script>
 
 # typescript/no-unsafe-type-assertion <Badge type="info" text="Suspicious" />
@@ -12,69 +13,53 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 <span class="emoji">💭</span> This rule requires <a href="https://oxc.rs/docs/guide/usage/linter/type-aware.html" target="_blank" rel="noreferrer">type information</a>.
 </Alert>
 <Alert class="fix" type="info">
-<span class="emoji">🚧</span> An auto-fix is still under development.
+<span class="emoji">🚧</span> An auto-fix is planned for this rule, but not implemented at this time.
 </Alert>
 </div>
 
 ### What it does
 
-This rule disallows type assertions using the `any` type.
+Disallows unsafe type assertions that narrow a type.
 
 ### Why is this bad?
 
-Type assertions using `any` completely bypass TypeScript's type system and can lead to runtime errors. They should be avoided in favor of more specific type assertions or proper type guards.
+Type assertions that narrow a type bypass TypeScript's type-checking and can lead to
+runtime errors. Type assertions that broaden a type are safe because TypeScript
+essentially knows _less_ about a type. Instead of using type assertions to narrow a
+type, it's better to rely on type guards, which help avoid potential runtime errors
+caused by unsafe type assertions.
 
 ### Examples
 
 Examples of **incorrect** code for this rule:
 
 ```ts
-declare const value: unknown;
-
-const str = value as any; // unsafe type assertion
-
-const obj = value as any as string; // double assertion through any
-
-function processValue(input: unknown) {
-  const processed = input as any; // unsafe
-  return processed.someProperty;
+function f() {
+  return Math.random() < 0.5 ? 42 : "oops";
 }
+const z = f() as number;
+
+const items = [1, "2", 3, "4"];
+const number = items[0] as number;
 ```
 
 Examples of **correct** code for this rule:
 
 ```ts
-declare const value: unknown;
-
-// Use specific type assertions
-const str = value as string; // more specific assertion
-
-// Use type guards
-if (typeof value === "string") {
-  const str2 = value; // safe, no assertion needed
+function f() {
+  return Math.random() < 0.5 ? 42 : "oops";
 }
+const z = f() as number | string | boolean;
 
-// Use proper interface assertions
-interface User {
-  name: string;
-  age: number;
-}
-
-const user = value as User; // specific type assertion
-
-// Use unknown for truly unknown values
-const unknown: unknown = value;
+const items = [1, "2", 3, "4"];
+const number = items[0] as number | string | undefined;
 ```
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --type-aware --deny typescript/no-unsafe-type-assertion
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -84,8 +69,13 @@ oxlint --type-aware --deny typescript/no-unsafe-type-assertion
 }
 ```
 
+```bash [CLI]
+oxlint --type-aware --deny typescript/no-unsafe-type-assertion
+```
+
 :::
 
 ## References
 
 - <a v-bind:href="source" target="_blank" rel="noreferrer">Rule Source</a>
+- <a v-bind:href="tsgolintSource" target="_blank" rel="noreferrer">Rule Source (tsgolint)</a>

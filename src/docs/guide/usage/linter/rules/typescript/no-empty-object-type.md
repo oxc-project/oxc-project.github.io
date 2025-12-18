@@ -95,10 +95,7 @@ Allowed values are:
 
 ### allowWithName
 
-type: `[
-  string,
-  null
-]`
+type: `string | null`
 
 A stringified regular expression to allow interfaces and object type aliases with the configured name.
 
@@ -120,13 +117,9 @@ type TypeProps = {};
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny typescript/no-empty-object-type
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -134,6 +127,10 @@ oxlint --deny typescript/no-empty-object-type
     "typescript/no-empty-object-type": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny typescript/no-empty-object-type
 ```
 
 :::

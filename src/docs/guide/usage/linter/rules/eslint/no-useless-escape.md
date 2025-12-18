@@ -33,8 +33,8 @@ Examples of **incorrect** code for this rule:
 ```javascript
 /*eslint no-useless-escape: "error"*/
 
-"'";
-"\"";
+"\'";
+'\"';
 "\#";
 "\e";
 `\"`;
@@ -52,7 +52,7 @@ Examples of **correct** code for this rule:
 /*eslint no-useless-escape: "error"*/
 
 "\"";
-"'";
+'\'';
 "\x12";
 "\u00a9";
 "\371";
@@ -82,13 +82,9 @@ An array of characters that are allowed to be escaped unnecessarily in regexes.
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny no-useless-escape
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -96,6 +92,10 @@ oxlint --deny no-useless-escape
     "no-useless-escape": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny no-useless-escape
 ```
 
 :::

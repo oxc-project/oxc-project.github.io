@@ -24,7 +24,7 @@ Examples of **incorrect** code for this rule:
 
 ```javascript
 function foo() {
-  hey.then(x => {});
+  hey.then((x) => {});
 }
 ```
 
@@ -42,7 +42,7 @@ Examples of **incorrect** code with `{ strict: true }`:
 
 ```javascript
 async function hi() {
-  await thing().then(x => {});
+  await thing().then((x) => {});
 }
 ```
 
@@ -60,13 +60,9 @@ If true, enforces the rule even after an `await` or `yield` expression.
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny promise/prefer-await-to-then --promise-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -75,6 +71,10 @@ oxlint --deny promise/prefer-await-to-then --promise-plugin
     "promise/prefer-await-to-then": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny promise/prefer-await-to-then --promise-plugin
 ```
 
 :::

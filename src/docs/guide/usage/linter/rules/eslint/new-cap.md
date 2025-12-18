@@ -9,7 +9,7 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 <div class="rule-meta">
 <Alert class="fix" type="info">
-<span class="emoji">🚧</span> An auto-fix is still under development.
+<span class="emoji">🚧</span> An auto-fix is planned for this rule, but not implemented at this time.
 </Alert>
 </div>
 
@@ -339,10 +339,7 @@ default: `true`
 
 ### capIsNewExceptionPattern
 
-type: `[
-  string,
-  null
-]`
+type: `string | null`
 
 A regex pattern to match exceptions for functions with names starting with an uppercase letter.
 
@@ -364,10 +361,7 @@ default: `true`
 
 ### newIsCapExceptionPattern
 
-type: `[
-  string,
-  null
-]`
+type: `string | null`
 
 A regex pattern to match exceptions for constructor names starting with an uppercase letter.
 
@@ -389,13 +383,9 @@ default: `true`
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny new-cap
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -403,6 +393,10 @@ oxlint --deny new-cap
     "new-cap": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny new-cap
 ```
 
 :::

@@ -25,7 +25,7 @@ created Promise. For example:
 
 ```javascript
 const result = new Promise(function executor(resolve, reject) {
-  readFile("foo.txt", function(err, result) {
+  readFile("foo.txt", function (err, result) {
     if (err) {
       reject(err);
     } else {
@@ -49,7 +49,7 @@ Examples of **incorrect** code for this rule:
 
 ```javascript
 const foo = new Promise(async (resolve, reject) => {
-  readFile("foo.txt", function(err, result) {
+  readFile("foo.txt", function (err, result) {
     if (err) {
       reject(err);
     } else {
@@ -67,7 +67,7 @@ Examples of **correct** code for this rule:
 
 ```javascript
 const foo = new Promise((resolve, reject) => {
-  readFile("foo.txt", function(err, result) {
+  readFile("foo.txt", function (err, result) {
     if (err) {
       reject(err);
     } else {
@@ -81,13 +81,9 @@ const result = Promise.resolve(foo);
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny no-async-promise-executor
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -95,6 +91,10 @@ oxlint --deny no-async-promise-executor
     "no-async-promise-executor": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny no-async-promise-executor
 ```
 
 :::

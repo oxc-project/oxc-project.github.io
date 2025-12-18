@@ -43,13 +43,9 @@ var theme = require("./theme.css");
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny import/no-webpack-loader-syntax --import-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -58,6 +54,10 @@ oxlint --deny import/no-webpack-loader-syntax --import-plugin
     "import/no-webpack-loader-syntax": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny import/no-webpack-loader-syntax --import-plugin
 ```
 
 :::

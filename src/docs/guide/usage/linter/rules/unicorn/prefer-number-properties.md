@@ -57,7 +57,7 @@ default: `false`
 
 If set to `true`, checks for usage of `Infinity` and `-Infinity` as global variables.
 
-### checkNan
+### checkNaN
 
 type: `boolean`
 
@@ -67,13 +67,9 @@ If set to `true`, checks for usage of `NaN` as a global variable.
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny unicorn/prefer-number-properties
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -81,6 +77,10 @@ oxlint --deny unicorn/prefer-number-properties
     "unicorn/prefer-number-properties": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny unicorn/prefer-number-properties
 ```
 
 :::

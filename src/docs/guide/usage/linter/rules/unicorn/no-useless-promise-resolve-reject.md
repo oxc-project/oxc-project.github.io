@@ -26,13 +26,13 @@ Wrapping a return value in `Promise.resolve` in an async function or a `Promise#
 Examples of **incorrect** code for this rule:
 
 ```javascript
-(async () => Promise.resolve(bar));
+async () => Promise.resolve(bar);
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
-(async () => bar);
+async () => bar;
 ```
 
 ## Configuration
@@ -49,13 +49,9 @@ If set to `true`, allows the use of `Promise.reject` in async functions and prom
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny unicorn/no-useless-promise-resolve-reject
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -63,6 +59,10 @@ oxlint --deny unicorn/no-useless-promise-resolve-reject
     "unicorn/no-useless-promise-resolve-reject": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny unicorn/no-useless-promise-resolve-reject
 ```
 
 :::

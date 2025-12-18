@@ -3,6 +3,7 @@
 <script setup>
 import { data } from '../version.data.js';
 const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_linter/src/rules/typescript/no_unsafe_argument.rs`;
+const tsgolintSource = `https://github.com/oxc-project/tsgolint/blob/main/internal/rules/no_unsafe_argument/no_unsafe_argument.go`;
 </script>
 
 # typescript/no-unsafe-argument <Badge type="info" text="Pedantic" />
@@ -12,7 +13,7 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 <span class="emoji">💭</span> This rule requires <a href="https://oxc.rs/docs/guide/usage/linter/type-aware.html" target="_blank" rel="noreferrer">type information</a>.
 </Alert>
 <Alert class="fix" type="info">
-<span class="emoji">🚧</span> An auto-fix is still under development.
+<span class="emoji">🚧</span> An auto-fix is planned for this rule, but not implemented at this time.
 </Alert>
 </div>
 
@@ -65,13 +66,9 @@ takesString(unknownValue as string); // explicitly unsafe, but intentional
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --type-aware --deny typescript/no-unsafe-argument
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -81,8 +78,13 @@ oxlint --type-aware --deny typescript/no-unsafe-argument
 }
 ```
 
+```bash [CLI]
+oxlint --type-aware --deny typescript/no-unsafe-argument
+```
+
 :::
 
 ## References
 
 - <a v-bind:href="source" target="_blank" rel="noreferrer">Rule Source</a>
+- <a v-bind:href="tsgolintSource" target="_blank" rel="noreferrer">Rule Source (tsgolint)</a>

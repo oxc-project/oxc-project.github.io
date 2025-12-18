@@ -3,6 +3,7 @@
 <script setup>
 import { data } from '../version.data.js';
 const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_linter/src/rules/typescript/promise_function_async.rs`;
+const tsgolintSource = `https://github.com/oxc-project/tsgolint/blob/main/internal/rules/promise_function_async/promise_function_async.go`;
 </script>
 
 # typescript/promise-function-async <Badge type="info" text="Restriction" />
@@ -12,7 +13,7 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 <span class="emoji">💭</span> This rule requires <a href="https://oxc.rs/docs/guide/usage/linter/type-aware.html" target="_blank" rel="noreferrer">type information</a>.
 </Alert>
 <Alert class="fix" type="info">
-<span class="emoji">🚧</span> An auto-fix is still under development.
+<span class="emoji">🚧</span> An auto-fix is planned for this rule, but not implemented at this time.
 </Alert>
 </div>
 
@@ -31,13 +32,13 @@ Examples of **incorrect** code for this rule:
 ```ts
 // Function returning Promise without async
 function fetchData(): Promise<string> {
-  return fetch("/api/data").then(res => res.text());
+  return fetch("/api/data").then((res) => res.text());
 }
 
 // Method returning Promise without async
 class DataService {
   getData(): Promise<any> {
-    return fetch("/api/data").then(res => res.json());
+    return fetch("/api/data").then((res) => res.json());
   }
 }
 
@@ -135,13 +136,9 @@ Whether to check method declarations for missing `async` keyword.
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --type-aware --deny typescript/promise-function-async
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -151,8 +148,13 @@ oxlint --type-aware --deny typescript/promise-function-async
 }
 ```
 
+```bash [CLI]
+oxlint --type-aware --deny typescript/promise-function-async
+```
+
 :::
 
 ## References
 
 - <a v-bind:href="source" target="_blank" rel="noreferrer">Rule Source</a>
+- <a v-bind:href="tsgolintSource" target="_blank" rel="noreferrer">Rule Source (tsgolint)</a>

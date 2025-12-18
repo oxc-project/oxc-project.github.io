@@ -29,16 +29,20 @@ Consider the following:
 
 ```jsx
 <>
-  <a href="javascript:void(0)" onClick={foo}>Perform action</a>
-  <a href="#" onClick={foo}>Perform action</a>
+  <a href="javascript:void(0)" onClick={foo}>
+    Perform action
+  </a>
+  <a href="#" onClick={foo}>
+    Perform action
+  </a>
   <a onClick={foo}>Perform action</a>
-</>;
+</>
 ```
 
 All these anchor implementations indicate that the element is only used to execute JavaScript code. All the above should be replaced with:
 
 ```jsx
-<button onClick={foo}>Perform action</button>;
+<button onClick={foo}>Perform action</button>
 ```
 
 ### Why is this bad?
@@ -58,7 +62,7 @@ Examples of **valid** code for this rule:
   <a href={`https://www.javascript.com`}>navigate here</a>
   <a href={somewhere}>navigate here</a>
   <a {...spread}>navigate here</a>
-</>;
+</>
 ```
 
 Examples of **invalid** code for this rule:
@@ -69,8 +73,10 @@ Examples of **invalid** code for this rule:
   <a href={undefined}>navigate here</a>
   <a href>navigate here</a>
   <a href="javascript:void(0)">navigate here</a>
-  <a href="https://example.com" onClick={something}>navigate here</a>
-</>;
+  <a href="https://example.com" onClick={something}>
+    navigate here
+  </a>
+</>
 ```
 
 ### Reference
@@ -91,13 +97,9 @@ List of strings that are valid href values.
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny jsx-a11y/anchor-is-valid --jsx-a11y-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -106,6 +108,10 @@ oxlint --deny jsx-a11y/anchor-is-valid --jsx-a11y-plugin
     "jsx-a11y/anchor-is-valid": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny jsx-a11y/anchor-is-valid --jsx-a11y-plugin
 ```
 
 :::

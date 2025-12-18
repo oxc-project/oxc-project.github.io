@@ -32,7 +32,7 @@ doesn't support natively as JS plugins.
   `eslint-plugin-jest`, `eslint-plugin-unicorn`, `eslint-plugin-jsx-a11y` and
   [many more](https://github.com/oxc-project/oxc/issues/481).
 - Supports
-  - [type-aware rules](./linter/type-aware) (preview)
+  - [type-aware rules](./linter/type-aware) (alpha)
   - [`.oxlintrc.json` configuration file](./linter/config)
   - [Nested configuration file](./linter/nested-config)
   - [Comment disabling](./linter/config.html#configuring-rules-via-inline-configuration-comments)
@@ -42,10 +42,10 @@ doesn't support natively as JS plugins.
 ## Language Support
 
 - Supports:
-  - JavaScript and TypeScript by their extensions `js`, `mjs`, `cjs`, `jsx`, `ts`, `mts`, `cts` and `tsx`.
-  - `<script>` content of `.vue`, `.astro` and `.svelte` files.
+  - JavaScript and TypeScript by their extensions `js`, `mjs`, `cjs`, `jsx`, `ts`, `mts`, `cts`, and `tsx`.
+  - `<script>` content of `.vue`, `.astro`, and `.svelte` files.
   - [type-aware rules](https://typescript-eslint.io/getting-started/typed-linting) defined by
-    `typescript-eslint` (preview, requires `--type-aware` flag and `oxlint-tsgolint` package).
+    `typescript-eslint` (alpha, requires `--type-aware` flag and `oxlint-tsgolint` package).
 - No support for:
   - [stylistic rules](https://eslint.style)
 
@@ -99,9 +99,9 @@ $ bun add -D oxlint
 
 :::
 
-### Type-Aware Linting (Preview)
+### Type-Aware Linting (Alpha)
 
-Oxlint supports type-aware rules in preview mode. To enable type-aware linting:
+Oxlint supports type-aware rules in alpha. To enable type-aware linting:
 
 1. Install the required dependency:
 

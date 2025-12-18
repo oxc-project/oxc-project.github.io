@@ -14,9 +14,13 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 Disallow the use of undeclared variables.
 
+This rule can be disabled for TypeScript code, as the TypeScript compiler
+enforces this check.
+
 ### Why is this bad?
 
-It is most likely a potential ReferenceError caused by a misspelling of a variable or parameter name.
+It is most likely a potential ReferenceError caused by a misspelling
+of a variable or parameter name.
 
 ### Examples
 
@@ -41,13 +45,9 @@ When set to `true`, warns on undefined variables used in a `typeof` expression.
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny no-undef
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -55,6 +55,10 @@ oxlint --deny no-undef
     "no-undef": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny no-undef
 ```
 
 :::

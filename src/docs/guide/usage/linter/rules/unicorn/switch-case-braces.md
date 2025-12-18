@@ -29,7 +29,8 @@ Examples of **incorrect** code for this rule:
 
 ```javascript
 switch (num) {
-  case 1: {}
+  case 1: {
+  }
   case 2:
     console.log("Case 2");
     break;
@@ -68,13 +69,9 @@ Allow braces only when needed for scoping (e.g., variable or function declaratio
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny unicorn/switch-case-braces
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -82,6 +79,10 @@ oxlint --deny unicorn/switch-case-braces
     "unicorn/switch-case-braces": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny unicorn/switch-case-braces
 ```
 
 :::

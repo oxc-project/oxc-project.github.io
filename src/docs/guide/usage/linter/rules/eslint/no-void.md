@@ -53,13 +53,9 @@ If set to `true`, using `void` as a standalone statement is allowed.
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny no-void
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -67,6 +63,10 @@ oxlint --deny no-void
     "no-void": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny no-void
 ```
 
 :::

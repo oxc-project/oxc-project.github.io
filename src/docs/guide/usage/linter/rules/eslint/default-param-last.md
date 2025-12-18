@@ -20,10 +20,6 @@ Placing default parameters last allows function calls to omit optional trailing 
 which improves readability and consistency. This rule applies equally to JavaScript and
 TypeScript functions.
 
-### Options
-
-No options available for this rule
-
 ### Examples
 
 Examples of **incorrect** code for this rule:
@@ -71,13 +67,9 @@ function combine(a: number, b?: number, c: number = 3) {}
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny default-param-last
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -85,6 +77,10 @@ oxlint --deny default-param-last
     "default-param-last": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny default-param-last
 ```
 
 :::

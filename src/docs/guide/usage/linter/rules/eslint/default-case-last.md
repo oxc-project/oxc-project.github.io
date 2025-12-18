@@ -20,10 +20,6 @@ By convention and for readability, the `default` clause should be the last one i
 While it is legal to place it before or between `case` clauses, doing so is confusing and may
 lead to unexpected "fall-through" behavior.
 
-### Options
-
-No options available for this rule
-
 ### Examples
 
 Examples of **incorrect** code for this rule:
@@ -83,13 +79,9 @@ switch (foo) {
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny default-case-last
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -97,6 +89,10 @@ oxlint --deny default-case-last
     "default-case-last": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny default-case-last
 ```
 
 :::

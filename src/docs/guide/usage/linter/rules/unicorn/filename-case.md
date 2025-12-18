@@ -15,6 +15,9 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 Enforces a consistent case style for filenames to improve project organization and maintainability.
 By default, `kebab-case` is enforced, but other styles can be configured.
 
+Files named `index.js`, `index.ts`, etc. are exempt from this rule as they cannot reliably be
+renamed to other casings (mainly just a problem with PascalCase).
+
 ### Why is this bad?
 
 Inconsistent file naming conventions make it harder to locate files, navigate projects, and enforce
@@ -49,73 +52,114 @@ Examples of **correct** filenames for each case:
 - `SomeFileName.Test.js`
 - `SomeFileName.TestUtils.js`
 
-### Options
+## Configuration
 
-#### case
+This rule accepts a configuration object with the following properties:
 
-`{ type: 'kebabCase' | 'camelCase' | 'snakeCase' | 'pascalCase' }`
+### case
+
+type: `"kebabCase" | "camelCase" | "snakeCase" | "pascalCase"`
+
+default: `"kebabCase"`
+
+The case style to enforce for filenames.
 
 You can set the `case` option like this:
 
 ```json
 "unicorn/filename-case": [
-  "error",
-  {
-    "case": "kebabCase"
-  }
+"error",
+{
+"case": "kebabCase"
+}
 ]
 ```
 
-#### cases
+### cases
 
-`{ type: { [key in 'kebabCase' | 'camelCase' | 'snakeCase' | 'pascalCase']?: boolean } }`
+type: `object`
+
+default: `{"kebabCase":true, "camelCase":false, "snakeCase":false, "pascalCase":false}`
+
+The case style(s) to allow/enforce for filenames. `true` means the case style is allowed, `false` means it is banned.
 
 You can set the `cases` option like this:
 
 ```json
 "unicorn/filename-case": [
-  "error",
-  {
-    "cases": {
-      "camelCase": true,
-      "pascalCase": true
-    }
-  }
+"error",
+{
+"cases": {
+"camelCase": true,
+"pascalCase": true
+}
+}
 ]
 ```
 
-#### ignore
+#### cases.camelCase
 
-`{ type: string }`
+type: `boolean`
 
-Specifies a regular expression pattern for filenames that should be ignored by this rule.
+default: `false`
+
+Whether camel case is allowed, e.g. `someFileName.js`.
+
+#### cases.kebabCase
+
+type: `boolean`
+
+default: `true`
+
+Whether kebab case is allowed, e.g. `some-file-name.js`.
+
+#### cases.pascalCase
+
+type: `boolean`
+
+default: `false`
+
+Whether pascal case is allowed, e.g. `SomeFileName.js`.
+
+#### cases.snakeCase
+
+type: `boolean`
+
+default: `false`
+
+Whether snake case is allowed, e.g. `some_file_name.js`.
+
+### ignore
+
+type: `string | null`
+
+A regular expression pattern for filenames to ignore.
 
 You can set the `ignore` option like this:
 
 ```json
 "unicorn/filename-case": [
-  "error",
-  {
-    "ignore": "^foo.*$"
-  }
+"error",
+{
+"ignore": "^foo.*$"
+}
 ]
 ```
 
-#### multipleFileExtensions
+### multipleFileExtensions
 
-`{ type: boolean, default: true }`
+type: `boolean`
 
-Whether to treat additional, `.`-separated parts of a filename as parts of the extension rather than parts of the filename.
+default: `true`
+
+Whether to treat additional, `.`-separated parts of a filename as
+parts of the extension rather than parts of the filename.
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny unicorn/filename-case
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -123,6 +167,10 @@ oxlint --deny unicorn/filename-case
     "unicorn/filename-case": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny unicorn/filename-case
 ```
 
 :::

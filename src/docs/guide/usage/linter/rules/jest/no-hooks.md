@@ -32,8 +32,12 @@ This rule reports for the following function calls:
 Examples of **incorrect** code for this rule:
 
 ```javascript
-function setupFoo(options) {/* ... */}
-function setupBar(options) {/* ... */}
+function setupFoo(options) {
+  /* ... */
+}
+function setupBar(options) {
+  /* ... */
+}
 
 describe("foo", () => {
   let foo;
@@ -61,6 +65,17 @@ describe("foo", () => {
 });
 ```
 
+This rule is compatible with [eslint-plugin-vitest](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/no-hooks.md),
+to use it, add the following configuration to your `.oxlintrc.json`:
+
+```json
+{
+  "rules": {
+    "vitest/no-hooks": "error"
+  }
+}
+```
+
 ## Configuration
 
 This rule accepts a configuration object with the following properties:
@@ -75,13 +90,9 @@ An array of hook function names that are permitted for use.
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny jest/no-hooks --jest-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -90,6 +101,10 @@ oxlint --deny jest/no-hooks --jest-plugin
     "jest/no-hooks": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny jest/no-hooks --jest-plugin
 ```
 
 :::

@@ -35,19 +35,15 @@ Examples of **correct** code for this rule:
 
 ```javascript
 async function good() {
-  await Promise.all(users.map(user => getUserRecord(user)));
+  await Promise.all(users.map((user) => getUserRecord(user)));
 }
 ```
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny no-await-in-loop
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -55,6 +51,10 @@ oxlint --deny no-await-in-loop
     "no-await-in-loop": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny no-await-in-loop
 ```
 
 :::

@@ -33,6 +33,16 @@ console.log(message); // eslint-disable-line
 console.log(message);
 ```
 
+```javascript
+/* oxlint-disable */
+console.log(message);
+
+console.log(message); // oxlint-disable-line
+
+// oxlint-disable-next-line
+console.log(message);
+```
+
 Examples of **correct** code for this rule:
 
 ```javascript
@@ -45,15 +55,21 @@ console.log(message); // eslint-disable-line no-console
 console.log(message);
 ```
 
+```javascript
+/* oxlint-disable no-console */
+console.log(message);
+
+console.log(message); // oxlint-disable-line no-console
+
+// oxlint-disable-next-line no-console
+console.log(message);
+```
+
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny unicorn/no-abusive-eslint-disable
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -61,6 +77,10 @@ oxlint --deny unicorn/no-abusive-eslint-disable
     "unicorn/no-abusive-eslint-disable": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny unicorn/no-abusive-eslint-disable
 ```
 
 :::

@@ -29,7 +29,7 @@ disrupting the logical order of content.
 Examples of **incorrect** code for this rule:
 
 ```jsx
-<span tabIndex="1">foo</span>;
+<span tabIndex="1">foo</span>
 ```
 
 Examples of **correct** code for this rule:
@@ -41,13 +41,9 @@ Examples of **correct** code for this rule:
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny jsx-a11y/tabindex-no-positive --jsx-a11y-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -56,6 +52,10 @@ oxlint --deny jsx-a11y/tabindex-no-positive --jsx-a11y-plugin
     "jsx-a11y/tabindex-no-positive": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny jsx-a11y/tabindex-no-positive --jsx-a11y-plugin
 ```
 
 :::

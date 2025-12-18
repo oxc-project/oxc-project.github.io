@@ -9,7 +9,7 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 <div class="rule-meta">
 <Alert class="fix" type="info">
-<span class="emoji">🚧</span> An auto-fix is still under development.
+<span class="emoji">🚧</span> An auto-fix is planned for this rule, but not implemented at this time.
 </Alert>
 </div>
 
@@ -29,10 +29,10 @@ prefer arrow functions or bind explicitly in a clearer way. Arrow functions inhe
 Examples of **incorrect** code for this rule:
 
 ```js
-array.map(function(x) {
+array.map(function (x) {
   return x + this.y;
 }, this);
-array.filter(function(x) {
+array.filter(function (x) {
   return x !== this.value;
 }, this);
 ```
@@ -40,23 +40,19 @@ array.filter(function(x) {
 Examples of **correct** code for this rule:
 
 ```js
-array.map(x => x + this.y);
-array.filter(x => x !== this.value);
+array.map((x) => x + this.y);
+array.filter((x) => x !== this.value);
 const self = this;
-array.map(function(x) {
+array.map(function (x) {
   return x + self.y;
 });
 ```
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny unicorn/no-array-method-this-argument
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -64,6 +60,10 @@ oxlint --deny unicorn/no-array-method-this-argument
     "unicorn/no-array-method-this-argument": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny unicorn/no-array-method-this-argument
 ```
 
 :::

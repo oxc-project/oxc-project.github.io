@@ -47,7 +47,7 @@ it("baz", async () => {
 });
 
 it("throws an error", async () => {
-  await foo().catch(error => expect(error).toBeInstanceOf(error));
+  await foo().catch((error) => expect(error).toBeInstanceOf(error));
 });
 ```
 
@@ -83,15 +83,22 @@ it("throws an error", async () => {
 });
 ```
 
+This rule is compatible with [eslint-plugin-vitest](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/no-conditional-expect.md),
+to use it, add the following configuration to your `.oxlintrc.json`:
+
+```json
+{
+  "rules": {
+    "vitest/no-conditional-expect": "error"
+  }
+}
+```
+
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny jest/no-conditional-expect --jest-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -100,6 +107,10 @@ oxlint --deny jest/no-conditional-expect --jest-plugin
     "jest/no-conditional-expect": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny jest/no-conditional-expect --jest-plugin
 ```
 
 :::

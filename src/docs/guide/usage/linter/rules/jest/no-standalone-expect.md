@@ -36,6 +36,17 @@ describe("a test", () => {
 });
 ```
 
+This rule is compatible with [eslint-plugin-vitest](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/no-standalone-expect.md),
+to use it, add the following configuration to your `.oxlintrc.json`:
+
+```json
+{
+  "rules": {
+    "vitest/no-standalone-expect": "error"
+  }
+}
+```
+
 ## Configuration
 
 This rule accepts a configuration object with the following properties:
@@ -50,13 +61,9 @@ An array of function names that should also be treated as test blocks.
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny jest/no-standalone-expect --jest-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -65,6 +72,10 @@ oxlint --deny jest/no-standalone-expect --jest-plugin
     "jest/no-standalone-expect": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny jest/no-standalone-expect --jest-plugin
 ```
 
 :::

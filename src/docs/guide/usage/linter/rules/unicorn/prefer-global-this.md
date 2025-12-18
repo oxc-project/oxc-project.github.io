@@ -9,7 +9,7 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 <div class="rule-meta">
 <Alert class="fix" type="info">
-<span class="emoji">🚧</span> An auto-fix is still under development.
+<span class="emoji">🚧</span> An auto-fix is planned for this rule, but not implemented at this time.
 </Alert>
 </div>
 
@@ -37,7 +37,8 @@ Examples of **incorrect** code for this rule:
 window.alert("Hi");
 
 // Node‑only
-if (typeof global.Buffer !== "undefined") {}
+if (typeof global.Buffer !== "undefined") {
+}
 
 // Web Worker‑only
 self.postMessage("done");
@@ -48,20 +49,17 @@ Examples of **correct** code for this rule:
 ```js
 globalThis.alert("Hi");
 
-if (typeof globalThis.Buffer !== "undefined") {}
+if (typeof globalThis.Buffer !== "undefined") {
+}
 
 globalThis.postMessage("done");
 ```
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny unicorn/prefer-global-this
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -69,6 +67,10 @@ oxlint --deny unicorn/prefer-global-this
     "unicorn/prefer-global-this": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny unicorn/prefer-global-this
 ```
 
 :::

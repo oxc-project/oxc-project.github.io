@@ -9,32 +9,36 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 <div class="rule-meta">
 <Alert class="fix" type="info">
-<span class="emoji">🚧</span> An auto-fix is still under development.
+<span class="emoji">🚧</span> An auto-fix is planned for this rule, but not implemented at this time.
 </Alert>
 </div>
 
 ### What it does
 
-Disallow usage of `javascript:` URLs
+Disallow usage of `javascript:` URLs.
 
 ### Why is this bad?
 
-URLs starting with `javascript:` are a dangerous attack surface because it’s easy to accidentally include unsanitized output in a tag like `<a href>` and create a security hole.
-In React 16.9 any URLs starting with `javascript:` scheme log a warning.
-In a future major release, React will throw an error if it encounters a `javascript:` URL.
+URLs starting with `javascript:` are a dangerous attack surface because it’s easy to accidentally
+include unsanitized output in a tag like `<a href>` and create a security hole.
+
+Starting in React 16.9, any URLs starting with `javascript:` log a warning.
+
+In React 19, `javascript:` URLs are
+[disallowed entirely](https://react.dev/blog/2024/04/25/react-19-upgrade-guide#other-breaking-changes).
 
 ### Examples
 
 Examples of **incorrect** code for this rule:
 
 ```jsx
-<a href="javascript:void(0)">Test</a>;
+<a href="javascript:void(0)">Test</a>
 ```
 
 Examples of **correct** code for this rule:
 
 ```jsx
-<Foo test="javascript:void(0)" />;
+<Foo test="javascript:void(0)" />
 ```
 
 ## Configuration
@@ -59,13 +63,9 @@ Whether to include components from settings.
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny react/jsx-no-script-url --react-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -74,6 +74,10 @@ oxlint --deny react/jsx-no-script-url --react-plugin
     "react/jsx-no-script-url": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny react/jsx-no-script-url --react-plugin
 ```
 
 :::

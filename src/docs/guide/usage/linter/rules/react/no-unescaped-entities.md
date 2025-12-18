@@ -23,28 +23,24 @@ JSX escape characters are used to inject characters into JSX statements that wou
 Incorrect
 
 ```jsx
-<div>></div>;
+<div> > </div>
 ```
 
 Correct
 
 ```jsx
-<div>&gt;</div>;
+<div> &gt; </div>
 ```
 
 ```jsx
-<div>{">"}</div>;
+<div> {">"} </div>
 ```
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny react/no-unescaped-entities --react-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -53,6 +49,10 @@ oxlint --deny react/no-unescaped-entities --react-plugin
     "react/no-unescaped-entities": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny react/no-unescaped-entities --react-plugin
 ```
 
 :::

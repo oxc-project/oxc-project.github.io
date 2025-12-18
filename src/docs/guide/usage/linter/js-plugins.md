@@ -39,10 +39,7 @@ Paths are resolved relative to the config file itself.
 ```json
 // .oxlintrc.json
 {
-  "jsPlugins": [
-    "./path/to/my-plugin.js",
-    "eslint-plugin-whatever"
-  ],
+  "jsPlugins": ["./path/to/my-plugin.js", "eslint-plugin-whatever"],
   "rules": {
     "my-plugin/rule1": "error",
     "my-plugin/rule2": "warn",
@@ -262,7 +259,9 @@ const rule = defineRule({
         // This always runs for every file, even if
         // it doesn't contain any `FunctionDeclaration`s
       },
-      FunctionDeclaration(node) {/* do stuff */},
+      FunctionDeclaration(node) {
+        /* do stuff */
+      },
     };
   },
 });
@@ -339,12 +338,7 @@ Rust-JS interop comes into play.
 
 ## API support
 
-Oxlint supports most of the APIs typically used in plugins/rules which rely on AST inspection.
-That includes most "fix code"-type rules.
-
-It does not yet support token-based APIs, so stylistic (formatting) rules will not work yet.
-
-Supported:
+Oxlint supports most of ESLint's API surface:
 
 - AST traversal.
 - AST exploration (`node.parent`, `context.sourceCode.getAncestors`).
@@ -354,13 +348,13 @@ Supported:
 - `SourceCode` APIs (e.g. `context.sourceCode.getText(node)`).
 - `SourceCode` tokens APIs (e.g. `context.sourceCode.getTokens(node)`).
 - Scope analysis.
-- Plugins written in TypeScript (with NodeJS 22.18.0+).
 
 Not supported yet:
 
 - Language server (IDE) support.
 - Suggestions.
 - Control flow analysis.
+- Custom file formats (e.g. Svelte, Vue, Angular).
 
-We will be filling in the gaps in API support over the next few months, aiming to eventually support 100% of ESLint's
+We will be filling in the remaining gaps in API over the next few months, aiming to eventually support 100% of ESLint's
 plugin API surface.

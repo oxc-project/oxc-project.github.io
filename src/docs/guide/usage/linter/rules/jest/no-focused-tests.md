@@ -40,12 +40,12 @@ test["only"]("bar", () => {});
 fdescribe("foo", () => {});
 fit("foo", () => {});
 fit.each`
-table
+  table
 `();
 ```
 
 This rule is compatible with [eslint-plugin-vitest](https://github.com/veritem/eslint-plugin-vitest/blob/v1.1.9/docs/rules/no-focused-tests.md),
-to use it, add the following configuration to your `.eslintrc.json`:
+to use it, add the following configuration to your `.oxlintrc.json`:
 
 ```json
 {
@@ -57,13 +57,9 @@ to use it, add the following configuration to your `.eslintrc.json`:
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny jest/no-focused-tests --jest-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -72,6 +68,10 @@ oxlint --deny jest/no-focused-tests --jest-plugin
     "jest/no-focused-tests": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny jest/no-focused-tests --jest-plugin
 ```
 
 :::

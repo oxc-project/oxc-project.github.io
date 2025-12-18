@@ -42,7 +42,7 @@ Examples of **correct** code for this rule with the default `always` option:
 x = y;
 x += y;
 x = y * z;
-x = (x * y) * z;
+x = x * y * z;
 x[0] /= y;
 x[foo()] = x[foo()] % 2;
 x = y + x; // `+` is not always commutative (e.g. x = "abc")
@@ -76,13 +76,9 @@ Disallows assignment operator shorthand.
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny operator-assignment
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -90,6 +86,10 @@ oxlint --deny operator-assignment
     "operator-assignment": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny operator-assignment
 ```
 
 :::

@@ -37,6 +37,17 @@ it("adds 1 + 2 to equal 3", () => {
 });
 ```
 
+This rule is compatible with [eslint-plugin-vitest](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/prefer-lowercase-title.md),
+to use it, add the following configuration to your `.oxlintrc.json`:
+
+```json
+{
+  "rules": {
+    "vitest/prefer-lowercase-title": "error"
+  }
+}
+```
+
 ## Configuration
 
 This rule accepts a configuration object with the following properties:
@@ -55,7 +66,7 @@ By default, nothing is allowed (the equivalent of `{ "allowedPrefixes": [] }`).
 Example of **correct** code for the `{ "allowedPrefixes": ["GET"] }` option:
 
 ```js
-/* eslint jest/prefer-lowercase-title: ["error", { "allowedPrefixes": ["GET"] }] */
+/* jest/prefer-lowercase-title: ["error", { "allowedPrefixes": ["GET"] }] */
 describe("GET /live");
 ```
 
@@ -79,21 +90,21 @@ By default, none of these options are enabled (the equivalent of
 Example of **correct** code for the `{ "ignore": ["describe"] }` option:
 
 ```js
-/* eslint jest/prefer-lowercase-title: ["error", { "ignore": ["describe"] }] */
+/* jest/prefer-lowercase-title: ["error", { "ignore": ["describe"] }] */
 describe("Uppercase description");
 ```
 
 Example of **correct** code for the `{ "ignore": ["test"] }` option:
 
 ```js
-/* eslint jest/prefer-lowercase-title: ["error", { "ignore": ["test"] }] */
+/* jest/prefer-lowercase-title: ["error", { "ignore": ["test"] }] */
 test("Uppercase description");
 ```
 
 Example of **correct** code for the `{ "ignore": ["it"] }` option:
 
 ```js
-/* eslint jest/prefer-lowercase-title: ["error", { "ignore": ["it"] }] */
+/* jest/prefer-lowercase-title: ["error", { "ignore": ["it"] }] */
 it("Uppercase description");
 ```
 
@@ -109,7 +120,7 @@ title starting with an upper-case letter.
 Example of **correct** code for the `{ "ignoreTopLevelDescribe": true }` option:
 
 ```js
-/* eslint jest/prefer-lowercase-title: ["error", { "ignoreTopLevelDescribe": true }] */
+/* jest/prefer-lowercase-title: ["error", { "ignoreTopLevelDescribe": true }] */
 describe("MyClass", () => {
   describe("#myMethod", () => {
     it("does things", () => {
@@ -130,7 +141,7 @@ This option can be set to only validate that the first character of a test name 
 Example of **correct** code for the `{ "lowercaseFirstCharacterOnly": true }` option:
 
 ```js
-/* eslint vitest/prefer-lowercase-title: ["error", { "lowercaseFirstCharacterOnly": true }] */
+/* vitest/prefer-lowercase-title: ["error", { "lowercaseFirstCharacterOnly": true }] */
 describe("myClass", () => {
   describe("myMethod", () => {
     it("does things", () => {
@@ -143,7 +154,7 @@ describe("myClass", () => {
 Example of **incorrect** code for the `{ "lowercaseFirstCharacterOnly": true }` option:
 
 ```js
-/* eslint vitest/prefer-lowercase-title: ["error", { "lowercaseFirstCharacterOnly": true }] */
+/* vitest/prefer-lowercase-title: ["error", { "lowercaseFirstCharacterOnly": true }] */
 describe("MyClass", () => {
   describe("MyMethod", () => {
     it("does things", () => {
@@ -155,13 +166,9 @@ describe("MyClass", () => {
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny jest/prefer-lowercase-title --jest-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -170,6 +177,10 @@ oxlint --deny jest/prefer-lowercase-title --jest-plugin
     "jest/prefer-lowercase-title": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny jest/prefer-lowercase-title --jest-plugin
 ```
 
 :::

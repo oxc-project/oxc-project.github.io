@@ -28,7 +28,7 @@ Examples of **incorrect** code for this rule:
 import Document from "next/document";
 
 class MyDocument extends Document {
-  // ...
+  //...
 }
 
 export default MyDocument;
@@ -41,7 +41,7 @@ Examples of **correct** code for this rule:
 import Document from "next/document";
 
 class MyDocument extends Document {
-  // ...
+  //...
 }
 
 export default MyDocument;
@@ -49,13 +49,9 @@ export default MyDocument;
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny nextjs/no-document-import-in-page --nextjs-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -64,6 +60,10 @@ oxlint --deny nextjs/no-document-import-in-page --nextjs-plugin
     "nextjs/no-document-import-in-page": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny nextjs/no-document-import-in-page --nextjs-plugin
 ```
 
 :::

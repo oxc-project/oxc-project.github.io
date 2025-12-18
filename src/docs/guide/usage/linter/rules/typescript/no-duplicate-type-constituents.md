@@ -3,6 +3,7 @@
 <script setup>
 import { data } from '../version.data.js';
 const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_linter/src/rules/typescript/no_duplicate_type_constituents.rs`;
+const tsgolintSource = `https://github.com/oxc-project/tsgolint/blob/main/internal/rules/no_duplicate_type_constituents/no_duplicate_type_constituents.go`;
 </script>
 
 # typescript/no-duplicate-type-constituents <Badge type="info" text="Correctness" />
@@ -15,7 +16,7 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 <span class="emoji">💭</span> This rule requires <a href="https://oxc.rs/docs/guide/usage/linter/type-aware.html" target="_blank" rel="noreferrer">type information</a>.
 </Alert>
 <Alert class="fix" type="info">
-<span class="emoji">🚧</span> An auto-fix is still under development.
+<span class="emoji">🚧</span> An auto-fix is planned for this rule, but not implemented at this time.
 </Alert>
 </div>
 
@@ -40,10 +41,7 @@ type T3 = { a: string } & { a: string };
 
 type T4 = [A, A];
 
-type T5 =
-  | "foo"
-  | "bar"
-  | "foo";
+type T5 = "foo" | "bar" | "foo";
 ```
 
 Examples of **correct** code for this rule:
@@ -57,10 +55,7 @@ type T3 = { a: string } & { b: string };
 
 type T4 = [A, B];
 
-type T5 =
-  | "foo"
-  | "bar"
-  | "baz";
+type T5 = "foo" | "bar" | "baz";
 ```
 
 ## Configuration
@@ -87,13 +82,9 @@ When true, allows `type T = A | A`.
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --type-aware --deny typescript/no-duplicate-type-constituents
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -103,8 +94,13 @@ oxlint --type-aware --deny typescript/no-duplicate-type-constituents
 }
 ```
 
+```bash [CLI]
+oxlint --type-aware --deny typescript/no-duplicate-type-constituents
+```
+
 :::
 
 ## References
 
 - <a v-bind:href="source" target="_blank" rel="noreferrer">Rule Source</a>
+- <a v-bind:href="tsgolintSource" target="_blank" rel="noreferrer">Rule Source (tsgolint)</a>

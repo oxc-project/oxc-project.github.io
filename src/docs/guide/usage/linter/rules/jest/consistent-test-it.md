@@ -47,45 +47,18 @@ test.only("foo"); // invalid
 ```javascript
 /*eslint jest/consistent-test-it: ["error", {"fn": "it", "withinDescribe": "test"}]*/
 it("foo"); // valid
-describe("foo", function() {
+describe("foo", function () {
   test("bar"); // valid
 });
 
 test("foo"); // invalid
-describe("foo", function() {
+describe("foo", function () {
   it("bar"); // invalid
 });
 ```
 
-#### Options
-
-This rule can be configured as follows
-
-```json5
-{
-    type: 'object',
-    properties: {
-        fn: {
-            enum: ['it', 'test'],
-        },
-        withinDescribe: {
-            enum: ['it', 'test'],
-        },
-    },
-    additionalProperties: false,
-}
-```
-
-##### fn
-
-Decides whether to use `test` or `it`.
-
-##### withinDescribe
-
-Decides whether to use `test` or `it` within a `describe` scope.
-
 This rule is compatible with [eslint-plugin-vitest](https://github.com/veritem/eslint-plugin-vitest/blob/v1.1.9/docs/rules/consistent-test-it.md),
-to use it, add the following configuration to your `.eslintrc.json`:
+to use it, add the following configuration to your `.oxlintrc.json`:
 
 ```json
 {
@@ -95,15 +68,32 @@ to use it, add the following configuration to your `.eslintrc.json`:
 }
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### fn
+
+type: `"it" | "test"`
+
+default: `"test"`
+
+Decides whether to use `test` or `it`.
+
+### withinDescribe
+
+type: `"it" | "test"`
+
+default: `"it"`
+
+Decides whether to use `test` or `it` within a `describe` scope.
+If only `fn` is provided, this will default to the value of `fn`.
+
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny jest/consistent-test-it --jest-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -112,6 +102,10 @@ oxlint --deny jest/consistent-test-it --jest-plugin
     "jest/consistent-test-it": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny jest/consistent-test-it --jest-plugin
 ```
 
 :::

@@ -23,15 +23,15 @@ React requires a `key` prop for elements in an array to help identify which item
 Examples of **incorrect** code for this rule:
 
 ```jsx
-[1, 2, 3].map(x => <App />);
-[1, 2, 3]?.map(x => <BabelEslintApp />);
+[1, 2, 3].map((x) => <App />);
+[1, 2, 3]?.map((x) => <BabelEslintApp />);
 ```
 
 Examples of **correct** code for this rule:
 
 ```jsx
-[1, 2, 3].map(x => <App key={x} />);
-[1, 2, 3]?.map(x => <BabelEslintApp key={x} />);
+[1, 2, 3].map((x) => <App key={x} />);
+[1, 2, 3]?.map((x) => <BabelEslintApp key={x} />);
 ```
 
 ## Configuration
@@ -64,13 +64,9 @@ When true, warn on duplicate key values
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny react/jsx-key --react-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -79,6 +75,10 @@ oxlint --deny react/jsx-key --react-plugin
     "react/jsx-key": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny react/jsx-key --react-plugin
 ```
 
 :::

@@ -36,7 +36,8 @@ TypeScript projects.
 - IDEs can't provide as good suggestions for static class or namespace
   imported properties when you start typing property names
 - It's more difficult to statically analyze code for unused variables,
-  etc. when they're all on the class (see: [Finding dead code (and dead types) in TypeScript](https://effectivetypescript.com/2020/10/20/tsprune/)).
+  etc. when they're all on the class (see: [Finding dead code (and dead
+  types) in TypeScript](https://effectivetypescript.com/2020/10/20/tsprune/)).
 
 This rule also reports classes that have only a constructor and no
 fields. Those classes can generally be replaced with a standalone
@@ -109,13 +110,9 @@ Allow classes with decorators.
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny typescript/no-extraneous-class
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -123,6 +120,10 @@ oxlint --deny typescript/no-extraneous-class
     "typescript/no-extraneous-class": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny typescript/no-extraneous-class
 ```
 
 :::

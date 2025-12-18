@@ -85,13 +85,9 @@ When set to `index-signature`, enforces the use of indexed signature types, e.g.
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny typescript/consistent-indexed-object-style
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -99,6 +95,10 @@ oxlint --deny typescript/consistent-indexed-object-style
     "typescript/consistent-indexed-object-style": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny typescript/consistent-indexed-object-style
 ```
 
 :::

@@ -33,7 +33,9 @@ arr.reduce((acc, x) => ({ ...acc, [x]: fn(x) }), {});
 Object.keys(obj).reduce((acc, el) => ({ ...acc, [el]: fn(el) }), {});
 
 let foo = [];
-for (let i = 0; i < 10; i++) foo = [...foo, i];
+for (let i = 0; i < 10; i++) {
+  foo = [...foo, i];
+}
 ```
 
 Examples of **correct** code for this rule:
@@ -55,18 +57,16 @@ Object.keys(obj).reduce((acc, el) => {
 }, {});
 
 let foo = [];
-for (let i = 0; i < 10; i++) foo.push(i);
+for (let i = 0; i < 10; i++) {
+  foo.push(i);
+}
 ```
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny oxc/no-accumulating-spread
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -74,6 +74,10 @@ oxlint --deny oxc/no-accumulating-spread
     "oxc/no-accumulating-spread": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny oxc/no-accumulating-spread
 ```
 
 :::

@@ -28,13 +28,13 @@ from accessing information on the page's structure.
 Examples of **incorrect** code for this rule:
 
 ```jsx
-<h1 />;
+<h1 />
 ```
 
 Examples of **correct** code for this rule:
 
 ```jsx
-<h1>Foo</h1>;
+<h1>Foo</h1>
 ```
 
 ## Configuration
@@ -52,13 +52,9 @@ These will be validated in addition to the standard h1-h6 elements.
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny jsx-a11y/heading-has-content --jsx-a11y-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -67,6 +63,10 @@ oxlint --deny jsx-a11y/heading-has-content --jsx-a11y-plugin
     "jsx-a11y/heading-has-content": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny jsx-a11y/heading-has-content --jsx-a11y-plugin
 ```
 
 :::

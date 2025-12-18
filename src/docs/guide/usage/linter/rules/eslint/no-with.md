@@ -4,7 +4,9 @@
 import { data } from '../version.data.js';
 const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_linter/src/rules/eslint/no_with.rs`;
 </script>
+
 # eslint/no-with <Badge type="info" text="Correctness" />
+
 <div class="rule-meta">
 <Alert class="default-on" type="success">
 <span class="emoji">✅</span> This rule is turned on by default.
@@ -13,42 +15,47 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 ### What it does
 
-Disallow `with` statements
+Disallow [`with`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/with) statements.
 
 ### Why is this bad?
 
-The with statement is potentially problematic because it adds members of an object to the current scope, making it impossible to tell what a variable inside the block actually refers to.
+The with statement is potentially problematic because it adds members
+of an object to the current scope, making it impossible to tell what a
+variable inside the block actually refers to.
+
+It is generally considered a bad practice and is forbidden in strict mode.
+
+This rule is not necessary in TypeScript code if `alwaysStrict` is enabled.
 
 ### Examples
 
 Examples of **incorrect** code for this rule:
+
 ```javascript
 with (point) {
-    r = Math.sqrt(x * x + y * y); // is r a member of point?
+  r = Math.sqrt(x * x + y * y); // is r a member of point?
 }
 ```
 
-
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "rules": {
+    "no-with": "error"
+  }
+}
+```
 
 ```bash [CLI]
 oxlint --deny no-with
 ```
 
-```json [Config (.oxlintrc.json)]
-{
-    "rules": {
-        "no-with": "error"
-    }
-}
-```
-
 :::
-
 
 ## References
 

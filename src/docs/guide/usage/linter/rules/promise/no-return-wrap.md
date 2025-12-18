@@ -9,7 +9,7 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 <div class="rule-meta">
 <Alert class="fix" type="info">
-<span class="emoji">🚧</span> An auto-fix is still under development.
+<span class="emoji">🚧</span> An auto-fix is planned for this rule, but not implemented at this time.
 </Alert>
 </div>
 
@@ -43,30 +43,26 @@ Examples of **incorrect** code for this rule:
 
 ```js
 myPromise().then(() => Promise.resolve(4));
-myPromise().then(function() {
+myPromise().then(function () {
   return Promise.resolve(4);
 });
 
 myPromise().then(() => Promise.reject("err"));
-myPromise().then(function() {
+myPromise().then(function () {
   return Promise.reject("err");
 });
 ```
 
 ```js
-myPromise().catch(
-  function() {
-    return Promise.reject("err");
-  },
-);
+myPromise().catch(function () {
+  return Promise.reject("err");
+});
 ```
 
 ```js
-myPromise().finally(
-  function() {
-    return Promise.reject("err");
-  },
-);
+myPromise().finally(function () {
+  return Promise.reject("err");
+});
 ```
 
 ```js
@@ -76,19 +72,21 @@ myPromise().finally(() => Promise.resolve(4));
 Examples of **correct** code for this rule:
 
 ```js
-myPromise().then(() => 4)
-myPromise().then(function() { return 4 })
+myPromise().then(() => 4);
+myPromise().then(function () {
+  return 4;
+});
 
-myPromise().then(() => throw "err")
-myPromise().then(function() { throw "err" })
+myPromise().then(() => throw "err");
+myPromise().then(function () {
+  throw "err";
+});
 ```
 
 ```js
-myPromise().catch(
-  function() {
-    throw "err";
-  },
-);
+myPromise().catch(function () {
+  throw "err";
+});
 ```
 
 ```js
@@ -110,26 +108,22 @@ default: `false`
 With `allowReject` set to `true` the following are examples of correct code:
 
 ```js
-myPromise().then(
-  function() {
-    return Promise.reject(0);
-  },
-);
+myPromise().then(function () {
+  return Promise.reject(0);
+});
 ```
 
 ```js
-myPromise().then().catch(() => Promise.reject("err"));
+myPromise()
+  .then()
+  .catch(() => Promise.reject("err"));
 ```
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny promise/no-return-wrap --promise-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -138,6 +132,10 @@ oxlint --deny promise/no-return-wrap --promise-plugin
     "promise/no-return-wrap": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny promise/no-return-wrap --promise-plugin
 ```
 
 :::

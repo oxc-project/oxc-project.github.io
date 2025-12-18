@@ -29,7 +29,7 @@ import Head from "next/head";
 
 class MyDocument extends Document {
   static async getInitialProps(ctx) {
-    // ...
+    //...
   }
 
   render() {
@@ -47,11 +47,11 @@ export default MyDocument;
 Examples of **correct** code for this rule:
 
 ```jsx
-import Document, { Head, Html, Main, NextScript } from "next/document";
+import Document, { Html, Head, Main, NextScript } from "next/document";
 
 class MyDocument extends Document {
   static async getInitialProps(ctx) {
-    // ...
+    //...
   }
 
   render() {
@@ -68,13 +68,9 @@ export default MyDocument;
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny nextjs/no-head-import-in-document --nextjs-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -83,6 +79,10 @@ oxlint --deny nextjs/no-head-import-in-document --nextjs-plugin
     "nextjs/no-head-import-in-document": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny nextjs/no-head-import-in-document --nextjs-plugin
 ```
 
 :::

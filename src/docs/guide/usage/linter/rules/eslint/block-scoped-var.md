@@ -21,10 +21,6 @@ JavaScript’s `var` declarations are hoisted to the top of their enclosing func
 This can lead to hard-to-find bugs.
 By enforcing block scoping, this rule helps avoid hoisting issues and aligns more closely with how other languages treat block variables.
 
-### Options
-
-No options available for this rule.
-
 ### Examples
 
 Examples of **incorrect** code for this rule:
@@ -107,13 +103,9 @@ function doTry() {
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny block-scoped-var
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -121,6 +113,10 @@ oxlint --deny block-scoped-var
     "block-scoped-var": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny block-scoped-var
 ```
 
 :::

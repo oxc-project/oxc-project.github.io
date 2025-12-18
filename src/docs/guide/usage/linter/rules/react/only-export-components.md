@@ -43,7 +43,7 @@ export const Bar = () => <></>; // component
 
 ```jsx
 // 2) Anonymous default export (name is required)
-export default function() {}
+export default function () {}
 ```
 
 ```jsx
@@ -90,10 +90,7 @@ This rule accepts a configuration object with the following properties:
 
 ### allowConstantExport
 
-type: `[
-  boolean,
-  null
-]`
+type: `boolean | null`
 
 default: `null`
 
@@ -120,10 +117,7 @@ certain exports). For example, in Remix:
 
 ### checkJS
 
-type: `[
-  boolean,
-  null
-]`
+type: `boolean | null`
 
 default: `null`
 
@@ -141,13 +135,9 @@ identifiers here to avoid false positives.
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny react/only-export-components --react-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -156,6 +146,10 @@ oxlint --deny react/only-export-components --react-plugin
     "react/only-export-components": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny react/only-export-components --react-plugin
 ```
 
 :::

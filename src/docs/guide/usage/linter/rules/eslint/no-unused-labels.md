@@ -29,8 +29,7 @@ Labels that are declared and not used anywhere in the code are most likely an er
 Examples of **incorrect** code for this rule:
 
 ```javascript
-OUTER_LOOP:
-for (const student of students) {
+OUTER_LOOP: for (const student of students) {
   if (checkScores(student.scores)) {
     continue;
   }
@@ -51,13 +50,9 @@ for (const student of students) {
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny no-unused-labels
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -65,6 +60,10 @@ oxlint --deny no-unused-labels
     "no-unused-labels": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny no-unused-labels
 ```
 
 :::

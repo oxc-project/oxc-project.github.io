@@ -28,10 +28,10 @@ the code and find necessary imports later.
 Examples of **incorrect** code for this rule:
 
 ```javascript
-import { a, b, c } from "foo.js";
+import { b, a, c } from "foo.js";
 
-import e from "bar.js";
 import d from "foo.js";
+import e from "bar.js";
 ```
 
 ## Configuration
@@ -82,13 +82,9 @@ type: `"none" | "all" | "multiple" | "single"`
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny sort-imports
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -96,6 +92,10 @@ oxlint --deny sort-imports
     "sort-imports": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny sort-imports
 ```
 
 :::

@@ -12,7 +12,7 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 <span class="emoji">✅</span> This rule is turned on by default.
 </Alert>
 <Alert class="fix" type="info">
-<span class="emoji">🚧</span> An auto-fix is still under development.
+<span class="emoji">🚧</span> An auto-fix is planned for this rule, but not implemented at this time.
 </Alert>
 </div>
 
@@ -43,13 +43,9 @@ const array = [42];
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny unicorn/no-new-array
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -57,6 +53,10 @@ oxlint --deny unicorn/no-new-array
     "unicorn/no-new-array": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny unicorn/no-new-array
 ```
 
 :::

@@ -9,7 +9,7 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 <div class="rule-meta">
 <Alert class="fix" type="info">
-<span class="emoji">🚧</span> An auto-fix is still under development.
+<span class="emoji">🚧</span> An auto-fix is planned for this rule, but not implemented at this time.
 </Alert>
 </div>
 
@@ -36,7 +36,7 @@ const doSomethingElse = () => {
 };
 
 // function expression assigned to a variable
-const doSomethingAgain = function() {
+const doSomethingAgain = function () {
   // ...
 };
 ```
@@ -55,7 +55,7 @@ Examples of incorrect code for this rule with the "declaration" option:
 
 ```js
 /*eslint func-style: ["error", "declaration"]*/
-var foo = function() {
+var foo = function () {
   // ...
 };
 
@@ -75,7 +75,7 @@ Examples of incorrect code for this rule with the "expression" and {"overrides":
 
 ```js
 /*eslint func-style: ["error", "expression", { "overrides": { "namedExports": "declaration" } }]*/
-export var foo = function() {
+export var foo = function () {
   // ...
 };
 
@@ -86,7 +86,7 @@ Examples of correct code for this rule with the default "expression" option:
 
 ```js
 /*eslint func-style: ["error", "expression"]*/
-var foo = function() {
+var foo = function () {
   // ...
 };
 ```
@@ -99,7 +99,7 @@ function foo() {
   // ...
 }
 // Methods (functions assigned to objects) are not checked by this rule
-SomeObject.foo = function() {
+SomeObject.foo = function () {
   // ...
 };
 ```
@@ -115,7 +115,7 @@ Examples of correct code for this rule with the "declaration" and {"overrides": 
 
 ```js
 /*eslint func-style: ["error", "declaration", { "overrides": { "namedExports": "expression" } }]*/
-export var foo = function() {
+export var foo = function () {
   // ...
 };
 export var bar = () => {};
@@ -134,7 +134,7 @@ Examples of correct code for this rule with the {"overrides": { "namedExports": 
 
 ```js
 /*eslint func-style: ["error", "expression", { "overrides": { "namedExports": "ignore" } }]*/
-export var foo = function() {
+export var foo = function () {
   // ...
 };
 
@@ -164,7 +164,7 @@ default: `false`
 
 When true, functions with type annotations are allowed regardless of the style setting.
 
-## namedExports
+### namedExports
 
 type: `string | null`
 
@@ -182,13 +182,9 @@ The style to enforce. Either "expression" (default) or "declaration".
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny func-style
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -196,6 +192,10 @@ oxlint --deny func-style
     "func-style": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny func-style
 ```
 
 :::

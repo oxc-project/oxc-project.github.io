@@ -9,7 +9,7 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 <div class="rule-meta">
 <Alert class="fix" type="info">
-<span class="emoji">🚧</span> An auto-fix is still under development.
+<span class="emoji">🚧</span> An auto-fix is planned for this rule, but not implemented at this time.
 </Alert>
 </div>
 
@@ -28,18 +28,18 @@ Because of this ambiguity, it’s considered a best practice to not use assignme
 Examples of **incorrect** code for this rule:
 
 ```js
-(() => a = b);
+() => (a = b);
 function x() {
-  return a = b;
+  return (a = b);
 }
 ```
 
 Examples of **correct** code for this rule:
 
 ```js
-(() => (a = b));
+() => (a = b);
 function x() {
-  var result = a = b;
+  var result = (a = b);
   return result;
 }
 ```
@@ -59,13 +59,9 @@ This is the default mode.
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny no-return-assign
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -73,6 +69,10 @@ oxlint --deny no-return-assign
     "no-return-assign": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny no-return-assign
 ```
 
 :::

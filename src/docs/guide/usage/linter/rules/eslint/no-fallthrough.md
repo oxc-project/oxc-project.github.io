@@ -9,7 +9,7 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 <div class="rule-meta">
 <Alert class="fix" type="info">
-<span class="emoji">🚧</span> An auto-fix is still under development.
+<span class="emoji">🚧</span> An auto-fix is planned for this rule, but not implemented at this time.
 </Alert>
 </div>
 
@@ -62,7 +62,7 @@ fallthrough is intentional using a comment which matches the
 switch (foo) {
   case 1:
     doSomething();
-    // falls through
+  // falls through
 
   case 2:
     doSomethingElse();
@@ -71,7 +71,7 @@ switch (foo) {
 switch (foo) {
   case 1:
     doSomething();
-    // fall through
+  // fall through
 
   case 2:
     doSomethingElse();
@@ -80,7 +80,7 @@ switch (foo) {
 switch (foo) {
   case 1:
     doSomething();
-    // fallsthrough
+  // fallsthrough
 
   case 2:
     doSomethingElse();
@@ -163,7 +163,7 @@ switch (foo) {
 switch (foo) {
   case 1:
     doSomething();
-    // falls through
+  // falls through
 
   case 2:
     doSomething();
@@ -198,10 +198,7 @@ Whether to allow empty case clauses to fall through.
 
 ### commentPattern
 
-type: `[
-  string,
-  null
-]`
+type: `string | null`
 
 Custom regex pattern to match fallthrough comments.
 
@@ -215,13 +212,9 @@ Whether to report unused fallthrough comments.
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny no-fallthrough
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -229,6 +222,10 @@ oxlint --deny no-fallthrough
     "no-fallthrough": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny no-fallthrough
 ```
 
 :::

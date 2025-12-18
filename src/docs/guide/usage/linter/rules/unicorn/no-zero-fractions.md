@@ -42,13 +42,9 @@ const foo = 1.1;
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny unicorn/no-zero-fractions
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -56,6 +52,10 @@ oxlint --deny unicorn/no-zero-fractions
     "unicorn/no-zero-fractions": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny unicorn/no-zero-fractions
 ```
 
 :::

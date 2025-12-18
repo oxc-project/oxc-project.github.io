@@ -21,7 +21,7 @@ Nesting `describe()` blocks too deeply can make the test suite hard to read and 
 ### Example
 
 The following patterns are considered warnings (with the default option of
-`{ "max": 5 }`):
+`{ "max": 5 } `):
 
 Examples of **incorrect** code for this rule:
 
@@ -42,12 +42,12 @@ describe("foo", () => {
   });
 });
 
-describe("foo", function() {
-  describe("bar", function() {
-    describe("baz", function() {
-      describe("qux", function() {
-        describe("quxx", function() {
-          describe("too many", function() {
+describe("foo", function () {
+  describe("bar", function () {
+    describe("baz", function () {
+      describe("qux", function () {
+        describe("quxx", function () {
+          describe("too many", function () {
             it("should get something", () => {
               expect(getSomething()).toBe("Something");
             });
@@ -75,17 +75,17 @@ describe("foo", () => {
   });
 });
 
-describe("foo2", function() {
+describe("foo2", function () {
   it("should get something", () => {
     expect(getSomething()).toBe("Something");
   });
 });
 
-describe("foo", function() {
-  describe("bar", function() {
-    describe("baz", function() {
-      describe("qux", function() {
-        describe("this is the limit", function() {
+describe("foo", function () {
+  describe("bar", function () {
+    describe("baz", function () {
+      describe("qux", function () {
+        describe("this is the limit", function () {
           it("should get something", () => {
             expect(getSomething()).toBe("Something");
           });
@@ -94,6 +94,17 @@ describe("foo", function() {
     });
   });
 });
+```
+
+This rule is compatible with [eslint-plugin-vitest](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/max-nested-describe.md),
+to use it, add the following configuration to your `.oxlintrc.json`:
+
+```json
+{
+  "rules": {
+    "vitest/max-nested-describe": "error"
+  }
+}
 ```
 
 ## Configuration
@@ -110,13 +121,9 @@ Maximum allowed depth of nested describe calls.
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny jest/max-nested-describe --jest-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -125,6 +132,10 @@ oxlint --deny jest/max-nested-describe --jest-plugin
     "jest/max-nested-describe": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny jest/max-nested-describe --jest-plugin
 ```
 
 :::

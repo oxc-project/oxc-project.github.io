@@ -30,10 +30,7 @@ import Head from "next/head";
 export default Test = () => {
   return (
     <Head>
-      <link
-        href="https://fonts.googleapis.com/css2?family=Krona+One"
-        rel="stylesheet"
-      />
+      <link href="https://fonts.googleapis.com/css2?family=Krona+One" rel="stylesheet" />
     </Head>
   );
 };
@@ -58,13 +55,9 @@ export default Test = () => {
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny nextjs/google-font-display --nextjs-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -73,6 +66,10 @@ oxlint --deny nextjs/google-font-display --nextjs-plugin
     "nextjs/google-font-display": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny nextjs/google-font-display --nextjs-plugin
 ```
 
 :::

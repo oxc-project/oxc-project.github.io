@@ -41,7 +41,7 @@ const clone = structuredClone(foo);
 
 This rule accepts a configuration object with the following properties:
 
-### allowedFunctions
+### functions
 
 type: `string[]`
 
@@ -51,13 +51,9 @@ List of functions that are allowed to be used for deep cloning instead of struct
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny unicorn/prefer-structured-clone
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -65,6 +61,10 @@ oxlint --deny unicorn/prefer-structured-clone
     "unicorn/prefer-structured-clone": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny unicorn/prefer-structured-clone
 ```
 
 :::

@@ -27,7 +27,8 @@ it is likely that a programmer copied a case clause but forgot to change the tes
 Examples of **incorrect** code for this rule:
 
 ```js
-var a = 1, one = 1;
+var a = 1,
+  one = 1;
 switch (a) {
   case 1:
     break;
@@ -77,13 +78,9 @@ switch (a) {
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny no-duplicate-case
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -91,6 +88,10 @@ oxlint --deny no-duplicate-case
     "no-duplicate-case": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny no-duplicate-case
 ```
 
 :::

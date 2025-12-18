@@ -9,7 +9,7 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 <div class="rule-meta">
 <Alert class="fix" type="info">
-<span class="emoji">🚧</span> An auto-fix is still under development.
+<span class="emoji">🚧</span> An auto-fix is planned for this rule, but not implemented at this time.
 </Alert>
 </div>
 
@@ -30,16 +30,16 @@ In the following example the module import on line 1 is repeated on line 3. Thes
 combined to make the list of imports more succinct.
 
 ```js
-import something from "another-module";
 import { merge } from "module";
+import something from "another-module";
 import { find } from "module";
 ```
 
 Examples of **correct** code for this rule:
 
 ```js
+import { merge, find } from "module";
 import something from "another-module";
-import { find, merge } from "module";
 ```
 
 ## Configuration
@@ -98,7 +98,7 @@ export { merge as lodashMerge };
 ```
 
 ```js
-import { find, merge } from "module";
+import { merge, find } from "module";
 
 // cannot be merged with the above import
 export * as something from "module";
@@ -109,13 +109,9 @@ export * from "module";
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny no-duplicate-imports
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -123,6 +119,10 @@ oxlint --deny no-duplicate-imports
     "no-duplicate-imports": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny no-duplicate-imports
 ```
 
 :::

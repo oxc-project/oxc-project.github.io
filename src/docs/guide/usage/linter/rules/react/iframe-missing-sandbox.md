@@ -9,7 +9,7 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 <div class="rule-meta">
 <Alert class="fix" type="info">
-<span class="emoji">🚧</span> An auto-fix is still under development.
+<span class="emoji">🚧</span> An auto-fix is planned for this rule, but not implemented at this time.
 </Alert>
 </div>
 
@@ -21,7 +21,9 @@ Enforce sandbox attribute on iframe elements
 
 The sandbox attribute enables an extra set of restrictions for the
 content in the iframe. Using sandbox attribute is considered a good
-security practice. To learn more about sandboxing, see [MDN's documentation on the `sandbox` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe#sandbox).
+security practice. To learn more about sandboxing, see [MDN's
+documentation on the `sandbox`
+attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe#sandbox).
 
 This rule checks all React `<iframe>` elements and verifies that there
 is `sandbox` attribute and that it's value is valid. In addition to that
@@ -49,13 +51,9 @@ Examples of **correct** code for this rule:
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny react/iframe-missing-sandbox --react-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -64,6 +62,10 @@ oxlint --deny react/iframe-missing-sandbox --react-plugin
     "react/iframe-missing-sandbox": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny react/iframe-missing-sandbox --react-plugin
 ```
 
 :::

@@ -61,21 +61,26 @@ it("is true", async () => {
   await expect(myPromise).resolves.toBe(true);
 });
 it("errors", async () => {
-  await expect(Promise.reject(new Error("oh noes!"))).rejects.toThrowError(
-    "oh noes!",
-  );
+  await expect(Promise.reject(new Error("oh noes!"))).rejects.toThrowError("oh noes!");
 });
+```
+
+This rule is compatible with [eslint-plugin-vitest](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/prefer-expect-resolves.md),
+to use it, add the following configuration to your `.oxlintrc.json`:
+
+```json
+{
+  "rules": {
+    "vitest/prefer-expect-resolves": "error"
+  }
+}
 ```
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny jest/prefer-expect-resolves --jest-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -84,6 +89,10 @@ oxlint --deny jest/prefer-expect-resolves --jest-plugin
     "jest/prefer-expect-resolves": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny jest/prefer-expect-resolves --jest-plugin
 ```
 
 :::

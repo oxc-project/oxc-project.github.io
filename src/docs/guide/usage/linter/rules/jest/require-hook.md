@@ -36,9 +36,9 @@ correct time and maintains test isolation.
 Examples of **incorrect** code for this rule:
 
 ```javascript
+import { database, isCity } from "../database";
 import { Logger } from "../../../src/Logger";
 import { loadCities } from "../api";
-import { database, isCity } from "../database";
 
 jest.mock("../api");
 
@@ -80,9 +80,9 @@ clearCityDatabase();
 Examples of **correct** code for this rule:
 
 ```javascript
+import { database, isCity } from "../database";
 import { Logger } from "../../../src/Logger";
 import { loadCities } from "../api";
-import { database, isCity } from "../database";
 
 jest.mock("../api");
 const initializeCityDatabase = () => {
@@ -142,13 +142,9 @@ An array of function names that are allowed to be called outside of hooks.
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny jest/require-hook --jest-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -157,6 +153,10 @@ oxlint --deny jest/require-hook --jest-plugin
     "jest/require-hook": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny jest/require-hook --jest-plugin
 ```
 
 :::

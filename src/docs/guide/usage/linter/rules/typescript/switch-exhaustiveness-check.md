@@ -3,6 +3,7 @@
 <script setup>
 import { data } from '../version.data.js';
 const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_linter/src/rules/typescript/switch_exhaustiveness_check.rs`;
+const tsgolintSource = `https://github.com/oxc-project/tsgolint/blob/main/internal/rules/switch_exhaustiveness_check/switch_exhaustiveness_check.go`;
 </script>
 
 # typescript/switch-exhaustiveness-check <Badge type="info" text="Pedantic" />
@@ -12,7 +13,7 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 <span class="emoji">💭</span> This rule requires <a href="https://oxc.rs/docs/guide/usage/linter/type-aware.html" target="_blank" rel="noreferrer">type information</a>.
 </Alert>
 <Alert class="fix" type="info">
-<span class="emoji">🚧</span> An auto-fix is still under development.
+<span class="emoji">🚧</span> An auto-fix is planned for this rule, but not implemented at this time.
 </Alert>
 </div>
 
@@ -37,7 +38,7 @@ function handleStatus(status: Status) {
       return "Waiting for approval";
     case "approved":
       return "Request approved";
-      // Missing 'rejected' case
+    // Missing 'rejected' case
   }
 }
 
@@ -53,7 +54,7 @@ function getColorName(color: Color) {
       return "red";
     case Color.Green:
       return "green";
-      // Missing Color.Blue case
+    // Missing Color.Blue case
   }
 }
 ```
@@ -135,10 +136,7 @@ even if not all union members are handled explicitly.
 
 ### defaultCaseCommentPattern
 
-type: `[
-  string,
-  null
-]`
+type: `string | null`
 
 Regular expression pattern that when matched in a default case comment,
 will suppress the exhaustiveness check.
@@ -155,13 +153,9 @@ When true, switches with non-exhaustive union types must have a default case.
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --type-aware --deny typescript/switch-exhaustiveness-check
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -171,8 +165,13 @@ oxlint --type-aware --deny typescript/switch-exhaustiveness-check
 }
 ```
 
+```bash [CLI]
+oxlint --type-aware --deny typescript/switch-exhaustiveness-check
+```
+
 :::
 
 ## References
 
 - <a v-bind:href="source" target="_blank" rel="noreferrer">Rule Source</a>
+- <a v-bind:href="tsgolintSource" target="_blank" rel="noreferrer">Rule Source (tsgolint)</a>

@@ -24,19 +24,16 @@ that was only formalized later.
 Examples of **incorrect** code for this rule:
 
 ```javascript
-var x = "Line 1 \
+var x =
+  "Line 1 \
  Line 2";
 ```
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny no-multi-str
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -44,6 +41,10 @@ oxlint --deny no-multi-str
     "no-multi-str": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny no-multi-str
 ```
 
 :::

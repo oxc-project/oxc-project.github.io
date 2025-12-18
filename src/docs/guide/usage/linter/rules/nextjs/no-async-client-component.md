@@ -29,34 +29,34 @@ can break component rendering lifecycle, and can lead to unexpected behavior wit
 Examples of **incorrect** code for this rule:
 
 ```javascript
-"use client";
+"use client"
 
 // Async component with default export
 export default async function MyComponent() {
-  return <></>;
+  return <></>
 }
 
 // Async component with named export
 async function MyComponent() {
-  return <></>;
+  return <></>
 }
-export default MyComponent;
+export default MyComponent
 
 // Async arrow function component
 const MyComponent = async () => {
-  return <></>;
-};
-export default MyComponent;
+  return <></>
+}
+export default MyComponent
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
-"use client";
+"use client"
 
 // Regular synchronous component
 export default function MyComponent() {
-  return <></>;
+  return <></>
 }
 
 // Handling async operations in effects
@@ -67,27 +67,23 @@ export default function MyComponent() {
     }
     fetchData();
   }, []);
-  return <></>;
+  return <></>
 }
 
 // Async operations in event handlers
 export default function MyComponent() {
   const handleClick = async () => {
     // async operations here
-  };
-  return <button onClick={handleClick}>Click me</button>;
+  }
+  return <button onClick={handleClick}>Click me</button>
 }
 ```
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny nextjs/no-async-client-component --nextjs-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -96,6 +92,10 @@ oxlint --deny nextjs/no-async-client-component --nextjs-plugin
     "nextjs/no-async-client-component": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny nextjs/no-async-client-component --nextjs-plugin
 ```
 
 :::

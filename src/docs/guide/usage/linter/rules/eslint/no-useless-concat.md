@@ -40,20 +40,14 @@ var foo = "a" + bar;
 // when the string concatenation is multiline
 
 ```javascript
-var foo = "a"
-  + "b"
-  + "c";
+var foo = "a" + "b" + "c";
 ```
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny no-useless-concat
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -61,6 +55,10 @@ oxlint --deny no-useless-concat
     "no-useless-concat": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny no-useless-concat
 ```
 
 :::

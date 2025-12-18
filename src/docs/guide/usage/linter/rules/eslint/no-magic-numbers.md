@@ -9,7 +9,7 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 <div class="rule-meta">
 <Alert class="fix" type="info">
-<span class="emoji">🚧</span> An auto-fix is still under development.
+<span class="emoji">🚧</span> An auto-fix is planned for this rule, but not implemented at this time.
 </Alert>
 </div>
 
@@ -28,7 +28,7 @@ Examples of **incorrect** code for this rule:
 
 ```javascript
 var dutyFreePrice = 100;
-var finalPrice = dutyFreePrice + (dutyFreePrice * 0.25);
+var finalPrice = dutyFreePrice + dutyFreePrice * 0.25;
 ```
 
 Examples of **correct** code for this rule with option "ignore":
@@ -47,7 +47,7 @@ var item = data[2];
 data[100] = a;
 f(data[0]);
 a = data[-0]; // same as data[0], -0 will be coerced to "0"
-a = data[0xAB];
+a = data[0xab];
 a = data[5.6e1];
 a = data[4294967294]; // max array index
 ```
@@ -57,7 +57,9 @@ Examples of **correct** code for this rule with option "ignoreDefaultValues":
 ```javascript
 /*typescript no-magic-numbers: ["error", { "ignoreDefaultValues": true }]*/
 const { tax = 0.25 } = accountancy;
-function mapParallel(concurrency = 3) {/***/}
+function mapParallel(concurrency = 3) {
+  /***/
+}
 ```
 
 Examples of **correct** code for this rule with option "ignoreClassFieldInitialValues":
@@ -223,13 +225,9 @@ When true, numeric literals used to index TypeScript types are ignored.
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny no-magic-numbers
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -237,6 +235,10 @@ oxlint --deny no-magic-numbers
     "no-magic-numbers": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny no-magic-numbers
 ```
 
 :::

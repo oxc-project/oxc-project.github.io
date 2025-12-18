@@ -15,11 +15,16 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 ### What it does
 
-Disallow assigning to imported bindings
+Disallow assigning to imported bindings.
 
 ### Why is this bad?
 
 The updates of imported bindings by ES Modules cause runtime errors.
+
+The TypeScript compiler generally enforces this check already. Although
+it should be noted that there are some cases TypeScript does not catch, such
+as assignments via `Object.assign`. So this rule is still useful for
+TypeScript code in those cases.
 
 ### Examples
 
@@ -39,13 +44,9 @@ Object.assign(mod_ns, { foo: "foo" }); // ERROR: The members of 'mod_ns' are rea
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny no-import-assign
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -53,6 +54,10 @@ oxlint --deny no-import-assign
     "no-import-assign": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny no-import-assign
 ```
 
 :::

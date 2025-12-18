@@ -3,6 +3,7 @@
 <script setup>
 import { data } from '../version.data.js';
 const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_linter/src/rules/typescript/no_unnecessary_boolean_literal_compare.rs`;
+const tsgolintSource = `https://github.com/oxc-project/tsgolint/blob/main/internal/rules/no_unnecessary_boolean_literal_compare/no_unnecessary_boolean_literal_compare.go`;
 </script>
 
 # typescript/no-unnecessary-boolean-literal-compare <Badge type="info" text="Suspicious" />
@@ -12,7 +13,7 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 <span class="emoji">💭</span> This rule requires <a href="https://oxc.rs/docs/guide/usage/linter/type-aware.html" target="_blank" rel="noreferrer">type information</a>.
 </Alert>
 <Alert class="fix" type="info">
-<span class="emoji">🚧</span> An auto-fix is still under development.
+<span class="emoji">🚧</span> An auto-fix is planned for this rule, but not implemented at this time.
 </Alert>
 </div>
 
@@ -103,13 +104,9 @@ This is not recommended as the rule may produce incorrect results.
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --type-aware --deny typescript/no-unnecessary-boolean-literal-compare
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -119,8 +116,13 @@ oxlint --type-aware --deny typescript/no-unnecessary-boolean-literal-compare
 }
 ```
 
+```bash [CLI]
+oxlint --type-aware --deny typescript/no-unnecessary-boolean-literal-compare
+```
+
 :::
 
 ## References
 
 - <a v-bind:href="source" target="_blank" rel="noreferrer">Rule Source</a>
+- <a v-bind:href="tsgolintSource" target="_blank" rel="noreferrer">Rule Source (tsgolint)</a>

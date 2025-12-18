@@ -23,7 +23,7 @@ export const enConfig = defineLocaleConfig("root", {
       {
         text: "Resources",
         items: [
-          { text: "Blog", link: "/blog/2025-12-01-oxfmt-alpha" },
+          { text: "Blog", link: "/blog/2025-12-08-type-aware-alpha" },
           { text: "Team", link: "/team" },
           { text: "Release Notes", link: "https://github.com/oxc-project/oxc/releases" },
           { text: "Branding", link: "/branding" },
@@ -100,6 +100,10 @@ export const enConfig = defineLocaleConfig("root", {
                 {
                   text: "Configuration file reference",
                   link: "/docs/guide/usage/formatter/config-file-reference",
+                },
+                {
+                  text: "Migrating from Prettier",
+                  link: "/docs/guide/usage/formatter/migrate-from-prettier",
                 },
               ],
             },
@@ -254,6 +258,7 @@ export const enConfig = defineLocaleConfig("root", {
               link: "/docs/contribute/transformer",
             },
             { text: "Minifier", link: "/docs/contribute/minifier" },
+            { text: "Language Server", link: "/docs/contribute/language_server" },
             { text: "VSCode", link: "/docs/contribute/vscode" },
           ],
         },

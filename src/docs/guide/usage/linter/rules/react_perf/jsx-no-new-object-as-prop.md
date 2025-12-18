@@ -39,18 +39,14 @@ Examples of **incorrect** code for this rule:
 Examples of **correct** code for this rule:
 
 ```jsx
-<Item config={staticConfig} />;
+<Item config={staticConfig} />
 ```
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny react-perf/jsx-no-new-object-as-prop --react-perf-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -59,6 +55,10 @@ oxlint --deny react-perf/jsx-no-new-object-as-prop --react-perf-plugin
     "react-perf/jsx-no-new-object-as-prop": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny react-perf/jsx-no-new-object-as-prop --react-perf-plugin
 ```
 
 :::

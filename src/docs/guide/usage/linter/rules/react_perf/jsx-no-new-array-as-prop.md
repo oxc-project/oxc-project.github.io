@@ -38,18 +38,14 @@ Examples of **incorrect** code for this rule:
 Examples of **correct** code for this rule:
 
 ```jsx
-<Item list={this.props.list} />;
+<Item list={this.props.list} />
 ```
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny react-perf/jsx-no-new-array-as-prop --react-perf-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -58,6 +54,10 @@ oxlint --deny react-perf/jsx-no-new-array-as-prop --react-perf-plugin
     "react-perf/jsx-no-new-array-as-prop": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny react-perf/jsx-no-new-array-as-prop --react-perf-plugin
 ```
 
 :::

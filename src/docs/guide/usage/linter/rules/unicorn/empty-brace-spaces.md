@@ -31,8 +31,7 @@ Examples of **incorrect** code for this rule:
 
 ```javascript
 const a = {};
-class A {
-}
+class A {}
 ```
 
 Examples of **correct** code for this rule:
@@ -44,13 +43,9 @@ class A {}
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny unicorn/empty-brace-spaces
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -58,6 +53,10 @@ oxlint --deny unicorn/empty-brace-spaces
     "unicorn/empty-brace-spaces": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny unicorn/empty-brace-spaces
 ```
 
 :::

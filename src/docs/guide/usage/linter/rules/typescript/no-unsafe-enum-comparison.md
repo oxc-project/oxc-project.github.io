@@ -3,6 +3,7 @@
 <script setup>
 import { data } from '../version.data.js';
 const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_linter/src/rules/typescript/no_unsafe_enum_comparison.rs`;
+const tsgolintSource = `https://github.com/oxc-project/tsgolint/blob/main/internal/rules/no_unsafe_enum_comparison/no_unsafe_enum_comparison.go`;
 </script>
 
 # typescript/no-unsafe-enum-comparison <Badge type="info" text="Suspicious" />
@@ -12,7 +13,7 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 <span class="emoji">💭</span> This rule requires <a href="https://oxc.rs/docs/guide/usage/linter/type-aware.html" target="_blank" rel="noreferrer">type information</a>.
 </Alert>
 <Alert class="fix" type="info">
-<span class="emoji">🚧</span> An auto-fix is still under development.
+<span class="emoji">🚧</span> An auto-fix is planned for this rule, but not implemented at this time.
 </Alert>
 </div>
 
@@ -44,13 +45,16 @@ declare const color: Color;
 declare const str: string;
 
 // Comparing enum with different enum
-if (status === color) {} // unsafe
+if (status === color) {
+} // unsafe
 
 // Comparing enum with string (unless it's a literal that matches)
-if (status === str) {} // unsafe
+if (status === str) {
+} // unsafe
 
 // Comparing with arbitrary value
-if (status === "unknown") {} // unsafe
+if (status === "unknown") {
+} // unsafe
 ```
 
 Examples of **correct** code for this rule:
@@ -64,24 +68,23 @@ enum Status {
 declare const status: Status;
 
 // Comparing with same enum values
-if (status === Status.Open) {} // safe
+if (status === Status.Open) {
+} // safe
 
 // Comparing with the correct literal type
-if (status === "open") {} // safe
+if (status === "open") {
+} // safe
 
 // Using enum methods
-if (Object.values(Status).includes(someValue)) {} // safe way to check
+if (Object.values(Status).includes(someValue)) {
+} // safe way to check
 ```
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --type-aware --deny typescript/no-unsafe-enum-comparison
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -91,8 +94,13 @@ oxlint --type-aware --deny typescript/no-unsafe-enum-comparison
 }
 ```
 
+```bash [CLI]
+oxlint --type-aware --deny typescript/no-unsafe-enum-comparison
+```
+
 :::
 
 ## References
 
 - <a v-bind:href="source" target="_blank" rel="noreferrer">Rule Source</a>
+- <a v-bind:href="tsgolintSource" target="_blank" rel="noreferrer">Rule Source (tsgolint)</a>

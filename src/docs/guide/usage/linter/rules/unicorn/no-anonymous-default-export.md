@@ -25,10 +25,10 @@ Examples of **incorrect** code for this rule:
 
 ```javascript
 export default class {}
-export default function() {}
+export default function () {}
 export default () => {};
 module.exports = class {};
-module.exports = function() {};
+module.exports = function () {};
 module.exports = () => {};
 ```
 
@@ -36,13 +36,13 @@ Examples of **correct** code for this rule:
 
 ```javascript
 export default class Foo {}
-export default function foo() {}
+export default function foo () {}
 
 const foo = () => {};
 export default foo;
 
 module.exports = class Foo {};
-module.exports = function foo() {};
+module.exports = function foo () {};
 
 const foo = () => {};
 module.exports = foo;
@@ -50,13 +50,9 @@ module.exports = foo;
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny unicorn/no-anonymous-default-export
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -64,6 +60,10 @@ oxlint --deny unicorn/no-anonymous-default-export
     "unicorn/no-anonymous-default-export": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny unicorn/no-anonymous-default-export
 ```
 
 :::

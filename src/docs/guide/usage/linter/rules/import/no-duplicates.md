@@ -36,7 +36,7 @@ import { b } from "./module";
 Examples of **correct** code for this rule:
 
 ```typescript
-import { bar, foo } from "./module";
+import { foo, bar } from "./module";
 
 import * as a from "foo"; // separate statements for namespace imports
 import { b } from "foo";
@@ -61,18 +61,14 @@ statements for TypeScript code.
 Examples of **correct** code with this option set to `true`:
 
 ```typescript
-import { type Bar, Foo } from "./module";
+import { Foo, type Bar } from "./module";
 ```
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny import/no-duplicates --import-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -81,6 +77,10 @@ oxlint --deny import/no-duplicates --import-plugin
     "import/no-duplicates": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny import/no-duplicates --import-plugin
 ```
 
 :::

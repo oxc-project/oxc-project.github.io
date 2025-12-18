@@ -38,7 +38,7 @@ Examples of **incorrect** code for this rule:
 Examples of **correct** code for this rule:
 
 ```jsx
-<div />;
+<div />
 ```
 
 ## Configuration
@@ -55,13 +55,9 @@ Determines if developer-created components are checked.
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny jsx-a11y/no-autofocus --jsx-a11y-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -70,6 +66,10 @@ oxlint --deny jsx-a11y/no-autofocus --jsx-a11y-plugin
     "jsx-a11y/no-autofocus": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny jsx-a11y/no-autofocus --jsx-a11y-plugin
 ```
 
 :::

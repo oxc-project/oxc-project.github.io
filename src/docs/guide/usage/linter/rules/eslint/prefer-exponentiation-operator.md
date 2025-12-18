@@ -12,11 +12,11 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 ### What it does
 
-Disallow the use of Math.pow in favor of the ** operator
+Disallow the use of Math.pow in favor of the \*\* operator
 
 ### Why is this bad?
 
-Introduced in ES2016, the infix exponentiation operator ** is an alternative for the
+Introduced in ES2016, the infix exponentiation operator \*\* is an alternative for the
 standard Math.pow function. Infix notation is considered to be more readable and thus more
 preferable than the function notation.
 
@@ -36,13 +36,9 @@ a ** b;
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny prefer-exponentiation-operator
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -50,6 +46,10 @@ oxlint --deny prefer-exponentiation-operator
     "prefer-exponentiation-operator": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny prefer-exponentiation-operator
 ```
 
 :::

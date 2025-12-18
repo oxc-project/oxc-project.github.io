@@ -45,38 +45,31 @@ const { bar = "default" } = defineProps<{ bar?: string }>();
 </script>
 ```
 
-### Options
-
-```json
-{
-  "vue/define-props-destructuring": ["error", {
-    "destructure": "always" | "never"
-  }]
-}
-```
-
-`destructure` - Sets the destructuring preference for props
-
-- `"always"` (default) - Requires destructuring when using `defineProps` and warns against using `withDefaults` with destructuring
-- `"never"` - Requires using a variable to store props and prohibits destructuring
-
 ## Configuration
 
 This rule accepts a configuration object with the following properties:
 
 ### destructure
 
-type: `null | null`
+type: `"always" | "never"`
+
+default: `"always"`
+
+Require or prohibit destructuring.
+
+#### `"always"`
+
+Requires destructuring when using `defineProps` and warns against using `withDefaults` with destructuring
+
+#### `"never"`
+
+Requires using a variable to store props and prohibits destructuring
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny vue/define-props-destructuring --vue-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -85,6 +78,10 @@ oxlint --deny vue/define-props-destructuring --vue-plugin
     "vue/define-props-destructuring": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny vue/define-props-destructuring --vue-plugin
 ```
 
 :::

@@ -81,6 +81,16 @@ Oxc is organized into several crates:
 
 We are committed to providing a welcoming and inclusive experience for everyone. Please read our [Code of Conduct](https://github.com/oxc-project/oxc/blob/main/CODE_OF_CONDUCT.md) before participating.
 
+### AI Usage Policy
+
+When using AI tools (including LLMs like ChatGPT, Claude, Copilot, etc.) to contribute to Oxc:
+
+- **Please disclose AI usage** to reduce maintainer fatigue
+- **You are responsible** for all AI-generated issues or PRs you submit
+- **Low-quality or unreviewed AI content will be closed immediately**
+
+We encourage the use of AI tools to assist with development, but all contributions must be thoroughly reviewed and tested by the contributor before submission. AI-generated code should be understood, validated, and adapted to meet Oxc's standards.
+
 ## Next Steps
 
 Ready to contribute? Here are some great places to start:

@@ -26,39 +26,35 @@ When both an identifier and a number literal are in lower case, it can be hard t
 Examples of **incorrect** code for this rule:
 
 ```javascript
-const foo = 0XFF;
 const foo = 0xff;
-const foo = 0Xff;
-const foo = 0Xffn;
+const foo = 0xff;
+const foo = 0xff;
+const foo = 0xffn;
 
-const foo = 0B10;
-const foo = 0B10n;
+const foo = 0b10;
+const foo = 0b10n;
 
-const foo = 0O76;
-const foo = 0O76n;
+const foo = 0o76;
+const foo = 0o76n;
 
-const foo = 2E-5;
+const foo = 2e-5;
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
-const foo = 0xFF;
+const foo = 0xff;
 const foo = 0b10;
 const foo = 0o76;
-const foo = 0xFFn;
-const foo = 2e+5;
+const foo = 0xffn;
+const foo = 2e5;
 ```
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny unicorn/number-literal-case
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -66,6 +62,10 @@ oxlint --deny unicorn/number-literal-case
     "unicorn/number-literal-case": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny unicorn/number-literal-case
 ```
 
 :::

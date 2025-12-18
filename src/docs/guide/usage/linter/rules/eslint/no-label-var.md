@@ -26,8 +26,7 @@ Examples of **incorrect** code for this rule:
 ```js
 var x = foo;
 function bar() {
-  x:
-  for (;;) {
+  x: for (;;) {
     break x;
   }
 }
@@ -43,8 +42,7 @@ function foo() {
 }
 
 function bar() {
-  q:
-  for (;;) {
+  q: for (;;) {
     break q;
   }
 }
@@ -52,13 +50,9 @@ function bar() {
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny no-label-var
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -66,6 +60,10 @@ oxlint --deny no-label-var
     "no-label-var": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny no-label-var
 ```
 
 :::

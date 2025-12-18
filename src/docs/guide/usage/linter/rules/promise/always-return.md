@@ -26,7 +26,7 @@ This causes the next `then()` in the chain to execute immediately without waitin
 Examples of **incorrect** code for this rule:
 
 ```javascript
-myPromise.then(function(val) {});
+myPromise.then(function (val) {});
 myPromise.then(() => {
   doSomething();
 });
@@ -43,7 +43,7 @@ Examples of **correct** code for this rule:
 
 ```javascript
 myPromise.then((val) => val * 2);
-myPromise.then(function(val) {
+myPromise.then(function (val) {
   return val * 2;
 });
 myPromise.then(doSomething); // could be either
@@ -156,13 +156,9 @@ function foo() {
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny promise/always-return --promise-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -171,6 +167,10 @@ oxlint --deny promise/always-return --promise-plugin
     "promise/always-return": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny promise/always-return --promise-plugin
 ```
 
 :::

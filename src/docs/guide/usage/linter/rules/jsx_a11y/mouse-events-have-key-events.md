@@ -24,13 +24,13 @@ AT compatibility, and screen reader users.
 Examples of **incorrect** code for this rule:
 
 ```jsx
-<div onMouseOver={() => void 0} />;
+<div onMouseOver={() => void 0} />
 ```
 
 Examples of **correct** code for this rule:
 
 ```jsx
-<div onMouseOver={() => void 0} onFocus={() => void 0} />;
+<div onMouseOver={() => void 0} onFocus={() => void 0} />
 ```
 
 ## Configuration
@@ -55,13 +55,9 @@ List of hover-out mouse event handlers that require corresponding keyboard event
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny jsx-a11y/mouse-events-have-key-events --jsx-a11y-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -70,6 +66,10 @@ oxlint --deny jsx-a11y/mouse-events-have-key-events --jsx-a11y-plugin
     "jsx-a11y/mouse-events-have-key-events": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny jsx-a11y/mouse-events-have-key-events --jsx-a11y-plugin
 ```
 
 :::

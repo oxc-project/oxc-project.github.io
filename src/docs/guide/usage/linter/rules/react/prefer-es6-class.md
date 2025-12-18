@@ -25,7 +25,7 @@ Examples of **incorrect** code for this rule:
 
 ```jsx
 var Hello = createReactClass({
-  render: function() {
+  render: function () {
     return <div>Hello {this.props.name}</div>;
   },
 });
@@ -45,13 +45,9 @@ Do not allow ES6 class-style
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny react/prefer-es6-class --react-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -60,6 +56,10 @@ oxlint --deny react/prefer-es6-class --react-plugin
     "react/prefer-es6-class": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny react/prefer-es6-class --react-plugin
 ```
 
 :::

@@ -44,9 +44,7 @@ it("bar", () => {
 
 it("baz", async () => {
   const promiseValue = () => {
-    return something instanceof Promise
-      ? something
-      : Promise.resolve(something);
+    return something instanceof Promise ? something : Promise.resolve(something);
   };
 
   await expect(promiseValue()).resolves.toBe(1);
@@ -79,7 +77,7 @@ it("bar", () => {
   expect(fixtures.length).toBeGreaterThan(-1);
 });
 
-const promiseValue = something => {
+const promiseValue = (something) => {
   return something instanceof Promise ? something : Promise.resolve(something);
 };
 
@@ -88,15 +86,22 @@ it("baz", async () => {
 });
 ```
 
+This rule is compatible with [eslint-plugin-vitest](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/no-conditional-in-test.md),
+to use it, add the following configuration to your `.oxlintrc.json`:
+
+```json
+{
+  "rules": {
+    "vitest/no-conditional-in-test": "error"
+  }
+}
+```
+
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny jest/no-conditional-in-test --jest-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -105,6 +110,10 @@ oxlint --deny jest/no-conditional-in-test --jest-plugin
     "jest/no-conditional-in-test": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny jest/no-conditional-in-test --jest-plugin
 ```
 
 :::

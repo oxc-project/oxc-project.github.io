@@ -36,7 +36,8 @@ Examples of **incorrect** code for this rule:
 
 if (foo) foo++;
 while (bar) bar--;
-do foo(); while (bar);
+do foo();
+while (bar);
 ```
 
 Examples of **correct** code for this rule:
@@ -86,13 +87,9 @@ Examples of **incorrect** code for this rule with the `"multi-line"` option:
 /* curly: ["error", "multi-line"] */
 
 if (foo) foo();
-else {
-  bar();
-}
+else bar();
 
-while (foo) {
-  foo();
-}
+while (foo) foo();
 ```
 
 Examples of **correct** code for this rule with the `"multi-line"` option:
@@ -118,13 +115,9 @@ Examples of **incorrect** code for this rule with the `"multi-or-nest"` option:
 ```js
 /* curly: ["error", "multi-or-nest"] */
 
-if (foo) {
-  if (bar) bar();
-}
+if (foo) if (bar) bar();
 
-while (foo) {
-  while (bar) bar();
-}
+while (foo) while (bar) bar();
 ```
 
 Examples of **correct** code for this rule with the `"multi-or-nest"` option:
@@ -190,9 +183,7 @@ Examples of **incorrect** code with `"multi-line"` and `consistent: true`:
 
 if (foo) {
   bar();
-} else {
-  baz();
-}
+} else baz();
 ```
 
 Examples of **correct** code with `"multi-line"` and `consistent: true`:
@@ -256,13 +247,9 @@ Which type of curly brace enforcement to use.
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny curly
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -270,6 +257,10 @@ oxlint --deny curly
     "curly": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny curly
 ```
 
 :::

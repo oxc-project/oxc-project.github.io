@@ -9,7 +9,7 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 <div class="rule-meta">
 <Alert class="fix" type="info">
-<span class="emoji">🚧</span> An auto-fix is still under development.
+<span class="emoji">🚧</span> An auto-fix is planned for this rule, but not implemented at this time.
 </Alert>
 </div>
 
@@ -38,7 +38,7 @@ export function doFoo(foo) {
 }
 
 function doFoo(foo) {
-  const doBar = bar => {
+  const doBar = (bar) => {
     return bar === "bar";
   };
 }
@@ -94,7 +94,7 @@ function doFoo(FooComponent) {
 [Immediately invoked function expressions (IIFE)](https://en.wikipedia.org/wiki/Immediately_invoked_function_expression) are ignored:
 
 ```js
-(function() {
+(function () {
   function doFoo(bar) {
     return bar;
   }
@@ -115,13 +115,9 @@ Whether to check scoping with arrow functions.
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny unicorn/consistent-function-scoping
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -129,6 +125,10 @@ oxlint --deny unicorn/consistent-function-scoping
     "unicorn/consistent-function-scoping": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny unicorn/consistent-function-scoping
 ```
 
 :::

@@ -93,6 +93,17 @@ line 4
 `;
 ```
 
+This rule is compatible with [eslint-plugin-vitest](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/no-large-snapshots.md),
+to use it, add the following configuration to your `.oxlintrc.json`:
+
+```json
+{
+  "rules": {
+    "vitest/no-large-snapshots": "error"
+  }
+}
+```
+
 ## Configuration
 
 This rule accepts a configuration object with the following properties:
@@ -124,13 +135,9 @@ Maximum number of lines allowed for external snapshot files.
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny jest/no-large-snapshots --jest-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -139,6 +146,10 @@ oxlint --deny jest/no-large-snapshots --jest-plugin
     "jest/no-large-snapshots": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny jest/no-large-snapshots --jest-plugin
 ```
 
 :::

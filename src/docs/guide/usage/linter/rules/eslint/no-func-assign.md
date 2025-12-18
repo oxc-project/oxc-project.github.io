@@ -15,7 +15,10 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 ### What it does
 
-Disallow reassigning `function` declarations
+Disallow reassigning `function` declarations.
+
+This rule can be disabled for TypeScript code, as the TypeScript compiler
+enforces this check.
 
 ### Why is this bad?
 
@@ -46,12 +49,13 @@ let a = function hello() {
 Examples of **correct** code for this rule:
 
 ```javascript
-let foo = function() {};
+let foo = function () {};
 foo = bar;
 ```
 
 ```javascript
-function baz(baz) { // `baz` is shadowed.
+function baz(baz) {
+  // `baz` is shadowed.
   baz = bar;
 }
 ```
@@ -64,13 +68,9 @@ function qux() {
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny no-func-assign
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -78,6 +78,10 @@ oxlint --deny no-func-assign
     "no-func-assign": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny no-func-assign
 ```
 
 :::

@@ -28,7 +28,7 @@ This rule aims to standardize the use of `Array#flat()` over legacy techniques t
 Examples of **incorrect** code for this rule:
 
 ```javascript
-const foo = array.flatMap(x => x);
+const foo = array.flatMap((x) => x);
 const foo = array.reduce((a, b) => a.concat(b), []);
 const foo = array.reduce((a, b) => [...a, ...b], []);
 const foo = [].concat(maybeArray);
@@ -48,13 +48,9 @@ const foo = [maybeArray].flat();
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny unicorn/prefer-array-flat
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -62,6 +58,10 @@ oxlint --deny unicorn/prefer-array-flat
     "unicorn/prefer-array-flat": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny unicorn/prefer-array-flat
 ```
 
 :::

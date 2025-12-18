@@ -15,7 +15,7 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 ### What it does
 
-Enforce import from 'vue' instead of import from '@vue/*'.
+Enforce `import from 'vue'` instead of `import from '@vue/*'`.
 
 ### Why is this bad?
 
@@ -31,26 +31,22 @@ Imports from the following modules are almost always wrong. You should import fr
 Examples of **incorrect** code for this rule:
 
 ```js
-import { ref } from "@vue/reactivity";
-import { Component } from "@vue/runtime-core";
 import { createApp } from "@vue/runtime-dom";
+import { Component } from "@vue/runtime-core";
+import { ref } from "@vue/reactivity";
 ```
 
 Examples of **correct** code for this rule:
 
 ```js
-import { Component, createApp, ref } from "vue";
+import { createApp, ref, Component } from "vue";
 ```
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny vue/prefer-import-from-vue --vue-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -59,6 +55,10 @@ oxlint --deny vue/prefer-import-from-vue --vue-plugin
     "vue/prefer-import-from-vue": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny vue/prefer-import-from-vue --vue-plugin
 ```
 
 :::

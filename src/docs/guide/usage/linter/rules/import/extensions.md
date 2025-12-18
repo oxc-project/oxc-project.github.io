@@ -28,19 +28,19 @@ Examples of **incorrect** code for this rule:
 The following patterns are considered problems when configuration set to "always":
 
 ```js
-import foo from "@/foo";
+import foo from "./foo";
 import bar from "./bar";
 import Component from "./Component";
-import foo from "./foo";
+import foo from "@/foo";
 ```
 
 The following patterns are considered problems when configuration set to "never":
 
 ```js
-import express from "express/index.js";
+import foo from "./foo.js";
 import bar from "./bar.json";
 import Component from "./Component.jsx";
-import foo from "./foo.js";
+import express from "express/index.js";
 ```
 
 Examples of **correct** code for this rule:
@@ -48,21 +48,21 @@ Examples of **correct** code for this rule:
 The following patterns are not considered problems when configuration set to "always":
 
 ```js
-import foo from "@/foo.js";
-import * as path from "path";
+import foo from "./foo.js";
 import bar from "./bar.json";
 import Component from "./Component.jsx";
-import foo from "./foo.js";
+import * as path from "path";
+import foo from "@/foo.js";
 ```
 
 The following patterns are not considered problems when configuration set to "never":
 
 ```js
-import express from "express/index";
-import * as path from "path";
+import foo from "./foo";
 import bar from "./bar";
 import Component from "./Component";
-import foo from "./foo";
+import express from "express/index";
+import * as path from "path";
 ```
 
 ## Configuration
@@ -109,7 +109,7 @@ default: `"never"`
 
 Configuration for `.jsx` file extensions.
 
-## requireExtension
+### requireExtension
 
 type: `string | null`
 
@@ -135,13 +135,9 @@ Configuration for `.tsx` file extensions.
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny import/extensions --import-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -150,6 +146,10 @@ oxlint --deny import/extensions --import-plugin
     "import/extensions": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny import/extensions --import-plugin
 ```
 
 :::

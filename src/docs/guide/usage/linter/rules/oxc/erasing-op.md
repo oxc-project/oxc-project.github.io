@@ -18,7 +18,7 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 ### What it does
 
-Checks for erasing operations, e.g., `x * 0``.
+Checks for erasing operations, e.g., `x \* 0``.
 
 Based on https://rust-lang.github.io/rust-clippy/master/#/erasing_op
 
@@ -44,13 +44,9 @@ let y = 0;
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny oxc/erasing-op
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -58,6 +54,10 @@ oxlint --deny oxc/erasing-op
     "oxc/erasing-op": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny oxc/erasing-op
 ```
 
 :::

@@ -29,13 +29,17 @@ Examples of **incorrect** code for this rule:
 ```javascript
 // dep-b.js
 import "./dep-a.js";
-export function b() {/* ... */}
+export function b() {
+  /* ... */
+}
 ```
 
 ```javascript
 // dep-a.js
 import { b } from "./dep-b.js"; // reported: Dependency cycle detected.
-export function a() {/* ... */}
+export function a() {
+  /* ... */
+}
 ```
 
 In this example, `dep-a.js` and `dep-b.js` import each other, creating a circular
@@ -45,13 +49,17 @@ Examples of **correct** code for this rule:
 
 ```javascript
 // dep-b.js
-export function b() {/* ... */}
+export function b() {
+  /* ... */
+}
 ```
 
 ```javascript
 // dep-a.js
 import { b } from "./dep-b.js"; // no circular dependency
-export function a() {/* ... */}
+export function a() {
+  /* ... */
+}
 ```
 
 In this corrected version, `dep-b.js` no longer imports `dep-a.js`, breaking the cycle.
@@ -94,13 +102,9 @@ Maximum dependency depth to traverse
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny import/no-cycle --import-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -109,6 +113,10 @@ oxlint --deny import/no-cycle --import-plugin
     "import/no-cycle": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny import/no-cycle --import-plugin
 ```
 
 :::

@@ -9,7 +9,7 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 <div class="rule-meta">
 <Alert class="fix" type="info">
-<span class="emoji">🚧</span> An auto-fix is still under development.
+<span class="emoji">🚧</span> An auto-fix is planned for this rule, but not implemented at this time.
 </Alert>
 </div>
 
@@ -27,9 +27,9 @@ Wrapping the built-in in a function is moot.
 Examples of **incorrect** code for this rule:
 
 ```javascript
-const foo = v => String(v);
+const foo = (v) => String(v);
 foo(1);
-const foo = v => Number(v);
+const foo = (v) => Number(v);
 array.some((v) => /* comment */ v);
 ```
 
@@ -43,13 +43,9 @@ array.some(Boolean);
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny unicorn/prefer-native-coercion-functions
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -57,6 +53,10 @@ oxlint --deny unicorn/prefer-native-coercion-functions
     "unicorn/prefer-native-coercion-functions": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny unicorn/prefer-native-coercion-functions
 ```
 
 :::

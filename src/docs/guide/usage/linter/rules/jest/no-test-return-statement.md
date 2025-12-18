@@ -38,15 +38,22 @@ test("one", () => {
 });
 ```
 
+This rule is compatible with [eslint-plugin-vitest](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/no-test-return-statement.md),
+to use it, add the following configuration to your `.oxlintrc.json`:
+
+```json
+{
+  "rules": {
+    "vitest/no-test-return-statement": "error"
+  }
+}
+```
+
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny jest/no-test-return-statement --jest-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -55,6 +62,10 @@ oxlint --deny jest/no-test-return-statement --jest-plugin
     "jest/no-test-return-statement": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny jest/no-test-return-statement --jest-plugin
 ```
 
 :::

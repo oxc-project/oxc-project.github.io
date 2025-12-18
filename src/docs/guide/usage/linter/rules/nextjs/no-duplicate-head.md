@@ -12,7 +12,7 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 ### What it does
 
-Prevent duplicate usage of `<Head>` in `pages/_document.js``.
+Prevent duplicate usage of `<Head>` in `pages/\_document.js``.
 
 ### Why is this bad?
 
@@ -23,10 +23,9 @@ This can cause unexpected behavior in your application.
 Examples of **incorrect** code for this rule:
 
 ```jsx
-import Document, { Head, Html, Main, NextScript } from "next/document";
+import Document, { Html, Head, Main, NextScript } from "next/document";
 class MyDocument extends Document {
-  static async getInitialProps(ctx) {
-  }
+  static async getInitialProps(ctx) {}
   render() {
     return (
       <Html>
@@ -46,10 +45,9 @@ export default MyDocument;
 Examples of **correct** code for this rule:
 
 ```jsx
-import Document, { Head, Html, Main, NextScript } from "next/document";
+import Document, { Html, Head, Main, NextScript } from "next/document";
 class MyDocument extends Document {
-  static async getInitialProps(ctx) {
-  }
+  static async getInitialProps(ctx) {}
   render() {
     return (
       <Html>
@@ -67,13 +65,9 @@ export default MyDocument;
 
 ## How to use
 
-To **enable** this rule in the CLI or using the config file, you can use:
+To **enable** this rule using the config file or in the CLI, you can use:
 
 ::: code-group
-
-```bash [CLI]
-oxlint --deny nextjs/no-duplicate-head --nextjs-plugin
-```
 
 ```json [Config (.oxlintrc.json)]
 {
@@ -82,6 +76,10 @@ oxlint --deny nextjs/no-duplicate-head --nextjs-plugin
     "nextjs/no-duplicate-head": "error"
   }
 }
+```
+
+```bash [CLI]
+oxlint --deny nextjs/no-duplicate-head --nextjs-plugin
 ```
 
 :::
