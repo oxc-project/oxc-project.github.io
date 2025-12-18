@@ -56,7 +56,7 @@ You can also define a different name (alias) for a plugin. This is useful if:
 
 - Plugin name clashes with name of a native Oxlint plugin.
 - Plugin name is very long.
-- You want to use a rule from a plugin which Oxlint supports natively, but the particular rule is not implemented yet.
+- You want to use a plugin that Oxlint supports natively, but a specific rule you need is not yet implemented in Oxlint's native version.
 
 ```json
 {
