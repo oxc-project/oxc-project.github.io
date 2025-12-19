@@ -94,6 +94,14 @@ export const enConfig = defineLocaleConfig("root", {
               collapsed: true,
               items: [
                 {
+                  text: "Configuration",
+                  link: "/docs/guide/usage/formatter/config",
+                },
+                {
+                  text: "Integration",
+                  link: "/docs/guide/usage/formatter/integration",
+                },
+                {
                   text: "CLI reference",
                   link: "/docs/guide/usage/formatter/cli",
                 },
