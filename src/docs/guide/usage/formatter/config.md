@@ -14,7 +14,7 @@ We also recommend adding the `$schema` to the config file:
 }
 ```
 
-For full reference, see also [Configuration file reference](./formatter/config-file-reference).
+For full reference, see also [Configuration file reference](./config-file-reference).
 
 By default, `oxfmt` automatically tries to find the nearest `.oxfmtrc.json` or `.oxfmtrc.jsonc` file from the current working directory. If not found, the default configuration options are used.
 
