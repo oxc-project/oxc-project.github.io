@@ -16,9 +16,6 @@
     "sponsors": "degit Boshen/sponsors temp --force && mv temp/sponsors.svg public/sponsors.svg",
     "prepare": "husky"
   },
-  "lint-staged": {
-    "*": "oxfmt"
-  },
   "devDependencies": {
     "@types/markdown-it": "^14.1.2",
     "@types/markdown-it-container": "^2.0.10",
@@ -32,7 +29,7 @@
     "lint-staged": "16.2.7",
     "markdown-it-container": "^4.0.0",
     "oxc-minify": "^0.103.0",
-    "oxfmt": "^0.18.0",
+    "oxfmt": "^0.19.0",
     "oxlint": "^1.32.0",
     "typescript": "~5.9.3",
     "vitepress": "2.0.0-alpha.15",
@@ -40,10 +37,13 @@
     "vue": "^3.5.25",
     "vue-tsc": "^3.1.8"
   },
-  "packageManager": "pnpm@10.25.0",
+  "lint-staged": {
+    "*": "oxfmt"
+  },
   "volta": {
     "node": "22.14.0"
   },
+  "packageManager": "pnpm@10.25.0",
   "pnpm": {
     "overrides": {
       "vitepress>vite": "npm:vite@8.0.0-beta.2"
