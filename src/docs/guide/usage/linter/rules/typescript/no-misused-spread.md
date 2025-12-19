@@ -66,6 +66,55 @@ const str = "hello";
 const arr4 = Array.from(str); // ['h', 'e', 'l', 'l', 'o']
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### allow
+
+type: `array`
+
+default: `[]`
+
+An array of type or value specifiers that are allowed to be spread
+even if they would normally be flagged as misused.
+
+#### allow[n]
+
+type: `string`
+
+Type or value specifier for matching specific declarations
+
+Supports four types of specifiers:
+
+1. **String specifier** (deprecated): Universal match by name
+
+```json
+"Promise"
+```
+
+2. **File specifier**: Match types/values declared in local files
+
+```json
+{ "from": "file", "name": "MyType" }
+{ "from": "file", "name": ["Type1", "Type2"] }
+{ "from": "file", "name": "MyType", "path": "./types.ts" }
+```
+
+3. **Lib specifier**: Match TypeScript built-in lib types
+
+```json
+{ "from": "lib", "name": "Promise" }
+{ "from": "lib", "name": ["Promise", "PromiseLike"] }
+```
+
+4. **Package specifier**: Match types/values from npm packages
+
+```json
+{ "from": "package", "name": "Observable", "package": "rxjs" }
+{ "from": "package", "name": ["Observable", "Subject"], "package": "rxjs" }
+```
+
 ## How to use
 
 To **enable** this rule using the config file or in the CLI, you can use:

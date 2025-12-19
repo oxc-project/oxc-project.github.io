@@ -8,6 +8,9 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 # jest/prefer-called-with <Badge type="info" text="Style" />
 
 <div class="rule-meta">
+<Alert class="fix" type="info">
+<span class="emoji">🛠️</span> An auto-fix is available for this rule.
+</Alert>
 </div>
 
 ### What it does
@@ -38,6 +41,17 @@ expect(noArgsFunction).toBeCalledWith();
 expect(roughArgsFunction).toBeCalledWith(expect.anything(), expect.any(Date));
 expect(anyArgsFunction).toBeCalledTimes(1);
 expect(uncalledFunction).not.toBeCalled();
+```
+
+This rule is compatible with [eslint-plugin-vitest](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/prefer-called-with.md),
+to use it, add the following configuration to your `.oxlintrc.json`:
+
+```json
+{
+  "rules": {
+    "vitest/prefer-called-with": "error"
+  }
+}
 ```
 
 ## How to use
