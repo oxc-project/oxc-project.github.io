@@ -3,18 +3,12 @@
 If you currently use Prettier as your code formatter, you can follow this guide to migrate to Oxfmt.
 
 Note that Oxfmt is in alpha, and may not be suitable for production use in complex setups.
-For the beta milestone, we may provide migration commands.
-
-> oxfmt: `--migrate prettier` · Issue #15849 · oxc-project/oxc\
-> https://github.com/oxc-project/oxc/issues/15849
 
 ## Caveats for migrating to Oxfmt
 
-Before migrating, ensure that the current release of the Oxfmt alpha meets your project's needs. It is almost entirely compatible with Prettier v3.7 already for basic configurations, but less-common config options and other features are not yet implemented.
+Before migrating, ensure that the current release of the Oxfmt alpha meets your project's needs.
 
-<!-- TODO: Remove this note when oxfmt 0.17.0 ships with many of the missing languages. -->
-
-The Oxfmt alpha only supports formatting JavaScript and TypeScript files (including those with JSX syntax). If you need support for non-JSX frameworks like Vue or Ember, or other languages like JSON, YAML, or Markdown, you will likely want to wait.
+It is almost entirely compatible with Prettier v3.7 already for basic configurations, but less-common config options and other features are not yet implemented.
 
 Other important considerations when migrating from Prettier to Oxfmt:
 
@@ -78,6 +72,14 @@ A basic `.oxfmtrc.jsonc` file looks like this:
 If you have a basic `.prettierrc` file, you can simply rename the file with `mv .prettierrc .oxfmtrc.jsonc`.
 
 If you are using something other than JSON to configure Prettier, you will need to convert the configuration to JSON.
+
+In either case, you can use the migrate command in your project root directory.
+
+```sh
+oxfmt --migrate prettier
+```
+
+This command automatically finds your configuration file and converts it to `.oxfmtrc.json` if possible.
 
 ### `prettierrc.js`
 
