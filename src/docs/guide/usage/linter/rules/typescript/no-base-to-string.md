@@ -62,6 +62,20 @@ class CustomToString {
 new CustomToString().toString();
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### ignoredTypeNames
+
+type: `string[]`
+
+default: `["Error", "RegExp", "URL", "URLSearchParams"]`
+
+A list of type names to ignore when checking for unsafe toString usage.
+These types are considered safe to call toString on even if they don't
+provide a custom implementation.
+
 ## How to use
 
 To **enable** this rule using the config file or in the CLI, you can use:

@@ -72,6 +72,18 @@ people.sort((a, b) => a.age - b.age);
 people.sort((a, b) => a.name.localeCompare(b.name));
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### ignoreStringArrays
+
+type: `boolean`
+
+default: `true`
+
+Whether to ignore arrays in which all elements are strings.
+
 ## How to use
 
 To **enable** this rule using the config file or in the CLI, you can use:
