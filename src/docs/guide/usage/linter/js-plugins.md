@@ -19,15 +19,6 @@ All APIs which _are_ implemented should behave identically to ESLint. If you fin
 that's a bug - please [report it](https://github.com/oxc-project/oxc/issues/new?template=linter_bug_report.yaml).
 :::
 
-:::warning
-Some users have reported [out-of-memory errors on Windows](https://github.com/oxc-project/oxc/issues/14375).
-This is due to how Windows manages virtual memory, which does not interface well with Oxlint's "raw transfer" method
-of communicating between Rust and JS.
-
-We are working on a fix. In meantime, if you hit this error, we recommend using
-[WSL](https://learn.microsoft.com/en-us/windows/wsl/) on Windows.
-:::
-
 ## Using JS plugins
 
 1. Add path to the plugin to `.oxlintrc.json` config file, under `jsPlugins`.
