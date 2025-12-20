@@ -40,9 +40,6 @@
   "lint-staged": {
     "*": "oxfmt"
   },
-  "volta": {
-    "node": "22.14.0"
-  },
   "packageManager": "pnpm@10.25.0",
   "pnpm": {
     "overrides": {
