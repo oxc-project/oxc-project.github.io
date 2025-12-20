@@ -38,7 +38,7 @@
     "vue-tsc": "^3.1.8"
   },
   "lint-staged": {
-    "*": "oxfmt"
+    "*": "oxfmt --no-error-on-unmatched-pattern"
   },
   "packageManager": "pnpm@10.25.0",
   "pnpm": {
