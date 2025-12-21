@@ -9,7 +9,7 @@ import { sponsors } from './sponsors'
 </script>
 
 <Hero/>
-<TrustedBy :logos="['mercedes', 'shopify']" />
+<TrustedBy :logos="['mercedes', 'shopify', 'posthog', 'airbnb', 'shopee']" />
 <HeadingSection
   heading="Fast compiler tools for JavaScript"
 />
