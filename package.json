@@ -22,7 +22,7 @@
     "@types/node": "^24.10.2",
     "@vueuse/core": "^14.1.0",
     "degit": "^2.8.4",
-    "esbuild": "0.27.1",
+    "esbuild": "0.27.2",
     "feed": "^5.1.0",
     "husky": "^9.1.7",
     "knip": "^5.72.0",
@@ -40,10 +40,10 @@
   "lint-staged": {
     "*": "oxfmt --no-error-on-unmatched-pattern"
   },
-  "packageManager": "pnpm@10.25.0",
+  "packageManager": "pnpm@10.26.0",
   "pnpm": {
     "overrides": {
-      "vitepress>vite": "npm:vite@8.0.0-beta.2"
+      "vitepress>vite": "npm:vite@8.0.0-beta.3"
     },
     "onlyBuiltDependencies": [
       "esbuild"
