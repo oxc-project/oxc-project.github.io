@@ -13,12 +13,14 @@ import { sponsors } from './sponsors'
 <HeadingSection
   heading="Fast compiler tools for JavaScript"
 />
+<section id="features">
 <FeatureToolbar/>
 <FeatureParser/>
 <FeatureLinter/>
 <FeatureResolver/>
 <FeatureTransformer/>
 <FeatureMinifierFormatter/>
+</section>
 <Spacer />
 <Sponsors
   description="Oxc is free and open source, made possible by wonderful sponsors."
