@@ -378,5 +378,5 @@ Not supported yet:
 - Language server (IDE) support + suggestions.
 - Custom file formats and parsers (e.g. Svelte, Vue, Angular).
 
-We will be implement the remaining features over the next few months, aiming to support 100% of ESLint's
+We will be implementing the remaining features over the next few months, aiming to support 100% of ESLint's
 plugin API surface.
