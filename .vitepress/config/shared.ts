@@ -108,7 +108,7 @@ export const sharedConfig = defineConfig({
     pageData.frontmatter.head.push(["meta", { property: "og:url", content: url }]);
   },
   themeConfig: {
-    variant: 'oxc',
+    variant: "oxc",
     siteTitle: "Oxc",
     logo: "https://cdn.jsdelivr.net/gh/oxc-project/oxc-assets/round.svg",
     search: {
@@ -125,8 +125,6 @@ export const sharedConfig = defineConfig({
       },
     },
     footer: {
-      message: `Released under the MIT License.`,
-      copyright: "Copyright © 2023-present VoidZero Inc.",
       nav: [
         {
           title: "Oxc",
@@ -167,21 +165,21 @@ export const sharedConfig = defineConfig({
     },
   },
   vite: {
-    publicDir: resolve(dirname(fileURLToPath(import.meta.url)), '../../public'),
+    publicDir: resolve(dirname(fileURLToPath(import.meta.url)), "../../public"),
     optimizeDeps: {
-      exclude: ['@docsearch/css'],
+      exclude: ["@docsearch/css"],
     },
     server: {
       fs: {
         // Allow serving files from the linked theme package
-        allow: [resolve(__dirname, '..', '..', '..')],
+        allow: [resolve(__dirname, "..", "..", "..")],
       },
       watch: {
-        ignored: ['!**/node_modules/@voidzero-dev/**'],
+        ignored: ["!**/node_modules/@voidzero-dev/**"],
       },
     },
     ssr: {
-      noExternal: ['@voidzero-dev/vitepress-theme'],
+      noExternal: ["@voidzero-dev/vitepress-theme"],
     },
     plugins: [
       groupIconVitePlugin({
