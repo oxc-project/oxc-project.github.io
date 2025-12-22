@@ -6,16 +6,16 @@ outline: deep
 
 Oxlint supports plugins written in JS - either custom-written, or from NPM.
 
-Oxlint's plugin API is compatible with ESLint, so many existing ESLint plugins should work out of the box with Oxlint.
+Oxlint's plugin API is compatible with ESLint, so most existing ESLint plugins should work out of the box with Oxlint.
 
-We are working towards implementing _all_ of ESLint's plugin APIs, and Oxlint will eventually be able to run
+We are working towards implementing _all_ of ESLint's plugin APIs, and Oxlint will soon be able to run
 _any_ ESLint plugin.
 
 :::warning
 JS plugins are currently in technical preview, and remain under heavy development.
-Not all of ESLint's plugin API is implemented yet (see [here](#api-support)).
+Almost all of ESLint's plugin API is implemented (see [here](#api-support)).
 
-All APIs which _are_ implemented should behave identically to ESLint. If you find any differences in behavior,
+All APIs should behave identically to ESLint. If you find any differences in behavior,
 that's a bug - please [report it](https://github.com/oxc-project/oxc/issues/new?template=linter_bug_report.yaml).
 :::
 
@@ -361,7 +361,7 @@ Rust-JS interop comes into play.
 
 ## API support
 
-Oxlint supports most of ESLint's API surface:
+Oxlint supports almost all of ESLint's API surface:
 
 - AST traversal.
 - AST exploration (`node.parent`, `context.sourceCode.getAncestors`).
@@ -371,13 +371,12 @@ Oxlint supports most of ESLint's API surface:
 - `SourceCode` APIs (e.g. `context.sourceCode.getText(node)`).
 - `SourceCode` tokens APIs (e.g. `context.sourceCode.getTokens(node)`).
 - Scope analysis.
+- Control flow analysis (code paths).
 
 Not supported yet:
 
-- Language server (IDE) support.
-- Suggestions.
-- Control flow analysis.
-- Custom file formats (e.g. Svelte, Vue, Angular).
+- Language server (IDE) support + suggestions.
+- Custom file formats and parsers (e.g. Svelte, Vue, Angular).
 
-We will be filling in the remaining gaps in API over the next few months, aiming to eventually support 100% of ESLint's
+We will be implement the remaining features over the next few months, aiming to support 100% of ESLint's
 plugin API surface.
