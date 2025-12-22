@@ -189,7 +189,9 @@ This rule accepts a configuration object with the following properties:
 
 ### args
 
-type: `"afterUsed" | "all" | "none"`
+type: `"after-used" | "all" | "none"`
+
+default: `"after-used"`
 
 Controls how unused arguments are checked.
 
@@ -202,7 +204,7 @@ This option has three settings:
 2. `all` - All named arguments must be used.
 3. `none` - Do not check arguments.
 
-#### `"afterUsed"`
+#### `"after-used"`
 
 Unused positional arguments that occur before the last used argument
 will not be checked, but all named arguments and all positional
@@ -216,27 +218,97 @@ All named arguments must be used
 
 Do not check arguments
 
+### argsIgnorePattern
+
+Specifies exceptions to this rule for unused arguments. Arguments whose
+names match this pattern will be ignored.
+
+By default, this pattern is `^_` unless options are configured with an
+object. In this case it will default to [`None`]. Note that this
+behavior deviates from both ESLint and TypeScript-ESLint, which never
+provide a default pattern.
+
+#### Example
+
+Examples of **correct** code for this option when the pattern is `^_`:
+
+```javascript
+function foo(_a, b) {
+  console.log(b);
+}
+foo(1, 2);
+```
+
 ### caughtErrors
 
-type: `boolean`
+type: `"all" | "none"`
 
 Used for `catch` block validation.
 
 It has two settings:
 
 - `none` - do not check error objects. This is the default setting.
-- `all` - all named arguments must be used`.
-`none`corresponds to`false`, while `all`corresponds to`true`.
+- `all` - all named arguments must be used.
+
+`none` corresponds to `false`, while `all` corresponds to `true`.
+
+### caughtErrorsIgnorePattern
+
+Specifies exceptions to this rule for errors caught within a `catch` block.
+Variables declared within a `catch` block whose names match this pattern
+will be ignored.
+
+#### Example
+
+Examples of **correct** code when the pattern is `^ignore`:
+
+```javascript
+try {
+  // ...
+} catch (ignoreErr) {
+  console.error("Error caught in catch block");
+}
+```
+
+### destructuredArrayIgnorePattern
+
+This option specifies exceptions within destructuring patterns that will
+not be checked for usage. Variables declared within array destructuring
+whose names match this pattern will be ignored.
+
+By default this pattern is unset.
+
+#### Example
+
+Examples of **correct** code for this option, when the pattern is `^_`:
+
+```javascript
+const [a, _b, c] = ["a", "b", "c"];
+console.log(a + c);
+
+const {
+  x: [_a, foo],
+} = bar;
+console.log(foo);
+
+let _m, n;
+foo.forEach((item) => {
+  [_m, n] = item;
+  console.log(n);
+});
+```
 
 ### ignoreClassWithStaticInitBlock
 
 type: `boolean`
 
-The `ignoreClassWithStaticInitBlock` option is a boolean (default:
-`false`). Static initialization blocks allow you to initialize static
-variables and execute code during the evaluation of a class definition,
-meaning the static block code is executed without creating a new
-instance of the class. When set to true, this option ignores classes
+default: `false`
+
+The `ignoreClassWithStaticInitBlock` option is a boolean. Static
+initialization blocks allow you to initialize static variables and
+execute code during the evaluation of a class definition, meaning
+the static block code is executed without creating a new instance
+of the class. When set to `true`, this option ignores classes
 containing static initialization blocks.
 
 #### Example
@@ -244,7 +316,7 @@ containing static initialization blocks.
 Examples of **incorrect** code for the `{ "ignoreClassWithStaticInitBlock": true }` option
 
 ```javascript
-/*eslint no-unused-vars: ["error", { "ignoreClassWithStaticInitBlock": true }]*/
+/* no-unused-vars: ["error", { "ignoreClassWithStaticInitBlock": true }]*/
 
 class Foo {
   static myProperty = "some string";
@@ -263,7 +335,7 @@ class Bar {
 Examples of **correct** code for the `{ "ignoreClassWithStaticInitBlock": true }` option
 
 ```javascript
-/*eslint no-unused-vars: ["error", { "ignoreClassWithStaticInitBlock": true }]*/
+/* no-unused-vars: ["error", { "ignoreClassWithStaticInitBlock": true }]*/
 
 class Foo {
   static {
@@ -278,11 +350,11 @@ class Foo {
 
 type: `boolean`
 
+default: `false`
+
 Using a Rest property it is possible to "omit" properties from an
 object, but by default the sibling properties are marked as "unused".
 With this option enabled the rest property's siblings are ignored.
-
-By default this option is `false`.
 
 #### Example
 
@@ -300,7 +372,8 @@ var bar;
 
 type: `boolean`
 
-The `ignoreUsingDeclarations` option is a boolean (default: `false`).
+default: `false`
+
 When set to `true`, the rule will ignore variables declared with
 `using` or `await using` declarations, even if they are unused.
 
@@ -313,7 +386,7 @@ purpose is the disposal side effect rather than using the resource.
 Examples of **correct** code for the `{ "ignoreUsingDeclarations": true }` option:
 
 ```javascript
-/*eslint no-unused-vars: ["error", { "ignoreUsingDeclarations": true }]*/
+/* no-unused-vars: ["error", { "ignoreUsingDeclarations": true }]*/
 
 using resource = getResource();
 await using anotherResource = getAnotherResource();
@@ -323,7 +396,9 @@ await using anotherResource = getAnotherResource();
 
 type: `boolean`
 
-The `reportUsedIgnorePattern` option is a boolean (default: `false`).
+default: `false`
+
+The `reportUsedIgnorePattern` option is a boolean.
 Using this option will report variables that match any of the valid
 ignore pattern options (`varsIgnorePattern`, `argsIgnorePattern`,
 `caughtErrorsIgnorePattern`, or `destructuredArrayIgnorePattern`) if
@@ -334,7 +409,7 @@ they have been used.
 Examples of **incorrect** code for the `{ "reportUsedIgnorePattern": true }` option:
 
 ```javascript
-/*eslint no-unused-vars: ["error", { "reportUsedIgnorePattern": true, "varsIgnorePattern": "[iI]gnored" }]*/
+/* no-unused-vars: ["error", { "reportUsedIgnorePattern": true, "varsIgnorePattern": "[iI]gnored" }]*/
 
 var firstVarIgnored = 1;
 var secondVar = 2;
@@ -344,7 +419,7 @@ console.log(firstVarIgnored, secondVar);
 Examples of **correct** code for the `{ "reportUsedIgnorePattern": true }` option:
 
 ```javascript
-/*eslint no-unused-vars: ["error", { "reportUsedIgnorePattern": true, "varsIgnorePattern": "[iI]gnored" }]*/
+/* no-unused-vars: ["error", { "reportUsedIgnorePattern": true, "varsIgnorePattern": "[iI]gnored" }]*/
 
 var firstVar = 1;
 var secondVar = 2;
@@ -355,7 +430,9 @@ console.log(firstVar, secondVar);
 
 type: `boolean`
 
-The `reportVarsOnlyUsedAsTypes` option is a boolean (default: `false`).
+default: `false`
+
+The `reportVarsOnlyUsedAsTypes` option is a boolean.
 
 If `true`, the rule will also report variables that are only used as types.
 
@@ -364,7 +441,7 @@ If `true`, the rule will also report variables that are only used as types.
 Examples of **incorrect** code for the `{ "reportVarsOnlyUsedAsTypes": true }` option:
 
 ```javascript
-/* eslint no-unused-vars: ["error", { "reportVarsOnlyUsedAsTypes": true }] */
+/*  no-unused-vars: ["error", { "reportVarsOnlyUsedAsTypes": true }] */
 
 const myNumber: number = 4;
 export type MyNumber = typeof myNumber
@@ -387,6 +464,8 @@ function foo(): typeof foo {}
 
 type: `"all" | "local"`
 
+default: `"all"`
+
 Controls how usage of a variable in the global scope is checked.
 
 This option has two settings:
@@ -404,6 +483,26 @@ All variables are checked for usage, including those in the global scope.
 
 Checks only that locally-declared variables are used but will allow
 global variables to be unused.
+
+### varsIgnorePattern
+
+Specifies exceptions to this rule for unused variables. Variables whose
+names match this pattern will be ignored.
+
+By default, this pattern is `^_` unless options are configured with an
+object. In this case it will default to [`None`]. Note that this
+behavior deviates from both ESLint and TypeScript-ESLint, which never
+provide a default pattern.
+
+#### Example
+
+Examples of **correct** code for this option when the pattern is `^_`:
+
+```javascript
+var _a = 10;
+var b = 10;
+console.log(b);
+```
 
 ## How to use
 

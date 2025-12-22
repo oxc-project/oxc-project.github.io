@@ -62,6 +62,20 @@ if (typeof unknownValue === "object" && unknownValue !== null && "foo" in unknow
 (anyValue as { foo: string }).foo; // explicitly unsafe but intentional
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### allowOptionalChaining
+
+type: `boolean`
+
+default: `false`
+
+Whether to allow `?.` optional chains on `any` values.
+When `true`, optional chaining on `any` values will not be flagged.
+Default is `false`.
+
 ## How to use
 
 To **enable** this rule using the config file or in the CLI, you can use:

@@ -67,6 +67,8 @@ Use this to extend the rule with additional constructors.
 
 type: `"strict" | "loose"`
 
+default: `"loose"`
+
 Controls which built-in constructors are checked.
 
 - `"loose"` (default): Only checks Array, Function, Error (if `useErrorIsError` is true), and primitive wrappers

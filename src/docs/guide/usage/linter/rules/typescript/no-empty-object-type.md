@@ -65,6 +65,8 @@ This rule accepts a configuration object with the following properties:
 
 type: `"never" | "always" | "with-single-extends"`
 
+default: `"never"`
+
 Whether to allow empty interfaces.
 
 Allowed values are:
@@ -85,6 +87,8 @@ interface Derived extends Base {}
 ### allowObjectTypes
 
 type: `"never" | "always"`
+
+default: `"never"`
 
 Whether to allow empty object type literals.
 

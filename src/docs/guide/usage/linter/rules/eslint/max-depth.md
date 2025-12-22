@@ -70,27 +70,6 @@ function foo() {
 }
 ```
 
-### Options
-
-#### max
-
-`{ type: number, default: 4 }`
-
-The `max` enforces a maximum depth that blocks can be nested
-
-Example:
-
-```json
-"eslint/max-depth": ["error", 4]
-
-"eslint/max-depth": [
-  "error",
-  {
-    max: 4
-  }
-]
-```
-
 ## Configuration
 
 This rule accepts a configuration object with the following properties:
@@ -98,6 +77,10 @@ This rule accepts a configuration object with the following properties:
 ### max
 
 type: `integer`
+
+default: `4`
+
+The `max` enforces a maximum depth that blocks can be nested
 
 ## How to use
 

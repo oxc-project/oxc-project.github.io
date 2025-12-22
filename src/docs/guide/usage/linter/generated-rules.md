@@ -6,7 +6,7 @@ search: false
 
 The progress of all rule implementations is tracked [here](https://github.com/oxc-project/oxc/issues/481).
 
-- Total number of rules: 634
+- Total number of rules: 640
 - Rules turned on by default: 104
 
 **Legend for 'Fixable?' column:**
@@ -17,7 +17,7 @@ The progress of all rule implementations is tracked [here](https://github.com/ox
 - ⚠️💡: a dangerous suggestion is available for this rule
 - 🚧: an auto-fix or suggestion is possible, but currently not implemented
 
-## Correctness (197):
+## Correctness (199):
 
 Code that is outright wrong or useless.
 | Rule name | Source | Default | Fixable? |
@@ -174,6 +174,7 @@ Code that is outright wrong or useless.
 | [no-is-mounted](/docs/guide/usage/linter/rules/react/no-is-mounted.html) | react | | |
 | [no-render-return-value](/docs/guide/usage/linter/rules/react/no-render-return-value.html) | react | | |
 | [no-string-refs](/docs/guide/usage/linter/rules/react/no-string-refs.html) | react | | |
+| [no-unsafe](/docs/guide/usage/linter/rules/react/no-unsafe.html) | react | | |
 | [void-dom-elements-no-children](/docs/guide/usage/linter/rules/react/void-dom-elements-no-children.html) | react | | |
 | [await-thenable](/docs/guide/usage/linter/rules/typescript/await-thenable.html) | typescript | ✅ | 🚧 |
 | [no-array-delete](/docs/guide/usage/linter/rules/typescript/no-array-delete.html) | typescript | ✅ | 🚧 |
@@ -215,6 +216,7 @@ Code that is outright wrong or useless.
 | [prefer-string-starts-ends-with](/docs/guide/usage/linter/rules/unicorn/prefer-string-starts-ends-with.html) | unicorn | ✅ | 🛠️ |
 | [no-conditional-tests](/docs/guide/usage/linter/rules/vitest/no-conditional-tests.html) | vitest | | |
 | [require-local-test-context-for-concurrent-snapshots](/docs/guide/usage/linter/rules/vitest/require-local-test-context-for-concurrent-snapshots.html) | vitest | | 🚧 |
+| [no-deprecated-destroyed-lifecycle](/docs/guide/usage/linter/rules/vue/no-deprecated-destroyed-lifecycle.html) | vue | | 🛠️ |
 | [no-export-in-script-setup](/docs/guide/usage/linter/rules/vue/no-export-in-script-setup.html) | vue | | |
 | [prefer-import-from-vue](/docs/guide/usage/linter/rules/vue/prefer-import-from-vue.html) | vue | | 🛠️ |
 | [valid-define-emits](/docs/guide/usage/linter/rules/vue/valid-define-emits.html) | vue | | 🚧 |
@@ -378,7 +380,7 @@ code that is most likely wrong or useless.
 | [no-required-prop-with-default](/docs/guide/usage/linter/rules/vue/no-required-prop-with-default.html) | vue | | 🚧 |
 | [require-default-export](/docs/guide/usage/linter/rules/vue/require-default-export.html) | vue | | |
 
-## Pedantic (112):
+## Pedantic (113):
 
 Lints which are rather strict or have occasional false positives.
 | Rule name | Source | Default | Fixable? |
@@ -459,6 +461,7 @@ Lints which are rather strict or have occasional false positives.
 | [new-for-builtins](/docs/guide/usage/linter/rules/unicorn/new-for-builtins.html) | unicorn | | |
 | [no-array-callback-reference](/docs/guide/usage/linter/rules/unicorn/no-array-callback-reference.html) | unicorn | | 🚧 |
 | [no-hex-escape](/docs/guide/usage/linter/rules/unicorn/no-hex-escape.html) | unicorn | | 🛠️ |
+| [no-immediate-mutation](/docs/guide/usage/linter/rules/unicorn/no-immediate-mutation.html) | unicorn | | 🚧 |
 | [no-instanceof-array](/docs/guide/usage/linter/rules/unicorn/no-instanceof-array.html) | unicorn | | 🛠️ |
 | [no-lonely-if](/docs/guide/usage/linter/rules/unicorn/no-lonely-if.html) | unicorn | | |
 | [no-negation-in-equality-check](/docs/guide/usage/linter/rules/unicorn/no-negation-in-equality-check.html) | unicorn | | 💡 |
@@ -496,7 +499,7 @@ Lints which are rather strict or have occasional false positives.
 | [prefer-type-error](/docs/guide/usage/linter/rules/unicorn/prefer-type-error.html) | unicorn | | 🛠️ |
 | [require-number-to-fixed-digits-argument](/docs/guide/usage/linter/rules/unicorn/require-number-to-fixed-digits-argument.html) | unicorn | | 🛠️ |
 
-## Style (176):
+## Style (179):
 
 Code that should be written in a more idiomatic way.
 | Rule name | Source | Default | Fixable? |
@@ -513,6 +516,7 @@ Code that should be written in a more idiomatic way.
 | [id-length](/docs/guide/usage/linter/rules/eslint/id-length.html) | eslint | | |
 | [init-declarations](/docs/guide/usage/linter/rules/eslint/init-declarations.html) | eslint | | |
 | [max-params](/docs/guide/usage/linter/rules/eslint/max-params.html) | eslint | | |
+| [max-statements](/docs/guide/usage/linter/rules/eslint/max-statements.html) | eslint | | |
 | [new-cap](/docs/guide/usage/linter/rules/eslint/new-cap.html) | eslint | | 🚧 |
 | [no-continue](/docs/guide/usage/linter/rules/eslint/no-continue.html) | eslint | | |
 | [no-duplicate-imports](/docs/guide/usage/linter/rules/eslint/no-duplicate-imports.html) | eslint | | 🚧 |
@@ -666,10 +670,12 @@ Code that should be written in a more idiomatic way.
 | [prefer-string-trim-start-end](/docs/guide/usage/linter/rules/unicorn/prefer-string-trim-start-end.html) | unicorn | | 🛠️ |
 | [prefer-structured-clone](/docs/guide/usage/linter/rules/unicorn/prefer-structured-clone.html) | unicorn | | 💡 |
 | [require-array-join-separator](/docs/guide/usage/linter/rules/unicorn/require-array-join-separator.html) | unicorn | | 🛠️ |
+| [require-module-attributes](/docs/guide/usage/linter/rules/unicorn/require-module-attributes.html) | unicorn | | 💡 |
 | [switch-case-braces](/docs/guide/usage/linter/rules/unicorn/switch-case-braces.html) | unicorn | | 🛠️ |
 | [text-encoding-identifier-case](/docs/guide/usage/linter/rules/unicorn/text-encoding-identifier-case.html) | unicorn | | 🛠️ |
 | [throw-new-error](/docs/guide/usage/linter/rules/unicorn/throw-new-error.html) | unicorn | | 🛠️ |
 | [no-import-node-test](/docs/guide/usage/linter/rules/vitest/no-import-node-test.html) | vitest | | 🛠️ |
+| [prefer-called-times](/docs/guide/usage/linter/rules/vitest/prefer-called-times.html) | vitest | | 🛠️ |
 | [prefer-to-be-falsy](/docs/guide/usage/linter/rules/vitest/prefer-to-be-falsy.html) | vitest | | 🛠️ |
 | [prefer-to-be-object](/docs/guide/usage/linter/rules/vitest/prefer-to-be-object.html) | vitest | | 🛠️ |
 | [prefer-to-be-truthy](/docs/guide/usage/linter/rules/vitest/prefer-to-be-truthy.html) | vitest | | 🛠️ |
