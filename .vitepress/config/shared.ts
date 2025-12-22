@@ -2,7 +2,11 @@ import { readFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { defineConfig, HeadConfig } from "vitepress";
-import { groupIconMdPlugin, groupIconVitePlugin } from "vitepress-plugin-group-icons";
+import {
+  groupIconMdPlugin,
+  groupIconVitePlugin,
+  localIconLoader,
+} from "vitepress-plugin-group-icons";
 
 function inlineScript(file: string): HeadConfig {
   return ["script", {}, readFileSync(resolve(__dirname, `./inlined-scripts/${file}`), "utf-8")];
@@ -13,7 +17,8 @@ const head: HeadConfig[] = [
     "link",
     {
       rel: "icon",
-      href: "https://cdn.jsdelivr.net/gh/oxc-project/oxc-assets/square.ico",
+      type: "image/svg+xml",
+      href: "/logo-without-border.svg",
     },
   ],
   // Open Graph
@@ -184,7 +189,7 @@ export const sharedConfig = defineConfig({
     plugins: [
       groupIconVitePlugin({
         customIcon: {
-          ".oxlintrc": "https://cdn.jsdelivr.net/gh/oxc-project/oxc-assets/round.svg",
+          ".oxlintrc": localIconLoader(import.meta.url, "../../public/logo-without-border.svg"),
         },
       }),
     ],
