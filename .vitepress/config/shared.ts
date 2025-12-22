@@ -2,7 +2,11 @@ import { readFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { defineConfig, HeadConfig } from "vitepress";
-import { groupIconMdPlugin, groupIconVitePlugin } from "vitepress-plugin-group-icons";
+import {
+  groupIconMdPlugin,
+  groupIconVitePlugin,
+  localIconLoader,
+} from "vitepress-plugin-group-icons";
 
 function inlineScript(file: string): HeadConfig {
   return ["script", {}, readFileSync(resolve(__dirname, `./inlined-scripts/${file}`), "utf-8")];
@@ -13,7 +17,8 @@ const head: HeadConfig[] = [
     "link",
     {
       rel: "icon",
-      href: "https://cdn.jsdelivr.net/gh/oxc-project/oxc-assets/square.ico",
+      type: "image/svg+xml",
+      href: "/logo-without-border.svg",
     },
   ],
   // Open Graph
@@ -108,7 +113,7 @@ export const sharedConfig = defineConfig({
     pageData.frontmatter.head.push(["meta", { property: "og:url", content: url }]);
   },
   themeConfig: {
-    variant: 'oxc',
+    variant: "oxc",
     siteTitle: "Oxc",
     logo: "https://cdn.jsdelivr.net/gh/oxc-project/oxc-assets/round.svg",
     search: {
@@ -167,26 +172,26 @@ export const sharedConfig = defineConfig({
     },
   },
   vite: {
-    publicDir: resolve(dirname(fileURLToPath(import.meta.url)), '../../public'),
+    publicDir: resolve(dirname(fileURLToPath(import.meta.url)), "../../public"),
     optimizeDeps: {
-      exclude: ['@docsearch/css'],
+      exclude: ["@docsearch/css"],
     },
     server: {
       fs: {
         // Allow serving files from the linked theme package
-        allow: [resolve(__dirname, '..', '..', '..')],
+        allow: [resolve(__dirname, "..", "..", "..")],
       },
       watch: {
-        ignored: ['!**/node_modules/@voidzero-dev/**'],
+        ignored: ["!**/node_modules/@voidzero-dev/**"],
       },
     },
     ssr: {
-      noExternal: ['@voidzero-dev/vitepress-theme'],
+      noExternal: ["@voidzero-dev/vitepress-theme"],
     },
     plugins: [
       groupIconVitePlugin({
         customIcon: {
-          ".oxlintrc": "https://cdn.jsdelivr.net/gh/oxc-project/oxc-assets/round.svg",
+          ".oxlintrc": localIconLoader(import.meta.url, "../../public/logo-without-border.svg"),
         },
       }),
     ],
