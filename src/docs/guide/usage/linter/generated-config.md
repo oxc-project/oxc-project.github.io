@@ -578,6 +578,28 @@ type: `string`
 
 type: `string`
 
+#### settings.react.version
+
+type: `string | null`
+
+default: `null`
+
+React version to use for version-specific rules.
+
+Accepts semver versions (e.g., "18.2.0", "17.0").
+
+Example:
+
+```jsonc
+{
+  "settings": {
+    "react": {
+      "version": "18.2.0",
+    },
+  },
+}
+```
+
 ### settings.vitest
 
 type: `object`

@@ -58,7 +58,6 @@ type: `boolean`
 default: `true`
 
 When `true`, warns on implicit boolean coercion (e.g., `!!foo`).
-Default: `true`
 
 ### disallowTemplateShorthand
 
@@ -67,7 +66,6 @@ type: `boolean`
 default: `false`
 
 When `true`, disallows using template literals for string coercion (e.g., `` `${foo}` ``).
-Default: `false`
 
 ### number
 
@@ -76,7 +74,6 @@ type: `boolean`
 default: `true`
 
 When `true`, warns on implicit number coercion (e.g., `+foo`).
-Default: `true`
 
 ### string
 
@@ -85,7 +82,6 @@ type: `boolean`
 default: `true`
 
 When `true`, warns on implicit string coercion (e.g., `"" + foo`).
-Default: `true`
 
 ## How to use
 

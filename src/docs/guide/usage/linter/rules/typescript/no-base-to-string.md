@@ -66,6 +66,16 @@ new CustomToString().toString();
 
 This rule accepts a configuration object with the following properties:
 
+### checkUnknown
+
+type: `boolean`
+
+default: `false`
+
+Whether to also check values of type `unknown`.
+When `true`, calling toString on `unknown` values will be flagged.
+Default is `false`.
+
 ### ignoredTypeNames
 
 type: `string[]`

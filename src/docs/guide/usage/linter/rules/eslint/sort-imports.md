@@ -23,6 +23,8 @@ the code and find necessary imports later.
 
 ### Why is this bad?
 
+Consistent import sorting can be useful for readability and maintainability of code.
+
 ### Examples
 
 Examples of **incorrect** code for this rule:
@@ -74,7 +76,10 @@ When `true`, the rule ignores the sorting of import members within a single impo
 
 type: `array`
 
+default: `["none", "all", "multiple", "single"]`
+
 Specifies the sort order of different import syntaxes.
+Must include all 4 kinds or else this will fall back to default.
 
 #### memberSyntaxSortOrder[n]
 

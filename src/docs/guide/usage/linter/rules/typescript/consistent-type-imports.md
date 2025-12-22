@@ -110,6 +110,8 @@ Disallow using `import()` in type annotations, like `type T = import('foo')`
 
 type: `"separate-type-imports" | "inline-type-imports"`
 
+default: `"separate-type-imports"`
+
 Control how type imports are added when auto-fixing.
 
 #### `"separate-type-imports"`
@@ -123,6 +125,8 @@ Will inline the type keyword `import { type A } from '...'` (only available in T
 ### prefer
 
 type: `"type-imports" | "no-type-imports"`
+
+default: `"type-imports"`
 
 Control whether to enforce type imports or value imports.
 
