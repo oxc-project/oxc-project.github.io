@@ -130,6 +130,7 @@ export const sharedConfig = defineConfig({
       },
     },
     footer: {
+      // @ts-ignore
       nav: [
         {
           title: "Oxc",
