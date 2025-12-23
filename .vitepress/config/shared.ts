@@ -114,6 +114,12 @@ export const sharedConfig = defineConfig({
   },
   themeConfig: {
     variant: "oxc",
+
+    banner: {
+      text: "Announcing Type-Aware Linting Alpha",
+      url: "https://oxc.rs/blog/2025-12-08-type-aware-alpha",
+    },
+
     siteTitle: "Oxc",
     logo: "https://cdn.jsdelivr.net/gh/oxc-project/oxc-assets/round.svg",
     search: {
