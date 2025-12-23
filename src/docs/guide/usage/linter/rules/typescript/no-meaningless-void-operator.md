@@ -64,6 +64,18 @@ function processData() {
 processData(); // no void needed since we don't care about return value
 ```
 
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### checkNever
+
+type: `boolean`
+
+default: `false`
+
+Whether to check `void` applied to expressions of type `never`.
+
 ## How to use
 
 To **enable** this rule using the config file or in the CLI, you can use:

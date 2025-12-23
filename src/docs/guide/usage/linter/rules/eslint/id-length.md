@@ -160,6 +160,8 @@ The minimum number of graphemes required in an identifier.
 
 type: `"always" | "never"`
 
+default: `"always"`
+
 When set to `"never"`, property names are not checked for length.
 When set to `"always"` (default), property names are checked just like other identifiers.
 

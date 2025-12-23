@@ -6,7 +6,8 @@ search: false
 
 Most options are the same as Prettier's options.
 See also <https://prettier.io/docs/options>
-But some options are our own extensions.
+
+In addition, some options are our own extensions.
 
 ## arrowParens
 
@@ -59,41 +60,45 @@ type: `string[]`
 
 ### experimentalSortImports.ignoreCase
 
-type: `boolean`
+type: `boolean | null`
 
-default: `true`
+Ignore case when sorting. (Default: `true`)
 
 ### experimentalSortImports.internalPattern
 
 type: `string[]`
 
+Glob patterns to identify internal imports.
+
 ### experimentalSortImports.newlinesBetween
 
-type: `boolean`
+type: `boolean | null`
 
-default: `true`
+Add newlines between import groups. (Default: `true`)
 
 ### experimentalSortImports.order
 
 type: `string | null`
 
+Sort order. (Default: `"asc"`)
+
 ### experimentalSortImports.partitionByComment
 
-type: `boolean`
+type: `boolean | null`
 
-default: `false`
+Partition imports by comments. (Default: `false`)
 
 ### experimentalSortImports.partitionByNewline
 
-type: `boolean`
+type: `boolean | null`
 
-default: `false`
+Partition imports by newlines. (Default: `false`)
 
 ### experimentalSortImports.sortSideEffects
 
-type: `boolean`
+type: `boolean | null`
 
-default: `false`
+Sort side-effect imports. (Default: `false`)
 
 ## experimentalSortPackageJson
 
@@ -106,6 +111,12 @@ Experimental: Sort `package.json` keys. (Default: `true`)
 type: `string[]`
 
 Ignore files matching these glob patterns. Current working directory is used as the root.
+
+## insertFinalNewline
+
+type: `boolean | null`
+
+Whether to insert a final newline at the end of the file. (Default: `true`)
 
 ## jsxSingleQuote
 

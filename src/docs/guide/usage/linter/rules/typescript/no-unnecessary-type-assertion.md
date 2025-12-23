@@ -65,6 +65,16 @@ const num: number = 42;
 
 This rule accepts a configuration object with the following properties:
 
+### checkLiteralConstAssertions
+
+type: `boolean`
+
+default: `false`
+
+Whether to check literal const assertions like `'foo' as const`.
+When `false` (default), const assertions on literal types are not flagged.
+When `true`, these will be reported as unnecessary since the type is already a literal.
+
 ### typesToIgnore
 
 type: `string[]`

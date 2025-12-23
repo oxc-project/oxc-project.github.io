@@ -24,7 +24,7 @@ outline: deep
   - Minimize the use of the `regex` crate. Use Rust iterators and string methods for better performance.
 - Compile time must be minimized to reduce impact on development workflow and downstream tools.
   - Minimize third-party dependencies to reduce compilation speed and project complexity.
-  - Avoid heavy macros, generics, or any Rust techniques that slow down compilation.
+  - Avoid heavy macros, generics, or any Rust techniques that slow compilation or increase binary size.
   - Our [CI runs](https://github.com/oxc-project/oxc/actions/workflows/ci.yml?query=branch%3Amain) complete in 3 minutes, any regressions need to be fixed.
 
 ## Maintenance Policy

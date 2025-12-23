@@ -46,6 +46,8 @@ This rule accepts a configuration object with the following properties:
 
 type: `"ignore" | "enforce"`
 
+default: `"enforce"`
+
 `custom` set to `ignore` will ignore all custom jsx tags like `App`, `MyCustomComponent` etc. Default is set to `enforce`.
 
 ### exceptions
@@ -66,11 +68,15 @@ This allows you to override the general setting for individual components.
 
 type: `"ignore" | "enforce"`
 
+default: `"enforce"`
+
 `explicitSpread` set to `ignore` will ignore spread operators that are explicitly listing all object properties within that spread. Default is set to `enforce`.
 
 ### html
 
 type: `"ignore" | "enforce"`
+
+default: `"enforce"`
 
 `html` set to `ignore` will ignore all html jsx tags like `div`, `img` etc. Default is set to `enforce`.
 

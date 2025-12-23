@@ -56,7 +56,7 @@ expect(a).toHaveNthReturnedWith();
 expect(a).toThrow();
 ```
 
-This rule is compatible with [eslint-plugin-vitest](https://github.com/veritem/eslint-plugin-vitest/blob/v1.1.9/docs/rules/no-alias-methods.md),
+This rule is compatible with [eslint-plugin-vitest](https://github.com/vitest-dev/eslint-plugin-vitest/blob/v1.1.9/docs/rules/no-alias-methods.md),
 to use it, add the following configuration to your `.oxlintrc.json`:
 
 ```json
