@@ -24,14 +24,17 @@ You can also specify your config file with the `-c yourconfig.jsonc` flag.
 
 `.editorconfig` file is also supported by Oxfmt.
 
-And these fields will override default options.
+And these fields will override default Oxfmt options.
 
 - `end_of_line`: `endOfLine`
 - `indent_style`: `useTabs`
 - `indent_size`: `tabWidth`
 - `max_line_length`: `printWidth`
+- `insert_final_newline`: `insertFinalNewline`
 
 If both `.editorconfig` and `.oxfmtrc.json` has the same field, `.oxfmtrc` will win.
+
+For those properties, glob path overrides also work.
 
 By default, `oxfmt` automatically tries to find the nearest `.editorconfig` file from the current working directory.
 
@@ -43,6 +46,8 @@ By default, `oxfmt` automatically finds the `.gitignore` and `.prettierignore` f
 
 Also you can specify your ignore file by `--ignore-path your.ignore` flag.
 In addition, `.oxfmtrc.json(c)` supports an `ignorePatterns` field.
+
+Defined paths are resolved based on where the file is located, not the current working directory.
 
 Global and nested ignores are not respected.
 
