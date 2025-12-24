@@ -52,3 +52,30 @@ Defined paths are resolved based on where the file is located, not the current w
 Global and nested ignores are not respected.
 
 VCS directories like `.git` and `.svn` are always ignored, also popular lock files are also ignored.
+
+### Ignore comments
+
+For JS/TS files, you can use a `prettier-ignore` comment.
+
+This takes effect on the next statement/expression.
+
+```js
+// prettier-ignore
+const a=42;
+
+/* prettier-ignore */
+const x=()=>{return      2;}
+
+<>
+  {/* prettier-ignore */}
+  <span     ugly  format=''   />
+</>;
+```
+
+(Not documented, but) Prettier supports trailing ignore comment too, but we don't support it to avoid a performance hit.
+Please update your code in that case.
+
+For non-JS files, the same convention as Prettier works.
+Please see Prettier's [documentation](https://prettier.io/docs/ignore#html).
+
+For TOML files, ignore comments are not supported.
