@@ -3,6 +3,7 @@ import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { defineConfig, HeadConfig } from "vitepress";
 import { groupIconMdPlugin, groupIconVitePlugin } from "vitepress-plugin-group-icons";
+import llmstxt from "vitepress-plugin-llms";
 
 function inlineScript(file: string): HeadConfig {
   return ["script", {}, readFileSync(resolve(__dirname, `./inlined-scripts/${file}`), "utf-8")];
@@ -140,6 +141,7 @@ export const sharedConfig = defineConfig({
           ".oxlintrc": "https://cdn.jsdelivr.net/gh/oxc-project/oxc-assets/round.svg",
         },
       }),
+      llmstxt(),
     ],
     resolve: {
       alias: [
