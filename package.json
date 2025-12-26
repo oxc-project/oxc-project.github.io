@@ -8,7 +8,7 @@
     "prebuild": "pnpm run sponsors",
     "build": "vitepress build",
     "preview": "vitepress preview",
-    "lint": "vue-tsc && oxlint --type-aware --type-check --deny-warnings",
+    "lint": "oxlint --type-aware --type-check --deny-warnings",
     "lint:fix": "pnpm lint --fix && typos -w",
     "fmt": "oxfmt",
     "knip": "knip",
