@@ -5,7 +5,7 @@ theme: dark
 ---
 
 <script setup>
-import Home from '../.vitepress/theme/Home.vue'
+import Home from '../.vitepress/theme/landing/Layout.vue'
 </script>
 
 <Home />
