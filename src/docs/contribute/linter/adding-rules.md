@@ -37,7 +37,7 @@ just new-rule no-debugger
 
 This will:
 
-1. Create a new file in `crates/oxc_linter/rules/<plugin-name>/<rule-name>.rs` with the start of your rule's implementation and all test cases ported from ESLint
+1. Create a new file in `crates/oxc_linter/src/rules/<plugin-name>/<rule-name>.rs` with the start of your rule's implementation and all test cases ported from ESLint
 2. Register the rule in the appropriate `mod` in [`rules.rs`](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/src/rules.rs)
 3. Add the rule to `oxc_macros::declare_all_lint_rules!`
 
