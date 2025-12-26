@@ -10,7 +10,7 @@ const features = [
   { id: "feature-minifier", label: "minifier" },
 ];
 
-const activeSection = ref("feature-parser");
+const activeSection = ref(features[0].id);
 const underlineStyle = ref({ left: "0px", width: "0px" });
 const listItems = ref<HTMLElement[]>([]);
 let scrollTimeout: number | null = null;
