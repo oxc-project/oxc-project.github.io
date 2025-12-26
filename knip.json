@@ -4,7 +4,7 @@
     ".vitepress/config/index.ts",
     ".vitepress/theme/index.ts",
     "src/**/*.md!",
-    ".vitepress/theme/components/**/*.vue!"
+    ".vitepress/theme/**/*.vue!"
   ],
   "project": [".vitepress/**/*.{ts,vue}", "src/**/*.md"],
   "ignore": [".vitepress/cache/**", ".vitepress/dist/**", "build/**"],

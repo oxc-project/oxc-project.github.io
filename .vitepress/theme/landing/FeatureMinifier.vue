@@ -1,6 +1,6 @@
 <script setup>
-import RiveAnimation from "@components/shared/RiveAnimation.vue";
-import minifierAnimation from "@assets/oxc/animations/560_x_260_minifier.riv";
+import RiveAnimation from "@voidzero-dev/vitepress-theme/src/components/shared/RiveAnimation.vue";
+import minifierAnimation from "@voidzero-dev/vitepress-theme/src/assets/oxc/animations/560_x_260_minifier.riv";
 </script>
 
 <template>

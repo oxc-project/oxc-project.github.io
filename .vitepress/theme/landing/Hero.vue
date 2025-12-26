@@ -1,6 +1,6 @@
 <script setup>
-import RiveAnimation from "@components/shared/RiveAnimation.vue";
-import oxcAnimation from "@assets/oxc/animations/640_x_630_oxc masthead_.riv";
+import RiveAnimation from "@voidzero-dev/vitepress-theme/src/components/shared/RiveAnimation.vue";
+import oxcAnimation from "@voidzero-dev/vitepress-theme/src/assets/oxc/animations/640_x_630_oxc masthead_.riv";
 </script>
 
 <template>

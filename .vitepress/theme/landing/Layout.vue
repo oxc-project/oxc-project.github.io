@@ -3,7 +3,7 @@ import { sponsors } from "./sponsors";
 
 import Hero from "./Hero.vue";
 // import TrustedBy from '@components/oss/TrustedBy.vue'
-import HeadingSection from "@components/oss/HeadingSection.vue";
+import HeadingSection from "@voidzero-dev/vitepress-theme/src/components/oss/HeadingSection.vue";
 import FeatureToolbar from "./FeatureToolbar.vue";
 import FeatureLinter from "./FeatureLinter.vue";
 import FeatureFormatter from "./FeatureFormatter.vue";
@@ -11,9 +11,9 @@ import FeatureParser from "./FeatureParser.vue";
 import FeatureResolver from "./FeatureResolver.vue";
 import FeatureTransformer from "./FeatureTransformer.vue";
 import FeatureMinifier from "./FeatureMinifier.vue";
-import Sponsors from "@components/oss/Sponsors.vue";
-import Spacer from "@components/shared/Spacer.vue";
-import Footer from "@components/oss/Footer.vue";
+import Sponsors from "@voidzero-dev/vitepress-theme/src/components/oss/Sponsors.vue";
+import Spacer from "@voidzero-dev/vitepress-theme/src/components/shared/Spacer.vue";
+import Footer from "@voidzero-dev/vitepress-theme/src/components/oss/Footer.vue";
 </script>
 
 <template>

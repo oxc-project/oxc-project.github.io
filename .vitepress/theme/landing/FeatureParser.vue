@@ -1,6 +1,6 @@
 <script setup>
-import PerformanceBar from "@components/shared/PerformanceBar.vue";
-import parserBenchmarkBg from "@assets/oxc/oxc-feature-background.jpg";
+import PerformanceBar from "@voidzero-dev/vitepress-theme/src/components/shared/PerformanceBar.vue";
+import parserBenchmarkBg from "@voidzero-dev/vitepress-theme/src/assets/oxc/oxc-feature-background.jpg";
 
 const performanceData = [
   {
