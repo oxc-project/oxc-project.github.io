@@ -115,6 +115,10 @@ export const enConfig = defineLocaleConfig("root", {
               link: "/docs/guide/usage/formatter/config",
             },
             {
+              text: "Ignoring",
+              link: "/docs/guide/usage/formatter/ignoring",
+            },
+            {
               text: "Integration",
               link: "/docs/guide/usage/formatter/integration",
             },
