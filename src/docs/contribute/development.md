@@ -68,3 +68,15 @@ just init
 You can see the list of available commands by running `just`.
 
 You can run `just ready` (or, `just r` in short) to make sure the whole project builds and runs correctly.
+
+## macOS: Faster Compilation
+
+macOS has an antivirus feature called XProtect that scans executables for malware on first run. This can significantly slow down Rust builds, especially build scripts and test executables. You can speed up compilation by adding Terminal as a "developer tool" in System Settings:
+
+1. Open System Settings > Privacy & Security > Developer Tools
+2. Add your terminal app (Terminal, iTerm, etc.)
+3. Restart the terminal app
+
+**Note:** This disables an OS security feature. Only do this if you're comfortable with the trade-off.
+
+More details: https://nnethercote.github.io/2025/09/04/faster-rust-builds-on-mac.html

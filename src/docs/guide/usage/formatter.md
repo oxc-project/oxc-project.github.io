@@ -28,6 +28,7 @@ Waiting on Oxfmt to implement additional features? Consider using [@prettier/plu
 
 - JS, JSX
 - TS, TSX
+- TOML
 - JSON, JSONC, JSON5
 - YAML
 - HTML, Angular, Vue, MJML
@@ -70,7 +71,7 @@ $ deno run npm:oxfmt@latest
 
 :::
 
-Or save it to your package.json:
+Or save it to your `package.json`:
 
 ::: code-group
 
@@ -127,7 +128,7 @@ console.log(code); // "let a = 42"
 
 ## FAQs
 
-### What is the compatibility with Prettier?
+### Are there any formatting differences with Prettier?
 
 For JS/TS files, we're tested against the `v3.7.3` of Prettier.
 
@@ -136,14 +137,14 @@ For known differences, please see this discussion.
 > `Oxfmt` differences with `Prettier` · oxc-project/oxc · Discussion #14669\
 > https://github.com/oxc-project/oxc/discussions/14669
 
-### Are there any limitations for configuration?
+### Are there any limitations for configuration with Prettier?
 
 The following are NOT currently supported:
 
 - `prettier` field in `package.json`
-- File formats other than `.json(c)`
-- Nested configs in sub directories
+- Config file format other than `.json` and `.jsonc`
 - `overrides` field
+- Nested configs in sub directories
 - Nested `.editorconfig` in sub directories
 - `experimentalTernaries` and `experimentalOperatorPosition` option
 
@@ -161,5 +162,7 @@ See more details in the [Configuration file reference](./formatter/config-file-r
 
 ### Why are nested scripts and code blocks not formatted?
 
-Currently, the `embeddedLanguageFormatting` option is `off` by default.
-Please set it to `auto` in your config file.
+Currently, the `embeddedLanguageFormatting` option is `"off"` by default.
+Please set it to `"auto"` in your config file.
+
+However, even with `"auto"`, the contents inside `TaggedTemplateLiteral` in JS/TS files may not be fully formatted in some cases.

@@ -8,11 +8,15 @@ Top level variables are removed when the source type is `module`. This is becaus
 
 It may be surprising that new lines in strings are not removed and replaced with `\n` in minified code. This behavior is because the character escape sequences `\n` is two bytes long while the new line character is one byte long.
 
+<!-- prettier-ignore-start -->
+
 ```js
 // this code is 16 bytes
-const foo = "a\nb";
+const foo="a\nb"
 
 // this code is 15 bytes
-const foo = `a
-b`;
+const foo=`a
+b`
 ```
+
+<!-- prettier-ignore-end -->
