@@ -4,11 +4,15 @@ import { enConfig } from "./en";
 import { rssConfig } from "./rss";
 import { sharedConfig } from "./shared";
 
-export default defineConfig({
-  ...sharedConfig,
-  ...rssConfig,
-  head: [...sharedConfig.head!, ...rssConfig.head!],
-  locales: {
-    ...enConfig,
-  },
-});
+import { extendConfig } from "@voidzero-dev/vitepress-theme/config";
+
+export default extendConfig(
+  defineConfig({
+    ...sharedConfig,
+    ...rssConfig,
+    head: [...sharedConfig.head!, ...rssConfig.head!],
+    locales: {
+      ...enConfig,
+    },
+  }),
+);

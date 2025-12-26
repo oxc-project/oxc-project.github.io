@@ -116,6 +116,7 @@ export const sharedConfig = defineConfig({
     variant: "oxc",
 
     banner: {
+      id: "type-aware-alpha",
       text: "Announcing Type-Aware Linting Alpha",
       url: "https://oxc.rs/blog/2025-12-08-type-aware-alpha",
     },
@@ -183,18 +184,6 @@ export const sharedConfig = defineConfig({
     optimizeDeps: {
       exclude: ["@docsearch/css"],
     },
-    server: {
-      fs: {
-        // Allow serving files from the linked theme package
-        allow: [resolve(__dirname, "..", "..", "..")],
-      },
-      watch: {
-        ignored: ["!**/node_modules/@voidzero-dev/**"],
-      },
-    },
-    ssr: {
-      noExternal: ["@voidzero-dev/vitepress-theme"],
-    },
     plugins: [
       groupIconVitePlugin({
         customIcon: {
@@ -205,19 +194,8 @@ export const sharedConfig = defineConfig({
     resolve: {
       alias: [
         {
-          find: "@components",
-          replacement: resolve(dirname(fileURLToPath(import.meta.url)), "../theme/components"),
-        },
-        {
           find: "@constants",
           replacement: resolve(dirname(fileURLToPath(import.meta.url)), "../theme/constants"),
-        },
-        {
-          find: /^.*\/VPHero\.vue$/,
-          replacement: resolve(
-            dirname(fileURLToPath(import.meta.url)),
-            "../theme/components/Hero.vue",
-          ),
         },
       ],
     },
