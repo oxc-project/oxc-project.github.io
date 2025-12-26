@@ -30,6 +30,19 @@ anywhere can receive live help, build their skills, and pay it forward by becomi
 import SponsorsSVG from '../public/sponsors.svg?raw'
 </script>
 
+<style>
+.Sponsors svg {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .Sponsors svg {
+    max-width: 100%;
+  }
+}
+</style>
+
 <div class="Sponsors">
   <div v-html="SponsorsSVG"></div>
 </div>
