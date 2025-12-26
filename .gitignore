@@ -6,6 +6,7 @@
 
 # Generated files
 /.vitepress/cache
+/public/sponsors.svg
 
 # Misc
 .DS_Store
