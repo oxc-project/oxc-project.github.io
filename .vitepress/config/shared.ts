@@ -4,6 +4,7 @@ import { fileURLToPath } from "node:url";
 import { defineConfig, HeadConfig } from "vitepress";
 import { groupIconMdPlugin, groupIconVitePlugin } from "vitepress-plugin-group-icons";
 import llmstxt from "vitepress-plugin-llms";
+import blogSidebar from "../sidebar.blog.json";
 
 function inlineScript(file: string): HeadConfig {
   return ["script", {}, readFileSync(resolve(__dirname, `./inlined-scripts/${file}`), "utf-8")];
@@ -61,8 +62,17 @@ export const sharedConfig = defineConfig({
   base: "/",
   head,
   lastUpdated: false,
+  ignoreDeadLinks: ["/blog"],
   transformPageData(pageData) {
     pageData.frontmatter.head ??= [];
+
+    // Redirect /blog to the first blog post
+    if (pageData.relativePath === "blog/index.md" && blogSidebar.length > 0) {
+      pageData.frontmatter.head.push([
+        "meta",
+        { "http-equiv": "refresh", content: `0; url=${blogSidebar[0].link}` },
+      ]);
+    }
 
     if (pageData.frontmatter.canonical) {
       pageData.frontmatter.head.push([
