@@ -247,7 +247,7 @@ By default, Oxlint automatically ignores the following:
 
 - **`.git` directories**: Always skipped to avoid linting version control metadata
 - **Minified files**: Files containing `.min.`, `-min.`, or `_min.` in their names (e.g., `bundle.min.js`, `vendor-min.js`)
-- **Files in `.gitignore`**: Only respected when running Oxlint inside a Git repository. Note that global `.gitignore` files are NOT respected.
+- **Files in `.gitignore`**: Respected even without a Git repository. Note that global `.gitignore` files are NOT respected.
 - **Files in `.eslintignore`**: By default, Oxlint reads the `.eslintignore` file in your project root
 
 **Note**: Hidden files (files starting with `.`) are NOT automatically ignored by Oxlint.
