@@ -82,6 +82,11 @@ export const rssConfig = defineConfig({
     );
 
     for (const { url, excerpt, frontmatter, html } of posts) {
+      // Skip the blog index redirect page
+      if (url.endsWith("/blog/") || url.endsWith("/blog/index.html")) {
+        continue;
+      }
+
       const result = url.match(/blog\/(?<dateGroup>\d{4}-\d{2}-\d{2})-.*$/);
       // The date is required by the `feed` package, but the logic that deals with date parsing from blog posts in this repo doesn't guarantee a date
       if (!result || !result.groups) {

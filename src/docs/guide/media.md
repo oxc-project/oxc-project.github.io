@@ -3,7 +3,7 @@ title: On Media
 outline: deep
 ---
 
-# On Media
+# Talks & media
 
 ## Articles
 
