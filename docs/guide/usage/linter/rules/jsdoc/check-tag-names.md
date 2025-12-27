@@ -1,0 +1,127 @@
+---
+url: /docs/guide/usage/linter/rules/jsdoc/check-tag-names.md
+---
+# jsdoc/check-tag-names&#x20;
+
+### What it does
+
+Reports invalid block tag names.
+Additionally checks for tag names that are redundant when using a type checker such as TypeScript.
+
+### Why is this bad?
+
+Using invalid tags can lead to confusion and make the documentation harder to read.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```javascript
+/** @Param */
+/** @foo */
+
+/**
+ * This is redundant when typed.
+ * @type {string}
+ */
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
+/** @param */
+```
+
+### Settings
+
+Configuration for allowed tags is done via [`settings.jsdoc.tagNamePreference`](/docs/guide/usage/linter/config-file-reference.html#settings-jsdoc-tagnamepreference).
+There is no CLI-only parameter for this rule.
+
+You can add custom tags by adding a key-value pair where both match the name of the tag you want to add, like so:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "plugins": ["jsdoc"],
+  "rules": {
+    "jsdoc/check-tag-names": "error"
+  },
+  "settings": {
+    // [!code highlight:7]
+    "jsdoc": {
+      "tagNamePreference": {
+        "customTagName": "customTagName"
+      }
+    }
+  }
+}
+```
+
+:::
+
+Examples of correct code for this rule with the above configuration, adding the `customTagName` tag:
+
+```js
+/**
+ * @customTagName
+ */
+```
+
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### definedTags
+
+type: `string[]`
+
+default: `[]`
+
+Additional tag names to allow.
+
+### jsxTags
+
+type: `boolean`
+
+default: `false`
+
+Whether to allow JSX-related tags:
+
+* `jsx`
+* `jsxFrag`
+* `jsxImportSource`
+* `jsxRuntime`
+
+### typed
+
+type: `boolean`
+
+default: `false`
+
+If typed is `true`, disallow tags that are unnecessary/duplicative of TypeScript functionality.
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "plugins": ["jsdoc"],
+  "rules": {
+    "jsdoc/check-tag-names": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --deny jsdoc/check-tag-names --jsdoc-plugin
+```
+
+:::
+
+## References
+
+* Rule Source

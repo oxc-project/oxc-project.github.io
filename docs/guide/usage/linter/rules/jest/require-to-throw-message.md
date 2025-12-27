@@ -1,0 +1,76 @@
+---
+url: /docs/guide/usage/linter/rules/jest/require-to-throw-message.md
+---
+# jest/require-to-throw-message&#x20;
+
+### What it does
+
+This rule triggers a warning if `toThrow()` or `toThrowError()` is used without an error message.
+
+### Why is this bad?
+
+Using `toThrow()` or `toThrowError()` without specifying an expected error message
+makes tests less specific and harder to debug. When a test only checks that an
+error was thrown but not what kind of error, it can pass even when the wrong
+error is thrown, potentially hiding bugs. Providing an expected error message
+or error type makes tests more precise and helps catch regressions more effectively.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```javascript
+test("all the things", async () => {
+  expect(() => a()).toThrow();
+  expect(() => a()).toThrowError();
+  await expect(a()).rejects.toThrow();
+  await expect(a()).rejects.toThrowError();
+});
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
+test("all the things", async () => {
+  expect(() => a()).toThrow("a");
+  expect(() => a()).toThrowError("a");
+  await expect(a()).rejects.toThrow("a");
+  await expect(a()).rejects.toThrowError("a");
+});
+```
+
+This rule is compatible with [eslint-plugin-vitest](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/require-to-throw-message.md),
+to use it, add the following configuration to your `.oxlintrc.json`:
+
+```json
+{
+  "rules": {
+    "vitest/require-to-throw-message": "error"
+  }
+}
+```
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "plugins": ["jest"],
+  "rules": {
+    "jest/require-to-throw-message": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --deny jest/require-to-throw-message --jest-plugin
+```
+
+:::
+
+## References
+
+* Rule Source

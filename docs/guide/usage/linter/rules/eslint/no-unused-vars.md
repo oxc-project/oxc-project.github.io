@@ -1,0 +1,516 @@
+---
+url: /docs/guide/usage/linter/rules/eslint/no-unused-vars.md
+---
+# eslint/no-unused-vars&#x20;
+
+### What it does
+
+Disallows variable declarations, imports, or type declarations that are
+not used in code.
+
+### Why is this bad?
+
+Variables that are declared and not used anywhere in the code are most
+likely an error due to incomplete refactoring. Such variables take up
+space in the code and can lead to confusion by readers.
+
+```ts
+// `b` is unused; this indicates a bug.
+function add(a: number, b: number) {
+  return a;
+}
+console.log(add(1, 2));
+```
+
+A variable `foo` is considered to be used if any of the following are
+true:
+
+* It is called (`foo()`) or constructed (`new foo()`)
+* It is read (`var bar = foo`)
+* It is passed into a function or constructor as an argument (`doSomething(foo)`)
+* It is read inside of a function that is passed to another function
+  (`doSomething(function() { foo(); })`)
+* It is exported (`export const foo = 42`)
+* It is used as an operand to TypeScript's `typeof` operator (`const bar:
+  typeof foo = 4`)
+
+A variable is *not* considered to be used if it is only ever declared
+(`var foo = 5`) or assigned to (`foo = 7`).
+
+#### Types
+
+This rule has full support for TypeScript types, interfaces, enums, and
+namespaces.
+
+A type or interface `Foo` is considered to be used if it is used in any
+of the following ways:
+
+* It is used in the definition of another type or interface.
+* It is used as a type annotation or as part of a function signature.
+* It is used in a cast or `satisfies` expression.
+
+A type or interface is *not* considered to be used if it is only ever
+used in its own definition, e.g. `type Foo = Array<Foo>`.
+
+Enums and namespaces are treated the same as variables, classes,
+functions, etc.
+
+#### Ignored Files
+
+This rule ignores `.d.ts` files and `.vue` files entirely. Variables,
+classes, interfaces, and types declared in `.d.ts` files are generally
+used by other files, which are not checked by Oxlint. Since Oxlint does
+not support parsing Vue templates, this rule cannot tell if a variable
+is used or unused in a Vue file.
+
+#### Exported
+
+The original ESLint rule recognizes `/* exported variableName */`
+comments as a way to indicate that a variable is used in another script
+and should not be considered unused. Since ES modules are now a TC39
+standard, Oxlint does not support this feature.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```javascript
+/*eslint no-unused-vars: "error"*/
+/*global some_unused_var*/
+
+// It checks variables you have defined as global
+some_unused_var = 42;
+
+var x;
+
+// Write-only variables are not considered as used.
+var y = 10;
+y = 5;
+
+// A read for a modification of itself is not considered as used.
+var z = 0;
+z = z + 1;
+
+// By default, unused arguments cause warnings.
+(function (foo) {
+  return 5;
+})();
+
+// Unused recursive functions also cause warnings.
+function fact(n) {
+  if (n < 2) return 1;
+  return n * fact(n - 1);
+}
+
+// When a function definition destructures an array, unused entries from
+// the array also cause warnings.
+function getY([x, y]) {
+  return y;
+}
+```
+
+```ts
+type A = Array<A>;
+
+enum Color {
+  Red,
+  Green,
+  Blue,
+}
+```
+
+Examples of **correct** code for this rule:
+
+```js
+/*eslint no-unused-vars: "error"*/
+
+var x = 10;
+alert(x);
+
+// foo is considered used here
+myFunc(
+  function foo() {
+    // ...
+  }.bind(this),
+);
+
+(function (foo) {
+  return foo;
+})();
+
+var myFunc;
+myFunc = setTimeout(function () {
+  // myFunc is considered used
+  myFunc();
+}, 50);
+
+// Only the second argument from the destructured array is used.
+function getY([, y]) {
+  return y;
+}
+```
+
+```ts
+export const x = 1;
+const y = 1;
+export { y };
+
+type A = Record<string, unknown>;
+type B<T> = T extends Record<infer K, any> ? K : never;
+const x = "foo" as B<A>;
+console.log(x);
+```
+
+Examples of **incorrect** code for `/* exported variableName */` operation:
+
+```js
+/* exported global_var */
+
+// Not respected, use ES modules instead.
+var global_var = 42;
+```
+
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### args
+
+type: `"after-used" | "all" | "none"`
+
+default: `"after-used"`
+
+Controls how unused arguments are checked.
+
+This option has three settings:
+
+1. `after-used` - Unused positional arguments that occur before the last
+   used argument will not be checked, but all named arguments and all
+   positional arguments after the last used argument will be checked.
+   This is the default setting.
+2. `all` - All named arguments must be used.
+3. `none` - Do not check arguments.
+
+#### `"after-used"`
+
+Unused positional arguments that occur before the last used argument
+will not be checked, but all named arguments and all positional
+arguments after the last used argument will be checked.
+
+#### `"all"`
+
+All named arguments must be used
+
+#### `"none"`
+
+Do not check arguments
+
+### argsIgnorePattern
+
+Specifies exceptions to this rule for unused arguments. Arguments whose
+names match this pattern will be ignored.
+
+By default, this pattern is `^_` unless options are configured with an
+object. In this case it will default to \[`None`]. Note that this
+behavior deviates from both ESLint and TypeScript-ESLint, which never
+provide a default pattern.
+
+#### Example
+
+Examples of **correct** code for this option when the pattern is `^_`:
+
+```javascript
+function foo(_a, b) {
+  console.log(b);
+}
+foo(1, 2);
+```
+
+### caughtErrors
+
+type: `"all" | "none"`
+
+Used for `catch` block validation.
+
+It has two settings:
+
+* `none` - do not check error objects. This is the default setting.
+* `all` - all named arguments must be used.
+
+`none` corresponds to `false`, while `all` corresponds to `true`.
+
+### caughtErrorsIgnorePattern
+
+Specifies exceptions to this rule for errors caught within a `catch` block.
+Variables declared within a `catch` block whose names match this pattern
+will be ignored.
+
+#### Example
+
+Examples of **correct** code when the pattern is `^ignore`:
+
+```javascript
+try {
+  // ...
+} catch (ignoreErr) {
+  console.error("Error caught in catch block");
+}
+```
+
+### destructuredArrayIgnorePattern
+
+This option specifies exceptions within destructuring patterns that will
+not be checked for usage. Variables declared within array destructuring
+whose names match this pattern will be ignored.
+
+By default this pattern is unset.
+
+#### Example
+
+Examples of **correct** code for this option, when the pattern is `^_`:
+
+```javascript
+const [a, _b, c] = ["a", "b", "c"];
+console.log(a + c);
+
+const {
+  x: [_a, foo],
+} = bar;
+console.log(foo);
+
+let _m, n;
+foo.forEach((item) => {
+  [_m, n] = item;
+  console.log(n);
+});
+```
+
+### ignoreClassWithStaticInitBlock
+
+type: `boolean`
+
+default: `false`
+
+The `ignoreClassWithStaticInitBlock` option is a boolean. Static
+initialization blocks allow you to initialize static variables and
+execute code during the evaluation of a class definition, meaning
+the static block code is executed without creating a new instance
+of the class. When set to `true`, this option ignores classes
+containing static initialization blocks.
+
+#### Example
+
+Examples of **incorrect** code for the `{ "ignoreClassWithStaticInitBlock": true }` option
+
+```javascript
+/* no-unused-vars: ["error", { "ignoreClassWithStaticInitBlock": true }]*/
+
+class Foo {
+  static myProperty = "some string";
+  static mymethod() {
+    return "some string";
+  }
+}
+
+class Bar {
+  static {
+    let baz; // unused variable
+  }
+}
+```
+
+Examples of **correct** code for the `{ "ignoreClassWithStaticInitBlock": true }` option
+
+```javascript
+/* no-unused-vars: ["error", { "ignoreClassWithStaticInitBlock": true }]*/
+
+class Foo {
+  static {
+    let bar = "some string";
+
+    console.log(bar);
+  }
+}
+```
+
+### ignoreRestSiblings
+
+type: `boolean`
+
+default: `false`
+
+Using a Rest property it is possible to "omit" properties from an
+object, but by default the sibling properties are marked as "unused".
+With this option enabled the rest property's siblings are ignored.
+
+#### Example
+
+Examples of **correct** code when this option is set to `true`:
+
+```js
+// 'foo' and 'bar' were ignored because they have a rest property sibling.
+var { foo, ...coords } = data;
+
+var bar;
+({ bar, ...coords } = data);
+```
+
+### ignoreUsingDeclarations
+
+type: `boolean`
+
+default: `false`
+
+When set to `true`, the rule will ignore variables declared with
+`using` or `await using` declarations, even if they are unused.
+
+This is useful when working with resources that need to be disposed
+via the explicit resource management proposal, where the primary
+purpose is the disposal side effect rather than using the resource.
+
+#### Example
+
+Examples of **correct** code for the `{ "ignoreUsingDeclarations": true }` option:
+
+```javascript
+/* no-unused-vars: ["error", { "ignoreUsingDeclarations": true }]*/
+
+using resource = getResource();
+await using anotherResource = getAnotherResource();
+```
+
+### reportUsedIgnorePattern
+
+type: `boolean`
+
+default: `false`
+
+The `reportUsedIgnorePattern` option is a boolean.
+Using this option will report variables that match any of the valid
+ignore pattern options (`varsIgnorePattern`, `argsIgnorePattern`,
+`caughtErrorsIgnorePattern`, or `destructuredArrayIgnorePattern`) if
+they have been used.
+
+#### Example
+
+Examples of **incorrect** code for the `{ "reportUsedIgnorePattern": true }` option:
+
+```javascript
+/* no-unused-vars: ["error", { "reportUsedIgnorePattern": true, "varsIgnorePattern": "[iI]gnored" }]*/
+
+var firstVarIgnored = 1;
+var secondVar = 2;
+console.log(firstVarIgnored, secondVar);
+```
+
+Examples of **correct** code for the `{ "reportUsedIgnorePattern": true }` option:
+
+```javascript
+/* no-unused-vars: ["error", { "reportUsedIgnorePattern": true, "varsIgnorePattern": "[iI]gnored" }]*/
+
+var firstVar = 1;
+var secondVar = 2;
+console.log(firstVar, secondVar);
+```
+
+### reportVarsOnlyUsedAsTypes
+
+type: `boolean`
+
+default: `false`
+
+The `reportVarsOnlyUsedAsTypes` option is a boolean.
+
+If `true`, the rule will also report variables that are only used as types.
+
+#### Examples
+
+Examples of **incorrect** code for the `{ "reportVarsOnlyUsedAsTypes": true }` option:
+
+```javascript
+/*  no-unused-vars: ["error", { "reportVarsOnlyUsedAsTypes": true }] */
+
+const myNumber: number = 4;
+export type MyNumber = typeof myNumber
+```
+
+Examples of **correct** code for the `{ "reportVarsOnlyUsedAsTypes": true }` option:
+
+```javascript
+export type MyNumber = number;
+```
+
+Note: even with `{ "reportVarsOnlyUsedAsTypes": false }`, cases where the value is
+only used a type within itself will still be reported:
+
+```javascript
+function foo(): typeof foo {}
+```
+
+### vars
+
+type: `"all" | "local"`
+
+default: `"all"`
+
+Controls how usage of a variable in the global scope is checked.
+
+This option has two settings:
+
+1. `all` checks all variables for usage, including those in the global
+   scope. This is the default setting.
+2. `local` checks only that locally-declared variables are used but will
+   allow global variables to be unused.
+
+#### `"all"`
+
+All variables are checked for usage, including those in the global scope.
+
+#### `"local"`
+
+Checks only that locally-declared variables are used but will allow
+global variables to be unused.
+
+### varsIgnorePattern
+
+Specifies exceptions to this rule for unused variables. Variables whose
+names match this pattern will be ignored.
+
+By default, this pattern is `^_` unless options are configured with an
+object. In this case it will default to \[`None`]. Note that this
+behavior deviates from both ESLint and TypeScript-ESLint, which never
+provide a default pattern.
+
+#### Example
+
+Examples of **correct** code for this option when the pattern is `^_`:
+
+```javascript
+var _a = 10;
+var b = 10;
+console.log(b);
+```
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "rules": {
+    "no-unused-vars": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --deny no-unused-vars
+```
+
+:::
+
+## References
+
+* Rule Source

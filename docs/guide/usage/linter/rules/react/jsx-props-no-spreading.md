@@ -1,0 +1,99 @@
+---
+url: /docs/guide/usage/linter/rules/react/jsx-props-no-spreading.md
+---
+# react/jsx-props-no-spreading&#x20;
+
+### What it does
+
+Disallow JSX prop spreading
+
+### Why is this bad?
+
+Enforces that there is no spreading for any JSX attribute. This enhances readability of code by being more explicit about what props are received by the component.
+It is also good for maintainability by avoiding passing unintentional extra props and allowing react to emit warnings when invalid HTML props are passed to HTML elements.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```jsx
+<App {...props} />
+<MyCustomComponent {...props} some_other_prop={some_other_prop} />
+<img {...props} />
+```
+
+Examples of **correct** code for this rule:
+
+```jsx
+const {src, alt} = props;
+const {one_prop, two_prop} = otherProps;
+<MyCustomComponent one_prop={one_prop} two_prop={two_prop} />
+<img src={src} alt={alt} />
+```
+
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### custom
+
+type: `"ignore" | "enforce"`
+
+default: `"enforce"`
+
+`custom` set to `ignore` will ignore all custom jsx tags like `App`, `MyCustomComponent` etc. Default is set to `enforce`.
+
+### exceptions
+
+type: `string[]`
+
+default: `[]`
+
+Exceptions flip the enforcement behavior for specific components.
+For example:
+
+* If `html` is set to `ignore`, an exception for `div` will enforce the rule on `<div>` elements.
+* If `custom` is set to `enforce`, an exception for `Foo` will ignore the rule on `<Foo>` components.
+
+This allows you to override the general setting for individual components.
+
+### explicitSpread
+
+type: `"ignore" | "enforce"`
+
+default: `"enforce"`
+
+`explicitSpread` set to `ignore` will ignore spread operators that are explicitly listing all object properties within that spread. Default is set to `enforce`.
+
+### html
+
+type: `"ignore" | "enforce"`
+
+default: `"enforce"`
+
+`html` set to `ignore` will ignore all html jsx tags like `div`, `img` etc. Default is set to `enforce`.
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "plugins": ["react"],
+  "rules": {
+    "react/jsx-props-no-spreading": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --deny react/jsx-props-no-spreading --react-plugin
+```
+
+:::
+
+## References
+
+* Rule Source

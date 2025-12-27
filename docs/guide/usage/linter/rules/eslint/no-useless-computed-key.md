@@ -1,0 +1,121 @@
+---
+url: /docs/guide/usage/linter/rules/eslint/no-useless-computed-key.md
+---
+# eslint/no-useless-computed-key&#x20;
+
+### What it does
+
+Disallow unnecessary computed property keys in objects and classes
+
+### Why is this bad?
+
+It’s unnecessary to use computed properties with literals such as:
+
+```js
+const foo = { ["a"]: "b" };
+```
+
+The code can be rewritten as:
+
+```js
+const foo = { a: "b" };
+```
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```js
+const a = { ["0"]: 0 };
+const b = { ["0+1,234"]: 0 };
+const c = { [0]: 0 };
+const e = { ["x"]() {} };
+
+class Foo {
+  ["foo"] = "bar";
+  [0]() {}
+  static ["foo"] = "bar";
+  get ["b"]() {}
+  set ["c"](value) {}
+}
+```
+
+Examples of **correct** code for this rule:
+
+```js
+const a = { a: 0 };
+const b = { 0: 0 };
+const c = { x() {} };
+const e = { "0+1,234": 0 };
+
+class Foo {
+  foo = "bar";
+  0() {}
+  a() {}
+  static foo = "bar";
+}
+```
+
+Examples of additional **correct** code for this rule:
+
+```js
+const c = {
+  __proto__: foo, // defines object's prototype
+  ["__proto__"]: bar, // defines a property named "__proto__"
+};
+class Foo {
+  ["constructor"]; // instance field named "constructor"
+  constructor() {} // the constructor of this class
+  static ["constructor"]; // static field named "constructor"
+  static ["prototype"]; // runtime error, it would be a parsing error without `[]`
+}
+```
+
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### enforceForClassMembers
+
+type: `boolean`
+
+default: `true`
+
+The `enforceForClassMembers` option controls whether the rule applies to
+class members (methods and properties).
+
+Examples of **correct** code for this rule with the `{ "enforceForClassMembers": false }` option:
+
+```js
+class SomeClass {
+  ["foo"] = "bar";
+  [42] = "baz";
+  get ["b"]() {}
+  set ["c"](value) {}
+  static ["foo"] = "bar";
+}
+```
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "rules": {
+    "no-useless-computed-key": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --deny no-useless-computed-key
+```
+
+:::
+
+## References
+
+* Rule Source

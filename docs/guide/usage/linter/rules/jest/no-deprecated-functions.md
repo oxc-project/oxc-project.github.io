@@ -1,0 +1,95 @@
+---
+url: /docs/guide/usage/linter/rules/jest/no-deprecated-functions.md
+---
+# jest/no-deprecated-functions&#x20;
+
+### What it does
+
+Over the years Jest has accrued some debt in the form of functions that have
+either been renamed for clarity, or replaced with more powerful APIs.
+
+This rule can also autofix a number of these deprecations for you.
+
+#### `jest.resetModuleRegistry`
+
+This function was renamed to `resetModules` in Jest 15 and removed in Jest 27.
+
+#### `jest.addMatchers`
+
+This function was replaced with `expect.extend` in Jest 17 and removed in Jest 27.
+
+#### `require.requireActual` & `require.requireMock`
+
+These functions were replaced in Jest 21 and removed in Jest 26.
+
+Originally, the `requireActual` and `requireMock` functions were placed
+onto the `require` function.
+
+These functions were later moved onto the `jest` object in order to be easier
+for type checkers to handle, and their use via `require` deprecated. Finally,
+the release of Jest 26 saw them removed from the `require` function altogether.
+
+#### `jest.runTimersToTime`
+
+This function was renamed to `advanceTimersByTime` in Jest 22 and removed in Jest 27.
+
+#### `jest.genMockFromModule`
+
+This function was renamed to `createMockFromModule` in Jest 26, and is scheduled for removal in Jest 30.
+
+### Why is this bad?
+
+While typically these deprecated functions are kept in the codebase for a number
+of majors, eventually they are removed completely.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```javascript
+jest.resetModuleRegistry; // since Jest 15
+jest.addMatchers; // since Jest 17
+```
+
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### jest
+
+type: `object`
+
+Jest configuration options.
+
+#### jest.version
+
+type: `string`
+
+default: `"29"`
+
+The version of Jest being used.
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "plugins": ["jest"],
+  "rules": {
+    "jest/no-deprecated-functions": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --deny jest/no-deprecated-functions --jest-plugin
+```
+
+:::
+
+## References
+
+* Rule Source

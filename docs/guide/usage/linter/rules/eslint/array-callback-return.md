@@ -1,0 +1,81 @@
+---
+url: /docs/guide/usage/linter/rules/eslint/array-callback-return.md
+---
+# eslint/array-callback-return&#x20;
+
+### What it does
+
+Enforce return statements in callbacks of array methods
+
+### Why is this bad?
+
+Array has several methods for filtering, mapping, and folding.
+If we forget to write return statement in a callback of those, it’s probably a mistake.
+If you don’t want to use a return or don’t need the returned results,
+consider using .forEach instead.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```javascript
+let foo = [1, 2, 3, 4];
+foo.map((a) => {
+  console.log(a);
+});
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
+let foo = [1, 2, 3, 4];
+foo.map((a) => {
+  console.log(a);
+  return a;
+});
+```
+
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### allowImplicit
+
+type: `boolean`
+
+default: `false`
+
+When set to true, allows callbacks of methods that require a return value to
+implicitly return undefined with a return statement containing no expression.
+
+### checkForEach
+
+type: `boolean`
+
+default: `false`
+
+When set to true, rule will also report forEach callbacks that return a value.
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "rules": {
+    "array-callback-return": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --deny array-callback-return
+```
+
+:::
+
+## References
+
+* Rule Source

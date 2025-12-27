@@ -1,0 +1,82 @@
+---
+url: /docs/guide/usage/linter/rules/jest/expect-expect.md
+---
+# jest/expect-expect&#x20;
+
+### What it does
+
+This rule triggers when there is no call made to `expect` in a test, ensure that there is at least one `expect` call made in a test.
+
+### Why is this bad?
+
+People may forget to add assertions.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```javascript
+it("should be a test", () => {
+  console.log("no assertion");
+});
+test("should assert something", () => {});
+```
+
+This rule is compatible with [eslint-plugin-vitest](https://github.com/vitest-dev/eslint-plugin-vitest/blob/v1.1.9/docs/rules/expect-expect.md),
+to use it, add the following configuration to your `.oxlintrc.json`:
+
+```json
+{
+  "rules": {
+    "vitest/expect-expect": "error"
+  }
+}
+```
+
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### additionalTestBlockFunctions
+
+type: `string[]`
+
+default: `[]`
+
+An array of function names that should also be treated as test blocks.
+
+### assertFunctionNames
+
+type: `string[]`
+
+default: `["expect"]`
+
+A list of function names that should be treated as assertion functions.
+
+NOTE: The default value is `["expect"]` for Jest and
+`["expect", "expectTypeOf", "assert", "assertType"]` for Vitest.
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "plugins": ["jest"],
+  "rules": {
+    "jest/expect-expect": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --deny jest/expect-expect --jest-plugin
+```
+
+:::
+
+## References
+
+* Rule Source

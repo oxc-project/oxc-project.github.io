@@ -1,0 +1,79 @@
+---
+url: /docs/guide/usage/linter/rules/typescript/no-import-type-side-effects.md
+---
+# typescript/no-import-type-side-effects&#x20;
+
+### What it does
+
+Enforce the use of top-level `import type` qualifier when an import only
+has specifiers with inline type qualifiers.
+
+### Why is this bad?
+
+The `--verbatimModuleSyntax` compiler option causes TypeScript to do
+simple and predictable transpilation on import declarations. Namely, it
+completely removes import declarations with a top-level type qualifier,
+and it removes any import specifiers with an inline type qualifier.
+
+The latter behavior does have one potentially surprising effect in that
+in certain cases TS can leave behind a "side effect" import at runtime:
+
+```ts
+import { type A, type B } from "mod";
+```
+
+is transpiled to
+
+```ts
+import {} from "mod";
+// which is the same as
+import "mod";
+```
+
+For the rare case of needing to import for side effects, this may be
+desirable - but for most cases you will not want to leave behind an
+unnecessary side effect import.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```ts
+import { type A } from "mod";
+import { type A as AA } from "mod";
+import { type A, type B } from "mod";
+import { type A as AA, type B as BB } from "mod";
+```
+
+Examples of **correct** code for this rule:
+
+```ts
+import type { A } from "mod";
+import type { A as AA } from "mod";
+import type { A, B } from "mod";
+import type { A as AA, B as BB } from "mod";
+```
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "rules": {
+    "typescript/no-import-type-side-effects": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --deny typescript/no-import-type-side-effects
+```
+
+:::
+
+## References
+
+* Rule Source

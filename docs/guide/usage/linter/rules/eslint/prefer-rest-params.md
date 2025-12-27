@@ -1,0 +1,78 @@
+---
+url: /docs/guide/usage/linter/rules/eslint/prefer-rest-params.md
+---
+# eslint/prefer-rest-params&#x20;
+
+### What it does
+
+Disallows the use of the `arguments` object and instead enforces the use of rest parameters.
+
+### Why is this bad?
+
+The `arguments` object does not have methods from `Array.prototype`, making it inconvenient for array-like operations.
+Using rest parameters provides a more intuitive and efficient way to handle variadic arguments.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```javascript
+function foo() {
+  console.log(arguments);
+}
+
+function foo(action) {
+  var args = Array.prototype.slice.call(arguments, 1);
+  action.apply(null, args);
+}
+
+function foo(action) {
+  var args = [].slice.call(arguments, 1);
+  action.apply(null, args);
+}
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
+function foo(...args) {
+  console.log(args);
+}
+
+function foo(action, ...args) {
+  action.apply(null, args); // Or use `action(...args)` (related to `prefer-spread` rule).
+}
+
+// Note: Implicit `arguments` can be shadowed.
+function foo(arguments) {
+  console.log(arguments); // This refers to the first argument.
+}
+function foo() {
+  var arguments = 0;
+  console.log(arguments); // This is a local variable.
+}
+```
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "rules": {
+    "prefer-rest-params": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --deny prefer-rest-params
+```
+
+:::
+
+## References
+
+* Rule Source

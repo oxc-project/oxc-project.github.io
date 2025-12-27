@@ -1,0 +1,219 @@
+---
+url: /docs/guide/usage/linter/rules/eslint/func-names.md
+---
+# eslint/func-names&#x20;
+
+### What it does
+
+Require or disallow named function expressions.
+
+### Why is this bad?
+
+Leaving the name off a function will cause `<anonymous>` to appear in
+stack traces of errors thrown in it or any function called within it.
+This makes it more difficult to find where an error is thrown.
+Providing an explicit name also improves readability and consistency.
+
+### Options
+
+First option:
+
+* Type: `string`
+* Default: `"always"`
+* Possible values:
+  * `"always"` - requires all function expressions to have a name.
+  * `"as-needed"` - requires a name only if one is not automatically inferred.
+  * `"never"` - disallows names for function expressions.
+
+Second option:
+
+* Type: `object`
+* Properties:
+  * `generators`: `("always" | "as-needed" | "never")` (default: falls back to first option)
+    * `"always"` - require named generator function expressions.
+    * `"as-needed"` - require a name only when not inferred.
+    * `"never"` - disallow names for generator function expressions.
+
+Example configuration:
+
+```json
+{
+  "func-names": ["error", "as-needed", { "generators": "never" }]
+}
+```
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```js
+/* func-names: ["error", "always"] */
+
+Foo.prototype.bar = function () {};
+const cat = { meow: function () {} };
+(function () {
+  /* ... */
+})();
+export default function () {}
+```
+
+Examples of **correct** code for this rule:
+
+```js
+/* func-names: ["error", "always"] */
+
+Foo.prototype.bar = function bar() {};
+const cat = { meow() {} };
+(function bar() {
+  /* ... */
+})();
+export default function foo() {}
+```
+
+#### `as-needed`
+
+Examples of **incorrect** code for this rule with the `"as-needed"` option:
+
+```js
+/* func-names: ["error", "as-needed"] */
+
+Foo.prototype.bar = function () {};
+(function () {
+  /* ... */
+})();
+export default function () {}
+```
+
+Examples of **correct** code for this rule with the `"as-needed"` option:
+
+```js
+/* func-names: ["error", "as-needed"] */
+
+const bar = function () {};
+const cat = { meow: function () {} };
+class C {
+  #bar = function () {};
+  baz = function () {};
+}
+quux ??= function () {};
+(function bar() {
+  /* ... */
+})();
+export default function foo() {}
+```
+
+#### `never`
+
+Examples of **incorrect** code for this rule with the `"never"` option:
+
+```js
+/* func-names: ["error", "never"] */
+
+Foo.prototype.bar = function bar() {};
+(function bar() {
+  /* ... */
+})();
+```
+
+Examples of **correct** code for this rule with the `"never"` option:
+
+```js
+/* func-names: ["error", "never"] */
+
+Foo.prototype.bar = function () {};
+(function () {
+  /* ... */
+})();
+```
+
+#### `generators`
+
+Examples of **incorrect** code for this rule with the `"always", { "generators": "as-needed" }` options:
+
+```js
+/* func-names: ["error", "always", { "generators": "as-needed" }] */
+
+(function* () {
+  /* ... */
+})();
+```
+
+Examples of **correct** code for this rule with the `"always", { "generators": "as-needed" }` options:
+
+```js
+/* func-names: ["error", "always", { "generators": "as-needed" }] */
+
+const foo = function* () {};
+```
+
+Examples of **incorrect** code for this rule with the `"always", { "generators": "never" }` options:
+
+```js
+/* func-names: ["error", "always", { "generators": "never" }] */
+
+const foo = bar(function* baz() {});
+```
+
+Examples of **correct** code for this rule with the `"always", { "generators": "never" }` options:
+
+```js
+/* func-names: ["error", "always", { "generators": "never" }] */
+
+const foo = bar(function* () {});
+```
+
+Examples of **incorrect** code for this rule with the `"as-needed", { "generators": "never" }` options:
+
+```js
+/* func-names: ["error", "as-needed", { "generators": "never" }] */
+
+const foo = bar(function* baz() {});
+```
+
+Examples of **correct** code for this rule with the `"as-needed", { "generators": "never" }` options:
+
+```js
+/* func-names: ["error", "as-needed", { "generators": "never" }] */
+
+const foo = bar(function* () {});
+```
+
+Examples of **incorrect** code for this rule with the `"never", { "generators": "always" }` options:
+
+```js
+/* func-names: ["error", "never", { "generators": "always" }] */
+
+const foo = bar(function* () {});
+```
+
+Examples of **correct** code for this rule with the `"never", { "generators": "always" }` options:
+
+```js
+/* func-names: ["error", "never", { "generators": "always" }] */
+
+const foo = bar(function* baz() {});
+```
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "rules": {
+    "func-names": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --deny func-names
+```
+
+:::
+
+## References
+
+* Rule Source

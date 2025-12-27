@@ -1,0 +1,117 @@
+---
+url: /docs/guide/usage/linter/rules/eslint/default-case.md
+---
+# eslint/default-case&#x20;
+
+### What it does
+
+Enforces that all `switch` statements include a `default` case,
+unless explicitly marked with a configured comment.
+
+### Why is this bad?
+
+Without a `default` case, it is unclear whether the omission was
+intentional or an oversight. Adding a `default` or a special comment
+makes the code more explicit and reduces mistakes.
+
+You may optionally include a `// no default` after the last case if there is
+no default case. The comment may be in any desired case, such as `// No Default`.
+
+Example configuration:
+
+```json
+{
+  "default-case": ["error", { "commentPattern": "^skip\\sdefault" }]
+}
+```
+
+Examples of **incorrect** code for this rule:
+
+```js
+/* default-case: ["error"] */
+
+switch (foo) {
+  case 1:
+    break;
+}
+```
+
+Examples of **correct** code for this rule:
+
+```js
+/* default-case: ["error"] */
+
+switch (a) {
+  case 1:
+    break;
+  default:
+    break;
+}
+
+switch (a) {
+  case 1:
+    break;
+  // no default
+}
+```
+
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### commentPattern
+
+type: `string | null`
+
+A regex pattern used to detect comments that mark the absence
+of a `default` case as intentional.
+
+Default value: `no default`.
+
+Examples of **incorrect** code for this rule with the `{ "commentPattern": "^skip\\sdefault" }` option:
+
+```js
+/* default-case: ["error", { "commentPattern": "^skip\sdefault" }] */
+
+switch (a) {
+  case 1:
+    break;
+  // no default
+}
+```
+
+Examples of **correct** code for this rule with the `{ "commentPattern": "^skip\\sdefault" }` option:
+
+```js
+/* default-case: ["error", { "commentPattern": "^skip\\sdefault" }] */
+
+switch (a) {
+  case 1:
+    break;
+  // skip default
+}
+```
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "rules": {
+    "default-case": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --deny default-case
+```
+
+:::
+
+## References
+
+* Rule Source

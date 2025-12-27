@@ -1,0 +1,80 @@
+---
+url: /docs/guide/usage/linter/rules/oxc/no-accumulating-spread.md
+---
+# oxc/no-accumulating-spread&#x20;
+
+### What it does
+
+Prevents using object or array spreads on accumulators in `Array.prototype.reduce()` and in loops.
+
+### Why is this bad?
+
+Object and array spreads create a new object or array on each iteration.
+In the worst case, they also cause O(n) copies (both memory and time complexity).
+When used on an accumulator, this can lead to `O(n^2)` memory complexity and
+`O(n^2)` time complexity.
+
+For a more in-depth explanation, see this [blog post](https://prateeksurana.me/blog/why-using-object-spread-with-reduce-bad-idea/)
+by Prateek Surana.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```javascript
+arr.reduce((acc, x) => ({ ...acc, [x]: fn(x) }), {});
+Object.keys(obj).reduce((acc, el) => ({ ...acc, [el]: fn(el) }), {});
+
+let foo = [];
+for (let i = 0; i < 10; i++) {
+  foo = [...foo, i];
+}
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
+function fn(x) {
+  // ...
+}
+
+arr.reduce((acc, x) => acc.push(fn(x)), []);
+Object.keys(obj).reduce((acc, el) => {
+  acc[el] = fn(el);
+}, {});
+// spreading non-accumulators should be avoided if possible, but is not
+// banned by this rule
+Object.keys(obj).reduce((acc, el) => {
+  acc[el] = { ...obj[el] };
+  return acc;
+}, {});
+
+let foo = [];
+for (let i = 0; i < 10; i++) {
+  foo.push(i);
+}
+```
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "rules": {
+    "oxc/no-accumulating-spread": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --deny oxc/no-accumulating-spread
+```
+
+:::
+
+## References
+
+* Rule Source

@@ -1,0 +1,77 @@
+---
+url: /docs/guide/usage/linter/rules/jest/valid-describe-callback.md
+---
+# jest/valid-describe-callback&#x20;
+
+### What it does
+
+This rule validates that the second parameter of a `describe()` function is a
+callback function. This callback function:
+
+* should not be
+  [async](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
+* should not contain any parameters
+* should not contain any `return` statements
+
+### Why is this bad?
+
+Using an improper `describe()` callback function can lead to unexpected test
+errors.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```javascript
+// Async callback functions are not allowed
+describe("myFunction()", async () => {
+  // ...
+});
+
+// Callback function parameters are not allowed
+describe("myFunction()", (done) => {
+  // ...
+});
+
+// Returning a value from a describe block is not allowed
+describe("myFunction", () =>
+  it("returns a truthy value", () => {
+    expect(myFunction()).toBeTruthy();
+  }));
+```
+
+This rule is compatible with [eslint-plugin-vitest](https://github.com/vitest-dev/eslint-plugin-vitest/blob/v1.1.9/docs/rules/valid-describe-callback.md),
+to use it, add the following configuration to your `.oxlintrc.json`:
+
+```json
+{
+  "rules": {
+    "vitest/valid-describe-callback": "error"
+  }
+}
+```
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "plugins": ["jest"],
+  "rules": {
+    "jest/valid-describe-callback": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --deny jest/valid-describe-callback --jest-plugin
+```
+
+:::
+
+## References
+
+* Rule Source

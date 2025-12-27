@@ -1,0 +1,92 @@
+---
+url: /docs/guide/usage/linter/rules/eslint/no-warning-comments.md
+---
+# eslint/no-warning-comments&#x20;
+
+### What it does
+
+Disallows warning comments such as TODO, FIXME, XXX in code.
+
+### Why is this bad?
+
+Developers often add comments like TODO or FIXME to mark incomplete work or areas
+that need attention. While useful during development, these comments can indicate
+unfinished code that shouldn't be shipped to production. This rule helps catch
+such comments before they make it into production code.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```javascript
+// TODO: implement this feature
+function doSomething() {}
+
+// FIXME: this is broken
+const x = 1;
+
+/* XXX: hack */
+let y = 2;
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
+// This is a regular comment
+function doSomething() {}
+
+// Note: This explains something
+const x = 1;
+```
+
+### Options
+
+This rule has an options object with the following defaults:
+
+```json
+{
+  "terms": ["todo", "fixme", "xxx"],
+  "location": "start",
+  "decoration": []
+}
+```
+
+#### `terms`
+
+An array of terms to match. The matching is case-insensitive.
+
+#### `location`
+
+Where to check for the terms:
+
+* `"start"` (default): Terms must appear at the start of the comment (after any decoration)
+* `"anywhere"`: Terms can appear anywhere in the comment
+
+#### `decoration`
+
+An array of characters to ignore at the start of comments when `location` is `"start"`.
+Useful for ignoring common comment decorations like `*` in JSDoc-style comments.
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "rules": {
+    "no-warning-comments": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --deny no-warning-comments
+```
+
+:::
+
+## References
+
+* Rule Source

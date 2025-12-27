@@ -1,0 +1,65 @@
+---
+url: /docs/guide/usage/linter/rules/typescript/no-useless-empty-export.md
+---
+# typescript/no-useless-empty-export&#x20;
+
+### What it does
+
+Disallow empty exports that don't change anything in a module file.
+
+### Why is this bad?
+
+An empty `export {}` statement is sometimes useful in TypeScript code to
+turn a file that would otherwise be a script file into a module file.
+Per the [TypeScript Handbook Modules page](https://www.typescriptlang.org/docs/handbook/modules/introduction.html):
+
+In TypeScript, just as in ECMAScript 2015, any file containing a
+top-level import or export is considered a module. Conversely, a file
+without any top-level import or export declarations is treated as a
+script whose contents are available in the global scope (and therefore
+to modules as well).
+
+However, an `export {}` statement does nothing if there are any other
+top-level import or export statements in a file.
+
+This rule reports an `export {}` that doesn't do anything in a file
+already using ES modules.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```ts
+export const value = "Hello, world!";
+export {};
+```
+
+Examples of **correct** code for this rule:
+
+```ts
+export const value = "Hello, world!";
+```
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "rules": {
+    "typescript/no-useless-empty-export": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --deny typescript/no-useless-empty-export
+```
+
+:::
+
+## References
+
+* Rule Source

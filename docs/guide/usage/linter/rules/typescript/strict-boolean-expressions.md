@@ -1,0 +1,180 @@
+---
+url: /docs/guide/usage/linter/rules/typescript/strict-boolean-expressions.md
+---
+# typescript/strict-boolean-expressions&#x20;
+
+### What it does
+
+Disallow certain types in boolean expressions.
+
+### Why is this bad?
+
+Forbids usage of non-boolean types in expressions where a boolean is expected.
+`boolean` and `never` types are always allowed. Additional types which are
+considered safe in a boolean context can be configured via options.
+
+The following nodes are checked:
+
+* Arguments to the `!`, `&&`, and `||` operators
+* The condition in a conditional expression (`cond ? x : y`)
+* Conditions for `if`, `for`, `while`, and `do-while` statements.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```ts
+const str = "hello";
+if (str) {
+  console.log("string");
+}
+
+const num = 42;
+if (num) {
+  console.log("number");
+}
+
+const obj = { foo: "bar" };
+if (obj) {
+  console.log("object");
+}
+
+declare const maybeString: string | undefined;
+if (maybeString) {
+  console.log(maybeString);
+}
+
+const result = str && num;
+const ternary = str ? "yes" : "no";
+```
+
+Examples of **correct** code for this rule:
+
+```ts
+const str = "hello";
+if (str !== "") {
+  console.log("string");
+}
+
+const num = 42;
+if (num !== 0) {
+  console.log("number");
+}
+
+const obj = { foo: "bar" };
+if (obj !== null) {
+  console.log("object");
+}
+
+declare const maybeString: string | undefined;
+if (maybeString !== undefined) {
+  console.log(maybeString);
+}
+
+const bool = true;
+if (bool) {
+  console.log("boolean");
+}
+```
+
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### allowAny
+
+type: `boolean`
+
+default: `false`
+
+Whether to allow `any` type in boolean contexts.
+
+### allowNullableBoolean
+
+type: `boolean`
+
+default: `false`
+
+Whether to allow nullable boolean types (e.g., `boolean | null`) in boolean contexts.
+
+### allowNullableEnum
+
+type: `boolean`
+
+default: `false`
+
+Whether to allow nullable enum types in boolean contexts.
+
+### allowNullableNumber
+
+type: `boolean`
+
+default: `false`
+
+Whether to allow nullable number types (e.g., `number | null`) in boolean contexts.
+
+### allowNullableObject
+
+type: `boolean`
+
+default: `true`
+
+Whether to allow nullable object types in boolean contexts.
+
+### allowNullableString
+
+type: `boolean`
+
+default: `false`
+
+Whether to allow nullable string types (e.g., `string | null`) in boolean contexts.
+
+### allowNumber
+
+type: `boolean`
+
+default: `true`
+
+Whether to allow number types in boolean contexts (checks for non-zero numbers).
+
+### allowRuleToRunWithoutStrictNullChecksIKnowWhatIAmDoing
+
+type: `boolean`
+
+default: `false`
+
+Whether to allow this rule to run without `strictNullChecks` enabled.
+This is not recommended as the rule may produce incorrect results.
+
+### allowString
+
+type: `boolean`
+
+default: `true`
+
+Whether to allow string types in boolean contexts (checks for non-empty strings).
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "rules": {
+    "typescript/strict-boolean-expressions": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --type-aware --deny typescript/strict-boolean-expressions
+```
+
+:::
+
+## References
+
+* Rule Source
+* Rule Source (tsgolint)

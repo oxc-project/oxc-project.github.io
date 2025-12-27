@@ -1,0 +1,98 @@
+---
+url: /docs/guide/usage/linter/rules/typescript/array-type.md
+---
+# typescript/array-type&#x20;
+
+### What it does
+
+Require consistently using either `T[]` or `Array<T>` for arrays.
+
+### Why is this bad?
+
+Using the `Array` type directly is not idiomatic. Instead, use the array type `T[]` or `Array<T>`.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```typescript
+/*oxlint array-type: ["error", { "default": "array" }] */
+const arr: Array<number> = new Array<number>();
+```
+
+```typescript
+/*oxlint array-type: ["error", { "default": "generic" }] */
+const arr: number[] = new Array<number>();
+```
+
+```typescript
+/*oxlint array-type: ["error", { "default": "array-simple" }] */
+const a: (string | number)[] = ["a", "b"];
+const b: { prop: string }[] = [{ prop: "a" }];
+const c: Array<MyType> = ["a", "b"];
+const d: Array<string> = ["a", "b"];
+```
+
+Examples of **correct** code for this rule:
+
+```typescript
+/*oxlint array-type: ["error", { "default": "array" }] */
+const arr: number[] = new Array<number>();
+```
+
+```typescript
+/*oxlint array-type: ["error", { "default": "generic" }] */
+const arr: Array<number> = new Array<number>();
+```
+
+```typescript
+/*oxlint array-type: ["error", { "default": "array-simple" }] */
+const a: Array<string | number> = ["a", "b"];
+const b: Array<{ prop: string }> = [{ prop: "a" }];
+const c: string[] = ["a", "b"];
+const d: MyType[] = ["a", "b"];
+```
+
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### default
+
+type: `"array" | "array-simple" | "generic"`
+
+default: `"array"`
+
+The array type expected for mutable cases.
+
+### readonly
+
+type: `"array" | "array-simple" | "generic"`
+
+default: `null`
+
+The array type expected for readonly cases. If omitted, the value for `default` will be used.
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "rules": {
+    "typescript/array-type": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --deny typescript/array-type
+```
+
+:::
+
+## References
+
+* Rule Source

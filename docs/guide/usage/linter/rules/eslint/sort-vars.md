@@ -1,0 +1,65 @@
+---
+url: /docs/guide/usage/linter/rules/eslint/sort-vars.md
+---
+# eslint/sort-vars&#x20;
+
+### What it does
+
+When declaring multiple variables within the same block, sorting variable names make it
+easier to find necessary variable easier at a later time.
+
+### Why is this bad?
+
+Unsorted variable declarations can make the code harder to read and maintain.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```js
+var b, a;
+var a, B, c;
+```
+
+Examples of **correct** code for this rule:
+
+```js
+var a, b, c, d;
+var B, a, c;
+```
+
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### ignoreCase
+
+type: `boolean`
+
+default: `false`
+
+When `true`, the rule ignores case-sensitivity when sorting variables.
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "rules": {
+    "sort-vars": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --deny sort-vars
+```
+
+:::
+
+## References
+
+* Rule Source

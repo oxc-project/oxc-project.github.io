@@ -1,0 +1,89 @@
+---
+url: /docs/guide/usage/linter/rules/eslint/no-sequences.md
+---
+# eslint/no-sequences&#x20;
+
+### What it does
+
+Disallows the use of the comma operator.
+
+### Why is this bad?
+
+The comma operator evaluates each of its operands (from left to right)
+and returns the value of the last operand. However, this frequently
+obscures side effects, and its use is often an accident.
+
+### Options
+
+* `allowInParentheses` (default: `true`): If set to `false`, disallows
+  the comma operator even when wrapped in parentheses.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```javascript
+((foo = doSomething()), val);
+
+(0, eval("doSomething();"));
+
+// Arrow function body needs double parentheses
+const fn = () => (doSomething(), val);
+
+// with allowInParentheses: false
+foo = (doSomething(), val);
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
+foo = (doSomething(), val);
+
+(0, eval)("doSomething();");
+
+// Single extra parentheses is enough for conditions
+do {} while ((doSomething(), !!test));
+
+for (i = 0, j = 10; i < j; i++, j--) {}
+
+// Arrow function body needs double parentheses
+const fn = () => (doSomething(), val);
+```
+
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### allowInParentheses
+
+type: `boolean`
+
+default: `true`
+
+If this option is set to `false`, this rule disallows the comma operator
+even when the expression sequence is explicitly wrapped in parentheses.
+Default is `true`.
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "rules": {
+    "no-sequences": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --deny no-sequences
+```
+
+:::
+
+## References
+
+* Rule Source

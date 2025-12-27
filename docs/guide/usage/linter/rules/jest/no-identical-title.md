@@ -1,0 +1,65 @@
+---
+url: /docs/guide/usage/linter/rules/jest/no-identical-title.md
+---
+# jest/no-identical-title&#x20;
+
+### What it does
+
+This rule looks at the title of every test and test suite.
+It will report when two test suites or two test cases at the same level of a test suite have the same title.
+
+### Why is this bad?
+
+Having identical titles for two different tests or test suites may create confusion.
+For example, when a test with the same title as another test in the same test suite fails, it is harder to know which one failed and thus harder to fix.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```javascript
+describe("baz", () => {
+  //...
+});
+
+describe("baz", () => {
+  // Has the same title as a previous test suite
+  // ...
+});
+```
+
+This rule is compatible with [eslint-plugin-vitest](https://github.com/vitest-dev/eslint-plugin-vitest/blob/v1.1.9/docs/rules/no-identical-title.md),
+to use it, add the following configuration to your `.oxlintrc.json`:
+
+```json
+{
+  "rules": {
+    "vitest/no-identical-title": "error"
+  }
+}
+```
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "plugins": ["jest"],
+  "rules": {
+    "jest/no-identical-title": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --deny jest/no-identical-title --jest-plugin
+```
+
+:::
+
+## References
+
+* Rule Source

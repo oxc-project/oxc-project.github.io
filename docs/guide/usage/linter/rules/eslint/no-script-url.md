@@ -1,0 +1,51 @@
+---
+url: /docs/guide/usage/linter/rules/eslint/no-script-url.md
+---
+# eslint/no-script-url&#x20;
+
+### What it does
+
+Disallow javascript: urls
+
+### Why is this bad?
+
+Using `javascript:` URLs is considered by some as a form of `eval`. Code
+passed in `javascript:` URLs must be parsed and evaluated by the browser
+in the same way that `eval` is processed. This can lead to security and
+performance issues.
+
+### Examples
+
+Examples of **incorrect** code for this rule
+
+```javascript
+/*eslint no-script-url: "error"*/
+
+location.href = "javascript:void(0)";
+
+location.href = `javascript:void(0)`;
+```
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "rules": {
+    "no-script-url": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --deny no-script-url
+```
+
+:::
+
+## References
+
+* Rule Source

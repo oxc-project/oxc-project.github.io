@@ -1,0 +1,212 @@
+---
+url: /docs/guide/usage/linter/rules/typescript/no-floating-promises.md
+---
+# typescript/no-floating-promises&#x20;
+
+### What it does
+
+This rule disallows "floating" Promises in TypeScript code, which is a Promise that is created without any code to handle its resolution or rejection.
+
+This rule will report Promise-valued statements that are not treated in one of the following ways:
+
+* Calling its `.then()` with two arguments
+* Calling its `.catch()` with one argument
+* `await`ing it
+* `return`ing it
+* `void`ing it
+
+This rule also reports when an Array containing Promises is created and not properly handled. The main way to resolve this is by using one of the Promise concurrency methods to create a single Promise, then handling that according to the procedure above. These methods include:
+
+* `Promise.all()`
+* `Promise.allSettled()`
+* `Promise.any()`
+* `Promise.race()`
+
+### Why is this bad?
+
+Floating Promises can cause several issues, such as improperly sequenced operations, ignored Promise rejections, and more.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```ts
+const promise = new Promise((resolve, reject) => resolve("value"));
+promise;
+
+async function returnsPromise() {
+  return "value";
+}
+returnsPromise().then(() => {});
+
+Promise.reject("value").catch();
+
+Promise.reject("value").finally();
+
+[1, 2, 3].map(async (x) => x + 1);
+```
+
+Examples of **correct** code for this rule:
+
+```ts
+const promise = new Promise((resolve, reject) => resolve("value"));
+await promise;
+
+async function returnsPromise() {
+  return "value";
+}
+
+void returnsPromise();
+
+returnsPromise().then(
+  () => {},
+  () => {},
+);
+
+Promise.reject("value").catch(() => {});
+
+await Promise.reject("value").finally(() => {});
+
+await Promise.all([1, 2, 3].map(async (x) => x + 1));
+```
+
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### allowForKnownSafeCalls
+
+type: `array`
+
+default: `[]`
+
+Allows specific calls to be ignored, specified as type or value specifiers.
+
+#### allowForKnownSafeCalls\[n]
+
+type: `string`
+
+Type or value specifier for matching specific declarations
+
+Supports four types of specifiers:
+
+1. **String specifier** (deprecated): Universal match by name
+
+```json
+"Promise"
+```
+
+2. **File specifier**: Match types/values declared in local files
+
+```json
+{ "from": "file", "name": "MyType" }
+{ "from": "file", "name": ["Type1", "Type2"] }
+{ "from": "file", "name": "MyType", "path": "./types.ts" }
+```
+
+3. **Lib specifier**: Match TypeScript built-in lib types
+
+```json
+{ "from": "lib", "name": "Promise" }
+{ "from": "lib", "name": ["Promise", "PromiseLike"] }
+```
+
+4. **Package specifier**: Match types/values from npm packages
+
+```json
+{ "from": "package", "name": "Observable", "package": "rxjs" }
+{ "from": "package", "name": ["Observable", "Subject"], "package": "rxjs" }
+```
+
+### allowForKnownSafePromises
+
+type: `array`
+
+default: `[]`
+
+Allows specific Promise types to be ignored, specified as type or value specifiers.
+
+#### allowForKnownSafePromises\[n]
+
+type: `string`
+
+Type or value specifier for matching specific declarations
+
+Supports four types of specifiers:
+
+1. **String specifier** (deprecated): Universal match by name
+
+```json
+"Promise"
+```
+
+2. **File specifier**: Match types/values declared in local files
+
+```json
+{ "from": "file", "name": "MyType" }
+{ "from": "file", "name": ["Type1", "Type2"] }
+{ "from": "file", "name": "MyType", "path": "./types.ts" }
+```
+
+3. **Lib specifier**: Match TypeScript built-in lib types
+
+```json
+{ "from": "lib", "name": "Promise" }
+{ "from": "lib", "name": ["Promise", "PromiseLike"] }
+```
+
+4. **Package specifier**: Match types/values from npm packages
+
+```json
+{ "from": "package", "name": "Observable", "package": "rxjs" }
+{ "from": "package", "name": ["Observable", "Subject"], "package": "rxjs" }
+```
+
+### checkThenables
+
+type: `boolean`
+
+default: `false`
+
+Check for thenable objects that are not necessarily Promises.
+
+### ignoreIIFE
+
+type: `boolean`
+
+default: `false`
+
+Ignore immediately invoked function expressions (IIFEs).
+
+### ignoreVoid
+
+type: `boolean`
+
+default: `true`
+
+Ignore Promises that are void expressions.
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "rules": {
+    "typescript/no-floating-promises": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --type-aware --deny typescript/no-floating-promises
+```
+
+:::
+
+## References
+
+* Rule Source
+* Rule Source (tsgolint)

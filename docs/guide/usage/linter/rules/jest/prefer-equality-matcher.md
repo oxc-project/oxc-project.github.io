@@ -1,0 +1,71 @@
+---
+url: /docs/guide/usage/linter/rules/jest/prefer-equality-matcher.md
+---
+# jest/prefer-equality-matcher&#x20;
+
+### What it does
+
+Jest has built-in matchers for expecting equality, which allow for more readable
+tests and error messages if an expectation fails.
+
+### Why is this bad?
+
+Testing equality expressions with generic matchers like `toBe(true)`
+makes tests harder to read and understand. When tests fail, the error
+messages are less helpful because they don't show what the actual values
+were. Using specific equality matchers provides clearer test intent and
+better debugging information.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```javascript
+expect(x === 5).toBe(true);
+expect(name === "Carl").not.toEqual(true);
+expect(myObj !== thatObj).toStrictEqual(true);
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
+expect(x).toBe(5);
+expect(name).not.toEqual("Carl");
+expect(myObj).toStrictEqual(thatObj);
+```
+
+This rule is compatible with [eslint-plugin-vitest](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/prefer-equality-matcher.md),
+to use it, add the following configuration to your `.oxlintrc.json`:
+
+```json
+{
+  "rules": {
+    "vitest/prefer-equality-matcher": "error"
+  }
+}
+```
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "plugins": ["jest"],
+  "rules": {
+    "jest/prefer-equality-matcher": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --deny jest/prefer-equality-matcher --jest-plugin
+```
+
+:::
+
+## References
+
+* Rule Source

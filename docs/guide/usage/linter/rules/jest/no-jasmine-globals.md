@@ -1,0 +1,69 @@
+---
+url: /docs/guide/usage/linter/rules/jest/no-jasmine-globals.md
+---
+# jest/no-jasmine-globals&#x20;
+
+### What it does
+
+This rule reports on any usage of Jasmine globals, which is not ported to
+Jest, and suggests alternatives from Jest's own API.
+
+### Why is this bad?
+
+When migrating from Jasmine to Jest, relying on Jasmine-specific globals
+creates compatibility issues and prevents taking advantage of Jest's
+improved testing features and better error reporting.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```javascript
+jasmine.DEFAULT_TIMEOUT_INTERVAL = 5000;
+test("my test", () => {
+  pending();
+});
+test("my test", () => {
+  jasmine.createSpy();
+});
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
+jest.setTimeout(5000);
+test("my test", () => {
+  // Use test.skip() instead of pending()
+});
+test.skip("my test", () => {
+  // Skipped test
+});
+test("my test", () => {
+  jest.fn(); // Use jest.fn() instead of jasmine.createSpy()
+});
+```
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "plugins": ["jest"],
+  "rules": {
+    "jest/no-jasmine-globals": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --deny jest/no-jasmine-globals --jest-plugin
+```
+
+:::
+
+## References
+
+* Rule Source

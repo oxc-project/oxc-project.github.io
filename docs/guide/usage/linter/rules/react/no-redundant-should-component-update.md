@@ -1,0 +1,99 @@
+---
+url: /docs/guide/usage/linter/rules/react/no-redundant-should-component-update.md
+---
+# react/no-redundant-should-component-update&#x20;
+
+### What it does
+
+Disallow usage of `shouldComponentUpdate` when extending `React.PureComponent`.
+
+### Why is this bad?
+
+`React.PureComponent` automatically implements `shouldComponentUpdate` with a shallow prop and state comparison.
+Defining `shouldComponentUpdate` in a class that extends `React.PureComponent` is redundant and defeats the purpose
+of using `React.PureComponent`. If you need custom comparison logic, extend `React.Component` instead.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```jsx
+class Foo extends React.PureComponent {
+  shouldComponentUpdate() {
+    // do check
+  }
+
+  render() {
+    return <div>Radical!</div>;
+  }
+}
+
+function Bar() {
+  return class Baz extends React.PureComponent {
+    shouldComponentUpdate() {
+      // do check
+    }
+
+    render() {
+      return <div>Groovy!</div>;
+    }
+  };
+}
+```
+
+Examples of **correct** code for this rule:
+
+```jsx
+class Foo extends React.Component {
+  shouldComponentUpdate() {
+    // do check
+  }
+
+  render() {
+    return <div>Radical!</div>;
+  }
+}
+
+function Bar() {
+  return class Baz extends React.Component {
+    shouldComponentUpdate() {
+      // do check
+    }
+
+    render() {
+      return <div>Groovy!</div>;
+    }
+  };
+}
+
+class Qux extends React.PureComponent {
+  render() {
+    return <div>Tubular!</div>;
+  }
+}
+```
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "plugins": ["react"],
+  "rules": {
+    "react/no-redundant-should-component-update": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --deny react/no-redundant-should-component-update --react-plugin
+```
+
+:::
+
+## References
+
+* Rule Source

@@ -1,0 +1,135 @@
+---
+url: /docs/guide/usage/linter/rules/promise/no-return-wrap.md
+---
+# promise/no-return-wrap&#x20;
+
+### What it does
+
+Prevents unnecessary wrapping of return values in promises with either `Promise.resolve`
+or `Promise.reject`.
+
+This rule enforces the following stances:
+
+1. When a promise is to be resolved, instead of returning `Promise.resolve(value)` it is
+   better to return the raw value with `return value` instead.
+
+2. When a promise is to be rejected, instead of returning `Promise.reject(error)`, instead
+   the raw error value should be thrown as in `throw error`.
+
+There is an option to turn off the enforcing of 2, see the options section below.
+
+### Why is this bad?
+
+It is unnecessary to use `Promise.resolve` and `Promise.reject` for converting raw values
+to promises in the return statements of `then` and `catch` callbacks. Using these
+operations to convert raw values to promises is unnecessary as simply returning the raw
+value for the success case and throwing the raw error value in the failure case have the
+same effect. This is why some take the opinion that returning values such as
+`Promise.resolve(1)` or `Promise.reject(err)` is syntactic noise.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```js
+myPromise().then(() => Promise.resolve(4));
+myPromise().then(function () {
+  return Promise.resolve(4);
+});
+
+myPromise().then(() => Promise.reject("err"));
+myPromise().then(function () {
+  return Promise.reject("err");
+});
+```
+
+```js
+myPromise().catch(function () {
+  return Promise.reject("err");
+});
+```
+
+```js
+myPromise().finally(function () {
+  return Promise.reject("err");
+});
+```
+
+```js
+myPromise().finally(() => Promise.resolve(4));
+```
+
+Examples of **correct** code for this rule:
+
+```js
+myPromise().then(() => 4);
+myPromise().then(function () {
+  return 4;
+});
+
+myPromise().then(() => throw "err");
+myPromise().then(function () {
+  throw "err";
+});
+```
+
+```js
+myPromise().catch(function () {
+  throw "err";
+});
+```
+
+```js
+myPromise().finally(() => 4);
+```
+
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### allowReject
+
+type: `boolean`
+
+default: `false`
+
+`allowReject` allows returning `Promise.reject` inside a promise handler.
+
+With `allowReject` set to `true` the following are examples of correct code:
+
+```js
+myPromise().then(function () {
+  return Promise.reject(0);
+});
+```
+
+```js
+myPromise()
+  .then()
+  .catch(() => Promise.reject("err"));
+```
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "plugins": ["promise"],
+  "rules": {
+    "promise/no-return-wrap": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --deny promise/no-return-wrap --promise-plugin
+```
+
+:::
+
+## References
+
+* Rule Source

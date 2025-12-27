@@ -1,0 +1,72 @@
+---
+url: /docs/guide/usage/linter/rules/jest/no-interpolation-in-snapshots.md
+---
+# jest/no-interpolation-in-snapshots&#x20;
+
+### What it does
+
+Prevents the use of string interpolations in snapshots.
+
+### Why is this bad?
+
+Interpolation prevents snapshots from being updated. Instead, properties should
+be overloaded with a matcher by using
+[property matchers](https://jestjs.io/docs/en/snapshot-testing#property-matchers).
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```javascript
+expect(something).toMatchInlineSnapshot(
+  `Object {
+    property: ${interpolated}
+  }`,
+);
+
+expect(something).toMatchInlineSnapshot(
+  { other: expect.any(Number) },
+  `Object {
+    other: Any<Number>,
+    property: ${interpolated}
+  }`,
+);
+
+expect(errorThrowingFunction).toThrowErrorMatchingInlineSnapshot(`${interpolated}`);
+```
+
+This rule is compatible with [eslint-plugin-vitest](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/no-interpolation-in-snapshots.md),
+to use it, add the following configuration to your `.oxlintrc.json`:
+
+```json
+{
+  "rules": {
+    "vitest/no-interpolation-in-snapshots": "error"
+  }
+}
+```
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "plugins": ["jest"],
+  "rules": {
+    "jest/no-interpolation-in-snapshots": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --deny jest/no-interpolation-in-snapshots --jest-plugin
+```
+
+:::
+
+## References
+
+* Rule Source

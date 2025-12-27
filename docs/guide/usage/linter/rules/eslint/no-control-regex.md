@@ -1,0 +1,67 @@
+---
+url: /docs/guide/usage/linter/rules/eslint/no-control-regex.md
+---
+# eslint/no-control-regex&#x20;
+
+### What it does
+
+Disallows control characters and some escape sequences that match
+control characters in regular expressions.
+
+### Why is this bad?
+
+Control characters are special, invisible characters in the ASCII range
+0-31. These characters are rarely used in JavaScript strings so a
+regular expression containing elements that explicitly match these
+characters is most likely a mistake.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```javascript
+var pattern1 = /\x00/;
+var pattern2 = /\x0C/;
+var pattern3 = /\x1F/;
+var pattern4 = /\u000C/;
+var pattern5 = /\u{C}/u;
+var pattern6 = new RegExp("\x0C"); // raw U+000C character in the pattern
+var pattern7 = new RegExp("\\x0C"); // \x0C pattern
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
+var pattern1 = /\x20/;
+var pattern2 = /\u0020/;
+var pattern3 = /\u{20}/u;
+var pattern4 = /\t/;
+var pattern5 = /\n/;
+var pattern6 = new RegExp("\x20");
+var pattern7 = new RegExp("\\t");
+var pattern8 = new RegExp("\\n");
+```
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "rules": {
+    "no-control-regex": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --deny no-control-regex
+```
+
+:::
+
+## References
+
+* Rule Source

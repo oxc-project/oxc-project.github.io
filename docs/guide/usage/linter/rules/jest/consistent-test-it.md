@@ -1,0 +1,105 @@
+---
+url: /docs/guide/usage/linter/rules/jest/consistent-test-it.md
+---
+# jest/consistent-test-it&#x20;
+
+### What it does
+
+Jest allows you to choose how you want to define your tests, using the `it` or
+the `test` keywords, with multiple permutations for each:
+
+* **it:** `it`, `xit`, `fit`, `it.only`, `it.skip`.
+* **test:** `test`, `xtest`, `test.only`, `test.skip`.
+
+### Why is this bad?
+
+It's a good practice to be consistent in your test suite, so that all tests are written in the same way.
+
+### Examples
+
+```javascript
+/*eslint jest/consistent-test-it: ["error", {"fn": "test"}]*/
+test("foo"); // valid
+test.only("foo"); // valid
+
+it("foo"); // invalid
+it.only("foo"); // invalid
+```
+
+```javascript
+/*eslint jest/consistent-test-it: ["error", {"fn": "it"}]*/
+it("foo"); // valid
+it.only("foo"); // valid
+test("foo"); // invalid
+test.only("foo"); // invalid
+```
+
+```javascript
+/*eslint jest/consistent-test-it: ["error", {"fn": "it", "withinDescribe": "test"}]*/
+it("foo"); // valid
+describe("foo", function () {
+  test("bar"); // valid
+});
+
+test("foo"); // invalid
+describe("foo", function () {
+  it("bar"); // invalid
+});
+```
+
+This rule is compatible with [eslint-plugin-vitest](https://github.com/vitest-dev/eslint-plugin-vitest/blob/v1.1.9/docs/rules/consistent-test-it.md),
+to use it, add the following configuration to your `.oxlintrc.json`:
+
+```json
+{
+  "rules": {
+    "vitest/consistent-test-it": "error"
+  }
+}
+```
+
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### fn
+
+type: `"it" | "test"`
+
+default: `"test"`
+
+Decides whether to use `test` or `it`.
+
+### withinDescribe
+
+type: `"it" | "test"`
+
+default: `"it"`
+
+Decides whether to use `test` or `it` within a `describe` scope.
+If only `fn` is provided, this will default to the value of `fn`.
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "plugins": ["jest"],
+  "rules": {
+    "jest/consistent-test-it": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --deny jest/consistent-test-it --jest-plugin
+```
+
+:::
+
+## References
+
+* Rule Source

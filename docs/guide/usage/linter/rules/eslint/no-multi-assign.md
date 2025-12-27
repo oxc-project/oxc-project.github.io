@@ -1,0 +1,120 @@
+---
+url: /docs/guide/usage/linter/rules/eslint/no-multi-assign.md
+---
+# eslint/no-multi-assign&#x20;
+
+### What it does
+
+Disallow use of chained assignment expressions.
+
+### Why is this bad?
+
+Chaining the assignment of variables can lead to unexpected results and be difficult to read.
+
+```js
+(function () {
+  const foo = (bar = 0); // Did you mean `foo = bar == 0`?
+  bar = 1; // This will not fail since `bar` is not constant.
+})();
+console.log(bar); // This will output 1 since `bar` is not scoped.
+```
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```js
+var a = (b = c = 5);
+
+const foo = (bar = "baz");
+
+let d = (e = f);
+
+class Foo {
+  a = (b = 10);
+}
+
+a = b = "quux";
+```
+
+Examples of **correct** code for this rule:
+
+```js
+var a = 5;
+var b = 5;
+var c = 5;
+
+const foo = "baz";
+const bar = "baz";
+
+let d = c;
+let e = c;
+
+class Foo {
+  a = 10;
+  b = 10;
+}
+
+a = "quux";
+b = "quux";
+```
+
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### ignoreNonDeclaration
+
+type: `boolean`
+
+default: `false`
+
+When set to `true`, the rule allows chains that don't include initializing a variable in a declaration or initializing a class field.
+
+Examples of **correct** code for this option set to `true`:
+
+```js
+let a;
+let b;
+a = b = "baz";
+
+const x = {};
+const y = {};
+x.one = y.one = 1;
+```
+
+Examples of **incorrect** code for this option set to `true`:
+
+```js
+let a = (b = "baz");
+
+const foo = (bar = 1);
+
+class Foo {
+  a = (b = 10);
+}
+```
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "rules": {
+    "no-multi-assign": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --deny no-multi-assign
+```
+
+:::
+
+## References
+
+* Rule Source

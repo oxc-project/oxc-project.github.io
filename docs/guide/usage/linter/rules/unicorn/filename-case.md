@@ -1,0 +1,173 @@
+---
+url: /docs/guide/usage/linter/rules/unicorn/filename-case.md
+---
+# unicorn/filename-case&#x20;
+
+### What it does
+
+Enforces a consistent case style for filenames to improve project organization and maintainability.
+By default, `kebab-case` is enforced, but other styles can be configured.
+
+Files named `index.js`, `index.ts`, etc. are exempt from this rule as they cannot reliably be
+renamed to other casings (mainly just a problem with PascalCase).
+
+### Why is this bad?
+
+Inconsistent file naming conventions make it harder to locate files, navigate projects, and enforce
+consistency across a codebase. Standardizing naming conventions improves readability, reduces cognitive
+overhead, and aligns with best practices in large-scale development.
+
+### Examples
+
+Examples of **correct** filenames for each case:
+
+#### `kebabCase`
+
+* `some-file-name.js`
+* `some-file-name.test.js`
+* `some-file-name.test-utils.js`
+
+#### `camelCase`
+
+* `someFileName.js`
+* `someFileName.test.js`
+* `someFileName.testUtils.js`
+
+#### `snakeCase`
+
+* `some_file_name.js`
+* `some_file_name.test.js`
+* `some_file_name.test_utils.js`
+
+#### `pascalCase`
+
+* `SomeFileName.js`
+* `SomeFileName.Test.js`
+* `SomeFileName.TestUtils.js`
+
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### case
+
+type: `"kebabCase" | "camelCase" | "snakeCase" | "pascalCase"`
+
+default: `"kebabCase"`
+
+The case style to enforce for filenames.
+
+You can set the `case` option like this:
+
+```json
+"unicorn/filename-case": [
+"error",
+{
+"case": "kebabCase"
+}
+]
+```
+
+### cases
+
+type: `object`
+
+default: `{"kebabCase":true, "camelCase":false, "snakeCase":false, "pascalCase":false}`
+
+The case style(s) to allow/enforce for filenames. `true` means the case style is allowed, `false` means it is banned.
+
+You can set the `cases` option like this:
+
+```json
+"unicorn/filename-case": [
+"error",
+{
+"cases": {
+"camelCase": true,
+"pascalCase": true
+}
+}
+]
+```
+
+#### cases.camelCase
+
+type: `boolean`
+
+default: `false`
+
+Whether camel case is allowed, e.g. `someFileName.js`.
+
+#### cases.kebabCase
+
+type: `boolean`
+
+default: `true`
+
+Whether kebab case is allowed, e.g. `some-file-name.js`.
+
+#### cases.pascalCase
+
+type: `boolean`
+
+default: `false`
+
+Whether pascal case is allowed, e.g. `SomeFileName.js`.
+
+#### cases.snakeCase
+
+type: `boolean`
+
+default: `false`
+
+Whether snake case is allowed, e.g. `some_file_name.js`.
+
+### ignore
+
+type: `string | null`
+
+A regular expression pattern for filenames to ignore.
+
+You can set the `ignore` option like this:
+
+```json
+"unicorn/filename-case": [
+"error",
+{
+"ignore": "^foo.*$"
+}
+]
+```
+
+### multipleFileExtensions
+
+type: `boolean`
+
+default: `true`
+
+Whether to treat additional, `.`-separated parts of a filename as
+parts of the extension rather than parts of the filename.
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "rules": {
+    "unicorn/filename-case": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --deny unicorn/filename-case
+```
+
+:::
+
+## References
+
+* Rule Source

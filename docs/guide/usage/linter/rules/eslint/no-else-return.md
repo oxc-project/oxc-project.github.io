@@ -1,0 +1,189 @@
+---
+url: /docs/guide/usage/linter/rules/eslint/no-else-return.md
+---
+# eslint/no-else-return&#x20;
+
+### What it does
+
+Disallow `else` blocks after `return` statements in `if` statements
+
+### Why is this bad?
+
+If an `if` block contains a `return` statement, the `else` block becomes
+unnecessary. Its contents can be placed outside of the block.
+
+```javascript
+function foo() {
+  if (x) {
+    return y;
+  } else {
+    return z;
+  }
+}
+```
+
+This rule is aimed at highlighting an unnecessary block of code
+following an `if` containing a return statement. As such, it will warn
+when it encounters an `else` following a chain of `if`s, all of them
+containing a `return` statement.
+
+### Examples
+
+#### `allowElseIf: true`
+
+Examples of **incorrect** code for this rule:
+
+```javascript
+function foo1() {
+  if (x) {
+    return y;
+  } else {
+    return z;
+  }
+}
+
+function foo2() {
+  if (x) {
+    return y;
+  } else if (z) {
+    return w;
+  } else {
+    return t;
+  }
+}
+
+function foo3() {
+  if (x) {
+    return y;
+  } else {
+    var t = "foo";
+  }
+
+  return t;
+}
+
+function foo4() {
+  if (error) {
+    return "It failed";
+  } else {
+    if (loading) {
+      return "It's still loading";
+    }
+  }
+}
+
+// Two warnings for nested occurrences
+function foo5() {
+  if (x) {
+    if (y) {
+      return y;
+    } else {
+      return x;
+    }
+  } else {
+    return z;
+  }
+}
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
+function foo1() {
+  if (x) {
+    return y;
+  }
+
+  return z;
+}
+
+function foo2() {
+  if (x) {
+    return y;
+  } else if (z) {
+    var t = "foo";
+  } else {
+    return w;
+  }
+}
+
+function foo3() {
+  if (x) {
+    if (z) {
+      return y;
+    }
+  } else {
+    return z;
+  }
+}
+
+function foo4() {
+  if (error) {
+    return "It failed";
+  } else if (loading) {
+    return "It's still loading";
+  }
+}
+```
+
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### allowElseIf
+
+type: `boolean`
+
+default: `true`
+
+Whether to allow `else if` blocks after a return statement.
+
+Examples of **incorrect** code for this rule with `allowElseIf: false`:
+
+```javascript
+function foo() {
+  if (error) {
+    return "It failed";
+  } else if (loading) {
+    return "It's still loading";
+  }
+}
+```
+
+Examples of **correct** code for this rule with `allowElseIf: false`:
+
+```javascript
+function foo() {
+  if (error) {
+    return "It failed";
+  }
+
+  if (loading) {
+    return "It's still loading";
+  }
+}
+```
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "rules": {
+    "no-else-return": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --deny no-else-return
+```
+
+:::
+
+## References
+
+* Rule Source

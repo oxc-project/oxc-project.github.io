@@ -1,0 +1,153 @@
+---
+url: /docs/guide/usage/linter/rules/typescript/consistent-type-imports.md
+---
+# typescript/consistent-type-imports&#x20;
+
+### What it does
+
+Enforce consistent usage of type imports.
+
+### Why is this bad?
+
+Inconsistent usage of type imports can make the code harder to read and understand.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```ts
+import { Foo } from "Foo";
+type T = Foo;
+
+type S = import("Foo");
+```
+
+Examples of **correct** code for this rule:
+
+```ts
+import type { Foo } from "Foo";
+```
+
+#### Examples with `"prefer": "type-imports"` (default)
+
+Examples of **incorrect** code:
+
+```ts
+import { Foo } from "foo";
+let foo: Foo;
+```
+
+Examples of **correct** code:
+
+```ts
+import type { Foo } from "foo";
+let foo: Foo;
+```
+
+#### Examples with `"prefer": "no-type-imports"`
+
+Examples of **incorrect** code:
+
+```ts
+import type { Foo } from "foo";
+let foo: Foo;
+```
+
+Examples of **correct** code:
+
+```ts
+import { Foo } from "foo";
+let foo: Foo;
+```
+
+#### Examples with `"fixStyle": "inline-type-imports"`
+
+When fixing type imports, this option will use inline `type` modifiers:
+
+```ts
+// Before fixing
+import { A, B } from "foo";
+type T = A;
+const b = B;
+
+// After fixing
+import { type A, B } from "foo";
+type T = A;
+const b = B;
+```
+
+#### Examples with `"disallowTypeAnnotations": false`
+
+When set to `false`, allows `import()` type annotations:
+
+```ts
+type T = import("foo").Bar;
+```
+
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### disallowTypeAnnotations
+
+type: `boolean`
+
+default: `true`
+
+Disallow using `import()` in type annotations, like `type T = import('foo')`
+
+### fixStyle
+
+type: `"separate-type-imports" | "inline-type-imports"`
+
+default: `"separate-type-imports"`
+
+Control how type imports are added when auto-fixing.
+
+#### `"separate-type-imports"`
+
+Will add the type keyword after the import keyword `import type { A } from '...'`
+
+#### `"inline-type-imports"`
+
+Will inline the type keyword `import { type A } from '...'` (only available in TypeScript 4.5+)
+
+### prefer
+
+type: `"type-imports" | "no-type-imports"`
+
+default: `"type-imports"`
+
+Control whether to enforce type imports or value imports.
+
+#### `"type-imports"`
+
+Will enforce that you always use `import type Foo from '...'` except referenced by metadata of decorators.
+
+#### `"no-type-imports"`
+
+Will enforce that you always use `import Foo from '...'`
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "rules": {
+    "typescript/consistent-type-imports": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --deny typescript/consistent-type-imports
+```
+
+:::
+
+## References
+
+* Rule Source

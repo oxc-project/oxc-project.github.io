@@ -1,0 +1,87 @@
+---
+url: /docs/guide/usage/linter/rules/eslint/no-extra-boolean-cast.md
+---
+# eslint/no-extra-boolean-cast&#x20;
+
+### What it does
+
+This rule disallows unnecessary boolean casts.
+
+### Why is this bad?
+
+In contexts such as an if statement's test where the result of the expression will already be coerced to a Boolean,
+casting to a Boolean via double negation (`!!`) or a `Boolean` call is unnecessary.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```javascript
+var foo = !!!bar;
+var foo = Boolean(!!bar);
+
+if (!!foo) {
+}
+if (Boolean(foo)) {
+}
+
+// with "enforceForInnerExpressions" option enabled
+if (!!foo || bar) {
+}
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
+var foo = !bar;
+var foo = Boolean(bar);
+
+if (foo) {
+}
+if (foo) {
+}
+
+// with "enforceForInnerExpressions" option enabled
+if (foo || bar) {
+}
+```
+
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### enforceForInnerExpressions
+
+type: `boolean`
+
+default: `false`
+
+when set to `true`, in addition to checking default contexts, checks
+whether extra boolean casts are present in expressions whose result is
+used in a boolean context. See examples below. Default is `false`,
+meaning that this rule by default does not warn about extra booleans
+cast inside inner expressions.
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "rules": {
+    "no-extra-boolean-cast": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --deny no-extra-boolean-cast
+```
+
+:::
+
+## References
+
+* Rule Source

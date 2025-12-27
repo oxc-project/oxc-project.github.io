@@ -1,0 +1,86 @@
+---
+url: /docs/guide/usage/linter/rules/jsdoc/empty-tags.md
+---
+# jsdoc/empty-tags&#x20;
+
+### What it does
+
+Expects the following tags to be empty of any content:
+
+* `@abstract`
+* `@async`
+* `@generator`
+* `@global`
+* `@hideconstructor`
+* `@ignore`
+* `@inner`
+* `@instance`
+* `@override`
+* `@readonly`
+* `@inheritDoc`
+* `@internal`
+* `@overload`
+* `@package`
+* `@private`
+* `@protected`
+* `@public`
+* `@static`
+
+### Why is this bad?
+
+The void tags should be empty.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```javascript
+/** @async foo */
+
+/** @private bar */
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
+/** @async */
+
+/** @private */
+```
+
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### tags
+
+type: `string[]`
+
+default: `[]`
+
+Additional tags to check for their descriptions.
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "plugins": ["jsdoc"],
+  "rules": {
+    "jsdoc/empty-tags": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --deny jsdoc/empty-tags --jsdoc-plugin
+```
+
+:::
+
+## References
+
+* Rule Source

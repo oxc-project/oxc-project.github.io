@@ -1,0 +1,53 @@
+---
+url: >-
+  /docs/guide/usage/linter/rules/unicorn/require-number-to-fixed-digits-argument.md
+---
+# unicorn/require-number-to-fixed-digits-argument&#x20;
+
+### What it does
+
+Enforce using the digits argument with Number.toFixed()
+
+### Why is this bad?
+
+It's better to make it clear what the value of the digits argument is when calling Number.toFixed(),
+instead of relying on the default value of 0.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```javascript
+number.toFixed();
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
+number.toFixed(0);
+number.toFixed(2);
+```
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "rules": {
+    "unicorn/require-number-to-fixed-digits-argument": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --deny unicorn/require-number-to-fixed-digits-argument
+```
+
+:::
+
+## References
+
+* Rule Source

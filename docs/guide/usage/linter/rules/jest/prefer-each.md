@@ -1,0 +1,70 @@
+---
+url: /docs/guide/usage/linter/rules/jest/prefer-each.md
+---
+# jest/prefer-each&#x20;
+
+### What it does
+
+This rule enforces using `each` rather than manual loops.
+
+### Why is this bad?
+
+Manual loops for tests can be less readable and more error-prone. Using
+`each` provides a clearer and more concise way to run parameterized tests,
+improving readability and maintainability.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```js
+for (const item of items) {
+  describe(item, () => {
+    expect(item).toBe("foo");
+  });
+}
+```
+
+Examples of **correct** code for this rule:
+
+```js
+describe.each(items)("item", (item) => {
+  expect(item).toBe("foo");
+});
+```
+
+This rule is compatible with [eslint-plugin-vitest](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/prefer-each.md),
+to use it, add the following configuration to your `.oxlintrc.json`:
+
+```json
+{
+  "rules": {
+    "vitest/prefer-each": "error"
+  }
+}
+```
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "plugins": ["jest"],
+  "rules": {
+    "jest/prefer-each": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --deny jest/prefer-each --jest-plugin
+```
+
+:::
+
+## References
+
+* Rule Source

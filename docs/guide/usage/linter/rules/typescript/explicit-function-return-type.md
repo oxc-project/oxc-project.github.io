@@ -1,0 +1,159 @@
+---
+url: /docs/guide/usage/linter/rules/typescript/explicit-function-return-type.md
+---
+# typescript/explicit-function-return-type&#x20;
+
+### What it does
+
+This rule enforces that functions have an explicit return type annotation.
+
+### Why is this bad?
+
+Explicit return types make it clearer what type is returned by a function. Making the
+type returned by a function obvious allows the reader to infer what the function does
+and how it can be used from a quick glance.
+
+Another benefit of explicit return types is the potential for a speed up of type
+checking in large codebases with many large functions.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```ts
+// Should indicate that no value is returned (void)
+function test() {
+  return;
+}
+
+// Should indicate that a number is returned
+var fn = function () {
+  return 1;
+};
+
+// Should indicate that a string is returned
+var arrowFn = () => "test";
+
+class Test {
+  // Should indicate that no value is returned (void)
+  method() {
+    return;
+  }
+}
+```
+
+Examples of **correct** code for this rule:
+
+```ts
+// No return value should be expected (void)
+function test(): void {
+  return;
+}
+
+// A return value of type number
+var fn = function (): number {
+  return 1;
+};
+
+// A return value of type string
+var arrowFn = (): string => "test";
+
+class Test {
+  // No return value should be expected (void)
+  method(): void {
+    return;
+  }
+}
+```
+
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### allowConciseArrowFunctionExpressionsStartingWithVoid
+
+type: `boolean`
+
+default: `false`
+
+Whether to allow concise arrow functions that start with the `void` keyword.
+
+### allowDirectConstAssertionInArrowFunctions
+
+type: `boolean`
+
+default: `true`
+
+Whether to allow arrow functions that use `as const` assertion on their return value.
+
+### allowExpressions
+
+type: `boolean`
+
+default: `false`
+
+Whether to allow expressions as function return types. When `true`, allows functions that immediately return an expression without a return type annotation.
+
+### allowFunctionsWithoutTypeParameters
+
+type: `boolean`
+
+default: `false`
+
+Whether to allow functions that do not have generic type parameters.
+
+### allowHigherOrderFunctions
+
+type: `boolean`
+
+default: `true`
+
+Whether to allow higher-order functions (functions that return another function) without return type annotations.
+
+### allowIIFEs
+
+type: `boolean`
+
+default: `false`
+
+Whether to allow immediately invoked function expressions (IIFEs) without return type annotations.
+
+### allowTypedFunctionExpressions
+
+type: `boolean`
+
+default: `true`
+
+Whether to allow typed function expressions. When `true`, allows function expressions that are assigned to a typed variable or parameter.
+
+### allowedNames
+
+type: `string[]`
+
+default: `[]`
+
+Array of function names that are exempt from requiring return type annotations.
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "rules": {
+    "typescript/explicit-function-return-type": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --deny typescript/explicit-function-return-type
+```
+
+:::
+
+## References
+
+* Rule Source

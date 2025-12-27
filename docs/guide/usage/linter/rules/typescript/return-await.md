@@ -1,0 +1,120 @@
+---
+url: /docs/guide/usage/linter/rules/typescript/return-await.md
+---
+# typescript/return-await&#x20;
+
+### What it does
+
+This rule enforces consistent returning of awaited values from async functions.
+
+### Why is this bad?
+
+There are different patterns for returning awaited values from async functions.
+Sometimes you want to await before returning (to handle errors in the current
+function), and sometimes you want to return the Promise directly (for better
+performance). This rule helps enforce consistency.
+
+### Examples
+
+Examples of **incorrect** code for this rule (depending on configuration):
+
+```ts
+// If configured to require await:
+async function fetchData() {
+  return fetch("/api/data"); // Should be: return await fetch('/api/data');
+}
+
+async function processData() {
+  return someAsyncOperation(); // Should be: return await someAsyncOperation();
+}
+
+// If configured to disallow unnecessary await:
+async function fetchData() {
+  return await fetch("/api/data"); // Should be: return fetch('/api/data');
+}
+
+async function processData() {
+  return await someAsyncOperation(); // Should be: return someAsyncOperation();
+}
+```
+
+Examples of **correct** code for this rule:
+
+```ts
+// When await is required for error handling:
+async function fetchData() {
+  try {
+    return await fetch("/api/data");
+  } catch (error) {
+    console.error("Fetch failed:", error);
+    throw error;
+  }
+}
+
+// When returning Promise directly for performance:
+async function fetchData() {
+  return fetch("/api/data");
+}
+
+// Processing before return requires await:
+async function fetchAndProcess() {
+  const response = await fetch("/api/data");
+  return response.json();
+}
+
+// Multiple async operations:
+async function multipleOperations() {
+  const data1 = await fetchData1();
+  const data2 = await fetchData2();
+  return data1 + data2;
+}
+```
+
+## Configuration
+
+This rule accepts one of the following string values:
+
+### `"in-try-catch"`
+
+Require `await` when returning Promises inside try/catch/finally blocks.
+This ensures proper error handling and stack traces.
+
+### `"always"`
+
+Require `await` before returning Promises in all cases.
+Example: `return await Promise.resolve()` is required.
+
+### `"error-handling-correctness-only"`
+
+Require `await` only when it affects error handling correctness.
+Only flags cases where omitting await would change error handling behavior.
+
+### `"never"`
+
+Disallow `await` before returning Promises in all cases.
+Example: `return Promise.resolve()` is required (no await).
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "rules": {
+    "typescript/return-await": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --type-aware --deny typescript/return-await
+```
+
+:::
+
+## References
+
+* Rule Source
+* Rule Source (tsgolint)

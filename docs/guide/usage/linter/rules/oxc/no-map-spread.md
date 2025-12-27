@@ -1,0 +1,266 @@
+---
+url: /docs/guide/usage/linter/rules/oxc/no-map-spread.md
+---
+# oxc/no-map-spread&#x20;
+
+### What it does
+
+Disallow the use of object or array spreads in
+[`Array.prototype.map`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
+and
+[`Array.prototype.flatMap`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flatMap)
+to add properties/elements to array items.
+
+This rule only seeks to report cases where the spread operator is used
+to merge objects or arrays, not where it is used to copy them.
+
+### Why is this bad?
+
+Spreading is commonly used to add properties to objects in an array or
+to combine several objects together. Unfortunately, spreads incur a
+re-allocation for a new object, plus `O(n)` memory copies.
+
+```ts
+// each object in scores gets shallow-copied. Since `scores` is never
+// reused, spreading is inefficient.
+function getDisplayData() {
+  const scores: Array<{ username: string; score: number }> = getScores();
+  const displayData = scores.map((score) => ({ ...score, rank: getRank(score) }));
+  return displayData;
+}
+```
+
+Unless you expect objects in the mapped array to be mutated later, it is
+better to use [`Object.assign`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign).
+
+```ts
+// `score` is mutated in place and is more performant.
+function getDisplayData() {
+  const scores: Array<{ username: string; score: number }> = getScores();
+  const displayData = scores.map((score) => Object.assign(score, { rank: getRank(score) }));
+  return displayData;
+}
+```
+
+### Protecting from Mutations
+
+There are valid use cases for spreading objects in `map` calls,
+specifically when you want consumers of returned arrays to be able to
+mutate them without affecting the original data. This rule makes a
+best-effort attempt to avoid reporting on these cases.
+
+Spreads on class instance properties are completely ignored:
+
+```ts
+class AuthorsDb {
+  #authors = [];
+  public getAuthorsWithBooks() {
+    return this.#authors.map((author) => ({
+      // protects against mutations, giving the callee their own
+      // deep(ish) copy of the author object.
+      ...author,
+      books: getBooks(author),
+    }));
+  }
+}
+```
+
+Spreads on arrays that are re-read after the `map` call are also ignored
+by default. Configure this behavior with the `ignoreRereads` option.
+
+```
+/* "oxc/no-map-spread": ["error", { "ignoreRereads": true }] */
+const scores = getScores();
+const displayData = scores.map(score => ({ ...score, rank: getRank(score) }));
+console.log(scores); // scores is re-read after the map call
+```
+
+#### Arrays
+
+In the case of array spreads,
+[`Array.prototype.concat`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/concat)
+or
+[`Array.prototype.push`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push)
+should be used wherever possible. These have slignly different semantics
+than array spreads, since spreading works on iterables while `concat`
+and `push` work only on arrays.
+
+```ts
+let arr = [1, 2, 3];
+let set = new Set([4]);
+
+let a = [...arr, ...set]; // [1, 2, 3, 4]
+let b = arr.concat(set); // [1, 2, 3, Set(1)]
+
+// Alternative that is more performant than spreading but still has the
+// same semantics. Unfortunately, it is more verbose.
+let c = arr.concat(Array.from(set)); // [1, 2, 3, 4]
+
+// You could also use `Symbol.isConcatSpreadable`
+set[Symbol.isConcatSpreadable] = true;
+let d = arr.concat(set); // [1, 2, 3, 4]
+```
+
+### Automatic Fixing
+
+This rule can automatically fix violations caused by object spreads, but
+does not fix arrays. Object spreads will get replaced with
+[`Object.assign`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign). Array fixing may be added in the future.
+
+Object expressions with a single element (the spread) are not fixed.
+
+```js
+arr.map((x) => ({ ...x })); // not fixed
+```
+
+A `fix` is available (using `--fix`) for objects with "normal" elements before the
+spread. Since `Object.apply` mutates the first argument, and a new
+object will be created with those elements, the spread identifier will
+not be mutated. In effect, the spread semantics are preserved
+
+```js
+// before
+arr.map(({ x, y }) => ({ x, ...y }));
+
+// after
+arr.map(({ x, y }) => Object.assign({ x }, y));
+```
+
+A suggestion (using `--fix-suggestions`) is provided when a spread is
+the first property in an object. This fix mutates the spread identifier,
+meaning it could have unintended side effects.
+
+```js
+// before
+arr.map(({ x, y }) => ({ ...x, y }));
+arr.map(({ x, y }) => ({ ...x, y }));
+
+// after
+arr.map(({ x, y }) => Object.assign(x, { y }));
+arr.map(({ x, y }) => Object.assign(x, y));
+```
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```js
+const arr = [{ a: 1 }, { a: 2 }, { a: 3 }];
+const arr2 = arr.map((obj) => ({ ...obj, b: obj.a * 2 }));
+```
+
+Examples of **correct** code for this rule:
+
+```ts
+const arr = [{ a: 1 }, { a: 2 }, { a: 3 }];
+arr.map((obj) => Object.assign(obj, { b: obj.a * 2 }));
+
+// instance properties are ignored
+class UsersDb {
+  #users = [];
+  public get users() {
+    // clone users, providing caller with their own deep(ish) copy.
+    return this.#users.map((user) => ({ ...user }));
+  }
+}
+```
+
+```tsx
+function UsersTable({ users }) {
+  const usersWithRoles = users.map((user) => ({ ...user, role: getRole(user) }));
+
+  return (
+    <table>
+      {usersWithRoles.map((user) => (
+        <tr>
+          <td>{user.name}</td>
+          <td>{user.role}</td>
+        </tr>
+      ))}
+      <tfoot>
+        <tr>
+          {/* re-read of users */}
+          <td>Total users: {users.length}</td>
+        </tr>
+      </tfoot>
+    </table>
+  );
+}
+```
+
+### References
+
+* [ECMA262 - Object spread evaluation semantics](https://262.ecma-international.org/15.0/index.html#sec-runtime-semantics-propertydefinitionevaluation)
+* [JSPerf - `concat` vs array spread performance](https://jsperf.app/pihevu)
+
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### ignoreArgs
+
+type: `boolean`
+
+default: `true`
+
+Ignore maps on arrays passed as parameters to a function.
+
+This option is enabled by default to better avoid false positives. It
+comes at the cost of potentially missing spreads that are inefficient.
+We recommend turning this off in your `.oxlintrc.json` files.
+
+#### Examples
+
+Examples of **incorrect** code for this rule when `ignoreArgs` is `true`:
+
+```ts
+/* "oxc/no-map-spread": ["error", { "ignoreArgs": true }] */
+function foo(arr) {
+  let arr2 = arr.filter((x) => x.a > 0);
+  return arr2.map((x) => ({ ...x }));
+}
+```
+
+Examples of **correct** code for this rule when `ignoreArgs` is `true`:
+
+```ts
+/* "oxc/no-map-spread": ["error", { "ignoreArgs": true }] */
+function foo(arr) {
+  return arr.map((x) => ({ ...x }));
+}
+```
+
+### ignoreRereads
+
+type: `boolean`
+
+default: `true`
+
+Ignore mapped arrays that are re-read after the `map` call.
+
+Re-used arrays may rely on shallow copying behavior to avoid mutations.
+In these cases, `Object.assign` is not really more performant than spreads.
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "rules": {
+    "oxc/no-map-spread": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --deny oxc/no-map-spread
+```
+
+:::
+
+## References
+
+* Rule Source

@@ -1,0 +1,57 @@
+---
+url: /docs/guide/usage/linter/rules/unicorn/prefer-modern-math-apis.md
+---
+# unicorn/prefer-modern-math-apis&#x20;
+
+### What it does
+
+Checks for usage of legacy patterns for mathematical operations.
+
+### Why is this bad?
+
+Modern JavaScript provides more concise and readable alternatives to legacy patterns.
+
+Currently, the following cases are checked:
+
+* Prefer `Math.log10(x)` over alternatives
+* Prefer `Math.hypot(…)` over alternatives
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```javascript
+Math.log(x) * Math.LOG10E;
+Math.sqrt(a * a + b * b);
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
+Math.log10(x);
+Math.hypot(a, b);
+```
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "rules": {
+    "unicorn/prefer-modern-math-apis": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --deny unicorn/prefer-modern-math-apis
+```
+
+:::
+
+## References
+
+* Rule Source

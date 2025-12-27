@@ -1,0 +1,116 @@
+---
+url: /docs/guide/usage/linter/rules/eslint/prefer-destructuring.md
+---
+# eslint/prefer-destructuring&#x20;
+
+### What it does
+
+Require destructuring from arrays and/or objects
+
+### Why is this bad?
+
+With JavaScript ES2015, a new syntax was added for creating variables from an array index or object property,
+called destructuring. This rule enforces usage of destructuring
+instead of accessing a property through a member expression.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```js
+// With `array` enabled
+const foo = array[0];
+bar.baz = array[0];
+// With `object` enabled
+const qux = object.qux;
+const quux = object["quux"];
+```
+
+Examples of **correct** code for this rule:
+
+```js
+// With `array` enabled
+const [foo] = array;
+const arr = array[someIndex];
+[bar.baz] = array;
+
+// With `object` enabled
+const { baz } = object;
+const obj = object.bar;
+```
+
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### AssignmentExpression
+
+type: `object`
+
+default: `{"array":true, "object":true}`
+
+Configuration for destructuring in assignment expressions, configured for arrays and objects independently.
+
+#### AssignmentExpression.array
+
+type: `boolean`
+
+default: `true`
+
+#### AssignmentExpression.object
+
+type: `boolean`
+
+default: `true`
+
+### VariableDeclarator
+
+type: `object`
+
+default: `{"array":true, "object":true}`
+
+Configuration for destructuring in variable declarations, configured for arrays and objects independently.
+
+#### VariableDeclarator.array
+
+type: `boolean`
+
+default: `true`
+
+#### VariableDeclarator.object
+
+type: `boolean`
+
+default: `true`
+
+### enforceForRenamedProperties
+
+type: `boolean`
+
+default: `false`
+
+Determines whether the object destructuring rule applies to renamed variables.
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "rules": {
+    "prefer-destructuring": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --deny prefer-destructuring
+```
+
+:::
+
+## References
+
+* Rule Source

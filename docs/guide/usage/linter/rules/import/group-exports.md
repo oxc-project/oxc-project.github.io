@@ -1,0 +1,58 @@
+---
+url: /docs/guide/usage/linter/rules/import/group-exports.md
+---
+# import/group-exports&#x20;
+
+### What it does
+
+Reports when named exports are not grouped together in a single export declaration
+or when multiple assignments to CommonJS module.exports
+or exports object are present in a single file.
+
+### Why is this bad?
+
+An export declaration or module.exports assignment can appear anywhere in the code.
+By requiring a single export declaration all your exports will remain at one place,
+making it easier to see what exports a module provides.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```js
+export const first = true;
+export const second = true;
+```
+
+Examples of **correct** code for this rule:
+
+```js
+const first = true;
+const second = true;
+export { first, second };
+```
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "plugins": ["import"],
+  "rules": {
+    "import/group-exports": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --deny import/group-exports --import-plugin
+```
+
+:::
+
+## References
+
+* Rule Source

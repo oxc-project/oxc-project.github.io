@@ -1,0 +1,66 @@
+---
+url: /docs/guide/usage/linter/rules/unicorn/no-null.md
+---
+# unicorn/no-null&#x20;
+
+### What it does
+
+Disallow the use of the `null` literal, to encourage using `undefined` instead.
+
+### Why is this bad?
+
+There are some reasons for using `undefined` instead of `null`.
+
+* From experience, most developers use `null` and `undefined` inconsistently and interchangeably, and few know when to use which.
+* Supporting both `null` and `undefined` complicates input validation.
+* Using `null` makes TypeScript types more verbose: `type A = {foo?: string | null}` vs `type A = {foo?: string}`.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```javascript
+let foo = null;
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
+let foo;
+```
+
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### checkStrictEquality
+
+type: `boolean`
+
+default: `false`
+
+When set to `true`, the rule will also check strict equality/inequality comparisons (`===` and `!==`) against `null`.
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "rules": {
+    "unicorn/no-null": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --deny unicorn/no-null
+```
+
+:::
+
+## References
+
+* Rule Source

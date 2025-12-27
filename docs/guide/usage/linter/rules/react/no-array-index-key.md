@@ -1,0 +1,54 @@
+---
+url: /docs/guide/usage/linter/rules/react/no-array-index-key.md
+---
+# react/no-array-index-key&#x20;
+
+### What it does
+
+Warn if an element uses an Array index in its key.
+
+### Why is this bad?
+
+It's a bad idea to use the array index since it doesn't uniquely identify your elements.
+In cases where the array is sorted or an element is added to the beginning of the array,
+the index will be changed even though the element representing that index may be the same.
+This results in unnecessary renders.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```jsx
+things.map((thing, index) => <Hello key={index} />);
+```
+
+Examples of **correct** code for this rule:
+
+```jsx
+things.map((thing, index) => <Hello key={thing.id} />);
+```
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "plugins": ["react"],
+  "rules": {
+    "react/no-array-index-key": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --deny react/no-array-index-key --react-plugin
+```
+
+:::
+
+## References
+
+* Rule Source

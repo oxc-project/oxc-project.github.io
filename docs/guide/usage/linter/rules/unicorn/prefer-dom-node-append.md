@@ -1,0 +1,50 @@
+---
+url: /docs/guide/usage/linter/rules/unicorn/prefer-dom-node-append.md
+---
+# unicorn/prefer-dom-node-append&#x20;
+
+### What it does
+
+Enforces the use of, for example, `document.body.append(div);` over `document.body.appendChild(div);` for DOM nodes.
+
+### Why is this bad?
+
+There are [some advantages of using `Node#append()`](https://developer.mozilla.org/en-US/docs/Web/API/ParentNode/append), like the ability to append multiple nodes and to append both [`DOMString`](https://developer.mozilla.org/en-US/docs/Web/API/DOMString) and DOM node objects.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```javascript
+foo.appendChild(bar);
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
+foo.append(bar);
+```
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "rules": {
+    "unicorn/prefer-dom-node-append": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --deny unicorn/prefer-dom-node-append
+```
+
+:::
+
+## References
+
+* Rule Source

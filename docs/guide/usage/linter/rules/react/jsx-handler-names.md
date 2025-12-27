@@ -1,0 +1,109 @@
+---
+url: /docs/guide/usage/linter/rules/react/jsx-handler-names.md
+---
+# react/jsx-handler-names&#x20;
+
+### What it does
+
+Ensures that any component or prop methods used to handle events are correctly prefixed.
+
+### Why is this bad?
+
+Inconsistent naming of event handlers and props can reduce code readability and maintainability.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```jsx
+<MyComponent handleChange={this.handleChange} />
+<MyComponent onChange={this.componentChanged} />
+```
+
+Examples of **correct** code for this rule:
+
+```jsx
+<MyComponent onChange={this.handleChange} />
+<MyComponent onChange={this.props.onFoo} />
+```
+
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### checkInlineFunctions
+
+type: `boolean`
+
+default: `false`
+
+Whether to check for inline functions in JSX attributes.
+
+### checkLocalVariables
+
+type: `boolean`
+
+default: `false`
+
+Whether to check for local variables in JSX attributes.
+
+### eventHandlerPrefixes
+
+type: `string`
+
+default: `"handle"`
+
+Event handler prefixes to check against.
+
+### eventHandlerPropPrefixes
+
+type: `string`
+
+default: `"on"`
+
+Event handler prop prefixes to check against.
+
+### eventHandlerPropRegex
+
+type: `string | null`
+
+Compiled regex for event handler prop prefixes.
+
+### eventHandlerRegex
+
+type: `string | null`
+
+Compiled regex for event handler prefixes.
+
+### ignoreComponentNames
+
+type: `string[]`
+
+default: `[]`
+
+Component names to ignore when checking for event handler prefixes.
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "plugins": ["react"],
+  "rules": {
+    "react/jsx-handler-names": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --deny react/jsx-handler-names --react-plugin
+```
+
+:::
+
+## References
+
+* Rule Source

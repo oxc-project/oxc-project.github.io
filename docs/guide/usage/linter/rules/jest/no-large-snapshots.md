@@ -1,0 +1,152 @@
+---
+url: /docs/guide/usage/linter/rules/jest/no-large-snapshots.md
+---
+# jest/no-large-snapshots&#x20;
+
+### What it does
+
+Disallow large snapshots.
+
+### Why is this bad?
+
+When using Jest's snapshot capability one should be mindful of the size of
+created snapshots. As a general best practice snapshots should be limited in
+size in order to be more manageable and reviewable. A stored snapshot is only as
+good as its review and as such keeping it short, sweet, and readable is
+important to allow for thorough reviews.
+
+### Example
+
+Examples of **incorrect** code for this rule:
+
+```javascript
+exports[`a large snapshot 1`] = `
+line 1
+line 2
+line 3
+line 4
+line 5
+line 6
+line 7
+line 8
+line 9
+line 10
+line 11
+line 12
+line 13
+line 14
+line 15
+line 16
+line 17
+line 18
+line 19
+line 20
+line 21
+line 22
+line 23
+line 24
+line 25
+line 26
+line 27
+line 28
+line 29
+line 30
+line 31
+line 32
+line 33
+line 34
+line 35
+line 36
+line 37
+line 38
+line 39
+line 40
+line 41
+line 42
+line 43
+line 44
+line 45
+line 46
+line 47
+line 48
+line 49
+line 50
+line 51
+`;
+```
+
+Examples of **incorrect** code for this rule:
+
+```js
+exports[`a more manageable and readable snapshot 1`] = `
+line 1
+line 2
+line 3
+line 4
+`;
+```
+
+This rule is compatible with [eslint-plugin-vitest](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/no-large-snapshots.md),
+to use it, add the following configuration to your `.oxlintrc.json`:
+
+```json
+{
+  "rules": {
+    "vitest/no-large-snapshots": "error"
+  }
+}
+```
+
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### allowedSnapshots
+
+type: `Record<string, array>`
+
+default: `{}`
+
+A map of snapshot file paths to arrays of snapshot names that are allowed to exceed the size limit.
+Snapshot names can be specified as regular expressions.
+
+### inlineMaxSize
+
+type: `integer`
+
+default: `50`
+
+Maximum number of lines allowed for inline snapshots.
+
+### maxSize
+
+type: `integer`
+
+default: `50`
+
+Maximum number of lines allowed for external snapshot files.
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "plugins": ["jest"],
+  "rules": {
+    "jest/no-large-snapshots": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --deny jest/no-large-snapshots --jest-plugin
+```
+
+:::
+
+## References
+
+* Rule Source

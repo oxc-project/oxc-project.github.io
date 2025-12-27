@@ -1,0 +1,91 @@
+---
+url: /docs/guide/usage/linter/rules/eslint/no-duplicate-case.md
+---
+# eslint/no-duplicate-case&#x20;
+
+### What it does
+
+Disallow duplicate case labels
+
+### Why is this bad?
+
+If a switch statement has duplicate test expressions in case clauses,
+it is likely that a programmer copied a case clause but forgot to change the test expression.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```js
+var a = 1,
+  one = 1;
+switch (a) {
+  case 1:
+    break;
+  case 2:
+    break;
+  case 1: // duplicate test expression
+    break;
+  default:
+    break;
+}
+
+switch (a) {
+  case one:
+    break;
+  case 2:
+    break;
+  case one: // duplicate test expression
+    break;
+  default:
+    break;
+}
+```
+
+Examples of **correct** code for this rule:
+
+```js
+var a = 1,
+  one = 1;
+switch (a) {
+  case 1:
+    break;
+  case 2:
+    break;
+  default:
+    break;
+}
+
+switch (a) {
+  case "1":
+    break;
+  case "2":
+    break;
+  default:
+    break;
+}
+```
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "rules": {
+    "no-duplicate-case": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --deny no-duplicate-case
+```
+
+:::
+
+## References
+
+* Rule Source

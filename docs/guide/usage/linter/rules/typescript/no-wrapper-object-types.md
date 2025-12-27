@@ -1,0 +1,62 @@
+---
+url: /docs/guide/usage/linter/rules/typescript/no-wrapper-object-types.md
+---
+# typescript/no-wrapper-object-types&#x20;
+
+### What it does
+
+Disallow the use of wrapper object types.
+
+### Why is this bad?
+
+Wrapper object types are types that are defined in the global scope and are not primitive types. These types are not recommended to be used in TypeScript code.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```ts
+let myBigInt: BigInt;
+let myBoolean: Boolean;
+let myNumber: Number;
+let myString: String;
+let mySymbol: Symbol;
+
+let myObject: Object = "allowed by TypeScript";
+```
+
+Examples of **correct** code for this rule:
+
+```ts
+let myBigint: bigint;
+let myBoolean: boolean;
+let myNumber: number;
+let myString: string;
+let mySymbol: symbol;
+
+let myObject: object = "Type 'string' is not assignable to type 'object'.";
+```
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "rules": {
+    "typescript/no-wrapper-object-types": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --deny typescript/no-wrapper-object-types
+```
+
+:::
+
+## References
+
+* Rule Source

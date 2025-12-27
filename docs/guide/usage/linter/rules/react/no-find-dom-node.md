@@ -1,0 +1,54 @@
+---
+url: /docs/guide/usage/linter/rules/react/no-find-dom-node.md
+---
+# react/no-find-dom-node&#x20;
+
+### What it does
+
+This rule disallows the use of `findDOMNode`.
+
+### Why is this bad?
+
+`findDOMNode` is an escape hatch used to access the underlying DOM node.
+In most cases, use of this escape hatch is discouraged because it pierces the component abstraction.
+[It has been deprecated in `StrictMode`.](https://legacy.reactjs.org/docs/strict-mode.html#warning-about-deprecated-finddomnode-usage)
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```jsx
+class MyComponent extends Component {
+  componentDidMount() {
+    findDOMNode(this).scrollIntoView();
+  }
+  render() {
+    return <div />;
+  }
+}
+```
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "plugins": ["react"],
+  "rules": {
+    "react/no-find-dom-node": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --deny react/no-find-dom-node --react-plugin
+```
+
+:::
+
+## References
+
+* Rule Source

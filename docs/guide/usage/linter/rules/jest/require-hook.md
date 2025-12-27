@@ -1,0 +1,170 @@
+---
+url: /docs/guide/usage/linter/rules/jest/require-hook.md
+---
+# jest/require-hook&#x20;
+
+### What it does
+
+This rule flags any expression that is either at the toplevel of a test file or
+directly within the body of a `describe`, *except* for the following:
+
+* `import` statements
+* `const` variables
+* `let` *declarations*, and initializations to `null` or `undefined`
+* Classes
+* Types
+* Calls to the standard Jest globals
+
+### Why is this bad?
+
+Having setup and teardown code outside of hooks can lead to unpredictable test
+behavior. Code that runs at the top level executes when the test file is loaded,
+not when tests run, which can cause issues with test isolation and make tests
+dependent on execution order. Using proper hooks like `beforeEach`, `beforeAll`,
+`afterEach`, and `afterAll` ensures that setup and teardown code runs at the
+correct time and maintains test isolation.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```javascript
+import { database, isCity } from "../database";
+import { Logger } from "../../../src/Logger";
+import { loadCities } from "../api";
+
+jest.mock("../api");
+
+const initializeCityDatabase = () => {
+  database.addCity("Vienna");
+  database.addCity("San Juan");
+  database.addCity("Wellington");
+};
+
+const clearCityDatabase = () => {
+  database.clear();
+};
+
+initializeCityDatabase();
+
+test("that persists cities", () => {
+  expect(database.cities.length).toHaveLength(3);
+});
+test("city database has Vienna", () => {
+  expect(isCity("Vienna")).toBeTruthy();
+});
+
+test("city database has San Juan", () => {
+  expect(isCity("San Juan")).toBeTruthy();
+});
+
+describe("when loading cities from the api", () => {
+  let consoleWarnSpy = jest.spyOn(console, "warn");
+  loadCities.mockResolvedValue(["Wellington", "London"]);
+
+  it("does not duplicate cities", async () => {
+    await database.loadCities();
+    expect(database.cities).toHaveLength(4);
+  });
+});
+clearCityDatabase();
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
+import { database, isCity } from "../database";
+import { Logger } from "../../../src/Logger";
+import { loadCities } from "../api";
+
+jest.mock("../api");
+const initializeCityDatabase = () => {
+  database.addCity("Vienna");
+  database.addCity("San Juan");
+  database.addCity("Wellington");
+};
+
+const clearCityDatabase = () => {
+  database.clear();
+};
+
+beforeEach(() => {
+  initializeCityDatabase();
+});
+
+test("that persists cities", () => {
+  expect(database.cities.length).toHaveLength(3);
+});
+
+test("city database has Vienna", () => {
+  expect(isCity("Vienna")).toBeTruthy();
+});
+
+test("city database has San Juan", () => {
+  expect(isCity("San Juan")).toBeTruthy();
+});
+
+describe("when loading cities from the api", () => {
+  let consoleWarnSpy;
+  beforeEach(() => {
+    consoleWarnSpy = jest.spyOn(console, "warn");
+    loadCities.mockResolvedValue(["Wellington", "London"]);
+  });
+
+  it("does not duplicate cities", async () => {
+    await database.loadCities();
+    expect(database.cities).toHaveLength(4);
+  });
+});
+afterEach(() => {
+  clearCityDatabase();
+});
+```
+
+This rule is compatible with [eslint-plugin-vitest](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/require-hook.md),
+to use it, add the following configuration to your `.oxlintrc.json`:
+
+```json
+{
+  "rules": {
+    "vitest/require-hook": "error"
+  }
+}
+```
+
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### allowedFunctionCalls
+
+type: `string[]`
+
+default: `[]`
+
+An array of function names that are allowed to be called outside of hooks.
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "plugins": ["jest"],
+  "rules": {
+    "jest/require-hook": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --deny jest/require-hook --jest-plugin
+```
+
+:::
+
+## References
+
+* Rule Source
