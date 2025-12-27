@@ -23,7 +23,7 @@ export const enConfig = defineLocaleConfig("root", {
       {
         text: "Resources",
         items: [
-          { text: "Release Blog", link: "/blog/2025-12-08-type-aware-alpha" },
+          { text: "Release Blog", link: "/blog" },
           { text: "Endorsements", link: "/endorsements" },
           { text: "Team", link: "/team" },
           { text: "Releases", link: "https://github.com/oxc-project/oxc/releases" },
