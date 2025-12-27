@@ -242,13 +242,30 @@ The primary way of specifying files to process is by passing a file path as an a
 
 ### Ignoring files
 
-You can ignore certain patterns of files by configuring the `ignorePatterns` property in a configuration file. The value of the `ignorePatterns` property is an array of file patterns (globs), which are resolved relative to the location of the configuration file.
+#### Files automatically ignored by Oxlint
+
+By default, Oxlint automatically ignores the following:
+
+* **`.git` directories**: Always skipped to avoid linting version control metadata
+* **Minified files**: Files containing `.min.`, `-min.`, or `_min.` in their names (e.g., `bundle.min.js`, `vendor-min.js`)
+* **Files in `.gitignore`**: Respected even without a Git repository. Note that global `.gitignore` files are NOT respected.
+* **Files in `.eslintignore`**: By default, Oxlint reads the `.eslintignore` file in your project root
+
+**Note**: Hidden files (files starting with `.`) are NOT automatically ignored by Oxlint.
+
+#### Custom ignore patterns
+
+You can ignore additional patterns of files by configuring the `ignorePatterns` property in a configuration file. The value of the `ignorePatterns` property is an array of file patterns (globs), which are resolved relative to the location of the configuration file.
 
 ```jsonc
 {
   "ignorePatterns": ["vendor", "test/snapshots/**", "test.js"],
 }
 ```
+
+#### Disabling file ignoring
+
+To disable all automatic file ignoring (including `.gitignore` and `.eslintignore`), use the `--no-ignore` command-line flag. You can also specify a custom ignore file with `--ignore-path` or add additional patterns with `--ignore-pattern`. See the [CLI documentation](./cli.md) for more details.
 
 ### .eslintignore
 
