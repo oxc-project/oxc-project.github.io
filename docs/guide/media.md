@@ -2,7 +2,7 @@
 url: /docs/guide/media.md
 ---
 
-# On Media
+# Talks & media
 
 ## Articles
 

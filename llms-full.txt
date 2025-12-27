@@ -1420,6 +1420,69 @@ import styled from "styled-components/primitives";
 ---
 
 ---
+url: /docs/guide/usage/formatter/cli.md
+---
+
+# Command-line Interface
+
+## Usage
+
+**`oxfmt`** \[**`-c`**=*`PATH`*] \[*`PATH`*]...
+
+## Mode Options:
+
+* **`    --init`** —
+  Initialize `.oxfmtrc.json` with default values
+* **`    --migrate`**=*`SOURCE`* —
+  Migrate configuration to `.oxfmtrc.json` from specified source Available sources: prettier
+* **`    --lsp`** —
+  Start language server protocol (LSP) server
+* **`    --stdin-filepath`**=*`PATH`* —
+  Specify the file name to use to infer which parser to use
+
+## Output Options:
+
+* **`    --write`** —
+  Format and write files in place (default)
+* **`    --check`** —
+  Check if files are formatted, also show statistics
+* **`    --list-different`** —
+  List files that would be changed
+
+## Config Options
+
+* **`-c`**, **`--config`**=*`PATH`* —
+  Path to the configuration file
+
+## Ignore Options
+
+* **`    --ignore-path`**=*`PATH`* —
+  Path to ignore file(s). Can be specified multiple times. If not specified, .gitignore and .prettierignore in the current directory are used.
+* **`    --with-node-modules`** —
+  Format code in node\_modules directory (skipped by default)
+
+## Runtime Options
+
+* **`    --no-error-on-unmatched-pattern`** —
+  Do not exit with error when pattern is unmatched
+* **`    --threads`**=*`INT`* —
+  Number of threads to use. Set to 1 for using only 1 CPU core.
+
+## Available positional items:
+
+* *`PATH`* —
+  Single file, single path or list of paths. If not provided, current working directory is used. Glob is supported only for exclude patterns like `'!**/fixtures/*.js'`.
+
+## Available options:
+
+* **`-h`**, **`--help`** —
+  Prints help information
+* **`-V`**, **`--version`** —
+  Prints version information
+
+---
+
+---
 url: /docs/guide/usage/linter/cli.md
 ---
 
@@ -1581,69 +1644,6 @@ Arguments:
 ---
 
 ---
-url: /docs/guide/usage/formatter/cli.md
----
-
-# Command-line Interface
-
-## Usage
-
-**`oxfmt`** \[**`-c`**=*`PATH`*] \[*`PATH`*]...
-
-## Mode Options:
-
-* **`    --init`** —
-  Initialize `.oxfmtrc.json` with default values
-* **`    --migrate`**=*`SOURCE`* —
-  Migrate configuration to `.oxfmtrc.json` from specified source Available sources: prettier
-* **`    --lsp`** —
-  Start language server protocol (LSP) server
-* **`    --stdin-filepath`**=*`PATH`* —
-  Specify the file name to use to infer which parser to use
-
-## Output Options:
-
-* **`    --write`** —
-  Format and write files in place (default)
-* **`    --check`** —
-  Check if files are formatted, also show statistics
-* **`    --list-different`** —
-  List files that would be changed
-
-## Config Options
-
-* **`-c`**, **`--config`**=*`PATH`* —
-  Path to the configuration file
-
-## Ignore Options
-
-* **`    --ignore-path`**=*`PATH`* —
-  Path to ignore file(s). Can be specified multiple times. If not specified, .gitignore and .prettierignore in the current directory are used.
-* **`    --with-node-modules`** —
-  Format code in node\_modules directory (skipped by default)
-
-## Runtime Options
-
-* **`    --no-error-on-unmatched-pattern`** —
-  Do not exit with error when pattern is unmatched
-* **`    --threads`**=*`INT`* —
-  Number of threads to use. Set to 1 for using only 1 CPU core.
-
-## Available positional items:
-
-* *`PATH`* —
-  Single file, single path or list of paths. If not provided, current working directory is used. Glob is supported only for exclude patterns like `'!**/fixtures/*.js'`.
-
-## Available options:
-
-* **`-h`**, **`--help`** —
-  Prints help information
-* **`-V`**, **`--version`** —
-  Prints version information
-
----
-
----
 url: /docs/guide/usage/formatter/config.md
 ---
 # Configuration
@@ -1731,7 +1731,7 @@ For TOML files, ignore comments are not supported.
 ---
 
 ---
-url: /docs/guide/usage/formatter/config-file-reference.md
+url: /docs/guide/usage/formatter/generated-config.md
 ---
 
 # Configuration options for the Oxfmt.
@@ -1914,7 +1914,7 @@ Use tabs for indentation or spaces. (Default: `false`)
 ---
 
 ---
-url: /docs/guide/usage/formatter/generated-config.md
+url: /docs/guide/usage/formatter/config-file-reference.md
 ---
 
 # Configuration options for the Oxfmt.
@@ -2866,6 +2866,58 @@ In `.vscode/launch.json`, change config fields to your need:
 Open VS Code Debugging panel and select `Debug Oxlint`, then start debugging.
 
 The debug process will be launched with specified `cwd`, like running linter in testing project and attaching debugger into it.
+
+---
+
+---
+url: /endorsements.md
+---
+
+# Endorsements
+
+### [Evan You](https://x.com/youyuxi/status/1734439543280128030), creator of [Vue.js](https://vuejs.org) and [Vite](https://vitejs.dev):
+
+> Ran oxlint on the Vue 3 codebase, ~200 rules + ~590 files finished in 50ms 🤯 (30ms re-runs)
+>
+> The performance is absolutely nuts
+
+### [Jason Miller](https://github.com/developit), creator of [Preact](https://preactjs.com):
+
+> oxlint has been a massive win for us at Shopify. Our previous linting setup took 75 minutes to run, so we were fanning it out across 40+ workers in CI.
+>
+> By comparison, oxlint takes around 10 seconds to lint the same codebase on a single worker, and the output is easier to interpret.
+>
+> We even caught a few bugs that were hidden or skipped by our old setup when we migrated!
+
+### [Luke Edwards](https://x.com/lukeed05/status/1829527267162345651)
+
+> For a while now, @boshen\_c has been crushing it, setting the foundation for the next generation of JS tooling.
+>
+> There's just so much to learn from the OXC source code. Everything is meticulously measured and benchmarked, then formalized into simple, elegant, non-frightening APIs.
+>
+> This guy is brilliant, a team player, and is + has been doing thankless, hard work.
+
+### [Yagiz Nizipli](https://github.com/sponsors/anonrig), founder of [Node.js performance team](https://github.com/nodejs/performance):
+
+> I'm impressed by how oxc is actively encouraging JavaScript tools to improve their performance.
+
+### [Eric Simons](https://x.com/ericsimons40/status/1766525300584947999), CEO of [StackBlitz](https://stackblitz.com/):
+
+> Oxc is slept on rn
+>
+> Most JS/TS toolchains will be using it within the next few yrs imo
+
+### [Miles Johnson](https://x.com/mileswjohnson/status/1734698340791800283), creator of [Moonrepo](https://moonrepo.dev):
+
+> It's crazy how good oxlint (and oxc tools) is. Not just in performance, but ease of use. Banking on Rust was a good choice!
+
+### [Joe Savona](https://x.com/en_JS/status/1676467920334094336), [React](https://react.dev) team member:
+
+> For…reasons I am experimenting w various Rust-based JS compilers. I don’t agree w every design decision but overall oxc is really well done.
+
+### [Sathya Gunasekaran](https://x.com/_gsathya/status/1676453430263701506), [React](https://react.dev) team member:
+
+> oxc is kinda neat
 
 ---
 
@@ -18859,6 +18911,44 @@ However, even with `"auto"`, the contents inside `TaggedTemplateLiteral` in JS/T
 ---
 
 ---
+url: /docs/guide/introduction.md
+---
+
+# Getting Started
+
+[What is Oxc?](/docs/guide/what-is-oxc)
+
+## Lint or format a codebase
+
+* Lint: [Oxlint](/docs/guide/usage/linter)
+* Format: [Oxfmt](/docs/guide/usage/formatter)
+
+## Build tooling on top of Oxc
+
+* Parse JavaScript and TypeScript: [Parser](/docs/guide/usage/parser)
+* Transform TypeScript, JSX, and modern JavaScript: [Transformer](/docs/guide/usage/transformer)
+* Minify JavaScript for production builds: [Minifier](/docs/guide/usage/minifier)
+* Resolve modules for JavaScript and TypeScript: [Resolver](/docs/guide/usage/resolver)
+
+## Contribute or learn
+
+* [Contribute](/docs/contribute/introduction)
+* [Learn](/docs/learn/parser_in_rust/intro.html)
+
+## Other resources
+
+* [Troubleshooting](/docs/guide/troubleshooting)
+* [Benchmarks](/docs/guide/benchmarks)
+* [Projects using Oxc](/docs/guide/projects)
+* [Talks and media](/docs/guide/media)
+* [Team](/team)
+* [Endorsements](/endorsements)
+* [Release Blog](/blog/2025-12-08-type-aware-alpha)
+* [Releases](https://github.com/oxc-project/oxc/releases)
+
+---
+
+---
 url: /docs/contribute/development.md
 ---
 
@@ -18939,81 +19029,6 @@ macOS has an antivirus feature called XProtect that scans executables for malwar
 **Note:** This disables an OS security feature. Only do this if you're comfortable with the trade-off.
 
 More details: https://nnethercote.github.io/2025/09/04/faster-rust-builds-on-mac.html
-
----
-
----
-url: /docs/guide/introduction.md
----
-
-# Getting Started
-
-## Overview
-
-Oxc (each letter is individually pronounced, `/oh-eks-see/`) is the JavaScript Oxidation Compiler, a collection of high-performance tools for the JavaScript language written in Rust.
-
-Our focus lies in constructing essential compiler tools for JavaScript: parser, linter, formatter, transpiler, minifier and resolver.
-
-Our goal is to empower the [next generation toolchain for JavaScript](https://voidzero.dev/posts/announcing-voidzero-inc) as part of [VoidZero](https://voidzero.dev).
-
-## Endorsements
-
-#### [Evan You](https://x.com/youyuxi/status/1734439543280128030), creator of [Vue.js](https://vuejs.org) and [Vite](https://vitejs.dev):
-
-> Ran oxlint on the Vue 3 codebase, ~200 rules + ~590 files finished in 50ms 🤯 (30ms re-runs)
->
-> The performance is absolutely nuts
-
-#### [Jason Miller](https://github.com/developit), creator of [Preact](https://preactjs.com):
-
-> oxlint has been a massive win for us at Shopify. Our previous linting setup took 75 minutes to run, so we were fanning it out across 40+ workers in CI.
->
-> By comparison, oxlint takes around 10 seconds to lint the same codebase on a single worker, and the output is easier to interpret.
->
-> We even caught a few bugs that were hidden or skipped by our old setup when we migrated!
-
-#### [Luke Edwards](https://x.com/lukeed05/status/1829527267162345651)
-
-> For a while now, @boshen\_c has been crushing it, setting the foundation for the next generation of JS tooling.
->
-> There's just so much to learn from the OXC source code. Everything is meticulously measured and benchmarked, then formalized into simple, elegant, non-frightening APIs.
->
-> This guy is brilliant, a team player, and is + has been doing thankless, hard work.
-
-#### [Yagiz Nizipli](https://github.com/sponsors/anonrig), founder of [Node.js performance team](https://github.com/nodejs/performance):
-
-> I'm impressed by how oxc is actively encouraging JavaScript tools to improve their performance.
-
-#### [Eric Simons](https://x.com/ericsimons40/status/1766525300584947999), CEO of [StackBlitz](https://stackblitz.com/):
-
-> Oxc is slept on rn
->
-> Most JS/TS toolchains will be using it within the next few yrs imo
-
-#### [Miles Johnson](https://x.com/mileswjohnson/status/1734698340791800283), creator of [Moonrepo](https://moonrepo.dev):
-
-> It's crazy how good oxlint (and oxc tools) is. Not just in performance, but ease of use. Banking on Rust was a good choice!
-
-#### [Joe Savona](https://x.com/en_JS/status/1676467920334094336), [React](https://react.dev) team member:
-
-> For…reasons I am experimenting w various Rust-based JS compilers. I don’t agree w every design decision but overall oxc is really well done.
-
-#### [Sathya Gunasekaran](https://x.com/_gsathya/status/1676453430263701506), [React](https://react.dev) team member:
-
-> oxc is kinda neat
-
-## Special Thanks
-
-* [Biome][biome] and [Ruff][ruff]: This project would not exist without the help, inspiration, and encouragement from these two projects, who are pioneers in the field of Rust-based unified toolchains.
-* [quick-lint-js][quick-lint-js] and [elm-review][elm-review]: For educating how static analysis could be improved in both performance and usability.
-
-[biome]: https://biomejs.dev
-
-[ruff]: https://beta.ruff.rs
-
-[quick-lint-js]: https://quick-lint-js.com/
-
-[elm-review]: https://package.elm-lang.org/packages/jfmengels/elm-review/latest/
 
 ---
 
@@ -22495,6 +22510,71 @@ If you are using a pre-commit hook via husky/lint-staged, you can run Oxfmt with
 ---
 
 ---
+url: /docs/learn/parser_in_rust/intro.md
+---
+
+# Introduction
+
+We are in [The Third Age of JavaScript](https://www.swyx.io/js-third-age/),
+the common trend right now is to author JavaScript tools in Rust or Go for their performance gains.
+
+But authoring JavaScript tools are challenging, let alone writing them in Rust.
+I have struggled a lot when learning these technologies,
+and I wish fewer people to take the same struggling journey.
+
+I want to make my own contribution to the community by writing this guide,
+so you don't have to take the same journey as I had.
+
+There are only a handful of developers on the Rust side, and I would like to see you here and join us,
+so we can build better and faster tools for everyone to enjoy.
+
+## Overview
+
+For this guide, the standard compiler frontend phases will be applied:
+
+```
+Source Text --> Lexer --> Token --> Parser --> AST
+```
+
+Writing a JavaScript parser is fairly easy,
+it is 10% architectural decisions and 90% hard work on the fine-grained details.
+
+The architectural decisions will mostly affect two categories:
+
+* the performance of our parser
+* how nice it is to consume our AST
+
+Knowing all the options and trade-offs before building a parser in Rust will make our whole journey much smoother.
+
+## Performance
+
+The key to a performant Rust program is to **allocate less memory** and **use fewer CPU cycles**.
+
+It is mostly transparent where memory allocations are made just by looking for heap-allocated objects such as a `Vec`, `Box` or `String`.
+Reasoning about their usage will give us a sense of how fast our program will be - the more we allocate, the slower our program will be.
+
+Rust gives us the power of zero-cost abstractions, we don't need to worry too much about abstractions causing slower performance.
+Be careful with our algorithmic complexities and we will be all good to go.
+
+:::info
+You should also read [The Rust Performance Book](https://nnethercote.github.io/perf-book/introduction.html).
+:::
+
+## Rust Source Code
+
+Whenever the performance of a function call cannot be deduced,
+do not be afraid to click the "source" button on the Rust documentation and read the source code,
+they are easy to understand most of the time.
+
+:::info
+When navigating the Rust source code, searching for a definition is simply looking for
+`fn function_name`, `struct struct_name`, `enum enum_name`, etc.
+This is one advantage of having constant grammar in Rust (compared to JavaScript 😉).
+:::
+
+---
+
+---
 url: /docs/contribute/introduction.md
 ---
 
@@ -22596,71 +22676,6 @@ Ready to contribute? Here are some great places to start:
 * 🛠️ **Pick a Tool**: Dive into [parser](./parser.md), [linter](./linter.md), [transformer](./transformer.md), or [other tools](./formatter.md)
 
 We can't wait to see what you'll build with us! 🚀
-
----
-
----
-url: /docs/learn/parser_in_rust/intro.md
----
-
-# Introduction
-
-We are in [The Third Age of JavaScript](https://www.swyx.io/js-third-age/),
-the common trend right now is to author JavaScript tools in Rust or Go for their performance gains.
-
-But authoring JavaScript tools are challenging, let alone writing them in Rust.
-I have struggled a lot when learning these technologies,
-and I wish fewer people to take the same struggling journey.
-
-I want to make my own contribution to the community by writing this guide,
-so you don't have to take the same journey as I had.
-
-There are only a handful of developers on the Rust side, and I would like to see you here and join us,
-so we can build better and faster tools for everyone to enjoy.
-
-## Overview
-
-For this guide, the standard compiler frontend phases will be applied:
-
-```
-Source Text --> Lexer --> Token --> Parser --> AST
-```
-
-Writing a JavaScript parser is fairly easy,
-it is 10% architectural decisions and 90% hard work on the fine-grained details.
-
-The architectural decisions will mostly affect two categories:
-
-* the performance of our parser
-* how nice it is to consume our AST
-
-Knowing all the options and trade-offs before building a parser in Rust will make our whole journey much smoother.
-
-## Performance
-
-The key to a performant Rust program is to **allocate less memory** and **use fewer CPU cycles**.
-
-It is mostly transparent where memory allocations are made just by looking for heap-allocated objects such as a `Vec`, `Box` or `String`.
-Reasoning about their usage will give us a sense of how fast our program will be - the more we allocate, the slower our program will be.
-
-Rust gives us the power of zero-cost abstractions, we don't need to worry too much about abstractions causing slower performance.
-Be careful with our algorithmic complexities and we will be all good to go.
-
-:::info
-You should also read [The Rust Performance Book](https://nnethercote.github.io/perf-book/introduction.html).
-:::
-
-## Rust Source Code
-
-Whenever the performance of a function call cannot be deduced,
-do not be afraid to click the "source" button on the Rust documentation and read the source code,
-they are easy to understand most of the time.
-
-:::info
-When navigating the Rust source code, searching for a definition is simply looking for
-`fn function_name`, `struct struct_name`, `enum enum_name`, etc.
-This is one advantage of having constant grammar in Rust (compared to JavaScript 😉).
-:::
 
 ---
 
@@ -31919,6 +31934,63 @@ and string comparison becomes `matches!(value, TokenValue::String(atom!("string"
 ---
 
 ---
+url: /docs/contribute/linter.md
+---
+
+# Linter
+
+## Contributing New Rules
+
+See the [adding rules](./linter/adding-rules.md) guide for how to add new rules to Oxlint.
+
+## Development
+
+Create a `./test.ts` and then
+
+```bash
+just watch "cargo run --bin oxlint -- test.ts"
+```
+
+Or test and filter against the rule:
+
+```bash
+just watch "cargo test -p oxc_linter -- rule-name"
+```
+
+### Testing oxlint against a full codebase
+
+To test oxlint on a full codebase, for example to test your changes with a large JavaScript/TypeScript project, you can build the `oxlint` CLI and run it against that codebase.
+
+```bash
+# build the oxlint cli in the oxc repo
+just oxlint-node
+# and then in the directory of the codebase you want to test with, run oxlint with node:
+node <path-to-oxc-repo>/apps/oxlint/dist/cli.js
+# You can also pass flags to it, like -D to enable a specific rule, and --disable-x-plugin to turn off default plugins:
+node <path-to-oxc-repo>/apps/oxlint/dist/cli.js -D rulename --disable-unicorn-plugin --disable-oxc-plugin --disable-typescript-plugin
+```
+
+### Snapshot Testing
+
+[`cargo insta`](https://insta.rs/docs) is used for snapshot testing.
+
+After running `cargo test -p oxc_linter` and the line `Tester::new(RULE::NAME, pass, fail).test_and_snapshot()` is called, a new `rule.snap.new` file will be generated.
+
+Use `cargo insta accept` to accept all snapshot changes.
+
+## Rule Category
+
+* **correctness** - code that is outright wrong or useless
+* **suspicious** - code that is most likely wrong or useless
+* **pedantic** - lints which are rather strict or have occasional false positives
+* **perf** - code that can be written to run faster
+* **style** - code that should be written in a more idiomatic way
+* **restriction** - lints should be considered on a case-by-case basis before enabling.
+* **nursery** - new lints that are still under development
+
+---
+
+---
 url: /docs/guide/usage/linter.md
 ---
 
@@ -32153,63 +32225,6 @@ https://www.npmjs.com/package/vite-plugin-oxlint
 
 * **Node.js**: >= 20.19.0 or >= 22.12.0
 * **Platforms**: darwin-arm64, darwin-x64, linux-arm64, linux-x64, win32-arm64, and win32-x64
-
----
-
----
-url: /docs/contribute/linter.md
----
-
-# Linter
-
-## Contributing New Rules
-
-See the [adding rules](./linter/adding-rules.md) guide for how to add new rules to Oxlint.
-
-## Development
-
-Create a `./test.ts` and then
-
-```bash
-just watch "cargo run --bin oxlint -- test.ts"
-```
-
-Or test and filter against the rule:
-
-```bash
-just watch "cargo test -p oxc_linter -- rule-name"
-```
-
-### Testing oxlint against a full codebase
-
-To test oxlint on a full codebase, for example to test your changes with a large JavaScript/TypeScript project, you can build the `oxlint` CLI and run it against that codebase.
-
-```bash
-# build the oxlint cli in the oxc repo
-just oxlint-node
-# and then in the directory of the codebase you want to test with, run oxlint with node:
-node <path-to-oxc-repo>/apps/oxlint/dist/cli.js
-# You can also pass flags to it, like -D to enable a specific rule, and --disable-x-plugin to turn off default plugins:
-node <path-to-oxc-repo>/apps/oxlint/dist/cli.js -D rulename --disable-unicorn-plugin --disable-oxc-plugin --disable-typescript-plugin
-```
-
-### Snapshot Testing
-
-[`cargo insta`](https://insta.rs/docs) is used for snapshot testing.
-
-After running `cargo test -p oxc_linter` and the line `Tester::new(RULE::NAME, pass, fail).test_and_snapshot()` is called, a new `rule.snap.new` file will be generated.
-
-Use `cargo insta accept` to accept all snapshot changes.
-
-## Rule Category
-
-* **correctness** - code that is outright wrong or useless
-* **suspicious** - code that is most likely wrong or useless
-* **pedantic** - lints which are rather strict or have occasional false positives
-* **perf** - code that can be written to run faster
-* **style** - code that should be written in a more idiomatic way
-* **restriction** - lints should be considered on a case-by-case basis before enabling.
-* **nursery** - new lints that are still under development
 
 ---
 
@@ -34702,7 +34717,7 @@ oxlint --deny node/no-process-env --node-plugin
 url: /docs/guide/media.md
 ---
 
-# On Media
+# Talks & media
 
 ## Articles
 
@@ -38180,70 +38195,6 @@ The parser provides:
 ---
 
 ---
-url: /docs/guide/usage/parser.md
----
-
-# Parser
-
-This is production ready.
-
-## Features
-
-* 3x faster than swc parser ([benchmark][url-benchmark]).
-* Parses `.js(x)` and `.ts(x)`.
-* Passes all parser tests from Test262 and 99% from Babel and TypeScript.
-* Returns ESM information directly, no need for [`es-module-lexer`](https://github.com/guybedford/es-module-lexer).
-* [✅ works with checker.ts](https://x.com/robpalmer2/status/1805502964435505559)
-
-## Installation
-
-### Node.js
-
-* Use the node binding [oxc-parser][url-oxc-parser-npm].
-* Try on [stackblitz](https://stackblitz.com/edit/oxc-parser).
-
-### Rust
-
-Use the umbrella crate [oxc][url-oxc-crate] or the individual [oxc\_ast][url-oxc-ast-crate] and [oxc\_parser][url-oxc-parser-crate] crates.
-
-Rust usage example can be found [here](https://github.com/oxc-project/oxc/blob/main/crates/oxc_parser/examples/parser.rs).
-
-## Print
-
-After parsing and transforming, you can print code.
-
-Here's a direct example using [esrap](https://www.npmjs.com/package/esrap) *(`parse` in reverse!)*:
-
-```js
-import { print } from "esrap";
-import ts from "esrap/languages/ts";
-import { parseSync } from "oxc-parser";
-
-const { program } = parseSync("test.js", 'alert("hello oxc & esrap");');
-const { code } = print(program, ts());
-
-console.log(code); // alert("hello oxc & esrap");
-```
-
-:::info
-Today, comments are not printed. *It will be supported thanks to [oxc-parser #13285](https://github.com/oxc-project/oxc/pull/13285).*
-:::
-
-[url-swc]: https://swc.rs
-
-[url-benchmark]: https://github.com/oxc-project/bench-javascript-parser-written-in-rust
-
-[url-oxc-crate]: https://docs.rs/oxc
-
-[url-oxc-ast-crate]: https://docs.rs/oxc_ast
-
-[url-oxc-parser-crate]: https://docs.rs/oxc_parser
-
-[url-oxc-parser-npm]: https://www.npmjs.com/package/oxc-parser
-
----
-
----
 url: /docs/learn/parser_in_rust/parser.md
 ---
 
@@ -38650,6 +38601,70 @@ function isParenthesizedArrowFunctionExpression(): Tristate {
 ```
 
 In summary, the TypeScript parser uses a combination of lookahead (fast path) and backtracking to parse arrow functions.
+
+---
+
+---
+url: /docs/guide/usage/parser.md
+---
+
+# Parser
+
+This is production ready.
+
+## Features
+
+* 3x faster than swc parser ([benchmark][url-benchmark]).
+* Parses `.js(x)` and `.ts(x)`.
+* Passes all parser tests from Test262 and 99% from Babel and TypeScript.
+* Returns ESM information directly, no need for [`es-module-lexer`](https://github.com/guybedford/es-module-lexer).
+* [✅ works with checker.ts](https://x.com/robpalmer2/status/1805502964435505559)
+
+## Installation
+
+### Node.js
+
+* Use the node binding [oxc-parser][url-oxc-parser-npm].
+* Try on [stackblitz](https://stackblitz.com/edit/oxc-parser).
+
+### Rust
+
+Use the umbrella crate [oxc][url-oxc-crate] or the individual [oxc\_ast][url-oxc-ast-crate] and [oxc\_parser][url-oxc-parser-crate] crates.
+
+Rust usage example can be found [here](https://github.com/oxc-project/oxc/blob/main/crates/oxc_parser/examples/parser.rs).
+
+## Print
+
+After parsing and transforming, you can print code.
+
+Here's a direct example using [esrap](https://www.npmjs.com/package/esrap) *(`parse` in reverse!)*:
+
+```js
+import { print } from "esrap";
+import ts from "esrap/languages/ts";
+import { parseSync } from "oxc-parser";
+
+const { program } = parseSync("test.js", 'alert("hello oxc & esrap");');
+const { code } = print(program, ts());
+
+console.log(code); // alert("hello oxc & esrap");
+```
+
+:::info
+Today, comments are not printed. *It will be supported thanks to [oxc-parser #13285](https://github.com/oxc-project/oxc/pull/13285).*
+:::
+
+[url-swc]: https://swc.rs
+
+[url-benchmark]: https://github.com/oxc-project/bench-javascript-parser-written-in-rust
+
+[url-oxc-crate]: https://docs.rs/oxc
+
+[url-oxc-ast-crate]: https://docs.rs/oxc_ast
+
+[url-oxc-parser-crate]: https://docs.rs/oxc_parser
+
+[url-oxc-parser-npm]: https://www.npmjs.com/package/oxc-parser
 
 ---
 
@@ -45195,7 +45210,7 @@ See [https://crates.io/crates/oxc\_resolver][url-oxc-resolver-crate] and its doc
 ---
 
 ---
-url: /docs/guide/usage/linter/generated-rules.md
+url: /docs/guide/usage/linter/rules.md
 ---
 
 # Rules
@@ -45898,7 +45913,7 @@ New lints that are still under development.
 ---
 
 ---
-url: /docs/guide/usage/linter/rules.md
+url: /docs/guide/usage/linter/generated-rules.md
 ---
 
 # Rules
@@ -66194,6 +66209,66 @@ oxlint --deny vue/valid-define-props --vue-plugin
 ## References
 
 * Rule Source
+
+---
+
+---
+url: /docs/guide/what-is-oxc.md
+description: The fastest toolchain for JavaScript and TypeScript.
+---
+
+# What is Oxc?
+
+/oʊ ɛks siː/
+
+The Oxidation Compiler is a collection of high-performance tools for JavaScript and TypeScript written in Rust.
+
+Oxc is part of [VoidZero](https://voidzero.dev)'s vision for a unified, high-performance toolchain for JavaScript. It powers [Rolldown](https://rolldown.rs) ([Vite](https://vitejs.dev)'s future bundler) and enables the next generation of ultra-fast development tools that work seamlessly together.
+
+\* Oxidation is the chemical process that creates rust
+
+## Fastest tooling across the stack
+
+Oxc focuses on performance across the whole toolchain. This includes parsing, module resolution, linting, formatting, transforms, and minification.
+
+## Philosophy
+
+Oxc is built around a few core ideas.
+
+### Performance is a feature
+
+Oxc treats speed as a product requirement. Faster tools improve the local feedback loop and reduce CI cost. Performance regressions are treated as bugs.
+
+### One toolchain, shared building blocks
+
+Oxc is a suite. Tools like the linter, formatter, parser, transformer, minifier, and resolver are built on shared components. This reduces duplicated work and makes behavior more consistent across the stack.
+
+### Correctness with clear boundaries
+
+Oxc aims to be correct and predictable. When behavior differs from other tools, the differences should be documented. Compatibility is a feature, not an accident.
+
+### Practical developer experience
+
+Oxc focuses on a workflow that works in real projects. Defaults should be sensible, configuration should be understandable, and output should be stable.
+
+## What you get
+
+Oxc includes end-user tools and reusable compiler building blocks:
+
+* [Oxlint](/docs/guide/usage/linter) is the fastest linter for JavaScript and TypeScript.
+* [Oxfmt](/docs/guide/usage/formatter) is the fastest formatter. It targets Prettier-compatible formatting.
+* [Parser](/docs/guide/usage/parser) is the fastest JS and TS parser with an AST for tooling.
+* [Transformer](/docs/guide/usage/transformer) provides fastest TS, JSX, and modern JavaScript transforms.
+* [Minifier](/docs/guide/usage/minifier) is the fastest minifier for production output.
+* [Resolver](/docs/guide/usage/resolver) is the fastest module resolver for JS and TS projects.
+
+You can use each tool on its own, or use them together as one toolchain.
+
+## Who Oxc is for
+
+* **App and library developers** who want the fastest lint and format loop locally and in CI.
+* **Toolchain and platform teams** who want a fast compiler-grade foundation at scale.
+* **Tool authors** who want fast reusable crates or npm packages for JS tooling.
 
 ---
 
