@@ -23,9 +23,10 @@ export const enConfig = defineLocaleConfig("root", {
       {
         text: "Resources",
         items: [
-          { text: "Blog", link: "/blog/2025-12-08-type-aware-alpha" },
+          { text: "Release Blog", link: "/blog/2025-12-08-type-aware-alpha" },
+          { text: "Endorsements", link: "/endorsements" },
           { text: "Team", link: "/team" },
-          { text: "Release Notes", link: "https://github.com/oxc-project/oxc/releases" },
+          { text: "Releases", link: "https://github.com/oxc-project/oxc/releases" },
           { text: "Branding", link: "/branding" },
           { text: "Website GitHub", link: "https://github.com/oxc-project/oxc-project.github.io" },
         ],
@@ -35,154 +36,175 @@ export const enConfig = defineLocaleConfig("root", {
     sidebar: {
       "/docs/guide/": [
         {
-          text: "Guide",
-          items: [{ text: "Getting Started", link: "/docs/guide/introduction" }],
-        },
-        {
-          text: "Tools",
+          text: "Introduction",
+          collapsed: false,
           items: [
-            {
-              text: "Linter",
-              link: "/docs/guide/usage/linter",
-              collapsed: true,
-              items: [
-                {
-                  text: "Configuring Oxlint",
-                  link: "/docs/guide/usage/linter/config",
-                },
-                {
-                  text: "Type-Aware Linting",
-                  link: "/docs/guide/usage/linter/type-aware",
-                },
-                {
-                  text: "Nested Configs",
-                  link: "/docs/guide/usage/linter/nested-config",
-                },
-                {
-                  text: "Rules",
-                  link: "/docs/guide/usage/linter/rules",
-                },
-                {
-                  text: "Plugins",
-                  link: "/docs/guide/usage/linter/plugins",
-                },
-                {
-                  text: "JS Plugins",
-                  link: "/docs/guide/usage/linter/js-plugins",
-                },
-                {
-                  text: "Automatic Fixes",
-                  link: "/docs/guide/usage/linter/automatic-fixes",
-                },
-                {
-                  text: "CLI reference",
-                  link: "/docs/guide/usage/linter/cli",
-                },
-                {
-                  text: "Configuration file reference",
-                  link: "/docs/guide/usage/linter/config-file-reference",
-                },
-                {
-                  text: "Versioning",
-                  link: "/docs/guide/usage/linter/versioning",
-                },
-              ],
-            },
-            {
-              text: "Formatter",
-              link: "/docs/guide/usage/formatter",
-              collapsed: true,
-              items: [
-                {
-                  text: "Configuration",
-                  link: "/docs/guide/usage/formatter/config",
-                },
-                {
-                  text: "Integration",
-                  link: "/docs/guide/usage/formatter/integration",
-                },
-                {
-                  text: "CLI reference",
-                  link: "/docs/guide/usage/formatter/cli",
-                },
-                {
-                  text: "Configuration file reference",
-                  link: "/docs/guide/usage/formatter/config-file-reference",
-                },
-                {
-                  text: "Migrating from Prettier",
-                  link: "/docs/guide/usage/formatter/migrate-from-prettier",
-                },
-              ],
-            },
-            { text: "Parser", link: "/docs/guide/usage/parser" },
-            {
-              text: "Transformer",
-              link: "/docs/guide/usage/transformer",
-              collapsed: true,
-              items: [
-                {
-                  text: "Lowering",
-                  link: "/docs/guide/usage/transformer/lowering",
-                },
-                {
-                  text: "TypeScript",
-                  link: "/docs/guide/usage/transformer/typescript",
-                },
-                {
-                  text: "JSX",
-                  link: "/docs/guide/usage/transformer/jsx",
-                },
-                {
-                  text: "Plugins",
-                  link: "/docs/guide/usage/transformer/plugins",
-                },
-                {
-                  text: "Global Variable Replacement",
-                  link: "/docs/guide/usage/transformer/global-variable-replacement",
-                },
-                {
-                  text: "Isolated Declarations",
-                  link: "/docs/guide/usage/transformer/isolated-declarations",
-                },
-              ],
-            },
-            {
-              text: "Minifier",
-              link: "/docs/guide/usage/minifier",
-              collapsed: true,
-              items: [
-                {
-                  text: "Dead Code Elimination",
-                  link: "/docs/guide/usage/minifier/dead-code-elimination",
-                },
-                {
-                  text: "Syntax Normalization",
-                  link: "/docs/guide/usage/minifier/syntax-normalization",
-                },
-                {
-                  text: "Mangling",
-                  link: "/docs/guide/usage/minifier/mangling",
-                },
-                {
-                  text: "Whitespace Stripping",
-                  link: "/docs/guide/usage/minifier/whitespace-stripping",
-                },
-                {
-                  text: "FAQ",
-                  link: "/docs/guide/usage/minifier/faq",
-                },
-              ],
-            },
-            { text: "Resolver", link: "/docs/guide/usage/resolver" },
+            { text: "What is Oxc?", link: "/docs/guide/what-is-oxc" },
+            { text: "Getting Started", link: "/docs/guide/introduction" },
           ],
         },
         {
+          text: "Oxlint",
+          collapsed: true,
+          link: "/docs/guide/usage/linter",
+          items: [
+            { text: "Overview", link: "/docs/guide/usage/linter" },
+            {
+              text: "Configuring Oxlint",
+              link: "/docs/guide/usage/linter/config",
+            },
+            {
+              text: "Type-Aware Linting",
+              link: "/docs/guide/usage/linter/type-aware",
+            },
+            {
+              text: "Nested Configs",
+              link: "/docs/guide/usage/linter/nested-config",
+            },
+            {
+              text: "Rules",
+              link: "/docs/guide/usage/linter/rules",
+            },
+            {
+              text: "Plugins",
+              link: "/docs/guide/usage/linter/plugins",
+            },
+            {
+              text: "JS Plugins",
+              link: "/docs/guide/usage/linter/js-plugins",
+            },
+            {
+              text: "Automatic Fixes",
+              link: "/docs/guide/usage/linter/automatic-fixes",
+            },
+            {
+              text: "CLI reference",
+              link: "/docs/guide/usage/linter/cli",
+            },
+            {
+              text: "Configuration file reference",
+              link: "/docs/guide/usage/linter/config-file-reference",
+            },
+            {
+              text: "Versioning",
+              link: "/docs/guide/usage/linter/versioning",
+            },
+          ],
+        },
+        {
+          text: "Oxfmt",
+          collapsed: true,
+          link: "/docs/guide/usage/formatter",
+          items: [
+            {
+              text: "Overview",
+              link: "/docs/guide/usage/formatter",
+            },
+            {
+              text: "Configuration",
+              link: "/docs/guide/usage/formatter/config",
+            },
+            {
+              text: "Integration",
+              link: "/docs/guide/usage/formatter/integration",
+            },
+            {
+              text: "CLI reference",
+              link: "/docs/guide/usage/formatter/cli",
+            },
+            {
+              text: "Configuration file reference",
+              link: "/docs/guide/usage/formatter/config-file-reference",
+            },
+            {
+              text: "Migrating from Prettier",
+              link: "/docs/guide/usage/formatter/migrate-from-prettier",
+            },
+          ],
+        },
+        {
+          text: "Parser",
+          collapsed: true,
+          link: "/docs/guide/usage/parser",
+          items: [{ text: "Overview", link: "/docs/guide/usage/parser" }],
+        },
+        {
+          text: "Transformer",
+          collapsed: true,
+          link: "/docs/guide/usage/transformer",
+          items: [
+            { text: "Overview", link: "/docs/guide/usage/transformer" },
+            {
+              text: "Lowering",
+              link: "/docs/guide/usage/transformer/lowering",
+            },
+            {
+              text: "TypeScript",
+              link: "/docs/guide/usage/transformer/typescript",
+            },
+            {
+              text: "JSX",
+              link: "/docs/guide/usage/transformer/jsx",
+            },
+            {
+              text: "Plugins",
+              link: "/docs/guide/usage/transformer/plugins",
+            },
+            {
+              text: "Global Variable Replacement",
+              link: "/docs/guide/usage/transformer/global-variable-replacement",
+            },
+            {
+              text: "Isolated Declarations",
+              link: "/docs/guide/usage/transformer/isolated-declarations",
+            },
+          ],
+        },
+        {
+          text: "Minifier",
+          collapsed: true,
+          link: "/docs/guide/usage/minifier",
+          items: [
+            {
+              text: "Overview",
+              link: "/docs/guide/usage/minifier",
+            },
+            {
+              text: "Dead Code Elimination",
+              link: "/docs/guide/usage/minifier/dead-code-elimination",
+            },
+            {
+              text: "Syntax Normalization",
+              link: "/docs/guide/usage/minifier/syntax-normalization",
+            },
+            {
+              text: "Mangling",
+              link: "/docs/guide/usage/minifier/mangling",
+            },
+            {
+              text: "Whitespace Stripping",
+              link: "/docs/guide/usage/minifier/whitespace-stripping",
+            },
+            {
+              text: "FAQ",
+              link: "/docs/guide/usage/minifier/faq",
+            },
+          ],
+        },
+        {
+          text: "Resolver",
+          collapsed: true,
+          link: "/docs/guide/usage/resolver",
+          items: [{ text: "Overview", link: "/docs/guide/usage/resolver" }],
+        },
+        {
+          text: "Resources",
+          collapsed: false,
           items: [
             { text: "Troubleshooting", link: "/docs/guide/troubleshooting" },
-            { text: "All benchmarks", link: "/docs/guide/benchmarks" },
+            { text: "Benchmarks", link: "/docs/guide/benchmarks" },
             { text: "Projects using Oxc", link: "/docs/guide/projects" },
-            { text: "On media", link: "/docs/guide/media" },
+            { text: "Talks & media", link: "/docs/guide/media" },
           ],
         },
       ],
