@@ -31,5 +31,5 @@ url: /docs/guide/introduction.md
 * [Talks and media](/docs/guide/media)
 * [Team](/team)
 * [Endorsements](/endorsements)
-* [Release Blog](/blog)
+* [Release Blog](/blog/)
 * [Releases](https://github.com/oxc-project/oxc/releases)
