@@ -17,7 +17,7 @@
   },
   "devDependencies": {
     "@types/markdown-it": "^14.1.2",
-    "@types/markdown-it-container": "2.0.10",
+    "@types/markdown-it-container": "2.0.11",
     "@types/node": "^24.10.2",
     "@vueuse/core": "^14.1.0",
     "degit": "^2.8.4",
@@ -41,10 +41,10 @@
   "lint-staged": {
     "*": "oxfmt --no-error-on-unmatched-pattern"
   },
-  "packageManager": "pnpm@10.26.0",
+  "packageManager": "pnpm@10.26.2",
   "pnpm": {
     "overrides": {
-      "vitepress>vite": "npm:vite@8.0.0-beta.3"
+      "vitepress>vite": "npm:vite@8.0.0-beta.5"
     },
     "onlyBuiltDependencies": [
       "esbuild"
