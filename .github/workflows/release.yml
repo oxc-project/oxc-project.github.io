@@ -34,7 +34,7 @@ jobs:
           persist-credentials: false
 
       - name: Install Tools
-        uses: taiki-e/install-action@b9c5db3aef04caffaf95a1d03931de10fb2a140f # v2.65.1
+        uses: taiki-e/install-action@28a9d316db64b78a951f3f8587a5d08cc97ad8eb # v2.65.6
         with:
           tool: just
 
@@ -42,7 +42,7 @@ jobs:
       - run: cd oxc && just website ..
       - run: rm -rf oxc
 
-      - uses: oxc-project/setup-node@141eb77546de6702f92d320926403fe3f9f6a6f2 # v1.0.5
+      - uses: oxc-project/setup-node@8958a8e040102244b619c4a94fccb657a44b1c21 # v1.0.6
       - run: pnpm run fmt
 
       - uses: peter-evans/create-pull-request@98357b18bf14b5342f975ff684046ec3b2a07725 # v8.0.0
