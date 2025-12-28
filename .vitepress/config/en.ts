@@ -23,7 +23,7 @@ export const enConfig = defineLocaleConfig("root", {
       {
         text: "Resources",
         items: [
-          { text: "Release Blog", link: "/blog" },
+          { text: "Release Blog", link: BLOG_SIDEBAR[0].link },
           { text: "Endorsements", link: "/endorsements" },
           { text: "Team", link: "/team" },
           { text: "Releases", link: "https://github.com/oxc-project/oxc/releases" },

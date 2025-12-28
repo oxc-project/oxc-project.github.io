@@ -1,3 +1,6 @@
 ---
-layout: false
+layout: page
+sidebar: false
 ---
+
+<AppBlogList />
