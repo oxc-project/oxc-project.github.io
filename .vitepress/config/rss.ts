@@ -66,7 +66,7 @@ export const rssConfig = defineConfig({
       };
     });
     // Override https://github.com/vuejs/vitepress/blob/179ee6/src/node/markdown/plugins/containers.ts#L26
-    md.use(container, "code-group", {
+    (md.use as Function)(container, "code-group", {
       render(tokens: Token[], idx: number) {
         return tokens[idx].nesting === 1 ? "<table><tbody>" : "</tbody></table>\n";
       },

@@ -17,26 +17,26 @@
   },
   "devDependencies": {
     "@types/markdown-it": "^14.1.2",
-    "@types/markdown-it-container": "2.0.10",
-    "@types/node": "^24.10.2",
+    "@types/markdown-it-container": "2.0.11",
+    "@types/node": "^25.0.3",
     "@vueuse/core": "^14.1.0",
     "degit": "^2.8.4",
     "esbuild": "0.27.2",
     "feed": "^5.1.0",
     "husky": "^9.1.7",
-    "knip": "^5.72.0",
+    "knip": "^5.78.0",
     "lint-staged": "16.2.7",
     "markdown-it-container": "^4.0.0",
     "oxc-minify": "^0.106.0",
     "oxfmt": "^0.21.0",
-    "oxlint": "^1.32.0",
+    "oxlint": "^1.35.0",
     "oxlint-tsgolint": "^0.10.0",
     "typescript": "~5.9.3",
     "vitepress": "2.0.0-alpha.15",
     "vitepress-plugin-group-icons": "^1.6.5",
-    "vitepress-plugin-llms": "^1.9.3",
-    "vue": "^3.5.25",
-    "vue-tsc": "^3.1.8"
+    "vitepress-plugin-llms": "^1.10.0",
+    "vue": "^3.5.26",
+    "vue-tsc": "^3.2.1"
   },
   "lint-staged": {
     "*": "oxfmt --no-error-on-unmatched-pattern"
