@@ -138,7 +138,7 @@ export const sharedConfig = defineConfig({
       },
     },
     footer: {
-      copyright: `© 2025 VoidZero Inc. and Oxc contributors.`,
+      copyright: `© ${new Date().getFullYear()} VoidZero Inc. and Oxc contributors.`,
       nav: [
         {
           title: "Oxc",
