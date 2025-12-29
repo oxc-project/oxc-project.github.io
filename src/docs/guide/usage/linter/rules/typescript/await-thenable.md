@@ -32,7 +32,7 @@ While it is valid JavaScript to await a non-Promise-like value (it will resolve 
 
 Examples of **incorrect** code for this rule:
 
-```ts
+```
 await 12;
 await (() => {});
 
