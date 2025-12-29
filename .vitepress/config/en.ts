@@ -26,7 +26,6 @@ export const enConfig = defineLocaleConfig("root", {
           { text: "Blog", link: "/blog/2025-12-08-type-aware-alpha" },
           { text: "Team", link: "/team" },
           { text: "Release Notes", link: "https://github.com/oxc-project/oxc/releases" },
-          { text: "Branding", link: "/branding" },
           { text: "Website GitHub", link: "https://github.com/oxc-project/oxc-project.github.io" },
         ],
       },

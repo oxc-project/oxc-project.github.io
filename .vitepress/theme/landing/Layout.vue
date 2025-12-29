@@ -12,7 +12,6 @@ import FeatureResolver from "./FeatureResolver.vue";
 import FeatureTransformer from "./FeatureTransformer.vue";
 import FeatureMinifier from "./FeatureMinifier.vue";
 import Sponsors from "@voidzero-dev/vitepress-theme/src/components/oss/Sponsors.vue";
-import Spacer from "@voidzero-dev/vitepress-theme/src/components/shared/Spacer.vue";
 import Footer from "@voidzero-dev/vitepress-theme/src/components/oss/Footer.vue";
 </script>
 
@@ -30,7 +29,6 @@ import Footer from "@voidzero-dev/vitepress-theme/src/components/oss/Footer.vue"
     <FeatureResolver />
     <FeatureMinifier />
   </section>
-  <Spacer />
   <Sponsors
     description="Oxc is free and open source, made possible by wonderful sponsors."
     sponsorLink="/sponsor"

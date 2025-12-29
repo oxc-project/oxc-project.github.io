@@ -27,7 +27,7 @@ const head: HeadConfig[] = [
     "meta",
     {
       property: "og:image",
-      content: "https://cdn.jsdelivr.net/gh/oxc-project/oxc-assets/preview-universal.png",
+      content: "/og.jpg",
     },
   ],
   // Twitter (X)
@@ -37,7 +37,7 @@ const head: HeadConfig[] = [
     "meta",
     {
       name: "twitter:image",
-      content: "https://cdn.jsdelivr.net/gh/oxc-project/oxc-assets/preview-universal.png",
+      content: "/og.jpg",
     },
   ],
   // banner
@@ -138,7 +138,7 @@ export const sharedConfig = defineConfig({
       },
     },
     footer: {
-      copyright: `© 2025 VoidZero Inc. and Oxc contributors.`,
+      copyright: `© ${new Date().getFullYear()} VoidZero Inc. and Oxc contributors.`,
       nav: [
         {
           title: "Oxc",
