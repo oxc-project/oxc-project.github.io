@@ -1,0 +1,84 @@
+---
+url: /docs/guide/usage/linter/rules/react/no-did-mount-set-state.md
+---
+# react/no-did-mount-set-state&#x20;
+
+### What it does
+
+Disallows using `setState` in the `componentDidMount` lifecycle method.
+
+### Why is this bad?
+
+Updating the state after a component mount will trigger a second `render()` call and can lead to property/layout thrashing.
+This can cause performance issues and unexpected behavior.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```jsx
+var Hello = createReactClass({
+  componentDidMount: function () {
+    this.setState({
+      name: this.props.name.toUpperCase(),
+    });
+  },
+  render: function () {
+    return <div>Hello {this.state.name}</div>;
+  },
+});
+```
+
+Examples of **correct** code for this rule:
+
+```jsx
+var Hello = createReactClass({
+  componentDidMount: function () {
+    this.onMount(function callback(newName) {
+      this.setState({
+        name: newName,
+      });
+    });
+  },
+  render: function () {
+    return <div>Hello {this.state.name}</div>;
+  },
+});
+```
+
+### Options
+
+The rule accepts a string value `"disallow-in-func"`:
+
+```json
+{
+  "react/no-did-mount-set-state": ["error", "disallow-in-func"]
+}
+```
+
+When set, also disallows `setState` calls in nested functions within `componentDidMount`.
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "plugins": ["react"],
+  "rules": {
+    "react/no-did-mount-set-state": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --deny react/no-did-mount-set-state --react-plugin
+```
+
+:::
+
+## References
+
+* Rule Source

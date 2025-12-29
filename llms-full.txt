@@ -1586,9 +1586,6 @@ Arguments:
 * **`    --no-ignore`** —
   Disable excluding files from `.eslintignore` files, **`--ignore-path`** flags and **`--ignore-pattern`** flags
 
-> \[!NOTE]
-> `.gitignore` files are respected even without a Git repository.
-
 ## Handle Warnings
 
 * **`    --quiet`** —
@@ -1764,7 +1761,7 @@ Print spaces between brackets in object literals. (Default: `true`)
 
 type: `string | null`
 
-Control whether formats quoted code embedded in the file. (Default: `"auto"`)
+Control whether to format embedded parts in the file. (Default: `"off"`)
 
 ## endOfLine
 
@@ -1947,7 +1944,7 @@ Print spaces between brackets in object literals. (Default: `true`)
 
 type: `string | null`
 
-Control whether formats quoted code embedded in the file. (Default: `"auto"`)
+Control whether to format embedded parts in the file. (Default: `"off"`)
 
 ## endOfLine
 
@@ -18928,6 +18925,44 @@ However, even with `"auto"`, the contents inside `TaggedTemplateLiteral` in JS/T
 ---
 
 ---
+url: /docs/guide/introduction.md
+---
+
+# Getting Started
+
+[What is Oxc?](/docs/guide/what-is-oxc)
+
+## Lint or format a codebase
+
+* Lint: [Oxlint](/docs/guide/usage/linter)
+* Format: [Oxfmt](/docs/guide/usage/formatter)
+
+## Build tooling on top of Oxc
+
+* Parse JavaScript and TypeScript: [Parser](/docs/guide/usage/parser)
+* Transform TypeScript, JSX, and modern JavaScript: [Transformer](/docs/guide/usage/transformer)
+* Minify JavaScript for production builds: [Minifier](/docs/guide/usage/minifier)
+* Resolve modules for JavaScript and TypeScript: [Resolver](/docs/guide/usage/resolver)
+
+## Contribute or learn
+
+* [Contribute](/docs/contribute/introduction)
+* [Learn](/docs/learn/parser_in_rust/intro.html)
+
+## Other resources
+
+* [Troubleshooting](/docs/guide/troubleshooting)
+* [Benchmarks](/docs/guide/benchmarks)
+* [Projects using Oxc](/docs/guide/projects)
+* [Talks and media](/docs/guide/media)
+* [Team](/team)
+* [Endorsements](/endorsements)
+* [Release Blog](/blog/)
+* [Releases](https://github.com/oxc-project/oxc/releases)
+
+---
+
+---
 url: /docs/contribute/development.md
 ---
 
@@ -19008,44 +19043,6 @@ macOS has an antivirus feature called XProtect that scans executables for malwar
 **Note:** This disables an OS security feature. Only do this if you're comfortable with the trade-off.
 
 More details: https://nnethercote.github.io/2025/09/04/faster-rust-builds-on-mac.html
-
----
-
----
-url: /docs/guide/introduction.md
----
-
-# Getting Started
-
-[What is Oxc?](/docs/guide/what-is-oxc)
-
-## Lint or format a codebase
-
-* Lint: [Oxlint](/docs/guide/usage/linter)
-* Format: [Oxfmt](/docs/guide/usage/formatter)
-
-## Build tooling on top of Oxc
-
-* Parse JavaScript and TypeScript: [Parser](/docs/guide/usage/parser)
-* Transform TypeScript, JSX, and modern JavaScript: [Transformer](/docs/guide/usage/transformer)
-* Minify JavaScript for production builds: [Minifier](/docs/guide/usage/minifier)
-* Resolve modules for JavaScript and TypeScript: [Resolver](/docs/guide/usage/resolver)
-
-## Contribute or learn
-
-* [Contribute](/docs/contribute/introduction)
-* [Learn](/docs/learn/parser_in_rust/intro.html)
-
-## Other resources
-
-* [Troubleshooting](/docs/guide/troubleshooting)
-* [Benchmarks](/docs/guide/benchmarks)
-* [Projects using Oxc](/docs/guide/projects)
-* [Talks and media](/docs/guide/media)
-* [Team](/team)
-* [Endorsements](/endorsements)
-* [Release Blog](/blog/)
-* [Releases](https://github.com/oxc-project/oxc/releases)
 
 ---
 
@@ -29898,6 +29895,65 @@ oxlint --deny jsx-a11y/aria-props --jsx-a11y-plugin
 ---
 
 ---
+url: /docs/guide/usage/linter/rules/jsx_a11y/aria-proptypes.md
+---
+# jsx\_a11y/aria-proptypes&#x20;
+
+### What it does
+
+Enforces that elements do not use invalid ARIA state and property values.
+
+### Why is this bad?
+
+Using invalid ARIA state and property values can mislead screen readers and other assistive technologies.
+It may cause the accessibility features of the website to fail, making it difficult for users with disabilities to use the site effectively.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```jsx
+<div aria-level="yes" />
+<div aria-relevant="additions removalss" />
+```
+
+Examples of **correct** code for this rule:
+
+```jsx
+<div aria-label="foo" />
+<div aria-labelledby="foo bar" />
+<div aria-checked={false} />
+<div aria-invalid="grammar" />
+```
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "plugins": ["jsx-a11y"],
+  "rules": {
+    "jsx-a11y/aria-proptypes": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --deny jsx-a11y/aria-proptypes --jsx-a11y-plugin
+```
+
+:::
+
+## References
+
+* Rule Source
+
+---
+
+---
 url: /docs/guide/usage/linter/rules/jsx_a11y/aria-role.md
 ---
 # jsx\_a11y/aria-role&#x20;
@@ -32008,6 +32064,110 @@ Use `cargo insta accept` to accept all snapshot changes.
 ---
 
 ---
+url: /docs/learn/architecture/linter.md
+---
+
+# Linter Architecture
+
+This article is originally posted on [leaysgur.github.io/posts](https://leaysgur.github.io/posts/2024/01/15/160838) by [@leaysgur](https://github.com/leaysgur).
+
+## apps/oxlint
+
+The `oxlint` binary is the result of building `main.rs` from the `apps/oxlint` crate.
+
+> [Cargo.toml Configuration](https://github.com/oxc-project/oxc/blob/main/apps/oxlint/Cargo.toml)
+
+Here, it parses arguments and then runs the `LintRunner`.
+
+> [Lint Execution Flow](https://github.com/oxc-project/oxc/blob/oxlint_v0.2.0/crates/oxc_cli/src/lint/main.rs#L17-L19)
+
+## crates/oxc\_diagnostics
+
+The `LintService` passes the `mpsc::channel` Sender to `oxc_diagnostics` to receive lint results.
+
+> [Receiving Lint Results](https://github.com/oxc-project/oxc/blob/oxlint_v0.2.0/crates/oxc_diagnostics/src/service.rs#L96)
+
+It formats and displays the received messages. The formatting is done by the `miette` crate.
+
+> [miette Crate Reference](https://github.com/zkat/miette)
+
+## crates/oxc\_linter
+
+Starting with the `LintService`:
+
+* Holds `self.runtime` as `Arc<Runtime>`
+* `Runtime` holds paths for linting
+* Upon running, it iterates over `Runtime` paths in parallel using `rayon`
+* It sends a `None` to finish
+
+> [LintService Implementation](https://github.com/oxc-project/oxc/blob/oxlint_v0.2.0/crates/oxc_linter/src/service.rs#L51)
+
+### `Runtime`: `process_path()`
+
+* Infers extension and content from the path
+* Supports `.[m|c]?[j|t]s` or `.[j|t]sx` extensions
+* Exceptions for `.vue`, `.astro`, and `.svelte` with partial support for `script` blocks
+* Processes JavaScript and TypeScript sources
+* Executes linting and sends results to `DiagnosticService`
+
+> [Runtime Path Processing](https://github.com/oxc-project/oxc/blob/oxlint_v0.2.0/crates/oxc_linter/src/service.rs#L162)
+
+### `Runtime`: `process_source()`
+
+* Processes the source with a parser into an AST
+* Creates a `LintContext` from `SemanticBuilder` and runs it through `Linter`
+
+> [Runtime Source Processing](https://github.com/oxc-project/oxc/blob/oxlint_v0.2.0/crates/oxc_linter/src/service.rs#L206)
+
+## crates/oxc\_semantic: `SemanticBuilder`
+
+`SemanticBuilder` builds semantic information extracted from the source.
+
+> [SemanticBuilder Source](https://github.com/oxc-project/oxc/blob/oxlint_v0.2.0/crates/oxc_semantic/src/builder.rs#L156)
+
+* `source_text`: Source code
+* `nodes`: AST nodes
+* `classes`: Classes
+* `scopes`: Scopes
+* `trivias`: Comments
+* `jsdoc`: JSDoc
+* etc.
+
+When `SemanticBuilder` builds, it generates `SemanticBuilderReturn`, but only `Semantic` is passed to `LintContext`.
+
+> [SemanticBuilder Return](https://github.com/oxc-project/oxc/blob/oxlint_v0.2.0/crates/oxc_semantic/src/lib.rs#L34)
+
+## crates/oxc\_linter: `LintContext`
+
+> [LintContext Source](https://github.com/oxc-project/oxc/blob/oxlint_v0.2.0/crates/oxc_linter/src/context.rs#L14)
+
+Represents the context, with `Semantic` as the main body. It includes getters for each piece of information and methods like `diagnostic()` to notify of linting issues.
+
+## crates/oxc\_linter: `Linter`
+
+> [Linter Source](https://github.com/oxc-project/oxc/blob/oxlint_v0.2.0/crates/oxc_linter/src/lib.rs#L140)
+
+The `run()` function of this `Linter` is the core of the linting process.
+
+* `Linter` holds rules to execute on the target source in `self.rules`
+* Each rule can implement three types of processing as per the trait
+* It sequentially executes these three patterns
+
+For the currently implemented rules, refer to this list.
+
+> [Implemented Rules](https://github.com/oxc-project/oxc/blob/oxlint_v0.2.0/crates/oxc_linter/src/rules.rs)
+
+For adding new rules, remember to update this list.
+
+## Linter Example
+
+The repository provides the minimum code configuration for creating a linter.
+
+> [Minimal Linter Code](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/examples/linter.rs)
+
+---
+
+---
 url: /docs/guide/usage/linter.md
 ---
 
@@ -32242,110 +32402,6 @@ https://www.npmjs.com/package/vite-plugin-oxlint
 
 * **Node.js**: >= 20.19.0 or >= 22.12.0
 * **Platforms**: darwin-arm64, darwin-x64, linux-arm64, linux-x64, win32-arm64, and win32-x64
-
----
-
----
-url: /docs/learn/architecture/linter.md
----
-
-# Linter Architecture
-
-This article is originally posted on [leaysgur.github.io/posts](https://leaysgur.github.io/posts/2024/01/15/160838) by [@leaysgur](https://github.com/leaysgur).
-
-## apps/oxlint
-
-The `oxlint` binary is the result of building `main.rs` from the `apps/oxlint` crate.
-
-> [Cargo.toml Configuration](https://github.com/oxc-project/oxc/blob/main/apps/oxlint/Cargo.toml)
-
-Here, it parses arguments and then runs the `LintRunner`.
-
-> [Lint Execution Flow](https://github.com/oxc-project/oxc/blob/oxlint_v0.2.0/crates/oxc_cli/src/lint/main.rs#L17-L19)
-
-## crates/oxc\_diagnostics
-
-The `LintService` passes the `mpsc::channel` Sender to `oxc_diagnostics` to receive lint results.
-
-> [Receiving Lint Results](https://github.com/oxc-project/oxc/blob/oxlint_v0.2.0/crates/oxc_diagnostics/src/service.rs#L96)
-
-It formats and displays the received messages. The formatting is done by the `miette` crate.
-
-> [miette Crate Reference](https://github.com/zkat/miette)
-
-## crates/oxc\_linter
-
-Starting with the `LintService`:
-
-* Holds `self.runtime` as `Arc<Runtime>`
-* `Runtime` holds paths for linting
-* Upon running, it iterates over `Runtime` paths in parallel using `rayon`
-* It sends a `None` to finish
-
-> [LintService Implementation](https://github.com/oxc-project/oxc/blob/oxlint_v0.2.0/crates/oxc_linter/src/service.rs#L51)
-
-### `Runtime`: `process_path()`
-
-* Infers extension and content from the path
-* Supports `.[m|c]?[j|t]s` or `.[j|t]sx` extensions
-* Exceptions for `.vue`, `.astro`, and `.svelte` with partial support for `script` blocks
-* Processes JavaScript and TypeScript sources
-* Executes linting and sends results to `DiagnosticService`
-
-> [Runtime Path Processing](https://github.com/oxc-project/oxc/blob/oxlint_v0.2.0/crates/oxc_linter/src/service.rs#L162)
-
-### `Runtime`: `process_source()`
-
-* Processes the source with a parser into an AST
-* Creates a `LintContext` from `SemanticBuilder` and runs it through `Linter`
-
-> [Runtime Source Processing](https://github.com/oxc-project/oxc/blob/oxlint_v0.2.0/crates/oxc_linter/src/service.rs#L206)
-
-## crates/oxc\_semantic: `SemanticBuilder`
-
-`SemanticBuilder` builds semantic information extracted from the source.
-
-> [SemanticBuilder Source](https://github.com/oxc-project/oxc/blob/oxlint_v0.2.0/crates/oxc_semantic/src/builder.rs#L156)
-
-* `source_text`: Source code
-* `nodes`: AST nodes
-* `classes`: Classes
-* `scopes`: Scopes
-* `trivias`: Comments
-* `jsdoc`: JSDoc
-* etc.
-
-When `SemanticBuilder` builds, it generates `SemanticBuilderReturn`, but only `Semantic` is passed to `LintContext`.
-
-> [SemanticBuilder Return](https://github.com/oxc-project/oxc/blob/oxlint_v0.2.0/crates/oxc_semantic/src/lib.rs#L34)
-
-## crates/oxc\_linter: `LintContext`
-
-> [LintContext Source](https://github.com/oxc-project/oxc/blob/oxlint_v0.2.0/crates/oxc_linter/src/context.rs#L14)
-
-Represents the context, with `Semantic` as the main body. It includes getters for each piece of information and methods like `diagnostic()` to notify of linting issues.
-
-## crates/oxc\_linter: `Linter`
-
-> [Linter Source](https://github.com/oxc-project/oxc/blob/oxlint_v0.2.0/crates/oxc_linter/src/lib.rs#L140)
-
-The `run()` function of this `Linter` is the core of the linting process.
-
-* `Linter` holds rules to execute on the target source in `self.rules`
-* Each rule can implement three types of processing as per the trait
-* It sequentially executes these three patterns
-
-For the currently implemented rules, refer to this list.
-
-> [Implemented Rules](https://github.com/oxc-project/oxc/blob/oxlint_v0.2.0/crates/oxc_linter/src/rules.rs)
-
-For adding new rules, remember to update this list.
-
-## Linter Example
-
-The repository provides the minimum code configuration for creating a linter.
-
-> [Minimal Linter Code](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/examples/linter.rs)
 
 ---
 
@@ -34524,6 +34580,128 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```bash [CLI]
 oxlint --deny nextjs/no-unwanted-polyfillio --nextjs-plugin
+```
+
+:::
+
+## References
+
+* Rule Source
+
+---
+
+---
+url: /docs/guide/usage/linter/rules/node/global-require.md
+---
+# node/global-require&#x20;
+
+### What it does
+
+Require `require()` calls to be placed at top-level module scope
+
+### Why is this bad?
+
+In Node.js, module dependencies are included using the `require()` function, such as:
+
+```js
+var fs = require("fs");
+```
+
+While `require()` may be called anywhere in code, some style guides prescribe that it should be called only in the top level of a module to make it easier to identify dependencies.
+For instance, it's arguably harder to identify dependencies when they are deeply nested inside of functions and other statements:
+
+```js
+function foo() {
+  if (condition) {
+    var fs = require("fs");
+  }
+}
+```
+
+Since `require()` does a synchronous load, it can cause performance problems when used in other locations.
+Further, ES6 modules mandate that import and export statements can only occur in the top level of the module's body.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```js
+// calling require() inside of a function is not allowed
+function readFile(filename, callback) {
+  var fs = require("fs");
+  fs.readFile(filename, callback);
+}
+
+// conditional requires like this are also not allowed
+if (DEBUG) {
+  require("debug");
+}
+
+// a require() in a switch statement is also flagged
+switch (x) {
+  case "1":
+    require("1");
+    break;
+}
+
+// you may not require() inside an arrow function body
+var getModule = (name) => require(name);
+
+// you may not require() inside of a function body as well
+function getModule(name) {
+  return require(name);
+}
+
+// you may not require() inside of a try/catch block
+try {
+  require(unsafeModule);
+} catch (e) {
+  console.log(e);
+}
+```
+
+Examples of **correct** code for this rule:
+
+```js
+// all these variations of require() are ok
+require("x");
+var y = require("y");
+var z;
+z = require("z").initialize();
+
+// requiring a module and using it in a function is ok
+var fs = require("fs");
+function readFile(filename, callback) {
+  fs.readFile(filename, callback);
+}
+
+// you can use a ternary to determine which module to require
+var logger = DEBUG ? require("dev-logger") : require("logger");
+
+// if you want you can require() at the end of your module
+function doSomethingA() {}
+function doSomethingB() {}
+var x = require("x"),
+  z = require("z");
+```
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "plugins": ["node"],
+  "rules": {
+    "node/global-require": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --deny node/global-require --node-plugin
 ```
 
 :::
@@ -38034,66 +38212,180 @@ Test results are stored in snapshot files for tracking changes:
 ---
 
 ---
-url: /docs/guide/usage/parser.md
+url: /docs/learn/architecture/parser.md
 ---
 
-# Parser
+# Parser Architecture
 
-This is production ready.
+Oxc maintains its own AST and parser, which is by far the fastest and most conformant JavaScript and TypeScript (including JSX and TSX) parser written in Rust.
 
-## Features
+As the parser often represents a key performance bottleneck in JavaScript tooling,
+any minor improvements can have a cascading effect on our downstream tools.
+By developing our parser, we have the opportunity to explore and implement well-researched performance techniques.
 
-* 3x faster than swc parser ([benchmark][url-benchmark]).
-* Parses `.js(x)` and `.ts(x)`.
-* Passes all parser tests from Test262 and 99% from Babel and TypeScript.
-* Returns ESM information directly, no need for [`es-module-lexer`](https://github.com/guybedford/es-module-lexer).
-* [✅ works with checker.ts](https://x.com/robpalmer2/status/1805502964435505559)
+## AST Design Philosophy
 
-## Installation
+While many existing JavaScript tools rely on [estree] as their AST specification,
+a notable drawback is its abundance of ambiguous nodes.
+This ambiguity often leads to confusion during development with [estree].
 
-### Node.js
+The Oxc AST differs from the [estree] AST by removing ambiguous nodes and introducing distinct types.
+For example, instead of using a generic [estree] `Identifier`,
+the Oxc AST provides specific types such as `BindingIdentifier`, `IdentifierReference`, and `IdentifierName`.
 
-* Use the node binding [oxc-parser][url-oxc-parser-npm].
-* Try on [stackblitz](https://stackblitz.com/edit/oxc-parser).
+This clear distinction greatly enhances the development experience by aligning more closely with the ECMAScript specification.
 
-### Rust
+### AST Node Types
 
-Use the umbrella crate [oxc][url-oxc-crate] or the individual [oxc\_ast][url-oxc-ast-crate] and [oxc\_parser][url-oxc-parser-crate] crates.
+```rust
+// Instead of generic Identifier
+pub struct BindingIdentifier<'a> {
+    pub span: Span,
+    pub name: Atom<'a>,
+}
 
-Rust usage example can be found [here](https://github.com/oxc-project/oxc/blob/main/crates/oxc_parser/examples/parser.rs).
+pub struct IdentifierReference<'a> {
+    pub span: Span,
+    pub name: Atom<'a>,
+    pub reference_id: Cell<Option<ReferenceId>>,
+}
 
-## Print
-
-After parsing and transforming, you can print code.
-
-Here's a direct example using [esrap](https://www.npmjs.com/package/esrap) *(`parse` in reverse!)*:
-
-```js
-import { print } from "esrap";
-import ts from "esrap/languages/ts";
-import { parseSync } from "oxc-parser";
-
-const { program } = parseSync("test.js", 'alert("hello oxc & esrap");');
-const { code } = print(program, ts());
-
-console.log(code); // alert("hello oxc & esrap");
+pub struct IdentifierName<'a> {
+    pub span: Span,
+    pub name: Atom<'a>,
+}
 ```
 
-:::info
-Today, comments are not printed. *It will be supported thanks to [oxc-parser #13285](https://github.com/oxc-project/oxc/pull/13285).*
-:::
+### Semantic Clarity
 
-[url-swc]: https://swc.rs
+This approach provides semantic clarity:
 
-[url-benchmark]: https://github.com/oxc-project/bench-javascript-parser-written-in-rust
+* **`BindingIdentifier`**: Variable declarations (`let x = 1`)
+* **`IdentifierReference`**: Variable usage (`console.log(x)`)
+* **`IdentifierName`**: Property names (`obj.property`)
 
-[url-oxc-crate]: https://docs.rs/oxc
+## Performance Architecture
 
-[url-oxc-ast-crate]: https://docs.rs/oxc_ast
+### How is it so fast
 
-[url-oxc-parser-crate]: https://docs.rs/oxc_parser
+* **Memory Arena**: AST is allocated in a [memory arena](https://crates.io/crates/bumpalo) for fast allocation and deallocation
+* **String Optimization**: Short strings are inlined by [CompactString](https://crates.io/crates/compact_str)
+* **Minimal Heap Usage**: No other heap allocations are done except the above two
+* **Separation of Concerns**: Scope binding, symbol resolution and some syntax errors are delegated to the semantic analyzer
 
-[url-oxc-parser-npm]: https://www.npmjs.com/package/oxc-parser
+### Memory Management Details
+
+#### Arena Allocation
+
+```rust
+use oxc_allocator::Allocator;
+
+// All AST nodes are allocated in this arena
+let allocator = Allocator::default();
+let ast_node = allocator.alloc(Expression::NumericLiteral(
+    allocator.alloc(NumericLiteral { value: 42.0, span: SPAN })
+));
+```
+
+Benefits:
+
+* **O(1) allocation**: Simple pointer bump
+* **O(1) deallocation**: Drop entire arena at once
+* **Cache-friendly**: Linear memory layout
+* **No fragmentation**: Continuous memory usage
+
+#### String Interning with CompactString
+
+```rust
+// Strings ≤ 24 bytes are stored inline (no heap allocation)
+let short_name = CompactString::from("variableName");  // Stack allocated
+let long_name = CompactString::from("a_very_long_variable_name_that_exceeds_limit");  // Heap allocated
+```
+
+This reduces memory allocations for the majority of JavaScript identifiers and string literals.
+
+## Parser Architecture
+
+### Two-Phase Design
+
+The Oxc parser follows a two-phase approach:
+
+1. **Parsing Phase**: Build AST structure with minimal semantic analysis
+2. **Semantic Phase**: Perform scope analysis, symbol resolution, and advanced error checking
+
+```rust
+// Phase 1: Parse to AST
+let parser_result = Parser::new(&allocator, source_text, source_type).parse();
+
+// Phase 2: Semantic analysis
+let semantic_result = SemanticBuilder::new(source_text, source_type)
+    .with_trivias(parser_result.trivias)
+    .build(&parser_result.program);
+```
+
+### Parser Components
+
+#### Lexer
+
+* **Token generation**: Converts source text to structured tokens
+* **SIMD optimization**: Uses SIMD instructions for whitespace skipping
+* **Context-aware**: Handles regex vs division operator disambiguation
+
+#### Recursive Descent Parser
+
+* **Hand-written**: Custom implementation for maximum performance
+* **Error recovery**: Advanced error handling with meaningful messages
+* **Grammar compliance**: Follows ECMAScript specification precisely
+
+#### AST Builder
+
+* **Type safety**: Leverages Rust's type system for correctness
+* **Memory efficiency**: Direct arena allocation
+* **Builder pattern**: Convenient node construction methods
+
+## Conformance Strategy
+
+### Test Suite Coverage
+
+* **Test262**: 100% pass rate on ECMAScript conformance tests
+* **Babel**: 99.62% compatibility with Babel parser tests
+* **TypeScript**: 99.86% compatibility with TypeScript compiler tests
+
+### Error Handling Philosophy
+
+```rust
+// Meaningful error messages with source location
+pub struct OxcDiagnostic {
+    pub message: String,
+    pub span: Span,
+    pub severity: Severity,
+    pub help: Option<String>,
+}
+```
+
+The parser provides:
+
+* **Precise error locations**: Exact source positions
+* **Recovery strategies**: Continue parsing after errors
+* **Helpful suggestions**: Actionable error messages
+
+## Advanced Features
+
+### TypeScript Support
+
+* **Type stripping**: Removes TypeScript-specific syntax
+* **Decorator parsing**: Handles experimental decorators
+* **Namespace support**: Full module and namespace parsing
+* **JSX integration**: TypeScript + JSX (TSX) support
+
+### Research Areas
+
+* **SIMD text processing**: Vectorized string operations
+* **Cache optimization**: Minimize memory access patterns
+* **Branch prediction**: Optimize hot parsing paths
+* **Zero-copy parsing**: Eliminate unnecessary string copies
+
+[estree]: https://github.com/estree/estree
 
 ---
 
@@ -38508,180 +38800,66 @@ In summary, the TypeScript parser uses a combination of lookahead (fast path) an
 ---
 
 ---
-url: /docs/learn/architecture/parser.md
+url: /docs/guide/usage/parser.md
 ---
 
-# Parser Architecture
+# Parser
 
-Oxc maintains its own AST and parser, which is by far the fastest and most conformant JavaScript and TypeScript (including JSX and TSX) parser written in Rust.
+This is production ready.
 
-As the parser often represents a key performance bottleneck in JavaScript tooling,
-any minor improvements can have a cascading effect on our downstream tools.
-By developing our parser, we have the opportunity to explore and implement well-researched performance techniques.
+## Features
 
-## AST Design Philosophy
+* 3x faster than swc parser ([benchmark][url-benchmark]).
+* Parses `.js(x)` and `.ts(x)`.
+* Passes all parser tests from Test262 and 99% from Babel and TypeScript.
+* Returns ESM information directly, no need for [`es-module-lexer`](https://github.com/guybedford/es-module-lexer).
+* [✅ works with checker.ts](https://x.com/robpalmer2/status/1805502964435505559)
 
-While many existing JavaScript tools rely on [estree] as their AST specification,
-a notable drawback is its abundance of ambiguous nodes.
-This ambiguity often leads to confusion during development with [estree].
+## Installation
 
-The Oxc AST differs from the [estree] AST by removing ambiguous nodes and introducing distinct types.
-For example, instead of using a generic [estree] `Identifier`,
-the Oxc AST provides specific types such as `BindingIdentifier`, `IdentifierReference`, and `IdentifierName`.
+### Node.js
 
-This clear distinction greatly enhances the development experience by aligning more closely with the ECMAScript specification.
+* Use the node binding [oxc-parser][url-oxc-parser-npm].
+* Try on [stackblitz](https://stackblitz.com/edit/oxc-parser).
 
-### AST Node Types
+### Rust
 
-```rust
-// Instead of generic Identifier
-pub struct BindingIdentifier<'a> {
-    pub span: Span,
-    pub name: Atom<'a>,
-}
+Use the umbrella crate [oxc][url-oxc-crate] or the individual [oxc\_ast][url-oxc-ast-crate] and [oxc\_parser][url-oxc-parser-crate] crates.
 
-pub struct IdentifierReference<'a> {
-    pub span: Span,
-    pub name: Atom<'a>,
-    pub reference_id: Cell<Option<ReferenceId>>,
-}
+Rust usage example can be found [here](https://github.com/oxc-project/oxc/blob/main/crates/oxc_parser/examples/parser.rs).
 
-pub struct IdentifierName<'a> {
-    pub span: Span,
-    pub name: Atom<'a>,
-}
+## Print
+
+After parsing and transforming, you can print code.
+
+Here's a direct example using [esrap](https://www.npmjs.com/package/esrap) *(`parse` in reverse!)*:
+
+```js
+import { print } from "esrap";
+import ts from "esrap/languages/ts";
+import { parseSync } from "oxc-parser";
+
+const { program } = parseSync("test.js", 'alert("hello oxc & esrap");');
+const { code } = print(program, ts());
+
+console.log(code); // alert("hello oxc & esrap");
 ```
 
-### Semantic Clarity
+:::info
+Today, comments are not printed. *It will be supported thanks to [oxc-parser #13285](https://github.com/oxc-project/oxc/pull/13285).*
+:::
 
-This approach provides semantic clarity:
+[url-swc]: https://swc.rs
 
-* **`BindingIdentifier`**: Variable declarations (`let x = 1`)
-* **`IdentifierReference`**: Variable usage (`console.log(x)`)
-* **`IdentifierName`**: Property names (`obj.property`)
+[url-benchmark]: https://github.com/oxc-project/bench-javascript-parser-written-in-rust
 
-## Performance Architecture
+[url-oxc-crate]: https://docs.rs/oxc
 
-### How is it so fast
+[url-oxc-ast-crate]: https://docs.rs/oxc_ast
 
-* **Memory Arena**: AST is allocated in a [memory arena](https://crates.io/crates/bumpalo) for fast allocation and deallocation
-* **String Optimization**: Short strings are inlined by [CompactString](https://crates.io/crates/compact_str)
-* **Minimal Heap Usage**: No other heap allocations are done except the above two
-* **Separation of Concerns**: Scope binding, symbol resolution and some syntax errors are delegated to the semantic analyzer
+[url-oxc-parser-crate]: https://docs.rs/oxc_parser
 
-### Memory Management Details
-
-#### Arena Allocation
-
-```rust
-use oxc_allocator::Allocator;
-
-// All AST nodes are allocated in this arena
-let allocator = Allocator::default();
-let ast_node = allocator.alloc(Expression::NumericLiteral(
-    allocator.alloc(NumericLiteral { value: 42.0, span: SPAN })
-));
-```
-
-Benefits:
-
-* **O(1) allocation**: Simple pointer bump
-* **O(1) deallocation**: Drop entire arena at once
-* **Cache-friendly**: Linear memory layout
-* **No fragmentation**: Continuous memory usage
-
-#### String Interning with CompactString
-
-```rust
-// Strings ≤ 24 bytes are stored inline (no heap allocation)
-let short_name = CompactString::from("variableName");  // Stack allocated
-let long_name = CompactString::from("a_very_long_variable_name_that_exceeds_limit");  // Heap allocated
-```
-
-This reduces memory allocations for the majority of JavaScript identifiers and string literals.
-
-## Parser Architecture
-
-### Two-Phase Design
-
-The Oxc parser follows a two-phase approach:
-
-1. **Parsing Phase**: Build AST structure with minimal semantic analysis
-2. **Semantic Phase**: Perform scope analysis, symbol resolution, and advanced error checking
-
-```rust
-// Phase 1: Parse to AST
-let parser_result = Parser::new(&allocator, source_text, source_type).parse();
-
-// Phase 2: Semantic analysis
-let semantic_result = SemanticBuilder::new(source_text, source_type)
-    .with_trivias(parser_result.trivias)
-    .build(&parser_result.program);
-```
-
-### Parser Components
-
-#### Lexer
-
-* **Token generation**: Converts source text to structured tokens
-* **SIMD optimization**: Uses SIMD instructions for whitespace skipping
-* **Context-aware**: Handles regex vs division operator disambiguation
-
-#### Recursive Descent Parser
-
-* **Hand-written**: Custom implementation for maximum performance
-* **Error recovery**: Advanced error handling with meaningful messages
-* **Grammar compliance**: Follows ECMAScript specification precisely
-
-#### AST Builder
-
-* **Type safety**: Leverages Rust's type system for correctness
-* **Memory efficiency**: Direct arena allocation
-* **Builder pattern**: Convenient node construction methods
-
-## Conformance Strategy
-
-### Test Suite Coverage
-
-* **Test262**: 100% pass rate on ECMAScript conformance tests
-* **Babel**: 99.62% compatibility with Babel parser tests
-* **TypeScript**: 99.86% compatibility with TypeScript compiler tests
-
-### Error Handling Philosophy
-
-```rust
-// Meaningful error messages with source location
-pub struct OxcDiagnostic {
-    pub message: String,
-    pub span: Span,
-    pub severity: Severity,
-    pub help: Option<String>,
-}
-```
-
-The parser provides:
-
-* **Precise error locations**: Exact source positions
-* **Recovery strategies**: Continue parsing after errors
-* **Helpful suggestions**: Actionable error messages
-
-## Advanced Features
-
-### TypeScript Support
-
-* **Type stripping**: Removes TypeScript-specific syntax
-* **Decorator parsing**: Handles experimental decorators
-* **Namespace support**: Full module and namespace parsing
-* **JSX integration**: TypeScript + JSX (TSX) support
-
-### Research Areas
-
-* **SIMD text processing**: Vectorized string operations
-* **Cache optimization**: Minimize memory access patterns
-* **Branch prediction**: Optimize hot parsing paths
-* **Zero-copy parsing**: Eliminate unnecessary string copies
-
-[estree]: https://github.com/estree/estree
+[url-oxc-parser-npm]: https://www.npmjs.com/package/oxc-parser
 
 ---
 
@@ -42311,6 +42489,90 @@ oxlint --deny react/jsx-key --react-plugin
 ---
 
 ---
+url: /docs/guide/usage/linter/rules/react/jsx-max-depth.md
+---
+# react/jsx-max-depth&#x20;
+
+### What it does
+
+Enforces a maximum depth for nested JSX elements and fragments.
+
+### Why is this bad?
+
+Excessively nested JSX makes components harder to read and maintain.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```jsx
+const Component = () => (
+  <div>
+    <div>
+      <div>
+        <span />
+      </div>
+    </div>
+  </div>
+);
+```
+
+Examples of **correct** code for this rule:
+
+```jsx
+const Component = () => (
+  <div>
+    <div>
+      <span />
+    </div>
+  </div>
+);
+```
+
+### Options
+
+`react/jsx-max-depth: [<enabled>, { "max": <number> }]`
+
+The `max` option defaults to `2`.
+
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### max
+
+type: `integer`
+
+default: `2`
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "plugins": ["react"],
+  "rules": {
+    "react/jsx-max-depth": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --deny react/jsx-max-depth --react-plugin
+```
+
+:::
+
+## References
+
+* Rule Source
+
+---
+
+---
 url: /docs/guide/usage/linter/rules/react/jsx-no-comment-textnodes.md
 ---
 # react/jsx-no-comment-textnodes&#x20;
@@ -43265,6 +43527,93 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```bash [CLI]
 oxlint --deny react/no-danger --react-plugin
+```
+
+:::
+
+## References
+
+* Rule Source
+
+---
+
+---
+url: /docs/guide/usage/linter/rules/react/no-did-mount-set-state.md
+---
+# react/no-did-mount-set-state&#x20;
+
+### What it does
+
+Disallows using `setState` in the `componentDidMount` lifecycle method.
+
+### Why is this bad?
+
+Updating the state after a component mount will trigger a second `render()` call and can lead to property/layout thrashing.
+This can cause performance issues and unexpected behavior.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```jsx
+var Hello = createReactClass({
+  componentDidMount: function () {
+    this.setState({
+      name: this.props.name.toUpperCase(),
+    });
+  },
+  render: function () {
+    return <div>Hello {this.state.name}</div>;
+  },
+});
+```
+
+Examples of **correct** code for this rule:
+
+```jsx
+var Hello = createReactClass({
+  componentDidMount: function () {
+    this.onMount(function callback(newName) {
+      this.setState({
+        name: newName,
+      });
+    });
+  },
+  render: function () {
+    return <div>Hello {this.state.name}</div>;
+  },
+});
+```
+
+### Options
+
+The rule accepts a string value `"disallow-in-func"`:
+
+```json
+{
+  "react/no-did-mount-set-state": ["error", "disallow-in-func"]
+}
+```
+
+When set, also disallows `setState` calls in nested functions within `componentDidMount`.
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "plugins": ["react"],
+  "rules": {
+    "react/no-did-mount-set-state": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --deny react/no-did-mount-set-state --react-plugin
 ```
 
 :::
@@ -45234,7 +45583,7 @@ url: /docs/guide/usage/linter/rules.md
 
 The progress of all rule implementations is tracked [here](https://github.com/oxc-project/oxc/issues/481).
 
-* Total number of rules: 640
+* Total number of rules: 645
 * Rules turned on by default: 104
 
 **Legend for 'Fixable?' column:**
@@ -45245,7 +45594,7 @@ The progress of all rule implementations is tracked [here](https://github.com/ox
 * ⚠️💡: a dangerous suggestion is available for this rule
 * 🚧: an auto-fix or suggestion is possible, but currently not implemented
 
-## Correctness (199):
+## Correctness (201):
 
 Code that is outright wrong or useless.
 | Rule name | Source | Default | Fixable? |
@@ -45280,7 +45629,7 @@ Code that is outright wrong or useless.
 | [no-irregular-whitespace](/docs/guide/usage/linter/rules/eslint/no-irregular-whitespace.html) | eslint | ✅ | |
 | [no-loss-of-precision](/docs/guide/usage/linter/rules/eslint/no-loss-of-precision.html) | eslint | ✅ | |
 | [no-new-native-nonconstructor](/docs/guide/usage/linter/rules/eslint/no-new-native-nonconstructor.html) | eslint | ✅ | |
-| [no-nonoctal-decimal-escape](/docs/guide/usage/linter/rules/eslint/no-nonoctal-decimal-escape.html) | eslint | ✅ | 🚧 |
+| [no-nonoctal-decimal-escape](/docs/guide/usage/linter/rules/eslint/no-nonoctal-decimal-escape.html) | eslint | ✅ | 💡 |
 | [no-obj-calls](/docs/guide/usage/linter/rules/eslint/no-obj-calls.html) | eslint | ✅ | |
 | [no-self-assign](/docs/guide/usage/linter/rules/eslint/no-self-assign.html) | eslint | ✅ | |
 | [no-setter-return](/docs/guide/usage/linter/rules/eslint/no-setter-return.html) | eslint | ✅ | |
@@ -45329,6 +45678,7 @@ Code that is outright wrong or useless.
 | [anchor-is-valid](/docs/guide/usage/linter/rules/jsx_a11y/anchor-is-valid.html) | jsx\_a11y | | |
 | [aria-activedescendant-has-tabindex](/docs/guide/usage/linter/rules/jsx_a11y/aria-activedescendant-has-tabindex.html) | jsx\_a11y | | |
 | [aria-props](/docs/guide/usage/linter/rules/jsx_a11y/aria-props.html) | jsx\_a11y | | 🛠️ |
+| [aria-proptypes](/docs/guide/usage/linter/rules/jsx_a11y/aria-proptypes.html) | jsx\_a11y | | |
 | [aria-role](/docs/guide/usage/linter/rules/jsx_a11y/aria-role.html) | jsx\_a11y | | |
 | [aria-unsupported-elements](/docs/guide/usage/linter/rules/jsx_a11y/aria-unsupported-elements.html) | jsx\_a11y | | 🛠️ |
 | [autocomplete-valid](/docs/guide/usage/linter/rules/jsx_a11y/autocomplete-valid.html) | jsx\_a11y | | |
@@ -45397,6 +45747,7 @@ Code that is outright wrong or useless.
 | [jsx-props-no-spread-multi](/docs/guide/usage/linter/rules/react/jsx-props-no-spread-multi.html) | react | | 🛠️ |
 | [no-children-prop](/docs/guide/usage/linter/rules/react/no-children-prop.html) | react | | |
 | [no-danger-with-children](/docs/guide/usage/linter/rules/react/no-danger-with-children.html) | react | | |
+| [no-did-mount-set-state](/docs/guide/usage/linter/rules/react/no-did-mount-set-state.html) | react | | |
 | [no-direct-mutation-state](/docs/guide/usage/linter/rules/react/no-direct-mutation-state.html) | react | | |
 | [no-find-dom-node](/docs/guide/usage/linter/rules/react/no-find-dom-node.html) | react | | |
 | [no-is-mounted](/docs/guide/usage/linter/rules/react/no-is-mounted.html) | react | | |
@@ -45727,7 +46078,7 @@ Lints which are rather strict or have occasional false positives.
 | [prefer-type-error](/docs/guide/usage/linter/rules/unicorn/prefer-type-error.html) | unicorn | | 🛠️ |
 | [require-number-to-fixed-digits-argument](/docs/guide/usage/linter/rules/unicorn/require-number-to-fixed-digits-argument.html) | unicorn | | 🛠️ |
 
-## Style (179):
+## Style (182):
 
 Code that should be written in a more idiomatic way.
 | Rule name | Source | Default | Fixable? |
@@ -45764,7 +46115,7 @@ Code that should be written in a more idiomatic way.
 | [no-ternary](/docs/guide/usage/linter/rules/eslint/no-ternary.html) | eslint | | |
 | [no-useless-computed-key](/docs/guide/usage/linter/rules/eslint/no-useless-computed-key.html) | eslint | | 🚧 |
 | [operator-assignment](/docs/guide/usage/linter/rules/eslint/operator-assignment.html) | eslint | | ⚠️🛠️️ |
-| [prefer-destructuring](/docs/guide/usage/linter/rules/eslint/prefer-destructuring.html) | eslint | | 🚧 |
+| [prefer-destructuring](/docs/guide/usage/linter/rules/eslint/prefer-destructuring.html) | eslint | | 🛠️ |
 | [prefer-exponentiation-operator](/docs/guide/usage/linter/rules/eslint/prefer-exponentiation-operator.html) | eslint | | |
 | [prefer-numeric-literals](/docs/guide/usage/linter/rules/eslint/prefer-numeric-literals.html) | eslint | | 🛠️ |
 | [prefer-object-has-own](/docs/guide/usage/linter/rules/eslint/prefer-object-has-own.html) | eslint | | 🛠️ |
@@ -45828,6 +46179,7 @@ Code that should be written in a more idiomatic way.
 | [prefer-todo](/docs/guide/usage/linter/rules/jest/prefer-todo.html) | jest | | 🛠️ |
 | [require-hook](/docs/guide/usage/linter/rules/jest/require-hook.html) | jest | | |
 | [require-top-level-describe](/docs/guide/usage/linter/rules/jest/require-top-level-describe.html) | jest | | |
+| [global-require](/docs/guide/usage/linter/rules/node/global-require.html) | node | | |
 | [no-exports-assign](/docs/guide/usage/linter/rules/node/no-exports-assign.html) | node | | 🛠️ |
 | [avoid-new](/docs/guide/usage/linter/rules/promise/avoid-new.html) | promise | | |
 | [no-nesting](/docs/guide/usage/linter/rules/promise/no-nesting.html) | promise | | 🚧 |
@@ -45840,6 +46192,7 @@ Code that should be written in a more idiomatic way.
 | [jsx-curly-brace-presence](/docs/guide/usage/linter/rules/react/jsx-curly-brace-presence.html) | react | | 🛠️ |
 | [jsx-fragments](/docs/guide/usage/linter/rules/react/jsx-fragments.html) | react | | 🛠️ |
 | [jsx-handler-names](/docs/guide/usage/linter/rules/react/jsx-handler-names.html) | react | | |
+| [jsx-max-depth](/docs/guide/usage/linter/rules/react/jsx-max-depth.html) | react | | |
 | [jsx-pascal-case](/docs/guide/usage/linter/rules/react/jsx-pascal-case.html) | react | | |
 | [jsx-props-no-spreading](/docs/guide/usage/linter/rules/react/jsx-props-no-spreading.html) | react | | |
 | [no-redundant-should-component-update](/docs/guide/usage/linter/rules/react/no-redundant-should-component-update.html) | react | | |
@@ -45902,6 +46255,7 @@ Code that should be written in a more idiomatic way.
 | [switch-case-braces](/docs/guide/usage/linter/rules/unicorn/switch-case-braces.html) | unicorn | | 🛠️ |
 | [text-encoding-identifier-case](/docs/guide/usage/linter/rules/unicorn/text-encoding-identifier-case.html) | unicorn | | 🛠️ |
 | [throw-new-error](/docs/guide/usage/linter/rules/unicorn/throw-new-error.html) | unicorn | | 🛠️ |
+| [consistent-test-filename](/docs/guide/usage/linter/rules/vitest/consistent-test-filename.html) | vitest | | |
 | [no-import-node-test](/docs/guide/usage/linter/rules/vitest/no-import-node-test.html) | vitest | | 🛠️ |
 | [prefer-called-times](/docs/guide/usage/linter/rules/vitest/prefer-called-times.html) | vitest | | 🛠️ |
 | [prefer-to-be-falsy](/docs/guide/usage/linter/rules/vitest/prefer-to-be-falsy.html) | vitest | | 🛠️ |
@@ -45937,7 +46291,7 @@ url: /docs/guide/usage/linter/generated-rules.md
 
 The progress of all rule implementations is tracked [here](https://github.com/oxc-project/oxc/issues/481).
 
-* Total number of rules: 640
+* Total number of rules: 645
 * Rules turned on by default: 104
 
 **Legend for 'Fixable?' column:**
@@ -45948,7 +46302,7 @@ The progress of all rule implementations is tracked [here](https://github.com/ox
 * ⚠️💡: a dangerous suggestion is available for this rule
 * 🚧: an auto-fix or suggestion is possible, but currently not implemented
 
-## Correctness (199):
+## Correctness (201):
 
 Code that is outright wrong or useless.
 | Rule name | Source | Default | Fixable? |
@@ -45983,7 +46337,7 @@ Code that is outright wrong or useless.
 | [no-irregular-whitespace](/docs/guide/usage/linter/rules/eslint/no-irregular-whitespace.html) | eslint | ✅ | |
 | [no-loss-of-precision](/docs/guide/usage/linter/rules/eslint/no-loss-of-precision.html) | eslint | ✅ | |
 | [no-new-native-nonconstructor](/docs/guide/usage/linter/rules/eslint/no-new-native-nonconstructor.html) | eslint | ✅ | |
-| [no-nonoctal-decimal-escape](/docs/guide/usage/linter/rules/eslint/no-nonoctal-decimal-escape.html) | eslint | ✅ | 🚧 |
+| [no-nonoctal-decimal-escape](/docs/guide/usage/linter/rules/eslint/no-nonoctal-decimal-escape.html) | eslint | ✅ | 💡 |
 | [no-obj-calls](/docs/guide/usage/linter/rules/eslint/no-obj-calls.html) | eslint | ✅ | |
 | [no-self-assign](/docs/guide/usage/linter/rules/eslint/no-self-assign.html) | eslint | ✅ | |
 | [no-setter-return](/docs/guide/usage/linter/rules/eslint/no-setter-return.html) | eslint | ✅ | |
@@ -46032,6 +46386,7 @@ Code that is outright wrong or useless.
 | [anchor-is-valid](/docs/guide/usage/linter/rules/jsx_a11y/anchor-is-valid.html) | jsx\_a11y | | |
 | [aria-activedescendant-has-tabindex](/docs/guide/usage/linter/rules/jsx_a11y/aria-activedescendant-has-tabindex.html) | jsx\_a11y | | |
 | [aria-props](/docs/guide/usage/linter/rules/jsx_a11y/aria-props.html) | jsx\_a11y | | 🛠️ |
+| [aria-proptypes](/docs/guide/usage/linter/rules/jsx_a11y/aria-proptypes.html) | jsx\_a11y | | |
 | [aria-role](/docs/guide/usage/linter/rules/jsx_a11y/aria-role.html) | jsx\_a11y | | |
 | [aria-unsupported-elements](/docs/guide/usage/linter/rules/jsx_a11y/aria-unsupported-elements.html) | jsx\_a11y | | 🛠️ |
 | [autocomplete-valid](/docs/guide/usage/linter/rules/jsx_a11y/autocomplete-valid.html) | jsx\_a11y | | |
@@ -46100,6 +46455,7 @@ Code that is outright wrong or useless.
 | [jsx-props-no-spread-multi](/docs/guide/usage/linter/rules/react/jsx-props-no-spread-multi.html) | react | | 🛠️ |
 | [no-children-prop](/docs/guide/usage/linter/rules/react/no-children-prop.html) | react | | |
 | [no-danger-with-children](/docs/guide/usage/linter/rules/react/no-danger-with-children.html) | react | | |
+| [no-did-mount-set-state](/docs/guide/usage/linter/rules/react/no-did-mount-set-state.html) | react | | |
 | [no-direct-mutation-state](/docs/guide/usage/linter/rules/react/no-direct-mutation-state.html) | react | | |
 | [no-find-dom-node](/docs/guide/usage/linter/rules/react/no-find-dom-node.html) | react | | |
 | [no-is-mounted](/docs/guide/usage/linter/rules/react/no-is-mounted.html) | react | | |
@@ -46430,7 +46786,7 @@ Lints which are rather strict or have occasional false positives.
 | [prefer-type-error](/docs/guide/usage/linter/rules/unicorn/prefer-type-error.html) | unicorn | | 🛠️ |
 | [require-number-to-fixed-digits-argument](/docs/guide/usage/linter/rules/unicorn/require-number-to-fixed-digits-argument.html) | unicorn | | 🛠️ |
 
-## Style (179):
+## Style (182):
 
 Code that should be written in a more idiomatic way.
 | Rule name | Source | Default | Fixable? |
@@ -46467,7 +46823,7 @@ Code that should be written in a more idiomatic way.
 | [no-ternary](/docs/guide/usage/linter/rules/eslint/no-ternary.html) | eslint | | |
 | [no-useless-computed-key](/docs/guide/usage/linter/rules/eslint/no-useless-computed-key.html) | eslint | | 🚧 |
 | [operator-assignment](/docs/guide/usage/linter/rules/eslint/operator-assignment.html) | eslint | | ⚠️🛠️️ |
-| [prefer-destructuring](/docs/guide/usage/linter/rules/eslint/prefer-destructuring.html) | eslint | | 🚧 |
+| [prefer-destructuring](/docs/guide/usage/linter/rules/eslint/prefer-destructuring.html) | eslint | | 🛠️ |
 | [prefer-exponentiation-operator](/docs/guide/usage/linter/rules/eslint/prefer-exponentiation-operator.html) | eslint | | |
 | [prefer-numeric-literals](/docs/guide/usage/linter/rules/eslint/prefer-numeric-literals.html) | eslint | | 🛠️ |
 | [prefer-object-has-own](/docs/guide/usage/linter/rules/eslint/prefer-object-has-own.html) | eslint | | 🛠️ |
@@ -46531,6 +46887,7 @@ Code that should be written in a more idiomatic way.
 | [prefer-todo](/docs/guide/usage/linter/rules/jest/prefer-todo.html) | jest | | 🛠️ |
 | [require-hook](/docs/guide/usage/linter/rules/jest/require-hook.html) | jest | | |
 | [require-top-level-describe](/docs/guide/usage/linter/rules/jest/require-top-level-describe.html) | jest | | |
+| [global-require](/docs/guide/usage/linter/rules/node/global-require.html) | node | | |
 | [no-exports-assign](/docs/guide/usage/linter/rules/node/no-exports-assign.html) | node | | 🛠️ |
 | [avoid-new](/docs/guide/usage/linter/rules/promise/avoid-new.html) | promise | | |
 | [no-nesting](/docs/guide/usage/linter/rules/promise/no-nesting.html) | promise | | 🚧 |
@@ -46543,6 +46900,7 @@ Code that should be written in a more idiomatic way.
 | [jsx-curly-brace-presence](/docs/guide/usage/linter/rules/react/jsx-curly-brace-presence.html) | react | | 🛠️ |
 | [jsx-fragments](/docs/guide/usage/linter/rules/react/jsx-fragments.html) | react | | 🛠️ |
 | [jsx-handler-names](/docs/guide/usage/linter/rules/react/jsx-handler-names.html) | react | | |
+| [jsx-max-depth](/docs/guide/usage/linter/rules/react/jsx-max-depth.html) | react | | |
 | [jsx-pascal-case](/docs/guide/usage/linter/rules/react/jsx-pascal-case.html) | react | | |
 | [jsx-props-no-spreading](/docs/guide/usage/linter/rules/react/jsx-props-no-spreading.html) | react | | |
 | [no-redundant-should-component-update](/docs/guide/usage/linter/rules/react/no-redundant-should-component-update.html) | react | | |
@@ -46605,6 +46963,7 @@ Code that should be written in a more idiomatic way.
 | [switch-case-braces](/docs/guide/usage/linter/rules/unicorn/switch-case-braces.html) | unicorn | | 🛠️ |
 | [text-encoding-identifier-case](/docs/guide/usage/linter/rules/unicorn/text-encoding-identifier-case.html) | unicorn | | 🛠️ |
 | [throw-new-error](/docs/guide/usage/linter/rules/unicorn/throw-new-error.html) | unicorn | | 🛠️ |
+| [consistent-test-filename](/docs/guide/usage/linter/rules/vitest/consistent-test-filename.html) | vitest | | |
 | [no-import-node-test](/docs/guide/usage/linter/rules/vitest/no-import-node-test.html) | vitest | | 🛠️ |
 | [prefer-called-times](/docs/guide/usage/linter/rules/vitest/prefer-called-times.html) | vitest | | 🛠️ |
 | [prefer-to-be-falsy](/docs/guide/usage/linter/rules/vitest/prefer-to-be-falsy.html) | vitest | | 🛠️ |
@@ -48160,6 +48519,7 @@ await { then() {} };
 // this is not a Promise - it's a function that returns a Promise
 declare const getPromise: () => Promise<string>;
 await getPromise;
+await getPromise;
 ```
 
 Examples of **correct** code for this rule:
@@ -48177,6 +48537,7 @@ await {
 
 // this is a Promise - produced by calling a function
 declare const getPromise: () => Promise<string>;
+await getPromise();
 await getPromise();
 ```
 
@@ -64430,9 +64791,6 @@ Arguments:
 * **`    --no-ignore`** —
   Disable excluding files from `.eslintignore` files, **`--ignore-path`** flags and **`--ignore-pattern`** flags
 
-> \[!NOTE]
-> `.gitignore` files are respected even without a Git repository.
-
 ## Handle Warnings
 
 * **`    --quiet`** —
@@ -64565,6 +64923,76 @@ updates:
         update-types: ["version-update:semver-major"]
     open-pull-requests-limit: 1 # one PR at a time
 ```
+
+---
+
+---
+url: /docs/guide/usage/linter/rules/vitest/consistent-test-filename.md
+---
+# vitest/consistent-test-filename&#x20;
+
+### What it does
+
+This rule triggers an error when a file is considered a test file, but its name
+does not match an expected filename format.
+
+### Why is this bad?
+
+Files that are tests but with an unexpected filename make it hard to distinguish between
+source code files and test files.
+
+### Examples
+
+An example of an **incorrect** file path for this rule configured as `{"allTestPattern": "__tests__",  "pattern": ".*\.spec\.ts$"}`:
+
+**tests**/2.ts
+
+An example of a **correct** file path for this rule configured as `{"allTestPattern": "__tests__",  "pattern": ".*\.spec\.ts$"}`:
+
+**tests**/2.spec.ts
+
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### allTestPattern
+
+type: `string`
+
+Regex pattern to ensure we are linting only test filenames.
+Decides whether a file is a testing file.
+
+### pattern
+
+type: `string`
+
+Required regex to check if a test filename have a valid formart.
+Pattern doesn't have a default value, you must provide one.
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "plugins": ["vitest"],
+  "rules": {
+    "vitest/consistent-test-filename": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --deny vitest/consistent-test-filename --vitest-plugin
+```
+
+:::
+
+## References
+
+* Rule Source
 
 ---
 

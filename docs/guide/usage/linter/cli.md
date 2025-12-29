@@ -102,9 +102,6 @@ Arguments:
 * **`    --no-ignore`** —
   Disable excluding files from `.eslintignore` files, **`--ignore-path`** flags and **`--ignore-pattern`** flags
 
-> \[!NOTE]
-> `.gitignore` files are respected even without a Git repository.
-
 ## Handle Warnings
 
 * **`    --quiet`** —
