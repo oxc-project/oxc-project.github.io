@@ -1731,7 +1731,7 @@ For TOML files, ignore comments are not supported.
 ---
 
 ---
-url: /docs/guide/usage/formatter/config-file-reference.md
+url: /docs/guide/usage/formatter/generated-config.md
 ---
 
 # Configuration options for the Oxfmt.
@@ -1914,7 +1914,7 @@ Use tabs for indentation or spaces. (Default: `false`)
 ---
 
 ---
-url: /docs/guide/usage/formatter/generated-config.md
+url: /docs/guide/usage/formatter/config-file-reference.md
 ---
 
 # Configuration options for the Oxfmt.
@@ -32008,110 +32008,6 @@ Use `cargo insta accept` to accept all snapshot changes.
 ---
 
 ---
-url: /docs/learn/architecture/linter.md
----
-
-# Linter Architecture
-
-This article is originally posted on [leaysgur.github.io/posts](https://leaysgur.github.io/posts/2024/01/15/160838) by [@leaysgur](https://github.com/leaysgur).
-
-## apps/oxlint
-
-The `oxlint` binary is the result of building `main.rs` from the `apps/oxlint` crate.
-
-> [Cargo.toml Configuration](https://github.com/oxc-project/oxc/blob/main/apps/oxlint/Cargo.toml)
-
-Here, it parses arguments and then runs the `LintRunner`.
-
-> [Lint Execution Flow](https://github.com/oxc-project/oxc/blob/oxlint_v0.2.0/crates/oxc_cli/src/lint/main.rs#L17-L19)
-
-## crates/oxc\_diagnostics
-
-The `LintService` passes the `mpsc::channel` Sender to `oxc_diagnostics` to receive lint results.
-
-> [Receiving Lint Results](https://github.com/oxc-project/oxc/blob/oxlint_v0.2.0/crates/oxc_diagnostics/src/service.rs#L96)
-
-It formats and displays the received messages. The formatting is done by the `miette` crate.
-
-> [miette Crate Reference](https://github.com/zkat/miette)
-
-## crates/oxc\_linter
-
-Starting with the `LintService`:
-
-* Holds `self.runtime` as `Arc<Runtime>`
-* `Runtime` holds paths for linting
-* Upon running, it iterates over `Runtime` paths in parallel using `rayon`
-* It sends a `None` to finish
-
-> [LintService Implementation](https://github.com/oxc-project/oxc/blob/oxlint_v0.2.0/crates/oxc_linter/src/service.rs#L51)
-
-### `Runtime`: `process_path()`
-
-* Infers extension and content from the path
-* Supports `.[m|c]?[j|t]s` or `.[j|t]sx` extensions
-* Exceptions for `.vue`, `.astro`, and `.svelte` with partial support for `script` blocks
-* Processes JavaScript and TypeScript sources
-* Executes linting and sends results to `DiagnosticService`
-
-> [Runtime Path Processing](https://github.com/oxc-project/oxc/blob/oxlint_v0.2.0/crates/oxc_linter/src/service.rs#L162)
-
-### `Runtime`: `process_source()`
-
-* Processes the source with a parser into an AST
-* Creates a `LintContext` from `SemanticBuilder` and runs it through `Linter`
-
-> [Runtime Source Processing](https://github.com/oxc-project/oxc/blob/oxlint_v0.2.0/crates/oxc_linter/src/service.rs#L206)
-
-## crates/oxc\_semantic: `SemanticBuilder`
-
-`SemanticBuilder` builds semantic information extracted from the source.
-
-> [SemanticBuilder Source](https://github.com/oxc-project/oxc/blob/oxlint_v0.2.0/crates/oxc_semantic/src/builder.rs#L156)
-
-* `source_text`: Source code
-* `nodes`: AST nodes
-* `classes`: Classes
-* `scopes`: Scopes
-* `trivias`: Comments
-* `jsdoc`: JSDoc
-* etc.
-
-When `SemanticBuilder` builds, it generates `SemanticBuilderReturn`, but only `Semantic` is passed to `LintContext`.
-
-> [SemanticBuilder Return](https://github.com/oxc-project/oxc/blob/oxlint_v0.2.0/crates/oxc_semantic/src/lib.rs#L34)
-
-## crates/oxc\_linter: `LintContext`
-
-> [LintContext Source](https://github.com/oxc-project/oxc/blob/oxlint_v0.2.0/crates/oxc_linter/src/context.rs#L14)
-
-Represents the context, with `Semantic` as the main body. It includes getters for each piece of information and methods like `diagnostic()` to notify of linting issues.
-
-## crates/oxc\_linter: `Linter`
-
-> [Linter Source](https://github.com/oxc-project/oxc/blob/oxlint_v0.2.0/crates/oxc_linter/src/lib.rs#L140)
-
-The `run()` function of this `Linter` is the core of the linting process.
-
-* `Linter` holds rules to execute on the target source in `self.rules`
-* Each rule can implement three types of processing as per the trait
-* It sequentially executes these three patterns
-
-For the currently implemented rules, refer to this list.
-
-> [Implemented Rules](https://github.com/oxc-project/oxc/blob/oxlint_v0.2.0/crates/oxc_linter/src/rules.rs)
-
-For adding new rules, remember to update this list.
-
-## Linter Example
-
-The repository provides the minimum code configuration for creating a linter.
-
-> [Minimal Linter Code](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/examples/linter.rs)
-
----
-
----
 url: /docs/guide/usage/linter.md
 ---
 
@@ -32346,6 +32242,110 @@ https://www.npmjs.com/package/vite-plugin-oxlint
 
 * **Node.js**: >= 20.19.0 or >= 22.12.0
 * **Platforms**: darwin-arm64, darwin-x64, linux-arm64, linux-x64, win32-arm64, and win32-x64
+
+---
+
+---
+url: /docs/learn/architecture/linter.md
+---
+
+# Linter Architecture
+
+This article is originally posted on [leaysgur.github.io/posts](https://leaysgur.github.io/posts/2024/01/15/160838) by [@leaysgur](https://github.com/leaysgur).
+
+## apps/oxlint
+
+The `oxlint` binary is the result of building `main.rs` from the `apps/oxlint` crate.
+
+> [Cargo.toml Configuration](https://github.com/oxc-project/oxc/blob/main/apps/oxlint/Cargo.toml)
+
+Here, it parses arguments and then runs the `LintRunner`.
+
+> [Lint Execution Flow](https://github.com/oxc-project/oxc/blob/oxlint_v0.2.0/crates/oxc_cli/src/lint/main.rs#L17-L19)
+
+## crates/oxc\_diagnostics
+
+The `LintService` passes the `mpsc::channel` Sender to `oxc_diagnostics` to receive lint results.
+
+> [Receiving Lint Results](https://github.com/oxc-project/oxc/blob/oxlint_v0.2.0/crates/oxc_diagnostics/src/service.rs#L96)
+
+It formats and displays the received messages. The formatting is done by the `miette` crate.
+
+> [miette Crate Reference](https://github.com/zkat/miette)
+
+## crates/oxc\_linter
+
+Starting with the `LintService`:
+
+* Holds `self.runtime` as `Arc<Runtime>`
+* `Runtime` holds paths for linting
+* Upon running, it iterates over `Runtime` paths in parallel using `rayon`
+* It sends a `None` to finish
+
+> [LintService Implementation](https://github.com/oxc-project/oxc/blob/oxlint_v0.2.0/crates/oxc_linter/src/service.rs#L51)
+
+### `Runtime`: `process_path()`
+
+* Infers extension and content from the path
+* Supports `.[m|c]?[j|t]s` or `.[j|t]sx` extensions
+* Exceptions for `.vue`, `.astro`, and `.svelte` with partial support for `script` blocks
+* Processes JavaScript and TypeScript sources
+* Executes linting and sends results to `DiagnosticService`
+
+> [Runtime Path Processing](https://github.com/oxc-project/oxc/blob/oxlint_v0.2.0/crates/oxc_linter/src/service.rs#L162)
+
+### `Runtime`: `process_source()`
+
+* Processes the source with a parser into an AST
+* Creates a `LintContext` from `SemanticBuilder` and runs it through `Linter`
+
+> [Runtime Source Processing](https://github.com/oxc-project/oxc/blob/oxlint_v0.2.0/crates/oxc_linter/src/service.rs#L206)
+
+## crates/oxc\_semantic: `SemanticBuilder`
+
+`SemanticBuilder` builds semantic information extracted from the source.
+
+> [SemanticBuilder Source](https://github.com/oxc-project/oxc/blob/oxlint_v0.2.0/crates/oxc_semantic/src/builder.rs#L156)
+
+* `source_text`: Source code
+* `nodes`: AST nodes
+* `classes`: Classes
+* `scopes`: Scopes
+* `trivias`: Comments
+* `jsdoc`: JSDoc
+* etc.
+
+When `SemanticBuilder` builds, it generates `SemanticBuilderReturn`, but only `Semantic` is passed to `LintContext`.
+
+> [SemanticBuilder Return](https://github.com/oxc-project/oxc/blob/oxlint_v0.2.0/crates/oxc_semantic/src/lib.rs#L34)
+
+## crates/oxc\_linter: `LintContext`
+
+> [LintContext Source](https://github.com/oxc-project/oxc/blob/oxlint_v0.2.0/crates/oxc_linter/src/context.rs#L14)
+
+Represents the context, with `Semantic` as the main body. It includes getters for each piece of information and methods like `diagnostic()` to notify of linting issues.
+
+## crates/oxc\_linter: `Linter`
+
+> [Linter Source](https://github.com/oxc-project/oxc/blob/oxlint_v0.2.0/crates/oxc_linter/src/lib.rs#L140)
+
+The `run()` function of this `Linter` is the core of the linting process.
+
+* `Linter` holds rules to execute on the target source in `self.rules`
+* Each rule can implement three types of processing as per the trait
+* It sequentially executes these three patterns
+
+For the currently implemented rules, refer to this list.
+
+> [Implemented Rules](https://github.com/oxc-project/oxc/blob/oxlint_v0.2.0/crates/oxc_linter/src/rules.rs)
+
+For adding new rules, remember to update this list.
+
+## Linter Example
+
+The repository provides the minimum code configuration for creating a linter.
+
+> [Minimal Linter Code](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/examples/linter.rs)
 
 ---
 
@@ -36679,7 +36679,7 @@ oxlint --deny oxc/uninvoked-array-callback
 ---
 
 ---
-url: /docs/guide/usage/linter/generated-config.md
+url: /docs/guide/usage/linter/config-file-reference.md
 ---
 
 # Oxlint Configuration File
@@ -37302,7 +37302,7 @@ to accommodate TypeScript type checking scenarios.
 ---
 
 ---
-url: /docs/guide/usage/linter/config-file-reference.md
+url: /docs/guide/usage/linter/generated-config.md
 ---
 
 # Oxlint Configuration File
@@ -38034,180 +38034,66 @@ Test results are stored in snapshot files for tracking changes:
 ---
 
 ---
-url: /docs/learn/architecture/parser.md
+url: /docs/guide/usage/parser.md
 ---
 
-# Parser Architecture
+# Parser
 
-Oxc maintains its own AST and parser, which is by far the fastest and most conformant JavaScript and TypeScript (including JSX and TSX) parser written in Rust.
+This is production ready.
 
-As the parser often represents a key performance bottleneck in JavaScript tooling,
-any minor improvements can have a cascading effect on our downstream tools.
-By developing our parser, we have the opportunity to explore and implement well-researched performance techniques.
+## Features
 
-## AST Design Philosophy
+* 3x faster than swc parser ([benchmark][url-benchmark]).
+* Parses `.js(x)` and `.ts(x)`.
+* Passes all parser tests from Test262 and 99% from Babel and TypeScript.
+* Returns ESM information directly, no need for [`es-module-lexer`](https://github.com/guybedford/es-module-lexer).
+* [✅ works with checker.ts](https://x.com/robpalmer2/status/1805502964435505559)
 
-While many existing JavaScript tools rely on [estree] as their AST specification,
-a notable drawback is its abundance of ambiguous nodes.
-This ambiguity often leads to confusion during development with [estree].
+## Installation
 
-The Oxc AST differs from the [estree] AST by removing ambiguous nodes and introducing distinct types.
-For example, instead of using a generic [estree] `Identifier`,
-the Oxc AST provides specific types such as `BindingIdentifier`, `IdentifierReference`, and `IdentifierName`.
+### Node.js
 
-This clear distinction greatly enhances the development experience by aligning more closely with the ECMAScript specification.
+* Use the node binding [oxc-parser][url-oxc-parser-npm].
+* Try on [stackblitz](https://stackblitz.com/edit/oxc-parser).
 
-### AST Node Types
+### Rust
 
-```rust
-// Instead of generic Identifier
-pub struct BindingIdentifier<'a> {
-    pub span: Span,
-    pub name: Atom<'a>,
-}
+Use the umbrella crate [oxc][url-oxc-crate] or the individual [oxc\_ast][url-oxc-ast-crate] and [oxc\_parser][url-oxc-parser-crate] crates.
 
-pub struct IdentifierReference<'a> {
-    pub span: Span,
-    pub name: Atom<'a>,
-    pub reference_id: Cell<Option<ReferenceId>>,
-}
+Rust usage example can be found [here](https://github.com/oxc-project/oxc/blob/main/crates/oxc_parser/examples/parser.rs).
 
-pub struct IdentifierName<'a> {
-    pub span: Span,
-    pub name: Atom<'a>,
-}
+## Print
+
+After parsing and transforming, you can print code.
+
+Here's a direct example using [esrap](https://www.npmjs.com/package/esrap) *(`parse` in reverse!)*:
+
+```js
+import { print } from "esrap";
+import ts from "esrap/languages/ts";
+import { parseSync } from "oxc-parser";
+
+const { program } = parseSync("test.js", 'alert("hello oxc & esrap");');
+const { code } = print(program, ts());
+
+console.log(code); // alert("hello oxc & esrap");
 ```
 
-### Semantic Clarity
+:::info
+Today, comments are not printed. *It will be supported thanks to [oxc-parser #13285](https://github.com/oxc-project/oxc/pull/13285).*
+:::
 
-This approach provides semantic clarity:
+[url-swc]: https://swc.rs
 
-* **`BindingIdentifier`**: Variable declarations (`let x = 1`)
-* **`IdentifierReference`**: Variable usage (`console.log(x)`)
-* **`IdentifierName`**: Property names (`obj.property`)
+[url-benchmark]: https://github.com/oxc-project/bench-javascript-parser-written-in-rust
 
-## Performance Architecture
+[url-oxc-crate]: https://docs.rs/oxc
 
-### How is it so fast
+[url-oxc-ast-crate]: https://docs.rs/oxc_ast
 
-* **Memory Arena**: AST is allocated in a [memory arena](https://crates.io/crates/bumpalo) for fast allocation and deallocation
-* **String Optimization**: Short strings are inlined by [CompactString](https://crates.io/crates/compact_str)
-* **Minimal Heap Usage**: No other heap allocations are done except the above two
-* **Separation of Concerns**: Scope binding, symbol resolution and some syntax errors are delegated to the semantic analyzer
+[url-oxc-parser-crate]: https://docs.rs/oxc_parser
 
-### Memory Management Details
-
-#### Arena Allocation
-
-```rust
-use oxc_allocator::Allocator;
-
-// All AST nodes are allocated in this arena
-let allocator = Allocator::default();
-let ast_node = allocator.alloc(Expression::NumericLiteral(
-    allocator.alloc(NumericLiteral { value: 42.0, span: SPAN })
-));
-```
-
-Benefits:
-
-* **O(1) allocation**: Simple pointer bump
-* **O(1) deallocation**: Drop entire arena at once
-* **Cache-friendly**: Linear memory layout
-* **No fragmentation**: Continuous memory usage
-
-#### String Interning with CompactString
-
-```rust
-// Strings ≤ 24 bytes are stored inline (no heap allocation)
-let short_name = CompactString::from("variableName");  // Stack allocated
-let long_name = CompactString::from("a_very_long_variable_name_that_exceeds_limit");  // Heap allocated
-```
-
-This reduces memory allocations for the majority of JavaScript identifiers and string literals.
-
-## Parser Architecture
-
-### Two-Phase Design
-
-The Oxc parser follows a two-phase approach:
-
-1. **Parsing Phase**: Build AST structure with minimal semantic analysis
-2. **Semantic Phase**: Perform scope analysis, symbol resolution, and advanced error checking
-
-```rust
-// Phase 1: Parse to AST
-let parser_result = Parser::new(&allocator, source_text, source_type).parse();
-
-// Phase 2: Semantic analysis
-let semantic_result = SemanticBuilder::new(source_text, source_type)
-    .with_trivias(parser_result.trivias)
-    .build(&parser_result.program);
-```
-
-### Parser Components
-
-#### Lexer
-
-* **Token generation**: Converts source text to structured tokens
-* **SIMD optimization**: Uses SIMD instructions for whitespace skipping
-* **Context-aware**: Handles regex vs division operator disambiguation
-
-#### Recursive Descent Parser
-
-* **Hand-written**: Custom implementation for maximum performance
-* **Error recovery**: Advanced error handling with meaningful messages
-* **Grammar compliance**: Follows ECMAScript specification precisely
-
-#### AST Builder
-
-* **Type safety**: Leverages Rust's type system for correctness
-* **Memory efficiency**: Direct arena allocation
-* **Builder pattern**: Convenient node construction methods
-
-## Conformance Strategy
-
-### Test Suite Coverage
-
-* **Test262**: 100% pass rate on ECMAScript conformance tests
-* **Babel**: 99.62% compatibility with Babel parser tests
-* **TypeScript**: 99.86% compatibility with TypeScript compiler tests
-
-### Error Handling Philosophy
-
-```rust
-// Meaningful error messages with source location
-pub struct OxcDiagnostic {
-    pub message: String,
-    pub span: Span,
-    pub severity: Severity,
-    pub help: Option<String>,
-}
-```
-
-The parser provides:
-
-* **Precise error locations**: Exact source positions
-* **Recovery strategies**: Continue parsing after errors
-* **Helpful suggestions**: Actionable error messages
-
-## Advanced Features
-
-### TypeScript Support
-
-* **Type stripping**: Removes TypeScript-specific syntax
-* **Decorator parsing**: Handles experimental decorators
-* **Namespace support**: Full module and namespace parsing
-* **JSX integration**: TypeScript + JSX (TSX) support
-
-### Research Areas
-
-* **SIMD text processing**: Vectorized string operations
-* **Cache optimization**: Minimize memory access patterns
-* **Branch prediction**: Optimize hot parsing paths
-* **Zero-copy parsing**: Eliminate unnecessary string copies
-
-[estree]: https://github.com/estree/estree
+[url-oxc-parser-npm]: https://www.npmjs.com/package/oxc-parser
 
 ---
 
@@ -38622,66 +38508,180 @@ In summary, the TypeScript parser uses a combination of lookahead (fast path) an
 ---
 
 ---
-url: /docs/guide/usage/parser.md
+url: /docs/learn/architecture/parser.md
 ---
 
-# Parser
+# Parser Architecture
 
-This is production ready.
+Oxc maintains its own AST and parser, which is by far the fastest and most conformant JavaScript and TypeScript (including JSX and TSX) parser written in Rust.
 
-## Features
+As the parser often represents a key performance bottleneck in JavaScript tooling,
+any minor improvements can have a cascading effect on our downstream tools.
+By developing our parser, we have the opportunity to explore and implement well-researched performance techniques.
 
-* 3x faster than swc parser ([benchmark][url-benchmark]).
-* Parses `.js(x)` and `.ts(x)`.
-* Passes all parser tests from Test262 and 99% from Babel and TypeScript.
-* Returns ESM information directly, no need for [`es-module-lexer`](https://github.com/guybedford/es-module-lexer).
-* [✅ works with checker.ts](https://x.com/robpalmer2/status/1805502964435505559)
+## AST Design Philosophy
 
-## Installation
+While many existing JavaScript tools rely on [estree] as their AST specification,
+a notable drawback is its abundance of ambiguous nodes.
+This ambiguity often leads to confusion during development with [estree].
 
-### Node.js
+The Oxc AST differs from the [estree] AST by removing ambiguous nodes and introducing distinct types.
+For example, instead of using a generic [estree] `Identifier`,
+the Oxc AST provides specific types such as `BindingIdentifier`, `IdentifierReference`, and `IdentifierName`.
 
-* Use the node binding [oxc-parser][url-oxc-parser-npm].
-* Try on [stackblitz](https://stackblitz.com/edit/oxc-parser).
+This clear distinction greatly enhances the development experience by aligning more closely with the ECMAScript specification.
 
-### Rust
+### AST Node Types
 
-Use the umbrella crate [oxc][url-oxc-crate] or the individual [oxc\_ast][url-oxc-ast-crate] and [oxc\_parser][url-oxc-parser-crate] crates.
+```rust
+// Instead of generic Identifier
+pub struct BindingIdentifier<'a> {
+    pub span: Span,
+    pub name: Atom<'a>,
+}
 
-Rust usage example can be found [here](https://github.com/oxc-project/oxc/blob/main/crates/oxc_parser/examples/parser.rs).
+pub struct IdentifierReference<'a> {
+    pub span: Span,
+    pub name: Atom<'a>,
+    pub reference_id: Cell<Option<ReferenceId>>,
+}
 
-## Print
-
-After parsing and transforming, you can print code.
-
-Here's a direct example using [esrap](https://www.npmjs.com/package/esrap) *(`parse` in reverse!)*:
-
-```js
-import { print } from "esrap";
-import ts from "esrap/languages/ts";
-import { parseSync } from "oxc-parser";
-
-const { program } = parseSync("test.js", 'alert("hello oxc & esrap");');
-const { code } = print(program, ts());
-
-console.log(code); // alert("hello oxc & esrap");
+pub struct IdentifierName<'a> {
+    pub span: Span,
+    pub name: Atom<'a>,
+}
 ```
 
-:::info
-Today, comments are not printed. *It will be supported thanks to [oxc-parser #13285](https://github.com/oxc-project/oxc/pull/13285).*
-:::
+### Semantic Clarity
 
-[url-swc]: https://swc.rs
+This approach provides semantic clarity:
 
-[url-benchmark]: https://github.com/oxc-project/bench-javascript-parser-written-in-rust
+* **`BindingIdentifier`**: Variable declarations (`let x = 1`)
+* **`IdentifierReference`**: Variable usage (`console.log(x)`)
+* **`IdentifierName`**: Property names (`obj.property`)
 
-[url-oxc-crate]: https://docs.rs/oxc
+## Performance Architecture
 
-[url-oxc-ast-crate]: https://docs.rs/oxc_ast
+### How is it so fast
 
-[url-oxc-parser-crate]: https://docs.rs/oxc_parser
+* **Memory Arena**: AST is allocated in a [memory arena](https://crates.io/crates/bumpalo) for fast allocation and deallocation
+* **String Optimization**: Short strings are inlined by [CompactString](https://crates.io/crates/compact_str)
+* **Minimal Heap Usage**: No other heap allocations are done except the above two
+* **Separation of Concerns**: Scope binding, symbol resolution and some syntax errors are delegated to the semantic analyzer
 
-[url-oxc-parser-npm]: https://www.npmjs.com/package/oxc-parser
+### Memory Management Details
+
+#### Arena Allocation
+
+```rust
+use oxc_allocator::Allocator;
+
+// All AST nodes are allocated in this arena
+let allocator = Allocator::default();
+let ast_node = allocator.alloc(Expression::NumericLiteral(
+    allocator.alloc(NumericLiteral { value: 42.0, span: SPAN })
+));
+```
+
+Benefits:
+
+* **O(1) allocation**: Simple pointer bump
+* **O(1) deallocation**: Drop entire arena at once
+* **Cache-friendly**: Linear memory layout
+* **No fragmentation**: Continuous memory usage
+
+#### String Interning with CompactString
+
+```rust
+// Strings ≤ 24 bytes are stored inline (no heap allocation)
+let short_name = CompactString::from("variableName");  // Stack allocated
+let long_name = CompactString::from("a_very_long_variable_name_that_exceeds_limit");  // Heap allocated
+```
+
+This reduces memory allocations for the majority of JavaScript identifiers and string literals.
+
+## Parser Architecture
+
+### Two-Phase Design
+
+The Oxc parser follows a two-phase approach:
+
+1. **Parsing Phase**: Build AST structure with minimal semantic analysis
+2. **Semantic Phase**: Perform scope analysis, symbol resolution, and advanced error checking
+
+```rust
+// Phase 1: Parse to AST
+let parser_result = Parser::new(&allocator, source_text, source_type).parse();
+
+// Phase 2: Semantic analysis
+let semantic_result = SemanticBuilder::new(source_text, source_type)
+    .with_trivias(parser_result.trivias)
+    .build(&parser_result.program);
+```
+
+### Parser Components
+
+#### Lexer
+
+* **Token generation**: Converts source text to structured tokens
+* **SIMD optimization**: Uses SIMD instructions for whitespace skipping
+* **Context-aware**: Handles regex vs division operator disambiguation
+
+#### Recursive Descent Parser
+
+* **Hand-written**: Custom implementation for maximum performance
+* **Error recovery**: Advanced error handling with meaningful messages
+* **Grammar compliance**: Follows ECMAScript specification precisely
+
+#### AST Builder
+
+* **Type safety**: Leverages Rust's type system for correctness
+* **Memory efficiency**: Direct arena allocation
+* **Builder pattern**: Convenient node construction methods
+
+## Conformance Strategy
+
+### Test Suite Coverage
+
+* **Test262**: 100% pass rate on ECMAScript conformance tests
+* **Babel**: 99.62% compatibility with Babel parser tests
+* **TypeScript**: 99.86% compatibility with TypeScript compiler tests
+
+### Error Handling Philosophy
+
+```rust
+// Meaningful error messages with source location
+pub struct OxcDiagnostic {
+    pub message: String,
+    pub span: Span,
+    pub severity: Severity,
+    pub help: Option<String>,
+}
+```
+
+The parser provides:
+
+* **Precise error locations**: Exact source positions
+* **Recovery strategies**: Continue parsing after errors
+* **Helpful suggestions**: Actionable error messages
+
+## Advanced Features
+
+### TypeScript Support
+
+* **Type stripping**: Removes TypeScript-specific syntax
+* **Decorator parsing**: Handles experimental decorators
+* **Namespace support**: Full module and namespace parsing
+* **JSX integration**: TypeScript + JSX (TSX) support
+
+### Research Areas
+
+* **SIMD text processing**: Vectorized string operations
+* **Cache optimization**: Minimize memory access patterns
+* **Branch prediction**: Optimize hot parsing paths
+* **Zero-copy parsing**: Eliminate unnecessary string copies
+
+[estree]: https://github.com/estree/estree
 
 ---
 
@@ -45227,7 +45227,7 @@ See [https://crates.io/crates/oxc\_resolver][url-oxc-resolver-crate] and its doc
 ---
 
 ---
-url: /docs/guide/usage/linter/generated-rules.md
+url: /docs/guide/usage/linter/rules.md
 ---
 
 # Rules
@@ -45930,7 +45930,7 @@ New lints that are still under development.
 ---
 
 ---
-url: /docs/guide/usage/linter/rules.md
+url: /docs/guide/usage/linter/generated-rules.md
 ---
 
 # Rules
@@ -64268,6 +64268,67 @@ oxlint --deny unicorn/throw-new-error
 ---
 
 ---
+url: /docs/guide/usage/formatter/generated-cli.md
+---
+
+## Usage
+
+**`oxfmt`** \[**`-c`**=*`PATH`*] \[*`PATH`*]...
+
+## Mode Options:
+
+* **`    --init`** —
+  Initialize `.oxfmtrc.json` with default values
+* **`    --migrate`**=*`SOURCE`* —
+  Migrate configuration to `.oxfmtrc.json` from specified source Available sources: prettier
+* **`    --lsp`** —
+  Start language server protocol (LSP) server
+* **`    --stdin-filepath`**=*`PATH`* —
+  Specify the file name to use to infer which parser to use
+
+## Output Options:
+
+* **`    --write`** —
+  Format and write files in place (default)
+* **`    --check`** —
+  Check if files are formatted, also show statistics
+* **`    --list-different`** —
+  List files that would be changed
+
+## Config Options
+
+* **`-c`**, **`--config`**=*`PATH`* —
+  Path to the configuration file
+
+## Ignore Options
+
+* **`    --ignore-path`**=*`PATH`* —
+  Path to ignore file(s). Can be specified multiple times. If not specified, .gitignore and .prettierignore in the current directory are used.
+* **`    --with-node-modules`** —
+  Format code in node\_modules directory (skipped by default)
+
+## Runtime Options
+
+* **`    --no-error-on-unmatched-pattern`** —
+  Do not exit with error when pattern is unmatched
+* **`    --threads`**=*`INT`* —
+  Number of threads to use. Set to 1 for using only 1 CPU core.
+
+## Available positional items:
+
+* *`PATH`* —
+  Single file, single path or list of paths. If not provided, current working directory is used. Glob is supported only for exclude patterns like `'!**/fixtures/*.js'`.
+
+## Available options:
+
+* **`-h`**, **`--help`** —
+  Prints help information
+* **`-V`**, **`--version`** —
+  Prints version information
+
+---
+
+---
 url: /docs/guide/usage/linter/generated-cli.md
 ---
 
@@ -64419,67 +64480,6 @@ Arguments:
   Enable rules that require type information
 * **`    --type-check`** —
   Enable experimental type checking (includes TypeScript compiler diagnostics)
-* **`-h`**, **`--help`** —
-  Prints help information
-* **`-V`**, **`--version`** —
-  Prints version information
-
----
-
----
-url: /docs/guide/usage/formatter/generated-cli.md
----
-
-## Usage
-
-**`oxfmt`** \[**`-c`**=*`PATH`*] \[*`PATH`*]...
-
-## Mode Options:
-
-* **`    --init`** —
-  Initialize `.oxfmtrc.json` with default values
-* **`    --migrate`**=*`SOURCE`* —
-  Migrate configuration to `.oxfmtrc.json` from specified source Available sources: prettier
-* **`    --lsp`** —
-  Start language server protocol (LSP) server
-* **`    --stdin-filepath`**=*`PATH`* —
-  Specify the file name to use to infer which parser to use
-
-## Output Options:
-
-* **`    --write`** —
-  Format and write files in place (default)
-* **`    --check`** —
-  Check if files are formatted, also show statistics
-* **`    --list-different`** —
-  List files that would be changed
-
-## Config Options
-
-* **`-c`**, **`--config`**=*`PATH`* —
-  Path to the configuration file
-
-## Ignore Options
-
-* **`    --ignore-path`**=*`PATH`* —
-  Path to ignore file(s). Can be specified multiple times. If not specified, .gitignore and .prettierignore in the current directory are used.
-* **`    --with-node-modules`** —
-  Format code in node\_modules directory (skipped by default)
-
-## Runtime Options
-
-* **`    --no-error-on-unmatched-pattern`** —
-  Do not exit with error when pattern is unmatched
-* **`    --threads`**=*`INT`* —
-  Number of threads to use. Set to 1 for using only 1 CPU core.
-
-## Available positional items:
-
-* *`PATH`* —
-  Single file, single path or list of paths. If not provided, current working directory is used. Glob is supported only for exclude patterns like `'!**/fixtures/*.js'`.
-
-## Available options:
-
 * **`-h`**, **`--help`** —
   Prints help information
 * **`-V`**, **`--version`** —
