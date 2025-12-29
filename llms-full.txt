@@ -1420,69 +1420,6 @@ import styled from "styled-components/primitives";
 ---
 
 ---
-url: /docs/guide/usage/formatter/cli.md
----
-
-# Command-line Interface
-
-## Usage
-
-**`oxfmt`** \[**`-c`**=*`PATH`*] \[*`PATH`*]...
-
-## Mode Options:
-
-* **`    --init`** —
-  Initialize `.oxfmtrc.json` with default values
-* **`    --migrate`**=*`SOURCE`* —
-  Migrate configuration to `.oxfmtrc.json` from specified source Available sources: prettier
-* **`    --lsp`** —
-  Start language server protocol (LSP) server
-* **`    --stdin-filepath`**=*`PATH`* —
-  Specify the file name to use to infer which parser to use
-
-## Output Options:
-
-* **`    --write`** —
-  Format and write files in place (default)
-* **`    --check`** —
-  Check if files are formatted, also show statistics
-* **`    --list-different`** —
-  List files that would be changed
-
-## Config Options
-
-* **`-c`**, **`--config`**=*`PATH`* —
-  Path to the configuration file
-
-## Ignore Options
-
-* **`    --ignore-path`**=*`PATH`* —
-  Path to ignore file(s). Can be specified multiple times. If not specified, .gitignore and .prettierignore in the current directory are used.
-* **`    --with-node-modules`** —
-  Format code in node\_modules directory (skipped by default)
-
-## Runtime Options
-
-* **`    --no-error-on-unmatched-pattern`** —
-  Do not exit with error when pattern is unmatched
-* **`    --threads`**=*`INT`* —
-  Number of threads to use. Set to 1 for using only 1 CPU core.
-
-## Available positional items:
-
-* *`PATH`* —
-  Single file, single path or list of paths. If not provided, current working directory is used. Glob is supported only for exclude patterns like `'!**/fixtures/*.js'`.
-
-## Available options:
-
-* **`-h`**, **`--help`** —
-  Prints help information
-* **`-V`**, **`--version`** —
-  Prints version information
-
----
-
----
 url: /docs/guide/usage/linter/cli.md
 ---
 
@@ -1641,6 +1578,69 @@ Arguments:
 ---
 
 ---
+url: /docs/guide/usage/formatter/cli.md
+---
+
+# Command-line Interface
+
+## Usage
+
+**`oxfmt`** \[**`-c`**=*`PATH`*] \[*`PATH`*]...
+
+## Mode Options:
+
+* **`    --init`** —
+  Initialize `.oxfmtrc.json` with default values
+* **`    --migrate`**=*`SOURCE`* —
+  Migrate configuration to `.oxfmtrc.json` from specified source Available sources: prettier
+* **`    --lsp`** —
+  Start language server protocol (LSP) server
+* **`    --stdin-filepath`**=*`PATH`* —
+  Specify the file name to use to infer which parser to use
+
+## Output Options:
+
+* **`    --write`** —
+  Format and write files in place (default)
+* **`    --check`** —
+  Check if files are formatted, also show statistics
+* **`    --list-different`** —
+  List files that would be changed
+
+## Config Options
+
+* **`-c`**, **`--config`**=*`PATH`* —
+  Path to the configuration file
+
+## Ignore Options
+
+* **`    --ignore-path`**=*`PATH`* —
+  Path to ignore file(s). Can be specified multiple times. If not specified, .gitignore and .prettierignore in the current directory are used.
+* **`    --with-node-modules`** —
+  Format code in node\_modules directory (skipped by default)
+
+## Runtime Options
+
+* **`    --no-error-on-unmatched-pattern`** —
+  Do not exit with error when pattern is unmatched
+* **`    --threads`**=*`INT`* —
+  Number of threads to use. Set to 1 for using only 1 CPU core.
+
+## Available positional items:
+
+* *`PATH`* —
+  Single file, single path or list of paths. If not provided, current working directory is used. Glob is supported only for exclude patterns like `'!**/fixtures/*.js'`.
+
+## Available options:
+
+* **`-h`**, **`--help`** —
+  Prints help information
+* **`-V`**, **`--version`** —
+  Prints version information
+
+---
+
+---
 url: /docs/guide/usage/formatter/config.md
 ---
 # Configuration
@@ -1728,7 +1728,7 @@ For TOML files, ignore comments are not supported.
 ---
 
 ---
-url: /docs/guide/usage/formatter/generated-config.md
+url: /docs/guide/usage/formatter/config-file-reference.md
 ---
 
 # Configuration options for the Oxfmt.
@@ -1911,7 +1911,7 @@ Use tabs for indentation or spaces. (Default: `false`)
 ---
 
 ---
-url: /docs/guide/usage/formatter/config-file-reference.md
+url: /docs/guide/usage/formatter/generated-config.md
 ---
 
 # Configuration options for the Oxfmt.
@@ -32007,167 +32007,6 @@ and string comparison becomes `matches!(value, TokenValue::String(atom!("string"
 ---
 
 ---
-url: /docs/contribute/linter.md
----
-
-# Linter
-
-## Contributing New Rules
-
-See the [adding rules](./linter/adding-rules.md) guide for how to add new rules to Oxlint.
-
-## Development
-
-Create a `./test.ts` and then
-
-```bash
-just watch "cargo run --bin oxlint -- test.ts"
-```
-
-Or test and filter against the rule:
-
-```bash
-just watch "cargo test -p oxc_linter -- rule-name"
-```
-
-### Testing oxlint against a full codebase
-
-To test oxlint on a full codebase, for example to test your changes with a large JavaScript/TypeScript project, you can build the `oxlint` CLI and run it against that codebase.
-
-```bash
-# build the oxlint cli in the oxc repo
-just oxlint-node
-# and then in the directory of the codebase you want to test with, run oxlint with node:
-node <path-to-oxc-repo>/apps/oxlint/dist/cli.js
-# You can also pass flags to it, like -D to enable a specific rule, and --disable-x-plugin to turn off default plugins:
-node <path-to-oxc-repo>/apps/oxlint/dist/cli.js -D rulename --disable-unicorn-plugin --disable-oxc-plugin --disable-typescript-plugin
-```
-
-### Snapshot Testing
-
-[`cargo insta`](https://insta.rs/docs) is used for snapshot testing.
-
-After running `cargo test -p oxc_linter` and the line `Tester::new(RULE::NAME, pass, fail).test_and_snapshot()` is called, a new `rule.snap.new` file will be generated.
-
-Use `cargo insta accept` to accept all snapshot changes.
-
-## Rule Category
-
-* **correctness** - code that is outright wrong or useless
-* **suspicious** - code that is most likely wrong or useless
-* **pedantic** - lints which are rather strict or have occasional false positives
-* **perf** - code that can be written to run faster
-* **style** - code that should be written in a more idiomatic way
-* **restriction** - lints should be considered on a case-by-case basis before enabling.
-* **nursery** - new lints that are still under development
-
----
-
----
-url: /docs/learn/architecture/linter.md
----
-
-# Linter Architecture
-
-This article is originally posted on [leaysgur.github.io/posts](https://leaysgur.github.io/posts/2024/01/15/160838) by [@leaysgur](https://github.com/leaysgur).
-
-## apps/oxlint
-
-The `oxlint` binary is the result of building `main.rs` from the `apps/oxlint` crate.
-
-> [Cargo.toml Configuration](https://github.com/oxc-project/oxc/blob/main/apps/oxlint/Cargo.toml)
-
-Here, it parses arguments and then runs the `LintRunner`.
-
-> [Lint Execution Flow](https://github.com/oxc-project/oxc/blob/oxlint_v0.2.0/crates/oxc_cli/src/lint/main.rs#L17-L19)
-
-## crates/oxc\_diagnostics
-
-The `LintService` passes the `mpsc::channel` Sender to `oxc_diagnostics` to receive lint results.
-
-> [Receiving Lint Results](https://github.com/oxc-project/oxc/blob/oxlint_v0.2.0/crates/oxc_diagnostics/src/service.rs#L96)
-
-It formats and displays the received messages. The formatting is done by the `miette` crate.
-
-> [miette Crate Reference](https://github.com/zkat/miette)
-
-## crates/oxc\_linter
-
-Starting with the `LintService`:
-
-* Holds `self.runtime` as `Arc<Runtime>`
-* `Runtime` holds paths for linting
-* Upon running, it iterates over `Runtime` paths in parallel using `rayon`
-* It sends a `None` to finish
-
-> [LintService Implementation](https://github.com/oxc-project/oxc/blob/oxlint_v0.2.0/crates/oxc_linter/src/service.rs#L51)
-
-### `Runtime`: `process_path()`
-
-* Infers extension and content from the path
-* Supports `.[m|c]?[j|t]s` or `.[j|t]sx` extensions
-* Exceptions for `.vue`, `.astro`, and `.svelte` with partial support for `script` blocks
-* Processes JavaScript and TypeScript sources
-* Executes linting and sends results to `DiagnosticService`
-
-> [Runtime Path Processing](https://github.com/oxc-project/oxc/blob/oxlint_v0.2.0/crates/oxc_linter/src/service.rs#L162)
-
-### `Runtime`: `process_source()`
-
-* Processes the source with a parser into an AST
-* Creates a `LintContext` from `SemanticBuilder` and runs it through `Linter`
-
-> [Runtime Source Processing](https://github.com/oxc-project/oxc/blob/oxlint_v0.2.0/crates/oxc_linter/src/service.rs#L206)
-
-## crates/oxc\_semantic: `SemanticBuilder`
-
-`SemanticBuilder` builds semantic information extracted from the source.
-
-> [SemanticBuilder Source](https://github.com/oxc-project/oxc/blob/oxlint_v0.2.0/crates/oxc_semantic/src/builder.rs#L156)
-
-* `source_text`: Source code
-* `nodes`: AST nodes
-* `classes`: Classes
-* `scopes`: Scopes
-* `trivias`: Comments
-* `jsdoc`: JSDoc
-* etc.
-
-When `SemanticBuilder` builds, it generates `SemanticBuilderReturn`, but only `Semantic` is passed to `LintContext`.
-
-> [SemanticBuilder Return](https://github.com/oxc-project/oxc/blob/oxlint_v0.2.0/crates/oxc_semantic/src/lib.rs#L34)
-
-## crates/oxc\_linter: `LintContext`
-
-> [LintContext Source](https://github.com/oxc-project/oxc/blob/oxlint_v0.2.0/crates/oxc_linter/src/context.rs#L14)
-
-Represents the context, with `Semantic` as the main body. It includes getters for each piece of information and methods like `diagnostic()` to notify of linting issues.
-
-## crates/oxc\_linter: `Linter`
-
-> [Linter Source](https://github.com/oxc-project/oxc/blob/oxlint_v0.2.0/crates/oxc_linter/src/lib.rs#L140)
-
-The `run()` function of this `Linter` is the core of the linting process.
-
-* `Linter` holds rules to execute on the target source in `self.rules`
-* Each rule can implement three types of processing as per the trait
-* It sequentially executes these three patterns
-
-For the currently implemented rules, refer to this list.
-
-> [Implemented Rules](https://github.com/oxc-project/oxc/blob/oxlint_v0.2.0/crates/oxc_linter/src/rules.rs)
-
-For adding new rules, remember to update this list.
-
-## Linter Example
-
-The repository provides the minimum code configuration for creating a linter.
-
-> [Minimal Linter Code](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/examples/linter.rs)
-
----
-
----
 url: /docs/guide/usage/linter.md
 ---
 
@@ -32402,6 +32241,167 @@ https://www.npmjs.com/package/vite-plugin-oxlint
 
 * **Node.js**: >= 20.19.0 or >= 22.12.0
 * **Platforms**: darwin-arm64, darwin-x64, linux-arm64, linux-x64, win32-arm64, and win32-x64
+
+---
+
+---
+url: /docs/contribute/linter.md
+---
+
+# Linter
+
+## Contributing New Rules
+
+See the [adding rules](./linter/adding-rules.md) guide for how to add new rules to Oxlint.
+
+## Development
+
+Create a `./test.ts` and then
+
+```bash
+just watch "cargo run --bin oxlint -- test.ts"
+```
+
+Or test and filter against the rule:
+
+```bash
+just watch "cargo test -p oxc_linter -- rule-name"
+```
+
+### Testing oxlint against a full codebase
+
+To test oxlint on a full codebase, for example to test your changes with a large JavaScript/TypeScript project, you can build the `oxlint` CLI and run it against that codebase.
+
+```bash
+# build the oxlint cli in the oxc repo
+just oxlint-node
+# and then in the directory of the codebase you want to test with, run oxlint with node:
+node <path-to-oxc-repo>/apps/oxlint/dist/cli.js
+# You can also pass flags to it, like -D to enable a specific rule, and --disable-x-plugin to turn off default plugins:
+node <path-to-oxc-repo>/apps/oxlint/dist/cli.js -D rulename --disable-unicorn-plugin --disable-oxc-plugin --disable-typescript-plugin
+```
+
+### Snapshot Testing
+
+[`cargo insta`](https://insta.rs/docs) is used for snapshot testing.
+
+After running `cargo test -p oxc_linter` and the line `Tester::new(RULE::NAME, pass, fail).test_and_snapshot()` is called, a new `rule.snap.new` file will be generated.
+
+Use `cargo insta accept` to accept all snapshot changes.
+
+## Rule Category
+
+* **correctness** - code that is outright wrong or useless
+* **suspicious** - code that is most likely wrong or useless
+* **pedantic** - lints which are rather strict or have occasional false positives
+* **perf** - code that can be written to run faster
+* **style** - code that should be written in a more idiomatic way
+* **restriction** - lints should be considered on a case-by-case basis before enabling.
+* **nursery** - new lints that are still under development
+
+---
+
+---
+url: /docs/learn/architecture/linter.md
+---
+
+# Linter Architecture
+
+This article is originally posted on [leaysgur.github.io/posts](https://leaysgur.github.io/posts/2024/01/15/160838) by [@leaysgur](https://github.com/leaysgur).
+
+## apps/oxlint
+
+The `oxlint` binary is the result of building `main.rs` from the `apps/oxlint` crate.
+
+> [Cargo.toml Configuration](https://github.com/oxc-project/oxc/blob/main/apps/oxlint/Cargo.toml)
+
+Here, it parses arguments and then runs the `LintRunner`.
+
+> [Lint Execution Flow](https://github.com/oxc-project/oxc/blob/oxlint_v0.2.0/crates/oxc_cli/src/lint/main.rs#L17-L19)
+
+## crates/oxc\_diagnostics
+
+The `LintService` passes the `mpsc::channel` Sender to `oxc_diagnostics` to receive lint results.
+
+> [Receiving Lint Results](https://github.com/oxc-project/oxc/blob/oxlint_v0.2.0/crates/oxc_diagnostics/src/service.rs#L96)
+
+It formats and displays the received messages. The formatting is done by the `miette` crate.
+
+> [miette Crate Reference](https://github.com/zkat/miette)
+
+## crates/oxc\_linter
+
+Starting with the `LintService`:
+
+* Holds `self.runtime` as `Arc<Runtime>`
+* `Runtime` holds paths for linting
+* Upon running, it iterates over `Runtime` paths in parallel using `rayon`
+* It sends a `None` to finish
+
+> [LintService Implementation](https://github.com/oxc-project/oxc/blob/oxlint_v0.2.0/crates/oxc_linter/src/service.rs#L51)
+
+### `Runtime`: `process_path()`
+
+* Infers extension and content from the path
+* Supports `.[m|c]?[j|t]s` or `.[j|t]sx` extensions
+* Exceptions for `.vue`, `.astro`, and `.svelte` with partial support for `script` blocks
+* Processes JavaScript and TypeScript sources
+* Executes linting and sends results to `DiagnosticService`
+
+> [Runtime Path Processing](https://github.com/oxc-project/oxc/blob/oxlint_v0.2.0/crates/oxc_linter/src/service.rs#L162)
+
+### `Runtime`: `process_source()`
+
+* Processes the source with a parser into an AST
+* Creates a `LintContext` from `SemanticBuilder` and runs it through `Linter`
+
+> [Runtime Source Processing](https://github.com/oxc-project/oxc/blob/oxlint_v0.2.0/crates/oxc_linter/src/service.rs#L206)
+
+## crates/oxc\_semantic: `SemanticBuilder`
+
+`SemanticBuilder` builds semantic information extracted from the source.
+
+> [SemanticBuilder Source](https://github.com/oxc-project/oxc/blob/oxlint_v0.2.0/crates/oxc_semantic/src/builder.rs#L156)
+
+* `source_text`: Source code
+* `nodes`: AST nodes
+* `classes`: Classes
+* `scopes`: Scopes
+* `trivias`: Comments
+* `jsdoc`: JSDoc
+* etc.
+
+When `SemanticBuilder` builds, it generates `SemanticBuilderReturn`, but only `Semantic` is passed to `LintContext`.
+
+> [SemanticBuilder Return](https://github.com/oxc-project/oxc/blob/oxlint_v0.2.0/crates/oxc_semantic/src/lib.rs#L34)
+
+## crates/oxc\_linter: `LintContext`
+
+> [LintContext Source](https://github.com/oxc-project/oxc/blob/oxlint_v0.2.0/crates/oxc_linter/src/context.rs#L14)
+
+Represents the context, with `Semantic` as the main body. It includes getters for each piece of information and methods like `diagnostic()` to notify of linting issues.
+
+## crates/oxc\_linter: `Linter`
+
+> [Linter Source](https://github.com/oxc-project/oxc/blob/oxlint_v0.2.0/crates/oxc_linter/src/lib.rs#L140)
+
+The `run()` function of this `Linter` is the core of the linting process.
+
+* `Linter` holds rules to execute on the target source in `self.rules`
+* Each rule can implement three types of processing as per the trait
+* It sequentially executes these three patterns
+
+For the currently implemented rules, refer to this list.
+
+> [Implemented Rules](https://github.com/oxc-project/oxc/blob/oxlint_v0.2.0/crates/oxc_linter/src/rules.rs)
+
+For adding new rules, remember to update this list.
+
+## Linter Example
+
+The repository provides the minimum code configuration for creating a linter.
+
+> [Minimal Linter Code](https://github.com/oxc-project/oxc/blob/main/crates/oxc_linter/examples/linter.rs)
 
 ---
 
@@ -36857,7 +36857,7 @@ oxlint --deny oxc/uninvoked-array-callback
 ---
 
 ---
-url: /docs/guide/usage/linter/config-file-reference.md
+url: /docs/guide/usage/linter/generated-config.md
 ---
 
 # Oxlint Configuration File
@@ -37480,7 +37480,7 @@ to accommodate TypeScript type checking scenarios.
 ---
 
 ---
-url: /docs/guide/usage/linter/generated-config.md
+url: /docs/guide/usage/linter/config-file-reference.md
 ---
 
 # Oxlint Configuration File
@@ -38212,6 +38212,70 @@ Test results are stored in snapshot files for tracking changes:
 ---
 
 ---
+url: /docs/guide/usage/parser.md
+---
+
+# Parser
+
+This is production ready.
+
+## Features
+
+* 3x faster than swc parser ([benchmark][url-benchmark]).
+* Parses `.js(x)` and `.ts(x)`.
+* Passes all parser tests from Test262 and 99% from Babel and TypeScript.
+* Returns ESM information directly, no need for [`es-module-lexer`](https://github.com/guybedford/es-module-lexer).
+* [✅ works with checker.ts](https://x.com/robpalmer2/status/1805502964435505559)
+
+## Installation
+
+### Node.js
+
+* Use the node binding [oxc-parser][url-oxc-parser-npm].
+* Try on [stackblitz](https://stackblitz.com/edit/oxc-parser).
+
+### Rust
+
+Use the umbrella crate [oxc][url-oxc-crate] or the individual [oxc\_ast][url-oxc-ast-crate] and [oxc\_parser][url-oxc-parser-crate] crates.
+
+Rust usage example can be found [here](https://github.com/oxc-project/oxc/blob/main/crates/oxc_parser/examples/parser.rs).
+
+## Print
+
+After parsing and transforming, you can print code.
+
+Here's a direct example using [esrap](https://www.npmjs.com/package/esrap) *(`parse` in reverse!)*:
+
+```js
+import { print } from "esrap";
+import ts from "esrap/languages/ts";
+import { parseSync } from "oxc-parser";
+
+const { program } = parseSync("test.js", 'alert("hello oxc & esrap");');
+const { code } = print(program, ts());
+
+console.log(code); // alert("hello oxc & esrap");
+```
+
+:::info
+Today, comments are not printed. *It will be supported thanks to [oxc-parser #13285](https://github.com/oxc-project/oxc/pull/13285).*
+:::
+
+[url-swc]: https://swc.rs
+
+[url-benchmark]: https://github.com/oxc-project/bench-javascript-parser-written-in-rust
+
+[url-oxc-crate]: https://docs.rs/oxc
+
+[url-oxc-ast-crate]: https://docs.rs/oxc_ast
+
+[url-oxc-parser-crate]: https://docs.rs/oxc_parser
+
+[url-oxc-parser-npm]: https://www.npmjs.com/package/oxc-parser
+
+---
+
+---
 url: /docs/learn/architecture/parser.md
 ---
 
@@ -38796,70 +38860,6 @@ function isParenthesizedArrowFunctionExpression(): Tristate {
 ```
 
 In summary, the TypeScript parser uses a combination of lookahead (fast path) and backtracking to parse arrow functions.
-
----
-
----
-url: /docs/guide/usage/parser.md
----
-
-# Parser
-
-This is production ready.
-
-## Features
-
-* 3x faster than swc parser ([benchmark][url-benchmark]).
-* Parses `.js(x)` and `.ts(x)`.
-* Passes all parser tests from Test262 and 99% from Babel and TypeScript.
-* Returns ESM information directly, no need for [`es-module-lexer`](https://github.com/guybedford/es-module-lexer).
-* [✅ works with checker.ts](https://x.com/robpalmer2/status/1805502964435505559)
-
-## Installation
-
-### Node.js
-
-* Use the node binding [oxc-parser][url-oxc-parser-npm].
-* Try on [stackblitz](https://stackblitz.com/edit/oxc-parser).
-
-### Rust
-
-Use the umbrella crate [oxc][url-oxc-crate] or the individual [oxc\_ast][url-oxc-ast-crate] and [oxc\_parser][url-oxc-parser-crate] crates.
-
-Rust usage example can be found [here](https://github.com/oxc-project/oxc/blob/main/crates/oxc_parser/examples/parser.rs).
-
-## Print
-
-After parsing and transforming, you can print code.
-
-Here's a direct example using [esrap](https://www.npmjs.com/package/esrap) *(`parse` in reverse!)*:
-
-```js
-import { print } from "esrap";
-import ts from "esrap/languages/ts";
-import { parseSync } from "oxc-parser";
-
-const { program } = parseSync("test.js", 'alert("hello oxc & esrap");');
-const { code } = print(program, ts());
-
-console.log(code); // alert("hello oxc & esrap");
-```
-
-:::info
-Today, comments are not printed. *It will be supported thanks to [oxc-parser #13285](https://github.com/oxc-project/oxc/pull/13285).*
-:::
-
-[url-swc]: https://swc.rs
-
-[url-benchmark]: https://github.com/oxc-project/bench-javascript-parser-written-in-rust
-
-[url-oxc-crate]: https://docs.rs/oxc
-
-[url-oxc-ast-crate]: https://docs.rs/oxc_ast
-
-[url-oxc-parser-crate]: https://docs.rs/oxc_parser
-
-[url-oxc-parser-npm]: https://www.npmjs.com/package/oxc-parser
 
 ---
 
@@ -45576,7 +45576,7 @@ See [https://crates.io/crates/oxc\_resolver][url-oxc-resolver-crate] and its doc
 ---
 
 ---
-url: /docs/guide/usage/linter/rules.md
+url: /docs/guide/usage/linter/generated-rules.md
 ---
 
 # Rules
@@ -46284,7 +46284,7 @@ New lints that are still under development.
 ---
 
 ---
-url: /docs/guide/usage/linter/generated-rules.md
+url: /docs/guide/usage/linter/rules.md
 ---
 
 # Rules
