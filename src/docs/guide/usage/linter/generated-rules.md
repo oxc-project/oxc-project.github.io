@@ -6,7 +6,7 @@ search: false
 
 The progress of all rule implementations is tracked [here](https://github.com/oxc-project/oxc/issues/481).
 
-- Total number of rules: 640
+- Total number of rules: 645
 - Rules turned on by default: 104
 
 **Legend for 'Fixable?' column:**
@@ -17,7 +17,7 @@ The progress of all rule implementations is tracked [here](https://github.com/ox
 - ⚠️💡: a dangerous suggestion is available for this rule
 - 🚧: an auto-fix or suggestion is possible, but currently not implemented
 
-## Correctness (199):
+## Correctness (201):
 
 Code that is outright wrong or useless.
 | Rule name | Source | Default | Fixable? |
@@ -52,7 +52,7 @@ Code that is outright wrong or useless.
 | [no-irregular-whitespace](/docs/guide/usage/linter/rules/eslint/no-irregular-whitespace.html) | eslint | ✅ | |
 | [no-loss-of-precision](/docs/guide/usage/linter/rules/eslint/no-loss-of-precision.html) | eslint | ✅ | |
 | [no-new-native-nonconstructor](/docs/guide/usage/linter/rules/eslint/no-new-native-nonconstructor.html) | eslint | ✅ | |
-| [no-nonoctal-decimal-escape](/docs/guide/usage/linter/rules/eslint/no-nonoctal-decimal-escape.html) | eslint | ✅ | 🚧 |
+| [no-nonoctal-decimal-escape](/docs/guide/usage/linter/rules/eslint/no-nonoctal-decimal-escape.html) | eslint | ✅ | 💡 |
 | [no-obj-calls](/docs/guide/usage/linter/rules/eslint/no-obj-calls.html) | eslint | ✅ | |
 | [no-self-assign](/docs/guide/usage/linter/rules/eslint/no-self-assign.html) | eslint | ✅ | |
 | [no-setter-return](/docs/guide/usage/linter/rules/eslint/no-setter-return.html) | eslint | ✅ | |
@@ -101,6 +101,7 @@ Code that is outright wrong or useless.
 | [anchor-is-valid](/docs/guide/usage/linter/rules/jsx_a11y/anchor-is-valid.html) | jsx_a11y | | |
 | [aria-activedescendant-has-tabindex](/docs/guide/usage/linter/rules/jsx_a11y/aria-activedescendant-has-tabindex.html) | jsx_a11y | | |
 | [aria-props](/docs/guide/usage/linter/rules/jsx_a11y/aria-props.html) | jsx_a11y | | 🛠️ |
+| [aria-proptypes](/docs/guide/usage/linter/rules/jsx_a11y/aria-proptypes.html) | jsx_a11y | | |
 | [aria-role](/docs/guide/usage/linter/rules/jsx_a11y/aria-role.html) | jsx_a11y | | |
 | [aria-unsupported-elements](/docs/guide/usage/linter/rules/jsx_a11y/aria-unsupported-elements.html) | jsx_a11y | | 🛠️ |
 | [autocomplete-valid](/docs/guide/usage/linter/rules/jsx_a11y/autocomplete-valid.html) | jsx_a11y | | |
@@ -169,6 +170,7 @@ Code that is outright wrong or useless.
 | [jsx-props-no-spread-multi](/docs/guide/usage/linter/rules/react/jsx-props-no-spread-multi.html) | react | | 🛠️ |
 | [no-children-prop](/docs/guide/usage/linter/rules/react/no-children-prop.html) | react | | |
 | [no-danger-with-children](/docs/guide/usage/linter/rules/react/no-danger-with-children.html) | react | | |
+| [no-did-mount-set-state](/docs/guide/usage/linter/rules/react/no-did-mount-set-state.html) | react | | |
 | [no-direct-mutation-state](/docs/guide/usage/linter/rules/react/no-direct-mutation-state.html) | react | | |
 | [no-find-dom-node](/docs/guide/usage/linter/rules/react/no-find-dom-node.html) | react | | |
 | [no-is-mounted](/docs/guide/usage/linter/rules/react/no-is-mounted.html) | react | | |
@@ -499,7 +501,7 @@ Lints which are rather strict or have occasional false positives.
 | [prefer-type-error](/docs/guide/usage/linter/rules/unicorn/prefer-type-error.html) | unicorn | | 🛠️ |
 | [require-number-to-fixed-digits-argument](/docs/guide/usage/linter/rules/unicorn/require-number-to-fixed-digits-argument.html) | unicorn | | 🛠️ |
 
-## Style (179):
+## Style (182):
 
 Code that should be written in a more idiomatic way.
 | Rule name | Source | Default | Fixable? |
@@ -536,7 +538,7 @@ Code that should be written in a more idiomatic way.
 | [no-ternary](/docs/guide/usage/linter/rules/eslint/no-ternary.html) | eslint | | |
 | [no-useless-computed-key](/docs/guide/usage/linter/rules/eslint/no-useless-computed-key.html) | eslint | | 🚧 |
 | [operator-assignment](/docs/guide/usage/linter/rules/eslint/operator-assignment.html) | eslint | | ⚠️🛠️️ |
-| [prefer-destructuring](/docs/guide/usage/linter/rules/eslint/prefer-destructuring.html) | eslint | | 🚧 |
+| [prefer-destructuring](/docs/guide/usage/linter/rules/eslint/prefer-destructuring.html) | eslint | | 🛠️ |
 | [prefer-exponentiation-operator](/docs/guide/usage/linter/rules/eslint/prefer-exponentiation-operator.html) | eslint | | |
 | [prefer-numeric-literals](/docs/guide/usage/linter/rules/eslint/prefer-numeric-literals.html) | eslint | | 🛠️ |
 | [prefer-object-has-own](/docs/guide/usage/linter/rules/eslint/prefer-object-has-own.html) | eslint | | 🛠️ |
@@ -600,6 +602,7 @@ Code that should be written in a more idiomatic way.
 | [prefer-todo](/docs/guide/usage/linter/rules/jest/prefer-todo.html) | jest | | 🛠️ |
 | [require-hook](/docs/guide/usage/linter/rules/jest/require-hook.html) | jest | | |
 | [require-top-level-describe](/docs/guide/usage/linter/rules/jest/require-top-level-describe.html) | jest | | |
+| [global-require](/docs/guide/usage/linter/rules/node/global-require.html) | node | | |
 | [no-exports-assign](/docs/guide/usage/linter/rules/node/no-exports-assign.html) | node | | 🛠️ |
 | [avoid-new](/docs/guide/usage/linter/rules/promise/avoid-new.html) | promise | | |
 | [no-nesting](/docs/guide/usage/linter/rules/promise/no-nesting.html) | promise | | 🚧 |
@@ -612,6 +615,7 @@ Code that should be written in a more idiomatic way.
 | [jsx-curly-brace-presence](/docs/guide/usage/linter/rules/react/jsx-curly-brace-presence.html) | react | | 🛠️ |
 | [jsx-fragments](/docs/guide/usage/linter/rules/react/jsx-fragments.html) | react | | 🛠️ |
 | [jsx-handler-names](/docs/guide/usage/linter/rules/react/jsx-handler-names.html) | react | | |
+| [jsx-max-depth](/docs/guide/usage/linter/rules/react/jsx-max-depth.html) | react | | |
 | [jsx-pascal-case](/docs/guide/usage/linter/rules/react/jsx-pascal-case.html) | react | | |
 | [jsx-props-no-spreading](/docs/guide/usage/linter/rules/react/jsx-props-no-spreading.html) | react | | |
 | [no-redundant-should-component-update](/docs/guide/usage/linter/rules/react/no-redundant-should-component-update.html) | react | | |
@@ -674,6 +678,7 @@ Code that should be written in a more idiomatic way.
 | [switch-case-braces](/docs/guide/usage/linter/rules/unicorn/switch-case-braces.html) | unicorn | | 🛠️ |
 | [text-encoding-identifier-case](/docs/guide/usage/linter/rules/unicorn/text-encoding-identifier-case.html) | unicorn | | 🛠️ |
 | [throw-new-error](/docs/guide/usage/linter/rules/unicorn/throw-new-error.html) | unicorn | | 🛠️ |
+| [consistent-test-filename](/docs/guide/usage/linter/rules/vitest/consistent-test-filename.html) | vitest | | |
 | [no-import-node-test](/docs/guide/usage/linter/rules/vitest/no-import-node-test.html) | vitest | | 🛠️ |
 | [prefer-called-times](/docs/guide/usage/linter/rules/vitest/prefer-called-times.html) | vitest | | 🛠️ |
 | [prefer-to-be-falsy](/docs/guide/usage/linter/rules/vitest/prefer-to-be-falsy.html) | vitest | | 🛠️ |
