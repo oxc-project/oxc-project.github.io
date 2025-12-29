@@ -48,7 +48,7 @@ await getPromise;
 
 Examples of **correct** code for this rule:
 
-```ts
+```
 await Promise.resolve("value");
 await Promise.reject(new Error());
 
