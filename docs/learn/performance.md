@@ -28,7 +28,7 @@ The first architectural design for a compiler is its AST.
 All JavaScript tools work on the AST level, for example:
 
 * A linter (e.g. ESLint) checks the AST for errors
-* A formatter (e.g.prettier) prints the AST back to JavaScript text
+* A formatter (e.g. prettier) prints the AST back to JavaScript text
 * A minifier (e.g. terser) transforms the AST
 * A bundler connects all import and export statements between ASTs from different files
 
