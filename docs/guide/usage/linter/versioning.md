@@ -2,7 +2,7 @@
 url: /docs/guide/usage/linter/versioning.md
 ---
 
-# Versioning
+# Versioning policy
 
 Oxlint follows semantic versioning, with the goal of providing clarity and predictability as you upgrade.
 

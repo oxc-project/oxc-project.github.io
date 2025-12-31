@@ -1,12 +1,23 @@
 ---
 url: /docs/guide/usage/linter/nested-config.md
+description: >-
+  Use multiple .oxlintrc.json files to apply different Oxlint settings to
+  different parts of a repository.
 ---
 
 # Nested configuration files
 
-It is possible to have multiple configuration files within the same project. Oxlint will automatically detect the presence of these files and use them in addition to the top-level configuration file. Config files must be named `.oxlintrc.json` for nested configuration to work.
+Oxlint can use multiple configuration files in the same repository. It automatically detects configuration files named `.oxlintrc.json` and applies them based on where files live in the directory tree.
 
-For example, consider the following project structure:
+This is useful in monorepos where packages need their own settings, while still keeping a shared baseline.
+
+If you only need to exclude files or folders, use [Ignores](./ignore-files) instead.
+
+## How it works
+
+For each file being linted, Oxlint uses the nearest `.oxlintrc.json` relative to that file.
+
+Given the following structure:
 
 ```
 my-project/
@@ -21,36 +32,78 @@ my-project/
     └── index.js
 ```
 
-Oxlint will always use the nearest configuration file to the file currently being processed and use that for linting. In the example above, that means:
+Configuration resolution works as follows:
 
-* `src/index.js` will be linted using `my-project/.oxlintrc.json`
-* `package1/index.js` will be linted using `my-project/package1/.oxlintrc.json`
-* `package2/index.js` will be linted using `my-project/package2/.oxlintrc.json`
+* `src/index.js` uses `my-project/.oxlintrc.json`
+* `package1/index.js` uses `my-project/package1/.oxlintrc.json`
+* `package2/index.js` uses `my-project/package2/.oxlintrc.json`
 
-Configuration files are not automatically merged, and the configuration in a child configuration file will not affect the parent configuration. However, options passed in the command-line will override any configuration file, regardless of whether it is in the parent or child directory. In addition, using the `--config` option to specify a single file for configuration will disable the use of nested configuration files.
+## What to expect
+
+Configuration files are not automatically merged. A config in a child directory does not affect the parent config.
+
+Command line options override configuration files, regardless of whether they come from a parent or child directory.
+
+Passing `--config` disables nested config lookup and applies a single configuration file.
+
+## Monorepo pattern: share a base config with extends
+
+In a monorepo, you often want one shared baseline at the root, and small package specific adjustments.
+
+You do this by keeping a root `.oxlintrc.json`, then having package configs extend it.
+
+`my-project/.oxlintrc.json`
+
+```json
+{
+  "rules": {
+    "no-debugger": "error"
+  }
+}
+```
+
+`my-project/package1/.oxlintrc.json`
+
+```json
+{
+  "extends": ["../.oxlintrc.json"],
+  "rules": {
+    "no-console": "off"
+  }
+}
+```
+
+This keeps the shared baseline in one place and makes package configs small and focused.
 
 ## Extending configuration files
 
-Files can use configuration from other files by using the `extends` property in a configuration file. The value of the `extends` property is an array of file paths to other configuration files, which are resolved relative to the location of the configuration file. Files may be called anything and do not need to be called `.oxlintrc.json`, but still need to be valid JSON configuration files.
+A config can reuse settings from other files using `extends`. The value is an array of file paths, resolved relative to the config file that declares them.
+
+Extended files can have any name. They do not need to be named `.oxlintrc.json`, as long as they are valid JSON configuration files.
+
+Example:
 
 ```jsonc
 // oxlint-typescript.json
 {
   "plugins": ["typescript"],
   "rules": {
-    "typescript/no-explicit-any": "error"
-  }
+    "typescript/no-explicit-any": "error",
+  },
 }
+```
+
+```jsonc
 // .oxlintrc.json
 {
   "extends": ["oxlint-typescript.json"],
   "rules": {
-    "no-unused-vars": "warn"
-  }
+    "no-unused-vars": "warn",
+  },
 }
 ```
 
-Not all properties can be extended, but the following properties are supported:
+Only some properties can be extended. The supported properties are:
 
 * `rules`
 * `plugins`
