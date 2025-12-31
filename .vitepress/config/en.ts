@@ -50,44 +50,54 @@ export const enConfig = defineLocaleConfig("root", {
           items: [
             { text: "Overview", link: "/docs/guide/usage/linter" },
             {
-              text: "Configuring Oxlint",
-              link: "/docs/guide/usage/linter/config",
+              text: "Configure and integrate",
+              items: [
+                { text: "Quickstart", link: "/docs/guide/usage/linter/quickstart" },
+                { text: "Configuration", link: "/docs/guide/usage/linter/config" },
+                { text: "Editor setup", link: "/docs/guide/usage/linter/editors" },
+                { text: "CI & other setup", link: "/docs/guide/usage/linter/ci" },
+                {
+                  text: "Nested configs",
+                  link: "/docs/guide/usage/linter/nested-config",
+                },
+              ],
             },
             {
-              text: "Type-Aware Linting",
-              link: "/docs/guide/usage/linter/type-aware",
+              text: "Features",
+              items: [
+                { text: "Built-in plugins", link: "/docs/guide/usage/linter/plugins" },
+                { text: "Automatic fixes", link: "/docs/guide/usage/linter/automatic-fixes" },
+                { text: "Ignore files", link: "/docs/guide/usage/linter/ignore-files" },
+                {
+                  text: "Inline ignore comments",
+                  link: "/docs/guide/usage/linter/ignore-comments",
+                },
+                {
+                  text: "Multi-file analysis",
+                  link: "/docs/guide/usage/linter/multi-file-analysis",
+                },
+                { text: "Type-aware linting", link: "/docs/guide/usage/linter/type-aware" },
+                { text: "JS plugins", link: "/docs/guide/usage/linter/js-plugins" },
+              ],
             },
+            // {
+            // text: "Migration",
+            // items: [
+            // { text: "From ESLint", link: "/docs/guide/usage/linter/migrate-from-eslint" },
+            // { text: "From Biome", link: "/docs/guide/usage/linter/migrate-from-biome" },
+            // ],
+            // },
             {
-              text: "Nested Configs",
-              link: "/docs/guide/usage/linter/nested-config",
-            },
-            {
-              text: "Rules",
-              link: "/docs/guide/usage/linter/rules",
-            },
-            {
-              text: "Plugins",
-              link: "/docs/guide/usage/linter/plugins",
-            },
-            {
-              text: "JS Plugins",
-              link: "/docs/guide/usage/linter/js-plugins",
-            },
-            {
-              text: "Automatic Fixes",
-              link: "/docs/guide/usage/linter/automatic-fixes",
-            },
-            {
-              text: "CLI reference",
-              link: "/docs/guide/usage/linter/cli",
-            },
-            {
-              text: "Configuration file reference",
-              link: "/docs/guide/usage/linter/config-file-reference",
-            },
-            {
-              text: "Versioning",
-              link: "/docs/guide/usage/linter/versioning",
+              text: "Reference",
+              items: [
+                { text: "Rules reference", link: "/docs/guide/usage/linter/rules" },
+                { text: "CLI reference", link: "/docs/guide/usage/linter/cli" },
+                {
+                  text: "Config file reference",
+                  link: "/docs/guide/usage/linter/config-file-reference",
+                },
+                { text: "Versioning", link: "/docs/guide/usage/linter/versioning" },
+              ],
             },
           ],
         },

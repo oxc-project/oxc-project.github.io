@@ -1,8 +1,27 @@
+---
+title: Type-Aware Linting
+description: Linting with type information.
+---
+
 # Type-Aware Linting
 
-Read our [technical preview announcement](/blog/2025-08-17-oxlint-type-aware) and [alpha announcement](/blog/2025-12-08-type-aware-alpha) for background details, and the rationale for the architecture we have chosen for type-aware linting.
+Type-aware linting enables rules that rely on TypeScript’s type system, such as detecting unhandled promises or unsafe assignments. In Oxlint, type-aware linting is provided by [`tsgolint`](https://github.com/oxc-project/tsgolint) and integrated into the Oxlint CLI and configuration system.
+
+This feature is currently **alpha**. Rule coverage, performance, and compatibility continue to improve.
+
+## Overview
+
+Oxlint separates responsibilities between two components:
+
+- **Oxlint (Rust)**
+  Handles file traversal, ignore logic, configuration, non-type-aware rules, and reporting.
+
+- **tsgolint (Go)**
+  Builds TypeScript programs using [`typescript-go`](https://github.com/microsoft/typescript-go) and executes type-aware rules, returning structured diagnostics to Oxlint.
 
 ## Installation
+
+Type-aware linting requires an additional dependency:
 
 ::: code-group
 
@@ -24,89 +43,118 @@ bun add -D oxlint-tsgolint@latest
 
 :::
 
-Run `oxlint` with `--type-aware`
+## Running type-aware linting
+
+Enable type-aware linting with the `--type-aware` flag:
 
 ```bash
 oxlint --type-aware
 ```
 
-## Unimplemented Rules
+When enabled, Oxlint runs standard rules and type-aware rules in the `typescript/*` namespace.
 
-See https://github.com/oxc-project/tsgolint/issues/104
+Type-aware linting is opt-in and does not run unless the flag is provided.
 
-## Supported Rules
+### Monorepos and build outputs
 
-List of supported rules:
+Type-aware linting requires resolved type information.
 
-- [typescript/await-thenable](/docs/guide/usage/linter/rules/typescript/await-thenable)
-- [typescript/no-array-delete](/docs/guide/usage/linter/rules/typescript/no-array-delete)
-- [typescript/no-base-to-string](/docs/guide/usage/linter/rules/typescript/no-base-to-string)
-- [typescript/no-confusing-void-expression](/docs/guide/usage/linter/rules/typescript/no-confusing-void-expression)
-- [typescript/no-deprecated](/docs/guide/usage/linter/rules/typescript/no-deprecated)
-- [typescript/no-duplicate-type-constituents](/docs/guide/usage/linter/rules/typescript/no-duplicate-type-constituents)
-- [typescript/no-floating-promises](/docs/guide/usage/linter/rules/typescript/no-floating-promises)
-- [typescript/no-for-in-array](/docs/guide/usage/linter/rules/typescript/no-for-in-array)
-- [typescript/no-implied-eval](/docs/guide/usage/linter/rules/typescript/no-implied-eval)
-- [typescript/no-meaningless-void-operator](/docs/guide/usage/linter/rules/typescript/no-meaningless-void-operator)
-- [typescript/no-misused-promises](/docs/guide/usage/linter/rules/typescript/no-misused-promises)
-- [typescript/no-misused-spread](/docs/guide/usage/linter/rules/typescript/no-misused-spread)
-- [typescript/no-mixed-enums](/docs/guide/usage/linter/rules/typescript/no-mixed-enums)
-- [typescript/no-redundant-type-constituents](/docs/guide/usage/linter/rules/typescript/no-redundant-type-constituents)
-- [typescript/no-unnecessary-boolean-literal-compare](/docs/guide/usage/linter/rules/typescript/no-unnecessary-boolean-literal-compare)
-- [typescript/no-unnecessary-template-expression](/docs/guide/usage/linter/rules/typescript/no-unnecessary-template-expression)
-- [typescript/no-unnecessary-type-arguments](/docs/guide/usage/linter/rules/typescript/no-unnecessary-type-arguments)
-- [typescript/no-unnecessary-type-assertion](/docs/guide/usage/linter/rules/typescript/no-unnecessary-type-assertion)
-- [typescript/no-unsafe-argument](/docs/guide/usage/linter/rules/typescript/no-unsafe-argument)
-- [typescript/no-unsafe-assignment](/docs/guide/usage/linter/rules/typescript/no-unsafe-assignment)
-- [typescript/no-unsafe-call](/docs/guide/usage/linter/rules/typescript/no-unsafe-call)
-- [typescript/no-unsafe-enum-comparison](/docs/guide/usage/linter/rules/typescript/no-unsafe-enum-comparison)
-- [typescript/no-unsafe-member-access](/docs/guide/usage/linter/rules/typescript/no-unsafe-member-access)
-- [typescript/no-unsafe-return](/docs/guide/usage/linter/rules/typescript/no-unsafe-return)
-- [typescript/no-unsafe-type-assertion](/docs/guide/usage/linter/rules/typescript/no-unsafe-type-assertion)
-- [typescript/no-unsafe-unary-minus](/docs/guide/usage/linter/rules/typescript/no-unsafe-unary-minus)
-- [typescript/non-nullable-type-assertion-style](/docs/guide/usage/linter/rules/typescript/non-nullable-type-assertion-style)
-- [typescript/only-throw-error](/docs/guide/usage/linter/rules/typescript/only-throw-error)
-- [typescript/prefer-includes](/docs/guide/usage/linter/rules/typescript/prefer-includes)
-- [typescript/prefer-nullish-coalescing](/docs/guide/usage/linter/rules/typescript/prefer-nullish-coalescing)
-- [typescript/prefer-promise-reject-errors](/docs/guide/usage/linter/rules/typescript/prefer-promise-reject-errors)
-- [typescript/prefer-reduce-type-parameter](/docs/guide/usage/linter/rules/typescript/prefer-reduce-type-parameter)
-- [typescript/prefer-return-this-type](/docs/guide/usage/linter/rules/typescript/prefer-return-this-type)
-- [typescript/promise-function-async](/docs/guide/usage/linter/rules/typescript/promise-function-async)
-- [typescript/related-getter-setter-pairs](/docs/guide/usage/linter/rules/typescript/related-getter-setter-pairs)
-- [typescript/require-array-sort-compare](/docs/guide/usage/linter/rules/typescript/require-array-sort-compare)
-- [typescript/require-await](/docs/guide/usage/linter/rules/typescript/require-await)
-- [typescript/restrict-plus-operands](/docs/guide/usage/linter/rules/typescript/restrict-plus-operands)
-- [typescript/restrict-template-expressions](/docs/guide/usage/linter/rules/typescript/restrict-template-expressions)
-- [typescript/return-await](/docs/guide/usage/linter/rules/typescript/return-await)
-- [typescript/strict-boolean-expressions](/docs/guide/usage/linter/rules/typescript/strict-boolean-expressions)
-- [typescript/switch-exhaustiveness-check](/docs/guide/usage/linter/rules/typescript/switch-exhaustiveness-check)
-- [typescript/unbound-method](/docs/guide/usage/linter/rules/typescript/unbound-method)
-- [typescript/use-unknown-in-catch-callback-variable](/docs/guide/usage/linter/rules/typescript/use-unknown-in-catch-callback-variable)
+In monorepos:
 
-## Troubleshooting
+- Build dependent packages so `.d.ts` files are available
+- Ensure dependencies are installed before running
 
-### Debugging Unexpected Errors
+```bash
+pnpm install
+pnpm -r build
+oxlint --type-aware
+```
 
-If you encounter unexpected errors or rules not triggering when expected, types may not be resolving correctly. Run with `--type-check` to verify that all imports are being resolved:
+### Type checking diagnostics
+
+Enable type checking to report TypeScript errors alongside lint results:
 
 ```bash
 oxlint --type-aware --type-check
 ```
 
-This will report TypeScript errors alongside lint diagnostics, helping identify missing or unresolved types.
+This mode can replace a separate `tsc --noEmit` step in CI:
 
-**Common causes of unresolved types:**
+```bash
+# before
+tsc --noEmit
+oxlint
 
-- **Monorepo with bundler (tsdown, tsup, etc.)**: Pre-build dependent packages so their types are available. For example, if package `A` depends on package `B`, build `B` first so its `.d.ts` files exist.
-- **Missing dependencies**: Ensure all dependencies are installed (`npm install` / `pnpm install`)
+# after
+oxlint --type-aware --type-check
+```
 
-### Debugging Slow Performance
+## Configuring type-aware rules
 
-If type-aware linting is running slower than expected:
+Type-aware rules are configured like other Oxlint rules.
 
-1. **Update to the latest versions** of both `oxlint` and `oxlint-tsgolint`
+```json
+{
+  "plugins": ["typescript"],
+  "rules": {
+    "typescript/no-floating-promises": "error",
+    "typescript/no-unsafe-assignment": "warn"
+  }
+}
+```
 
-2. **Enable debug logging** to see detailed timing information:
+Rules support the same options as their `typescript-eslint` equivalents.
+
+```json
+{
+  "plugins": ["typescript"],
+  "rules": {
+    "typescript/no-floating-promises": ["error", { "ignoreVoid": true }]
+  }
+}
+```
+
+## Disable comments
+
+Type-aware rules support inline disable comments:
+
+```ts
+// oxlint-disable-next-line typescript/no-floating-promises
+doSomethingAsync();
+```
+
+Report unused disable comments with:
+
+```bash
+oxlint --type-aware --report-unused-disable-directives
+```
+
+## TypeScript compatibility
+
+Type-aware linting is powered by `typescript-go`.
+
+- TypeScript **7.0+** is required
+- Some legacy `tsconfig` options are not supported
+- Invalid options are reported when `--type-check` is enabled
+
+## Stability notes
+
+Type-aware linting is **alpha**:
+
+- Rule coverage is incomplete
+- Very large codebases may encounter high memory usage
+- Performance continues to improve
+
+## Performance and debugging
+
+If type-aware linting is slow or uses excessive memory:
+
+1. Update both tools:
+
+- `oxlint`
+- `oxlint-tsgolint`
+
+2. Enable debug logging:
 
 ```bash
 OXC_LOG=debug oxlint --type-aware
@@ -139,33 +187,7 @@ Finished in 16.4s on 259 files with 161 rules using 12 threads.
   - Look for programs with an unusually high number of source files (e.g., `Program created with 26140 source files`). This may indicate misconfigured tsconfig `includes`/`excludes` pulling in unnecessary files like `node_modules`.
   - Each file path logged indicates when that file is being linted. Large time gaps between files may indicate expensive type resolution for certain files.
 
-## TypeScript Compatibility
+## Next steps
 
-tsgolint is based on [typescript-go](https://github.com/microsoft/typescript-go) (Microsoft's TypeScript v7.0 rewrite in Go), not the original TypeScript compiler written in TypeScript.
-
-**Key implications:**
-
-- Only TypeScript 7.0+ features are supported
-- Pre-7.0 syntax and features (like `baseUrl` in `tsconfig.json`) are not supported
-- If you're using deprecated features that were deprecated in TypeScript 6.0 or removed in TypeScript 7.0, you'll need to migrate your codebase first
-
-For help migrating deprecated tsconfig options, see the [TypeScript migration guide](https://github.com/microsoft/TypeScript/issues/62508#issuecomment-3348649259).
-
-## Architecture
-
-Type-aware linting in Oxlint uses a unique two-binary architecture:
-
-```
-oxlint CLI (Rust)
-  ├─ Handles file traversal, ignore logic, and diagnostics
-  ├─ Runs non-type-aware rules and custom JS plugins
-  ├─ Passes paths and configuration to tsgolint
-  └─ Formats and displays results
-
-tsgolint (Go)
-  ├─ Uses typescript-go directly for type checking
-  ├─ Executes type-aware rules
-  └─ Returns structured diagnostics
-```
-
-This design keeps Oxlint's core fast while leveraging TypeScript's type system through typescript-go. The frontend-backend separation means `oxlint` controls the user experience while `tsgolint` handles the heavy lifting of type analysis.
+- Check [implemented rules](https://github.com/oxc-project/tsgolint/tree/main?tab=readme-ov-file#implemented-rules)
+- Report issues to [https://github.com/oxc-project/tsgolint](https://github.com/oxc-project/tsgolint)

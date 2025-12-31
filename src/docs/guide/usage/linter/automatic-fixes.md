@@ -1,49 +1,68 @@
-# Automatic Fixes
+---
+title: Automatic fixes
+description: Apply safe, suggested, and dangerous fixes with Oxlint.
+---
 
-In some cases, Oxlint is able to automatically fix lint violations in your code.
-There are two categories of automatic fixes:
+# Automatic fixes
 
-- **Fixes**: These are changes that will not change your program's behavior. It
-  is generally safe to run them in a pre-lint hook.
-- **Suggestions**: Changes that may change your program's behavior or make a
-  change you may not want (e.g. removing `console.log`s). These should be
-  reviewed before being committed to your codebase.
+Oxlint can automatically fix some lint violations. Automatic fixes are not enabled by default. You choose when to apply them.
 
-```sh
-oxlint --fix                   # Safe fixes only
-oxlint --fix-suggestions       # Safe suggestions only
-oxlint --fix --fix-suggestions # Safe fixes and suggestions
+## Safe fixes
+
+Safe fixes are changes that do not alter program behavior.
+
+Apply safe fixes:
+
+```bash
+oxlint --fix
 ```
 
-You can find which rules are fixable from the [rules page](./rules.md).
+## Suggestions
 
-## Dangerous Fixes and Suggestions
+Suggestions are changes that may alter behavior or may not match your intent.
 
-Some fixes and suggestions are considered dangerous. Being more aggressive in
-nature, **these may produce invalid code and/or change the behavior of your
-program**. These are disabled by default and can be enabled with the
-`--fix-dangerously` flag. You should review each change carefully before
-committing it to your codebase.
+Apply suggestions:
 
-:::warning
-If you are using git, you should stage your changes before running any of the
-commands below using `git add -A`.
-:::
+```bash
+oxlint --fix-suggestions
+```
 
-```sh
-# Safe and dangerous fixes only
+## Dangerous fixes
+
+Dangerous fixes are aggressive changes that may break your code.
+
+Apply dangerous fixes:
+
+```bash
 oxlint --fix-dangerously
+```
 
-# Safe and dangerous suggestions only
-oxlint --fix-suggestions --fix-dangerously
+## Combining fix modes
 
-# Applies all possible fixes and suggestions
+You can combine safe fixes and suggestions:
+
+```bash
+oxlint --fix --fix-suggestions
+```
+
+You can also include dangerous fixes:
+
+```bash
 oxlint --fix --fix-suggestions --fix-dangerously
 ```
 
-## Pending Fixes
+## Rule support
 
-You may notice that some rules have a 🚧 next to their name. This indicate that
-they could be automatically fixed, but they are missing an auto-fixer
-implementation. You can help improve Oxlint by contributing an auto fixer for
-rules that need them.
+Not all rules provide fixes. Some rules support safe fixes, some provide suggestions, and some do not provide fixes yet.
+
+If a rule is missing a fixer, contributions are welcome.
+
+## Type aware linting and fixes
+
+Type aware linting requires building the project.
+
+You can apply safe fixes with type aware linting enabled:
+
+```bash
+oxlint --type-aware --fix
+```
