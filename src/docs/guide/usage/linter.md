@@ -49,7 +49,7 @@ See: [Type-aware linting](/docs/guide/usage/linter/type-aware)
 
 Oxlint supports multi-file analysis as a first-class capability.
 
-When enabled, Oxlint builds a project-wide module graph and shares parsing and resolution across rules. This improves checks that depend on cross-file imports and helps avoid the performance cliff often seen with [`import/no-cycle`](https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-cycle.md) in ESLint.
+When enabled, Oxlint builds a project-wide module graph and shares parsing and resolution across rules. This improves checks that depend on cross-file imports and helps avoid the performance cliff often seen with rules like [`import/no-cycle`](https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-cycle.md) in ESLint.
 
 See: [Multi-file analysis](/docs/guide/usage/linter/multi-file-analysis.md)
 
