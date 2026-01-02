@@ -14,10 +14,20 @@ ESLint evaluates rules per file and does not provide a built-in project graph. P
 
 Oxlint implements multi-file analysis in the core engine. It lints files and builds the module graph in parallel, shares parsing and resolution across rules, and typically completes comparable `import/no-cycle` checks in a few seconds.
 
-## Enable the import plugin
+## Enable the `import` plugin
 
 To use multi-file analysis, you must enable the `import` plugin and configure at
 least one `import/*` rule.
+
+```jsonc
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["import"],
+  "rules": {
+    "import/no-cycle": "error", // or other import/* rules
+  },
+}
+```
 
 ## Detect cycles with `import/no-cycle`
 
