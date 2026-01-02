@@ -1200,7 +1200,9 @@ description: 'Apply safe, suggested, and dangerous fixes with Oxlint.'
 
 # Automatic fixes
 
-Oxlint can automatically fix some lint violations. Automatic fixes are not enabled by default. You choose when to apply them.
+Oxlint can automatically fix some lint violations. Automatic fixes are only applied when passing the relevant CLI flags. You choose when to apply them.
+
+In the code editor integrations (such as VS Code), automatic fixes are exposed as "code actions" that you can apply in-editor.
 
 ## Safe fixes
 
@@ -1252,11 +1254,11 @@ Not all rules provide fixes. Some rules support safe fixes, some provide suggest
 
 If a rule is missing a fixer, contributions are welcome.
 
-## Type aware linting and fixes
+## Type-aware linting and fixes
 
-Type aware linting requires building the project.
+[Type-aware linting](/docs/guide/usage/linter/type-aware) requires building the project.
 
-You can apply safe fixes with type aware linting enabled:
+You can apply safe fixes with type-aware linting enabled:
 
 ```bash
 oxlint --type-aware --fix
@@ -1547,126 +1549,6 @@ import styled from "styled-components/primitives";
 ---
 
 ---
-url: /docs/guide/usage/linter/ci.md
-description: Run Oxlint in CI.
----
-
-# Setup CI
-
-## GitHub Actions
-
-Create `.github/workflows/oxlint.yml`:
-
-```yaml
-name: Lint
-
-on:
-  pull_request:
-  push:
-    branches: [main]
-
-jobs:
-  oxlint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: lts/*
-          cache: pnpm
-
-      - uses: pnpm/action-setup@v4
-
-      - run: pnpm install --frozen-lockfile
-      - run: pnpm run lint --deny-warnings # given package.json scripts "lint": "oxlint"
-```
-
-### pre-commit
-
-```yaml [.pre-commit-hooks.yaml]
-repos:
-  - repo: https://github.com/oxc-project/mirrors-oxlint
-    rev: v0.0.0 # change to the latest version
-    hooks:
-      - id: oxlint
-        verbose: true
-```
-
-### Unplugin
-
-https://www.npmjs.com/package/unplugin-oxlint
-
-### Vite plugin
-
-https://www.npmjs.com/package/vite-plugin-oxlint
-
----
-
----
-url: /docs/guide/usage/formatter/cli.md
----
-
-# Command-line Interface
-
-## Usage
-
-**`oxfmt`** \[**`-c`**=*`PATH`*] \[*`PATH`*]...
-
-## Mode Options:
-
-* **`    --init`** —
-  Initialize `.oxfmtrc.json` with default values
-* **`    --migrate`**=*`SOURCE`* —
-  Migrate configuration to `.oxfmtrc.json` from specified source Available sources: prettier
-* **`    --lsp`** —
-  Start language server protocol (LSP) server
-* **`    --stdin-filepath`**=*`PATH`* —
-  Specify the file name to use to infer which parser to use
-
-## Output Options:
-
-* **`    --write`** —
-  Format and write files in place (default)
-* **`    --check`** —
-  Check if files are formatted, also show statistics
-* **`    --list-different`** —
-  List files that would be changed
-
-## Config Options
-
-* **`-c`**, **`--config`**=*`PATH`* —
-  Path to the configuration file
-
-## Ignore Options
-
-* **`    --ignore-path`**=*`PATH`* —
-  Path to ignore file(s). Can be specified multiple times. If not specified, .gitignore and .prettierignore in the current directory are used.
-* **`    --with-node-modules`** —
-  Format code in node\_modules directory (skipped by default)
-
-## Runtime Options
-
-* **`    --no-error-on-unmatched-pattern`** —
-  Do not exit with error when pattern is unmatched
-* **`    --threads`**=*`INT`* —
-  Number of threads to use. Set to 1 for using only 1 CPU core.
-
-## Available positional items:
-
-* *`PATH`* —
-  Single file, single path or list of paths. If not provided, current working directory is used. Glob is supported only for exclude patterns like `'!**/fixtures/*.js'`.
-
-## Available options:
-
-* **`-h`**, **`--help`** —
-  Prints help information
-* **`-V`**, **`--version`** —
-  Prints version information
-
----
-
----
 url: /docs/guide/usage/linter/cli.md
 ---
 
@@ -1821,6 +1703,116 @@ Arguments:
   Prints help information
 * **`-V`**, **`--version`** —
   Prints version information
+
+---
+
+---
+url: /docs/guide/usage/formatter/cli.md
+---
+
+# Command-line Interface
+
+## Usage
+
+**`oxfmt`** \[**`-c`**=*`PATH`*] \[*`PATH`*]...
+
+## Mode Options:
+
+* **`    --init`** —
+  Initialize `.oxfmtrc.json` with default values
+* **`    --migrate`**=*`SOURCE`* —
+  Migrate configuration to `.oxfmtrc.json` from specified source Available sources: prettier
+* **`    --lsp`** —
+  Start language server protocol (LSP) server
+* **`    --stdin-filepath`**=*`PATH`* —
+  Specify the file name to use to infer which parser to use
+
+## Output Options:
+
+* **`    --write`** —
+  Format and write files in place (default)
+* **`    --check`** —
+  Check if files are formatted, also show statistics
+* **`    --list-different`** —
+  List files that would be changed
+
+## Config Options
+
+* **`-c`**, **`--config`**=*`PATH`* —
+  Path to the configuration file
+
+## Ignore Options
+
+* **`    --ignore-path`**=*`PATH`* —
+  Path to ignore file(s). Can be specified multiple times. If not specified, .gitignore and .prettierignore in the current directory are used.
+* **`    --with-node-modules`** —
+  Format code in node\_modules directory (skipped by default)
+
+## Runtime Options
+
+* **`    --no-error-on-unmatched-pattern`** —
+  Do not exit with error when pattern is unmatched
+* **`    --threads`**=*`INT`* —
+  Number of threads to use. Set to 1 for using only 1 CPU core.
+
+## Available positional items:
+
+* *`PATH`* —
+  Single file, single path or list of paths. If not provided, current working directory is used. Glob is supported only for exclude patterns like `'!**/fixtures/*.js'`.
+
+## Available options:
+
+* **`-h`**, **`--help`** —
+  Prints help information
+* **`-V`**, **`--version`** —
+  Prints version information
+
+---
+
+---
+url: /docs/guide/usage/formatter/config.md
+---
+# Configuration
+
+## `.oxfmtrc.json(c)`
+
+We support `.json` or `.jsonc` config file.
+
+Almost all formatting options are compatible with Prettier's [options](https://prettier.io/docs/options).
+
+We also recommend adding the `$schema` to the config file:
+
+```json
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json"
+}
+```
+
+For full reference, see also [Configuration file reference](./config-file-reference).
+
+By default, `oxfmt` automatically tries to find the nearest `.oxfmtrc.json` or `.oxfmtrc.jsonc` file from the current working directory. If not found, the default configuration options are used.
+
+You can also specify your config file with the `-c yourconfig.jsonc` flag.
+
+## `.editorconfig`
+
+`.editorconfig` file is also supported by Oxfmt.
+
+And these fields will override default Oxfmt options.
+
+* `end_of_line`: `endOfLine`
+* `indent_style`: `useTabs`
+* `indent_size`: `tabWidth`
+* `max_line_length`: `printWidth`
+* `insert_final_newline`: `insertFinalNewline`
+
+If both `.editorconfig` and `.oxfmtrc.json` has the same field, `.oxfmtrc` will win.
+
+For those properties, glob path overrides also work.
+
+By default, `oxfmt` automatically tries to find the nearest `.editorconfig` file from the current working directory.
+
+Unlike Prettier, Oxfmt does not respect `root = true` and does not merge nested `.editorconfig` files.
 
 ---
 
@@ -2141,54 +2133,7 @@ Example (monorepo + React + jsx-a11y):
 ---
 
 ---
-url: /docs/guide/usage/formatter/config.md
----
-# Configuration
-
-## `.oxfmtrc.json(c)`
-
-We support `.json` or `.jsonc` config file.
-
-Almost all formatting options are compatible with Prettier's [options](https://prettier.io/docs/options).
-
-We also recommend adding the `$schema` to the config file:
-
-```json
-{
-  "$schema": "./node_modules/oxfmt/configuration_schema.json"
-}
-```
-
-For full reference, see also [Configuration file reference](./config-file-reference).
-
-By default, `oxfmt` automatically tries to find the nearest `.oxfmtrc.json` or `.oxfmtrc.jsonc` file from the current working directory. If not found, the default configuration options are used.
-
-You can also specify your config file with the `-c yourconfig.jsonc` flag.
-
-## `.editorconfig`
-
-`.editorconfig` file is also supported by Oxfmt.
-
-And these fields will override default Oxfmt options.
-
-* `end_of_line`: `endOfLine`
-* `indent_style`: `useTabs`
-* `indent_size`: `tabWidth`
-* `max_line_length`: `printWidth`
-* `insert_final_newline`: `insertFinalNewline`
-
-If both `.editorconfig` and `.oxfmtrc.json` has the same field, `.oxfmtrc` will win.
-
-For those properties, glob path overrides also work.
-
-By default, `oxfmt` automatically tries to find the nearest `.editorconfig` file from the current working directory.
-
-Unlike Prettier, Oxfmt does not respect `root = true` and does not merge nested `.editorconfig` files.
-
----
-
----
-url: /docs/guide/usage/formatter/generated-config.md
+url: /docs/guide/usage/formatter/config-file-reference.md
 ---
 
 # Configuration options for the Oxfmt.
@@ -2371,7 +2316,7 @@ Use tabs for indentation or spaces. (Default: `false`)
 ---
 
 ---
-url: /docs/guide/usage/formatter/config-file-reference.md
+url: /docs/guide/usage/formatter/generated-config.md
 ---
 
 # Configuration options for the Oxfmt.
@@ -19110,44 +19055,6 @@ However, even with `"auto"`, the contents inside `TaggedTemplateLiteral` in JS/T
 ---
 
 ---
-url: /docs/guide/introduction.md
----
-
-# Getting Started
-
-[What is Oxc?](/docs/guide/what-is-oxc)
-
-## Lint or format a codebase
-
-* Lint: [Oxlint](/docs/guide/usage/linter)
-* Format: [Oxfmt](/docs/guide/usage/formatter)
-
-## Build tooling on top of Oxc
-
-* Parse JavaScript and TypeScript: [Parser](/docs/guide/usage/parser)
-* Transform TypeScript, JSX, and modern JavaScript: [Transformer](/docs/guide/usage/transformer)
-* Minify JavaScript for production builds: [Minifier](/docs/guide/usage/minifier)
-* Resolve modules for JavaScript and TypeScript: [Resolver](/docs/guide/usage/resolver)
-
-## Contribute or learn
-
-* [Contribute](/docs/contribute/introduction)
-* [Learn](/docs/learn/parser_in_rust/intro.html)
-
-## Other resources
-
-* [Troubleshooting](/docs/guide/troubleshooting)
-* [Benchmarks](/docs/guide/benchmarks)
-* [Projects using Oxc](/docs/guide/projects)
-* [Talks and media](/docs/guide/media)
-* [Team](/team)
-* [Endorsements](/endorsements)
-* [Release Blog](/blog/)
-* [Releases](https://github.com/oxc-project/oxc/releases)
-
----
-
----
 url: /docs/contribute/development.md
 ---
 
@@ -19228,6 +19135,44 @@ macOS has an antivirus feature called XProtect that scans executables for malwar
 **Note:** This disables an OS security feature. Only do this if you're comfortable with the trade-off.
 
 More details: https://nnethercote.github.io/2025/09/04/faster-rust-builds-on-mac.html
+
+---
+
+---
+url: /docs/guide/introduction.md
+---
+
+# Getting Started
+
+[What is Oxc?](/docs/guide/what-is-oxc)
+
+## Lint or format a codebase
+
+* Lint: [Oxlint](/docs/guide/usage/linter)
+* Format: [Oxfmt](/docs/guide/usage/formatter)
+
+## Build tooling on top of Oxc
+
+* Parse JavaScript and TypeScript: [Parser](/docs/guide/usage/parser)
+* Transform TypeScript, JSX, and modern JavaScript: [Transformer](/docs/guide/usage/transformer)
+* Minify JavaScript for production builds: [Minifier](/docs/guide/usage/minifier)
+* Resolve modules for JavaScript and TypeScript: [Resolver](/docs/guide/usage/resolver)
+
+## Contribute or learn
+
+* [Contribute](/docs/contribute/introduction)
+* [Learn](/docs/learn/parser_in_rust/intro.html)
+
+## Other resources
+
+* [Troubleshooting](/docs/guide/troubleshooting)
+* [Benchmarks](/docs/guide/benchmarks)
+* [Projects using Oxc](/docs/guide/projects)
+* [Talks and media](/docs/guide/media)
+* [Team](/team)
+* [Endorsements](/endorsements)
+* [Release Blog](/blog/)
+* [Releases](https://github.com/oxc-project/oxc/releases)
 
 ---
 
@@ -27988,14 +27933,14 @@ url: /docs/guide/usage/linter/js-plugins.md
 
 Oxlint supports plugins written in JS - either custom-written, or from NPM.
 
-Oxlint's plugin API is compatible with ESLint, so most existing ESLint plugins should work out of the box with Oxlint.
+Oxlint's plugin API is compatible with ESLint v9+, so most existing ESLint plugins should work out of the box with Oxlint.
 
 We are working towards implementing *all* of ESLint's plugin APIs, and Oxlint will soon be able to run
 *any* ESLint plugin.
 
 :::warning
 JS plugins are currently in technical preview, and remain under heavy development.
-Almost all of ESLint's plugin API is implemented (see [here](#api-support)).
+Almost all of ESLint's plugin API is implemented (see [below](#api-support)).
 
 All APIs should behave identically to ESLint. If you find any differences in behavior,
 that's a bug - please [report it](https://github.com/oxc-project/oxc/issues/new?template=linter_bug_report.yaml).
@@ -28003,21 +27948,22 @@ that's a bug - please [report it](https://github.com/oxc-project/oxc/issues/new?
 
 ## Using JS plugins
 
-1. Add path to the plugin to `.oxlintrc.json` config file, under `jsPlugins`.
+1. Add a path to the plugin to the `.oxlintrc.json` config file, under `jsPlugins`.
 2. Add rules from the plugin, under `rules`.
 
-Path can be any valid import specifier e.g. `./plugin.js` or `plugin-package`.
+The path can be any valid import specifier e.g. `./plugin.js`, `eslint-plugin-foo`, or `@foo/eslint-plugin`.
 Paths are resolved relative to the config file itself.
 
 ```json
 // .oxlintrc.json
 {
-  "jsPlugins": ["./path/to/my-plugin.js", "eslint-plugin-whatever"],
+  "jsPlugins": ["./path/to/my-plugin.js", "eslint-plugin-whatever", "@foobar/eslint-plugin"],
   "rules": {
     "my-plugin/rule1": "error",
     "my-plugin/rule2": "warn",
     "whatever/rule1": "error",
-    "whatever/rule2": "warn"
+    "whatever/rule2": "warn",
+    "@foobar/rule1": "error"
   }
   // ... other config ...
 }
@@ -28027,8 +27973,8 @@ Paths are resolved relative to the config file itself.
 
 You can also define a different name (alias) for a plugin. This is useful if:
 
-* Plugin name clashes with name of a native Oxlint plugin.
-* Plugin name is very long.
+* The default plugin name clashes with name of a native Oxlint plugin (e.g. jsdoc, react, etc.).
+* The default plugin name is very long.
 * You want to use a plugin that Oxlint supports natively, but a specific rule you need is not yet implemented in Oxlint's native version.
 
 ```json
@@ -28354,11 +28300,14 @@ Oxlint supports almost all of ESLint's API surface:
 * `SourceCode` tokens APIs (e.g. `context.sourceCode.getTokens(node)`).
 * Scope analysis.
 * Control flow analysis (code paths).
+* Inline disable directives. (`// oxlint-disable`)
 
 Not supported yet:
 
-* Language server (IDE) support + suggestions.
+* Language server (IDE) support + suggestions (so no in-editor diagnostics or quick-fixes yet).
 * Custom file formats and parsers (e.g. Svelte, Vue, Angular).
+
+ESLint APIs that were removed in ESLint v9 or earlier will not be implemented in most cases. If an ESLint plugin is unmaintained and was never updated to upgrade their API usage for ESLint v9, you may need to modify the plugin yourself or find an alternative.
 
 We will be implementing the remaining features over the next few months, aiming to support 100% of ESLint's
 plugin API surface.
@@ -33078,14 +33027,14 @@ Multi-file analysis allows rules to use project-wide information, such as the mo
 ## Performance and architecture
 
 ESLint evaluates rules per file and does not provide a built-in project graph. Plugins such as
-[`eslint-plugin-import`](https://github.com/import-js/eslint-plugin-import) must rebuild module resolution and the module graph outside of ESLint’s core, and projects report `import/no-cycle` taking tens of seconds to over a minute on large repositories.
+[`eslint-plugin-import`](https://github.com/import-js/eslint-plugin-import) must rebuild module resolution and the module graph outside of ESLint’s core. Projects report the original `import/no-cycle` rule taking tens of seconds, or - on larger repositories - over a minute.
 
 Oxlint implements multi-file analysis in the core engine. It lints files and builds the module graph in parallel, shares parsing and resolution across rules, and typically completes comparable `import/no-cycle` checks in a few seconds.
 
-## Enable the import plugin
+## Enable the `import` plugin
 
 To use multi-file analysis, you must enable the `import` plugin and configure at
-least one `import/*` rule.
+least one `import/*` rule. For an example, see the config file in the next section.
 
 ## Detect cycles with `import/no-cycle`
 
@@ -33101,6 +33050,7 @@ Import cycles:
 
 ```json [.oxlintrc.json]
 {
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
   "plugins": ["import"],
   "rules": {
     "import/no-cycle": ["error", { "maxDepth": 3 }]
@@ -37181,44 +37131,44 @@ Oxlint is built for large repositories and CI environments. Its architecture rem
 
 Our [benchmarks](https://github.com/oxc-project/bench-linter) show Oxlint is 50 to 100 times faster than ESLint.
 
-## Correctness focused defaults
+## Correctness-focused defaults
 
-Oxlint is useful out of the box. By default, it prioritizes high signal correctness checks. These checks surface code that is incorrect, unsafe, or useless, so teams can adopt Oxlint without excessive noise.
+Oxlint is useful out of the box. By default, it prioritizes high-signal correctness checks. These checks surface code that is incorrect, unsafe, or useless, so teams can adopt Oxlint without excessive noise.
 
 Additional rules can be enabled incrementally as requirements evolve.
 
 ## A large and growing rule set
 
-Oxlint includes more than 645 rules, with coverage across the ecosystems most teams already use, including:
+Oxlint includes [more than 645 rules](/docs/guide/usage/linter/rules.md), with coverage across the plugins most teams already use, including:
 
 * ESLint core rules
 * TypeScript rules
-* Popular plugins such as React, Jest, Unicorn, and JSX a11y
+* Popular plugins such as React, Jest, Unicorn, and jsx-a11y
 * Custom JS plugins compatible with the ESLint plugin ecosystem
 
 This breadth makes migration straightforward without sacrificing rule coverage.
 
 ## Type-aware linting
 
-Oxlint leverages the native Go port of the TypeScript compiler ([tsgo](https://github.com/microsoft/typescript-go)), providing full TypeScript compatibility and the same type system behavior you expect from TypeScript itself.
+Oxlint leverages the native Go port of the TypeScript compiler ([tsgo](https://github.com/microsoft/typescript-go) aka TypeScript 7), providing full TypeScript compatibility and the same type system behavior you expect from TypeScript itself.
 
 This enables mission critical checks that require types, such as detecting floating promises.
 
 In contrast, [Biome’s approach](https://biomejs.dev/blog/biome-v2) is to implement its own type inference instead of relying on the TypeScript compiler, and they note coverage is still improving.
 
-See: [Type aware linting](/docs/guide/usage/linter/type-aware.md)
+See: [Type-aware linting](/docs/guide/usage/linter/type-aware)
 
 ## Multi-file analysis
 
 Oxlint supports multi-file analysis as a first-class capability.
 
-When enabled, Oxlint builds a project-wide module graph and shares parsing and resolution across rules. This improves checks that depend on cross-file imports and helps avoid the performance cliff often seen with [`import/no-cycle`](https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-cycle.md) in ESLint.
+When enabled, Oxlint builds a project-wide module graph and shares parsing and resolution across rules. This improves checks that depend on cross-file imports and helps avoid the performance cliff often seen with rules like [`import/no-cycle`](https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-cycle.md) in ESLint.
 
 See: [Multi-file analysis](/docs/guide/usage/linter/multi-file-analysis.md)
 
-## AI friendly diagnostics
+## AI-friendly diagnostics
 
-Oxlint diagnostics are designed to be both human readable and machine actionable.
+Oxlint diagnostics are designed to be both human-readable and machine-actionable.
 
 In addition to clear messages, diagnostics include structured information such as precise spans and contextual data. This helps AI to understand issues and apply fixes reliably.
 
@@ -37231,7 +37181,7 @@ Performance regressions are treated as bugs.
 
 Stability and throughput are always prioritized, especially for CI and large monorepos.
 
-## Get started
+## Getting started
 
 The recommended setup is to install Oxlint as a dev dependency and add scripts.
 
@@ -37262,9 +37212,10 @@ Next steps:
 Choose the approach that fits your repository:
 
 * **Replace ESLint (recommended for most projects).** Use Oxlint as your primary linter.
+  * Use tooling such as [`@oxlint/migrate`](https://github.com/oxc-project/oxlint-migrate) to migrate your existing ESLint config.
 * **Migrate incrementally (recommended for large repos).** Run Oxlint first, then run ESLint with overlapping rules disabled. This keeps CI fast while you migrate.
-  * Use tooling such as [`oxlint-migrate`](https://github.com/oxc-project/oxlint-migrate).
   * Use [`eslint-plugin-oxlint`](https://www.npmjs.com/package/eslint-plugin-oxlint) to disable overlapping ESLint rules while running both.
+  * You can - and should - also use [`@oxlint/migrate`](https://github.com/oxc-project/oxlint-migrate) for this approach as well.
 
 ## What Oxlint supports
 
@@ -38837,6 +38788,70 @@ The parser provides:
 ---
 
 ---
+url: /docs/guide/usage/parser.md
+---
+
+# Parser
+
+This is production ready.
+
+## Features
+
+* 3x faster than swc parser ([benchmark][url-benchmark]).
+* Parses `.js(x)` and `.ts(x)`.
+* Passes all parser tests from Test262 and 99% from Babel and TypeScript.
+* Returns ESM information directly, no need for [`es-module-lexer`](https://github.com/guybedford/es-module-lexer).
+* [✅ works with checker.ts](https://x.com/robpalmer2/status/1805502964435505559)
+
+## Installation
+
+### Node.js
+
+* Use the node binding [oxc-parser][url-oxc-parser-npm].
+* Try on [stackblitz](https://stackblitz.com/edit/oxc-parser).
+
+### Rust
+
+Use the umbrella crate [oxc][url-oxc-crate] or the individual [oxc\_ast][url-oxc-ast-crate] and [oxc\_parser][url-oxc-parser-crate] crates.
+
+Rust usage example can be found [here](https://github.com/oxc-project/oxc/blob/main/crates/oxc_parser/examples/parser.rs).
+
+## Print
+
+After parsing and transforming, you can print code.
+
+Here's a direct example using [esrap](https://www.npmjs.com/package/esrap) *(`parse` in reverse!)*:
+
+```js
+import { print } from "esrap";
+import ts from "esrap/languages/ts";
+import { parseSync } from "oxc-parser";
+
+const { program } = parseSync("test.js", 'alert("hello oxc & esrap");');
+const { code } = print(program, ts());
+
+console.log(code); // alert("hello oxc & esrap");
+```
+
+:::info
+Today, comments are not printed. *It will be supported thanks to [oxc-parser #13285](https://github.com/oxc-project/oxc/pull/13285).*
+:::
+
+[url-swc]: https://swc.rs
+
+[url-benchmark]: https://github.com/oxc-project/bench-javascript-parser-written-in-rust
+
+[url-oxc-crate]: https://docs.rs/oxc
+
+[url-oxc-ast-crate]: https://docs.rs/oxc_ast
+
+[url-oxc-parser-crate]: https://docs.rs/oxc_parser
+
+[url-oxc-parser-npm]: https://www.npmjs.com/package/oxc-parser
+
+---
+
+---
 url: /docs/learn/parser_in_rust/parser.md
 ---
 
@@ -39243,70 +39258,6 @@ function isParenthesizedArrowFunctionExpression(): Tristate {
 ```
 
 In summary, the TypeScript parser uses a combination of lookahead (fast path) and backtracking to parse arrow functions.
-
----
-
----
-url: /docs/guide/usage/parser.md
----
-
-# Parser
-
-This is production ready.
-
-## Features
-
-* 3x faster than swc parser ([benchmark][url-benchmark]).
-* Parses `.js(x)` and `.ts(x)`.
-* Passes all parser tests from Test262 and 99% from Babel and TypeScript.
-* Returns ESM information directly, no need for [`es-module-lexer`](https://github.com/guybedford/es-module-lexer).
-* [✅ works with checker.ts](https://x.com/robpalmer2/status/1805502964435505559)
-
-## Installation
-
-### Node.js
-
-* Use the node binding [oxc-parser][url-oxc-parser-npm].
-* Try on [stackblitz](https://stackblitz.com/edit/oxc-parser).
-
-### Rust
-
-Use the umbrella crate [oxc][url-oxc-crate] or the individual [oxc\_ast][url-oxc-ast-crate] and [oxc\_parser][url-oxc-parser-crate] crates.
-
-Rust usage example can be found [here](https://github.com/oxc-project/oxc/blob/main/crates/oxc_parser/examples/parser.rs).
-
-## Print
-
-After parsing and transforming, you can print code.
-
-Here's a direct example using [esrap](https://www.npmjs.com/package/esrap) *(`parse` in reverse!)*:
-
-```js
-import { print } from "esrap";
-import ts from "esrap/languages/ts";
-import { parseSync } from "oxc-parser";
-
-const { program } = parseSync("test.js", 'alert("hello oxc & esrap");');
-const { code } = print(program, ts());
-
-console.log(code); // alert("hello oxc & esrap");
-```
-
-:::info
-Today, comments are not printed. *It will be supported thanks to [oxc-parser #13285](https://github.com/oxc-project/oxc/pull/13285).*
-:::
-
-[url-swc]: https://swc.rs
-
-[url-benchmark]: https://github.com/oxc-project/bench-javascript-parser-written-in-rust
-
-[url-oxc-crate]: https://docs.rs/oxc
-
-[url-oxc-ast-crate]: https://docs.rs/oxc_ast
-
-[url-oxc-parser-crate]: https://docs.rs/oxc_parser
-
-[url-oxc-parser-npm]: https://www.npmjs.com/package/oxc-parser
 
 ---
 
@@ -47806,6 +47757,63 @@ Upon visit, we can call `enter_scope` and `leave_scope` accordingly to build the
 ---
 
 ---
+url: /docs/guide/usage/linter/ci.md
+description: Run Oxlint in CI.
+---
+
+# Setup CI
+
+## GitHub Actions
+
+Create `.github/workflows/oxlint.yml`:
+
+```yaml
+name: Lint
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  oxlint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+          cache: pnpm
+
+      - uses: pnpm/action-setup@v4
+
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm run lint --deny-warnings # given package.json scripts "lint": "oxlint"
+```
+
+### pre-commit
+
+```yaml [.pre-commit-hooks.yaml]
+repos:
+  - repo: https://github.com/oxc-project/mirrors-oxlint
+    rev: v0.0.0 # change to the latest version
+    hooks:
+      - id: oxlint
+        verbose: true
+```
+
+### Unplugin
+
+https://www.npmjs.com/package/unplugin-oxlint
+
+### Vite plugin
+
+https://www.npmjs.com/package/vite-plugin-oxlint
+
+---
+
+---
 url: /docs/guide/usage/linter/editors.md
 ---
 
@@ -47817,7 +47825,7 @@ See [Quickstart](./quickstart) to install and run Oxlint from the command line.
 
 ## Supported editors
 
-* [VS Code](#vs-code)
+* [VS Code](#vs-code) (and Cursor, etc.)
 * [Zed](#zed)
 * [JetBrains](#jetbrains)
 * [coc.nvim](#cocnvim)
@@ -47832,7 +47840,7 @@ Download the official Oxc VS Code extension from:
 * [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=oxc.oxc-vscode)
 * [Open VSX Registry](https://open-vsx.org/extension/oxc/oxc-vscode)
 
-The extension is also compatible with other VS Code-based editors, including Cursor.
+**The extension is compatible with other VS Code-based editors**, including Cursor.
 
 ### Use (recommended setup for teams)
 
@@ -65295,6 +65303,67 @@ oxlint --deny unicorn/throw-new-error
 ---
 
 ---
+url: /docs/guide/usage/formatter/generated-cli.md
+---
+
+## Usage
+
+**`oxfmt`** \[**`-c`**=*`PATH`*] \[*`PATH`*]...
+
+## Mode Options:
+
+* **`    --init`** —
+  Initialize `.oxfmtrc.json` with default values
+* **`    --migrate`**=*`SOURCE`* —
+  Migrate configuration to `.oxfmtrc.json` from specified source Available sources: prettier
+* **`    --lsp`** —
+  Start language server protocol (LSP) server
+* **`    --stdin-filepath`**=*`PATH`* —
+  Specify the file name to use to infer which parser to use
+
+## Output Options:
+
+* **`    --write`** —
+  Format and write files in place (default)
+* **`    --check`** —
+  Check if files are formatted, also show statistics
+* **`    --list-different`** —
+  List files that would be changed
+
+## Config Options
+
+* **`-c`**, **`--config`**=*`PATH`* —
+  Path to the configuration file
+
+## Ignore Options
+
+* **`    --ignore-path`**=*`PATH`* —
+  Path to ignore file(s). Can be specified multiple times. If not specified, .gitignore and .prettierignore in the current directory are used.
+* **`    --with-node-modules`** —
+  Format code in node\_modules directory (skipped by default)
+
+## Runtime Options
+
+* **`    --no-error-on-unmatched-pattern`** —
+  Do not exit with error when pattern is unmatched
+* **`    --threads`**=*`INT`* —
+  Number of threads to use. Set to 1 for using only 1 CPU core.
+
+## Available positional items:
+
+* *`PATH`* —
+  Single file, single path or list of paths. If not provided, current working directory is used. Glob is supported only for exclude patterns like `'!**/fixtures/*.js'`.
+
+## Available options:
+
+* **`-h`**, **`--help`** —
+  Prints help information
+* **`-V`**, **`--version`** —
+  Prints version information
+
+---
+
+---
 url: /docs/guide/usage/linter/generated-cli.md
 ---
 
@@ -65443,67 +65512,6 @@ Arguments:
   Enable rules that require type information
 * **`    --type-check`** —
   Enable experimental type checking (includes TypeScript compiler diagnostics)
-* **`-h`**, **`--help`** —
-  Prints help information
-* **`-V`**, **`--version`** —
-  Prints version information
-
----
-
----
-url: /docs/guide/usage/formatter/generated-cli.md
----
-
-## Usage
-
-**`oxfmt`** \[**`-c`**=*`PATH`*] \[*`PATH`*]...
-
-## Mode Options:
-
-* **`    --init`** —
-  Initialize `.oxfmtrc.json` with default values
-* **`    --migrate`**=*`SOURCE`* —
-  Migrate configuration to `.oxfmtrc.json` from specified source Available sources: prettier
-* **`    --lsp`** —
-  Start language server protocol (LSP) server
-* **`    --stdin-filepath`**=*`PATH`* —
-  Specify the file name to use to infer which parser to use
-
-## Output Options:
-
-* **`    --write`** —
-  Format and write files in place (default)
-* **`    --check`** —
-  Check if files are formatted, also show statistics
-* **`    --list-different`** —
-  List files that would be changed
-
-## Config Options
-
-* **`-c`**, **`--config`**=*`PATH`* —
-  Path to the configuration file
-
-## Ignore Options
-
-* **`    --ignore-path`**=*`PATH`* —
-  Path to ignore file(s). Can be specified multiple times. If not specified, .gitignore and .prettierignore in the current directory are used.
-* **`    --with-node-modules`** —
-  Format code in node\_modules directory (skipped by default)
-
-## Runtime Options
-
-* **`    --no-error-on-unmatched-pattern`** —
-  Do not exit with error when pattern is unmatched
-* **`    --threads`**=*`INT`* —
-  Number of threads to use. Set to 1 for using only 1 CPU core.
-
-## Available positional items:
-
-* *`PATH`* —
-  Single file, single path or list of paths. If not provided, current working directory is used. Glob is supported only for exclude patterns like `'!**/fixtures/*.js'`.
-
-## Available options:
-
 * **`-h`**, **`--help`** —
   Prints help information
 * **`-V`**, **`--version`** —
