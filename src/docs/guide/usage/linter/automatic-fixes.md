@@ -5,7 +5,9 @@ description: Apply safe, suggested, and dangerous fixes with Oxlint.
 
 # Automatic fixes
 
-Oxlint can automatically fix some lint violations. Automatic fixes are not enabled by default. You choose when to apply them.
+Oxlint can automatically fix some lint violations. Automatic fixes are only applied when passing the relevant CLI flags. You choose when to apply them.
+
+In the code editor integrations (such as VS Code), automatic fixes are exposed as "code actions" that you can apply in-editor.
 
 ## Safe fixes
 
@@ -57,11 +59,11 @@ Not all rules provide fixes. Some rules support safe fixes, some provide suggest
 
 If a rule is missing a fixer, contributions are welcome.
 
-## Type aware linting and fixes
+## Type-aware linting and fixes
 
-Type aware linting requires building the project.
+[Type-aware linting](/docs/guide/usage/linter/type-aware) requires building the project.
 
-You can apply safe fixes with type aware linting enabled:
+You can apply safe fixes with type-aware linting enabled:
 
 ```bash
 oxlint --type-aware --fix

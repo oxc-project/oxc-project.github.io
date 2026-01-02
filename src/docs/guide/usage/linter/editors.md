@@ -10,7 +10,7 @@ See [Quickstart](./quickstart) to install and run Oxlint from the command line.
 
 ## Supported editors
 
-- [VS Code](#vs-code)
+- [VS Code](#vs-code) (and Cursor, etc.)
 - [Zed](#zed)
 - [JetBrains](#jetbrains)
 - [coc.nvim](#cocnvim)
@@ -25,7 +25,7 @@ Download the official Oxc VS Code extension from:
 - [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=oxc.oxc-vscode)
 - [Open VSX Registry](https://open-vsx.org/extension/oxc/oxc-vscode)
 
-The extension is also compatible with other VS Code-based editors, including Cursor.
+**The extension is compatible with other VS Code-based editors**, including Cursor.
 
 ### Use (recommended setup for teams)
 

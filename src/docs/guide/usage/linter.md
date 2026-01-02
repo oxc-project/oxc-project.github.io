@@ -18,44 +18,44 @@ Oxlint is built for large repositories and CI environments. Its architecture rem
 
 Our [benchmarks](https://github.com/oxc-project/bench-linter) show Oxlint is 50 to 100 times faster than ESLint.
 
-## Correctness focused defaults
+## Correctness-focused defaults
 
-Oxlint is useful out of the box. By default, it prioritizes high signal correctness checks. These checks surface code that is incorrect, unsafe, or useless, so teams can adopt Oxlint without excessive noise.
+Oxlint is useful out of the box. By default, it prioritizes high-signal correctness checks. These checks surface code that is incorrect, unsafe, or useless, so teams can adopt Oxlint without excessive noise.
 
 Additional rules can be enabled incrementally as requirements evolve.
 
 ## A large and growing rule set
 
-Oxlint includes more than 645 rules, with coverage across the ecosystems most teams already use, including:
+Oxlint includes [more than 645 rules](/docs/guide/usage/linter/rules.md), with coverage across the plugins most teams already use, including:
 
 - ESLint core rules
 - TypeScript rules
-- Popular plugins such as React, Jest, Unicorn, and JSX a11y
+- Popular plugins such as React, Jest, Unicorn, and jsx-a11y
 - Custom JS plugins compatible with the ESLint plugin ecosystem
 
 This breadth makes migration straightforward without sacrificing rule coverage.
 
 ## Type-aware linting
 
-Oxlint leverages the native Go port of the TypeScript compiler ([tsgo](https://github.com/microsoft/typescript-go)), providing full TypeScript compatibility and the same type system behavior you expect from TypeScript itself.
+Oxlint leverages the native Go port of the TypeScript compiler ([tsgo](https://github.com/microsoft/typescript-go) aka TypeScript 7), providing full TypeScript compatibility and the same type system behavior you expect from TypeScript itself.
 
 This enables mission critical checks that require types, such as detecting floating promises.
 
 In contrast, [Biome’s approach](https://biomejs.dev/blog/biome-v2) is to implement its own type inference instead of relying on the TypeScript compiler, and they note coverage is still improving.
 
-See: [Type aware linting](/docs/guide/usage/linter/type-aware.md)
+See: [Type-aware linting](/docs/guide/usage/linter/type-aware)
 
 ## Multi-file analysis
 
 Oxlint supports multi-file analysis as a first-class capability.
 
-When enabled, Oxlint builds a project-wide module graph and shares parsing and resolution across rules. This improves checks that depend on cross-file imports and helps avoid the performance cliff often seen with [`import/no-cycle`](https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-cycle.md) in ESLint.
+When enabled, Oxlint builds a project-wide module graph and shares parsing and resolution across rules. This improves checks that depend on cross-file imports and helps avoid the performance cliff often seen with rules like [`import/no-cycle`](https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-cycle.md) in ESLint.
 
 See: [Multi-file analysis](/docs/guide/usage/linter/multi-file-analysis.md)
 
-## AI friendly diagnostics
+## AI-friendly diagnostics
 
-Oxlint diagnostics are designed to be both human readable and machine actionable.
+Oxlint diagnostics are designed to be both human-readable and machine-actionable.
 
 In addition to clear messages, diagnostics include structured information such as precise spans and contextual data. This helps AI to understand issues and apply fixes reliably.
 
@@ -68,7 +68,7 @@ Performance regressions are treated as bugs.
 
 Stability and throughput are always prioritized, especially for CI and large monorepos.
 
-## Get started
+## Getting started
 
 The recommended setup is to install Oxlint as a dev dependency and add scripts.
 
@@ -99,10 +99,11 @@ Next steps:
 Choose the approach that fits your repository:
 
 - **Replace ESLint (recommended for most projects).** Use Oxlint as your primary linter.
+  - Use tooling such as [`@oxlint/migrate`](https://github.com/oxc-project/oxlint-migrate) to migrate your existing ESLint config.
 - **Migrate incrementally (recommended for large repos).** Run Oxlint first, then run ESLint with overlapping rules disabled. This keeps CI fast while you migrate.
-  <!-- - See [Migrate from ESLint](/docs/guide/usage/linter/migrate-from-eslint) for guidance and tooling such as [`oxlint-migrate`](https://github.com/oxc-project/oxlint-migrate). -->
-  - Use tooling such as [`oxlint-migrate`](https://github.com/oxc-project/oxlint-migrate).
+  <!-- TODO: - See [Migrate from ESLint](/docs/guide/usage/linter/migrate-from-eslint) for guidance and tooling such as [`oxlint-migrate`](https://github.com/oxc-project/oxlint-migrate). -->
   - Use [`eslint-plugin-oxlint`](https://www.npmjs.com/package/eslint-plugin-oxlint) to disable overlapping ESLint rules while running both.
+  - You can - and should - also use [`@oxlint/migrate`](https://github.com/oxc-project/oxlint-migrate) for this approach as well.
 
 ## What Oxlint supports
 
