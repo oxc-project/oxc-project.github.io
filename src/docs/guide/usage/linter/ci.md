@@ -1,5 +1,5 @@
 ---
-title: CI setup
+title: Setup CI
 description: Run Oxlint in CI.
 ---
 
