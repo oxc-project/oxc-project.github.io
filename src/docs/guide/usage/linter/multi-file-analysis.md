@@ -17,17 +17,7 @@ Oxlint implements multi-file analysis in the core engine. It lints files and bui
 ## Enable the `import` plugin
 
 To use multi-file analysis, you must enable the `import` plugin and configure at
-least one `import/*` rule.
-
-```jsonc
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["import"],
-  "rules": {
-    "import/no-cycle": "error", // or other import/* rules
-  },
-}
-```
+least one `import/*` rule. For an example, see the config file in the next section.
 
 ## Detect cycles with `import/no-cycle`
 
@@ -43,6 +33,7 @@ Import cycles:
 
 ```json [.oxlintrc.json]
 {
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
   "plugins": ["import"],
   "rules": {
     "import/no-cycle": ["error", { "maxDepth": 3 }]
