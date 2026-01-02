@@ -21,21 +21,22 @@ that's a bug - please [report it](https://github.com/oxc-project/oxc/issues/new?
 
 ## Using JS plugins
 
-1. Add path to the plugin to `.oxlintrc.json` config file, under `jsPlugins`.
+1. Add a path to the plugin to the `.oxlintrc.json` config file, under `jsPlugins`.
 2. Add rules from the plugin, under `rules`.
 
-Path can be any valid import specifier e.g. `./plugin.js` or `plugin-package`.
+The path can be any valid import specifier e.g. `./plugin.js`, `eslint-plugin-foo`, `@foo/eslint-plugin`.
 Paths are resolved relative to the config file itself.
 
 ```json
 // .oxlintrc.json
 {
-  "jsPlugins": ["./path/to/my-plugin.js", "eslint-plugin-whatever"],
+  "jsPlugins": ["./path/to/my-plugin.js", "eslint-plugin-whatever", "@foobar/eslint-plugin"],
   "rules": {
     "my-plugin/rule1": "error",
     "my-plugin/rule2": "warn",
     "whatever/rule1": "error",
-    "whatever/rule2": "warn"
+    "whatever/rule2": "warn",
+    "@foobar/rule1": "error"
   }
   // ... other config ...
 }
@@ -45,8 +46,8 @@ Paths are resolved relative to the config file itself.
 
 You can also define a different name (alias) for a plugin. This is useful if:
 
-- Plugin name clashes with name of a native Oxlint plugin.
-- Plugin name is very long.
+- The default plugin name clashes with name of a native Oxlint plugin (e.g. jsdoc, react, etc.).
+- The default plugin name is very long.
 - You want to use a plugin that Oxlint supports natively, but a specific rule you need is not yet implemented in Oxlint's native version.
 
 ```json
