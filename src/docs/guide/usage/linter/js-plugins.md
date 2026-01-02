@@ -373,13 +373,14 @@ Oxlint supports almost all of ESLint's API surface:
 - `SourceCode` tokens APIs (e.g. `context.sourceCode.getTokens(node)`).
 - Scope analysis.
 - Control flow analysis (code paths).
+- Inline disable directives. (`// oxlint-disable`)
 
 Not supported yet:
 
 - Language server (IDE) support + suggestions (so no in-editor diagnostics or quick-fixes yet).
 - Custom file formats and parsers (e.g. Svelte, Vue, Angular).
 
-ESLint APIs that were removed in ESLint v9 or earlier will not be implemented in most cases. If an ESLint plugin is unmaintained and was never updated to support ESLint v9, you may need to modify the plugin yourself or find an alternative.
+ESLint APIs that were removed in ESLint v9 or earlier will not be implemented in most cases. If an ESLint plugin is unmaintained and was never updated to upgrade their API usage for ESLint v9, you may need to modify the plugin yourself or find an alternative.
 
 We will be implementing the remaining features over the next few months, aiming to support 100% of ESLint's
 plugin API surface.
