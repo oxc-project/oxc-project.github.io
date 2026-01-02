@@ -24,7 +24,7 @@ that's a bug - please [report it](https://github.com/oxc-project/oxc/issues/new?
 1. Add a path to the plugin to the `.oxlintrc.json` config file, under `jsPlugins`.
 2. Add rules from the plugin, under `rules`.
 
-The path can be any valid import specifier e.g. `./plugin.js`, `eslint-plugin-foo`, `@foo/eslint-plugin`.
+The path can be any valid import specifier e.g. `./plugin.js`, `eslint-plugin-foo`, or `@foo/eslint-plugin`.
 Paths are resolved relative to the config file itself.
 
 ```json
