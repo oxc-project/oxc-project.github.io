@@ -93,6 +93,32 @@ $ bun add -D oxfmt
 
 :::
 
+## Configuration
+
+Add the following scripts to your `package.json`:
+
+```json
+{
+  "scripts": {
+    "format": "oxfmt",
+    "format:check": "oxfmt --check"
+  }
+}
+```
+
+## Usage
+
+**Apply formatting:**
+```bash
+pnpm run format
+```
+
+**Verify formatting:**
+Check for issues without modifying files.
+```bash
+pnpm run format:check
+```
+
 ## Command-line Interface
 
 `oxfmt` CLI works like `prettier --write .` by default.
