@@ -53,7 +53,7 @@ Add to `.vscode/settings.json`:
 
 3. Enable type-aware linting (optional).
 
-If you'd like to use type-aware rules and show type-related lint violations, ensure that `typeAware` is set to `true` as well:
+If you'd like to use type-aware rules and show type-related lint violations, ensure that `typeAware` is set to `true` in your VS Code settings (`.vscode/settings.json`):
 
 ```jsonc
 {
