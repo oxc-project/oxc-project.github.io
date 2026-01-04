@@ -42,7 +42,7 @@ Configuration files are not automatically merged. A config in a child directory 
 
 Command line options override configuration files, regardless of whether they come from a parent or child directory.
 
-Passing an explicitly config file location using `-c` or `--config` disables nested config lookup, and Oxlint will only use that single configuration file.
+Passing an explicit config file location using `-c` or `--config` disables nested config lookup, and Oxlint will only use that single configuration file.
 
 You can also disable nested configs with the `--disable-nested-configs` flag.
 
