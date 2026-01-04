@@ -136,8 +136,11 @@ oxlint --type-aware --report-unused-disable-directives
 Type-aware linting is powered by `typescript-go`.
 
 - TypeScript **7.0+** is required
-- Some legacy `tsconfig` options are not supported
+- Some legacy `tsconfig` options are not supported (like `baseUrl` in `tsconfig.json`)
+- If you're using config options/features that were deprecated in TypeScript 6.0 or removed in TypeScript 7.0, you'll need to migrate your codebase first
 - Invalid options are reported when `--type-check` is enabled
+
+See the [TypeScript migration guide](https://github.com/microsoft/TypeScript/issues/62508#issuecomment-3348649259) for more details, and consider using [ts5to6](https://github.com/andrewbranch/ts5to6) to upgrade your tsconfig file.
 
 ## Stability notes
 
