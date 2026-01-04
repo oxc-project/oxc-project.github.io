@@ -170,7 +170,7 @@ text {
   </clipPath>
   <image x="382.5" y="483" width="35" height="35" href="data:image/webp;base64,UklGRvoCAABXRUJQVlA4IO4CAACwDwCdASoyADIAPm0ukkWkIqGXDJY4QAbEswBgiB7IS84GLMMDbuYqT6m+86zK6W/ZJ4M6bxnbeAIQ76FkUMtx+0BpfneybGxhFvK7tWz0JfaAur9QS82rT57R1W3aUcMOWa/0u1tCCtQi+Vedv1OZeMmZKp5EVs+2oeUYP6x0qit/ym2W4AD+0LT1lKiEGqQsKAQmzYNh2oW5Yriv0+3xcwR7U9YeqVVYlkH5/G7nGqd2X8URBlJ/7XeoXeCvnjDMF6HbuuHIcz9XdjLKHeidFGujFF1pb2sLrlGgAaxCkpFIGRcG+O9prfv9WrcvsbikgQDlzCtZ1t9tv0OoQibXwKmAqsplqLWP2a1N+7lqKb1gW8ai0ypKo2hRvCnmbiY6kh8dKws9UkRA745Z7buTfNejdb2tlNP85zlpxMzsgSQCvkGkyaZfNHzkVvE+epUrH7fiS5rIkBZC8izSR4y1ZQUyq0c1JVWs8fLxU4L7YpTWqstR7a6c30VdtTptPwfTiX7Xw8cmtePC1HKZh6flJQ9u6THN6XZaYoR8GxRwhGvaD63CX0y89lutWFszOdCKj8/Rs+0iL70ELu59+smp3QA8qhvqYK00TcoJLZVcRaxlg/TpRIqmD2lLdm2RKs2NxkaCe0oKq1kQQw2qkJmovmpzPGNsIlmy/T2lOWiQpkb8BiLhkNu9axVYqtPae341gyiroJF6HXi0RCQHfsuKUNehIvkPP4rLhqf/9w2nMEKnmpPepPql1NkL49ErRVoXmUSp8CY6jRav5Y8YXbQKBREDMfgLETP8+xaqXOisBfwF7bVzlJ9xBxcH4X3bLQCAzVvwXL0V/QjLYHTL7XObt8uKsETkv/YqR5JldRRS3PhcCvlfzrCO9FsvpAH3bV0JdoWAx+zMxDX1gRioTaDq8v44xWFTBLwtH4SvyO/KpL4x7zOGR+8bfJh/sCQ+k0Pjh3mcqvlTsuso3LfMBDorfM0vDgBhk+OLkgAAAAA=" clip-path="url(#c67aa06)"/>
 </a>
-<a href="https://corp.ourplan.jp" class="sponsorkit-link" target="_blank" id="Kenzo-Wada">
+<a href="https://github.com/Kenzo-Wada" class="sponsorkit-link" target="_blank" id="Kenzo-Wada">
   
   <clipPath id="cd388e0">
     <rect x="420.5" y="483" width="35" height="35" rx="17.5" ry="17.5" />

@@ -1549,6 +1549,69 @@ import styled from "styled-components/primitives";
 ---
 
 ---
+url: /docs/guide/usage/formatter/cli.md
+---
+
+# Command-line Interface
+
+## Usage
+
+**`oxfmt`** \[**`-c`**=*`PATH`*] \[*`PATH`*]...
+
+## Mode Options:
+
+* **`    --init`** —
+  Initialize `.oxfmtrc.json` with default values
+* **`    --migrate`**=*`SOURCE`* —
+  Migrate configuration to `.oxfmtrc.json` from specified source Available sources: prettier
+* **`    --lsp`** —
+  Start language server protocol (LSP) server
+* **`    --stdin-filepath`**=*`PATH`* —
+  Specify the file name to use to infer which parser to use
+
+## Output Options:
+
+* **`    --write`** —
+  Format and write files in place (default)
+* **`    --check`** —
+  Check if files are formatted, also show statistics
+* **`    --list-different`** —
+  List files that would be changed
+
+## Config Options
+
+* **`-c`**, **`--config`**=*`PATH`* —
+  Path to the configuration file
+
+## Ignore Options
+
+* **`    --ignore-path`**=*`PATH`* —
+  Path to ignore file(s). Can be specified multiple times. If not specified, .gitignore and .prettierignore in the current directory are used.
+* **`    --with-node-modules`** —
+  Format code in node\_modules directory (skipped by default)
+
+## Runtime Options
+
+* **`    --no-error-on-unmatched-pattern`** —
+  Do not exit with error when pattern is unmatched
+* **`    --threads`**=*`INT`* —
+  Number of threads to use. Set to 1 for using only 1 CPU core.
+
+## Available positional items:
+
+* *`PATH`* —
+  Single file, single path or list of paths. If not provided, current working directory is used. Glob is supported only for exclude patterns like `'!**/fixtures/*.js'`.
+
+## Available options:
+
+* **`-h`**, **`--help`** —
+  Prints help information
+* **`-V`**, **`--version`** —
+  Prints version information
+
+---
+
+---
 url: /docs/guide/usage/linter/cli.md
 ---
 
@@ -1703,116 +1766,6 @@ Arguments:
   Prints help information
 * **`-V`**, **`--version`** —
   Prints version information
-
----
-
----
-url: /docs/guide/usage/formatter/cli.md
----
-
-# Command-line Interface
-
-## Usage
-
-**`oxfmt`** \[**`-c`**=*`PATH`*] \[*`PATH`*]...
-
-## Mode Options:
-
-* **`    --init`** —
-  Initialize `.oxfmtrc.json` with default values
-* **`    --migrate`**=*`SOURCE`* —
-  Migrate configuration to `.oxfmtrc.json` from specified source Available sources: prettier
-* **`    --lsp`** —
-  Start language server protocol (LSP) server
-* **`    --stdin-filepath`**=*`PATH`* —
-  Specify the file name to use to infer which parser to use
-
-## Output Options:
-
-* **`    --write`** —
-  Format and write files in place (default)
-* **`    --check`** —
-  Check if files are formatted, also show statistics
-* **`    --list-different`** —
-  List files that would be changed
-
-## Config Options
-
-* **`-c`**, **`--config`**=*`PATH`* —
-  Path to the configuration file
-
-## Ignore Options
-
-* **`    --ignore-path`**=*`PATH`* —
-  Path to ignore file(s). Can be specified multiple times. If not specified, .gitignore and .prettierignore in the current directory are used.
-* **`    --with-node-modules`** —
-  Format code in node\_modules directory (skipped by default)
-
-## Runtime Options
-
-* **`    --no-error-on-unmatched-pattern`** —
-  Do not exit with error when pattern is unmatched
-* **`    --threads`**=*`INT`* —
-  Number of threads to use. Set to 1 for using only 1 CPU core.
-
-## Available positional items:
-
-* *`PATH`* —
-  Single file, single path or list of paths. If not provided, current working directory is used. Glob is supported only for exclude patterns like `'!**/fixtures/*.js'`.
-
-## Available options:
-
-* **`-h`**, **`--help`** —
-  Prints help information
-* **`-V`**, **`--version`** —
-  Prints version information
-
----
-
----
-url: /docs/guide/usage/formatter/config.md
----
-# Configuration
-
-## `.oxfmtrc.json(c)`
-
-We support `.json` or `.jsonc` config file.
-
-Almost all formatting options are compatible with Prettier's [options](https://prettier.io/docs/options).
-
-We also recommend adding the `$schema` to the config file:
-
-```json
-{
-  "$schema": "./node_modules/oxfmt/configuration_schema.json"
-}
-```
-
-For full reference, see also [Configuration file reference](./config-file-reference).
-
-By default, `oxfmt` automatically tries to find the nearest `.oxfmtrc.json` or `.oxfmtrc.jsonc` file from the current working directory. If not found, the default configuration options are used.
-
-You can also specify your config file with the `-c yourconfig.jsonc` flag.
-
-## `.editorconfig`
-
-`.editorconfig` file is also supported by Oxfmt.
-
-And these fields will override default Oxfmt options.
-
-* `end_of_line`: `endOfLine`
-* `indent_style`: `useTabs`
-* `indent_size`: `tabWidth`
-* `max_line_length`: `printWidth`
-* `insert_final_newline`: `insertFinalNewline`
-
-If both `.editorconfig` and `.oxfmtrc.json` has the same field, `.oxfmtrc` will win.
-
-For those properties, glob path overrides also work.
-
-By default, `oxfmt` automatically tries to find the nearest `.editorconfig` file from the current working directory.
-
-Unlike Prettier, Oxfmt does not respect `root = true` and does not merge nested `.editorconfig` files.
 
 ---
 
@@ -2133,7 +2086,54 @@ Example (monorepo + React + jsx-a11y):
 ---
 
 ---
-url: /docs/guide/usage/formatter/config-file-reference.md
+url: /docs/guide/usage/formatter/config.md
+---
+# Configuration
+
+## `.oxfmtrc.json(c)`
+
+We support `.json` or `.jsonc` config file.
+
+Almost all formatting options are compatible with Prettier's [options](https://prettier.io/docs/options).
+
+We also recommend adding the `$schema` to the config file:
+
+```json
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json"
+}
+```
+
+For full reference, see also [Configuration file reference](./config-file-reference).
+
+By default, `oxfmt` automatically tries to find the nearest `.oxfmtrc.json` or `.oxfmtrc.jsonc` file from the current working directory. If not found, the default configuration options are used.
+
+You can also specify your config file with the `-c yourconfig.jsonc` flag.
+
+## `.editorconfig`
+
+`.editorconfig` file is also supported by Oxfmt.
+
+And these fields will override default Oxfmt options.
+
+* `end_of_line`: `endOfLine`
+* `indent_style`: `useTabs`
+* `indent_size`: `tabWidth`
+* `max_line_length`: `printWidth`
+* `insert_final_newline`: `insertFinalNewline`
+
+If both `.editorconfig` and `.oxfmtrc.json` has the same field, `.oxfmtrc` will win.
+
+For those properties, glob path overrides also work.
+
+By default, `oxfmt` automatically tries to find the nearest `.editorconfig` file from the current working directory.
+
+Unlike Prettier, Oxfmt does not respect `root = true` and does not merge nested `.editorconfig` files.
+
+---
+
+---
+url: /docs/guide/usage/formatter/generated-config.md
 ---
 
 # Configuration options for the Oxfmt.
@@ -2316,7 +2316,7 @@ Use tabs for indentation or spaces. (Default: `false`)
 ---
 
 ---
-url: /docs/guide/usage/formatter/generated-config.md
+url: /docs/guide/usage/formatter/config-file-reference.md
 ---
 
 # Configuration options for the Oxfmt.
@@ -46059,7 +46059,7 @@ See [https://crates.io/crates/oxc\_resolver][url-oxc-resolver-crate] and its doc
 ---
 
 ---
-url: /docs/guide/usage/linter/generated-rules.md
+url: /docs/guide/usage/linter/rules.md
 ---
 
 # Rules
@@ -46767,7 +46767,7 @@ New lints that are still under development.
 ---
 
 ---
-url: /docs/guide/usage/linter/rules.md
+url: /docs/guide/usage/linter/generated-rules.md
 ---
 
 # Rules
