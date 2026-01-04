@@ -17,7 +17,7 @@ To generate a starter config in the current directory:
 oxlint --init
 ```
 
-Oxlint automatically looks for a `.oxlintrc.json` in the current working directory. You can also pass a config explicitly:
+Oxlint automatically looks for a `.oxlintrc.json` in the current working directory. You can also pass a config explicitly (note that this will disable nested config lookup):
 
 ```sh
 oxlint -c ./oxlintrc.json
@@ -27,8 +27,8 @@ oxlint --config ./oxlintrc.json
 
 Notes:
 
-- Only `.json` config files are supported, and configuration files support comments (JSONC).
-- The configuration format aims to be compatible with ESLint v8 (`eslintrc.json`).
+- Only `.json` config files are supported, but oxlint configuration files support comments (like jsonc).
+- The configuration format aims to be compatible with ESLint v8's format (`eslintrc.json`).
 
 A minimal configuration looks like this:
 
@@ -102,7 +102,7 @@ To configure rule options, use an array:
 }
 ```
 
-All available rules are listed in the [Rules reference](/docs/guide/usage/linter/rules).
+All available rules - and their configuration options - are listed in the [Rules reference](/docs/guide/usage/linter/rules).
 
 ### Override severity from the CLI
 
@@ -176,18 +176,21 @@ For plugin details and CLI flags such as `--import-plugin`, see [Native Plugins]
 
 ## Configure JS plugins (experimental)
 
-Oxlint also supports JavaScript plugins via `jsPlugins`. This is intended for compatibility and advanced integrations.
+Oxlint also supports JavaScript plugins via `jsPlugins`. This is intended for compatibility with existing ESLint plugins and advanced integrations.
 
 Notes:
 
 - JS plugins are experimental and not subject to semver.
 - JS plugins are not supported in the language server at present.
 
-JS plugins can be declared as strings or as objects with an alias:
+JS plugins can be declared as strings, or as objects with an alias:
 
 ```jsonc
 {
-  "jsPlugins": [{ "name": "my-eslint-react", "specifier": "eslint-plugin-react" }],
+  "jsPlugins": [
+    "eslint-plugin-playwright",
+    { "name": "my-eslint-react", "specifier": "eslint-plugin-react" },
+  ],
 }
 ```
 
@@ -212,6 +215,7 @@ Example:
 
 ```jsonc
 {
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
   "rules": {
     "no-console": "error",
   },
