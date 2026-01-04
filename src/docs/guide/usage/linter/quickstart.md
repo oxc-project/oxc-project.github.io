@@ -154,7 +154,7 @@ Select an output format:
 oxlint -f json
 ```
 
-Available formats include: `default`, `json`, `unix`, `checkstyle`, `github`, `stylish`.
+Available formats include: `default`, `json`, `unix`, `checkstyle`, `github`, `gitlab`, `junit`, `stylish`.
 
 ### Inspect the effective configuration
 
