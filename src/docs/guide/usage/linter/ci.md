@@ -42,7 +42,7 @@ jobs:
 
 ## Git hooks
 
-## lint-staged
+### lint-staged
 
 For JS/TS projects using [lint-staged](https://github.com/lint-staged/lint-staged), you can set up oxlint to run pre-commit as follows:
 
