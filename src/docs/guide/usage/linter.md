@@ -9,6 +9,13 @@ badges:
 <script setup>
 import { data } from './rule-count.data.js';
 const ruleCount = data;
+// Subtract 1 and then round down to nearest 5 so we can say "More than 650 rules" when the number is 655, instead of saying "More than 655 rules" when that's incorrect.
+// Inputs and outputs:
+// 655 -> 650
+// 654 -> 650
+// 651 -> 650
+// 656 -> 655
+const ruleCountRounded = Math.floor((data - 1) / 5) * 5;
 </script>
 
 # Oxlint
@@ -31,7 +38,7 @@ Additional rules can be enabled incrementally as requirements evolve.
 
 ## A large and growing rule set
 
-Oxlint includes [{{ ruleCount }} rules](/docs/guide/usage/linter/rules.md), with coverage across the plugins most teams already use, including:
+Oxlint includes [more than {{ ruleCountRounded }} rules](/docs/guide/usage/linter/rules.md), with coverage across the plugins most teams already use, including:
 
 - ESLint core rules
 - TypeScript rules
