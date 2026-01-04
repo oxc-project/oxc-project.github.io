@@ -118,12 +118,6 @@ Disable ignore handling:
 oxlint --no-ignore
 ```
 
-Follow symlinks (Oxlint ignores symlinks by default):
-
-```sh
-oxlint --symlinks
-```
-
 See [Ignore files](/docs/guide/usage/linter/ignore-files).
 
 ### Fail CI reliably
@@ -168,7 +162,7 @@ oxlint --print-config path/to/file.ts
 
 ### List available rules
 
-List registered rules:
+List registered rules, including those enabled by your current oxlint config:
 
 ```sh
 oxlint --rules
