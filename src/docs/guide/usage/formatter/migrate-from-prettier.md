@@ -6,7 +6,7 @@ Note that Oxfmt is in alpha, and may not be suitable for production use in compl
 
 ## Quick Start
 
-For simpler setups, you can migrate to Oxfmt with a single line:
+For simpler setups, you can migrate to Oxfmt with a single line in your terminal:
 
 ::: code-group
 
