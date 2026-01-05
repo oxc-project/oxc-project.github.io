@@ -119,7 +119,7 @@ Check for issues without modifying files.
 pnpm run format:check
 ```
 
-### Command-line Interface
+## Command-line Interface
 
 `oxfmt` CLI works like `prettier --write .` by default.
 
