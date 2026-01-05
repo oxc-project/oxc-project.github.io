@@ -45,7 +45,7 @@ bun add -D oxlint-tsgolint@latest
 
 ## Running type-aware linting
 
-Enable type-aware linting with the `--type-aware` flag:
+To run Oxlint with type-aware linting, you must pass the `--type-aware` flag:
 
 ```bash
 oxlint --type-aware
@@ -54,6 +54,8 @@ oxlint --type-aware
 When enabled, Oxlint runs standard rules and type-aware rules in the `typescript/*` namespace.
 
 Type-aware linting is opt-in and does not run unless the flag is provided.
+
+In editor and LSP-based integrations like VS Code, type-aware linting can be enabled by setting the `typeAware` option to `true`, see the [Editors](./editors) page for more information.
 
 ### Monorepos and build outputs
 
@@ -134,8 +136,11 @@ oxlint --type-aware --report-unused-disable-directives
 Type-aware linting is powered by `typescript-go`.
 
 - TypeScript **7.0+** is required
-- Some legacy `tsconfig` options are not supported
+- Some legacy `tsconfig` options are not supported (like `baseUrl` in `tsconfig.json`)
+- If you're using config options/features that were deprecated in TypeScript 6.0 or removed in TypeScript 7.0, you'll need to migrate your codebase first
 - Invalid options are reported when `--type-check` is enabled
+
+See the [TypeScript migration guide](https://github.com/microsoft/TypeScript/issues/62508#issuecomment-3348649259) for more details, and consider using [ts5to6](https://github.com/andrewbranch/ts5to6) to upgrade your tsconfig file.
 
 ## Stability notes
 
@@ -145,7 +150,9 @@ Type-aware linting is **alpha**:
 - Very large codebases may encounter high memory usage
 - Performance continues to improve
 
-## Performance and debugging
+## Troubleshooting
+
+### Performance and debugging
 
 If type-aware linting is slow or uses excessive memory:
 
@@ -163,20 +170,20 @@ OXC_LOG=debug oxlint --type-aware
 Example output (showing key timing milestones):
 
 ```
-2025/01/01 12:00:00.000000 Starting tsgolint
-2025/01/01 12:00:00.001000 Starting to assign files to programs. Total files: 259
-2025/01/01 12:00:01.000000 Done assigning files to programs. Total programs: 8. Unmatched files: 75
-2025/01/01 12:00:01.001000 Starting linter with 12 workers
-2025/01/01 12:00:01.001000 Workload distribution: 8 programs
-2025/01/01 12:00:01.002000 [1/8] Running linter on program: /path/to/project/jsconfig.json
+2026/01/01 12:00:00.000000 Starting tsgolint
+2026/01/01 12:00:00.001000 Starting to assign files to programs. Total files: 259
+2026/01/01 12:00:01.000000 Done assigning files to programs. Total programs: 8. Unmatched files: 75
+2026/01/01 12:00:01.001000 Starting linter with 12 workers
+2026/01/01 12:00:01.001000 Workload distribution: 8 programs
+2026/01/01 12:00:01.002000 [1/8] Running linter on program: /path/to/project/jsconfig.json
 ...
-2025/01/01 12:00:01.100000 [4/8] Running linter on program: /path/to/project/tsconfig.json
-2025/01/01 12:00:02.500000 Program created with 26140 source files
-2025/01/01 12:00:14.000000 /path/to/project/oxlint-plugin.mts
+2026/01/01 12:00:01.100000 [4/8] Running linter on program: /path/to/project/tsconfig.json
+2026/01/01 12:00:02.500000 Program created with 26140 source files
+2026/01/01 12:00:14.000000 /path/to/project/oxlint-plugin.mts
 ...
-2025/01/01 12:00:14.100000 [5/8] Running linter on program: /path/to/project/apps/tsconfig.json
+2026/01/01 12:00:14.100000 [5/8] Running linter on program: /path/to/project/apps/tsconfig.json
 ...
-2025/01/01 12:00:15.000000 Linting Complete
+2026/01/01 12:00:15.000000 Linting Complete
 Finished in 16.4s on 259 files with 161 rules using 12 threads.
 ```
 

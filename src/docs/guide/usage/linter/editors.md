@@ -39,7 +39,7 @@ Create `.vscode/extensions.json`:
 }
 ```
 
-2. Enable fix on save (optional).
+2. Enable fix-on-save (optional).
 
 Add to `.vscode/settings.json`:
 
@@ -50,6 +50,18 @@ Add to `.vscode/settings.json`:
   },
 }
 ```
+
+3. Enable type-aware linting (optional).
+
+If you'd like to use type-aware rules and show type-related lint violations, ensure that `typeAware` is set to `true` in your VS Code settings (`.vscode/settings.json`):
+
+```jsonc
+{
+  "oxc.typeAware": true,
+}
+```
+
+You also need to ensure `oxlint-tsgolint` is installed in your project. See [the type-aware linting docs](/docs/guide/usage/linter/type-aware) for more details.
 
 ### Usage and configuration reference
 

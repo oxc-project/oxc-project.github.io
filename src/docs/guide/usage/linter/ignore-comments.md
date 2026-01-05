@@ -11,17 +11,17 @@ Oxlint supports line comments (`//`) and block comments (`/* */`). Comments must
 
 ## oxlint-disable
 
-Disable one or more rules until the end of the file, or until they are re enabled.
+Disable one or more rules until the end of the file, or until they are re-enabled.
 
 ```js
-// Disable Oxlint for the rest of the file
+// Disable all Oxlint rules for the rest of the file
 /* oxlint-disable */
 
 // Disable a single rule in this file
 /* oxlint-disable no-console */
 
 // Disable multiple rules in this file
-/* oxlint-disable no-console, no-alert */
+/* oxlint-disable no-console, typescript/no-floating-promises */
 ```
 
 ## oxlint-enable
@@ -44,17 +44,9 @@ console.log("Hello, world!"); // oxlint-disable-line no-console
 console.log(x++); // oxlint-disable-line no-console, no-plusplus
 ```
 
-## oxlint-enable-line
-
-Enable one or more rules on the current line.
-
-```js
-// oxlint-enable-line no-console
-```
-
 ## oxlint-disable-next-line
 
-Disable one or more rules on the line following the comment, then re enable them automatically.
+Disable one or more rules on the line following the comment, then re-enables them for subsequent lines.
 
 ```js
 // oxlint-disable-next-line no-console
@@ -63,14 +55,6 @@ console.log(x++); // not allowed because the previous comment only applied to th
 
 // oxlint-disable-next-line no-console, no-plusplus
 console.log("Hello, world!"); // allowed
-```
-
-## oxlint-enable-next-line
-
-Enable one or more rules on the line following the comment, then re enable automatically.
-
-```js
-// oxlint-enable-next-line no-console
 ```
 
 ## ESLint compatibility
