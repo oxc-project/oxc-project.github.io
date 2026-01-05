@@ -12,7 +12,7 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 ### What it does
 
-Enforce onMouseOver/onMouseOut are accompanied by onFocus/onBlur.
+Enforce `onMouseOver`/`onMouseOut` are accompanied by `onFocus`/`onBlur`.
 
 ### Why is this bad?
 
