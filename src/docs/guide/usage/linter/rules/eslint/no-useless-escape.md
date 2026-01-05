@@ -31,8 +31,6 @@ This applies to string literals, template literals, and regular expressions.
 Examples of **incorrect** code for this rule:
 
 ```javascript
-/*eslint no-useless-escape: "error"*/
-
 "\'";
 '\"';
 "\#";
@@ -49,8 +47,6 @@ Examples of **incorrect** code for this rule:
 Examples of **correct** code for this rule:
 
 ```javascript
-/*eslint no-useless-escape: "error"*/
-
 "\"";
 '\'';
 "\x12";
@@ -79,6 +75,9 @@ type: `string[]`
 default: `[]`
 
 An array of characters that are allowed to be escaped unnecessarily in regexes.
+For example, setting this to `["#"]` allows `\#` in regexes.
+
+Each string in this array must be a single character.
 
 ## How to use
 

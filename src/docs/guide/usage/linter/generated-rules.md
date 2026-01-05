@@ -6,8 +6,9 @@ search: false
 
 The progress of all rule implementations is tracked [here](https://github.com/oxc-project/oxc/issues/481).
 
-- Total number of rules: 645
+- Total number of rules: 652
 - Rules turned on by default: 104
+- Rules with fixes available: 199
 
 **Legend for 'Fixable?' column:**
 
@@ -17,7 +18,7 @@ The progress of all rule implementations is tracked [here](https://github.com/ox
 - ⚠️💡: a dangerous suggestion is available for this rule
 - 🚧: an auto-fix or suggestion is possible, but currently not implemented
 
-## Correctness (201):
+## Correctness (206):
 
 Code that is outright wrong or useless.
 | Rule name | Source | Default | Fixable? |
@@ -120,6 +121,7 @@ Code that is outright wrong or useless.
 | [no-distracting-elements](/docs/guide/usage/linter/rules/jsx_a11y/no-distracting-elements.html) | jsx_a11y | | |
 | [no-noninteractive-tabindex](/docs/guide/usage/linter/rules/jsx_a11y/no-noninteractive-tabindex.html) | jsx_a11y | | |
 | [no-redundant-roles](/docs/guide/usage/linter/rules/jsx_a11y/no-redundant-roles.html) | jsx_a11y | | 🛠️ |
+| [no-static-element-interactions](/docs/guide/usage/linter/rules/jsx_a11y/no-static-element-interactions.html) | jsx_a11y | | |
 | [prefer-tag-over-role](/docs/guide/usage/linter/rules/jsx_a11y/prefer-tag-over-role.html) | jsx_a11y | | |
 | [role-has-required-aria-props](/docs/guide/usage/linter/rules/jsx_a11y/role-has-required-aria-props.html) | jsx_a11y | | |
 | [role-supports-aria-props](/docs/guide/usage/linter/rules/jsx_a11y/role-supports-aria-props.html) | jsx_a11y | | |
@@ -176,7 +178,9 @@ Code that is outright wrong or useless.
 | [no-is-mounted](/docs/guide/usage/linter/rules/react/no-is-mounted.html) | react | | |
 | [no-render-return-value](/docs/guide/usage/linter/rules/react/no-render-return-value.html) | react | | |
 | [no-string-refs](/docs/guide/usage/linter/rules/react/no-string-refs.html) | react | | |
+| [no-this-in-sfc](/docs/guide/usage/linter/rules/react/no-this-in-sfc.html) | react | | |
 | [no-unsafe](/docs/guide/usage/linter/rules/react/no-unsafe.html) | react | | |
+| [no-will-update-set-state](/docs/guide/usage/linter/rules/react/no-will-update-set-state.html) | react | | |
 | [void-dom-elements-no-children](/docs/guide/usage/linter/rules/react/void-dom-elements-no-children.html) | react | | |
 | [await-thenable](/docs/guide/usage/linter/rules/typescript/await-thenable.html) | typescript | ✅ | 🚧 |
 | [no-array-delete](/docs/guide/usage/linter/rules/typescript/no-array-delete.html) | typescript | ✅ | 🚧 |
@@ -218,8 +222,10 @@ Code that is outright wrong or useless.
 | [prefer-string-starts-ends-with](/docs/guide/usage/linter/rules/unicorn/prefer-string-starts-ends-with.html) | unicorn | ✅ | 🛠️ |
 | [no-conditional-tests](/docs/guide/usage/linter/rules/vitest/no-conditional-tests.html) | vitest | | |
 | [require-local-test-context-for-concurrent-snapshots](/docs/guide/usage/linter/rules/vitest/require-local-test-context-for-concurrent-snapshots.html) | vitest | | 🚧 |
+| [warn-todo](/docs/guide/usage/linter/rules/vitest/warn-todo.html) | vitest | | |
 | [no-deprecated-destroyed-lifecycle](/docs/guide/usage/linter/rules/vue/no-deprecated-destroyed-lifecycle.html) | vue | | 🛠️ |
 | [no-export-in-script-setup](/docs/guide/usage/linter/rules/vue/no-export-in-script-setup.html) | vue | | |
+| [no-this-in-before-route-enter](/docs/guide/usage/linter/rules/vue/no-this-in-before-route-enter.html) | vue | | |
 | [prefer-import-from-vue](/docs/guide/usage/linter/rules/vue/prefer-import-from-vue.html) | vue | | 🛠️ |
 | [valid-define-emits](/docs/guide/usage/linter/rules/vue/valid-define-emits.html) | vue | | 🚧 |
 | [valid-define-props](/docs/guide/usage/linter/rules/vue/valid-define-props.html) | vue | | 🚧 |
@@ -242,12 +248,13 @@ Code that can be written to run faster.
 | [prefer-array-flat-map](/docs/guide/usage/linter/rules/unicorn/prefer-array-flat-map.html) | unicorn | | 🛠️ |
 | [prefer-set-has](/docs/guide/usage/linter/rules/unicorn/prefer-set-has.html) | unicorn | | ⚠️🛠️️ |
 
-## Restriction (80):
+## Restriction (81):
 
 Lints which prevent the use of language and library features. Must not be enabled as a whole, should be considered on a case-by-case basis before enabling.
 | Rule name | Source | Default | Fixable? |
 | --------------------------------------- | ---------- | ------- | -------- |
 | [class-methods-use-this](/docs/guide/usage/linter/rules/eslint/class-methods-use-this.html) | eslint | | |
+| [complexity](/docs/guide/usage/linter/rules/eslint/complexity.html) | eslint | | |
 | [default-case](/docs/guide/usage/linter/rules/eslint/default-case.html) | eslint | | |
 | [no-alert](/docs/guide/usage/linter/rules/eslint/no-alert.html) | eslint | | |
 | [no-bitwise](/docs/guide/usage/linter/rules/eslint/no-bitwise.html) | eslint | | |
@@ -501,7 +508,7 @@ Lints which are rather strict or have occasional false positives.
 | [prefer-type-error](/docs/guide/usage/linter/rules/unicorn/prefer-type-error.html) | unicorn | | 🛠️ |
 | [require-number-to-fixed-digits-argument](/docs/guide/usage/linter/rules/unicorn/require-number-to-fixed-digits-argument.html) | unicorn | | 🛠️ |
 
-## Style (182):
+## Style (183):
 
 Code that should be written in a more idiomatic way.
 | Rule name | Source | Default | Fixable? |
@@ -539,7 +546,7 @@ Code that should be written in a more idiomatic way.
 | [no-useless-computed-key](/docs/guide/usage/linter/rules/eslint/no-useless-computed-key.html) | eslint | | 🚧 |
 | [operator-assignment](/docs/guide/usage/linter/rules/eslint/operator-assignment.html) | eslint | | ⚠️🛠️️ |
 | [prefer-destructuring](/docs/guide/usage/linter/rules/eslint/prefer-destructuring.html) | eslint | | 🛠️ |
-| [prefer-exponentiation-operator](/docs/guide/usage/linter/rules/eslint/prefer-exponentiation-operator.html) | eslint | | |
+| [prefer-exponentiation-operator](/docs/guide/usage/linter/rules/eslint/prefer-exponentiation-operator.html) | eslint | | 🚧 |
 | [prefer-numeric-literals](/docs/guide/usage/linter/rules/eslint/prefer-numeric-literals.html) | eslint | | 🛠️ |
 | [prefer-object-has-own](/docs/guide/usage/linter/rules/eslint/prefer-object-has-own.html) | eslint | | 🛠️ |
 | [prefer-object-spread](/docs/guide/usage/linter/rules/eslint/prefer-object-spread.html) | eslint | | 🛠️ |
@@ -668,7 +675,7 @@ Code that should be written in a more idiomatic way.
 | [prefer-object-from-entries](/docs/guide/usage/linter/rules/unicorn/prefer-object-from-entries.html) | unicorn | | 🚧 |
 | [prefer-optional-catch-binding](/docs/guide/usage/linter/rules/unicorn/prefer-optional-catch-binding.html) | unicorn | | 🛠️ |
 | [prefer-reflect-apply](/docs/guide/usage/linter/rules/unicorn/prefer-reflect-apply.html) | unicorn | | |
-| [prefer-response-static-json](/docs/guide/usage/linter/rules/unicorn/prefer-response-static-json.html) | unicorn | | 🚧 |
+| [prefer-response-static-json](/docs/guide/usage/linter/rules/unicorn/prefer-response-static-json.html) | unicorn | | 💡 |
 | [prefer-spread](/docs/guide/usage/linter/rules/unicorn/prefer-spread.html) | unicorn | | 🛠️ |
 | [prefer-string-raw](/docs/guide/usage/linter/rules/unicorn/prefer-string-raw.html) | unicorn | | 🛠️ |
 | [prefer-string-trim-start-end](/docs/guide/usage/linter/rules/unicorn/prefer-string-trim-start-end.html) | unicorn | | 🛠️ |
@@ -679,6 +686,7 @@ Code that should be written in a more idiomatic way.
 | [text-encoding-identifier-case](/docs/guide/usage/linter/rules/unicorn/text-encoding-identifier-case.html) | unicorn | | 🛠️ |
 | [throw-new-error](/docs/guide/usage/linter/rules/unicorn/throw-new-error.html) | unicorn | | 🛠️ |
 | [consistent-test-filename](/docs/guide/usage/linter/rules/vitest/consistent-test-filename.html) | vitest | | |
+| [consistent-vitest-vi](/docs/guide/usage/linter/rules/vitest/consistent-vitest-vi.html) | vitest | | 🛠️ |
 | [no-import-node-test](/docs/guide/usage/linter/rules/vitest/no-import-node-test.html) | vitest | | 🛠️ |
 | [prefer-called-times](/docs/guide/usage/linter/rules/vitest/prefer-called-times.html) | vitest | | 🛠️ |
 | [prefer-to-be-falsy](/docs/guide/usage/linter/rules/vitest/prefer-to-be-falsy.html) | vitest | | 🛠️ |

@@ -10,7 +10,7 @@ See [Quickstart](./quickstart) to install and run Oxlint from the command line.
 
 ## Supported editors
 
-- [VS Code](#vs-code)
+- [VS Code](#vs-code) (and Cursor, etc.)
 - [Zed](#zed)
 - [JetBrains](#jetbrains)
 - [coc.nvim](#cocnvim)
@@ -25,7 +25,7 @@ Download the official Oxc VS Code extension from:
 - [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=oxc.oxc-vscode)
 - [Open VSX Registry](https://open-vsx.org/extension/oxc/oxc-vscode)
 
-The extension is also compatible with other VS Code-based editors, including Cursor.
+**The extension is compatible with other VS Code-based editors**, including Cursor.
 
 ### Use (recommended setup for teams)
 
@@ -39,7 +39,7 @@ Create `.vscode/extensions.json`:
 }
 ```
 
-2. Enable fix on save (optional).
+2. Enable fix-on-save (optional).
 
 Add to `.vscode/settings.json`:
 
@@ -50,6 +50,18 @@ Add to `.vscode/settings.json`:
   },
 }
 ```
+
+3. Enable type-aware linting (optional).
+
+If you'd like to use type-aware rules and show type-related lint violations, ensure that `typeAware` is set to `true` in your VS Code settings (`.vscode/settings.json`):
+
+```jsonc
+{
+  "oxc.typeAware": true,
+}
+```
+
+You also need to ensure `oxlint-tsgolint` is installed in your project. See [the type-aware linting docs](/docs/guide/usage/linter/type-aware) for more details.
 
 ### Usage and configuration reference
 
