@@ -107,4 +107,4 @@ For the current status of rule coverage, see the linter [product plan issue](htt
 
 Oxlint focuses on supporting the ecosystem through built-in plugins and ESLint-compatible JavaScript plugins. [Contributions that add rules](/docs/contribute/linter/adding-rules) to existing built-in plugins are encouraged.
 
-If you think a rule set should be implemented as a built-in plugin, please open a GitHub discussion first.
+If you think a rule set should be implemented as a built-in plugin, please [open a GitHub discussion](https://github.com/oxc-project/oxc/discussions/new?category=feature-request) first.
