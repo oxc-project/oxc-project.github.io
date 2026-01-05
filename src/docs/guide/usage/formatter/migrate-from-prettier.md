@@ -6,7 +6,7 @@ Note that Oxfmt is in alpha, and may not be suitable for production use in compl
 
 ## Quick Start
 
-For simpler setups, you can use these commands to immediately migrate to Oxfmt and format your codebase:
+For simpler setups, you can migrate to Oxfmt with a single line:
 
 ::: code-group
 
