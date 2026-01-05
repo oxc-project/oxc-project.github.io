@@ -31,6 +31,7 @@ myPromise.then(doSomething).catch(errors);
 function doSomethingElse() {
   return myPromise.then(doSomething);
 }
+const arrowFunc = () => myPromise.then(doSomething);
 ```
 
 ## Configuration

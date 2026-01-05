@@ -104,6 +104,14 @@ Supports four types of specifiers:
 { "from": "package", "name": ["Observable", "Subject"], "package": "rxjs" }
 ```
 
+### allowRethrowing
+
+type: `boolean`
+
+default: `true`
+
+Whether to allow rethrowing caught values that are not Error objects.
+
 ### allowThrowingAny
 
 type: `boolean`

@@ -5,7 +5,7 @@ url: /docs/guide/usage/linter/rules/jsx_a11y/mouse-events-have-key-events.md
 
 ### What it does
 
-Enforce onMouseOver/onMouseOut are accompanied by onFocus/onBlur.
+Enforce `onMouseOver`/`onMouseOut` are accompanied by `onFocus`/`onBlur`.
 
 ### Why is this bad?
 

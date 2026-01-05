@@ -3,19 +3,30 @@ url: /docs/guide/usage/linter/rules/react/jsx-curly-brace-presence.md
 ---
 # react/jsx-curly-brace-presence&#x20;
 
+### What it does
+
 Disallow unnecessary JSX expressions when literals alone are
 sufficient or enforce JSX expressions on literals in JSX children or
-attributes (`react/jsx-curly-brace-presence`)
+attributes.
 
 This rule allows you to enforce curly braces or disallow unnecessary
 curly braces in JSX props and/or children.
 
 For situations where JSX expressions are unnecessary, please refer to
-[the React doc](https://facebook.github.io/react/docs/jsx-in-depth.html)
+[the React doc](https://react.dev/learn/writing-markup-with-jsx)
 and [this page about JSX
 gotchas](https://github.com/facebook/react/blob/v15.4.0-rc.3/docs/docs/02.3-jsx-gotchas.md#html-entities).
 
-## Rule Details
+### Why is this bad?
+
+Using different styles for your JSX code can make it harder to read and
+less consistent.
+
+Code consistency improves readability. By enforcing or disallowing
+curly braces in JSX props and/or children, this rule helps maintain
+consistent patterns across your application.
+
+### Rule Details
 
 By default, this rule will check for and warn about unnecessary curly
 braces in both JSX props and children. For the sake of backwards
@@ -32,30 +43,27 @@ an object, and that you set "propElementValues" to "always". The ability
 to omit curly braces around prop values that are JSX elements is
 obscure, and intentionally undocumented, and should not be relied upon.
 
-## Rule Options
+#### Example Configurations
 
-```js
-...
-"react/jsx-curly-brace-presence": [<enabled>, { "props": <string>, "children": <string>, "propElementValues": <string> }]
-...
+```jsonc
+{
+  "rules": {
+    "react/jsx-curly-brace-presence": ["error", { "props": <string>, "children": <string>, "propElementValues": <string> }]
+  }
+}
 ```
 
 or alternatively
 
-```js
-...
-"react/jsx-curly-brace-presence": [<enabled>, <string>]
-...
+```jsonc
+{
+  "rules": {
+    "react/jsx-curly-brace-presence": ["error", "always"], // or "never" or "ignore"
+  },
+}
 ```
 
-### Valid options for `<string>`
-
-They are `always`, `never` and `ignore` for checking on JSX props and
-children.
-
-* `always`: always enforce curly braces inside JSX props, children, and/or JSX prop values that are JSX Elements
-* `never`: never allow unnecessary curly braces inside JSX props, children, and/or JSX prop values that are JSX Elements
-* `ignore`: ignore the rule for JSX props, children, and/or JSX prop values that are JSX Elements
+### Fix Details
 
 If passed in the option to fix, this is how a style violation will get fixed
 
@@ -65,7 +73,7 @@ If passed in the option to fix, this is how a style violation will get fixed
 
 * All fixing operations use double quotes.
 
-For examples:
+### Examples
 
 Examples of **incorrect** code for this rule, when configured with `{ props: "always", children: "always" }`:
 
@@ -119,15 +127,6 @@ They can be fixed to:
 <App prop=<div /> />
 ```
 
-### Alternative syntax
-
-The options are also `always`, `never`, and `ignore` for the same meanings.
-
-In this syntax, only a string is provided and the default will be set to
-that option for checking on both JSX props and children.
-
-For examples:
-
 Examples of **incorrect** code for this rule, when configured with `"always"`:
 
 ```jsx
@@ -162,7 +161,7 @@ It can fixed to:
 </App>
 ```
 
-## Edge cases
+### Edge cases
 
 The fix also deals with template literals, strings with quotes, and
 strings with escapes characters.
@@ -220,7 +219,7 @@ Examples of **correct** code for this rule, even when configured with `"never"`:
 <App>{/* comment */ <Bpp />}</App> // the comment makes the container necessary
 ```
 
-## When Not To Use It
+### When Not To Use It
 
 You should turn this rule off if you are not concerned about maintaining
 consistency regarding the use of curly braces in JSX props and/or
@@ -236,17 +235,39 @@ type: `"always" | "never" | "ignore"`
 
 default: `"never"`
 
+Whether to enforce or disallow curly braces for child content of a JSX element.
+
+* `never` will disallow unnecessary curly braces, e.g. this will be preferred: `<Foo>I love oxlint</Foo>`
+* `always` will force the usage of curly braces like this, in all cases: `<Foo>{'I love oxlint'}</Foo>`
+* `ignore` will allow either style for child content.
+
 ### propElementValues
 
 type: `"always" | "never" | "ignore"`
 
 default: `"ignore"`
 
+When set to `ignore` or `never`, this JSX code is allowed (or enforced):
+`<App prop=<div /> />;`
+
+When set to `always`, the curly braces are required for prop values that are
+JSX elements: `<App prop={<div />} />;`
+
+**Note**: it is *highly* recommended that you set `propElementValues` to `always`.
+The ability to omit curly braces around prop values that are JSX elements is obscure, and
+intentionally undocumented, and should not be relied upon.
+
 ### props
 
 type: `"always" | "never" | "ignore"`
 
 default: `"never"`
+
+Whether to enforce or disallow curly braces for props on JSX elements.
+
+* `never` will disallow unnecessary curly braces, e.g. this will be preferred: `<Foo foo="bar" />`
+* `always` will force the usage of curly braces like this, in all cases: `<Foo foo={'bar'} />`
+* `ignore` will allow either style for prop values.
 
 ## How to use
 

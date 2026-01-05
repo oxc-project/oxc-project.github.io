@@ -39,12 +39,6 @@ const Component = () => (
 );
 ```
 
-### Options
-
-`react/jsx-max-depth: [<enabled>, { "max": <number> }]`
-
-The `max` option defaults to `2`.
-
 ## Configuration
 
 This rule accepts a configuration object with the following properties:

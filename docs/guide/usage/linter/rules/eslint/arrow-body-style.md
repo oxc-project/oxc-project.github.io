@@ -48,7 +48,7 @@ Example configuration:
 
 ### Examples
 
-#### `"never"` (default)
+#### `"never"`
 
 Examples of **incorrect** code for this rule with the `never` option:
 
@@ -93,7 +93,7 @@ const foo = () => {
 };
 ```
 
-#### `"as-needed"`
+#### `"as-needed"` (default)
 
 Examples of **incorrect** code for this rule with the `as-needed` option:
 

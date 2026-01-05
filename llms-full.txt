@@ -1770,53 +1770,6 @@ Arguments:
 ---
 
 ---
-url: /docs/guide/usage/formatter/config.md
----
-# Configuration
-
-## `.oxfmtrc.json(c)`
-
-We support `.json` or `.jsonc` config file.
-
-Almost all formatting options are compatible with Prettier's [options](https://prettier.io/docs/options).
-
-We also recommend adding the `$schema` to the config file:
-
-```json
-{
-  "$schema": "./node_modules/oxfmt/configuration_schema.json"
-}
-```
-
-For full reference, see also [Configuration file reference](./config-file-reference).
-
-By default, `oxfmt` automatically tries to find the nearest `.oxfmtrc.json` or `.oxfmtrc.jsonc` file from the current working directory. If not found, the default configuration options are used.
-
-You can also specify your config file with the `-c yourconfig.jsonc` flag.
-
-## `.editorconfig`
-
-`.editorconfig` file is also supported by Oxfmt.
-
-And these fields will override default Oxfmt options.
-
-* `end_of_line`: `endOfLine`
-* `indent_style`: `useTabs`
-* `indent_size`: `tabWidth`
-* `max_line_length`: `printWidth`
-* `insert_final_newline`: `insertFinalNewline`
-
-If both `.editorconfig` and `.oxfmtrc.json` has the same field, `.oxfmtrc` will win.
-
-For those properties, glob path overrides also work.
-
-By default, `oxfmt` automatically tries to find the nearest `.editorconfig` file from the current working directory.
-
-Unlike Prettier, Oxfmt does not respect `root = true` and does not merge nested `.editorconfig` files.
-
----
-
----
 url: /docs/guide/usage/linter/config.md
 description: Configure Oxlint using a .oxlintrc.json file.
 ---
@@ -2133,7 +2086,54 @@ Example (monorepo + React + jsx-a11y):
 ---
 
 ---
-url: /docs/guide/usage/formatter/generated-config.md
+url: /docs/guide/usage/formatter/config.md
+---
+# Configuration
+
+## `.oxfmtrc.json(c)`
+
+We support `.json` or `.jsonc` config file.
+
+Almost all formatting options are compatible with Prettier's [options](https://prettier.io/docs/options).
+
+We also recommend adding the `$schema` to the config file:
+
+```json
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json"
+}
+```
+
+For full reference, see also [Configuration file reference](./config-file-reference).
+
+By default, `oxfmt` automatically tries to find the nearest `.oxfmtrc.json` or `.oxfmtrc.jsonc` file from the current working directory. If not found, the default configuration options are used.
+
+You can also specify your config file with the `-c yourconfig.jsonc` flag.
+
+## `.editorconfig`
+
+`.editorconfig` file is also supported by Oxfmt.
+
+And these fields will override default Oxfmt options.
+
+* `end_of_line`: `endOfLine`
+* `indent_style`: `useTabs`
+* `indent_size`: `tabWidth`
+* `max_line_length`: `printWidth`
+* `insert_final_newline`: `insertFinalNewline`
+
+If both `.editorconfig` and `.oxfmtrc.json` has the same field, `.oxfmtrc` will win.
+
+For those properties, glob path overrides also work.
+
+By default, `oxfmt` automatically tries to find the nearest `.editorconfig` file from the current working directory.
+
+Unlike Prettier, Oxfmt does not respect `root = true` and does not merge nested `.editorconfig` files.
+
+---
+
+---
+url: /docs/guide/usage/formatter/config-file-reference.md
 ---
 
 # Configuration options for the Oxfmt.
@@ -2166,7 +2166,8 @@ Print spaces between brackets in object literals. (Default: `true`)
 
 type: `string | null`
 
-Control whether to format embedded parts in the file. (Default: `"off"`)
+Control whether to format embedded parts in the file.
+e.g. JS-in-Vue, CSS-in-JS, etc. (Default: `"auto"`)
 
 ## endOfLine
 
@@ -2316,7 +2317,7 @@ Use tabs for indentation or spaces. (Default: `false`)
 ---
 
 ---
-url: /docs/guide/usage/formatter/config-file-reference.md
+url: /docs/guide/usage/formatter/generated-config.md
 ---
 
 # Configuration options for the Oxfmt.
@@ -2349,7 +2350,8 @@ Print spaces between brackets in object literals. (Default: `true`)
 
 type: `string | null`
 
-Control whether to format embedded parts in the file. (Default: `"off"`)
+Control whether to format embedded parts in the file.
+e.g. JS-in-Vue, CSS-in-JS, etc. (Default: `"auto"`)
 
 ## endOfLine
 
@@ -3316,7 +3318,7 @@ Example configuration:
 
 ### Examples
 
-#### `"never"` (default)
+#### `"never"`
 
 Examples of **incorrect** code for this rule with the `never` option:
 
@@ -3361,7 +3363,7 @@ const foo = () => {
 };
 ```
 
-#### `"as-needed"`
+#### `"as-needed"` (default)
 
 Examples of **incorrect** code for this rule with the `as-needed` option:
 
@@ -3776,6 +3778,138 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```bash [CLI]
 oxlint --deny class-methods-use-this
+```
+
+:::
+
+## References
+
+* Rule Source
+
+---
+
+---
+url: /docs/guide/usage/linter/rules/eslint/complexity.md
+---
+# eslint/complexity&#x20;
+
+### What it does
+
+Enforces a maximum cyclomatic complexity in a program, which is the number
+of linearly independent paths in a program.
+
+### Why is this bad?
+
+Having high code complexity reduces code readability. This rule
+aims to make the code easier to follow by reducing the number of branches
+in the program.
+
+### Examples
+
+Examples of **incorrect** code for this rule with `{ "max": 2 }`
+
+```js
+function foo() {
+  if (foo1) {
+    return x1; // 1st path
+  } else if (foo2) {
+    return x2; // 2nd path
+  } else {
+    return x3; // 3rd path
+  }
+}
+
+function bar() {
+  // there are 2 paths - when bar1 is falsy, and when bar1 is truthy, in which bar1 = bar1 && bar2;
+  bar1 &&= bar2;
+  // there are 2 paths - when bar3 is truthy, and when bar3 is falsy, in which bar3 = 4;
+  bar3 ||= 4;
+}
+
+// there are 2 paths - when baz1 is defined, and when baz1 is undefined and is assigned 'a'
+function baz(baz1 = "a") {
+  const { baz2 = "b" } = baz3; // there are 2 additional paths - when baz2 is defined and when baz2 is not
+}
+
+function d() {
+  d1 = d2?.d3?.(); // optional chaining creates 2 paths each - when object is defined and when it is not
+}
+```
+
+Examples of **correct** code for this rule with `{ "max": 2 }`
+
+```js
+// This example is taken directly from ESLint documentation
+function foo() {
+  // this function has complexity = 1
+  class C {
+    x = a + b; // this initializer has complexity = 1
+    y = c || d; // this initializer has complexity = 2
+    z = e && f; // this initializer has complexity = 2
+
+    static p = g || h; // this initializer has complexity = 2
+    static q = i ? j : k; // this initializer has complexity = 2
+
+    static {
+      // this static block has complexity = 2
+      if (foo) {
+        baz = bar;
+      }
+    }
+
+    static {
+      // this static block has complexity = 2
+      qux = baz || quux;
+    }
+  }
+}
+```
+
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### max
+
+type: `integer`
+
+default: `20`
+
+Maximum amount of cyclomatic complexity
+
+### variant
+
+type: `"classic" | "modified"`
+
+default: `"classic"`
+
+The cyclomatic complexity variant to use
+
+#### `"classic"`
+
+Classic means McCabe cyclomatic complexity
+
+#### `"modified"`
+
+Modified means classic cyclomatic complexity but a switch statement increases
+complexity by 1 irrespective of the number of `case` statements
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "rules": {
+    "complexity": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --deny complexity
 ```
 
 :::
@@ -16362,8 +16496,6 @@ This applies to string literals, template literals, and regular expressions.
 Examples of **incorrect** code for this rule:
 
 ```javascript
-/*eslint no-useless-escape: "error"*/
-
 "\'";
 '\"';
 "\#";
@@ -16380,8 +16512,6 @@ Examples of **incorrect** code for this rule:
 Examples of **correct** code for this rule:
 
 ```javascript
-/*eslint no-useless-escape: "error"*/
-
 "\"";
 '\'';
 "\x12";
@@ -16410,6 +16540,9 @@ type: `string[]`
 default: `[]`
 
 An array of characters that are allowed to be escaped unnecessarily in regexes.
+For example, setting this to `["#"]` allows `\#` in regexes.
+
+Each string in this array must be a single character.
 
 ## How to use
 
@@ -19055,44 +19188,6 @@ However, even with `"auto"`, the contents inside `TaggedTemplateLiteral` in JS/T
 ---
 
 ---
-url: /docs/guide/introduction.md
----
-
-# Getting Started
-
-[What is Oxc?](/docs/guide/what-is-oxc)
-
-## Lint or format a codebase
-
-* Lint: [Oxlint](/docs/guide/usage/linter)
-* Format: [Oxfmt](/docs/guide/usage/formatter)
-
-## Build tooling on top of Oxc
-
-* Parse JavaScript and TypeScript: [Parser](/docs/guide/usage/parser)
-* Transform TypeScript, JSX, and modern JavaScript: [Transformer](/docs/guide/usage/transformer)
-* Minify JavaScript for production builds: [Minifier](/docs/guide/usage/minifier)
-* Resolve modules for JavaScript and TypeScript: [Resolver](/docs/guide/usage/resolver)
-
-## Contribute or learn
-
-* [Contribute](/docs/contribute/introduction)
-* [Learn](/docs/learn/parser_in_rust/intro.html)
-
-## Other resources
-
-* [Troubleshooting](/docs/guide/troubleshooting)
-* [Benchmarks](/docs/guide/benchmarks)
-* [Projects using Oxc](/docs/guide/projects)
-* [Talks and media](/docs/guide/media)
-* [Team](/team)
-* [Endorsements](/endorsements)
-* [Release Blog](/blog/)
-* [Releases](https://github.com/oxc-project/oxc/releases)
-
----
-
----
 url: /docs/contribute/development.md
 ---
 
@@ -19173,6 +19268,44 @@ macOS has an antivirus feature called XProtect that scans executables for malwar
 **Note:** This disables an OS security feature. Only do this if you're comfortable with the trade-off.
 
 More details: https://nnethercote.github.io/2025/09/04/faster-rust-builds-on-mac.html
+
+---
+
+---
+url: /docs/guide/introduction.md
+---
+
+# Getting Started
+
+[What is Oxc?](/docs/guide/what-is-oxc)
+
+## Lint or format a codebase
+
+* Lint: [Oxlint](/docs/guide/usage/linter)
+* Format: [Oxfmt](/docs/guide/usage/formatter)
+
+## Build tooling on top of Oxc
+
+* Parse JavaScript and TypeScript: [Parser](/docs/guide/usage/parser)
+* Transform TypeScript, JSX, and modern JavaScript: [Transformer](/docs/guide/usage/transformer)
+* Minify JavaScript for production builds: [Minifier](/docs/guide/usage/minifier)
+* Resolve modules for JavaScript and TypeScript: [Resolver](/docs/guide/usage/resolver)
+
+## Contribute or learn
+
+* [Contribute](/docs/contribute/introduction)
+* [Learn](/docs/learn/parser_in_rust/intro.html)
+
+## Other resources
+
+* [Troubleshooting](/docs/guide/troubleshooting)
+* [Benchmarks](/docs/guide/benchmarks)
+* [Projects using Oxc](/docs/guide/projects)
+* [Talks and media](/docs/guide/media)
+* [Team](/team)
+* [Endorsements](/endorsements)
+* [Release Blog](/blog/)
+* [Releases](https://github.com/oxc-project/oxc/releases)
 
 ---
 
@@ -20525,45 +20658,50 @@ This rule accepts three types of configuration:
 
 1. **Global rule** (string): `"always"`, `"never"`, or `"ignorePackages"`
 
-```json
+```jsonc
 {
   "rules": {
-    // this would require extensions for all imports
-    "import/extensions": ["error", "always"]
-  }
+    // this would require extensions for all imports, *including from packages*
+    // e.g. `import React from 'react';` would be disallowed.
+    // You should generally always set `ignorePackages` to `true` when using `always`.
+    "import/extensions": ["error", "always"],
+  },
 }
 ```
 
 2. **Per-extension rules** (object): `{ "js": "always", "jsx": "never", ... }`
 
-```json
+```jsonc
 {
   "rules": {
     "import/extensions": [
       "error",
       // per-extension rules:
       // require extensions for .js imports and disallow them for .ts imports
-      { "js": "always", "ts": "never" }
-    ]
-  }
+      { "js": "always", "ts": "never", "ignorePackages": true },
+    ],
+  },
 }
 ```
 
 3. **Combined** (array): `["error", "always", { "js": "never" }]` or `["error", { "js": "always" }]`
 
-```json
+```jsonc
 {
   "rules": {
     "import/extensions": [
       "error",
       "always", // by default, require extensions for all imports
-      { "ts": "never" } // override the global value and disallow extensions on imports for specific file types
-    ]
-  }
+      {
+        "ts": "never", // override the global value and disallow extensions on imports for specific file types
+        "ignorePackages": true,
+      },
+    ],
+  },
 }
 ```
 
-**Default behavior (no configuration)**: All imports pass.
+**Default behavior (no configuration)**: All imports - of all kinds - pass.
 Unconfigured file extensions are ignored, to avoid false positives.
 
 This rule accepts a configuration object with the following properties:
@@ -20576,13 +20714,12 @@ default: `false`
 
 Whether to check type imports when enforcing extension rules.
 
-### extensions
-
-type: `Record<string, string>`
-
-default: `{}`
-
-Map from file extension (without dot) to its configured rule.
+```ts
+// If checkTypeImports is `false`, we don't care about
+// whether these imports have file extensions or not, both are always allowed:
+import type { Foo } from "./foo";
+import type { Foo } from "./foo.ts";
+```
 
 ### ignorePackages
 
@@ -20592,8 +20729,15 @@ default: `false`
 
 Whether to ignore package imports when enforcing extension rules.
 
+> \[!IMPORTANT]
+> When setting this rule to `always`, you should also set `ignorePackages` to `true`.
+> Otherwise, package imports without extensions (such as `import React from 'react';`)
+> will be disallowed, which is not desirable and is not fixable.
+
 A boolean option (not per-extension) that exempts package imports from the "always" rule.
+
 Can be set in the config object: `["error", "always", { "ignorePackages": true }]`
+
 Legacy shorthand: `["error", "ignorePackages"]` is equivalent to `["error", "always", { "ignorePackages": true }]`
 
 * **With "always"**: When `true`, package imports (e.g., `lodash`, `@babel/core`) don't require extensions
@@ -20613,6 +20757,8 @@ Array of pattern-action pairs for custom import protocols (monorepo tools, custo
 Each override has: `{ "pattern": "<glob-pattern>", "action": "enforce" | "ignore" }`
 
 **Pattern matching**: Uses glob patterns (`*`, `**`, `{a,b}`) to match import specifiers.
+Note that the pattern matching is done in Rust with the fast-glob library, and so may differ
+from the JavaScript glob library used by the original ESLint rule.
 
 **Actions**:
 
@@ -20621,38 +20767,21 @@ Each override has: `{ "pattern": "<glob-pattern>", "action": "enforce" | "ignore
 
 **Precedence**: First matching pattern wins.
 
-Example: `["error", "always", { "pathGroupOverrides": [{ "pattern": "rootverse{*,*/**}", "action": "ignore" }] }]`
-
-* Allows `import { x } from 'rootverse+debug:src'` without extension
-* Still requires extensions for standard imports
-
-#### pathGroupOverrides\[n]
-
-type: `object`
-
-Path group override configuration for bespoke import specifiers.
-
-Allows fine-grained control over extension validation for custom import protocols
-(e.g., monorepo tools, custom resolvers, framework-specific imports).
-
-**Pattern matching:**
-
-Uses fast-glob patterns to match import specifiers:
-
-* `*`: Match any characters except `/`
-* `**`: Match any characters including `/` (recursive)
-* `{a,b}`: Match alternatives
-
 **Examples:**
 
 ```json
 {
   "pattern": "rootverse{*,*/**}",
-  "action": "enforce"
+  "action": "ignore"
 }
 ```
 
-Matches: `rootverse+debug:src`, `rootverse+bfe:src/symbols`
+Matches imports from `rootverse+debug:src`, `rootverse+bfe:src/symbols` and
+ignores whether or not they have an extension.
+
+#### pathGroupOverrides\[n]
+
+type: `object`
 
 ##### pathGroupOverrides\[n].action
 
@@ -20664,17 +20793,17 @@ Determines how import extensions are validated for matching bespoke import speci
 
 ###### `"enforce"`
 
-Enforce extension validation for matching imports (require extensions based on config)
+Enforce extension validation for matching imports (require extensions based on config).
 
 ###### `"ignore"`
 
-Ignore matching imports entirely (skip all extension validation)
+Ignore matching imports entirely (skip all extension validation).
 
 ##### pathGroupOverrides\[n].pattern
 
 type: `string`
 
-Glob pattern to match import specifiers
+Glob pattern to match import specifiers. This uses Rust's fast-glob library for matching.
 
 ## How to use
 
@@ -31178,7 +31307,7 @@ url: /docs/guide/usage/linter/rules/jsx_a11y/mouse-events-have-key-events.md
 
 ### What it does
 
-Enforce onMouseOver/onMouseOut are accompanied by onFocus/onBlur.
+Enforce `onMouseOver`/`onMouseOut` are accompanied by `onFocus`/`onBlur`.
 
 ### Why is this bad?
 
@@ -31635,6 +31764,86 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```bash [CLI]
 oxlint --deny jsx-a11y/no-redundant-roles --jsx-a11y-plugin
+```
+
+:::
+
+## References
+
+* Rule Source
+
+---
+
+---
+url: /docs/guide/usage/linter/rules/jsx_a11y/no-static-element-interactions.md
+---
+# jsx\_a11y/no-static-element-interactions&#x20;
+
+### What it does
+
+Enforces that static HTML elements with event handlers must have appropriate ARIA roles.
+
+### Why is this bad?
+
+Static HTML elements do not have semantic meaning in accessibility contexts.
+When these elements receive click or keyboard event handlers, they must declare a role
+to indicate their interactive purpose to assistive technologies.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```jsx
+<div onClick={() => {}} />
+<span onKeyDown={handleKeyDown} />
+```
+
+Examples of **correct** code for this rule:
+
+```jsx
+<button onClick={() => {}} />
+<div onClick={() => {}} role="button" />
+<input type="text" onClick={() => {}} />
+```
+
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### allowExpressionValues
+
+type: `boolean`
+
+default: `false`
+
+If `true`, role attribute values that are JSX expressions (e.g., `role={ROLE}`) are allowed.
+If `false`, only string literal role values are permitted.
+
+### handlers
+
+type: `string[]`
+
+default: `null`
+
+An array of event handler names that should trigger this rule (e.g., `onClick`, `onKeyDown`).
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "plugins": ["jsx-a11y"],
+  "rules": {
+    "jsx-a11y/no-static-element-interactions": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --deny jsx-a11y/no-static-element-interactions --jsx-a11y-plugin
 ```
 
 :::
@@ -37423,10 +37632,13 @@ Globs to ignore during linting. These are resolved from the configuration file p
 
 type: `array | null`
 
-JS plugins.
+JS plugins, allows usage of ESLint plugins with Oxlint.
+
+Read more about JS plugins in
+[the docs](https://oxc.rs/docs/guide/usage/linter/js-plugins.html).
 
 Note: JS plugins are experimental and not subject to semver.
-They are not supported in language server at present.
+They are not supported in the language server (and thus editor integrations) at present.
 
 ### jsPlugins\[n]
 
@@ -37442,7 +37654,7 @@ Note: The following plugin names are reserved because they are implemented nativ
 
 * react (includes react-hooks)
 * unicorn
-* typescript
+* typescript (includes @typescript-eslint)
 * oxc
 * import (includes import-x)
 * jsdoc
@@ -37453,7 +37665,6 @@ Note: The following plugin names are reserved because they are implemented nativ
 * react-perf
 * promise
 * node
-* regex
 * vue
 * eslint
 
@@ -37495,10 +37706,13 @@ Enabled or disabled specific global variables.
 
 type: `array | null`
 
-JS plugins for this override.
+JS plugins for this override, allows usage of ESLint plugins with Oxlint.
+
+Read more about JS plugins in
+[the docs](https://oxc.rs/docs/guide/usage/linter/js-plugins.html).
 
 Note: JS plugins are experimental and not subject to semver.
-They are not supported in language server at present.
+They are not supported in the language server (and thus editor integrations) at present.
 
 ##### overrides\[n].jsPlugins\[n]
 
@@ -37514,7 +37728,7 @@ Note: The following plugin names are reserved because they are implemented nativ
 
 * react (includes react-hooks)
 * unicorn
-* typescript
+* typescript (includes @typescript-eslint)
 * oxc
 * import (includes import-x)
 * jsdoc
@@ -37525,7 +37739,6 @@ Note: The following plugin names are reserved because they are implemented nativ
 * react-perf
 * promise
 * node
-* regex
 * vue
 * eslint
 
@@ -38046,10 +38259,13 @@ Globs to ignore during linting. These are resolved from the configuration file p
 
 type: `array | null`
 
-JS plugins.
+JS plugins, allows usage of ESLint plugins with Oxlint.
+
+Read more about JS plugins in
+[the docs](https://oxc.rs/docs/guide/usage/linter/js-plugins.html).
 
 Note: JS plugins are experimental and not subject to semver.
-They are not supported in language server at present.
+They are not supported in the language server (and thus editor integrations) at present.
 
 ### jsPlugins\[n]
 
@@ -38065,7 +38281,7 @@ Note: The following plugin names are reserved because they are implemented nativ
 
 * react (includes react-hooks)
 * unicorn
-* typescript
+* typescript (includes @typescript-eslint)
 * oxc
 * import (includes import-x)
 * jsdoc
@@ -38076,7 +38292,6 @@ Note: The following plugin names are reserved because they are implemented nativ
 * react-perf
 * promise
 * node
-* regex
 * vue
 * eslint
 
@@ -38118,10 +38333,13 @@ Enabled or disabled specific global variables.
 
 type: `array | null`
 
-JS plugins for this override.
+JS plugins for this override, allows usage of ESLint plugins with Oxlint.
+
+Read more about JS plugins in
+[the docs](https://oxc.rs/docs/guide/usage/linter/js-plugins.html).
 
 Note: JS plugins are experimental and not subject to semver.
-They are not supported in language server at present.
+They are not supported in the language server (and thus editor integrations) at present.
 
 ##### overrides\[n].jsPlugins\[n]
 
@@ -38137,7 +38355,7 @@ Note: The following plugin names are reserved because they are implemented nativ
 
 * react (includes react-hooks)
 * unicorn
-* typescript
+* typescript (includes @typescript-eslint)
 * oxc
 * import (includes import-x)
 * jsdoc
@@ -38148,7 +38366,6 @@ Note: The following plugin names are reserved because they are implemented nativ
 * react-perf
 * promise
 * node
-* regex
 * vue
 * eslint
 
@@ -38690,184 +38907,6 @@ Today, comments are not printed. *It will be supported thanks to [oxc-parser #13
 ---
 
 ---
-url: /docs/learn/architecture/parser.md
----
-
-# Parser Architecture
-
-Oxc maintains its own AST and parser, which is by far the fastest and most conformant JavaScript and TypeScript (including JSX and TSX) parser written in Rust.
-
-As the parser often represents a key performance bottleneck in JavaScript tooling,
-any minor improvements can have a cascading effect on our downstream tools.
-By developing our parser, we have the opportunity to explore and implement well-researched performance techniques.
-
-## AST Design Philosophy
-
-While many existing JavaScript tools rely on [estree] as their AST specification,
-a notable drawback is its abundance of ambiguous nodes.
-This ambiguity often leads to confusion during development with [estree].
-
-The Oxc AST differs from the [estree] AST by removing ambiguous nodes and introducing distinct types.
-For example, instead of using a generic [estree] `Identifier`,
-the Oxc AST provides specific types such as `BindingIdentifier`, `IdentifierReference`, and `IdentifierName`.
-
-This clear distinction greatly enhances the development experience by aligning more closely with the ECMAScript specification.
-
-### AST Node Types
-
-```rust
-// Instead of generic Identifier
-pub struct BindingIdentifier<'a> {
-    pub span: Span,
-    pub name: Atom<'a>,
-}
-
-pub struct IdentifierReference<'a> {
-    pub span: Span,
-    pub name: Atom<'a>,
-    pub reference_id: Cell<Option<ReferenceId>>,
-}
-
-pub struct IdentifierName<'a> {
-    pub span: Span,
-    pub name: Atom<'a>,
-}
-```
-
-### Semantic Clarity
-
-This approach provides semantic clarity:
-
-* **`BindingIdentifier`**: Variable declarations (`let x = 1`)
-* **`IdentifierReference`**: Variable usage (`console.log(x)`)
-* **`IdentifierName`**: Property names (`obj.property`)
-
-## Performance Architecture
-
-### How is it so fast
-
-* **Memory Arena**: AST is allocated in a [memory arena](https://crates.io/crates/bumpalo) for fast allocation and deallocation
-* **String Optimization**: Short strings are inlined by [CompactString](https://crates.io/crates/compact_str)
-* **Minimal Heap Usage**: No other heap allocations are done except the above two
-* **Separation of Concerns**: Scope binding, symbol resolution and some syntax errors are delegated to the semantic analyzer
-
-### Memory Management Details
-
-#### Arena Allocation
-
-```rust
-use oxc_allocator::Allocator;
-
-// All AST nodes are allocated in this arena
-let allocator = Allocator::default();
-let ast_node = allocator.alloc(Expression::NumericLiteral(
-    allocator.alloc(NumericLiteral { value: 42.0, span: SPAN })
-));
-```
-
-Benefits:
-
-* **O(1) allocation**: Simple pointer bump
-* **O(1) deallocation**: Drop entire arena at once
-* **Cache-friendly**: Linear memory layout
-* **No fragmentation**: Continuous memory usage
-
-#### String Interning with CompactString
-
-```rust
-// Strings ≤ 24 bytes are stored inline (no heap allocation)
-let short_name = CompactString::from("variableName");  // Stack allocated
-let long_name = CompactString::from("a_very_long_variable_name_that_exceeds_limit");  // Heap allocated
-```
-
-This reduces memory allocations for the majority of JavaScript identifiers and string literals.
-
-## Parser Architecture
-
-### Two-Phase Design
-
-The Oxc parser follows a two-phase approach:
-
-1. **Parsing Phase**: Build AST structure with minimal semantic analysis
-2. **Semantic Phase**: Perform scope analysis, symbol resolution, and advanced error checking
-
-```rust
-// Phase 1: Parse to AST
-let parser_result = Parser::new(&allocator, source_text, source_type).parse();
-
-// Phase 2: Semantic analysis
-let semantic_result = SemanticBuilder::new(source_text, source_type)
-    .with_trivias(parser_result.trivias)
-    .build(&parser_result.program);
-```
-
-### Parser Components
-
-#### Lexer
-
-* **Token generation**: Converts source text to structured tokens
-* **SIMD optimization**: Uses SIMD instructions for whitespace skipping
-* **Context-aware**: Handles regex vs division operator disambiguation
-
-#### Recursive Descent Parser
-
-* **Hand-written**: Custom implementation for maximum performance
-* **Error recovery**: Advanced error handling with meaningful messages
-* **Grammar compliance**: Follows ECMAScript specification precisely
-
-#### AST Builder
-
-* **Type safety**: Leverages Rust's type system for correctness
-* **Memory efficiency**: Direct arena allocation
-* **Builder pattern**: Convenient node construction methods
-
-## Conformance Strategy
-
-### Test Suite Coverage
-
-* **Test262**: 100% pass rate on ECMAScript conformance tests
-* **Babel**: 99.62% compatibility with Babel parser tests
-* **TypeScript**: 99.86% compatibility with TypeScript compiler tests
-
-### Error Handling Philosophy
-
-```rust
-// Meaningful error messages with source location
-pub struct OxcDiagnostic {
-    pub message: String,
-    pub span: Span,
-    pub severity: Severity,
-    pub help: Option<String>,
-}
-```
-
-The parser provides:
-
-* **Precise error locations**: Exact source positions
-* **Recovery strategies**: Continue parsing after errors
-* **Helpful suggestions**: Actionable error messages
-
-## Advanced Features
-
-### TypeScript Support
-
-* **Type stripping**: Removes TypeScript-specific syntax
-* **Decorator parsing**: Handles experimental decorators
-* **Namespace support**: Full module and namespace parsing
-* **JSX integration**: TypeScript + JSX (TSX) support
-
-### Research Areas
-
-* **SIMD text processing**: Vectorized string operations
-* **Cache optimization**: Minimize memory access patterns
-* **Branch prediction**: Optimize hot parsing paths
-* **Zero-copy parsing**: Eliminate unnecessary string copies
-
-[estree]: https://github.com/estree/estree
-
----
-
----
 url: /docs/learn/parser_in_rust/parser.md
 ---
 
@@ -39274,6 +39313,184 @@ function isParenthesizedArrowFunctionExpression(): Tristate {
 ```
 
 In summary, the TypeScript parser uses a combination of lookahead (fast path) and backtracking to parse arrow functions.
+
+---
+
+---
+url: /docs/learn/architecture/parser.md
+---
+
+# Parser Architecture
+
+Oxc maintains its own AST and parser, which is by far the fastest and most conformant JavaScript and TypeScript (including JSX and TSX) parser written in Rust.
+
+As the parser often represents a key performance bottleneck in JavaScript tooling,
+any minor improvements can have a cascading effect on our downstream tools.
+By developing our parser, we have the opportunity to explore and implement well-researched performance techniques.
+
+## AST Design Philosophy
+
+While many existing JavaScript tools rely on [estree] as their AST specification,
+a notable drawback is its abundance of ambiguous nodes.
+This ambiguity often leads to confusion during development with [estree].
+
+The Oxc AST differs from the [estree] AST by removing ambiguous nodes and introducing distinct types.
+For example, instead of using a generic [estree] `Identifier`,
+the Oxc AST provides specific types such as `BindingIdentifier`, `IdentifierReference`, and `IdentifierName`.
+
+This clear distinction greatly enhances the development experience by aligning more closely with the ECMAScript specification.
+
+### AST Node Types
+
+```rust
+// Instead of generic Identifier
+pub struct BindingIdentifier<'a> {
+    pub span: Span,
+    pub name: Atom<'a>,
+}
+
+pub struct IdentifierReference<'a> {
+    pub span: Span,
+    pub name: Atom<'a>,
+    pub reference_id: Cell<Option<ReferenceId>>,
+}
+
+pub struct IdentifierName<'a> {
+    pub span: Span,
+    pub name: Atom<'a>,
+}
+```
+
+### Semantic Clarity
+
+This approach provides semantic clarity:
+
+* **`BindingIdentifier`**: Variable declarations (`let x = 1`)
+* **`IdentifierReference`**: Variable usage (`console.log(x)`)
+* **`IdentifierName`**: Property names (`obj.property`)
+
+## Performance Architecture
+
+### How is it so fast
+
+* **Memory Arena**: AST is allocated in a [memory arena](https://crates.io/crates/bumpalo) for fast allocation and deallocation
+* **String Optimization**: Short strings are inlined by [CompactString](https://crates.io/crates/compact_str)
+* **Minimal Heap Usage**: No other heap allocations are done except the above two
+* **Separation of Concerns**: Scope binding, symbol resolution and some syntax errors are delegated to the semantic analyzer
+
+### Memory Management Details
+
+#### Arena Allocation
+
+```rust
+use oxc_allocator::Allocator;
+
+// All AST nodes are allocated in this arena
+let allocator = Allocator::default();
+let ast_node = allocator.alloc(Expression::NumericLiteral(
+    allocator.alloc(NumericLiteral { value: 42.0, span: SPAN })
+));
+```
+
+Benefits:
+
+* **O(1) allocation**: Simple pointer bump
+* **O(1) deallocation**: Drop entire arena at once
+* **Cache-friendly**: Linear memory layout
+* **No fragmentation**: Continuous memory usage
+
+#### String Interning with CompactString
+
+```rust
+// Strings ≤ 24 bytes are stored inline (no heap allocation)
+let short_name = CompactString::from("variableName");  // Stack allocated
+let long_name = CompactString::from("a_very_long_variable_name_that_exceeds_limit");  // Heap allocated
+```
+
+This reduces memory allocations for the majority of JavaScript identifiers and string literals.
+
+## Parser Architecture
+
+### Two-Phase Design
+
+The Oxc parser follows a two-phase approach:
+
+1. **Parsing Phase**: Build AST structure with minimal semantic analysis
+2. **Semantic Phase**: Perform scope analysis, symbol resolution, and advanced error checking
+
+```rust
+// Phase 1: Parse to AST
+let parser_result = Parser::new(&allocator, source_text, source_type).parse();
+
+// Phase 2: Semantic analysis
+let semantic_result = SemanticBuilder::new(source_text, source_type)
+    .with_trivias(parser_result.trivias)
+    .build(&parser_result.program);
+```
+
+### Parser Components
+
+#### Lexer
+
+* **Token generation**: Converts source text to structured tokens
+* **SIMD optimization**: Uses SIMD instructions for whitespace skipping
+* **Context-aware**: Handles regex vs division operator disambiguation
+
+#### Recursive Descent Parser
+
+* **Hand-written**: Custom implementation for maximum performance
+* **Error recovery**: Advanced error handling with meaningful messages
+* **Grammar compliance**: Follows ECMAScript specification precisely
+
+#### AST Builder
+
+* **Type safety**: Leverages Rust's type system for correctness
+* **Memory efficiency**: Direct arena allocation
+* **Builder pattern**: Convenient node construction methods
+
+## Conformance Strategy
+
+### Test Suite Coverage
+
+* **Test262**: 100% pass rate on ECMAScript conformance tests
+* **Babel**: 99.62% compatibility with Babel parser tests
+* **TypeScript**: 99.86% compatibility with TypeScript compiler tests
+
+### Error Handling Philosophy
+
+```rust
+// Meaningful error messages with source location
+pub struct OxcDiagnostic {
+    pub message: String,
+    pub span: Span,
+    pub severity: Severity,
+    pub help: Option<String>,
+}
+```
+
+The parser provides:
+
+* **Precise error locations**: Exact source positions
+* **Recovery strategies**: Continue parsing after errors
+* **Helpful suggestions**: Actionable error messages
+
+## Advanced Features
+
+### TypeScript Support
+
+* **Type stripping**: Removes TypeScript-specific syntax
+* **Decorator parsing**: Handles experimental decorators
+* **Namespace support**: Full module and namespace parsing
+* **JSX integration**: TypeScript + JSX (TSX) support
+
+### Research Areas
+
+* **SIMD text processing**: Vectorized string operations
+* **Cache optimization**: Minimize memory access patterns
+* **Branch prediction**: Optimize hot parsing paths
+* **Zero-copy parsing**: Eliminate unnecessary string copies
+
+[estree]: https://github.com/estree/estree
 
 ---
 
@@ -40482,6 +40699,7 @@ myPromise.then(doSomething).catch(errors);
 function doSomethingElse() {
   return myPromise.then(doSomething);
 }
+const arrowFunc = () => myPromise.then(doSomething);
 ```
 
 ## Configuration
@@ -42331,19 +42549,30 @@ url: /docs/guide/usage/linter/rules/react/jsx-curly-brace-presence.md
 ---
 # react/jsx-curly-brace-presence&#x20;
 
+### What it does
+
 Disallow unnecessary JSX expressions when literals alone are
 sufficient or enforce JSX expressions on literals in JSX children or
-attributes (`react/jsx-curly-brace-presence`)
+attributes.
 
 This rule allows you to enforce curly braces or disallow unnecessary
 curly braces in JSX props and/or children.
 
 For situations where JSX expressions are unnecessary, please refer to
-[the React doc](https://facebook.github.io/react/docs/jsx-in-depth.html)
+[the React doc](https://react.dev/learn/writing-markup-with-jsx)
 and [this page about JSX
 gotchas](https://github.com/facebook/react/blob/v15.4.0-rc.3/docs/docs/02.3-jsx-gotchas.md#html-entities).
 
-## Rule Details
+### Why is this bad?
+
+Using different styles for your JSX code can make it harder to read and
+less consistent.
+
+Code consistency improves readability. By enforcing or disallowing
+curly braces in JSX props and/or children, this rule helps maintain
+consistent patterns across your application.
+
+### Rule Details
 
 By default, this rule will check for and warn about unnecessary curly
 braces in both JSX props and children. For the sake of backwards
@@ -42360,30 +42589,27 @@ an object, and that you set "propElementValues" to "always". The ability
 to omit curly braces around prop values that are JSX elements is
 obscure, and intentionally undocumented, and should not be relied upon.
 
-## Rule Options
+#### Example Configurations
 
-```js
-...
-"react/jsx-curly-brace-presence": [<enabled>, { "props": <string>, "children": <string>, "propElementValues": <string> }]
-...
+```jsonc
+{
+  "rules": {
+    "react/jsx-curly-brace-presence": ["error", { "props": <string>, "children": <string>, "propElementValues": <string> }]
+  }
+}
 ```
 
 or alternatively
 
-```js
-...
-"react/jsx-curly-brace-presence": [<enabled>, <string>]
-...
+```jsonc
+{
+  "rules": {
+    "react/jsx-curly-brace-presence": ["error", "always"], // or "never" or "ignore"
+  },
+}
 ```
 
-### Valid options for `<string>`
-
-They are `always`, `never` and `ignore` for checking on JSX props and
-children.
-
-* `always`: always enforce curly braces inside JSX props, children, and/or JSX prop values that are JSX Elements
-* `never`: never allow unnecessary curly braces inside JSX props, children, and/or JSX prop values that are JSX Elements
-* `ignore`: ignore the rule for JSX props, children, and/or JSX prop values that are JSX Elements
+### Fix Details
 
 If passed in the option to fix, this is how a style violation will get fixed
 
@@ -42393,7 +42619,7 @@ If passed in the option to fix, this is how a style violation will get fixed
 
 * All fixing operations use double quotes.
 
-For examples:
+### Examples
 
 Examples of **incorrect** code for this rule, when configured with `{ props: "always", children: "always" }`:
 
@@ -42447,15 +42673,6 @@ They can be fixed to:
 <App prop=<div /> />
 ```
 
-### Alternative syntax
-
-The options are also `always`, `never`, and `ignore` for the same meanings.
-
-In this syntax, only a string is provided and the default will be set to
-that option for checking on both JSX props and children.
-
-For examples:
-
 Examples of **incorrect** code for this rule, when configured with `"always"`:
 
 ```jsx
@@ -42490,7 +42707,7 @@ It can fixed to:
 </App>
 ```
 
-## Edge cases
+### Edge cases
 
 The fix also deals with template literals, strings with quotes, and
 strings with escapes characters.
@@ -42548,7 +42765,7 @@ Examples of **correct** code for this rule, even when configured with `"never"`:
 <App>{/* comment */ <Bpp />}</App> // the comment makes the container necessary
 ```
 
-## When Not To Use It
+### When Not To Use It
 
 You should turn this rule off if you are not concerned about maintaining
 consistency regarding the use of curly braces in JSX props and/or
@@ -42564,17 +42781,39 @@ type: `"always" | "never" | "ignore"`
 
 default: `"never"`
 
+Whether to enforce or disallow curly braces for child content of a JSX element.
+
+* `never` will disallow unnecessary curly braces, e.g. this will be preferred: `<Foo>I love oxlint</Foo>`
+* `always` will force the usage of curly braces like this, in all cases: `<Foo>{'I love oxlint'}</Foo>`
+* `ignore` will allow either style for child content.
+
 ### propElementValues
 
 type: `"always" | "never" | "ignore"`
 
 default: `"ignore"`
 
+When set to `ignore` or `never`, this JSX code is allowed (or enforced):
+`<App prop=<div /> />;`
+
+When set to `always`, the curly braces are required for prop values that are
+JSX elements: `<App prop={<div />} />;`
+
+**Note**: it is *highly* recommended that you set `propElementValues` to `always`.
+The ability to omit curly braces around prop values that are JSX elements is obscure, and
+intentionally undocumented, and should not be relied upon.
+
 ### props
 
 type: `"always" | "never" | "ignore"`
 
 default: `"never"`
+
+Whether to enforce or disallow curly braces for props on JSX elements.
+
+* `never` will disallow unnecessary curly braces, e.g. this will be preferred: `<Foo foo="bar" />`
+* `always` will force the usage of curly braces like this, in all cases: `<Foo foo={'bar'} />`
+* `ignore` will allow either style for prop values.
 
 ## How to use
 
@@ -43027,12 +43266,6 @@ const Component = () => (
   </div>
 );
 ```
-
-### Options
-
-`react/jsx-max-depth: [<enabled>, { "max": <number> }]`
-
-The `max` option defaults to `2`.
 
 ## Configuration
 
@@ -44701,6 +44934,83 @@ oxlint --deny react/no-string-refs --react-plugin
 ---
 
 ---
+url: /docs/guide/usage/linter/rules/react/no-this-in-sfc.md
+---
+# react/no-this-in-sfc&#x20;
+
+### What it does
+
+Prevents using `this` in stateless functional components.
+
+### Why is this bad?
+
+In React, stateless functional components (SFCs) receive props and context as function parameters,
+not through `this`. Using `this` in an SFC typically indicates a mistake when converting from
+class components or unfamiliarity with the two component styles.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```jsx
+function Foo(props) {
+  return <div>{this.props.bar}</div>;
+}
+
+function Foo(props) {
+  const { bar } = this.props;
+  return <div>{bar}</div>;
+}
+
+const Foo = (props) => (this.props.foo ? <span>{props.bar}</span> : null);
+```
+
+Examples of **correct** code for this rule:
+
+```jsx
+function Foo(props) {
+  return <div>{props.bar}</div>;
+}
+
+function Foo({ bar }) {
+  return <div>{bar}</div>;
+}
+
+class Foo extends React.Component {
+  render() {
+    return <div>{this.props.bar}</div>;
+  }
+}
+```
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "plugins": ["react"],
+  "rules": {
+    "react/no-this-in-sfc": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --deny react/no-this-in-sfc --react-plugin
+```
+
+:::
+
+## References
+
+* Rule Source
+
+---
+
+---
 url: /docs/guide/usage/linter/rules/react/no-unescaped-entities.md
 ---
 # react/no-unescaped-entities&#x20;
@@ -44921,6 +45231,77 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```bash [CLI]
 oxlint --deny react/no-unsafe --react-plugin
+```
+
+:::
+
+## References
+
+* Rule Source
+
+---
+
+---
+url: /docs/guide/usage/linter/rules/react/no-will-update-set-state.md
+---
+# react/no-will-update-set-state&#x20;
+
+### What it does
+
+Disallows using `setState` in the `componentWillUpdate` lifecycle method.
+
+### Why is this bad?
+
+Updating the state during the component update step can lead to indeterminate component state and is not allowed.
+This can cause unexpected behavior and bugs in your React application.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```jsx
+var Hello = createReactClass({
+  componentWillUpdate: function () {
+    this.setState({
+      name: this.props.name.toUpperCase(),
+    });
+  },
+  render: function () {
+    return <div>Hello {this.state.name}</div>;
+  },
+});
+```
+
+Examples of **correct** code for this rule:
+
+```jsx
+var Hello = createReactClass({
+  componentWillUpdate: function () {
+    this.props.prepareHandler();
+  },
+  render: function () {
+    return <div>Hello {this.state.name}</div>;
+  },
+});
+```
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "plugins": ["react"],
+  "rules": {
+    "react/no-will-update-set-state": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --deny react/no-will-update-set-state --react-plugin
 ```
 
 :::
@@ -46082,8 +46463,9 @@ url: /docs/guide/usage/linter/generated-rules.md
 
 The progress of all rule implementations is tracked [here](https://github.com/oxc-project/oxc/issues/481).
 
-* Total number of rules: 645
+* Total number of rules: 652
 * Rules turned on by default: 104
+* Rules with fixes available: 199
 
 **Legend for 'Fixable?' column:**
 
@@ -46093,7 +46475,7 @@ The progress of all rule implementations is tracked [here](https://github.com/ox
 * ⚠️💡: a dangerous suggestion is available for this rule
 * 🚧: an auto-fix or suggestion is possible, but currently not implemented
 
-## Correctness (201):
+## Correctness (206):
 
 Code that is outright wrong or useless.
 | Rule name | Source | Default | Fixable? |
@@ -46196,6 +46578,7 @@ Code that is outright wrong or useless.
 | [no-distracting-elements](/docs/guide/usage/linter/rules/jsx_a11y/no-distracting-elements.html) | jsx\_a11y | | |
 | [no-noninteractive-tabindex](/docs/guide/usage/linter/rules/jsx_a11y/no-noninteractive-tabindex.html) | jsx\_a11y | | |
 | [no-redundant-roles](/docs/guide/usage/linter/rules/jsx_a11y/no-redundant-roles.html) | jsx\_a11y | | 🛠️ |
+| [no-static-element-interactions](/docs/guide/usage/linter/rules/jsx_a11y/no-static-element-interactions.html) | jsx\_a11y | | |
 | [prefer-tag-over-role](/docs/guide/usage/linter/rules/jsx_a11y/prefer-tag-over-role.html) | jsx\_a11y | | |
 | [role-has-required-aria-props](/docs/guide/usage/linter/rules/jsx_a11y/role-has-required-aria-props.html) | jsx\_a11y | | |
 | [role-supports-aria-props](/docs/guide/usage/linter/rules/jsx_a11y/role-supports-aria-props.html) | jsx\_a11y | | |
@@ -46252,7 +46635,9 @@ Code that is outright wrong or useless.
 | [no-is-mounted](/docs/guide/usage/linter/rules/react/no-is-mounted.html) | react | | |
 | [no-render-return-value](/docs/guide/usage/linter/rules/react/no-render-return-value.html) | react | | |
 | [no-string-refs](/docs/guide/usage/linter/rules/react/no-string-refs.html) | react | | |
+| [no-this-in-sfc](/docs/guide/usage/linter/rules/react/no-this-in-sfc.html) | react | | |
 | [no-unsafe](/docs/guide/usage/linter/rules/react/no-unsafe.html) | react | | |
+| [no-will-update-set-state](/docs/guide/usage/linter/rules/react/no-will-update-set-state.html) | react | | |
 | [void-dom-elements-no-children](/docs/guide/usage/linter/rules/react/void-dom-elements-no-children.html) | react | | |
 | [await-thenable](/docs/guide/usage/linter/rules/typescript/await-thenable.html) | typescript | ✅ | 🚧 |
 | [no-array-delete](/docs/guide/usage/linter/rules/typescript/no-array-delete.html) | typescript | ✅ | 🚧 |
@@ -46294,8 +46679,10 @@ Code that is outright wrong or useless.
 | [prefer-string-starts-ends-with](/docs/guide/usage/linter/rules/unicorn/prefer-string-starts-ends-with.html) | unicorn | ✅ | 🛠️ |
 | [no-conditional-tests](/docs/guide/usage/linter/rules/vitest/no-conditional-tests.html) | vitest | | |
 | [require-local-test-context-for-concurrent-snapshots](/docs/guide/usage/linter/rules/vitest/require-local-test-context-for-concurrent-snapshots.html) | vitest | | 🚧 |
+| [warn-todo](/docs/guide/usage/linter/rules/vitest/warn-todo.html) | vitest | | |
 | [no-deprecated-destroyed-lifecycle](/docs/guide/usage/linter/rules/vue/no-deprecated-destroyed-lifecycle.html) | vue | | 🛠️ |
 | [no-export-in-script-setup](/docs/guide/usage/linter/rules/vue/no-export-in-script-setup.html) | vue | | |
+| [no-this-in-before-route-enter](/docs/guide/usage/linter/rules/vue/no-this-in-before-route-enter.html) | vue | | |
 | [prefer-import-from-vue](/docs/guide/usage/linter/rules/vue/prefer-import-from-vue.html) | vue | | 🛠️ |
 | [valid-define-emits](/docs/guide/usage/linter/rules/vue/valid-define-emits.html) | vue | | 🚧 |
 | [valid-define-props](/docs/guide/usage/linter/rules/vue/valid-define-props.html) | vue | | 🚧 |
@@ -46318,12 +46705,13 @@ Code that can be written to run faster.
 | [prefer-array-flat-map](/docs/guide/usage/linter/rules/unicorn/prefer-array-flat-map.html) | unicorn | | 🛠️ |
 | [prefer-set-has](/docs/guide/usage/linter/rules/unicorn/prefer-set-has.html) | unicorn | | ⚠️🛠️️ |
 
-## Restriction (80):
+## Restriction (81):
 
 Lints which prevent the use of language and library features. Must not be enabled as a whole, should be considered on a case-by-case basis before enabling.
 | Rule name | Source | Default | Fixable? |
 | --------------------------------------- | ---------- | ------- | -------- |
 | [class-methods-use-this](/docs/guide/usage/linter/rules/eslint/class-methods-use-this.html) | eslint | | |
+| [complexity](/docs/guide/usage/linter/rules/eslint/complexity.html) | eslint | | |
 | [default-case](/docs/guide/usage/linter/rules/eslint/default-case.html) | eslint | | |
 | [no-alert](/docs/guide/usage/linter/rules/eslint/no-alert.html) | eslint | | |
 | [no-bitwise](/docs/guide/usage/linter/rules/eslint/no-bitwise.html) | eslint | | |
@@ -46577,7 +46965,7 @@ Lints which are rather strict or have occasional false positives.
 | [prefer-type-error](/docs/guide/usage/linter/rules/unicorn/prefer-type-error.html) | unicorn | | 🛠️ |
 | [require-number-to-fixed-digits-argument](/docs/guide/usage/linter/rules/unicorn/require-number-to-fixed-digits-argument.html) | unicorn | | 🛠️ |
 
-## Style (182):
+## Style (183):
 
 Code that should be written in a more idiomatic way.
 | Rule name | Source | Default | Fixable? |
@@ -46615,7 +47003,7 @@ Code that should be written in a more idiomatic way.
 | [no-useless-computed-key](/docs/guide/usage/linter/rules/eslint/no-useless-computed-key.html) | eslint | | 🚧 |
 | [operator-assignment](/docs/guide/usage/linter/rules/eslint/operator-assignment.html) | eslint | | ⚠️🛠️️ |
 | [prefer-destructuring](/docs/guide/usage/linter/rules/eslint/prefer-destructuring.html) | eslint | | 🛠️ |
-| [prefer-exponentiation-operator](/docs/guide/usage/linter/rules/eslint/prefer-exponentiation-operator.html) | eslint | | |
+| [prefer-exponentiation-operator](/docs/guide/usage/linter/rules/eslint/prefer-exponentiation-operator.html) | eslint | | 🚧 |
 | [prefer-numeric-literals](/docs/guide/usage/linter/rules/eslint/prefer-numeric-literals.html) | eslint | | 🛠️ |
 | [prefer-object-has-own](/docs/guide/usage/linter/rules/eslint/prefer-object-has-own.html) | eslint | | 🛠️ |
 | [prefer-object-spread](/docs/guide/usage/linter/rules/eslint/prefer-object-spread.html) | eslint | | 🛠️ |
@@ -46744,7 +47132,7 @@ Code that should be written in a more idiomatic way.
 | [prefer-object-from-entries](/docs/guide/usage/linter/rules/unicorn/prefer-object-from-entries.html) | unicorn | | 🚧 |
 | [prefer-optional-catch-binding](/docs/guide/usage/linter/rules/unicorn/prefer-optional-catch-binding.html) | unicorn | | 🛠️ |
 | [prefer-reflect-apply](/docs/guide/usage/linter/rules/unicorn/prefer-reflect-apply.html) | unicorn | | |
-| [prefer-response-static-json](/docs/guide/usage/linter/rules/unicorn/prefer-response-static-json.html) | unicorn | | 🚧 |
+| [prefer-response-static-json](/docs/guide/usage/linter/rules/unicorn/prefer-response-static-json.html) | unicorn | | 💡 |
 | [prefer-spread](/docs/guide/usage/linter/rules/unicorn/prefer-spread.html) | unicorn | | 🛠️ |
 | [prefer-string-raw](/docs/guide/usage/linter/rules/unicorn/prefer-string-raw.html) | unicorn | | 🛠️ |
 | [prefer-string-trim-start-end](/docs/guide/usage/linter/rules/unicorn/prefer-string-trim-start-end.html) | unicorn | | 🛠️ |
@@ -46755,6 +47143,7 @@ Code that should be written in a more idiomatic way.
 | [text-encoding-identifier-case](/docs/guide/usage/linter/rules/unicorn/text-encoding-identifier-case.html) | unicorn | | 🛠️ |
 | [throw-new-error](/docs/guide/usage/linter/rules/unicorn/throw-new-error.html) | unicorn | | 🛠️ |
 | [consistent-test-filename](/docs/guide/usage/linter/rules/vitest/consistent-test-filename.html) | vitest | | |
+| [consistent-vitest-vi](/docs/guide/usage/linter/rules/vitest/consistent-vitest-vi.html) | vitest | | 🛠️ |
 | [no-import-node-test](/docs/guide/usage/linter/rules/vitest/no-import-node-test.html) | vitest | | 🛠️ |
 | [prefer-called-times](/docs/guide/usage/linter/rules/vitest/prefer-called-times.html) | vitest | | 🛠️ |
 | [prefer-to-be-falsy](/docs/guide/usage/linter/rules/vitest/prefer-to-be-falsy.html) | vitest | | 🛠️ |
@@ -46790,8 +47179,9 @@ url: /docs/guide/usage/linter/rules.md
 
 The progress of all rule implementations is tracked [here](https://github.com/oxc-project/oxc/issues/481).
 
-* Total number of rules: 645
+* Total number of rules: 652
 * Rules turned on by default: 104
+* Rules with fixes available: 199
 
 **Legend for 'Fixable?' column:**
 
@@ -46801,7 +47191,7 @@ The progress of all rule implementations is tracked [here](https://github.com/ox
 * ⚠️💡: a dangerous suggestion is available for this rule
 * 🚧: an auto-fix or suggestion is possible, but currently not implemented
 
-## Correctness (201):
+## Correctness (206):
 
 Code that is outright wrong or useless.
 | Rule name | Source | Default | Fixable? |
@@ -46904,6 +47294,7 @@ Code that is outright wrong or useless.
 | [no-distracting-elements](/docs/guide/usage/linter/rules/jsx_a11y/no-distracting-elements.html) | jsx\_a11y | | |
 | [no-noninteractive-tabindex](/docs/guide/usage/linter/rules/jsx_a11y/no-noninteractive-tabindex.html) | jsx\_a11y | | |
 | [no-redundant-roles](/docs/guide/usage/linter/rules/jsx_a11y/no-redundant-roles.html) | jsx\_a11y | | 🛠️ |
+| [no-static-element-interactions](/docs/guide/usage/linter/rules/jsx_a11y/no-static-element-interactions.html) | jsx\_a11y | | |
 | [prefer-tag-over-role](/docs/guide/usage/linter/rules/jsx_a11y/prefer-tag-over-role.html) | jsx\_a11y | | |
 | [role-has-required-aria-props](/docs/guide/usage/linter/rules/jsx_a11y/role-has-required-aria-props.html) | jsx\_a11y | | |
 | [role-supports-aria-props](/docs/guide/usage/linter/rules/jsx_a11y/role-supports-aria-props.html) | jsx\_a11y | | |
@@ -46960,7 +47351,9 @@ Code that is outright wrong or useless.
 | [no-is-mounted](/docs/guide/usage/linter/rules/react/no-is-mounted.html) | react | | |
 | [no-render-return-value](/docs/guide/usage/linter/rules/react/no-render-return-value.html) | react | | |
 | [no-string-refs](/docs/guide/usage/linter/rules/react/no-string-refs.html) | react | | |
+| [no-this-in-sfc](/docs/guide/usage/linter/rules/react/no-this-in-sfc.html) | react | | |
 | [no-unsafe](/docs/guide/usage/linter/rules/react/no-unsafe.html) | react | | |
+| [no-will-update-set-state](/docs/guide/usage/linter/rules/react/no-will-update-set-state.html) | react | | |
 | [void-dom-elements-no-children](/docs/guide/usage/linter/rules/react/void-dom-elements-no-children.html) | react | | |
 | [await-thenable](/docs/guide/usage/linter/rules/typescript/await-thenable.html) | typescript | ✅ | 🚧 |
 | [no-array-delete](/docs/guide/usage/linter/rules/typescript/no-array-delete.html) | typescript | ✅ | 🚧 |
@@ -47002,8 +47395,10 @@ Code that is outright wrong or useless.
 | [prefer-string-starts-ends-with](/docs/guide/usage/linter/rules/unicorn/prefer-string-starts-ends-with.html) | unicorn | ✅ | 🛠️ |
 | [no-conditional-tests](/docs/guide/usage/linter/rules/vitest/no-conditional-tests.html) | vitest | | |
 | [require-local-test-context-for-concurrent-snapshots](/docs/guide/usage/linter/rules/vitest/require-local-test-context-for-concurrent-snapshots.html) | vitest | | 🚧 |
+| [warn-todo](/docs/guide/usage/linter/rules/vitest/warn-todo.html) | vitest | | |
 | [no-deprecated-destroyed-lifecycle](/docs/guide/usage/linter/rules/vue/no-deprecated-destroyed-lifecycle.html) | vue | | 🛠️ |
 | [no-export-in-script-setup](/docs/guide/usage/linter/rules/vue/no-export-in-script-setup.html) | vue | | |
+| [no-this-in-before-route-enter](/docs/guide/usage/linter/rules/vue/no-this-in-before-route-enter.html) | vue | | |
 | [prefer-import-from-vue](/docs/guide/usage/linter/rules/vue/prefer-import-from-vue.html) | vue | | 🛠️ |
 | [valid-define-emits](/docs/guide/usage/linter/rules/vue/valid-define-emits.html) | vue | | 🚧 |
 | [valid-define-props](/docs/guide/usage/linter/rules/vue/valid-define-props.html) | vue | | 🚧 |
@@ -47026,12 +47421,13 @@ Code that can be written to run faster.
 | [prefer-array-flat-map](/docs/guide/usage/linter/rules/unicorn/prefer-array-flat-map.html) | unicorn | | 🛠️ |
 | [prefer-set-has](/docs/guide/usage/linter/rules/unicorn/prefer-set-has.html) | unicorn | | ⚠️🛠️️ |
 
-## Restriction (80):
+## Restriction (81):
 
 Lints which prevent the use of language and library features. Must not be enabled as a whole, should be considered on a case-by-case basis before enabling.
 | Rule name | Source | Default | Fixable? |
 | --------------------------------------- | ---------- | ------- | -------- |
 | [class-methods-use-this](/docs/guide/usage/linter/rules/eslint/class-methods-use-this.html) | eslint | | |
+| [complexity](/docs/guide/usage/linter/rules/eslint/complexity.html) | eslint | | |
 | [default-case](/docs/guide/usage/linter/rules/eslint/default-case.html) | eslint | | |
 | [no-alert](/docs/guide/usage/linter/rules/eslint/no-alert.html) | eslint | | |
 | [no-bitwise](/docs/guide/usage/linter/rules/eslint/no-bitwise.html) | eslint | | |
@@ -47285,7 +47681,7 @@ Lints which are rather strict or have occasional false positives.
 | [prefer-type-error](/docs/guide/usage/linter/rules/unicorn/prefer-type-error.html) | unicorn | | 🛠️ |
 | [require-number-to-fixed-digits-argument](/docs/guide/usage/linter/rules/unicorn/require-number-to-fixed-digits-argument.html) | unicorn | | 🛠️ |
 
-## Style (182):
+## Style (183):
 
 Code that should be written in a more idiomatic way.
 | Rule name | Source | Default | Fixable? |
@@ -47323,7 +47719,7 @@ Code that should be written in a more idiomatic way.
 | [no-useless-computed-key](/docs/guide/usage/linter/rules/eslint/no-useless-computed-key.html) | eslint | | 🚧 |
 | [operator-assignment](/docs/guide/usage/linter/rules/eslint/operator-assignment.html) | eslint | | ⚠️🛠️️ |
 | [prefer-destructuring](/docs/guide/usage/linter/rules/eslint/prefer-destructuring.html) | eslint | | 🛠️ |
-| [prefer-exponentiation-operator](/docs/guide/usage/linter/rules/eslint/prefer-exponentiation-operator.html) | eslint | | |
+| [prefer-exponentiation-operator](/docs/guide/usage/linter/rules/eslint/prefer-exponentiation-operator.html) | eslint | | 🚧 |
 | [prefer-numeric-literals](/docs/guide/usage/linter/rules/eslint/prefer-numeric-literals.html) | eslint | | 🛠️ |
 | [prefer-object-has-own](/docs/guide/usage/linter/rules/eslint/prefer-object-has-own.html) | eslint | | 🛠️ |
 | [prefer-object-spread](/docs/guide/usage/linter/rules/eslint/prefer-object-spread.html) | eslint | | 🛠️ |
@@ -47452,7 +47848,7 @@ Code that should be written in a more idiomatic way.
 | [prefer-object-from-entries](/docs/guide/usage/linter/rules/unicorn/prefer-object-from-entries.html) | unicorn | | 🚧 |
 | [prefer-optional-catch-binding](/docs/guide/usage/linter/rules/unicorn/prefer-optional-catch-binding.html) | unicorn | | 🛠️ |
 | [prefer-reflect-apply](/docs/guide/usage/linter/rules/unicorn/prefer-reflect-apply.html) | unicorn | | |
-| [prefer-response-static-json](/docs/guide/usage/linter/rules/unicorn/prefer-response-static-json.html) | unicorn | | 🚧 |
+| [prefer-response-static-json](/docs/guide/usage/linter/rules/unicorn/prefer-response-static-json.html) | unicorn | | 💡 |
 | [prefer-spread](/docs/guide/usage/linter/rules/unicorn/prefer-spread.html) | unicorn | | 🛠️ |
 | [prefer-string-raw](/docs/guide/usage/linter/rules/unicorn/prefer-string-raw.html) | unicorn | | 🛠️ |
 | [prefer-string-trim-start-end](/docs/guide/usage/linter/rules/unicorn/prefer-string-trim-start-end.html) | unicorn | | 🛠️ |
@@ -47463,6 +47859,7 @@ Code that should be written in a more idiomatic way.
 | [text-encoding-identifier-case](/docs/guide/usage/linter/rules/unicorn/text-encoding-identifier-case.html) | unicorn | | 🛠️ |
 | [throw-new-error](/docs/guide/usage/linter/rules/unicorn/throw-new-error.html) | unicorn | | 🛠️ |
 | [consistent-test-filename](/docs/guide/usage/linter/rules/vitest/consistent-test-filename.html) | vitest | | |
+| [consistent-vitest-vi](/docs/guide/usage/linter/rules/vitest/consistent-vitest-vi.html) | vitest | | 🛠️ |
 | [no-import-node-test](/docs/guide/usage/linter/rules/vitest/no-import-node-test.html) | vitest | | 🛠️ |
 | [prefer-called-times](/docs/guide/usage/linter/rules/vitest/prefer-called-times.html) | vitest | | 🛠️ |
 | [prefer-to-be-falsy](/docs/guide/usage/linter/rules/vitest/prefer-to-be-falsy.html) | vitest | | 🛠️ |
@@ -53337,48 +53734,59 @@ url: >-
 
 ### What it does
 
-This rule disallows unnecessary template literals.
+Disallows unnecessary template expressions (interpolations) that can be simplified.
 
 ### Why is this bad?
 
-Template literals should only be used when they are needed for string interpolation or multi-line strings. Using template literals when a simple string would suffice adds unnecessary complexity.
+Template literals with substitution expressions that are unnecessary add complexity
+without providing any benefit. Static string literal expressions or expressions that
+are already strings can be simplified.
+
+Note: This rule does not flag template literals without substitution expressions.
+For example, `` `hello` `` is allowed even though it could be written as `'hello'`.
 
 ### Examples
 
 Examples of **incorrect** code for this rule:
 
 ```ts
-const str1 = `Hello world`;
+// Static values can be incorporated into the surrounding template
+const ab1 = `${"a"}${"b"}`;
+const ab2 = `a${"b"}`;
 
-const str2 = `42`;
+const stringWithNumber = `${"1 + 1 = "}${2}`;
+const stringWithBoolean = `${"true is "}${true}`;
 
-const str3 = `true`;
+// Expressions that are already strings can be rewritten without a template
+const text = "a";
+const wrappedText = `${text}`;
 
-// Template with only literal expressions
-const str4 = `${"Hello"} ${"world"}`;
+declare const intersectionWithString: string & { _brand: "test-brand" };
+const wrappedIntersection = `${intersectionWithString}`;
 ```
 
 Examples of **correct** code for this rule:
 
 ```ts
-const str1 = "Hello world";
+// Static values incorporated into the template
+const ab1 = `ab`;
 
-const str2 = "42";
-
-const str3 = "true";
-
-// Template with variable interpolation
+// Template with non-trivial interpolation
 const name = "world";
-const str4 = `Hello ${name}`;
+const greeting = `Hello ${name}!`;
 
-// Multi-line string
+// Template with expression
+const result = `Result: ${1 + 2}`;
+
+// Simple strings don't need templates
+const text = "a";
+const wrappedText = text;
+
+// Multi-line strings are fine
 const multiline = `
   Hello
   world
 `;
-
-// Template with expression
-const str5 = `Result: ${1 + 2}`;
 ```
 
 ## How to use
@@ -54541,7 +54949,11 @@ url: /docs/guide/usage/linter/rules/typescript/no-var-requires.md
 
 ### What it does
 
-Disallow `require` statements except in import statements
+Disallow `require` statements except in import statements.
+
+**NOTE**: This rule is intentionally missing the `allow` option from the original typescript-eslint rule.
+This rule is deprecated in the upstream plugin and the `typescript/no-require-imports` rule should be
+used instead.
 
 ### Why is this bad?
 
@@ -54833,6 +55245,14 @@ Supports four types of specifiers:
 { "from": "package", "name": "Observable", "package": "rxjs" }
 { "from": "package", "name": ["Observable", "Subject"], "package": "rxjs" }
 ```
+
+### allowRethrowing
+
+type: `boolean`
+
+default: `true`
+
+Whether to allow rethrowing caught values that are not Error objects.
 
 ### allowThrowingAny
 
@@ -65319,67 +65739,6 @@ oxlint --deny unicorn/throw-new-error
 ---
 
 ---
-url: /docs/guide/usage/formatter/generated-cli.md
----
-
-## Usage
-
-**`oxfmt`** \[**`-c`**=*`PATH`*] \[*`PATH`*]...
-
-## Mode Options:
-
-* **`    --init`** —
-  Initialize `.oxfmtrc.json` with default values
-* **`    --migrate`**=*`SOURCE`* —
-  Migrate configuration to `.oxfmtrc.json` from specified source Available sources: prettier
-* **`    --lsp`** —
-  Start language server protocol (LSP) server
-* **`    --stdin-filepath`**=*`PATH`* —
-  Specify the file name to use to infer which parser to use
-
-## Output Options:
-
-* **`    --write`** —
-  Format and write files in place (default)
-* **`    --check`** —
-  Check if files are formatted, also show statistics
-* **`    --list-different`** —
-  List files that would be changed
-
-## Config Options
-
-* **`-c`**, **`--config`**=*`PATH`* —
-  Path to the configuration file
-
-## Ignore Options
-
-* **`    --ignore-path`**=*`PATH`* —
-  Path to ignore file(s). Can be specified multiple times. If not specified, .gitignore and .prettierignore in the current directory are used.
-* **`    --with-node-modules`** —
-  Format code in node\_modules directory (skipped by default)
-
-## Runtime Options
-
-* **`    --no-error-on-unmatched-pattern`** —
-  Do not exit with error when pattern is unmatched
-* **`    --threads`**=*`INT`* —
-  Number of threads to use. Set to 1 for using only 1 CPU core.
-
-## Available positional items:
-
-* *`PATH`* —
-  Single file, single path or list of paths. If not provided, current working directory is used. Glob is supported only for exclude patterns like `'!**/fixtures/*.js'`.
-
-## Available options:
-
-* **`-h`**, **`--help`** —
-  Prints help information
-* **`-V`**, **`--version`** —
-  Prints version information
-
----
-
----
 url: /docs/guide/usage/linter/generated-cli.md
 ---
 
@@ -65536,6 +65895,67 @@ Arguments:
 ---
 
 ---
+url: /docs/guide/usage/formatter/generated-cli.md
+---
+
+## Usage
+
+**`oxfmt`** \[**`-c`**=*`PATH`*] \[*`PATH`*]...
+
+## Mode Options:
+
+* **`    --init`** —
+  Initialize `.oxfmtrc.json` with default values
+* **`    --migrate`**=*`SOURCE`* —
+  Migrate configuration to `.oxfmtrc.json` from specified source Available sources: prettier
+* **`    --lsp`** —
+  Start language server protocol (LSP) server
+* **`    --stdin-filepath`**=*`PATH`* —
+  Specify the file name to use to infer which parser to use
+
+## Output Options:
+
+* **`    --write`** —
+  Format and write files in place (default)
+* **`    --check`** —
+  Check if files are formatted, also show statistics
+* **`    --list-different`** —
+  List files that would be changed
+
+## Config Options
+
+* **`-c`**, **`--config`**=*`PATH`* —
+  Path to the configuration file
+
+## Ignore Options
+
+* **`    --ignore-path`**=*`PATH`* —
+  Path to ignore file(s). Can be specified multiple times. If not specified, .gitignore and .prettierignore in the current directory are used.
+* **`    --with-node-modules`** —
+  Format code in node\_modules directory (skipped by default)
+
+## Runtime Options
+
+* **`    --no-error-on-unmatched-pattern`** —
+  Do not exit with error when pattern is unmatched
+* **`    --threads`**=*`INT`* —
+  Number of threads to use. Set to 1 for using only 1 CPU core.
+
+## Available positional items:
+
+* *`PATH`* —
+  Single file, single path or list of paths. If not provided, current working directory is used. Glob is supported only for exclude patterns like `'!**/fixtures/*.js'`.
+
+## Available options:
+
+* **`-h`**, **`--help`** —
+  Prints help information
+* **`-V`**, **`--version`** —
+  Prints version information
+
+---
+
+---
 url: /docs/guide/usage/linter/versioning.md
 ---
 
@@ -65676,6 +66096,77 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```bash [CLI]
 oxlint --deny vitest/consistent-test-filename --vitest-plugin
+```
+
+:::
+
+## References
+
+* Rule Source
+
+---
+
+---
+url: /docs/guide/usage/linter/rules/vitest/consistent-vitest-vi.md
+---
+# vitest/consistent-vitest-vi&#x20;
+
+### What it does
+
+This rule triggers an error when an unexpected vitest accessor is used.
+
+### Why is this bad?
+
+Not having a consistent vitest accessor can lead to confusion
+when `vi` and `vitest` are used interchangeably.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```js
+vitest.mock("./src/calculator.ts", { spy: true });
+
+vi.stubEnv("NODE_ENV", "production");
+```
+
+Examples of **correct** code for this rule:
+
+```js
+vi.mock("./src/calculator.ts", { spy: true });
+
+vi.stubEnv("NODE_ENV", "production");
+```
+
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### fn
+
+type: `"vi" | "vitest"`
+
+default: `"vi"`
+
+Decides whether to prefer vitest function accessor
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "plugins": ["vitest"],
+  "rules": {
+    "vitest/consistent-vitest-vi": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --deny vitest/consistent-vitest-vi --vitest-plugin
 ```
 
 :::
@@ -66134,6 +66625,65 @@ oxlint --deny vitest/require-local-test-context-for-concurrent-snapshots --vites
 ---
 
 ---
+url: /docs/guide/usage/linter/rules/vitest/warn-todo.md
+---
+# vitest/warn-todo&#x20;
+
+### What it does
+
+This rule triggers warnings when `.todo` is used in `describe`, `it`, or `test` functions.
+It is recommended to use this with your CI pipeline to annotate PR diffs.
+
+### Why is this bad?
+
+The test that you push should be completed, any pending/"TODO" code should not be committed.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```js
+describe.todo("foo", () => {});
+it.todo("foo", () => {});
+test.todo("foo", () => {});
+```
+
+Examples of **correct** code for this rule:
+
+```js
+describe([])("foo", () => {});
+it([])("foo", () => {});
+test([])("foo", () => {});
+```
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "plugins": ["vitest"],
+  "rules": {
+    "vitest/warn-todo": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --deny vitest/warn-todo --vitest-plugin
+```
+
+:::
+
+## References
+
+* Rule Source
+
+---
+
+---
 url: /docs/contribute/vscode.md
 ---
 
@@ -66530,7 +67080,7 @@ in order to aid in maintainability and reduce complexity.
 
 ### Examples
 
-Examples of **incorrect** code for this rule with the default `{ maxProps: 1 }` option:
+Examples of **incorrect** code for this rule with the default `{ "maxProps": 1 }` option:
 
 ```js
 <script setup>
@@ -66541,7 +67091,7 @@ defineProps({
 </script>
 ```
 
-Examples of **correct** code for this rule with the default `{ maxProps: 1 }` option:
+Examples of **correct** code for this rule with the default `{ "maxProps": 1 }` option:
 
 ```js
 <script setup>
@@ -66923,6 +67473,73 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```bash [CLI]
 oxlint --deny vue/no-required-prop-with-default --vue-plugin
+```
+
+:::
+
+## References
+
+* Rule Source
+
+---
+
+---
+url: /docs/guide/usage/linter/rules/vue/no-this-in-before-route-enter.md
+---
+# vue/no-this-in-before-route-enter&#x20;
+
+### What it does
+
+Disallow `this` usage in a `beforeRouteEnter` method.
+
+This rule is only relevant when using `vue-router`.
+
+### Why is this bad?
+
+Inside a `beforeRouteEnter` method, there is no access to `this`.
+See [the vue-router docs](https://router.vuejs.org/guide/advanced/navigation-guards.html#in-component-guards).
+This behavior isn't obvious, and so this lint rule can help prevent runtime errors in some cases.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```js
+export default {
+  beforeRouteEnter(to, from, next) {
+    this.a; // Error: 'this' is not available
+    next();
+  },
+};
+```
+
+Examples of **correct** code for this rule:
+
+```js
+export default {
+  beforeRouteEnter(to, from, next) {
+    // anything without `this`
+  },
+};
+```
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "plugins": ["vue"],
+  "rules": {
+    "vue/no-this-in-before-route-enter": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --deny vue/no-this-in-before-route-enter --vue-plugin
 ```
 
 :::

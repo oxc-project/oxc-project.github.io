@@ -14,7 +14,7 @@ in order to aid in maintainability and reduce complexity.
 
 ### Examples
 
-Examples of **incorrect** code for this rule with the default `{ maxProps: 1 }` option:
+Examples of **incorrect** code for this rule with the default `{ "maxProps": 1 }` option:
 
 ```js
 <script setup>
@@ -25,7 +25,7 @@ defineProps({
 </script>
 ```
 
-Examples of **correct** code for this rule with the default `{ maxProps: 1 }` option:
+Examples of **correct** code for this rule with the default `{ "maxProps": 1 }` option:
 
 ```js
 <script setup>

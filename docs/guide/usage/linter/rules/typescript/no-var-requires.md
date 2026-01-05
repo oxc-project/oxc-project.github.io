@@ -5,7 +5,11 @@ url: /docs/guide/usage/linter/rules/typescript/no-var-requires.md
 
 ### What it does
 
-Disallow `require` statements except in import statements
+Disallow `require` statements except in import statements.
+
+**NOTE**: This rule is intentionally missing the `allow` option from the original typescript-eslint rule.
+This rule is deprecated in the upstream plugin and the `typescript/no-require-imports` rule should be
+used instead.
 
 ### Why is this bad?
 
