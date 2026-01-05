@@ -75,4 +75,4 @@ Unplugin is supported via a third-party package: https://www.npmjs.com/package/u
 
 ### Vite plugin
 
-A Vite plugin is supported via a third-party package: https://www.npmjs.com/package/vite-plugin-oxlint
+A Vite plugin is supported via a [third-party package](https://www.npmjs.com/package/vite-plugin-oxlint)
