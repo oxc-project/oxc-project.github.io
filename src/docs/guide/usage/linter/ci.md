@@ -37,7 +37,7 @@ jobs:
       - uses: pnpm/action-setup@v4
 
       - run: pnpm install --frozen-lockfile
-      - run: pnpm run lint # given package.json scripts "lint": "oxlint"
+      - run: pnpm run lint --deny-warnings # given package.json scripts "lint": "oxlint"
 ```
 
 ## Git hooks
