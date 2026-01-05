@@ -1320,21 +1320,35 @@ description: >-
 
 # Built-in Plugins
 
-Oxlint includes built in implementations of many popular ESLint plugin rule sets. Most rules in the `recommended` configs are already implemented, so you can get useful results without extra setup.
+Oxlint includes built-in implementations of many popular ESLint plugin rule sets. Most rules in the `recommended` configs are already implemented, so you can get useful results without extra setup.
 
-Oxlint also supports plugins written in JavaScript with an ESLint compatible API. See [JS Plugins](./js-plugins.md).
+Oxlint also supports plugins written in JavaScript with an ESLint-compatible API. See [JS Plugins](./js-plugins.md).
 
 ## What a plugin means in Oxlint
 
 A plugin is a named group of rules. Enabling a plugin makes its rules available, and category flags control which rules are enabled and at what severity.
 
-If you are migrating from ESLint, plugins map to the ecosystems you already know, such as import, react, jsx a11y, jest, unicorn, and more.
+If you are migrating from ESLint, plugins map to the ecosystems you already know, such as import, react, jsx-a11y, jest, unicorn, and more.
 
 ## Enable a plugin
 
+It is **strongly recommended** to use a config file to enable plugins, as it makes it considerably easier to manage and share with other developers on a project.
+
+### Enable in a config file
+
+You can also enable plugins in `.oxlintrc.json` using the `plugins` field:
+
+```json
+{
+  "plugins": ["import"]
+}
+```
+
+Setting `plugins` **overwrites the default plugin set**. The list should include every plugin you want enabled.
+
 ### Enable with the CLI
 
-Enable a plugin using a `--<plugin-name>-plugin` flag.
+You can also enable a plugin using a `--<plugin-name>-plugin` CLI flag.
 
 Example, enable the import plugin:
 
@@ -1354,29 +1368,7 @@ Correctness rules are enabled by default.
 
 Tip: run `oxlint --help` to see the full list of plugin flags.
 
-### Enable in a config file
-
-You can also enable plugins in `.oxlintrc.json` using the `plugins` field:
-
-```json
-{
-  "plugins": ["import"]
-}
-```
-
-Setting `plugins` overwrites the default plugin set. The list should include every plugin you want enabled.
-
 ## Disable default plugins
-
-Several plugins are enabled by default. You can disable a default plugin with `--disable-<plugin-name>-plugin`.
-
-Example, disable unicorn:
-
-```bash
-oxlint --disable-unicorn-plugin
-```
-
-Only default plugins support being disabled. Non default plugins can simply be omitted.
 
 ### Disable default plugins in a config file
 
@@ -1390,35 +1382,47 @@ To disable all default plugins in a config file, set `plugins` to an empty array
 
 This disables all default plugins and uses only the base rule set.
 
+### Disable default plugins with the CLI
+
+Several plugins are enabled by default. You can disable a default plugin with `--disable-<plugin-name>-plugin`.
+
+Example, disable unicorn:
+
+```bash
+oxlint --disable-unicorn-plugin
+```
+
+Only default plugins support being disabled. Non-default plugins can simply be omitted.
+
 ## Supported plugins
 
-This table lists the built in plugins and where they come from.
+This table lists the built-in plugins and where they come from.
 
-| Plugin name  | Default | Source                                                                                                                   |
-| ------------ | ------- | ------------------------------------------------------------------------------------------------------------------------ |
-| `eslint`     | Yes     | ESLint core rules                                                                                                        |
-| `typescript` | Yes     | TypeScript rules from the typescript eslint ecosystem. Type aware rules are available in alpha using the type aware mode |
-| `unicorn`    | Yes     | eslint plugin unicorn                                                                                                    |
-| `react`      | No      | eslint plugin react and eslint plugin react hooks                                                                        |
-| `react-perf` | No      | eslint plugin react perf                                                                                                 |
-| `nextjs`     | No      | eslint plugin next                                                                                                       |
-| `oxc`        | Yes     | Oxc specific rules and selected rules ported from deepscan                                                               |
-| `import`     | No      | eslint plugin import                                                                                                     |
-| `jsdoc`      | No      | eslint plugin jsdoc                                                                                                      |
-| `jsx-a11y`   | No      | eslint plugin jsx a11y                                                                                                   |
-| `node`       | No      | eslint plugin n                                                                                                          |
-| `promise`    | No      | eslint plugin promise                                                                                                    |
-| `jest`       | No      | eslint plugin jest                                                                                                       |
-| `vitest`     | No      | eslint plugin vitest                                                                                                     |
-| `vue`        | No      | eslint plugin vue rules that work with script tags                                                                       |
+| Plugin name  | Default | Source                                                                                                                                                           |
+| ------------ | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `eslint`     | Yes     | ESLint core rules                                                                                                                                                |
+| `typescript` | Yes     | TypeScript rules from typescript-eslint (aka `@typescript-eslint/plugin`). Type-aware rules are available in alpha using [the type-aware mode](./type-aware.md). |
+| `unicorn`    | Yes     | eslint-plugin-unicorn                                                                                                                                            |
+| `react`      | No      | eslint-plugin-react and eslint-plugin-react-hooks                                                                                                                |
+| `react-perf` | No      | eslint-plugin-react-perf                                                                                                                                         |
+| `nextjs`     | No      | @next/eslint-plugin-next                                                                                                                                         |
+| `oxc`        | Yes     | Oxc-specific rules and selected rules ported from deepscan                                                                                                       |
+| `import`     | No      | eslint-plugin-import (also equivalent to eslint-plugin-import-x)                                                                                                 |
+| `jsdoc`      | No      | eslint-plugin-jsdoc                                                                                                                                              |
+| `jsx-a11y`   | No      | eslint-plugin-jsx-a11y                                                                                                                                           |
+| `node`       | No      | eslint-plugin-n                                                                                                                                                  |
+| `promise`    | No      | eslint-plugin-promise                                                                                                                                            |
+| `jest`       | No      | eslint-plugin-jest                                                                                                                                               |
+| `vitest`     | No      | @vitest/eslint-plugin aka eslint-plugin-vitest                                                                                                                   |
+| `vue`        | No      | eslint-plugin-vue rules that work with script tags                                                                                                               |
 
 For the current status of rule coverage, see the linter [product plan issue](https://github.com/oxc-project/oxc/issues/481).
 
 ## Adding new plugins
 
-Oxlint focuses on supporting the ecosystem through built in plugins and ESLint compatible JavaScript plugins. Contributions that add rules to existing built in plugins are encouraged.
+Oxlint focuses on supporting the ecosystem through built-in plugins and ESLint-compatible JavaScript plugins. [Contributions that add rules](/docs/contribute/linter/adding-rules) to existing built-in plugins are encouraged.
 
-If you think a rule set should be implemented as a built in plugin, open a discussion first.
+If you think a rule set should be implemented as a built-in plugin, please [open a GitHub discussion](https://github.com/oxc-project/oxc/discussions/new?category=feature-request) first.
 
 ---
 
@@ -1545,69 +1549,6 @@ import styled from "styled-components/primitives";
 
 * JSX css prop transformation
 * Custom import path handling
-
----
-
----
-url: /docs/guide/usage/formatter/cli.md
----
-
-# Command-line Interface
-
-## Usage
-
-**`oxfmt`** \[**`-c`**=*`PATH`*] \[*`PATH`*]...
-
-## Mode Options:
-
-* **`    --init`** —
-  Initialize `.oxfmtrc.json` with default values
-* **`    --migrate`**=*`SOURCE`* —
-  Migrate configuration to `.oxfmtrc.json` from specified source Available sources: prettier
-* **`    --lsp`** —
-  Start language server protocol (LSP) server
-* **`    --stdin-filepath`**=*`PATH`* —
-  Specify the file name to use to infer which parser to use
-
-## Output Options:
-
-* **`    --write`** —
-  Format and write files in place (default)
-* **`    --check`** —
-  Check if files are formatted, also show statistics
-* **`    --list-different`** —
-  List files that would be changed
-
-## Config Options
-
-* **`-c`**, **`--config`**=*`PATH`* —
-  Path to the configuration file
-
-## Ignore Options
-
-* **`    --ignore-path`**=*`PATH`* —
-  Path to ignore file(s). Can be specified multiple times. If not specified, .gitignore and .prettierignore in the current directory are used.
-* **`    --with-node-modules`** —
-  Format code in node\_modules directory (skipped by default)
-
-## Runtime Options
-
-* **`    --no-error-on-unmatched-pattern`** —
-  Do not exit with error when pattern is unmatched
-* **`    --threads`**=*`INT`* —
-  Number of threads to use. Set to 1 for using only 1 CPU core.
-
-## Available positional items:
-
-* *`PATH`* —
-  Single file, single path or list of paths. If not provided, current working directory is used. Glob is supported only for exclude patterns like `'!**/fixtures/*.js'`.
-
-## Available options:
-
-* **`-h`**, **`--help`** —
-  Prints help information
-* **`-V`**, **`--version`** —
-  Prints version information
 
 ---
 
@@ -1770,6 +1711,116 @@ Arguments:
 ---
 
 ---
+url: /docs/guide/usage/formatter/cli.md
+---
+
+# Command-line Interface
+
+## Usage
+
+**`oxfmt`** \[**`-c`**=*`PATH`*] \[*`PATH`*]...
+
+## Mode Options:
+
+* **`    --init`** —
+  Initialize `.oxfmtrc.json` with default values
+* **`    --migrate`**=*`SOURCE`* —
+  Migrate configuration to `.oxfmtrc.json` from specified source Available sources: prettier
+* **`    --lsp`** —
+  Start language server protocol (LSP) server
+* **`    --stdin-filepath`**=*`PATH`* —
+  Specify the file name to use to infer which parser to use
+
+## Output Options:
+
+* **`    --write`** —
+  Format and write files in place (default)
+* **`    --check`** —
+  Check if files are formatted, also show statistics
+* **`    --list-different`** —
+  List files that would be changed
+
+## Config Options
+
+* **`-c`**, **`--config`**=*`PATH`* —
+  Path to the configuration file
+
+## Ignore Options
+
+* **`    --ignore-path`**=*`PATH`* —
+  Path to ignore file(s). Can be specified multiple times. If not specified, .gitignore and .prettierignore in the current directory are used.
+* **`    --with-node-modules`** —
+  Format code in node\_modules directory (skipped by default)
+
+## Runtime Options
+
+* **`    --no-error-on-unmatched-pattern`** —
+  Do not exit with error when pattern is unmatched
+* **`    --threads`**=*`INT`* —
+  Number of threads to use. Set to 1 for using only 1 CPU core.
+
+## Available positional items:
+
+* *`PATH`* —
+  Single file, single path or list of paths. If not provided, current working directory is used. Glob is supported only for exclude patterns like `'!**/fixtures/*.js'`.
+
+## Available options:
+
+* **`-h`**, **`--help`** —
+  Prints help information
+* **`-V`**, **`--version`** —
+  Prints version information
+
+---
+
+---
+url: /docs/guide/usage/formatter/config.md
+---
+# Configuration
+
+## `.oxfmtrc.json(c)`
+
+We support `.json` or `.jsonc` config file.
+
+Almost all formatting options are compatible with Prettier's [options](https://prettier.io/docs/options).
+
+We also recommend adding the `$schema` to the config file:
+
+```json
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json"
+}
+```
+
+For full reference, see also [Configuration file reference](./config-file-reference).
+
+By default, `oxfmt` automatically tries to find the nearest `.oxfmtrc.json` or `.oxfmtrc.jsonc` file from the current working directory. If not found, the default configuration options are used.
+
+You can also specify your config file with the `-c yourconfig.jsonc` flag.
+
+## `.editorconfig`
+
+`.editorconfig` file is also supported by Oxfmt.
+
+And these fields will override default Oxfmt options.
+
+* `end_of_line`: `endOfLine`
+* `indent_style`: `useTabs`
+* `indent_size`: `tabWidth`
+* `max_line_length`: `printWidth`
+* `insert_final_newline`: `insertFinalNewline`
+
+If both `.editorconfig` and `.oxfmtrc.json` has the same field, `.oxfmtrc` will win.
+
+For those properties, glob path overrides also work.
+
+By default, `oxfmt` automatically tries to find the nearest `.editorconfig` file from the current working directory.
+
+Unlike Prettier, Oxfmt does not respect `root = true` and does not merge nested `.editorconfig` files.
+
+---
+
+---
 url: /docs/guide/usage/linter/config.md
 description: Configure Oxlint using a .oxlintrc.json file.
 ---
@@ -1788,7 +1839,7 @@ To generate a starter config in the current directory:
 oxlint --init
 ```
 
-Oxlint automatically looks for a `.oxlintrc.json` in the current working directory. You can also pass a config explicitly:
+Oxlint automatically looks for a `.oxlintrc.json` in the current working directory. You can also pass a config explicitly (note that this will disable nested config lookup):
 
 ```sh
 oxlint -c ./oxlintrc.json
@@ -1798,8 +1849,8 @@ oxlint --config ./oxlintrc.json
 
 Notes:
 
-* Only `.json` config files are supported, and configuration files support comments (JSONC).
-* The configuration format aims to be compatible with ESLint v8 (`eslintrc.json`).
+* Only `.json` config files are supported, but oxlint configuration files support comments (like jsonc).
+* The configuration format aims to be compatible with ESLint v8's format (`eslintrc.json`).
 
 A minimal configuration looks like this:
 
@@ -1873,7 +1924,7 @@ To configure rule options, use an array:
 }
 ```
 
-All available rules are listed in the [Rules reference](/docs/guide/usage/linter/rules).
+All available rules, and their configuration options, are listed in the [Rules reference](/docs/guide/usage/linter/rules).
 
 ### Override severity from the CLI
 
@@ -1947,18 +1998,21 @@ For plugin details and CLI flags such as `--import-plugin`, see [Native Plugins]
 
 ## Configure JS plugins (experimental)
 
-Oxlint also supports JavaScript plugins via `jsPlugins`. This is intended for compatibility and advanced integrations.
+Oxlint also supports JavaScript plugins via `jsPlugins`. This is intended for compatibility with existing ESLint plugins and advanced integrations.
 
 Notes:
 
 * JS plugins are experimental and not subject to semver.
 * JS plugins are not supported in the language server at present.
 
-JS plugins can be declared as strings or as objects with an alias:
+JS plugins can be declared as strings, or as objects with an alias:
 
 ```jsonc
 {
-  "jsPlugins": [{ "name": "my-eslint-react", "specifier": "eslint-plugin-react" }],
+  "jsPlugins": [
+    "eslint-plugin-playwright",
+    { "name": "my-eslint-react", "specifier": "eslint-plugin-react" },
+  ],
 }
 ```
 
@@ -1983,6 +2037,7 @@ Example:
 
 ```jsonc
 {
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
   "rules": {
     "no-console": "error",
   },
@@ -2082,53 +2137,6 @@ Example (monorepo + React + jsx-a11y):
 * [Nested configs](/docs/guide/usage/linter/nested-config): Monorepos and per-package configuration.
 * [Config file reference](/docs/guide/usage/linter/config-file-reference.html): Full schema and field documentation.
 * [CLI reference](/docs/guide/usage/linter/cli.html): Complete list of flags and output formats.
-
----
-
----
-url: /docs/guide/usage/formatter/config.md
----
-# Configuration
-
-## `.oxfmtrc.json(c)`
-
-We support `.json` or `.jsonc` config file.
-
-Almost all formatting options are compatible with Prettier's [options](https://prettier.io/docs/options).
-
-We also recommend adding the `$schema` to the config file:
-
-```json
-{
-  "$schema": "./node_modules/oxfmt/configuration_schema.json"
-}
-```
-
-For full reference, see also [Configuration file reference](./config-file-reference).
-
-By default, `oxfmt` automatically tries to find the nearest `.oxfmtrc.json` or `.oxfmtrc.jsonc` file from the current working directory. If not found, the default configuration options are used.
-
-You can also specify your config file with the `-c yourconfig.jsonc` flag.
-
-## `.editorconfig`
-
-`.editorconfig` file is also supported by Oxfmt.
-
-And these fields will override default Oxfmt options.
-
-* `end_of_line`: `endOfLine`
-* `indent_style`: `useTabs`
-* `indent_size`: `tabWidth`
-* `max_line_length`: `printWidth`
-* `insert_final_newline`: `insertFinalNewline`
-
-If both `.editorconfig` and `.oxfmtrc.json` has the same field, `.oxfmtrc` will win.
-
-For those properties, glob path overrides also work.
-
-By default, `oxfmt` automatically tries to find the nearest `.editorconfig` file from the current working directory.
-
-Unlike Prettier, Oxfmt does not respect `root = true` and does not merge nested `.editorconfig` files.
 
 ---
 
@@ -19188,6 +19196,44 @@ However, even with `"auto"`, the contents inside `TaggedTemplateLiteral` in JS/T
 ---
 
 ---
+url: /docs/guide/introduction.md
+---
+
+# Getting Started
+
+[What is Oxc?](/docs/guide/what-is-oxc)
+
+## Lint or format a codebase
+
+* Lint: [Oxlint](/docs/guide/usage/linter)
+* Format: [Oxfmt](/docs/guide/usage/formatter)
+
+## Build tooling on top of Oxc
+
+* Parse JavaScript and TypeScript: [Parser](/docs/guide/usage/parser)
+* Transform TypeScript, JSX, and modern JavaScript: [Transformer](/docs/guide/usage/transformer)
+* Minify JavaScript for production builds: [Minifier](/docs/guide/usage/minifier)
+* Resolve modules for JavaScript and TypeScript: [Resolver](/docs/guide/usage/resolver)
+
+## Contribute or learn
+
+* [Contribute](/docs/contribute/introduction)
+* [Learn](/docs/learn/parser_in_rust/intro.html)
+
+## Other resources
+
+* [Troubleshooting](/docs/guide/troubleshooting)
+* [Benchmarks](/docs/guide/benchmarks)
+* [Projects using Oxc](/docs/guide/projects)
+* [Talks and media](/docs/guide/media)
+* [Team](/team)
+* [Endorsements](/endorsements)
+* [Release Blog](/blog/)
+* [Releases](https://github.com/oxc-project/oxc/releases)
+
+---
+
+---
 url: /docs/contribute/development.md
 ---
 
@@ -19268,44 +19314,6 @@ macOS has an antivirus feature called XProtect that scans executables for malwar
 **Note:** This disables an OS security feature. Only do this if you're comfortable with the trade-off.
 
 More details: https://nnethercote.github.io/2025/09/04/faster-rust-builds-on-mac.html
-
----
-
----
-url: /docs/guide/introduction.md
----
-
-# Getting Started
-
-[What is Oxc?](/docs/guide/what-is-oxc)
-
-## Lint or format a codebase
-
-* Lint: [Oxlint](/docs/guide/usage/linter)
-* Format: [Oxfmt](/docs/guide/usage/formatter)
-
-## Build tooling on top of Oxc
-
-* Parse JavaScript and TypeScript: [Parser](/docs/guide/usage/parser)
-* Transform TypeScript, JSX, and modern JavaScript: [Transformer](/docs/guide/usage/transformer)
-* Minify JavaScript for production builds: [Minifier](/docs/guide/usage/minifier)
-* Resolve modules for JavaScript and TypeScript: [Resolver](/docs/guide/usage/resolver)
-
-## Contribute or learn
-
-* [Contribute](/docs/contribute/introduction)
-* [Learn](/docs/learn/parser_in_rust/intro.html)
-
-## Other resources
-
-* [Troubleshooting](/docs/guide/troubleshooting)
-* [Benchmarks](/docs/guide/benchmarks)
-* [Projects using Oxc](/docs/guide/projects)
-* [Talks and media](/docs/guide/media)
-* [Team](/team)
-* [Endorsements](/endorsements)
-* [Release Blog](/blog/)
-* [Releases](https://github.com/oxc-project/oxc/releases)
 
 ---
 
@@ -22909,17 +22917,17 @@ Oxlint supports line comments (`//`) and block comments (`/* */`). Comments must
 
 ## oxlint-disable
 
-Disable one or more rules until the end of the file, or until they are re enabled.
+Disable one or more rules until the end of the file, or until they are re-enabled.
 
 ```js
-// Disable Oxlint for the rest of the file
+// Disable all Oxlint rules for the rest of the file
 /* oxlint-disable */
 
 // Disable a single rule in this file
 /* oxlint-disable no-console */
 
 // Disable multiple rules in this file
-/* oxlint-disable no-console, no-alert */
+/* oxlint-disable no-console, typescript/no-floating-promises */
 ```
 
 ## oxlint-enable
@@ -22942,17 +22950,9 @@ console.log("Hello, world!"); // oxlint-disable-line no-console
 console.log(x++); // oxlint-disable-line no-console, no-plusplus
 ```
 
-## oxlint-enable-line
-
-Enable one or more rules on the current line.
-
-```js
-// oxlint-enable-line no-console
-```
-
 ## oxlint-disable-next-line
 
-Disable one or more rules on the line following the comment, then re enable them automatically.
+Disable one or more rules on the line following the comment, then re-enables them for subsequent lines.
 
 ```js
 // oxlint-disable-next-line no-console
@@ -22961,14 +22961,6 @@ console.log(x++); // not allowed because the previous comment only applied to th
 
 // oxlint-disable-next-line no-console, no-plusplus
 console.log("Hello, world!"); // allowed
-```
-
-## oxlint-enable-next-line
-
-Enable one or more rules on the line following the comment, then re enable automatically.
-
-```js
-// oxlint-enable-next-line no-console
 ```
 
 ## ESLint compatibility
@@ -33336,7 +33328,9 @@ Configuration files are not automatically merged. A config in a child directory 
 
 Command line options override configuration files, regardless of whether they come from a parent or child directory.
 
-Passing `--config` disables nested config lookup and applies a single configuration file.
+Passing an explicit config file location using `-c` or `--config` disables nested config lookup, and Oxlint will only use that single configuration file.
+
+You can also disable nested configs with the `--disable-nested-configs` flag.
 
 ## Monorepo pattern: share a base config with extends
 
@@ -37480,7 +37474,7 @@ Oxlint is used in production by popular projects such as:
 ---
 
 ---
-url: /docs/guide/usage/linter/config-file-reference.md
+url: /docs/guide/usage/linter/generated-config.md
 ---
 
 # Oxlint Configuration File
@@ -38107,7 +38101,7 @@ to accommodate TypeScript type checking scenarios.
 ---
 
 ---
-url: /docs/guide/usage/linter/generated-config.md
+url: /docs/guide/usage/linter/config-file-reference.md
 ---
 
 # Oxlint Configuration File
@@ -38907,6 +38901,184 @@ Today, comments are not printed. *It will be supported thanks to [oxc-parser #13
 ---
 
 ---
+url: /docs/learn/architecture/parser.md
+---
+
+# Parser Architecture
+
+Oxc maintains its own AST and parser, which is by far the fastest and most conformant JavaScript and TypeScript (including JSX and TSX) parser written in Rust.
+
+As the parser often represents a key performance bottleneck in JavaScript tooling,
+any minor improvements can have a cascading effect on our downstream tools.
+By developing our parser, we have the opportunity to explore and implement well-researched performance techniques.
+
+## AST Design Philosophy
+
+While many existing JavaScript tools rely on [estree] as their AST specification,
+a notable drawback is its abundance of ambiguous nodes.
+This ambiguity often leads to confusion during development with [estree].
+
+The Oxc AST differs from the [estree] AST by removing ambiguous nodes and introducing distinct types.
+For example, instead of using a generic [estree] `Identifier`,
+the Oxc AST provides specific types such as `BindingIdentifier`, `IdentifierReference`, and `IdentifierName`.
+
+This clear distinction greatly enhances the development experience by aligning more closely with the ECMAScript specification.
+
+### AST Node Types
+
+```rust
+// Instead of generic Identifier
+pub struct BindingIdentifier<'a> {
+    pub span: Span,
+    pub name: Atom<'a>,
+}
+
+pub struct IdentifierReference<'a> {
+    pub span: Span,
+    pub name: Atom<'a>,
+    pub reference_id: Cell<Option<ReferenceId>>,
+}
+
+pub struct IdentifierName<'a> {
+    pub span: Span,
+    pub name: Atom<'a>,
+}
+```
+
+### Semantic Clarity
+
+This approach provides semantic clarity:
+
+* **`BindingIdentifier`**: Variable declarations (`let x = 1`)
+* **`IdentifierReference`**: Variable usage (`console.log(x)`)
+* **`IdentifierName`**: Property names (`obj.property`)
+
+## Performance Architecture
+
+### How is it so fast
+
+* **Memory Arena**: AST is allocated in a [memory arena](https://crates.io/crates/bumpalo) for fast allocation and deallocation
+* **String Optimization**: Short strings are inlined by [CompactString](https://crates.io/crates/compact_str)
+* **Minimal Heap Usage**: No other heap allocations are done except the above two
+* **Separation of Concerns**: Scope binding, symbol resolution and some syntax errors are delegated to the semantic analyzer
+
+### Memory Management Details
+
+#### Arena Allocation
+
+```rust
+use oxc_allocator::Allocator;
+
+// All AST nodes are allocated in this arena
+let allocator = Allocator::default();
+let ast_node = allocator.alloc(Expression::NumericLiteral(
+    allocator.alloc(NumericLiteral { value: 42.0, span: SPAN })
+));
+```
+
+Benefits:
+
+* **O(1) allocation**: Simple pointer bump
+* **O(1) deallocation**: Drop entire arena at once
+* **Cache-friendly**: Linear memory layout
+* **No fragmentation**: Continuous memory usage
+
+#### String Interning with CompactString
+
+```rust
+// Strings ≤ 24 bytes are stored inline (no heap allocation)
+let short_name = CompactString::from("variableName");  // Stack allocated
+let long_name = CompactString::from("a_very_long_variable_name_that_exceeds_limit");  // Heap allocated
+```
+
+This reduces memory allocations for the majority of JavaScript identifiers and string literals.
+
+## Parser Architecture
+
+### Two-Phase Design
+
+The Oxc parser follows a two-phase approach:
+
+1. **Parsing Phase**: Build AST structure with minimal semantic analysis
+2. **Semantic Phase**: Perform scope analysis, symbol resolution, and advanced error checking
+
+```rust
+// Phase 1: Parse to AST
+let parser_result = Parser::new(&allocator, source_text, source_type).parse();
+
+// Phase 2: Semantic analysis
+let semantic_result = SemanticBuilder::new(source_text, source_type)
+    .with_trivias(parser_result.trivias)
+    .build(&parser_result.program);
+```
+
+### Parser Components
+
+#### Lexer
+
+* **Token generation**: Converts source text to structured tokens
+* **SIMD optimization**: Uses SIMD instructions for whitespace skipping
+* **Context-aware**: Handles regex vs division operator disambiguation
+
+#### Recursive Descent Parser
+
+* **Hand-written**: Custom implementation for maximum performance
+* **Error recovery**: Advanced error handling with meaningful messages
+* **Grammar compliance**: Follows ECMAScript specification precisely
+
+#### AST Builder
+
+* **Type safety**: Leverages Rust's type system for correctness
+* **Memory efficiency**: Direct arena allocation
+* **Builder pattern**: Convenient node construction methods
+
+## Conformance Strategy
+
+### Test Suite Coverage
+
+* **Test262**: 100% pass rate on ECMAScript conformance tests
+* **Babel**: 99.62% compatibility with Babel parser tests
+* **TypeScript**: 99.86% compatibility with TypeScript compiler tests
+
+### Error Handling Philosophy
+
+```rust
+// Meaningful error messages with source location
+pub struct OxcDiagnostic {
+    pub message: String,
+    pub span: Span,
+    pub severity: Severity,
+    pub help: Option<String>,
+}
+```
+
+The parser provides:
+
+* **Precise error locations**: Exact source positions
+* **Recovery strategies**: Continue parsing after errors
+* **Helpful suggestions**: Actionable error messages
+
+## Advanced Features
+
+### TypeScript Support
+
+* **Type stripping**: Removes TypeScript-specific syntax
+* **Decorator parsing**: Handles experimental decorators
+* **Namespace support**: Full module and namespace parsing
+* **JSX integration**: TypeScript + JSX (TSX) support
+
+### Research Areas
+
+* **SIMD text processing**: Vectorized string operations
+* **Cache optimization**: Minimize memory access patterns
+* **Branch prediction**: Optimize hot parsing paths
+* **Zero-copy parsing**: Eliminate unnecessary string copies
+
+[estree]: https://github.com/estree/estree
+
+---
+
+---
 url: /docs/learn/parser_in_rust/parser.md
 ---
 
@@ -39313,184 +39485,6 @@ function isParenthesizedArrowFunctionExpression(): Tristate {
 ```
 
 In summary, the TypeScript parser uses a combination of lookahead (fast path) and backtracking to parse arrow functions.
-
----
-
----
-url: /docs/learn/architecture/parser.md
----
-
-# Parser Architecture
-
-Oxc maintains its own AST and parser, which is by far the fastest and most conformant JavaScript and TypeScript (including JSX and TSX) parser written in Rust.
-
-As the parser often represents a key performance bottleneck in JavaScript tooling,
-any minor improvements can have a cascading effect on our downstream tools.
-By developing our parser, we have the opportunity to explore and implement well-researched performance techniques.
-
-## AST Design Philosophy
-
-While many existing JavaScript tools rely on [estree] as their AST specification,
-a notable drawback is its abundance of ambiguous nodes.
-This ambiguity often leads to confusion during development with [estree].
-
-The Oxc AST differs from the [estree] AST by removing ambiguous nodes and introducing distinct types.
-For example, instead of using a generic [estree] `Identifier`,
-the Oxc AST provides specific types such as `BindingIdentifier`, `IdentifierReference`, and `IdentifierName`.
-
-This clear distinction greatly enhances the development experience by aligning more closely with the ECMAScript specification.
-
-### AST Node Types
-
-```rust
-// Instead of generic Identifier
-pub struct BindingIdentifier<'a> {
-    pub span: Span,
-    pub name: Atom<'a>,
-}
-
-pub struct IdentifierReference<'a> {
-    pub span: Span,
-    pub name: Atom<'a>,
-    pub reference_id: Cell<Option<ReferenceId>>,
-}
-
-pub struct IdentifierName<'a> {
-    pub span: Span,
-    pub name: Atom<'a>,
-}
-```
-
-### Semantic Clarity
-
-This approach provides semantic clarity:
-
-* **`BindingIdentifier`**: Variable declarations (`let x = 1`)
-* **`IdentifierReference`**: Variable usage (`console.log(x)`)
-* **`IdentifierName`**: Property names (`obj.property`)
-
-## Performance Architecture
-
-### How is it so fast
-
-* **Memory Arena**: AST is allocated in a [memory arena](https://crates.io/crates/bumpalo) for fast allocation and deallocation
-* **String Optimization**: Short strings are inlined by [CompactString](https://crates.io/crates/compact_str)
-* **Minimal Heap Usage**: No other heap allocations are done except the above two
-* **Separation of Concerns**: Scope binding, symbol resolution and some syntax errors are delegated to the semantic analyzer
-
-### Memory Management Details
-
-#### Arena Allocation
-
-```rust
-use oxc_allocator::Allocator;
-
-// All AST nodes are allocated in this arena
-let allocator = Allocator::default();
-let ast_node = allocator.alloc(Expression::NumericLiteral(
-    allocator.alloc(NumericLiteral { value: 42.0, span: SPAN })
-));
-```
-
-Benefits:
-
-* **O(1) allocation**: Simple pointer bump
-* **O(1) deallocation**: Drop entire arena at once
-* **Cache-friendly**: Linear memory layout
-* **No fragmentation**: Continuous memory usage
-
-#### String Interning with CompactString
-
-```rust
-// Strings ≤ 24 bytes are stored inline (no heap allocation)
-let short_name = CompactString::from("variableName");  // Stack allocated
-let long_name = CompactString::from("a_very_long_variable_name_that_exceeds_limit");  // Heap allocated
-```
-
-This reduces memory allocations for the majority of JavaScript identifiers and string literals.
-
-## Parser Architecture
-
-### Two-Phase Design
-
-The Oxc parser follows a two-phase approach:
-
-1. **Parsing Phase**: Build AST structure with minimal semantic analysis
-2. **Semantic Phase**: Perform scope analysis, symbol resolution, and advanced error checking
-
-```rust
-// Phase 1: Parse to AST
-let parser_result = Parser::new(&allocator, source_text, source_type).parse();
-
-// Phase 2: Semantic analysis
-let semantic_result = SemanticBuilder::new(source_text, source_type)
-    .with_trivias(parser_result.trivias)
-    .build(&parser_result.program);
-```
-
-### Parser Components
-
-#### Lexer
-
-* **Token generation**: Converts source text to structured tokens
-* **SIMD optimization**: Uses SIMD instructions for whitespace skipping
-* **Context-aware**: Handles regex vs division operator disambiguation
-
-#### Recursive Descent Parser
-
-* **Hand-written**: Custom implementation for maximum performance
-* **Error recovery**: Advanced error handling with meaningful messages
-* **Grammar compliance**: Follows ECMAScript specification precisely
-
-#### AST Builder
-
-* **Type safety**: Leverages Rust's type system for correctness
-* **Memory efficiency**: Direct arena allocation
-* **Builder pattern**: Convenient node construction methods
-
-## Conformance Strategy
-
-### Test Suite Coverage
-
-* **Test262**: 100% pass rate on ECMAScript conformance tests
-* **Babel**: 99.62% compatibility with Babel parser tests
-* **TypeScript**: 99.86% compatibility with TypeScript compiler tests
-
-### Error Handling Philosophy
-
-```rust
-// Meaningful error messages with source location
-pub struct OxcDiagnostic {
-    pub message: String,
-    pub span: Span,
-    pub severity: Severity,
-    pub help: Option<String>,
-}
-```
-
-The parser provides:
-
-* **Precise error locations**: Exact source positions
-* **Recovery strategies**: Continue parsing after errors
-* **Helpful suggestions**: Actionable error messages
-
-## Advanced Features
-
-### TypeScript Support
-
-* **Type stripping**: Removes TypeScript-specific syntax
-* **Decorator parsing**: Handles experimental decorators
-* **Namespace support**: Full module and namespace parsing
-* **JSX integration**: TypeScript + JSX (TSX) support
-
-### Research Areas
-
-* **SIMD text processing**: Vectorized string operations
-* **Cache optimization**: Minimize memory access patterns
-* **Branch prediction**: Optimize hot parsing paths
-* **Zero-copy parsing**: Eliminate unnecessary string copies
-
-[estree]: https://github.com/estree/estree
 
 ---
 
@@ -41814,13 +41808,15 @@ Initialize the `.oxlintrc.json` config with default values:
 oxlint --init
 ```
 
-Use a config file explicitly:
+Then run Oxlint:
 
 ```sh
-oxlint -c ./oxlintrc.json
-# or
-oxlint --config ./oxlintrc.json
+oxlint
 ```
+
+::: tip
+If you are migrating from ESLint, use [`@oxlint/migrate`](https://github.com/oxc-project/oxlint-migrate) to generate an Oxlint config from your existing ESLint flat file config.
+:::
 
 ### Fix problems
 
@@ -41864,12 +41860,6 @@ Disable ignore handling:
 oxlint --no-ignore
 ```
 
-Follow symlinks (Oxlint ignores symlinks by default):
-
-```sh
-oxlint --symlinks
-```
-
 See [Ignore files](/docs/guide/usage/linter/ignore-files).
 
 ### Fail CI reliably
@@ -41902,7 +41892,7 @@ Select an output format:
 oxlint -f json
 ```
 
-Available formats include: `default`, `json`, `unix`, `checkstyle`, `github`, `stylish`.
+Available formats include: `default`, `json`, `unix`, `checkstyle`, `github`, `gitlab`, `junit`, `stylish`.
 
 ### Inspect the effective configuration
 
@@ -41914,7 +41904,7 @@ oxlint --print-config path/to/file.ts
 
 ### List available rules
 
-List registered rules:
+List registered rules, including those enabled by your current oxlint config:
 
 ```sh
 oxlint --rules
@@ -48171,12 +48161,18 @@ Upon visit, we can call `enter_scope` and `leave_scope` accordingly to build the
 
 ---
 url: /docs/guide/usage/linter/ci.md
-description: Run Oxlint in CI.
+description: Run Oxlint in CI or as a git hook.
 ---
 
-# Setup CI
+# Setup CI and other integrations
 
-## GitHub Actions
+You can - and should - setup your CI pipeline to run Oxlint and fail the build on lint errors.
+
+This page also covers other integrations you may want to include, like git pre-commit hooks.
+
+## CI
+
+### GitHub Actions
 
 Create `.github/workflows/oxlint.yml`:
 
@@ -48205,7 +48201,23 @@ jobs:
       - run: pnpm run lint --deny-warnings # given package.json scripts "lint": "oxlint"
 ```
 
+## Git hooks
+
+### lint-staged
+
+For JS/TS projects using [lint-staged](https://github.com/lint-staged/lint-staged), you can set up oxlint to run pre-commit as follows:
+
+```json
+{
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,mjs,cjs}": "pnpm run lint"
+  }
+}
+```
+
 ### pre-commit
+
+If you use [pre-commit](https://pre-commit.com/) to manage git hooks, you can set up Oxlint as follows:
 
 ```yaml [.pre-commit-hooks.yaml]
 repos:
@@ -48216,13 +48228,15 @@ repos:
         verbose: true
 ```
 
+## Other integrations
+
 ### Unplugin
 
-https://www.npmjs.com/package/unplugin-oxlint
+Unplugin is supported via a [third-party package](https://www.npmjs.com/package/unplugin-oxlint)
 
 ### Vite plugin
 
-https://www.npmjs.com/package/vite-plugin-oxlint
+A Vite plugin is supported via a [third-party package](https://www.npmjs.com/package/vite-plugin-oxlint)
 
 ---
 
@@ -48267,7 +48281,7 @@ Create `.vscode/extensions.json`:
 }
 ```
 
-2. Enable fix on save (optional).
+2. Enable fix-on-save (optional).
 
 Add to `.vscode/settings.json`:
 
@@ -48278,6 +48292,18 @@ Add to `.vscode/settings.json`:
   },
 }
 ```
+
+3. Enable type-aware linting (optional).
+
+If you'd like to use type-aware rules and show type-related lint violations, ensure that `typeAware` is set to `true` in your VS Code settings (`.vscode/settings.json`):
+
+```jsonc
+{
+  "oxc.typeAware": true,
+}
+```
+
+You also need to ensure `oxlint-tsgolint` is installed in your project. See [the type-aware linting docs](/docs/guide/usage/linter/type-aware) for more details.
 
 ### Usage and configuration reference
 
@@ -49072,7 +49098,7 @@ bun add -D oxlint-tsgolint@latest
 
 ## Running type-aware linting
 
-Enable type-aware linting with the `--type-aware` flag:
+To run Oxlint with type-aware linting, you must pass the `--type-aware` flag:
 
 ```bash
 oxlint --type-aware
@@ -49081,6 +49107,8 @@ oxlint --type-aware
 When enabled, Oxlint runs standard rules and type-aware rules in the `typescript/*` namespace.
 
 Type-aware linting is opt-in and does not run unless the flag is provided.
+
+In editor and LSP-based integrations like VS Code, type-aware linting can be enabled by setting the `typeAware` option to `true`, see the [Editors](./editors) page for more information.
 
 ### Monorepos and build outputs
 
@@ -49161,8 +49189,11 @@ oxlint --type-aware --report-unused-disable-directives
 Type-aware linting is powered by `typescript-go`.
 
 * TypeScript **7.0+** is required
-* Some legacy `tsconfig` options are not supported
+* Some legacy `tsconfig` options are not supported (like `baseUrl` in `tsconfig.json`)
+* If you're using config options/features that were deprecated in TypeScript 6.0 or removed in TypeScript 7.0, you'll need to migrate your codebase first
 * Invalid options are reported when `--type-check` is enabled
+
+See the [TypeScript migration guide](https://github.com/microsoft/TypeScript/issues/62508#issuecomment-3348649259) for more details, and consider using [ts5to6](https://github.com/andrewbranch/ts5to6) to upgrade your tsconfig file.
 
 ## Stability notes
 
@@ -49172,7 +49203,9 @@ Type-aware linting is **alpha**:
 * Very large codebases may encounter high memory usage
 * Performance continues to improve
 
-## Performance and debugging
+## Troubleshooting
+
+### Performance and debugging
 
 If type-aware linting is slow or uses excessive memory:
 
@@ -49190,20 +49223,20 @@ OXC_LOG=debug oxlint --type-aware
 Example output (showing key timing milestones):
 
 ```
-2025/01/01 12:00:00.000000 Starting tsgolint
-2025/01/01 12:00:00.001000 Starting to assign files to programs. Total files: 259
-2025/01/01 12:00:01.000000 Done assigning files to programs. Total programs: 8. Unmatched files: 75
-2025/01/01 12:00:01.001000 Starting linter with 12 workers
-2025/01/01 12:00:01.001000 Workload distribution: 8 programs
-2025/01/01 12:00:01.002000 [1/8] Running linter on program: /path/to/project/jsconfig.json
+2026/01/01 12:00:00.000000 Starting tsgolint
+2026/01/01 12:00:00.001000 Starting to assign files to programs. Total files: 259
+2026/01/01 12:00:01.000000 Done assigning files to programs. Total programs: 8. Unmatched files: 75
+2026/01/01 12:00:01.001000 Starting linter with 12 workers
+2026/01/01 12:00:01.001000 Workload distribution: 8 programs
+2026/01/01 12:00:01.002000 [1/8] Running linter on program: /path/to/project/jsconfig.json
 ...
-2025/01/01 12:00:01.100000 [4/8] Running linter on program: /path/to/project/tsconfig.json
-2025/01/01 12:00:02.500000 Program created with 26140 source files
-2025/01/01 12:00:14.000000 /path/to/project/oxlint-plugin.mts
+2026/01/01 12:00:01.100000 [4/8] Running linter on program: /path/to/project/tsconfig.json
+2026/01/01 12:00:02.500000 Program created with 26140 source files
+2026/01/01 12:00:14.000000 /path/to/project/oxlint-plugin.mts
 ...
-2025/01/01 12:00:14.100000 [5/8] Running linter on program: /path/to/project/apps/tsconfig.json
+2026/01/01 12:00:14.100000 [5/8] Running linter on program: /path/to/project/apps/tsconfig.json
 ...
-2025/01/01 12:00:15.000000 Linting Complete
+2026/01/01 12:00:15.000000 Linting Complete
 Finished in 16.4s on 259 files with 161 rules using 12 threads.
 ```
 

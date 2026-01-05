@@ -68,13 +68,15 @@ Initialize the `.oxlintrc.json` config with default values:
 oxlint --init
 ```
 
-Use a config file explicitly:
+Then run Oxlint:
 
 ```sh
-oxlint -c ./oxlintrc.json
-# or
-oxlint --config ./oxlintrc.json
+oxlint
 ```
+
+::: tip
+If you are migrating from ESLint, use [`@oxlint/migrate`](https://github.com/oxc-project/oxlint-migrate) to generate an Oxlint config from your existing ESLint flat file config.
+:::
 
 ### Fix problems
 
@@ -118,12 +120,6 @@ Disable ignore handling:
 oxlint --no-ignore
 ```
 
-Follow symlinks (Oxlint ignores symlinks by default):
-
-```sh
-oxlint --symlinks
-```
-
 See [Ignore files](/docs/guide/usage/linter/ignore-files).
 
 ### Fail CI reliably
@@ -156,7 +152,7 @@ Select an output format:
 oxlint -f json
 ```
 
-Available formats include: `default`, `json`, `unix`, `checkstyle`, `github`, `stylish`.
+Available formats include: `default`, `json`, `unix`, `checkstyle`, `github`, `gitlab`, `junit`, `stylish`.
 
 ### Inspect the effective configuration
 
@@ -168,7 +164,7 @@ oxlint --print-config path/to/file.ts
 
 ### List available rules
 
-List registered rules:
+List registered rules, including those enabled by your current oxlint config:
 
 ```sh
 oxlint --rules
