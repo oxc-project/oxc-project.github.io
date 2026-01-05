@@ -6,7 +6,7 @@ Note that Oxfmt is in alpha, and may not be suitable for production use in compl
 
 ## Quick Start
 
-For simpler setups, you can use these commands to immediately migrate to Oxfmt:
+For simpler setups, you can use these commands to immediately migrate to Oxfmt and format your codebase:
 
 ::: code-group
 
@@ -37,7 +37,7 @@ It is almost entirely compatible with Prettier v3.7 already for basic configurat
 Other important considerations when migrating from Prettier to Oxfmt:
 
 - Oxfmt's formatting output is closest to Prettier v3.7. You will see more differences migrating from an older version of Prettier.
-- Oxfmt uses a `printWidth` of 100 characters by default, whereas Prettier's default is 80. Make sure to set `"printWidth": 80` in `.oxfmtrc.jsonc` to minimize differences if you use the Prettier default.
+- Oxfmt uses a `printWidth` of 100 characters by default, whereas Prettier's default is 80. You may want to set `printWidth` explicitly in your configuration file to match your previous setup.
 - Prettier plugins are not yet supported.
 - Some Prettier options are not supported. See the [oxfmt CLI documentation](/docs/guide/usage/formatter/config-file-reference.html) for the full list of currently-supported options.
 - Oxfmt supports an `--lsp` flag to spin up a Language Server Protocol server, but editor/IDE integration is still being developed and has not been tested/documented yet for most editors.
@@ -93,15 +93,7 @@ A basic `.oxfmtrc.jsonc` file looks like this:
 }
 ```
 
-If you have a basic `.prettierrc` file, you can simply rename the file with `mv .prettierrc .oxfmtrc.jsonc`.
-
-If you are using something other than JSON to configure Prettier, you will need to convert the configuration to JSON.
-
-In either case, you can use the migrate command in your project root directory.
-
-```sh
-oxfmt --migrate prettier
-```
+If you have a basic `.prettierrc` file, you can simply use `oxfmt --migrate prettier` to convert it to `.oxfmtrc.jsonc`.
 
 This command automatically finds your configuration file and converts it to `.oxfmtrc.json` if possible.
 
