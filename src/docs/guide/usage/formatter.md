@@ -123,10 +123,6 @@ pnpm run format:check
 
 `oxfmt` CLI works like `prettier --write .` by default.
 
-## Command-line Interface
-
-`oxfmt` CLI works like `prettier --write .` by default.
-
 Formatting config options like `--no-semi` are not supported via CLI flags.
 We recommend setting these via the configuration file instead. This will ensure that the CLI and editor integrations always use the same settings.
 
