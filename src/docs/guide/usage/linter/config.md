@@ -102,7 +102,7 @@ To configure rule options, use an array:
 }
 ```
 
-All available rules - and their configuration options - are listed in the [Rules reference](/docs/guide/usage/linter/rules).
+All available rules, and their configuration options, are listed in the [Rules reference](/docs/guide/usage/linter/rules).
 
 ### Override severity from the CLI
 
