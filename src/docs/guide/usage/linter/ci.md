@@ -71,7 +71,7 @@ repos:
 
 ### Unplugin
 
-Unplugin is supported via a third-party package: https://www.npmjs.com/package/unplugin-oxlint
+Unplugin is supported via a [third-party package](https://www.npmjs.com/package/unplugin-oxlint)
 
 ### Vite plugin
 
