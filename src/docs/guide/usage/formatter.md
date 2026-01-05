@@ -91,9 +91,7 @@ $ yarn add -D oxfmt
 $ bun add -D oxfmt
 ```
 
-:::
-
-## Configuration
+### Configuration
 
 Add the following scripts to your `package.json`:
 
@@ -106,18 +104,24 @@ Add the following scripts to your `package.json`:
 }
 ```
 
-## Usage
+### Usage
 
-**Apply formatting:**
+Apply formatting:
+
 ```bash
 pnpm run format
 ```
 
-**Verify formatting:**
+Verify formatting:
 Check for issues without modifying files.
+
 ```bash
 pnpm run format:check
 ```
+
+### Command-line Interface
+
+`oxfmt` CLI works like `prettier --write .` by default.
 
 ## Command-line Interface
 
