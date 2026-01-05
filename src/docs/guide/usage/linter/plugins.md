@@ -29,7 +29,7 @@ You can also enable plugins in `.oxlintrc.json` using the `plugins` field:
 }
 ```
 
-Setting `plugins` overwrites the default plugin set. The list should include every plugin you want enabled.
+Setting `plugins` **overwrites the default plugin set**. The list should include every plugin you want enabled.
 
 ### Enable with the CLI
 
