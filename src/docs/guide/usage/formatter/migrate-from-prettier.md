@@ -4,6 +4,30 @@ If you currently use Prettier as your code formatter, you can follow this guide 
 
 Note that Oxfmt is in alpha, and may not be suitable for production use in complex setups.
 
+## Quick Start
+
+For simpler setups, you can use these commands to immediately migrate to Oxfmt:
+
+::: code-group
+
+```bash [npm]
+$ npm add -D oxfmt@latest && npx oxfmt --migrate=prettier && npx oxfmt
+```
+
+```bash [pnpm]
+$ pnpm add -D oxfmt@latest && pnpm oxfmt --migrate=prettier && pnpm oxfmt
+```
+
+```bash [yarn]
+$ yarn add -D oxfmt@latest && yarn oxfmt --migrate=prettier && yarn oxfmt
+```
+
+```bash [bun]
+$ bun add -D oxfmt@latest && bunx oxfmt --migrate=prettier && bunx oxfmt
+```
+
+:::
+
 ## Caveats for migrating to Oxfmt
 
 Before migrating, ensure that the current release of the Oxfmt alpha meets your project's needs.
