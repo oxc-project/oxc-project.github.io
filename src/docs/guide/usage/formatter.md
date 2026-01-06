@@ -37,13 +37,7 @@ Waiting on Oxfmt to implement additional features? Consider using [@prettier/plu
 - GraphQL
 - Markdown, MDX
 
-:::warning
-
-Note that the `embeddedLanguageFormatting` option is not fully supported in JS/TS files. And for now, it is disabled by default.
-
-:::
-
-## Installation
+## Quickstart
 
 Run `oxfmt` directly at the root of your repository:
 
@@ -91,7 +85,7 @@ $ yarn add -D oxfmt
 $ bun add -D oxfmt
 ```
 
-### Configuration
+:::
 
 Add the following scripts to your `package.json`:
 
@@ -104,16 +98,13 @@ Add the following scripts to your `package.json`:
 }
 ```
 
-### Usage
-
 Apply formatting:
 
 ```bash
 pnpm run format
 ```
 
-Verify formatting:
-Check for issues without modifying files.
+Check formatting without modifying files:
 
 ```bash
 pnpm run format:check
@@ -180,15 +171,25 @@ Also, if `printWidth` is not specified, its default value is `100`. This differs
 
 Currently, NOT supported.
 
-However, for import sorting functionality, we provide experimental behavior based on `eslint-plugin-perfectionist/sort-imports` through the `experimentalSortImports` option.
+However, we have some experimental sorting options:
 
-And for `prettier-plugin-packagejson`, we have the `experimentalSortPackageJson` option, which is enabled by default.
+- `experimentalSortImports`
+  - Based on `eslint-plugin-perfectionist/sort-imports`
+  - Disabled by default
+- `experimentalSortPackageJson`
+  - Based on `prettier-plugin-packagejson`
+  - Enabled by default
+- `experimentalTailwindcss`
+  - Based on `prettier-plugin-tailwindcss`
+  - Disabled by default
 
 See more details in the [Configuration file reference](./formatter/config-file-reference).
 
-### Why are nested scripts and code blocks not formatted?
+### Why are embedded template literals not formatted?
 
-Currently, the `embeddedLanguageFormatting` option is `"off"` by default.
-Please set it to `"auto"` in your config file.
+Currently, not fully implemented.
 
-However, even with `"auto"`, the contents inside `TaggedTemplateLiteral` in JS/TS files may not be fully formatted in some cases.
+For known differences, please see this discussion.
+
+> oxfmt: embedded formatting full support (aka xxx-in-js) · Issue #15180 · oxc-project/oxc\
+> https://github.com/oxc-project/oxc/issues/15180
