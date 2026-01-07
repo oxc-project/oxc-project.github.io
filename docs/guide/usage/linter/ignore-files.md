@@ -7,6 +7,9 @@ description: Control which files Oxlint lints.
 
 Large repositories contain files that should not be linted, such as build output, vendored code, snapshots, or generated artifacts. Oxlint provides a predictable ignore model that works well in monorepos and CI.
 
+> \[!TIP]
+> It is strongly recommended to use `"ignorePatterns"` in `.oxlintrc.json` for ignoring files rather than a separate ignore file. This ensures that every developer will have the same ignores across all tools and commands running oxlint, especially IDE/editor integrations. It also keeps your configuration centralized to one file.
+
 ## Default ignores
 
 Oxlint automatically ignores:
@@ -23,23 +26,27 @@ The recommended approach is to define ignores in `.oxlintrc.json` using `ignoreP
 
 Patterns are resolved relative to the configuration file.
 
-```jsonc
+```jsonc [.oxlintrc.json]
 {
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
   "ignorePatterns": ["dist/**", "coverage/**", "vendor/**", "test/snapshots/**"],
+  "rules": {
+    // ...
+  },
 }
 ```
 
 In monorepos, nested configs can ignore package specific output without affecting the rest of the repository.
 
-## .eslintignore
+## `.eslintignore`
 
 Oxlint also supports `.eslintignore` for compatibility with existing ESLint setups. Existing `.eslintignore` files can remain in place during migration. The syntax is compatible with `.gitignore`, including comments and negation patterns.
 
-New projects should prefer `ignorePatterns` in `.oxlintrc.json`.
+New projects should prefer `"ignorePatterns"` in `.oxlintrc.json`, and we strongly recommend moving over to `"ignorePatterns"` soon after migrating, if not during migration.
 
 ## Ignore from the command line
 
-CLI flags are useful for one off changes in CI or local debugging.
+CLI flags are useful for one-off changes in CI or local debugging.
 
 Use a custom ignore file:
 
@@ -61,9 +68,14 @@ Ignore files support negation patterns, which allow a directory to be ignored wh
 
 To ignore everything under `build/` except one file, ignore the contents rather than the directory itself:
 
-```text [.oxlintignore]
-build/**/*
-!build/keep.js
+```jsonc [.oxlintrc.json]
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "ignorePatterns": ["build/**/*", "!build/keep.js"],
+  "rules": {
+    // ...
+  },
+}
 ```
 
 This keeps traversal possible while still ignoring almost everything.
