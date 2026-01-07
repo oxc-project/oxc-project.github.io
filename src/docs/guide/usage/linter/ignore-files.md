@@ -19,12 +19,8 @@ Hidden files are not automatically ignored.
 
 ## `ignorePatterns`
 
-:::
-
 > [!TIP]
 > It is strongly recommended to use `ignorePatterns` in `.oxlintrc.json` for ignoring files rather than a separate ignore file. This ensures that every developer will have the same ignores across all tools and commands running oxlint, especially IDE/editor integrations. It also keeps your configuration centralized to one file.
-
-:::
 
 The recommended approach is to define ignores in `.oxlintrc.json` using `ignorePatterns`. This keeps ignores close to the configuration they belong to and works naturally with nested configs.
 
