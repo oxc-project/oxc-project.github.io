@@ -104,7 +104,7 @@ See [Automatic fixes](/docs/guide/usage/linter/automatic-fixes) for guidance on 
 
 ### Ignore files
 
-Use an ignore file:
+Use an explicit ignore file:
 
 ```sh
 oxlint --ignore-path .oxlintignore
