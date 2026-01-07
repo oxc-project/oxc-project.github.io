@@ -31,11 +31,11 @@ Patterns are resolved relative to the configuration file.
 
 In monorepos, nested configs can ignore package specific output without affecting the rest of the repository.
 
-## .oxlintignore
+## .eslintignore
 
-For repositories that prefer an ignore file, use `.oxlintignore`. The syntax is compatible with `.gitignore`, including comments and negation patterns.
+Oxlint also supports `.eslintignore` for compatibility with existing ESLint setups. Existing `.eslintignore` files can remain in place during migration. The syntax is compatible with `.gitignore`, including comments and negation patterns.
 
-Oxlint also supports `.eslintignore` for compatibility with existing ESLint setups. Existing `.eslintignore` files can remain in place during migration. New projects should prefer `ignorePatterns` in `.oxlintrc.json`.
+New projects should prefer `ignorePatterns` in `.oxlintrc.json`.
 
 ## Ignore from the command line
 
