@@ -46,7 +46,7 @@ Add to `.vscode/settings.json`:
 ```jsonc
 {
   "editor.codeActionsOnSave": {
-    "source.fixAll.oxc": true,
+    "source.fixAll.oxc": "always",
   },
 }
 ```
