@@ -1,33 +1,27 @@
-# Plugins
+---
+title: Built-in Plugins
+description: Enable built in plugin rule sets and extend Oxlint with ESLint compatible JavaScript plugins.
+---
 
-Oxlint supports several of the most popular ESLint plugins out of the box with
-most rules in `recommended` configs already implemented.
+# Built-in Plugins
 
-Oxlint also supports [plugins written in JS](/docs/guide/usage/linter/js-plugins.html).
+Oxlint includes built-in implementations of many popular ESLint plugin rule sets. Most rules in the `recommended` configs are already implemented, so you can get useful results without extra setup.
 
-## Enabling Plugins
+Oxlint also supports plugins written in JavaScript with an ESLint-compatible API. See [JS Plugins](./js-plugins.md).
 
-You can enable plugins using the `--<plugin-name>-plugin` CLI flag. For example,
-to enable `eslint-plugin-import`, run
+## What a plugin means in Oxlint
 
-```sh
-oxlint --import-plugin
-```
+A plugin is a named group of rules. Enabling a plugin makes its rules available, and category flags control which rules are enabled and at what severity.
 
-Once enabled, rules in categories you have enabled will automatically be turned
-on. For example,
+If you are migrating from ESLint, plugins map to the ecosystems you already know, such as import, react, jsx-a11y, jest, unicorn, and more.
 
-```sh
-oxlint --import-plugin -D correctness -W suspicious
-```
+## Enable a plugin
 
-From the import plugin, this will enable all `correctness` rules as errors and `suspicious` rules as warnings, plus the rules from the base rule set. Note that `correctness` rules are turned on by default.
+It is **strongly recommended** to use a config file to enable plugins, as it makes it considerably easier to manage and share with other developers on a project.
 
-### Enabling plugins in a configuration file
+### Enable in a config file
 
-You can also enable plugins in a configuration file by adding the `plugins`
-field. For example, to enable `eslint-plugin-import`, add the following to your
-`.oxlintrc.json` file:
+You can also enable plugins in `.oxlintrc.json` using the `plugins` field:
 
 ```json
 {
@@ -35,28 +29,35 @@ field. For example, to enable `eslint-plugin-import`, add the following to your
 }
 ```
 
-> [!NOTE]
-> Setting the `plugins` field will **overwrite** the base set of plugins. The plugins array should reflect all of the plugins you want to use.
+Setting `plugins` **overwrites the default plugin set**. The list should include every plugin you want enabled.
 
-## Disabling Plugins
+### Enable with the CLI
 
-Several plugins are enabled by default, and are listed below. You can disable
-them with the `--disable-<plugin-name>-plugin` flag. For example, to disable
-`eslint-plugin-unicorn`, run:
+You can also enable a plugin using a `--<plugin-name>-plugin` CLI flag.
 
-```sh
-oxlint --disable-unicorn-plugin
+Example, enable the import plugin:
+
+```bash
+oxlint --import-plugin
 ```
 
-Only default plugins support being disabled, as other plugins can be omitted simply by not enabling them.
+Once enabled, category flags determine what is turned on.
 
-:::info
-run `oxlint --help` to see a full list of flags to enable or disable plugins.
-:::
+Example, enable import plugin rules in the correctness category as errors and suspicious as warnings:
 
-### Disabling plugins in a configuration file
+```bash
+oxlint --import-plugin -D correctness -W suspicious
+```
 
-You can also disable default plugins in a configuration file by simply adding an empty array to the `plugins` field.
+Correctness rules are enabled by default.
+
+Tip: run `oxlint --help` to see the full list of plugin flags.
+
+## Disable default plugins
+
+### Disable default plugins in a config file
+
+To disable all default plugins in a config file, set `plugins` to an empty array:
 
 ```json
 {
@@ -64,35 +65,46 @@ You can also disable default plugins in a configuration file by simply adding an
 }
 ```
 
-This configuration will disable all default plugins and only use the base set of rules.
+This disables all default plugins and uses only the base rule set.
 
-## Supported Plugins
+### Disable default plugins with the CLI
 
-:::info
-You can also find this information on the [`linter product
-plan`](https://github.com/oxc-project/oxc/issues/481) issue on GitHub.
-:::
+Several plugins are enabled by default. You can disable a default plugin with `--disable-<plugin-name>-plugin`.
 
-| Plugin Name  | Default? | Issue                                                                                                            | Notes                                                                                                                                                                            |
-| ------------ | -------- | ---------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `eslint`     | ✅       | [#479](https://github.com/oxc-project/oxc/issues/479)                                                            | Rules from [`eslint`](https://eslint.org/docs/latest/rules/) (core)                                                                                                              |
-| `typescript` | ✅       | [#2180](https://github.com/oxc-project/oxc/issues/2180)                                                          | TypeScript-specific rules from [`@typescript-eslint`](https://typescript-eslint.io/rules/). Type-aware rules are supported in alpha (use `--type-aware` flag).                   |
-| `unicorn`    | ✅       | [#684](https://github.com/oxc-project/oxc/issues/684)                                                            | Rules from [`eslint-plugin-unicorn`](https://github.com/sindresorhus/eslint-plugin-unicorn)                                                                                      |
-| `react`      |          | [#1022](https://github.com/oxc-project/oxc/issues/1022), [#2174](https://github.com/oxc-project/oxc/issues/2174) | Rules from [`eslint-plugin-react`](https://www.npmjs.com/package/eslint-plugin-react) and [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks) |
-| `react-perf` |          | [#2041](https://github.com/oxc-project/oxc/issues/2041)                                                          | Rules from [`eslint-plugin-react-perf`](https://github.com/cvazac/eslint-plugin-react-perf)                                                                                      |
-| `nextjs`     |          | [#1929](https://github.com/oxc-project/oxc/issues/1929)                                                          | Rules from [`eslint-plugin-next`](https://nextjs.org/docs/pages/building-your-application/configuring/eslint#eslint-plugin)                                                      |
-| `oxc`        | ✅       | N/A                                                                                                              | Custom oxc-specific rules, as well as some rules ported from [deepscan](https://deepscan.io/)                                                                                    |
-| `import`     |          | [#1117](https://github.com/oxc-project/oxc/issues/1117)                                                          | Rules from [`eslint-plugin-import`](https://github.com/import-js/eslint-plugin-import)                                                                                           |
-| `jsdoc`      |          | [#1170](https://github.com/oxc-project/oxc/issues/1170)                                                          | Rules from [`eslint-plugin-jsdoc`](https://github.com/gajus/eslint-plugin-jsdoc)                                                                                                 |
-| `jsx-a11y`   |          | [#1141](https://github.com/oxc-project/oxc/issues/1141)                                                          | Rules from [`eslint-plugin-jsx-a11y`](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y)                                                                                      |
-| `node`       |          | [#493](https://github.com/oxc-project/oxc/issues/493)                                                            | Rules from [`eslint-plugin-n`](https://github.com/eslint-community/eslint-plugin-n)                                                                                              |
-| `promise`    |          | [#4655](https://github.com/oxc-project/oxc/issues/4655)                                                          | Rules from [`eslint-plugin-promise`](https://github.com/eslint-community/eslint-plugin-promise)                                                                                  |
-| `jest`       |          | [#492](https://github.com/oxc-project/oxc/issues/492)                                                            | Rules from [`eslint-plugin-jest`](https://github.com/jest-community/eslint-plugin-jest)                                                                                          |
-| `vitest`     |          | [#4656](https://github.com/oxc-project/oxc/issues/4656)                                                          | Rules from [`eslint-plugin-vitest`](https://github.com/vitest-dev/eslint-plugin-vitest)                                                                                          |
-| `vue`        |          | [#11440](https://github.com/oxc-project/oxc/issues/11440)                                                        | Rules from [`eslint-plugin-vue`](https://github.com/vuejs/eslint-plugin-vue) that work with `<script>` tags                                                                      |
+Example, disable unicorn:
 
-## Adding New Plugins
+```bash
+oxlint --disable-unicorn-plugin
+```
 
-We do not plan to add more Rust-based plugins due to supporting nearly all ESLint plugins [through JS plugins](https://oxc.rs/docs/guide/usage/linter/js-plugins.html#using-js-plugins).
-However, contributions that add rules to existing plugins are **highly encouraged**.
-If you think a rule or plugin would benefit from being written in rust, please open a discussion first, before making a pull request.
+Only default plugins support being disabled. Non-default plugins can simply be omitted.
+
+## Supported plugins
+
+This table lists the built-in plugins and where they come from.
+
+| Plugin name  | Default | Source                                                                                                                                                           |
+| ------------ | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `eslint`     | Yes     | ESLint core rules                                                                                                                                                |
+| `typescript` | Yes     | TypeScript rules from typescript-eslint (aka `@typescript-eslint/plugin`). Type-aware rules are available in alpha using [the type-aware mode](./type-aware.md). |
+| `unicorn`    | Yes     | eslint-plugin-unicorn                                                                                                                                            |
+| `react`      | No      | eslint-plugin-react and eslint-plugin-react-hooks                                                                                                                |
+| `react-perf` | No      | eslint-plugin-react-perf                                                                                                                                         |
+| `nextjs`     | No      | @next/eslint-plugin-next                                                                                                                                         |
+| `oxc`        | Yes     | Oxc-specific rules and selected rules ported from deepscan                                                                                                       |
+| `import`     | No      | eslint-plugin-import (also equivalent to eslint-plugin-import-x)                                                                                                 |
+| `jsdoc`      | No      | eslint-plugin-jsdoc                                                                                                                                              |
+| `jsx-a11y`   | No      | eslint-plugin-jsx-a11y                                                                                                                                           |
+| `node`       | No      | eslint-plugin-n                                                                                                                                                  |
+| `promise`    | No      | eslint-plugin-promise                                                                                                                                            |
+| `jest`       | No      | eslint-plugin-jest                                                                                                                                               |
+| `vitest`     | No      | @vitest/eslint-plugin aka eslint-plugin-vitest                                                                                                                   |
+| `vue`        | No      | eslint-plugin-vue rules that work with script tags                                                                                                               |
+
+For the current status of rule coverage, see the linter [product plan issue](https://github.com/oxc-project/oxc/issues/481).
+
+## Adding new plugins
+
+Oxlint focuses on supporting the ecosystem through built-in plugins and ESLint-compatible JavaScript plugins. [Contributions that add rules](/docs/contribute/linter/adding-rules) to existing built-in plugins are encouraged.
+
+If you think a rule set should be implemented as a built-in plugin, please [open a GitHub discussion](https://github.com/oxc-project/oxc/discussions/new?category=feature-request) first.

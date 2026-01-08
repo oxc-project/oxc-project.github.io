@@ -151,10 +151,13 @@ Globs to ignore during linting. These are resolved from the configuration file p
 
 type: `array | null`
 
-JS plugins.
+JS plugins, allows usage of ESLint plugins with Oxlint.
+
+Read more about JS plugins in
+[the docs](https://oxc.rs/docs/guide/usage/linter/js-plugins.html).
 
 Note: JS plugins are experimental and not subject to semver.
-They are not supported in language server at present.
+They are not supported in the language server (and thus editor integrations) at present.
 
 ### jsPlugins[n]
 
@@ -170,7 +173,7 @@ Note: The following plugin names are reserved because they are implemented nativ
 
 - react (includes react-hooks)
 - unicorn
-- typescript
+- typescript (includes @typescript-eslint)
 - oxc
 - import (includes import-x)
 - jsdoc
@@ -181,7 +184,6 @@ Note: The following plugin names are reserved because they are implemented nativ
 - react-perf
 - promise
 - node
-- regex
 - vue
 - eslint
 
@@ -223,10 +225,13 @@ Enabled or disabled specific global variables.
 
 type: `array | null`
 
-JS plugins for this override.
+JS plugins for this override, allows usage of ESLint plugins with Oxlint.
+
+Read more about JS plugins in
+[the docs](https://oxc.rs/docs/guide/usage/linter/js-plugins.html).
 
 Note: JS plugins are experimental and not subject to semver.
-They are not supported in language server at present.
+They are not supported in the language server (and thus editor integrations) at present.
 
 ##### overrides[n].jsPlugins[n]
 
@@ -242,7 +247,7 @@ Note: The following plugin names are reserved because they are implemented nativ
 
 - react (includes react-hooks)
 - unicorn
-- typescript
+- typescript (includes @typescript-eslint)
 - oxc
 - import (includes import-x)
 - jsdoc
@@ -253,7 +258,6 @@ Note: The following plugin names are reserved because they are implemented nativ
 - react-perf
 - promise
 - node
-- regex
 - vue
 - eslint
 

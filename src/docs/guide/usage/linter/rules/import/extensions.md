@@ -84,45 +84,50 @@ This rule accepts three types of configuration:
 
 1. **Global rule** (string): `"always"`, `"never"`, or `"ignorePackages"`
 
-```json
+```jsonc
 {
   "rules": {
-    // this would require extensions for all imports
-    "import/extensions": ["error", "always"]
-  }
+    // this would require extensions for all imports, *including from packages*
+    // e.g. `import React from 'react';` would be disallowed.
+    // You should generally always set `ignorePackages` to `true` when using `always`.
+    "import/extensions": ["error", "always"],
+  },
 }
 ```
 
 2. **Per-extension rules** (object): `{ "js": "always", "jsx": "never", ... }`
 
-```json
+```jsonc
 {
   "rules": {
     "import/extensions": [
       "error",
       // per-extension rules:
       // require extensions for .js imports and disallow them for .ts imports
-      { "js": "always", "ts": "never" }
-    ]
-  }
+      { "js": "always", "ts": "never", "ignorePackages": true },
+    ],
+  },
 }
 ```
 
 3. **Combined** (array): `["error", "always", { "js": "never" }]` or `["error", { "js": "always" }]`
 
-```json
+```jsonc
 {
   "rules": {
     "import/extensions": [
       "error",
       "always", // by default, require extensions for all imports
-      { "ts": "never" } // override the global value and disallow extensions on imports for specific file types
-    ]
-  }
+      {
+        "ts": "never", // override the global value and disallow extensions on imports for specific file types
+        "ignorePackages": true,
+      },
+    ],
+  },
 }
 ```
 
-**Default behavior (no configuration)**: All imports pass.
+**Default behavior (no configuration)**: All imports - of all kinds - pass.
 Unconfigured file extensions are ignored, to avoid false positives.
 
 This rule accepts a configuration object with the following properties:
@@ -135,13 +140,12 @@ default: `false`
 
 Whether to check type imports when enforcing extension rules.
 
-### extensions
-
-type: `Record<string, string>`
-
-default: `{}`
-
-Map from file extension (without dot) to its configured rule.
+```ts
+// If checkTypeImports is `false`, we don't care about
+// whether these imports have file extensions or not, both are always allowed:
+import type { Foo } from "./foo";
+import type { Foo } from "./foo.ts";
+```
 
 ### ignorePackages
 
@@ -151,8 +155,15 @@ default: `false`
 
 Whether to ignore package imports when enforcing extension rules.
 
+> [!IMPORTANT]
+> When setting this rule to `always`, you should also set `ignorePackages` to `true`.
+> Otherwise, package imports without extensions (such as `import React from 'react';`)
+> will be disallowed, which is not desirable and is not fixable.
+
 A boolean option (not per-extension) that exempts package imports from the "always" rule.
+
 Can be set in the config object: `["error", "always", { "ignorePackages": true }]`
+
 Legacy shorthand: `["error", "ignorePackages"]` is equivalent to `["error", "always", { "ignorePackages": true }]`
 
 - **With "always"**: When `true`, package imports (e.g., `lodash`, `@babel/core`) don't require extensions
@@ -172,6 +183,8 @@ Array of pattern-action pairs for custom import protocols (monorepo tools, custo
 Each override has: `{ "pattern": "<glob-pattern>", "action": "enforce" | "ignore" }`
 
 **Pattern matching**: Uses glob patterns (`*`, `**`, `{a,b}`) to match import specifiers.
+Note that the pattern matching is done in Rust with the fast-glob library, and so may differ
+from the JavaScript glob library used by the original ESLint rule.
 
 **Actions**:
 
@@ -180,38 +193,21 @@ Each override has: `{ "pattern": "<glob-pattern>", "action": "enforce" | "ignore
 
 **Precedence**: First matching pattern wins.
 
-Example: `["error", "always", { "pathGroupOverrides": [{ "pattern": "rootverse{*,*/**}", "action": "ignore" }] }]`
-
-- Allows `import { x } from 'rootverse+debug:src'` without extension
-- Still requires extensions for standard imports
-
-#### pathGroupOverrides[n]
-
-type: `object`
-
-Path group override configuration for bespoke import specifiers.
-
-Allows fine-grained control over extension validation for custom import protocols
-(e.g., monorepo tools, custom resolvers, framework-specific imports).
-
-**Pattern matching:**
-
-Uses fast-glob patterns to match import specifiers:
-
-- `*`: Match any characters except `/`
-- `**`: Match any characters including `/` (recursive)
-- `{a,b}`: Match alternatives
-
 **Examples:**
 
 ```json
 {
   "pattern": "rootverse{*,*/**}",
-  "action": "enforce"
+  "action": "ignore"
 }
 ```
 
-Matches: `rootverse+debug:src`, `rootverse+bfe:src/symbols`
+Matches imports from `rootverse+debug:src`, `rootverse+bfe:src/symbols` and
+ignores whether or not they have an extension.
+
+#### pathGroupOverrides[n]
+
+type: `object`
 
 ##### pathGroupOverrides[n].action
 
@@ -223,17 +219,17 @@ Determines how import extensions are validated for matching bespoke import speci
 
 ###### `"enforce"`
 
-Enforce extension validation for matching imports (require extensions based on config)
+Enforce extension validation for matching imports (require extensions based on config).
 
 ###### `"ignore"`
 
-Ignore matching imports entirely (skip all extension validation)
+Ignore matching imports entirely (skip all extension validation).
 
 ##### pathGroupOverrides[n].pattern
 
 type: `string`
 
-Glob pattern to match import specifiers
+Glob pattern to match import specifiers. This uses Rust's fast-glob library for matching.
 
 ## How to use
 
