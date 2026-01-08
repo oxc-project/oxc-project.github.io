@@ -1,0 +1,22 @@
+.VPTeamMembersItem {
+  --member-item-avatar-size-small: 64px;
+  --member-item-avatar-size-medium: 96px;
+
+  .avatar-img {
+    object-fit: fill;
+  }
+
+  &.small {
+    .avatar-img {
+      width: var(--member-item-avatar-size-small);
+      height: var(--member-item-avatar-size-small);
+    }
+  }
+
+  &.medium {
+    .avatar-img {
+      width: var(--member-item-avatar-size-medium);
+      height: var(--member-item-avatar-size-medium);
+    }
+  }
+}
