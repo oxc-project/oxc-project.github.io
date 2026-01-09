@@ -6,6 +6,18 @@ badges:
     alt: npm weekly downloads
 ---
 
+<script setup>
+import { data } from './rule-count.data.js';
+const ruleCount = data;
+// Subtract 1 and then round down to nearest 5 so we can say "More than 650 rules" when the number is 655, instead of saying "More than 655 rules" when that's incorrect.
+// Inputs and outputs:
+// 655 -> 650
+// 654 -> 650
+// 651 -> 650
+// 656 -> 655
+const ruleCountRounded = Math.floor((data - 1) / 5) * 5;
+</script>
+
 # Oxlint
 
 <AppBadgeList />
@@ -26,7 +38,7 @@ Additional rules can be enabled incrementally as requirements evolve.
 
 ## A large and growing rule set
 
-Oxlint includes [more than 645 rules](/docs/guide/usage/linter/rules.md), with coverage across the plugins most teams already use, including:
+Oxlint includes [more than {{ ruleCountRounded }} rules](/docs/guide/usage/linter/rules.md), with coverage across the plugins most teams already use, including:
 
 - ESLint core rules
 - TypeScript rules
@@ -115,7 +127,7 @@ Oxlint supports:
 
 ## Features
 
-- [Native plugins](/docs/guide/usage/linter/plugins) for broad rule coverage with 645+ built-in rules, without a large JavaScript dependency tree.
+- [Native plugins](/docs/guide/usage/linter/plugins) for broad rule coverage with {{ ruleCount }} built-in rules, without a large JavaScript dependency tree.
 - [Automatic fixes](/docs/guide/usage/linter/automatic-fixes) to apply safe changes quickly.
 - [Ignore files](/docs/guide/usage/linter/ignore-files) to control which paths are linted.
 - [Inline ignore comments](/docs/guide/usage/linter/ignore-comments) for ignoring rules within a file.
