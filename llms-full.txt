@@ -1553,69 +1553,6 @@ import styled from "styled-components/primitives";
 ---
 
 ---
-url: /docs/guide/usage/formatter/cli.md
----
-
-# Command-line Interface
-
-## Usage
-
-**`oxfmt`** \[**`-c`**=*`PATH`*] \[*`PATH`*]...
-
-## Mode Options:
-
-* **`    --init`** —
-  Initialize `.oxfmtrc.json` with default values
-* **`    --migrate`**=*`SOURCE`* —
-  Migrate configuration to `.oxfmtrc.json` from specified source Available sources: prettier
-* **`    --lsp`** —
-  Start language server protocol (LSP) server
-* **`    --stdin-filepath`**=*`PATH`* —
-  Specify the file name to use to infer which parser to use
-
-## Output Options:
-
-* **`    --write`** —
-  Format and write files in place (default)
-* **`    --check`** —
-  Check if files are formatted, also show statistics
-* **`    --list-different`** —
-  List files that would be changed
-
-## Config Options
-
-* **`-c`**, **`--config`**=*`PATH`* —
-  Path to the configuration file
-
-## Ignore Options
-
-* **`    --ignore-path`**=*`PATH`* —
-  Path to ignore file(s). Can be specified multiple times. If not specified, .gitignore and .prettierignore in the current directory are used.
-* **`    --with-node-modules`** —
-  Format code in node\_modules directory (skipped by default)
-
-## Runtime Options
-
-* **`    --no-error-on-unmatched-pattern`** —
-  Do not exit with error when pattern is unmatched
-* **`    --threads`**=*`INT`* —
-  Number of threads to use. Set to 1 for using only 1 CPU core.
-
-## Available positional items:
-
-* *`PATH`* —
-  Single file, single path or list of paths. If not provided, current working directory is used. Glob is supported only for exclude patterns like `'!**/fixtures/*.js'`.
-
-## Available options:
-
-* **`-h`**, **`--help`** —
-  Prints help information
-* **`-V`**, **`--version`** —
-  Prints version information
-
----
-
----
 url: /docs/guide/usage/linter/cli.md
 ---
 
@@ -1766,6 +1703,69 @@ Arguments:
   Enable rules that require type information
 * **`    --type-check`** —
   Enable experimental type checking (includes TypeScript compiler diagnostics)
+* **`-h`**, **`--help`** —
+  Prints help information
+* **`-V`**, **`--version`** —
+  Prints version information
+
+---
+
+---
+url: /docs/guide/usage/formatter/cli.md
+---
+
+# Command-line Interface
+
+## Usage
+
+**`oxfmt`** \[**`-c`**=*`PATH`*] \[*`PATH`*]...
+
+## Mode Options:
+
+* **`    --init`** —
+  Initialize `.oxfmtrc.json` with default values
+* **`    --migrate`**=*`SOURCE`* —
+  Migrate configuration to `.oxfmtrc.json` from specified source Available sources: prettier
+* **`    --lsp`** —
+  Start language server protocol (LSP) server
+* **`    --stdin-filepath`**=*`PATH`* —
+  Specify the file name to use to infer which parser to use
+
+## Output Options:
+
+* **`    --write`** —
+  Format and write files in place (default)
+* **`    --check`** —
+  Check if files are formatted, also show statistics
+* **`    --list-different`** —
+  List files that would be changed
+
+## Config Options
+
+* **`-c`**, **`--config`**=*`PATH`* —
+  Path to the configuration file
+
+## Ignore Options
+
+* **`    --ignore-path`**=*`PATH`* —
+  Path to ignore file(s). Can be specified multiple times. If not specified, .gitignore and .prettierignore in the current directory are used.
+* **`    --with-node-modules`** —
+  Format code in node\_modules directory (skipped by default)
+
+## Runtime Options
+
+* **`    --no-error-on-unmatched-pattern`** —
+  Do not exit with error when pattern is unmatched
+* **`    --threads`**=*`INT`* —
+  Number of threads to use. Set to 1 for using only 1 CPU core.
+
+## Available positional items:
+
+* *`PATH`* —
+  Single file, single path or list of paths. If not provided, current working directory is used. Glob is supported only for exclude patterns like `'!**/fixtures/*.js'`.
+
+## Available options:
+
 * **`-h`**, **`--help`** —
   Prints help information
 * **`-V`**, **`--version`** —
@@ -19353,6 +19353,44 @@ For known differences, please see this discussion.
 ---
 
 ---
+url: /docs/guide/introduction.md
+---
+
+# Getting Started
+
+[What is Oxc?](/docs/guide/what-is-oxc)
+
+## Lint or format a codebase
+
+* Lint: [Oxlint](/docs/guide/usage/linter)
+* Format: [Oxfmt](/docs/guide/usage/formatter)
+
+## Build tooling on top of Oxc
+
+* Parse JavaScript and TypeScript: [Parser](/docs/guide/usage/parser)
+* Transform TypeScript, JSX, and modern JavaScript: [Transformer](/docs/guide/usage/transformer)
+* Minify JavaScript for production builds: [Minifier](/docs/guide/usage/minifier)
+* Resolve modules for JavaScript and TypeScript: [Resolver](/docs/guide/usage/resolver)
+
+## Contribute or learn
+
+* [Contribute](/docs/contribute/introduction)
+* [Learn](/docs/learn/parser_in_rust/intro.html)
+
+## Other resources
+
+* [Troubleshooting](/docs/guide/troubleshooting)
+* [Benchmarks](/docs/guide/benchmarks)
+* [Projects using Oxc](/docs/guide/projects)
+* [Talks and media](/docs/guide/media)
+* [Team](/team)
+* [Endorsements](/endorsements)
+* [Release Blog](/blog/)
+* [Releases](https://github.com/oxc-project/oxc/releases)
+
+---
+
+---
 url: /docs/contribute/development.md
 ---
 
@@ -19433,44 +19471,6 @@ macOS has an antivirus feature called XProtect that scans executables for malwar
 **Note:** This disables an OS security feature. Only do this if you're comfortable with the trade-off.
 
 More details: https://nnethercote.github.io/2025/09/04/faster-rust-builds-on-mac.html
-
----
-
----
-url: /docs/guide/introduction.md
----
-
-# Getting Started
-
-[What is Oxc?](/docs/guide/what-is-oxc)
-
-## Lint or format a codebase
-
-* Lint: [Oxlint](/docs/guide/usage/linter)
-* Format: [Oxfmt](/docs/guide/usage/formatter)
-
-## Build tooling on top of Oxc
-
-* Parse JavaScript and TypeScript: [Parser](/docs/guide/usage/parser)
-* Transform TypeScript, JSX, and modern JavaScript: [Transformer](/docs/guide/usage/transformer)
-* Minify JavaScript for production builds: [Minifier](/docs/guide/usage/minifier)
-* Resolve modules for JavaScript and TypeScript: [Resolver](/docs/guide/usage/resolver)
-
-## Contribute or learn
-
-* [Contribute](/docs/contribute/introduction)
-* [Learn](/docs/learn/parser_in_rust/intro.html)
-
-## Other resources
-
-* [Troubleshooting](/docs/guide/troubleshooting)
-* [Benchmarks](/docs/guide/benchmarks)
-* [Projects using Oxc](/docs/guide/projects)
-* [Talks and media](/docs/guide/media)
-* [Team](/team)
-* [Endorsements](/endorsements)
-* [Release Blog](/blog/)
-* [Releases](https://github.com/oxc-project/oxc/releases)
 
 ---
 
@@ -37643,7 +37643,7 @@ Oxlint is used in production by popular projects such as:
 ---
 
 ---
-url: /docs/guide/usage/linter/generated-config.md
+url: /docs/guide/usage/linter/config-file-reference.md
 ---
 
 # Oxlint Configuration File
@@ -38270,7 +38270,7 @@ to accommodate TypeScript type checking scenarios.
 ---
 
 ---
-url: /docs/guide/usage/linter/config-file-reference.md
+url: /docs/guide/usage/linter/generated-config.md
 ---
 
 # Oxlint Configuration File
@@ -65941,67 +65941,6 @@ oxlint --deny unicorn/throw-new-error
 ---
 
 ---
-url: /docs/guide/usage/formatter/generated-cli.md
----
-
-## Usage
-
-**`oxfmt`** \[**`-c`**=*`PATH`*] \[*`PATH`*]...
-
-## Mode Options:
-
-* **`    --init`** —
-  Initialize `.oxfmtrc.json` with default values
-* **`    --migrate`**=*`SOURCE`* —
-  Migrate configuration to `.oxfmtrc.json` from specified source Available sources: prettier
-* **`    --lsp`** —
-  Start language server protocol (LSP) server
-* **`    --stdin-filepath`**=*`PATH`* —
-  Specify the file name to use to infer which parser to use
-
-## Output Options:
-
-* **`    --write`** —
-  Format and write files in place (default)
-* **`    --check`** —
-  Check if files are formatted, also show statistics
-* **`    --list-different`** —
-  List files that would be changed
-
-## Config Options
-
-* **`-c`**, **`--config`**=*`PATH`* —
-  Path to the configuration file
-
-## Ignore Options
-
-* **`    --ignore-path`**=*`PATH`* —
-  Path to ignore file(s). Can be specified multiple times. If not specified, .gitignore and .prettierignore in the current directory are used.
-* **`    --with-node-modules`** —
-  Format code in node\_modules directory (skipped by default)
-
-## Runtime Options
-
-* **`    --no-error-on-unmatched-pattern`** —
-  Do not exit with error when pattern is unmatched
-* **`    --threads`**=*`INT`* —
-  Number of threads to use. Set to 1 for using only 1 CPU core.
-
-## Available positional items:
-
-* *`PATH`* —
-  Single file, single path or list of paths. If not provided, current working directory is used. Glob is supported only for exclude patterns like `'!**/fixtures/*.js'`.
-
-## Available options:
-
-* **`-h`**, **`--help`** —
-  Prints help information
-* **`-V`**, **`--version`** —
-  Prints version information
-
----
-
----
 url: /docs/guide/usage/linter/generated-cli.md
 ---
 
@@ -66150,6 +66089,67 @@ Arguments:
   Enable rules that require type information
 * **`    --type-check`** —
   Enable experimental type checking (includes TypeScript compiler diagnostics)
+* **`-h`**, **`--help`** —
+  Prints help information
+* **`-V`**, **`--version`** —
+  Prints version information
+
+---
+
+---
+url: /docs/guide/usage/formatter/generated-cli.md
+---
+
+## Usage
+
+**`oxfmt`** \[**`-c`**=*`PATH`*] \[*`PATH`*]...
+
+## Mode Options:
+
+* **`    --init`** —
+  Initialize `.oxfmtrc.json` with default values
+* **`    --migrate`**=*`SOURCE`* —
+  Migrate configuration to `.oxfmtrc.json` from specified source Available sources: prettier
+* **`    --lsp`** —
+  Start language server protocol (LSP) server
+* **`    --stdin-filepath`**=*`PATH`* —
+  Specify the file name to use to infer which parser to use
+
+## Output Options:
+
+* **`    --write`** —
+  Format and write files in place (default)
+* **`    --check`** —
+  Check if files are formatted, also show statistics
+* **`    --list-different`** —
+  List files that would be changed
+
+## Config Options
+
+* **`-c`**, **`--config`**=*`PATH`* —
+  Path to the configuration file
+
+## Ignore Options
+
+* **`    --ignore-path`**=*`PATH`* —
+  Path to ignore file(s). Can be specified multiple times. If not specified, .gitignore and .prettierignore in the current directory are used.
+* **`    --with-node-modules`** —
+  Format code in node\_modules directory (skipped by default)
+
+## Runtime Options
+
+* **`    --no-error-on-unmatched-pattern`** —
+  Do not exit with error when pattern is unmatched
+* **`    --threads`**=*`INT`* —
+  Number of threads to use. Set to 1 for using only 1 CPU core.
+
+## Available positional items:
+
+* *`PATH`* —
+  Single file, single path or list of paths. If not provided, current working directory is used. Glob is supported only for exclude patterns like `'!**/fixtures/*.js'`.
+
+## Available options:
+
 * **`-h`**, **`--help`** —
   Prints help information
 * **`-V`**, **`--version`** —
