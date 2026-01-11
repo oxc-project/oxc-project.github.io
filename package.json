@@ -44,7 +44,7 @@
   "packageManager": "pnpm@10.27.0",
   "pnpm": {
     "overrides": {
-      "vitepress>vite": "npm:vite@8.0.0-beta.5"
+      "vitepress>vite": "npm:vite@8.0.0-beta.7"
     },
     "onlyBuiltDependencies": [
       "esbuild"
