@@ -1,7 +1,7 @@
 ---
 url: /docs/guide/usage/formatter/migrate-from-prettier.md
 ---
-# Migrating from Prettier to Oxfmt
+# Migrate from Prettier
 
 If you currently use Prettier as your code formatter, you can follow this guide to migrate to Oxfmt.
 
