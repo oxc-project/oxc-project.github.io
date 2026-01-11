@@ -24,7 +24,7 @@ When migrating, expect the following:
 
 ## Migrating from an ESLint flat config
 
-If your project uses an ESLint v9.x/v10.x flat config (e.g. `eslint.config.js` or `eslint.config.mjs`), you can migrate automatically using [`@oxlint/migrate`](https://www.npmjs.com/package/@oxlint/migrate).
+If your project uses an ESLint v9/v10 flat config (e.g. `eslint.config.js` or `eslint.config.mjs`), you can migrate automatically using [`@oxlint/migrate`](https://www.npmjs.com/package/@oxlint/migrate).
 
 ### Run the migration tool
 
