@@ -80,13 +80,13 @@ export const enConfig = defineLocaleConfig("root", {
                 { text: "JS plugins", link: "/docs/guide/usage/linter/js-plugins" },
               ],
             },
-            // {
-            // text: "Migration",
-            // items: [
-            // { text: "From ESLint", link: "/docs/guide/usage/linter/migrate-from-eslint" },
-            // { text: "From Biome", link: "/docs/guide/usage/linter/migrate-from-biome" },
-            // ],
-            // },
+            {
+              text: "Migration",
+              items: [
+                { text: "From ESLint", link: "/docs/guide/usage/linter/migrate-from-eslint" },
+                // { text: "From Biome", link: "/docs/guide/usage/linter/migrate-from-biome" },
+              ],
+            },
             {
               text: "Reference",
               items: [

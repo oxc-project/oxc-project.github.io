@@ -145,12 +145,12 @@ Oxlint is used in production by popular projects such as:
 - [PostHog/posthog](https://github.com/PostHog/posthog)
 - [actualbudget/actual](https://github.com/actualbudget/actual)
 
-<!-- ## Migration -->
+## Migration
 
-<!-- - [Migrate from ESLint](/docs/guide/usage/linter/migrate-from-eslint) -->
+- [Migrate from ESLint](/docs/guide/usage/linter/migrate-from-eslint)
 <!-- - [Migrate from Biome](/docs/guide/usage/linter/migrate-from-biome) -->
 
-## Reference
+## References
 
 - [Rules reference](/docs/guide/usage/linter/rules)
 - [CLI reference](/docs/guide/usage/linter/cli)
