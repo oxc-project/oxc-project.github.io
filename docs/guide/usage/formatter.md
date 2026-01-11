@@ -1,9 +1,10 @@
 ---
 url: /docs/guide/usage/formatter.md
 ---
-# Formatter (oxfmt)
 
-Oxfmt (`/oh-eks-for-mat/`) is a Prettier-compatible code formatter.
+# Oxfmt
+
+Oxfmt (`/oʊ-ɛks-fɔːr-mæt/`) is a Prettier-compatible code formatter.
 
 :::info
 Oxfmt is currently in alpha.

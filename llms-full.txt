@@ -1553,69 +1553,6 @@ import styled from "styled-components/primitives";
 ---
 
 ---
-url: /docs/guide/usage/formatter/cli.md
----
-
-# Command-line Interface
-
-## Usage
-
-**`oxfmt`** \[**`-c`**=*`PATH`*] \[*`PATH`*]...
-
-## Mode Options:
-
-* **`    --init`** —
-  Initialize `.oxfmtrc.json` with default values
-* **`    --migrate`**=*`SOURCE`* —
-  Migrate configuration to `.oxfmtrc.json` from specified source Available sources: prettier
-* **`    --lsp`** —
-  Start language server protocol (LSP) server
-* **`    --stdin-filepath`**=*`PATH`* —
-  Specify the file name to use to infer which parser to use
-
-## Output Options:
-
-* **`    --write`** —
-  Format and write files in place (default)
-* **`    --check`** —
-  Check if files are formatted, also show statistics
-* **`    --list-different`** —
-  List files that would be changed
-
-## Config Options
-
-* **`-c`**, **`--config`**=*`PATH`* —
-  Path to the configuration file
-
-## Ignore Options
-
-* **`    --ignore-path`**=*`PATH`* —
-  Path to ignore file(s). Can be specified multiple times. If not specified, .gitignore and .prettierignore in the current directory are used.
-* **`    --with-node-modules`** —
-  Format code in node\_modules directory (skipped by default)
-
-## Runtime Options
-
-* **`    --no-error-on-unmatched-pattern`** —
-  Do not exit with error when pattern is unmatched
-* **`    --threads`**=*`INT`* —
-  Number of threads to use. Set to 1 for using only 1 CPU core.
-
-## Available positional items:
-
-* *`PATH`* —
-  Single file, single path or list of paths. If not provided, current working directory is used. Glob is supported only for exclude patterns like `'!**/fixtures/*.js'`.
-
-## Available options:
-
-* **`-h`**, **`--help`** —
-  Prints help information
-* **`-V`**, **`--version`** —
-  Prints version information
-
----
-
----
 url: /docs/guide/usage/linter/cli.md
 ---
 
@@ -1774,49 +1711,65 @@ Arguments:
 ---
 
 ---
-url: /docs/guide/usage/formatter/config.md
+url: /docs/guide/usage/formatter/cli.md
 ---
-# Configuration
 
-## `.oxfmtrc.json(c)`
+# Command-line Interface
 
-We support `.json` or `.jsonc` config file.
+## Usage
 
-Almost all formatting options are compatible with Prettier's [options](https://prettier.io/docs/options).
+**`oxfmt`** \[**`-c`**=*`PATH`*] \[*`PATH`*]...
 
-We also recommend adding the `$schema` to the config file:
+## Mode Options:
 
-```json
-{
-  "$schema": "./node_modules/oxfmt/configuration_schema.json"
-}
-```
+* **`    --init`** —
+  Initialize `.oxfmtrc.json` with default values
+* **`    --migrate`**=*`SOURCE`* —
+  Migrate configuration to `.oxfmtrc.json` from specified source Available sources: prettier
+* **`    --lsp`** —
+  Start language server protocol (LSP) server
+* **`    --stdin-filepath`**=*`PATH`* —
+  Specify the file name to use to infer which parser to use
 
-For full reference, see also [Configuration file reference](./config-file-reference).
+## Output Options:
 
-By default, `oxfmt` automatically tries to find the nearest `.oxfmtrc.json` or `.oxfmtrc.jsonc` file from the current working directory. If not found, the default configuration options are used.
+* **`    --write`** —
+  Format and write files in place (default)
+* **`    --check`** —
+  Check if files are formatted, also show statistics
+* **`    --list-different`** —
+  List files that would be changed
 
-You can also specify your config file with the `-c yourconfig.jsonc` flag.
+## Config Options
 
-## `.editorconfig`
+* **`-c`**, **`--config`**=*`PATH`* —
+  Path to the configuration file
 
-`.editorconfig` file is also supported by Oxfmt.
+## Ignore Options
 
-And these fields will override default Oxfmt options.
+* **`    --ignore-path`**=*`PATH`* —
+  Path to ignore file(s). Can be specified multiple times. If not specified, .gitignore and .prettierignore in the current directory are used.
+* **`    --with-node-modules`** —
+  Format code in node\_modules directory (skipped by default)
 
-* `end_of_line`: `endOfLine`
-* `indent_style`: `useTabs`
-* `indent_size`: `tabWidth`
-* `max_line_length`: `printWidth`
-* `insert_final_newline`: `insertFinalNewline`
+## Runtime Options
 
-If both `.editorconfig` and `.oxfmtrc.json` has the same field, `.oxfmtrc` will win.
+* **`    --no-error-on-unmatched-pattern`** —
+  Do not exit with error when pattern is unmatched
+* **`    --threads`**=*`INT`* —
+  Number of threads to use. Set to 1 for using only 1 CPU core.
 
-For those properties, glob path overrides also work.
+## Available positional items:
 
-By default, `oxfmt` automatically tries to find the nearest `.editorconfig` file from the current working directory.
+* *`PATH`* —
+  Single file, single path or list of paths. If not provided, current working directory is used. Glob is supported only for exclude patterns like `'!**/fixtures/*.js'`.
 
-Unlike Prettier, Oxfmt does not respect `root = true` and does not merge nested `.editorconfig` files.
+## Available options:
+
+* **`-h`**, **`--help`** —
+  Prints help information
+* **`-V`**, **`--version`** —
+  Prints version information
 
 ---
 
@@ -2141,7 +2094,54 @@ Example (monorepo + React + jsx-a11y):
 ---
 
 ---
-url: /docs/guide/usage/formatter/config-file-reference.md
+url: /docs/guide/usage/formatter/config.md
+---
+# Configuration
+
+## `.oxfmtrc.json(c)`
+
+We support `.json` or `.jsonc` config file.
+
+Almost all formatting options are compatible with Prettier's [options](https://prettier.io/docs/options).
+
+We also recommend adding the `$schema` to the config file:
+
+```json
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json"
+}
+```
+
+For full reference, see also [Configuration file reference](./config-file-reference).
+
+By default, `oxfmt` automatically tries to find the nearest `.oxfmtrc.json` or `.oxfmtrc.jsonc` file from the current working directory. If not found, the default configuration options are used.
+
+You can also specify your config file with the `-c yourconfig.jsonc` flag.
+
+## `.editorconfig`
+
+`.editorconfig` file is also supported by Oxfmt.
+
+And these fields will override default Oxfmt options.
+
+* `end_of_line`: `endOfLine`
+* `indent_style`: `useTabs`
+* `indent_size`: `tabWidth`
+* `max_line_length`: `printWidth`
+* `insert_final_newline`: `insertFinalNewline`
+
+If both `.editorconfig` and `.oxfmtrc.json` has the same field, `.oxfmtrc` will win.
+
+For those properties, glob path overrides also work.
+
+By default, `oxfmt` automatically tries to find the nearest `.editorconfig` file from the current working directory.
+
+Unlike Prettier, Oxfmt does not respect `root = true` and does not merge nested `.editorconfig` files.
+
+---
+
+---
+url: /docs/guide/usage/formatter/generated-config.md
 ---
 
 # Configuration options for the Oxfmt.
@@ -2390,7 +2390,7 @@ Use tabs for indentation or spaces. (Default: `false`)
 ---
 
 ---
-url: /docs/guide/usage/formatter/generated-config.md
+url: /docs/guide/usage/formatter/config-file-reference.md
 ---
 
 # Configuration options for the Oxfmt.
@@ -19152,207 +19152,6 @@ The Oxc formatter is built around the same core concepts as Prettier but with si
 ---
 
 ---
-url: /docs/guide/usage/formatter.md
----
-# Formatter (oxfmt)
-
-Oxfmt (`/oh-eks-for-mat/`) is a Prettier-compatible code formatter.
-
-:::info
-Oxfmt is currently in alpha.
-
-Please join the discussion!
-
-> RFC: Formatter · oxc-project/oxc · Discussion #13608\
-> https://github.com/oxc-project/oxc/discussions/13608
-
-Waiting on Oxfmt to implement additional features? Consider using [@prettier/plugin-oxc](https://github.com/prettier/prettier/tree/main/packages/plugin-oxc) in Prettier to gain some parsing speed in the meantime.
-:::
-
-## Features
-
-* Support many kinds of file types
-  * JS/TS(X): Supported by `oxc_formatter`
-  * All file types supported by Prettier by default
-* Faster alternative of Prettier CLI
-  * Over [30×](/blog/2025-12-01-oxfmt-alpha.html#performance) faster than Prettier’s experimental CLI without cache
-* Experimental but usable features
-  * Native sort-imports
-  * Native sort-packagejson
-
-## Supported languages
-
-* JS, JSX
-* TS, TSX
-* TOML
-* JSON, JSONC, JSON5
-* YAML
-* HTML, Angular, Vue, MJML
-* Ember, Handlebars
-* CSS, SCSS, Less
-* GraphQL
-* Markdown, MDX
-
-## Quickstart
-
-Run `oxfmt` directly at the root of your repository:
-
-::: code-group
-
-```sh [npm]
-$ npx oxfmt@latest
-```
-
-```sh [pnpm]
-$ pnpm dlx oxfmt@latest
-```
-
-```sh [yarn]
-$ yarn dlx oxfmt@latest
-```
-
-```sh [bun]
-$ bunx oxfmt@latest
-```
-
-```sh [deno]
-$ deno run npm:oxfmt@latest
-```
-
-:::
-
-Or save it to your `package.json`:
-
-::: code-group
-
-```sh [npm]
-$ npm add -D oxfmt
-```
-
-```sh [pnpm]
-$ pnpm add -D oxfmt
-```
-
-```sh [yarn]
-$ yarn add -D oxfmt
-```
-
-```sh [bun]
-$ bun add -D oxfmt
-```
-
-:::
-
-Add the following scripts to your `package.json`:
-
-```json
-{
-  "scripts": {
-    "format": "oxfmt",
-    "format:check": "oxfmt --check"
-  }
-}
-```
-
-Apply formatting:
-
-```bash
-pnpm run format
-```
-
-Check formatting without modifying files:
-
-```bash
-pnpm run format:check
-```
-
-## Command-line Interface
-
-`oxfmt` CLI works like `prettier --write .` by default.
-
-Formatting config options like `--no-semi` are not supported via CLI flags.
-We recommend setting these via the configuration file instead. This will ensure that the CLI and editor integrations always use the same settings.
-
-Globs in positional paths are not expanded. (You can rely on your shell.) But `!`-prefixed exclude paths do support glob expansion.
-
-See more details in the [CLI reference](./formatter/cli).
-
-## Node.js API
-
-`oxfmt` is also available via Node.js API: `format()` function.
-
-```ts
-import { format } from "oxfmt";
-import type { FormatOptions } from "oxfmt";
-
-const INPUT = `let a=42;`;
-const options: FormatOptions = {
-  semi: false,
-};
-
-const { code, errors } = await format("a.js", INPUT, options);
-console.log(code); // "let a = 42"
-```
-
-## System Requirements
-
-* **Node.js**: >= 20.19.0 or >= 22.12.0
-* **Platforms**: darwin-arm64, darwin-x64, linux-arm64, linux-x64, win32-arm64, and win32-x64
-
-## FAQs
-
-### Are there any formatting differences with Prettier?
-
-For JS/TS files, we're tested against the `v3.7.3` of Prettier.
-
-For known differences, please see this discussion.
-
-> `Oxfmt` differences with `Prettier` · oxc-project/oxc · Discussion #14669\
-> https://github.com/oxc-project/oxc/discussions/14669
-
-### Are there any limitations for configuration with Prettier?
-
-The following are NOT currently supported:
-
-* `prettier` field in `package.json`
-* Config file format other than `.json` and `.jsonc`
-* `overrides` field
-* Nested configs in sub directories
-* Nested `.editorconfig` in sub directories
-* `experimentalTernaries` and `experimentalOperatorPosition` option
-
-Also, if `printWidth` is not specified, its default value is `100`. This differs from Prettier's default `80`.
-
-### Are Prettier plugins supported?
-
-Currently, NOT supported.
-
-However, we have some experimental sorting options:
-
-* `experimentalSortImports`
-  * Based on `eslint-plugin-perfectionist/sort-imports`
-  * Disabled by default
-* `experimentalSortPackageJson`
-  * Based on `prettier-plugin-packagejson`
-  * Enabled by default
-* `experimentalTailwindcss`
-  * Based on `prettier-plugin-tailwindcss`
-  * Disabled by default
-
-See more details in the [Configuration file reference](./formatter/config-file-reference).
-
-### Why are embedded template literals not formatted?
-
-Currently, not fully implemented.
-
-For known differences, please see this discussion.
-
-> oxfmt: embedded formatting full support (aka xxx-in-js) · Issue #15180 · oxc-project/oxc\
-> https://github.com/oxc-project/oxc/issues/15180
-
----
-
----
 url: /docs/contribute/development.md
 ---
 
@@ -20311,6 +20110,51 @@ let { x = 1 } = ({ x = 1 } = { x: 1 });
 ---
 
 ---
+url: /docs/guide/usage/formatter/ignore-files.md
+---
+# Ignore files
+
+Oxfmt provides several ways to ignore files.
+
+### `.gitignore`
+
+Respects `.gitignore` in the current working directory and subdirectories.
+
+Does not respect global, exclude, or `.gitignore` in parent directories.
+Does not require `.git` directory to exist.
+
+Files listed here can still be formatted if explicitly specified.
+This is safe for use cases like `husky`, as ignored files are never staged.
+
+### `.prettierignore` / `oxfmtrc.ignorePatterns`
+
+These are formatter-specific ignore settings, separate from Git, and each operates within its own scope.
+
+`.prettierignore` is only read from the current working directory. For `.oxfmtrc.json(c)`, see [Configuration](./config).
+
+The syntax is the same as `.gitignore`, and paths are resolved relative to the directory containing the ignore file.
+
+Files ignored here cannot be formatted even if explicitly specified. This behavior is intended for use cases like `husky`.
+
+You can also specify custom ignore paths with `--ignore-path`, or use `!`-prefixed positional paths to exclude files.
+
+### VCS directories and `node_modules`
+
+Directories like `.git`, `.svn` and `.jj` are ignored by default.
+
+The `node_modules` directory is also ignored unless `--with-node_modules` flag is specified.
+
+If the current working directory is inside these directories, formatting is still possible.
+
+### Lock files
+
+Files like `package-lock.json` and `pnpm-lock.yaml` are ignored by default.
+
+These cannot be formatted even if explicitly specified.
+
+---
+
+---
 url: /docs/guide/usage/linter/ignore-files.md
 description: Control which files Oxlint lints.
 ---
@@ -20399,83 +20243,6 @@ To disable all ignore behavior, including ignore files and CLI ignore options, u
 ```bash
 oxlint --no-ignore
 ```
-
----
-
----
-url: /docs/guide/usage/formatter/ignoring.md
----
-# Ignoring
-
-## Ignore files
-
-Oxfmt provides several ways to ignore files.
-
-### `.gitignore`
-
-Respects `.gitignore` in the current working directory and subdirectories.
-
-Does not respect global, exclude, or `.gitignore` in parent directories.
-Does not require `.git` directory to exist.
-
-Files listed here can still be formatted if explicitly specified.
-This is safe for use cases like `husky`, as ignored files are never staged.
-
-### `.prettierignore` / `oxfmtrc.ignorePatterns`
-
-These are formatter-specific ignore settings, separate from Git, and each operates within its own scope.
-
-`.prettierignore` is only read from the current working directory. For `.oxfmtrc.json(c)`, see [Configuration](./config).
-
-The syntax is the same as `.gitignore`, and paths are resolved relative to the directory containing the ignore file.
-
-Files ignored here cannot be formatted even if explicitly specified. This behavior is intended for use cases like `husky`.
-
-You can also specify custom ignore paths with `--ignore-path`, or use `!`-prefixed positional paths to exclude files.
-
-### VCS directories and `node_modules`
-
-Directories like `.git`, `.svn` and `.jj` are ignored by default.
-
-The `node_modules` directory is also ignored unless `--with-node_modules` flag is specified.
-
-If the current working directory is inside these directories, formatting is still possible.
-
-### Lock files
-
-Files like `package-lock.json` and `pnpm-lock.yaml` are ignored by default.
-
-These cannot be formatted even if explicitly specified.
-
-## Ignore comments
-
-For JS/TS files, you can use a `prettier-ignore` comment.
-
-This takes effect on the next statement/expression.
-
-```js
-// prettier-ignore
-const a=42;
-
-/* prettier-ignore */
-const x=()=>{return      2;}
-
-<>
-  {/* prettier-ignore */}
-  <span     ugly  format=''   />
-</>;
-```
-
-::: warning
-(Not documented, but) Prettier supports trailing ignore comment too.
-However, we don't support it to avoid a performance hit.
-Please update your code in that case.
-:::
-
-For non-JS files, the same convention as Prettier works.
-Please see Prettier's [documentation](https://prettier.io/docs/ignore#html).
-
-For TOML files, ignore comments are not supported.
 
 ---
 
@@ -23070,6 +22837,41 @@ oxlint --deny import/unambiguous --import-plugin
 ## References
 
 * Rule Source
+
+---
+
+---
+url: /docs/guide/usage/formatter/ignore-comments.md
+---
+# Inline ignore comments
+
+For JS/TS files, you can use a `prettier-ignore` comment.
+
+This takes effect on the next statement/expression.
+
+```js
+// prettier-ignore
+const a=42;
+
+/* prettier-ignore */
+const x=()=>{return      2;}
+
+<>
+  {/* prettier-ignore */}
+  <span     ugly  format=''   />
+</>;
+```
+
+::: warning
+(Not documented, but) Prettier supports trailing ignore comment too.
+However, we don't support it to avoid a performance hit.
+Please update your code in that case.
+:::
+
+For non-JS files, the same convention as Prettier works.
+Please see Prettier's [documentation](https://prettier.io/docs/ignore#html).
+
+For TOML files, ignore comments are not supported.
 
 ---
 
@@ -37470,6 +37272,208 @@ oxlint --deny oxc/uninvoked-array-callback
 ---
 
 ---
+url: /docs/guide/usage/formatter.md
+---
+
+# Oxfmt
+
+Oxfmt (`/oʊ-ɛks-fɔːr-mæt/`) is a Prettier-compatible code formatter.
+
+:::info
+Oxfmt is currently in alpha.
+
+Please join the discussion!
+
+> RFC: Formatter · oxc-project/oxc · Discussion #13608\
+> https://github.com/oxc-project/oxc/discussions/13608
+
+Waiting on Oxfmt to implement additional features? Consider using [@prettier/plugin-oxc](https://github.com/prettier/prettier/tree/main/packages/plugin-oxc) in Prettier to gain some parsing speed in the meantime.
+:::
+
+## Features
+
+* Support many kinds of file types
+  * JS/TS(X): Supported by `oxc_formatter`
+  * All file types supported by Prettier by default
+* Faster alternative of Prettier CLI
+  * Over [30×](/blog/2025-12-01-oxfmt-alpha.html#performance) faster than Prettier’s experimental CLI without cache
+* Experimental but usable features
+  * Native sort-imports
+  * Native sort-packagejson
+
+## Supported languages
+
+* JS, JSX
+* TS, TSX
+* TOML
+* JSON, JSONC, JSON5
+* YAML
+* HTML, Angular, Vue, MJML
+* Ember, Handlebars
+* CSS, SCSS, Less
+* GraphQL
+* Markdown, MDX
+
+## Quickstart
+
+Run `oxfmt` directly at the root of your repository:
+
+::: code-group
+
+```sh [npm]
+$ npx oxfmt@latest
+```
+
+```sh [pnpm]
+$ pnpm dlx oxfmt@latest
+```
+
+```sh [yarn]
+$ yarn dlx oxfmt@latest
+```
+
+```sh [bun]
+$ bunx oxfmt@latest
+```
+
+```sh [deno]
+$ deno run npm:oxfmt@latest
+```
+
+:::
+
+Or save it to your `package.json`:
+
+::: code-group
+
+```sh [npm]
+$ npm add -D oxfmt
+```
+
+```sh [pnpm]
+$ pnpm add -D oxfmt
+```
+
+```sh [yarn]
+$ yarn add -D oxfmt
+```
+
+```sh [bun]
+$ bun add -D oxfmt
+```
+
+:::
+
+Add the following scripts to your `package.json`:
+
+```json
+{
+  "scripts": {
+    "format": "oxfmt",
+    "format:check": "oxfmt --check"
+  }
+}
+```
+
+Apply formatting:
+
+```bash
+pnpm run format
+```
+
+Check formatting without modifying files:
+
+```bash
+pnpm run format:check
+```
+
+## Command-line Interface
+
+`oxfmt` CLI works like `prettier --write .` by default.
+
+Formatting config options like `--no-semi` are not supported via CLI flags.
+We recommend setting these via the configuration file instead. This will ensure that the CLI and editor integrations always use the same settings.
+
+Globs in positional paths are not expanded. (You can rely on your shell.) But `!`-prefixed exclude paths do support glob expansion.
+
+See more details in the [CLI reference](./formatter/cli).
+
+## Node.js API
+
+`oxfmt` is also available via Node.js API: `format()` function.
+
+```ts
+import { format } from "oxfmt";
+import type { FormatOptions } from "oxfmt";
+
+const INPUT = `let a=42;`;
+const options: FormatOptions = {
+  semi: false,
+};
+
+const { code, errors } = await format("a.js", INPUT, options);
+console.log(code); // "let a = 42"
+```
+
+## System Requirements
+
+* **Node.js**: >= 20.19.0 or >= 22.12.0
+* **Platforms**: darwin-arm64, darwin-x64, linux-arm64, linux-x64, win32-arm64, and win32-x64
+
+## FAQs
+
+### Are there any formatting differences with Prettier?
+
+For JS/TS files, we're tested against the `v3.7.3` of Prettier.
+
+For known differences, please see this discussion.
+
+> `Oxfmt` differences with `Prettier` · oxc-project/oxc · Discussion #14669\
+> https://github.com/oxc-project/oxc/discussions/14669
+
+### Are there any limitations for configuration with Prettier?
+
+The following are NOT currently supported:
+
+* `prettier` field in `package.json`
+* Config file format other than `.json` and `.jsonc`
+* `overrides` field
+* Nested configs in sub directories
+* Nested `.editorconfig` in sub directories
+* `experimentalTernaries` and `experimentalOperatorPosition` option
+
+Also, if `printWidth` is not specified, its default value is `100`. This differs from Prettier's default `80`.
+
+### Are Prettier plugins supported?
+
+Currently, NOT supported.
+
+However, we have some experimental sorting options:
+
+* `experimentalSortImports`
+  * Based on `eslint-plugin-perfectionist/sort-imports`
+  * Disabled by default
+* `experimentalSortPackageJson`
+  * Based on `prettier-plugin-packagejson`
+  * Enabled by default
+* `experimentalTailwindcss`
+  * Based on `prettier-plugin-tailwindcss`
+  * Disabled by default
+
+See more details in the [Configuration file reference](./formatter/config-file-reference).
+
+### Why are embedded template literals not formatted?
+
+Currently, not fully implemented.
+
+For known differences, please see this discussion.
+
+> oxfmt: embedded formatting full support (aka xxx-in-js) · Issue #15180 · oxc-project/oxc\
+> https://github.com/oxc-project/oxc/issues/15180
+
+---
+
+---
 url: /docs/guide/usage/linter.md
 ---
 
@@ -37607,7 +37611,7 @@ Oxlint is used in production by popular projects such as:
 ---
 
 ---
-url: /docs/guide/usage/linter/config-file-reference.md
+url: /docs/guide/usage/linter/generated-config.md
 ---
 
 # Oxlint Configuration File
@@ -38234,7 +38238,7 @@ to accommodate TypeScript type checking scenarios.
 ---
 
 ---
-url: /docs/guide/usage/linter/generated-config.md
+url: /docs/guide/usage/linter/config-file-reference.md
 ---
 
 # Oxlint Configuration File
@@ -38970,184 +38974,6 @@ Test results are stored in snapshot files for tracking changes:
 ---
 
 ---
-url: /docs/learn/architecture/parser.md
----
-
-# Parser Architecture
-
-Oxc maintains its own AST and parser, which is by far the fastest and most conformant JavaScript and TypeScript (including JSX and TSX) parser written in Rust.
-
-As the parser often represents a key performance bottleneck in JavaScript tooling,
-any minor improvements can have a cascading effect on our downstream tools.
-By developing our parser, we have the opportunity to explore and implement well-researched performance techniques.
-
-## AST Design Philosophy
-
-While many existing JavaScript tools rely on [estree] as their AST specification,
-a notable drawback is its abundance of ambiguous nodes.
-This ambiguity often leads to confusion during development with [estree].
-
-The Oxc AST differs from the [estree] AST by removing ambiguous nodes and introducing distinct types.
-For example, instead of using a generic [estree] `Identifier`,
-the Oxc AST provides specific types such as `BindingIdentifier`, `IdentifierReference`, and `IdentifierName`.
-
-This clear distinction greatly enhances the development experience by aligning more closely with the ECMAScript specification.
-
-### AST Node Types
-
-```rust
-// Instead of generic Identifier
-pub struct BindingIdentifier<'a> {
-    pub span: Span,
-    pub name: Atom<'a>,
-}
-
-pub struct IdentifierReference<'a> {
-    pub span: Span,
-    pub name: Atom<'a>,
-    pub reference_id: Cell<Option<ReferenceId>>,
-}
-
-pub struct IdentifierName<'a> {
-    pub span: Span,
-    pub name: Atom<'a>,
-}
-```
-
-### Semantic Clarity
-
-This approach provides semantic clarity:
-
-* **`BindingIdentifier`**: Variable declarations (`let x = 1`)
-* **`IdentifierReference`**: Variable usage (`console.log(x)`)
-* **`IdentifierName`**: Property names (`obj.property`)
-
-## Performance Architecture
-
-### How is it so fast
-
-* **Memory Arena**: AST is allocated in a [memory arena](https://crates.io/crates/bumpalo) for fast allocation and deallocation
-* **String Optimization**: Short strings are inlined by [CompactString](https://crates.io/crates/compact_str)
-* **Minimal Heap Usage**: No other heap allocations are done except the above two
-* **Separation of Concerns**: Scope binding, symbol resolution and some syntax errors are delegated to the semantic analyzer
-
-### Memory Management Details
-
-#### Arena Allocation
-
-```rust
-use oxc_allocator::Allocator;
-
-// All AST nodes are allocated in this arena
-let allocator = Allocator::default();
-let ast_node = allocator.alloc(Expression::NumericLiteral(
-    allocator.alloc(NumericLiteral { value: 42.0, span: SPAN })
-));
-```
-
-Benefits:
-
-* **O(1) allocation**: Simple pointer bump
-* **O(1) deallocation**: Drop entire arena at once
-* **Cache-friendly**: Linear memory layout
-* **No fragmentation**: Continuous memory usage
-
-#### String Interning with CompactString
-
-```rust
-// Strings ≤ 24 bytes are stored inline (no heap allocation)
-let short_name = CompactString::from("variableName");  // Stack allocated
-let long_name = CompactString::from("a_very_long_variable_name_that_exceeds_limit");  // Heap allocated
-```
-
-This reduces memory allocations for the majority of JavaScript identifiers and string literals.
-
-## Parser Architecture
-
-### Two-Phase Design
-
-The Oxc parser follows a two-phase approach:
-
-1. **Parsing Phase**: Build AST structure with minimal semantic analysis
-2. **Semantic Phase**: Perform scope analysis, symbol resolution, and advanced error checking
-
-```rust
-// Phase 1: Parse to AST
-let parser_result = Parser::new(&allocator, source_text, source_type).parse();
-
-// Phase 2: Semantic analysis
-let semantic_result = SemanticBuilder::new(source_text, source_type)
-    .with_trivias(parser_result.trivias)
-    .build(&parser_result.program);
-```
-
-### Parser Components
-
-#### Lexer
-
-* **Token generation**: Converts source text to structured tokens
-* **SIMD optimization**: Uses SIMD instructions for whitespace skipping
-* **Context-aware**: Handles regex vs division operator disambiguation
-
-#### Recursive Descent Parser
-
-* **Hand-written**: Custom implementation for maximum performance
-* **Error recovery**: Advanced error handling with meaningful messages
-* **Grammar compliance**: Follows ECMAScript specification precisely
-
-#### AST Builder
-
-* **Type safety**: Leverages Rust's type system for correctness
-* **Memory efficiency**: Direct arena allocation
-* **Builder pattern**: Convenient node construction methods
-
-## Conformance Strategy
-
-### Test Suite Coverage
-
-* **Test262**: 100% pass rate on ECMAScript conformance tests
-* **Babel**: 99.62% compatibility with Babel parser tests
-* **TypeScript**: 99.86% compatibility with TypeScript compiler tests
-
-### Error Handling Philosophy
-
-```rust
-// Meaningful error messages with source location
-pub struct OxcDiagnostic {
-    pub message: String,
-    pub span: Span,
-    pub severity: Severity,
-    pub help: Option<String>,
-}
-```
-
-The parser provides:
-
-* **Precise error locations**: Exact source positions
-* **Recovery strategies**: Continue parsing after errors
-* **Helpful suggestions**: Actionable error messages
-
-## Advanced Features
-
-### TypeScript Support
-
-* **Type stripping**: Removes TypeScript-specific syntax
-* **Decorator parsing**: Handles experimental decorators
-* **Namespace support**: Full module and namespace parsing
-* **JSX integration**: TypeScript + JSX (TSX) support
-
-### Research Areas
-
-* **SIMD text processing**: Vectorized string operations
-* **Cache optimization**: Minimize memory access patterns
-* **Branch prediction**: Optimize hot parsing paths
-* **Zero-copy parsing**: Eliminate unnecessary string copies
-
-[estree]: https://github.com/estree/estree
-
----
-
----
 url: /docs/guide/usage/parser.md
 ---
 
@@ -39618,6 +39444,184 @@ function isParenthesizedArrowFunctionExpression(): Tristate {
 ```
 
 In summary, the TypeScript parser uses a combination of lookahead (fast path) and backtracking to parse arrow functions.
+
+---
+
+---
+url: /docs/learn/architecture/parser.md
+---
+
+# Parser Architecture
+
+Oxc maintains its own AST and parser, which is by far the fastest and most conformant JavaScript and TypeScript (including JSX and TSX) parser written in Rust.
+
+As the parser often represents a key performance bottleneck in JavaScript tooling,
+any minor improvements can have a cascading effect on our downstream tools.
+By developing our parser, we have the opportunity to explore and implement well-researched performance techniques.
+
+## AST Design Philosophy
+
+While many existing JavaScript tools rely on [estree] as their AST specification,
+a notable drawback is its abundance of ambiguous nodes.
+This ambiguity often leads to confusion during development with [estree].
+
+The Oxc AST differs from the [estree] AST by removing ambiguous nodes and introducing distinct types.
+For example, instead of using a generic [estree] `Identifier`,
+the Oxc AST provides specific types such as `BindingIdentifier`, `IdentifierReference`, and `IdentifierName`.
+
+This clear distinction greatly enhances the development experience by aligning more closely with the ECMAScript specification.
+
+### AST Node Types
+
+```rust
+// Instead of generic Identifier
+pub struct BindingIdentifier<'a> {
+    pub span: Span,
+    pub name: Atom<'a>,
+}
+
+pub struct IdentifierReference<'a> {
+    pub span: Span,
+    pub name: Atom<'a>,
+    pub reference_id: Cell<Option<ReferenceId>>,
+}
+
+pub struct IdentifierName<'a> {
+    pub span: Span,
+    pub name: Atom<'a>,
+}
+```
+
+### Semantic Clarity
+
+This approach provides semantic clarity:
+
+* **`BindingIdentifier`**: Variable declarations (`let x = 1`)
+* **`IdentifierReference`**: Variable usage (`console.log(x)`)
+* **`IdentifierName`**: Property names (`obj.property`)
+
+## Performance Architecture
+
+### How is it so fast
+
+* **Memory Arena**: AST is allocated in a [memory arena](https://crates.io/crates/bumpalo) for fast allocation and deallocation
+* **String Optimization**: Short strings are inlined by [CompactString](https://crates.io/crates/compact_str)
+* **Minimal Heap Usage**: No other heap allocations are done except the above two
+* **Separation of Concerns**: Scope binding, symbol resolution and some syntax errors are delegated to the semantic analyzer
+
+### Memory Management Details
+
+#### Arena Allocation
+
+```rust
+use oxc_allocator::Allocator;
+
+// All AST nodes are allocated in this arena
+let allocator = Allocator::default();
+let ast_node = allocator.alloc(Expression::NumericLiteral(
+    allocator.alloc(NumericLiteral { value: 42.0, span: SPAN })
+));
+```
+
+Benefits:
+
+* **O(1) allocation**: Simple pointer bump
+* **O(1) deallocation**: Drop entire arena at once
+* **Cache-friendly**: Linear memory layout
+* **No fragmentation**: Continuous memory usage
+
+#### String Interning with CompactString
+
+```rust
+// Strings ≤ 24 bytes are stored inline (no heap allocation)
+let short_name = CompactString::from("variableName");  // Stack allocated
+let long_name = CompactString::from("a_very_long_variable_name_that_exceeds_limit");  // Heap allocated
+```
+
+This reduces memory allocations for the majority of JavaScript identifiers and string literals.
+
+## Parser Architecture
+
+### Two-Phase Design
+
+The Oxc parser follows a two-phase approach:
+
+1. **Parsing Phase**: Build AST structure with minimal semantic analysis
+2. **Semantic Phase**: Perform scope analysis, symbol resolution, and advanced error checking
+
+```rust
+// Phase 1: Parse to AST
+let parser_result = Parser::new(&allocator, source_text, source_type).parse();
+
+// Phase 2: Semantic analysis
+let semantic_result = SemanticBuilder::new(source_text, source_type)
+    .with_trivias(parser_result.trivias)
+    .build(&parser_result.program);
+```
+
+### Parser Components
+
+#### Lexer
+
+* **Token generation**: Converts source text to structured tokens
+* **SIMD optimization**: Uses SIMD instructions for whitespace skipping
+* **Context-aware**: Handles regex vs division operator disambiguation
+
+#### Recursive Descent Parser
+
+* **Hand-written**: Custom implementation for maximum performance
+* **Error recovery**: Advanced error handling with meaningful messages
+* **Grammar compliance**: Follows ECMAScript specification precisely
+
+#### AST Builder
+
+* **Type safety**: Leverages Rust's type system for correctness
+* **Memory efficiency**: Direct arena allocation
+* **Builder pattern**: Convenient node construction methods
+
+## Conformance Strategy
+
+### Test Suite Coverage
+
+* **Test262**: 100% pass rate on ECMAScript conformance tests
+* **Babel**: 99.62% compatibility with Babel parser tests
+* **TypeScript**: 99.86% compatibility with TypeScript compiler tests
+
+### Error Handling Philosophy
+
+```rust
+// Meaningful error messages with source location
+pub struct OxcDiagnostic {
+    pub message: String,
+    pub span: Span,
+    pub severity: Severity,
+    pub help: Option<String>,
+}
+```
+
+The parser provides:
+
+* **Precise error locations**: Exact source positions
+* **Recovery strategies**: Continue parsing after errors
+* **Helpful suggestions**: Actionable error messages
+
+## Advanced Features
+
+### TypeScript Support
+
+* **Type stripping**: Removes TypeScript-specific syntax
+* **Decorator parsing**: Handles experimental decorators
+* **Namespace support**: Full module and namespace parsing
+* **JSX integration**: TypeScript + JSX (TSX) support
+
+### Research Areas
+
+* **SIMD text processing**: Vectorized string operations
+* **Cache optimization**: Minimize memory access patterns
+* **Branch prediction**: Optimize hot parsing paths
+* **Zero-copy parsing**: Eliminate unnecessary string copies
+
+[estree]: https://github.com/estree/estree
 
 ---
 
@@ -48293,6 +48297,29 @@ Upon visit, we can call `enter_scope` and `leave_scope` accordingly to build the
 ---
 
 ---
+url: /docs/guide/usage/formatter/ci.md
+---
+# Setup CI and other integrations
+
+## Pre-commit hook
+
+If you want to auto-format staged files with Oxfmt in a git pre-commit hook, you can use `oxfmt --no-error-on-unmatched-pattern`.
+
+This command is equivalent to `prettier --no-error-on-unmatched-pattern --write`, and will format all matched files that are supported by oxfmt. The `--no-error-on-unmatched-pattern` flag ensures that Oxfmt will not raise errors if there are no supported files passed into the command by your pre-commit hook tool (e.g. only Ruby files are staged).
+
+You can also pass `--check` to only *check* the formatting of files, and bail if any files are incorrectly formatted.
+
+If you are using a pre-commit hook via husky/lint-staged, you can run Oxfmt with it by updating your package.json like so:
+
+```json
+"lint-staged": {
+  "*": "oxfmt --no-error-on-unmatched-pattern"
+},
+```
+
+---
+
+---
 url: /docs/guide/usage/linter/ci.md
 description: Run Oxlint in CI or as a git hook.
 ---
@@ -48370,54 +48397,6 @@ Unplugin is supported via a [third-party package](https://www.npmjs.com/package/
 ### Vite plugin
 
 A Vite plugin is supported via a [third-party package](https://www.npmjs.com/package/vite-plugin-oxlint)
-
----
-
----
-url: /docs/guide/usage/formatter/ci.md
----
-# Setup CI and other integrations
-
-## Pre-commit hook
-
-If you want to auto-format staged files with Oxfmt in a git pre-commit hook, you can use `oxfmt --no-error-on-unmatched-pattern`.
-
-This command is equivalent to `prettier --no-error-on-unmatched-pattern --write`, and will format all matched files that are supported by oxfmt. The `--no-error-on-unmatched-pattern` flag ensures that Oxfmt will not raise errors if there are no supported files passed into the command by your pre-commit hook tool (e.g. only Ruby files are staged).
-
-You can also pass `--check` to only *check* the formatting of files, and bail if any files are incorrectly formatted.
-
-If you are using a pre-commit hook via husky/lint-staged, you can run Oxfmt with it by updating your package.json like so:
-
-```json
-"lint-staged": {
-  "*": "oxfmt --no-error-on-unmatched-pattern"
-},
-```
-
----
-
----
-url: /docs/guide/usage/formatter/editors.md
----
-# Setup editors
-
-For VS Code, the Oxc extension is available from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=oxc.oxc-vscode) and [Open VSX Registry](https://open-vsx.org/extension/oxc/oxc-vscode).
-
-For other editors, by running `oxfmt --lsp` you can start a language server that responds to standard `textDocument/formatting` requests.
-
-:::warning
-
-Currently, LSP support has some limitations, such as not supporting formatting of embedded parts in JS/TS files, non-JS files support.
-
-:::
-
-Formatting via stdin and stdout are also supported.
-
-```sh
-cat foo/bar.js | oxfmt --stdin-filepath f.js --config ./path/to/config.json
-```
-
-In addition, we have confirmed that some editors and extensions can work with the CLI by configuring them to use temporary files.
 
 ---
 
@@ -48545,6 +48524,31 @@ oxlint --lsp
 ### Reference (language server implementation and issues)
 
 * <https://github.com/oxc-project/oxc/tree/main/crates/oxc_language_server>
+
+---
+
+---
+url: /docs/guide/usage/formatter/editors.md
+---
+# Setup editors
+
+For VS Code, the Oxc extension is available from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=oxc.oxc-vscode) and [Open VSX Registry](https://open-vsx.org/extension/oxc/oxc-vscode).
+
+For other editors, by running `oxfmt --lsp` you can start a language server that responds to standard `textDocument/formatting` requests.
+
+:::warning
+
+Currently, LSP support has some limitations, such as not supporting formatting of embedded parts in JS/TS files, non-JS files support.
+
+:::
+
+Formatting via stdin and stdout are also supported.
+
+```sh
+cat foo/bar.js | oxfmt --stdin-filepath f.js --config ./path/to/config.json
+```
+
+In addition, we have confirmed that some editors and extensions can work with the CLI by configuring them to use temporary files.
 
 ---
 
