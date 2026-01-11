@@ -90,6 +90,8 @@ You can use [`eslint-plugin-oxlint`](https://www.npmjs.com/package/eslint-plugin
 
 ```bash
 npm install --save-dev oxlint-eslint-plugin
+```
+
 This reduces duplicate diagnostics, can help cut down your linting time considerably, and allows ESLint to focus only on rules that Oxlint does not yet support.
 
 Long-term - once remaining important rules been added in Oxlint - we strongly recommend moving fully to Oxlint to simplify your setup and reduce the number of npm dependencies for your project.
