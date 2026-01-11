@@ -2141,7 +2141,7 @@ Unlike Prettier, Oxfmt does not respect `root = true` and does not merge nested 
 ---
 
 ---
-url: /docs/guide/usage/formatter/generated-config.md
+url: /docs/guide/usage/formatter/config-file-reference.md
 ---
 
 # Configuration options for the Oxfmt.
@@ -2390,7 +2390,7 @@ Use tabs for indentation or spaces. (Default: `false`)
 ---
 
 ---
-url: /docs/guide/usage/formatter/config-file-reference.md
+url: /docs/guide/usage/formatter/generated-config.md
 ---
 
 # Configuration options for the Oxfmt.
@@ -22841,41 +22841,6 @@ oxlint --deny import/unambiguous --import-plugin
 ---
 
 ---
-url: /docs/guide/usage/formatter/ignore-comments.md
----
-# Inline ignore comments
-
-For JS/TS files, you can use a `prettier-ignore` comment.
-
-This takes effect on the next statement/expression.
-
-```js
-// prettier-ignore
-const a=42;
-
-/* prettier-ignore */
-const x=()=>{return      2;}
-
-<>
-  {/* prettier-ignore */}
-  <span     ugly  format=''   />
-</>;
-```
-
-::: warning
-(Not documented, but) Prettier supports trailing ignore comment too.
-However, we don't support it to avoid a performance hit.
-Please update your code in that case.
-:::
-
-For non-JS files, the same convention as Prettier works.
-Please see Prettier's [documentation](https://prettier.io/docs/ignore#html).
-
-For TOML files, ignore comments are not supported.
-
----
-
----
 url: /docs/guide/usage/linter/ignore-comments.md
 description: Disable specific rules inline using Oxlint ignore comments
 ---
@@ -22961,6 +22926,41 @@ oxlint --report-unused-disable-directives-severity error
 ```
 
 Only one of these options can be used at a time.
+
+---
+
+---
+url: /docs/guide/usage/formatter/ignore-comments.md
+---
+# Inline ignore comments
+
+For JS/TS files, you can use a `prettier-ignore` comment.
+
+This takes effect on the next statement/expression.
+
+```js
+// prettier-ignore
+const a=42;
+
+/* prettier-ignore */
+const x=()=>{return      2;}
+
+<>
+  {/* prettier-ignore */}
+  <span     ugly  format=''   />
+</>;
+```
+
+::: warning
+(Not documented, but) Prettier supports trailing ignore comment too.
+However, we don't support it to avoid a performance hit.
+Please update your code in that case.
+:::
+
+For non-JS files, the same convention as Prettier works.
+Please see Prettier's [documentation](https://prettier.io/docs/ignore#html).
+
+For TOML files, ignore comments are not supported.
 
 ---
 
@@ -37611,7 +37611,7 @@ Oxlint is used in production by popular projects such as:
 ---
 
 ---
-url: /docs/guide/usage/linter/generated-config.md
+url: /docs/guide/usage/linter/config-file-reference.md
 ---
 
 # Oxlint Configuration File
@@ -38238,7 +38238,7 @@ to accommodate TypeScript type checking scenarios.
 ---
 
 ---
-url: /docs/guide/usage/linter/config-file-reference.md
+url: /docs/guide/usage/linter/generated-config.md
 ---
 
 # Oxlint Configuration File
@@ -46583,7 +46583,7 @@ See [https://crates.io/crates/oxc\_resolver][url-oxc-resolver-crate] and its doc
 ---
 
 ---
-url: /docs/guide/usage/linter/rules.md
+url: /docs/guide/usage/linter/generated-rules.md
 ---
 
 # Rules
@@ -47299,7 +47299,7 @@ New lints that are still under development.
 ---
 
 ---
-url: /docs/guide/usage/linter/generated-rules.md
+url: /docs/guide/usage/linter/rules.md
 ---
 
 # Rules
@@ -48297,29 +48297,6 @@ Upon visit, we can call `enter_scope` and `leave_scope` accordingly to build the
 ---
 
 ---
-url: /docs/guide/usage/formatter/ci.md
----
-# Setup CI and other integrations
-
-## Pre-commit hook
-
-If you want to auto-format staged files with Oxfmt in a git pre-commit hook, you can use `oxfmt --no-error-on-unmatched-pattern`.
-
-This command is equivalent to `prettier --no-error-on-unmatched-pattern --write`, and will format all matched files that are supported by oxfmt. The `--no-error-on-unmatched-pattern` flag ensures that Oxfmt will not raise errors if there are no supported files passed into the command by your pre-commit hook tool (e.g. only Ruby files are staged).
-
-You can also pass `--check` to only *check* the formatting of files, and bail if any files are incorrectly formatted.
-
-If you are using a pre-commit hook via husky/lint-staged, you can run Oxfmt with it by updating your package.json like so:
-
-```json
-"lint-staged": {
-  "*": "oxfmt --no-error-on-unmatched-pattern"
-},
-```
-
----
-
----
 url: /docs/guide/usage/linter/ci.md
 description: Run Oxlint in CI or as a git hook.
 ---
@@ -48397,6 +48374,29 @@ Unplugin is supported via a [third-party package](https://www.npmjs.com/package/
 ### Vite plugin
 
 A Vite plugin is supported via a [third-party package](https://www.npmjs.com/package/vite-plugin-oxlint)
+
+---
+
+---
+url: /docs/guide/usage/formatter/ci.md
+---
+# Setup CI and other integrations
+
+## Pre-commit hook
+
+If you want to auto-format staged files with Oxfmt in a git pre-commit hook, you can use `oxfmt --no-error-on-unmatched-pattern`.
+
+This command is equivalent to `prettier --no-error-on-unmatched-pattern --write`, and will format all matched files that are supported by oxfmt. The `--no-error-on-unmatched-pattern` flag ensures that Oxfmt will not raise errors if there are no supported files passed into the command by your pre-commit hook tool (e.g. only Ruby files are staged).
+
+You can also pass `--check` to only *check* the formatting of files, and bail if any files are incorrectly formatted.
+
+If you are using a pre-commit hook via husky/lint-staged, you can run Oxfmt with it by updating your package.json like so:
+
+```json
+"lint-staged": {
+  "*": "oxfmt --no-error-on-unmatched-pattern"
+},
+```
 
 ---
 
@@ -65957,67 +65957,6 @@ oxlint --deny unicorn/throw-new-error
 ---
 
 ---
-url: /docs/guide/usage/formatter/generated-cli.md
----
-
-## Usage
-
-**`oxfmt`** \[**`-c`**=*`PATH`*] \[*`PATH`*]...
-
-## Mode Options:
-
-* **`    --init`** —
-  Initialize `.oxfmtrc.json` with default values
-* **`    --migrate`**=*`SOURCE`* —
-  Migrate configuration to `.oxfmtrc.json` from specified source Available sources: prettier
-* **`    --lsp`** —
-  Start language server protocol (LSP) server
-* **`    --stdin-filepath`**=*`PATH`* —
-  Specify the file name to use to infer which parser to use
-
-## Output Options:
-
-* **`    --write`** —
-  Format and write files in place (default)
-* **`    --check`** —
-  Check if files are formatted, also show statistics
-* **`    --list-different`** —
-  List files that would be changed
-
-## Config Options
-
-* **`-c`**, **`--config`**=*`PATH`* —
-  Path to the configuration file
-
-## Ignore Options
-
-* **`    --ignore-path`**=*`PATH`* —
-  Path to ignore file(s). Can be specified multiple times. If not specified, .gitignore and .prettierignore in the current directory are used.
-* **`    --with-node-modules`** —
-  Format code in node\_modules directory (skipped by default)
-
-## Runtime Options
-
-* **`    --no-error-on-unmatched-pattern`** —
-  Do not exit with error when pattern is unmatched
-* **`    --threads`**=*`INT`* —
-  Number of threads to use. Set to 1 for using only 1 CPU core.
-
-## Available positional items:
-
-* *`PATH`* —
-  Single file, single path or list of paths. If not provided, current working directory is used. Glob is supported only for exclude patterns like `'!**/fixtures/*.js'`.
-
-## Available options:
-
-* **`-h`**, **`--help`** —
-  Prints help information
-* **`-V`**, **`--version`** —
-  Prints version information
-
----
-
----
 url: /docs/guide/usage/linter/generated-cli.md
 ---
 
@@ -66166,6 +66105,67 @@ Arguments:
   Enable rules that require type information
 * **`    --type-check`** —
   Enable experimental type checking (includes TypeScript compiler diagnostics)
+* **`-h`**, **`--help`** —
+  Prints help information
+* **`-V`**, **`--version`** —
+  Prints version information
+
+---
+
+---
+url: /docs/guide/usage/formatter/generated-cli.md
+---
+
+## Usage
+
+**`oxfmt`** \[**`-c`**=*`PATH`*] \[*`PATH`*]...
+
+## Mode Options:
+
+* **`    --init`** —
+  Initialize `.oxfmtrc.json` with default values
+* **`    --migrate`**=*`SOURCE`* —
+  Migrate configuration to `.oxfmtrc.json` from specified source Available sources: prettier
+* **`    --lsp`** —
+  Start language server protocol (LSP) server
+* **`    --stdin-filepath`**=*`PATH`* —
+  Specify the file name to use to infer which parser to use
+
+## Output Options:
+
+* **`    --write`** —
+  Format and write files in place (default)
+* **`    --check`** —
+  Check if files are formatted, also show statistics
+* **`    --list-different`** —
+  List files that would be changed
+
+## Config Options
+
+* **`-c`**, **`--config`**=*`PATH`* —
+  Path to the configuration file
+
+## Ignore Options
+
+* **`    --ignore-path`**=*`PATH`* —
+  Path to ignore file(s). Can be specified multiple times. If not specified, .gitignore and .prettierignore in the current directory are used.
+* **`    --with-node-modules`** —
+  Format code in node\_modules directory (skipped by default)
+
+## Runtime Options
+
+* **`    --no-error-on-unmatched-pattern`** —
+  Do not exit with error when pattern is unmatched
+* **`    --threads`**=*`INT`* —
+  Number of threads to use. Set to 1 for using only 1 CPU core.
+
+## Available positional items:
+
+* *`PATH`* —
+  Single file, single path or list of paths. If not provided, current working directory is used. Glob is supported only for exclude patterns like `'!**/fixtures/*.js'`.
+
+## Available options:
+
 * **`-h`**, **`--help`** —
   Prints help information
 * **`-V`**, **`--version`** —
