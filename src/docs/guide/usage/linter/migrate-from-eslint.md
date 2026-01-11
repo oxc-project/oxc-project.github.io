@@ -12,12 +12,15 @@ oxlint --init
 
 Oxlint and ESLint share similar configuration concepts, but they differ in supported rules and config formats.
 
+Oxlint already supports more than 600 rules from ESLint core and various popular plugins. We intend to support nearly all existing ESLint core rules, and this work is ongoing.
+
 When migrating, expect the following:
 
 - Most ESLint core rules and popular plugin rules are supported
 - Some rules may not yet be available
 - ESLint configuration files must be converted to Oxlint’s config format
 - Oxlint is designed for incremental adoption; a full migration is not required upfront
+- Oxlint's JS Plugins allow usage of ESLint plugins that are not implemented natively by Oxlint
 
 ## Migrating from an ESLint flat config
 
@@ -127,3 +130,13 @@ If your project uses legacy ESLint config files (such as `.eslintrc.js` or `.esl
 The "legacy" ESLint v8.x configuration file shape maps closely to Oxlint’s config format, so most rules and options can be translated directly.
 
 For simpler configurations, you may also migrate them to an ESLint flat config first, and _then_ to Oxlint using `@oxlint/migrate`.
+
+## Rule/plugin support
+
+You may have specific rules that you rely on in ESLint that are not yet ported to Oxlint.
+
+Almost all rules will be ported - and most already have been. For those that will not be ported, some rules are deprecated in the original plugins, or have alternatives implemented already.
+
+You can check the [meta issue](https://github.com/oxc-project/oxc/issues/481) for rule/plugin implementation status to see if the rules you rely on are planned for implementation, or if they have already been implemented by other, equivalent rules.
+
+For plugins that are not implemented natively in Oxlint, it is recommended to use JS Plugins.
