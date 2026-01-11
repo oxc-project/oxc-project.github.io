@@ -1,6 +1,4 @@
-# Ignoring
-
-## Ignore files
+# Ignore files
 
 Oxfmt provides several ways to ignore files.
 
@@ -39,33 +37,3 @@ If the current working directory is inside these directories, formatting is stil
 Files like `package-lock.json` and `pnpm-lock.yaml` are ignored by default.
 
 These cannot be formatted even if explicitly specified.
-
-## Ignore comments
-
-For JS/TS files, you can use a `prettier-ignore` comment.
-
-This takes effect on the next statement/expression.
-
-```js
-// prettier-ignore
-const a=42;
-
-/* prettier-ignore */
-const x=()=>{return      2;}
-
-<>
-  {/* prettier-ignore */}
-  <span     ugly  format=''   />
-</>;
-```
-
-::: warning
-(Not documented, but) Prettier supports trailing ignore comment too.
-However, we don't support it to avoid a performance hit.
-Please update your code in that case.
-:::
-
-For non-JS files, the same convention as Prettier works.
-Please see Prettier's [documentation](https://prettier.io/docs/ignore#html).
-
-For TOML files, ignore comments are not supported.

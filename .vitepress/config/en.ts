@@ -124,8 +124,12 @@ export const enConfig = defineLocaleConfig("root", {
               text: "Features",
               items: [
                 {
-                  text: "Ignoring",
-                  link: "/docs/guide/usage/formatter/ignoring",
+                  text: "Ignore files",
+                  link: "/docs/guide/usage/formatter/ignore-files",
+                },
+                {
+                  text: "Inline ignore comments",
+                  link: "/docs/guide/usage/formatter/ignore-comments",
                 },
               ],
             },
