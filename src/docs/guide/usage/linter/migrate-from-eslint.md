@@ -129,7 +129,7 @@ If your project uses legacy ESLint config files (such as `.eslintrc.js` or `.esl
 
 The "legacy" ESLint v8.x configuration file shape maps closely to Oxlint’s config format, so most rules and options can be translated directly.
 
-For simpler configurations, you may also migrate them to an ESLint flat config first, and _then_ to Oxlint using `@oxlint/migrate`.
+For simpler legacy configuration files, you may also [migrate them to an ESLint flat config](https://www.npmjs.com/package/@eslint/migrate-config) first, and _then_ to Oxlint using `@oxlint/migrate`.
 
 ## Rule/plugin support
 
