@@ -140,4 +140,3 @@ Almost all rules from our supported plugins will be ported - and a majority alre
 You can check the [meta issue](https://github.com/oxc-project/oxc/issues/481) for rule/plugin implementation status to see if the rules you rely on are planned for implementation, or if they have already been implemented by other, equivalent rules.
 
 For plugins that are not implemented natively in Oxlint, it is recommended to use JS Plugins.
-
