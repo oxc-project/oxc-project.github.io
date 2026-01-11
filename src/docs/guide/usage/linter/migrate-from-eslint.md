@@ -19,9 +19,9 @@ When migrating, expect the following:
 - ESLint configuration files must be converted to Oxlint’s config format
 - Oxlint is designed for incremental adoption; a full migration is not required upfront
 
-## Migrating from ESLint Flat Config
+## Migrating from ESLint flat config
 
-If your project uses ESLint Flat Config (e.g. `eslint.config.js`), you can migrate automatically using [`@oxlint/migrate`](https://www.npmjs.com/package/@oxlint/migrate).
+If your project uses an ESLint flat config (e.g. `eslint.config.js` or `eslint.config.mjs`), you can migrate automatically using [`@oxlint/migrate`](https://www.npmjs.com/package/@oxlint/migrate).
 
 ### Run the migration tool
 
@@ -33,9 +33,12 @@ npx @oxlint/migrate <optional-eslint-flat-config-path>
 
 This command:
 
-- Reads your ESLint flat file config
+- Reads your ESLint flat config file
 - Converts supported rules to an Oxlint config
-- Preserves rule severities and options where possible
+- Preserves rule severities and options
+- Preserves file and path-specific overrides to allow different rulesets for different parts of a repo
+- Converts `globals` (e.g. `...globals.browser`) to equivalent `env` and `globals` values
+- Preserves root `ignore` patterns for ignoring specific paths/files
 
 The generated config can be edited manually after migration.
 
@@ -49,7 +52,9 @@ If your ESLint setup uses `typescript-eslint` with type-aware rules, you can pas
 npx @oxlint/migrate --type-aware
 ```
 
-This ensures the generated Oxlint config enables the required settings for type-aware analysis.
+This ensures the generated Oxlint config includes type-aware rules.
+
+Note that type-aware linting is based on the TypeScript native rewrite (aka TypeScript 7), but should be possible to adopt in most TypeScript projects without too much upgrade work. For further information on Oxlint's type-aware support, see [the Type-Aware Linting page](docs/guide/usage/linter/type-aware).
 
 ### JavaScript plugins
 
@@ -85,10 +90,14 @@ You can use [`eslint-plugin-oxlint`](https://www.npmjs.com/package/eslint-plugin
 
 ```bash
 npm install --save-dev oxlint-eslint-plugin
-This reduces duplicate diagnostics and allows ESLint to focus only on rules that Oxlint does not yet support.
+This reduces duplicate diagnostics, can help cut down your linting time considerably, and allows ESLint to focus only on rules that Oxlint does not yet support.
+
+Long-term - once remaining important rules been added in Oxlint - we strongly recommend moving fully to Oxlint to simplify your setup and reduce the number of npm dependencies for your project.
 
 ## Migrating from legacy ESLint configs
 
 If your project uses legacy ESLint config files (such as `.eslintrc.js` or `.eslintrc.json`), they must be migrated manually.
 
 The configuration shapes map closely to Oxlint’s config format, so most rules and options can be translated directly.
+
+For simpler configurations, you may also migrate them to an ESLint flat config first, and _then_ to Oxlint using `@oxlint/migrate`.
