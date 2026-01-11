@@ -141,6 +141,3 @@ You can check the [meta issue](https://github.com/oxc-project/oxc/issues/481) fo
 
 For plugins that are not implemented natively in Oxlint, it is recommended to use JS Plugins.
 
-## Next steps
-
-- [Setup editors](/docs/guide/usage/linter/editors)
