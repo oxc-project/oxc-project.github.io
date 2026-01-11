@@ -108,12 +108,15 @@ Next steps:
 
 ## Adoption paths
 
+::: tip
+If you're migrating from ESLint, see [the "Migrate from ESLint" page](/docs/guide/usage/linter/migrate-from-eslint) for detailed guidance.
+:::
+
 Choose the approach that fits your repository:
 
 - **Replace ESLint (recommended for most projects).** Use Oxlint as your primary linter.
   - Use tooling such as [`@oxlint/migrate`](https://github.com/oxc-project/oxlint-migrate) to migrate your existing ESLint config.
 - **Migrate incrementally (recommended for large repos).** Run Oxlint first, then run ESLint with overlapping rules disabled. This keeps CI fast while you migrate.
-  <!-- TODO: - See [Migrate from ESLint](/docs/guide/usage/linter/migrate-from-eslint) for guidance and tooling such as [`oxlint-migrate`](https://github.com/oxc-project/oxlint-migrate). -->
   - Use [`eslint-plugin-oxlint`](https://www.npmjs.com/package/eslint-plugin-oxlint) to disable overlapping ESLint rules while running both.
   - You can - and should - also use [`@oxlint/migrate`](https://github.com/oxc-project/oxlint-migrate) for this approach as well.
 
