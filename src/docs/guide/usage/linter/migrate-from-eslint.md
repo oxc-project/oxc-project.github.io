@@ -1,6 +1,6 @@
 # Migrate from ESLint
 
-This guide is for existing JavaScript or TypeScript projects that currently use ESLint and want to migrate to Oxlint.
+This guide is for existing JavaScript and TypeScript projects that currently use ESLint and want to migrate to Oxlint.
 
 If you are starting a new project, or do not need to preserve an existing ESLint configuration, we recommend initializing a fresh Oxlint config instead:
 
@@ -33,17 +33,17 @@ npx @oxlint/migrate <optional-eslint-flat-config-path>
 
 This command:
 
-- Reads your ESLint Flat Config
+- Reads your ESLint flat file config
 - Converts supported rules to an Oxlint config
 - Preserves rule severities and options where possible
 
 The generated config can be edited manually after migration.
 
-See also the list of [available options](https://github.com/oxc-project/oxlint-migrate?tab=readme-ov-file#options).
+See the list of [available options](https://github.com/oxc-project/oxlint-migrate?tab=readme-ov-file#options) for more details.
 
 ### Type-aware TypeScript rules
 
-If your ESLint setup uses `typescript-eslint` with type-aware rules, pass the `--type-aware` flag:
+If your ESLint setup uses `typescript-eslint` with type-aware rules, you can pass the `--type-aware` flag:
 
 ```bash
 npx @oxlint/migrate --type-aware
@@ -59,7 +59,7 @@ If your ESLint config uses plugins that are not supported natively by Oxlint, yo
 npx @oxlint/migrate --js-plugins
 ```
 
-This allows you to continue using those rules while migrating the rest of your configuration.
+This allows you to continue using those rules while migrating the rest of your configuration. For more information on JavaScript Plugins, see [the JS Plugins page](docs/guide/usage/linter/js-plugins).
 
 ## Running Oxlint and ESLint together
 
@@ -85,8 +85,6 @@ You can use [`eslint-plugin-oxlint`](https://www.npmjs.com/package/eslint-plugin
 
 ```bash
 npm install --save-dev oxlint-eslint-plugin
-```
-
 This reduces duplicate diagnostics and allows ESLint to focus only on rules that Oxlint does not yet support.
 
 ## Migrating from legacy ESLint configs
