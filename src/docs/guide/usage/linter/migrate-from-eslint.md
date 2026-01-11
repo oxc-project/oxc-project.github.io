@@ -94,10 +94,10 @@ This reduces duplicate diagnostics, can help cut down your linting time consider
 
 Long-term - once remaining important rules been added in Oxlint - we strongly recommend moving fully to Oxlint to simplify your setup and reduce the number of npm dependencies for your project.
 
-## Migrating from legacy ESLint configs
+## Migrating from legacy ESLint (v8.x) configs
 
 If your project uses legacy ESLint config files (such as `.eslintrc.js` or `.eslintrc.json`), they must be migrated manually.
 
-The configuration shapes map closely to Oxlint’s config format, so most rules and options can be translated directly.
+The "legacy" ESLint v8.x configuration file shape maps closely to Oxlint’s config format, so most rules and options can be translated directly.
 
 For simpler configurations, you may also migrate them to an ESLint flat config first, and _then_ to Oxlint using `@oxlint/migrate`.
