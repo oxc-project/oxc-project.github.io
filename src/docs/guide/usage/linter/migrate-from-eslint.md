@@ -54,7 +54,7 @@ npx @oxlint/migrate --type-aware
 
 This ensures the generated Oxlint config includes type-aware rules.
 
-Note that type-aware linting is based on the TypeScript native rewrite (aka TypeScript 7), but should be possible to adopt in most TypeScript projects without too much upgrade work. For further information on Oxlint's type-aware support, see [the Type-Aware Linting page](docs/guide/usage/linter/type-aware).
+Note that type-aware linting is based on the TypeScript native rewrite (aka TypeScript 7), but should be possible to adopt in most TypeScript projects without too much upgrade work. For further information on Oxlint's type-aware support, see [the Type-Aware Linting page](/docs/guide/usage/linter/type-aware).
 
 ### JavaScript plugins
 
@@ -64,7 +64,7 @@ If your ESLint config uses plugins that are not supported natively by Oxlint, yo
 npx @oxlint/migrate --js-plugins
 ```
 
-This allows you to continue using those rules while migrating the rest of your configuration. For more information on JavaScript Plugins, see [the JS Plugins page](docs/guide/usage/linter/js-plugins).
+This allows you to continue using those rules while migrating the rest of your configuration. For more information on JavaScript Plugins, see [the JS Plugins page](/docs/guide/usage/linter/js-plugins).
 
 ## Running Oxlint and ESLint together
 
