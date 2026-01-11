@@ -1,19 +1,21 @@
 # Inline ignore comments
 
-For JS/TS files, you can use a `prettier-ignore` comment.
+For JS/TS files, you can use a `oxfmt-ignore` comment.
 
 This takes effect on the next statement/expression.
 
 ```js
-// prettier-ignore
-const a=42;
+// oxfmt-ignore
+const a = 42;
 
-/* prettier-ignore */
-const x=()=>{return      2;}
+/* oxfmt-ignore */
+const x = () => {
+  return 2;
+};
 
 <>
-  {/* prettier-ignore */}
-  <span     ugly  format=''   />
+  {/* oxfmt-ignore */}
+  <span ugly format="" />
 </>;
 ```
 
@@ -27,3 +29,7 @@ For non-JS files, the same convention as Prettier works.
 Please see Prettier's [documentation](https://prettier.io/docs/ignore#html).
 
 For TOML files, ignore comments are not supported.
+
+## Prettier compatibility
+
+`prettier-ignore` is also supported.

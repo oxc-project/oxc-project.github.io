@@ -1,19 +1,130 @@
+---
+outline: 2
+---
+
 # Setup editors
 
-For VS Code, the Oxc extension is available from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=oxc.oxc-vscode) and [Open VSX Registry](https://open-vsx.org/extension/oxc/oxc-vscode).
+Oxfmt editor extensions start the language server with `oxfmt --lsp` from your **project installation**, so `oxfmt` must be installed in the project.
 
-For other editors, by running `oxfmt --lsp` you can start a language server that responds to standard `textDocument/formatting` requests.
+See [Quickstart](./quickstart) to install and run Oxfmt from the command line.
 
-:::warning
+## Supported editors
 
-Currently, LSP support has some limitations, such as not supporting formatting of embedded parts in JS/TS files, non-JS files support.
+- [VS Code](#vs-code) (and Cursor, etc.)
+- [Zed](#zed)
+- [JetBrains](#jetbrains)
+- [coc.nvim](#cocnvim)
+- [Other editors](#other-editors)
 
-:::
+## VS Code
 
-Formatting via stdin and stdout are also supported.
+### Install
+
+Download the official Oxc VS Code extension from:
+
+- [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=oxc.oxc-vscode)
+- [Open VSX Registry](https://open-vsx.org/extension/oxc/oxc-vscode)
+
+**The extension is compatible with other VS Code-based editors**, including Cursor.
+
+### Use (recommended setup for teams)
+
+1. Recommend the extension in your repository so contributors install the same tooling.
+
+Create `.vscode/extensions.json`:
+
+```json [.vscode/extensions.json]
+{
+  "recommendations": ["oxc.oxc-vscode"]
+}
+```
+
+2. Enable format on save.
+
+Add to `.vscode/settings.json`:
+
+```json [.vscode/settings.json]
+{
+  "oxc.fmt.configPath": ".oxfmtrc.jsonc",
+  "[javascript]": {
+    "editor.defaultFormatter": "oxc.oxc-vscode",
+    "editor.formatOnSave": true
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "oxc.oxc-vscode",
+    "editor.formatOnSave": true
+  }
+}
+```
+
+### Usage and configuration reference
+
+- [https://github.com/oxc-project/oxc/tree/main/editors/vscode](https://github.com/oxc-project/oxc/tree/main/editors/vscode)
+
+## Zed
+
+### Install
+
+- [Oxc Zed Extension](https://zed.dev/extensions/oxc)
+
+### Use
+
+Configure the extension in Zed’s `settings.json` (workspace or user settings), then open your project as a folder/workspace.
+
+### Usage and configuration reference
+
+- [https://github.com/oxc-project/oxc-zed](https://github.com/oxc-project/oxc-zed)
+
+---
+
+## JetBrains
+
+IntelliJ IDEA and WebStorm
+
+### Install
+
+- [Oxc in JetBrains Marketplace](https://plugins.jetbrains.com/plugin/27061-oxc)
+
+### Use
+
+Install the plugin, restart the IDE, and open your repository as a project.
+
+### Usage and configuration reference
+
+- [https://github.com/oxc-project/oxc-intellij-plugin](https://github.com/oxc-project/oxc-intellij-plugin)
+
+## coc.nvim
+
+### Install
+
+```vim
+:CocInstall coc-oxc
+```
+
+### Usage and configuration reference
+
+- [https://github.com/oxc-project/coc-oxc](https://github.com/oxc-project/coc-oxc)
+
+## Other editors
+
+If your editor supports custom LSP configuration (Neovim LSP, Emacs, Helix, Sublime LSP, etc.), configure it to launch:
+
+```bash
+oxfmt --lsp
+```
+
+And respond to standard `textDocument/formatting` requests.
+
+### Via temporary files
+
+Some editors and extensions can work with the CLI by configuring them to use temporary files.
 
 ```sh
 cat foo/bar.js | oxfmt --stdin-filepath f.js --config ./path/to/config.json
 ```
 
-In addition, we have confirmed that some editors and extensions can work with the CLI by configuring them to use temporary files.
+## Reference
+
+For language server implementation and issues:
+
+- [https://github.com/oxc-project/oxc/tree/main/crates/oxc_language_server](https://github.com/oxc-project/oxc/tree/main/crates/oxc_language_server)

@@ -113,6 +113,10 @@ export const enConfig = defineLocaleConfig("root", {
               text: "Configure and integrate",
               items: [
                 {
+                  text: "Quickstart",
+                  link: "/docs/guide/usage/formatter/quickstart",
+                },
+                {
                   text: "Configuration",
                   link: "/docs/guide/usage/formatter/config",
                 },
@@ -129,6 +133,14 @@ export const enConfig = defineLocaleConfig("root", {
                 {
                   text: "Inline ignore comments",
                   link: "/docs/guide/usage/formatter/ignore-comments",
+                },
+                {
+                  text: "Sorting",
+                  link: "/docs/guide/usage/formatter/sorting",
+                },
+                {
+                  text: "Embedded formatting",
+                  link: "/docs/guide/usage/formatter/embedded-formatting",
                 },
               ],
             },
@@ -151,6 +163,10 @@ export const enConfig = defineLocaleConfig("root", {
                 {
                   text: "Configuration file reference",
                   link: "/docs/guide/usage/formatter/config-file-reference",
+                },
+                {
+                  text: "Unsupported features",
+                  link: "/docs/guide/usage/formatter/unsupported-features",
                 },
               ],
             },

@@ -1,39 +1,72 @@
 # Ignore files
 
-Oxfmt provides several ways to ignore files.
+Oxfmt provides multiple mechanisms for excluding files from formatting. Each mechanism has a distinct scope and purpose.
 
-### `.gitignore`
+## `ignorePatterns`
 
-Respects `.gitignore` in the current working directory and subdirectories.
+The recommended way to ignore files in Oxfmt is to use `ignorePatterns` in
+`.oxfmtrc.json` or `.oxfmtrc.jsonc`.
 
-Does not respect global, exclude, or `.gitignore` in parent directories.
-Does not require `.git` directory to exist.
+```jsonc [.oxfmtrc.jsonc]
+{
+  "ignorePatterns": ["dist/**", "*.min.js"],
+}
+```
 
-Files listed here can still be formatted if explicitly specified.
-This is safe for use cases like `husky`, as ignored files are never staged.
+- Uses `.gitignore` syntax
+- Paths are resolved relative to the directory containing the Oxfmt config file
+- Formatter-specific and independent of Git
 
-### `.prettierignore` / `oxfmtrc.ignorePatterns`
+Files ignored via `ignorePatterns` **cannot be formatted**, even if explicitly
+specified. This behavior is intended for enforcement workflows such as `husky`.
 
-These are formatter-specific ignore settings, separate from Git, and each operates within its own scope.
+## `.gitignore`
 
-`.prettierignore` is only read from the current working directory. For `.oxfmtrc.json(c)`, see [Configuration](./config).
+Oxfmt respects `.gitignore` files located in the current working directory and
+its subdirectories.
 
-The syntax is the same as `.gitignore`, and paths are resolved relative to the directory containing the ignore file.
+- Only `.gitignore` files in the current directory tree are read
+- Global Git ignore files, Git excludes, and `.gitignore` files in parent
+  directories are not respected
+- A `.git` directory does not need to exist
 
-Files ignored here cannot be formatted even if explicitly specified. This behavior is intended for use cases like `husky`.
+Files ignored by `.gitignore` **can still be formatted** if they are explicitly
+specified on the command line.
 
-You can also specify custom ignore paths with `--ignore-path`, or use `!`-prefixed positional paths to exclude files.
+This behavior is safe for workflows such as `husky`, as ignored files are never
+staged by default.
 
-### VCS directories and `node_modules`
+## VCS directories and `node_modules`
 
-Directories like `.git`, `.svn` and `.jj` are ignored by default.
+The following directories are ignored by default:
 
-The `node_modules` directory is also ignored unless `--with-node_modules` flag is specified.
+- `.git`
+- `.svn`
+- `.jj`
+- `node_modules`
 
-If the current working directory is inside these directories, formatting is still possible.
+To include `node_modules`, use the `--with-node_modules` flag.
 
-### Lock files
+If the current working directory is inside one of these directories, formatting
+is still allowed.
 
-Files like `package-lock.json` and `pnpm-lock.yaml` are ignored by default.
+## Lock files
 
-These cannot be formatted even if explicitly specified.
+Lock files such as `package-lock.json` and `pnpm-lock.yaml` are ignored by
+default.
+
+These files cannot be formatted, even when explicitly specified.
+
+## `.prettierignore` (compatibility)
+
+Oxfmt supports `.prettierignore` for compatibility with existing Prettier
+workflows.
+
+- Read only from the current working directory
+- Uses `.gitignore` syntax
+- Paths are resolved relative to the ignore file
+
+Files ignored by `.prettierignore` cannot be formatted, even when explicitly
+specified.
+
+For new projects, prefer `ignorePatterns`.
