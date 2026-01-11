@@ -135,7 +135,7 @@ For simpler configurations, you may also migrate them to an ESLint flat config f
 
 You may have specific rules that you rely on in ESLint that are not yet ported to Oxlint.
 
-Almost all rules will be ported - and most already have been. For those that will not be ported, some rules are deprecated in the original plugins, or have alternatives implemented already.
+Almost all rules from our supported plugins will be ported - and a majority already have been. For those that will not be ported, some rules are deprecated in the original plugins, or have alternatives implemented already.
 
 You can check the [meta issue](https://github.com/oxc-project/oxc/issues/481) for rule/plugin implementation status to see if the rules you rely on are planned for implementation, or if they have already been implemented by other, equivalent rules.
 
