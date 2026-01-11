@@ -19,9 +19,9 @@ When migrating, expect the following:
 - ESLint configuration files must be converted to Oxlint’s config format
 - Oxlint is designed for incremental adoption; a full migration is not required upfront
 
-## Migrating from ESLint flat config
+## Migrating from an ESLint flat config
 
-If your project uses an ESLint flat config (e.g. `eslint.config.js` or `eslint.config.mjs`), you can migrate automatically using [`@oxlint/migrate`](https://www.npmjs.com/package/@oxlint/migrate).
+If your project uses an ESLint v9.x/v10.x flat config (e.g. `eslint.config.js` or `eslint.config.mjs`), you can migrate automatically using [`@oxlint/migrate`](https://www.npmjs.com/package/@oxlint/migrate).
 
 ### Run the migration tool
 
@@ -40,11 +40,13 @@ This command:
 - Converts `globals` (e.g. `...globals.browser`) to equivalent `env` and `globals` values
 - Preserves root `ignore` patterns for ignoring specific paths/files
 
-The generated config can be edited manually after migration.
+The generated `.oxlintrc.json` config can be edited manually after migration.
+
+`.eslintignore` files will be respected by Oxlint and can be left in place during migration, but we recommend moving the contents to the `"ignorePatterns"` field in `.oxlintrc.json` after migrating. Files/paths ignored via a repo's `.gitignore` file will also be respected by Oxlint automatically.
 
 See the list of [available options](https://github.com/oxc-project/oxlint-migrate?tab=readme-ov-file#options) for more details.
 
-### Type-aware TypeScript rules
+### Type-Aware TypeScript rules
 
 If your ESLint setup uses `typescript-eslint` with type-aware rules, you can pass the `--type-aware` flag:
 
@@ -54,17 +56,39 @@ npx @oxlint/migrate --type-aware
 
 This ensures the generated Oxlint config includes type-aware rules.
 
-Note that type-aware linting is based on the TypeScript native rewrite (aka TypeScript 7), but should be possible to adopt in most TypeScript projects without too much upgrade work. For further information on Oxlint's type-aware support, see [the Type-Aware Linting page](/docs/guide/usage/linter/type-aware).
+Note that type-aware linting is based on the TypeScript native rewrite (aka TypeScript 7), but should be possible to adopt in most TypeScript projects without too much upgrade work.
+
+For further information on Oxlint's type-aware support, see [the Type-Aware Linting page](/docs/guide/usage/linter/type-aware).
 
 ### JavaScript plugins
 
-If your ESLint config uses plugins that are not supported natively by Oxlint, you can retain them using JavaScript plugins:
+If your ESLint config uses plugins that are not supported natively by Oxlint, you can retain them using JavaScript plugins.
+
+To migrate ESLint plugins along with the natively-supported plugins, use the `--js-plugins` flag:
 
 ```bash
 npx @oxlint/migrate --js-plugins
 ```
 
-This allows you to continue using those rules while migrating the rest of your configuration. For more information on JavaScript Plugins, see [the JS Plugins page](/docs/guide/usage/linter/js-plugins).
+This allows you to continue using those rules via Oxlint alongside the native rules/plugins. The JS Plugins functionality does not support all ESLint plugins, but Oxlint's JavaScript plugin system covers a vast majority of the ESLint v9 API and is actively being improved. Most ESLint plugins covering JavaScript/TypeScript code should work in Oxlint without problems.
+
+For more information on JavaScript Plugins, see [the JS Plugins page](/docs/guide/usage/linter/js-plugins).
+
+#### Local custom ESLint plugins
+
+If you use local custom ESLint plugins from within your own repo (e.g. `import pluginMyCompany from './eslint-plugin-my-company/lib/index.js'`), these will not be migrated automatically by `@oxlint/migrate` right now.
+
+However, they can be added manually to the `.oxlintrc.json` after running the migration script:
+
+```jsonc [.oxlintrc.json]
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "jsPlugins": ["./eslint-plugin-company/lib/index.js"],
+  "rules": {
+    // ...
+  },
+}
+```
 
 ## Running Oxlint and ESLint together
 
