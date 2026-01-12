@@ -14,8 +14,10 @@ such, it is unnecessary to provide an empty constructor or one that
 simply delegates into its parent class.
 
 ::: warning
-Caveat: This lint rule will report on constructors whose sole purpose is to change visibility of a parent constructor.
-This is because the rule does not have type information to determine if the parent constructor is public, protected, or private.
+Caveat: This lint rule will report on constructors whose sole purpose
+is to change visibility of a parent constructor. This is because the rule
+does not have type information to determine if the parent constructor is
+`public`, `protected`, or `private`.
 :::
 
 ### Examples

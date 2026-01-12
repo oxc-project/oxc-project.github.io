@@ -11,7 +11,7 @@ In addition, some options are our own extensions.
 
 ## arrowParens
 
-type: `string | null`
+type: `"always" | "avoid" | null`
 
 Include parentheses around a sole arrow function parameter. (Default: `"always"`)
 
@@ -30,14 +30,14 @@ Print spaces between brackets in object literals. (Default: `true`)
 
 ## embeddedLanguageFormatting
 
-type: `string | null`
+type: `"auto" | "off" | null`
 
 Control whether to format embedded parts in the file.
 e.g. JS-in-Vue, CSS-in-JS, etc. (Default: `"auto"`)
 
 ## endOfLine
 
-type: `string | null`
+type: `"lf" | "crlf" | "cr" | null`
 
 Which end of line characters to apply. (Default: `"lf"`)
 
@@ -45,7 +45,7 @@ Which end of line characters to apply. (Default: `"lf"`)
 
 type: `object | null`
 
-Experimental: Sort import statements. Disabled by default.
+Experimental: Sort import statements. (Default: disabled)
 
 ### experimentalSortImports.groups
 
@@ -79,7 +79,7 @@ Add newlines between import groups. (Default: `true`)
 
 ### experimentalSortImports.order
 
-type: `string | null`
+type: `"asc" | "desc" | null`
 
 Sort order. (Default: `"asc"`)
 
@@ -103,17 +103,27 @@ Sort side-effect imports. (Default: `false`)
 
 ## experimentalSortPackageJson
 
-type: `boolean | null`
+type: `object | boolean | null`
 
 Experimental: Sort `package.json` keys. (Default: `true`)
+
+### experimentalSortPackageJson.sortScripts
+
+type: `boolean | null`
+
+Sort the `scripts` field alphabetically. (Default: `false`)
 
 ## experimentalTailwindcss
 
 type: `object | null`
 
-Experimental: Enable Tailwind CSS class sorting in JSX class/className attributes.
-When enabled, class strings will be collected and passed to a callback for sorting.
-Pass `true` or an object with options from `prettier-plugin-tailwindcss`.
+Experimental: Sort Tailwind CSS classes in string literals.
+
+When enabled, `Oxfmt` sorts Tailwind CSS classes using the same algorithm as
+[`prettier-plugin-tailwindcss`](https://github.com/tailwindlabs/prettier-plugin-tailwindcss).
+
+See \[`TailwindcssConfig`] for available options.
+
 (Default: disabled)
 
 ### experimentalTailwindcss.attributes
@@ -121,6 +131,8 @@ Pass `true` or an object with options from `prettier-plugin-tailwindcss`.
 type: `string[]`
 
 List of attributes that contain Tailwind CSS classes.
+
+Note: Regex patterns are not yet supported.
 
 Example: `["myClassProp", ":class"]`
 
@@ -141,6 +153,8 @@ Default: `"./tailwind.config.js"`
 type: `string[]`
 
 List of custom function names that contain Tailwind CSS classes.
+
+Note: Regex patterns are not yet supported.
 
 Example: `["clsx", "cn", "cva", "tw"]`
 
@@ -192,10 +206,9 @@ Use single quotes instead of double quotes in JSX. (Default: `false`)
 
 ## objectWrap
 
-type: `string | null`
+type: `"preserve" | "collapse" | null`
 
 How to wrap object literals when they could fit on one line or span multiple lines. (Default: `"preserve"`)
-NOTE: In addition to Prettier's `"preserve"` and `"collapse"`, we also support `"always"`.
 
 ## printWidth
 
@@ -205,7 +218,7 @@ The line length that the printer will wrap on. (Default: `100`)
 
 ## quoteProps
 
-type: `string | null`
+type: `"as-needed" | "consistent" | "preserve" | null`
 
 Change when properties in objects are quoted. (Default: `"as-needed"`)
 
@@ -235,7 +248,7 @@ Number of spaces per indentation level. (Default: `2`)
 
 ## trailingComma
 
-type: `string | null`
+type: `"all" | "es5" | "none" | null`
 
 Print trailing commas wherever possible. (Default: `"all"`)
 

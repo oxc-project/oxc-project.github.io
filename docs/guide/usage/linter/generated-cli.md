@@ -56,7 +56,7 @@ Arguments:
 * **`    --disable-typescript-plugin`** —
   Disable TypeScript plugin, which is turned on by default
 * **`    --import-plugin`** —
-  Enable import plugin and detect ESM problems. It is recommended to use alongside the `--tsconfig` option.
+  Enable import plugin and detect ESM problems. It should be used with the `--tsconfig` flag if your project has a tsconfig with a name other than `tsconfig.json`.
 * **`    --react-plugin`** —
   Enable react plugin, which is turned off by default
 * **`    --jsdoc-plugin`** —

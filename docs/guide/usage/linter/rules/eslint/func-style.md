@@ -156,7 +156,7 @@ When true, functions with type annotations are allowed regardless of the style s
 
 ### namedExports
 
-type: `string | null`
+type: `"ignore" | "expression" | "declaration" | null`
 
 default: `null`
 

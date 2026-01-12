@@ -1553,69 +1553,6 @@ import styled from "styled-components/primitives";
 ---
 
 ---
-url: /docs/guide/usage/formatter/cli.md
----
-
-# Command-line Interface
-
-## Usage
-
-**`oxfmt`** \[**`-c`**=*`PATH`*] \[*`PATH`*]...
-
-## Mode Options:
-
-* **`    --init`** —
-  Initialize `.oxfmtrc.json` with default values
-* **`    --migrate`**=*`SOURCE`* —
-  Migrate configuration to `.oxfmtrc.json` from specified source Available sources: prettier
-* **`    --lsp`** —
-  Start language server protocol (LSP) server
-* **`    --stdin-filepath`**=*`PATH`* —
-  Specify the file name to use to infer which parser to use
-
-## Output Options:
-
-* **`    --write`** —
-  Format and write files in place (default)
-* **`    --check`** —
-  Check if files are formatted, also show statistics
-* **`    --list-different`** —
-  List files that would be changed
-
-## Config Options
-
-* **`-c`**, **`--config`**=*`PATH`* —
-  Path to the configuration file
-
-## Ignore Options
-
-* **`    --ignore-path`**=*`PATH`* —
-  Path to ignore file(s). Can be specified multiple times. If not specified, .gitignore and .prettierignore in the current directory are used.
-* **`    --with-node-modules`** —
-  Format code in node\_modules directory (skipped by default)
-
-## Runtime Options
-
-* **`    --no-error-on-unmatched-pattern`** —
-  Do not exit with error when pattern is unmatched
-* **`    --threads`**=*`INT`* —
-  Number of threads to use. Set to 1 for using only 1 CPU core.
-
-## Available positional items:
-
-* *`PATH`* —
-  Single file, single path or list of paths. If not provided, current working directory is used. Glob is supported only for exclude patterns like `'!**/fixtures/*.js'`.
-
-## Available options:
-
-* **`-h`**, **`--help`** —
-  Prints help information
-* **`-V`**, **`--version`** —
-  Prints version information
-
----
-
----
 url: /docs/guide/usage/linter/cli.md
 ---
 
@@ -1675,7 +1612,7 @@ Arguments:
 * **`    --disable-typescript-plugin`** —
   Disable TypeScript plugin, which is turned on by default
 * **`    --import-plugin`** —
-  Enable import plugin and detect ESM problems. It is recommended to use alongside the `--tsconfig` option.
+  Enable import plugin and detect ESM problems. It should be used with the `--tsconfig` flag if your project has a tsconfig with a name other than `tsconfig.json`.
 * **`    --react-plugin`** —
   Enable react plugin, which is turned off by default
 * **`    --jsdoc-plugin`** —
@@ -1766,6 +1703,69 @@ Arguments:
   Enable rules that require type information
 * **`    --type-check`** —
   Enable experimental type checking (includes TypeScript compiler diagnostics)
+* **`-h`**, **`--help`** —
+  Prints help information
+* **`-V`**, **`--version`** —
+  Prints version information
+
+---
+
+---
+url: /docs/guide/usage/formatter/cli.md
+---
+
+# Command-line Interface
+
+## Usage
+
+**`oxfmt`** \[**`-c`**=*`PATH`*] \[*`PATH`*]...
+
+## Mode Options:
+
+* **`    --init`** —
+  Initialize `.oxfmtrc.json` with default values
+* **`    --migrate`**=*`SOURCE`* —
+  Migrate configuration to `.oxfmtrc.json` from specified source Available sources: prettier
+* **`    --lsp`** —
+  Start language server protocol (LSP) server
+* **`    --stdin-filepath`**=*`PATH`* —
+  Specify the file name to use to infer which parser to use
+
+## Output Options:
+
+* **`    --write`** —
+  Format and write files in place (default)
+* **`    --check`** —
+  Check if files are formatted, also show statistics
+* **`    --list-different`** —
+  List files that would be changed
+
+## Config Options
+
+* **`-c`**, **`--config`**=*`PATH`* —
+  Path to the configuration file
+
+## Ignore Options
+
+* **`    --ignore-path`**=*`PATH`* —
+  Path to ignore file(s). Can be specified multiple times. If not specified, .gitignore and .prettierignore in the current directory are used.
+* **`    --with-node-modules`** —
+  Format code in node\_modules directory (skipped by default)
+
+## Runtime Options
+
+* **`    --no-error-on-unmatched-pattern`** —
+  Do not exit with error when pattern is unmatched
+* **`    --threads`**=*`INT`* —
+  Number of threads to use. Set to 1 for using only 1 CPU core.
+
+## Available positional items:
+
+* *`PATH`* —
+  Single file, single path or list of paths. If not provided, current working directory is used. Glob is supported only for exclude patterns like `'!**/fixtures/*.js'`.
+
+## Available options:
+
 * **`-h`**, **`--help`** —
   Prints help information
 * **`-V`**, **`--version`** —
@@ -2141,255 +2141,6 @@ Example (monorepo + React + jsx-a11y):
 ---
 
 ---
-url: /docs/guide/usage/formatter/config-file-reference.md
----
-
-# Configuration options for the Oxfmt.
-
-Most options are the same as Prettier's options.
-See also <https://prettier.io/docs/options>
-
-In addition, some options are our own extensions.
-
-## arrowParens
-
-type: `string | null`
-
-Include parentheses around a sole arrow function parameter. (Default: `"always"`)
-
-## bracketSameLine
-
-type: `boolean | null`
-
-Put the `>` of a multi-line JSX element at the end of the last line
-instead of being alone on the next line. (Default: `false`)
-
-## bracketSpacing
-
-type: `boolean | null`
-
-Print spaces between brackets in object literals. (Default: `true`)
-
-## embeddedLanguageFormatting
-
-type: `string | null`
-
-Control whether to format embedded parts in the file.
-e.g. JS-in-Vue, CSS-in-JS, etc. (Default: `"auto"`)
-
-## endOfLine
-
-type: `string | null`
-
-Which end of line characters to apply. (Default: `"lf"`)
-
-## experimentalSortImports
-
-type: `object | null`
-
-Experimental: Sort import statements. Disabled by default.
-
-### experimentalSortImports.groups
-
-type: `array | null`
-
-Custom groups configuration for organizing imports.
-Each array element represents a group, and multiple group names in the same array are treated as one.
-Accepts both `string` and `string[]` as group elements.
-
-#### experimentalSortImports.groups\[n]
-
-type: `string[]`
-
-### experimentalSortImports.ignoreCase
-
-type: `boolean | null`
-
-Ignore case when sorting. (Default: `true`)
-
-### experimentalSortImports.internalPattern
-
-type: `string[]`
-
-Glob patterns to identify internal imports.
-
-### experimentalSortImports.newlinesBetween
-
-type: `boolean | null`
-
-Add newlines between import groups. (Default: `true`)
-
-### experimentalSortImports.order
-
-type: `string | null`
-
-Sort order. (Default: `"asc"`)
-
-### experimentalSortImports.partitionByComment
-
-type: `boolean | null`
-
-Partition imports by comments. (Default: `false`)
-
-### experimentalSortImports.partitionByNewline
-
-type: `boolean | null`
-
-Partition imports by newlines. (Default: `false`)
-
-### experimentalSortImports.sortSideEffects
-
-type: `boolean | null`
-
-Sort side-effect imports. (Default: `false`)
-
-## experimentalSortPackageJson
-
-type: `boolean | null`
-
-Experimental: Sort `package.json` keys. (Default: `true`)
-
-## experimentalTailwindcss
-
-type: `object | null`
-
-Experimental: Enable Tailwind CSS class sorting in JSX class/className attributes.
-When enabled, class strings will be collected and passed to a callback for sorting.
-Pass `true` or an object with options from `prettier-plugin-tailwindcss`.
-(Default: disabled)
-
-### experimentalTailwindcss.attributes
-
-type: `string[]`
-
-List of attributes that contain Tailwind CSS classes.
-
-Example: `["myClassProp", ":class"]`
-
-Default: `["class", "className"]`
-
-### experimentalTailwindcss.config
-
-type: `string | null`
-
-Path to your Tailwind CSS configuration file (v3).
-
-Note: Paths are resolved relative to the Oxfmt configuration file.
-
-Default: `"./tailwind.config.js"`
-
-### experimentalTailwindcss.functions
-
-type: `string[]`
-
-List of custom function names that contain Tailwind CSS classes.
-
-Example: `["clsx", "cn", "cva", "tw"]`
-
-Default: `[]`
-
-### experimentalTailwindcss.preserveDuplicates
-
-type: `boolean | null`
-
-Preserve duplicate classes.
-
-Default: `false`
-
-### experimentalTailwindcss.preserveWhitespace
-
-type: `boolean | null`
-
-Preserve whitespace around classes.
-
-Default: `false`
-
-### experimentalTailwindcss.stylesheet
-
-type: `string | null`
-
-Path to your Tailwind CSS stylesheet (v4).
-
-Note: Paths are resolved relative to the Oxfmt configuration file.
-
-Example: `"./src/app.css"`
-
-## ignorePatterns
-
-type: `string[]`
-
-Ignore files matching these glob patterns. Current working directory is used as the root.
-
-## insertFinalNewline
-
-type: `boolean | null`
-
-Whether to insert a final newline at the end of the file. (Default: `true`)
-
-## jsxSingleQuote
-
-type: `boolean | null`
-
-Use single quotes instead of double quotes in JSX. (Default: `false`)
-
-## objectWrap
-
-type: `string | null`
-
-How to wrap object literals when they could fit on one line or span multiple lines. (Default: `"preserve"`)
-NOTE: In addition to Prettier's `"preserve"` and `"collapse"`, we also support `"always"`.
-
-## printWidth
-
-type: `integer | null`
-
-The line length that the printer will wrap on. (Default: `100`)
-
-## quoteProps
-
-type: `string | null`
-
-Change when properties in objects are quoted. (Default: `"as-needed"`)
-
-## semi
-
-type: `boolean | null`
-
-Print semicolons at the ends of statements. (Default: `true`)
-
-## singleAttributePerLine
-
-type: `boolean | null`
-
-Put each attribute on a new line in JSX. (Default: `false`)
-
-## singleQuote
-
-type: `boolean | null`
-
-Use single quotes instead of double quotes. (Default: `false`)
-
-## tabWidth
-
-type: `integer | null`
-
-Number of spaces per indentation level. (Default: `2`)
-
-## trailingComma
-
-type: `string | null`
-
-Print trailing commas wherever possible. (Default: `"all"`)
-
-## useTabs
-
-type: `boolean | null`
-
-Use tabs for indentation or spaces. (Default: `false`)
-
----
-
----
 url: /docs/guide/usage/formatter/generated-config.md
 ---
 
@@ -2402,7 +2153,7 @@ In addition, some options are our own extensions.
 
 ## arrowParens
 
-type: `string | null`
+type: `"always" | "avoid" | null`
 
 Include parentheses around a sole arrow function parameter. (Default: `"always"`)
 
@@ -2421,14 +2172,14 @@ Print spaces between brackets in object literals. (Default: `true`)
 
 ## embeddedLanguageFormatting
 
-type: `string | null`
+type: `"auto" | "off" | null`
 
 Control whether to format embedded parts in the file.
 e.g. JS-in-Vue, CSS-in-JS, etc. (Default: `"auto"`)
 
 ## endOfLine
 
-type: `string | null`
+type: `"lf" | "crlf" | "cr" | null`
 
 Which end of line characters to apply. (Default: `"lf"`)
 
@@ -2436,7 +2187,7 @@ Which end of line characters to apply. (Default: `"lf"`)
 
 type: `object | null`
 
-Experimental: Sort import statements. Disabled by default.
+Experimental: Sort import statements. (Default: disabled)
 
 ### experimentalSortImports.groups
 
@@ -2470,7 +2221,7 @@ Add newlines between import groups. (Default: `true`)
 
 ### experimentalSortImports.order
 
-type: `string | null`
+type: `"asc" | "desc" | null`
 
 Sort order. (Default: `"asc"`)
 
@@ -2494,17 +2245,27 @@ Sort side-effect imports. (Default: `false`)
 
 ## experimentalSortPackageJson
 
-type: `boolean | null`
+type: `object | boolean | null`
 
 Experimental: Sort `package.json` keys. (Default: `true`)
+
+### experimentalSortPackageJson.sortScripts
+
+type: `boolean | null`
+
+Sort the `scripts` field alphabetically. (Default: `false`)
 
 ## experimentalTailwindcss
 
 type: `object | null`
 
-Experimental: Enable Tailwind CSS class sorting in JSX class/className attributes.
-When enabled, class strings will be collected and passed to a callback for sorting.
-Pass `true` or an object with options from `prettier-plugin-tailwindcss`.
+Experimental: Sort Tailwind CSS classes in string literals.
+
+When enabled, `Oxfmt` sorts Tailwind CSS classes using the same algorithm as
+[`prettier-plugin-tailwindcss`](https://github.com/tailwindlabs/prettier-plugin-tailwindcss).
+
+See \[`TailwindcssConfig`] for available options.
+
 (Default: disabled)
 
 ### experimentalTailwindcss.attributes
@@ -2512,6 +2273,8 @@ Pass `true` or an object with options from `prettier-plugin-tailwindcss`.
 type: `string[]`
 
 List of attributes that contain Tailwind CSS classes.
+
+Note: Regex patterns are not yet supported.
 
 Example: `["myClassProp", ":class"]`
 
@@ -2532,6 +2295,8 @@ Default: `"./tailwind.config.js"`
 type: `string[]`
 
 List of custom function names that contain Tailwind CSS classes.
+
+Note: Regex patterns are not yet supported.
 
 Example: `["clsx", "cn", "cva", "tw"]`
 
@@ -2583,10 +2348,9 @@ Use single quotes instead of double quotes in JSX. (Default: `false`)
 
 ## objectWrap
 
-type: `string | null`
+type: `"preserve" | "collapse" | null`
 
 How to wrap object literals when they could fit on one line or span multiple lines. (Default: `"preserve"`)
-NOTE: In addition to Prettier's `"preserve"` and `"collapse"`, we also support `"always"`.
 
 ## printWidth
 
@@ -2596,7 +2360,7 @@ The line length that the printer will wrap on. (Default: `100`)
 
 ## quoteProps
 
-type: `string | null`
+type: `"as-needed" | "consistent" | "preserve" | null`
 
 Change when properties in objects are quoted. (Default: `"as-needed"`)
 
@@ -2626,7 +2390,269 @@ Number of spaces per indentation level. (Default: `2`)
 
 ## trailingComma
 
+type: `"all" | "es5" | "none" | null`
+
+Print trailing commas wherever possible. (Default: `"all"`)
+
+## useTabs
+
+type: `boolean | null`
+
+Use tabs for indentation or spaces. (Default: `false`)
+
+---
+
+---
+url: /docs/guide/usage/formatter/config-file-reference.md
+---
+
+# Configuration options for the Oxfmt.
+
+Most options are the same as Prettier's options.
+See also <https://prettier.io/docs/options>
+
+In addition, some options are our own extensions.
+
+## arrowParens
+
+type: `"always" | "avoid" | null`
+
+Include parentheses around a sole arrow function parameter. (Default: `"always"`)
+
+## bracketSameLine
+
+type: `boolean | null`
+
+Put the `>` of a multi-line JSX element at the end of the last line
+instead of being alone on the next line. (Default: `false`)
+
+## bracketSpacing
+
+type: `boolean | null`
+
+Print spaces between brackets in object literals. (Default: `true`)
+
+## embeddedLanguageFormatting
+
+type: `"auto" | "off" | null`
+
+Control whether to format embedded parts in the file.
+e.g. JS-in-Vue, CSS-in-JS, etc. (Default: `"auto"`)
+
+## endOfLine
+
+type: `"lf" | "crlf" | "cr" | null`
+
+Which end of line characters to apply. (Default: `"lf"`)
+
+## experimentalSortImports
+
+type: `object | null`
+
+Experimental: Sort import statements. (Default: disabled)
+
+### experimentalSortImports.groups
+
+type: `array | null`
+
+Custom groups configuration for organizing imports.
+Each array element represents a group, and multiple group names in the same array are treated as one.
+Accepts both `string` and `string[]` as group elements.
+
+#### experimentalSortImports.groups\[n]
+
+type: `string[]`
+
+### experimentalSortImports.ignoreCase
+
+type: `boolean | null`
+
+Ignore case when sorting. (Default: `true`)
+
+### experimentalSortImports.internalPattern
+
+type: `string[]`
+
+Glob patterns to identify internal imports.
+
+### experimentalSortImports.newlinesBetween
+
+type: `boolean | null`
+
+Add newlines between import groups. (Default: `true`)
+
+### experimentalSortImports.order
+
+type: `"asc" | "desc" | null`
+
+Sort order. (Default: `"asc"`)
+
+### experimentalSortImports.partitionByComment
+
+type: `boolean | null`
+
+Partition imports by comments. (Default: `false`)
+
+### experimentalSortImports.partitionByNewline
+
+type: `boolean | null`
+
+Partition imports by newlines. (Default: `false`)
+
+### experimentalSortImports.sortSideEffects
+
+type: `boolean | null`
+
+Sort side-effect imports. (Default: `false`)
+
+## experimentalSortPackageJson
+
+type: `object | boolean | null`
+
+Experimental: Sort `package.json` keys. (Default: `true`)
+
+### experimentalSortPackageJson.sortScripts
+
+type: `boolean | null`
+
+Sort the `scripts` field alphabetically. (Default: `false`)
+
+## experimentalTailwindcss
+
+type: `object | null`
+
+Experimental: Sort Tailwind CSS classes in string literals.
+
+When enabled, `Oxfmt` sorts Tailwind CSS classes using the same algorithm as
+[`prettier-plugin-tailwindcss`](https://github.com/tailwindlabs/prettier-plugin-tailwindcss).
+
+See \[`TailwindcssConfig`] for available options.
+
+(Default: disabled)
+
+### experimentalTailwindcss.attributes
+
+type: `string[]`
+
+List of attributes that contain Tailwind CSS classes.
+
+Note: Regex patterns are not yet supported.
+
+Example: `["myClassProp", ":class"]`
+
+Default: `["class", "className"]`
+
+### experimentalTailwindcss.config
+
 type: `string | null`
+
+Path to your Tailwind CSS configuration file (v3).
+
+Note: Paths are resolved relative to the Oxfmt configuration file.
+
+Default: `"./tailwind.config.js"`
+
+### experimentalTailwindcss.functions
+
+type: `string[]`
+
+List of custom function names that contain Tailwind CSS classes.
+
+Note: Regex patterns are not yet supported.
+
+Example: `["clsx", "cn", "cva", "tw"]`
+
+Default: `[]`
+
+### experimentalTailwindcss.preserveDuplicates
+
+type: `boolean | null`
+
+Preserve duplicate classes.
+
+Default: `false`
+
+### experimentalTailwindcss.preserveWhitespace
+
+type: `boolean | null`
+
+Preserve whitespace around classes.
+
+Default: `false`
+
+### experimentalTailwindcss.stylesheet
+
+type: `string | null`
+
+Path to your Tailwind CSS stylesheet (v4).
+
+Note: Paths are resolved relative to the Oxfmt configuration file.
+
+Example: `"./src/app.css"`
+
+## ignorePatterns
+
+type: `string[]`
+
+Ignore files matching these glob patterns. Current working directory is used as the root.
+
+## insertFinalNewline
+
+type: `boolean | null`
+
+Whether to insert a final newline at the end of the file. (Default: `true`)
+
+## jsxSingleQuote
+
+type: `boolean | null`
+
+Use single quotes instead of double quotes in JSX. (Default: `false`)
+
+## objectWrap
+
+type: `"preserve" | "collapse" | null`
+
+How to wrap object literals when they could fit on one line or span multiple lines. (Default: `"preserve"`)
+
+## printWidth
+
+type: `integer | null`
+
+The line length that the printer will wrap on. (Default: `100`)
+
+## quoteProps
+
+type: `"as-needed" | "consistent" | "preserve" | null`
+
+Change when properties in objects are quoted. (Default: `"as-needed"`)
+
+## semi
+
+type: `boolean | null`
+
+Print semicolons at the ends of statements. (Default: `true`)
+
+## singleAttributePerLine
+
+type: `boolean | null`
+
+Put each attribute on a new line in JSX. (Default: `false`)
+
+## singleQuote
+
+type: `boolean | null`
+
+Use single quotes instead of double quotes. (Default: `false`)
+
+## tabWidth
+
+type: `integer | null`
+
+Number of spaces per indentation level. (Default: `2`)
+
+## trailingComma
+
+type: `"all" | "es5" | "none" | null`
 
 Print trailing commas wherever possible. (Default: `"all"`)
 
@@ -5402,7 +5428,7 @@ When true, functions with type annotations are allowed regardless of the style s
 
 ### namedExports
 
-type: `string | null`
+type: `"ignore" | "expression" | "declaration" | null`
 
 default: `null`
 
@@ -7636,9 +7662,8 @@ Disallow the use of `arguments.caller` or `arguments.callee`.
 ### Why is this bad?
 
 The use of `arguments.caller` and `arguments.callee` make several code
-optimizations impossible. They have been deprecated in future versions
-of JavaScript and their use is forbidden in ECMAScript 5 while in strict
-mode.
+optimizations impossible. They have been deprecated in JavaScript, and
+their use is forbidden while in strict mode.
 
 ```js
 function foo() {
@@ -7649,6 +7674,9 @@ function foo() {
 This rule is aimed at discouraging the use of deprecated and sub-optimal
 code by disallowing the use of `arguments.caller` and `arguments.callee`. As
 such, it will warn when `arguments.caller` and `arguments.callee` are used.
+
+See [the MDN docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments/callee)
+for more information.
 
 ### Examples
 
@@ -15165,8 +15193,12 @@ Disallow control flow statements in `finally` blocks.
 
 ### Why is this bad?
 
-JavaScript suspends the control flow statements of try and catch blocks until the execution of finally block finishes.
-So, when return, throw, break, or continue is used in finally, control flow statements inside try and catch are overwritten, which is considered as unexpected behavior.
+JavaScript suspends the control flow statements of `try` and `catch`
+blocks until the execution of a `finally` block finishes.
+
+So, when `return`, `throw`, `break`, or `continue` is used in `finally`,
+control flow statements inside `try` and `catch` are overwritten.
+This is possibly unexpected behavior for the developer.
 
 ### Examples
 
@@ -16543,8 +16575,10 @@ such, it is unnecessary to provide an empty constructor or one that
 simply delegates into its parent class.
 
 ::: warning
-Caveat: This lint rule will report on constructors whose sole purpose is to change visibility of a parent constructor.
-This is because the rule does not have type information to determine if the parent constructor is public, protected, or private.
+Caveat: This lint rule will report on constructors whose sole purpose
+is to change visibility of a parent constructor. This is because the rule
+does not have type information to determine if the parent constructor is
+`public`, `protected`, or `private`.
 :::
 
 ### Examples
@@ -19152,6 +19186,44 @@ The Oxc formatter is built around the same core concepts as Prettier but with si
 ---
 
 ---
+url: /docs/guide/introduction.md
+---
+
+# Getting Started
+
+[What is Oxc?](/docs/guide/what-is-oxc)
+
+## Lint or format a codebase
+
+* Lint: [Oxlint](/docs/guide/usage/linter)
+* Format: [Oxfmt](/docs/guide/usage/formatter)
+
+## Build tooling on top of Oxc
+
+* Parse JavaScript and TypeScript: [Parser](/docs/guide/usage/parser)
+* Transform TypeScript, JSX, and modern JavaScript: [Transformer](/docs/guide/usage/transformer)
+* Minify JavaScript for production builds: [Minifier](/docs/guide/usage/minifier)
+* Resolve modules for JavaScript and TypeScript: [Resolver](/docs/guide/usage/resolver)
+
+## Contribute or learn
+
+* [Contribute](/docs/contribute/introduction)
+* [Learn](/docs/learn/parser_in_rust/intro.html)
+
+## Other resources
+
+* [Troubleshooting](/docs/guide/troubleshooting)
+* [Benchmarks](/docs/guide/benchmarks)
+* [Projects using Oxc](/docs/guide/projects)
+* [Talks and media](/docs/guide/media)
+* [Team](/team)
+* [Endorsements](/endorsements)
+* [Release Blog](/blog/)
+* [Releases](https://github.com/oxc-project/oxc/releases)
+
+---
+
+---
 url: /docs/contribute/development.md
 ---
 
@@ -19232,44 +19304,6 @@ macOS has an antivirus feature called XProtect that scans executables for malwar
 **Note:** This disables an OS security feature. Only do this if you're comfortable with the trade-off.
 
 More details: https://nnethercote.github.io/2025/09/04/faster-rust-builds-on-mac.html
-
----
-
----
-url: /docs/guide/introduction.md
----
-
-# Getting Started
-
-[What is Oxc?](/docs/guide/what-is-oxc)
-
-## Lint or format a codebase
-
-* Lint: [Oxlint](/docs/guide/usage/linter)
-* Format: [Oxfmt](/docs/guide/usage/formatter)
-
-## Build tooling on top of Oxc
-
-* Parse JavaScript and TypeScript: [Parser](/docs/guide/usage/parser)
-* Transform TypeScript, JSX, and modern JavaScript: [Transformer](/docs/guide/usage/transformer)
-* Minify JavaScript for production builds: [Minifier](/docs/guide/usage/minifier)
-* Resolve modules for JavaScript and TypeScript: [Resolver](/docs/guide/usage/resolver)
-
-## Contribute or learn
-
-* [Contribute](/docs/contribute/introduction)
-* [Learn](/docs/learn/parser_in_rust/intro.html)
-
-## Other resources
-
-* [Troubleshooting](/docs/guide/troubleshooting)
-* [Benchmarks](/docs/guide/benchmarks)
-* [Projects using Oxc](/docs/guide/projects)
-* [Talks and media](/docs/guide/media)
-* [Team](/team)
-* [Endorsements](/endorsements)
-* [Release Blog](/blog/)
-* [Releases](https://github.com/oxc-project/oxc/releases)
 
 ---
 
@@ -37767,7 +37801,7 @@ Oxlint is used in production by popular projects such as:
 ---
 
 ---
-url: /docs/guide/usage/linter/generated-config.md
+url: /docs/guide/usage/linter/config-file-reference.md
 ---
 
 # Oxlint Configuration File
@@ -38048,7 +38082,7 @@ omitted, the base config's plugins are used.
 
 ##### overrides\[n].plugins\[n]
 
-type: `string`
+type: `"eslint" | "react" | "unicorn" | "typescript" | "oxc" | "import" | "jsdoc" | "jest" | "vitest" | "jsx-a11y" | "nextjs" | "react-perf" | "promise" | "node" | "vue"`
 
 #### overrides\[n].rules
 
@@ -38071,7 +38105,7 @@ The `plugins` array should reflect all of the plugins you want to use.
 
 ### plugins\[n]
 
-type: `string`
+type: `"eslint" | "react" | "unicorn" | "typescript" | "oxc" | "import" | "jsdoc" | "jest" | "vitest" | "jsx-a11y" | "nextjs" | "react-perf" | "promise" | "node" | "vue"`
 
 ## rules
 
@@ -38394,7 +38428,7 @@ to accommodate TypeScript type checking scenarios.
 ---
 
 ---
-url: /docs/guide/usage/linter/config-file-reference.md
+url: /docs/guide/usage/linter/generated-config.md
 ---
 
 # Oxlint Configuration File
@@ -38675,7 +38709,7 @@ omitted, the base config's plugins are used.
 
 ##### overrides\[n].plugins\[n]
 
-type: `string`
+type: `"eslint" | "react" | "unicorn" | "typescript" | "oxc" | "import" | "jsdoc" | "jest" | "vitest" | "jsx-a11y" | "nextjs" | "react-perf" | "promise" | "node" | "vue"`
 
 #### overrides\[n].rules
 
@@ -38698,7 +38732,7 @@ The `plugins` array should reflect all of the plugins you want to use.
 
 ### plugins\[n]
 
-type: `string`
+type: `"eslint" | "react" | "unicorn" | "typescript" | "oxc" | "import" | "jsdoc" | "jest" | "vitest" | "jsx-a11y" | "nextjs" | "react-perf" | "promise" | "node" | "vue"`
 
 ## rules
 
@@ -46746,9 +46780,9 @@ url: /docs/guide/usage/linter/rules.md
 
 The progress of all rule implementations is tracked [here](https://github.com/oxc-project/oxc/issues/481).
 
-* Total number of rules: 652
+* Total number of rules: 660
 * Rules turned on by default: 104
-* Rules with fixes available: 199
+* Rules with fixes available: 208
 
 **Legend for 'Fixable?' column:**
 
@@ -46758,7 +46792,7 @@ The progress of all rule implementations is tracked [here](https://github.com/ox
 * ⚠️💡: a dangerous suggestion is available for this rule
 * 🚧: an auto-fix or suggestion is possible, but currently not implemented
 
-## Correctness (206):
+## Correctness (209)
 
 Code that is outright wrong or useless.
 | Rule name | Source | Default | Fixable? |
@@ -46811,7 +46845,7 @@ Code that is outright wrong or useless.
 | [no-useless-backreference](/docs/guide/usage/linter/rules/eslint/no-useless-backreference.html) | eslint | ✅ | |
 | [no-useless-catch](/docs/guide/usage/linter/rules/eslint/no-useless-catch.html) | eslint | ✅ | |
 | [no-useless-escape](/docs/guide/usage/linter/rules/eslint/no-useless-escape.html) | eslint | ✅ | 🛠️ |
-| [no-useless-rename](/docs/guide/usage/linter/rules/eslint/no-useless-rename.html) | eslint | ✅ | |
+| [no-useless-rename](/docs/guide/usage/linter/rules/eslint/no-useless-rename.html) | eslint | ✅ | 🚧 |
 | [no-with](/docs/guide/usage/linter/rules/eslint/no-with.html) | eslint | ✅ | |
 | [require-yield](/docs/guide/usage/linter/rules/eslint/require-yield.html) | eslint | ✅ | |
 | [use-isnan](/docs/guide/usage/linter/rules/eslint/use-isnan.html) | eslint | ✅ | 🛠️ |
@@ -46861,7 +46895,6 @@ Code that is outright wrong or useless.
 | [no-distracting-elements](/docs/guide/usage/linter/rules/jsx_a11y/no-distracting-elements.html) | jsx\_a11y | | |
 | [no-noninteractive-tabindex](/docs/guide/usage/linter/rules/jsx_a11y/no-noninteractive-tabindex.html) | jsx\_a11y | | |
 | [no-redundant-roles](/docs/guide/usage/linter/rules/jsx_a11y/no-redundant-roles.html) | jsx\_a11y | | 🛠️ |
-| [no-static-element-interactions](/docs/guide/usage/linter/rules/jsx_a11y/no-static-element-interactions.html) | jsx\_a11y | | |
 | [prefer-tag-over-role](/docs/guide/usage/linter/rules/jsx_a11y/prefer-tag-over-role.html) | jsx\_a11y | | |
 | [role-has-required-aria-props](/docs/guide/usage/linter/rules/jsx_a11y/role-has-required-aria-props.html) | jsx\_a11y | | |
 | [role-supports-aria-props](/docs/guide/usage/linter/rules/jsx_a11y/role-supports-aria-props.html) | jsx\_a11y | | |
@@ -46960,17 +46993,21 @@ Code that is outright wrong or useless.
 | [no-useless-spread](/docs/guide/usage/linter/rules/unicorn/no-useless-spread.html) | unicorn | ✅ | ⚠️🛠️️ |
 | [prefer-set-size](/docs/guide/usage/linter/rules/unicorn/prefer-set-size.html) | unicorn | ✅ | 🛠️ |
 | [prefer-string-starts-ends-with](/docs/guide/usage/linter/rules/unicorn/prefer-string-starts-ends-with.html) | unicorn | ✅ | 🛠️ |
+| [consistent-each-for](/docs/guide/usage/linter/rules/vitest/consistent-each-for.html) | vitest | | |
+| [hoisted-apis-on-top](/docs/guide/usage/linter/rules/vitest/hoisted-apis-on-top.html) | vitest | | 💡 |
 | [no-conditional-tests](/docs/guide/usage/linter/rules/vitest/no-conditional-tests.html) | vitest | | |
 | [require-local-test-context-for-concurrent-snapshots](/docs/guide/usage/linter/rules/vitest/require-local-test-context-for-concurrent-snapshots.html) | vitest | | 🚧 |
 | [warn-todo](/docs/guide/usage/linter/rules/vitest/warn-todo.html) | vitest | | |
+| [no-arrow-functions-in-watch](/docs/guide/usage/linter/rules/vue/no-arrow-functions-in-watch.html) | vue | | |
 | [no-deprecated-destroyed-lifecycle](/docs/guide/usage/linter/rules/vue/no-deprecated-destroyed-lifecycle.html) | vue | | 🛠️ |
 | [no-export-in-script-setup](/docs/guide/usage/linter/rules/vue/no-export-in-script-setup.html) | vue | | |
+| [no-lifecycle-after-await](/docs/guide/usage/linter/rules/vue/no-lifecycle-after-await.html) | vue | | |
 | [no-this-in-before-route-enter](/docs/guide/usage/linter/rules/vue/no-this-in-before-route-enter.html) | vue | | |
 | [prefer-import-from-vue](/docs/guide/usage/linter/rules/vue/prefer-import-from-vue.html) | vue | | 🛠️ |
 | [valid-define-emits](/docs/guide/usage/linter/rules/vue/valid-define-emits.html) | vue | | 🚧 |
 | [valid-define-props](/docs/guide/usage/linter/rules/vue/valid-define-props.html) | vue | | 🚧 |
 
-## Perf (12):
+## Perf (12)
 
 Code that can be written to run faster.
 | Rule name | Source | Default | Fixable? |
@@ -46988,7 +47025,7 @@ Code that can be written to run faster.
 | [prefer-array-flat-map](/docs/guide/usage/linter/rules/unicorn/prefer-array-flat-map.html) | unicorn | | 🛠️ |
 | [prefer-set-has](/docs/guide/usage/linter/rules/unicorn/prefer-set-has.html) | unicorn | | ⚠️🛠️️ |
 
-## Restriction (81):
+## Restriction (81)
 
 Lints which prevent the use of language and library features. Must not be enabled as a whole, should be considered on a case-by-case basis before enabling.
 | Rule name | Source | Default | Fixable? |
@@ -47067,7 +47104,7 @@ Lints which prevent the use of language and library features. Must not be enable
 | [no-length-as-slice-end](/docs/guide/usage/linter/rules/unicorn/no-length-as-slice-end.html) | unicorn | | 🛠️ |
 | [no-magic-array-flat-depth](/docs/guide/usage/linter/rules/unicorn/no-magic-array-flat-depth.html) | unicorn | | |
 | [no-process-exit](/docs/guide/usage/linter/rules/unicorn/no-process-exit.html) | unicorn | | 🚧 |
-| [no-useless-error-capture-stack-trace](/docs/guide/usage/linter/rules/unicorn/no-useless-error-capture-stack-trace.html) | unicorn | | 🚧 |
+| [no-useless-error-capture-stack-trace](/docs/guide/usage/linter/rules/unicorn/no-useless-error-capture-stack-trace.html) | unicorn | | 💡 |
 | [prefer-modern-math-apis](/docs/guide/usage/linter/rules/unicorn/prefer-modern-math-apis.html) | unicorn | | 🚧 |
 | [prefer-node-protocol](/docs/guide/usage/linter/rules/unicorn/prefer-node-protocol.html) | unicorn | | 🛠️ |
 | [prefer-number-properties](/docs/guide/usage/linter/rules/unicorn/prefer-number-properties.html) | unicorn | | ⚠️🛠️️ |
@@ -47075,7 +47112,7 @@ Lints which prevent the use of language and library features. Must not be enable
 | [no-import-compiler-macros](/docs/guide/usage/linter/rules/vue/no-import-compiler-macros.html) | vue | | ⚠️🛠️️ |
 | [no-multiple-slot-args](/docs/guide/usage/linter/rules/vue/no-multiple-slot-args.html) | vue | | 🚧 |
 
-## Suspicious (48):
+## Suspicious (48)
 
 code that is most likely wrong or useless.
 | Rule name | Source | Default | Fixable? |
@@ -47126,10 +47163,10 @@ code that is most likely wrong or useless.
 | [prefer-add-event-listener](/docs/guide/usage/linter/rules/unicorn/prefer-add-event-listener.html) | unicorn | | 🚧 |
 | [require-module-specifiers](/docs/guide/usage/linter/rules/unicorn/require-module-specifiers.html) | unicorn | | 🛠️ |
 | [require-post-message-target-origin](/docs/guide/usage/linter/rules/unicorn/require-post-message-target-origin.html) | unicorn | | 💡 |
-| [no-required-prop-with-default](/docs/guide/usage/linter/rules/vue/no-required-prop-with-default.html) | vue | | 🚧 |
+| [no-required-prop-with-default](/docs/guide/usage/linter/rules/vue/no-required-prop-with-default.html) | vue | | 💡 |
 | [require-default-export](/docs/guide/usage/linter/rules/vue/require-default-export.html) | vue | | |
 
-## Pedantic (113):
+## Pedantic (113)
 
 Lints which are rather strict or have occasional false positives.
 | Rule name | Source | Default | Fixable? |
@@ -47248,7 +47285,7 @@ Lints which are rather strict or have occasional false positives.
 | [prefer-type-error](/docs/guide/usage/linter/rules/unicorn/prefer-type-error.html) | unicorn | | 🛠️ |
 | [require-number-to-fixed-digits-argument](/docs/guide/usage/linter/rules/unicorn/require-number-to-fixed-digits-argument.html) | unicorn | | 🛠️ |
 
-## Style (183):
+## Style (187)
 
 Code that should be written in a more idiomatic way.
 | Rule name | Source | Default | Fixable? |
@@ -47382,6 +47419,7 @@ Code that should be written in a more idiomatic way.
 | [prefer-for-of](/docs/guide/usage/linter/rules/typescript/prefer-for-of.html) | typescript | | 🚧 |
 | [prefer-function-type](/docs/guide/usage/linter/rules/typescript/prefer-function-type.html) | typescript | | 🛠️ |
 | [prefer-namespace-keyword](/docs/guide/usage/linter/rules/typescript/prefer-namespace-keyword.html) | typescript | | 🛠️ |
+| [prefer-optional-chain](/docs/guide/usage/linter/rules/typescript/prefer-optional-chain.html) | typescript | | 🛠️ |
 | [prefer-reduce-type-parameter](/docs/guide/usage/linter/rules/typescript/prefer-reduce-type-parameter.html) | typescript | | 🚧 |
 | [prefer-return-this-type](/docs/guide/usage/linter/rules/typescript/prefer-return-this-type.html) | typescript | | 🚧 |
 | [catch-error-name](/docs/guide/usage/linter/rules/unicorn/catch-error-name.html) | unicorn | | 🛠️ |
@@ -47396,7 +47434,7 @@ Code that should be written in a more idiomatic way.
 | [no-nested-ternary](/docs/guide/usage/linter/rules/unicorn/no-nested-ternary.html) | unicorn | | 🛠️ |
 | [no-null](/docs/guide/usage/linter/rules/unicorn/no-null.html) | unicorn | | 🛠️ |
 | [no-unreadable-array-destructuring](/docs/guide/usage/linter/rules/unicorn/no-unreadable-array-destructuring.html) | unicorn | | |
-| [no-useless-collection-argument](/docs/guide/usage/linter/rules/unicorn/no-useless-collection-argument.html) | unicorn | | 🚧 |
+| [no-useless-collection-argument](/docs/guide/usage/linter/rules/unicorn/no-useless-collection-argument.html) | unicorn | | 💡 |
 | [no-zero-fractions](/docs/guide/usage/linter/rules/unicorn/no-zero-fractions.html) | unicorn | | 🛠️ |
 | [number-literal-case](/docs/guide/usage/linter/rules/unicorn/number-literal-case.html) | unicorn | | 🛠️ |
 | [numeric-separators-style](/docs/guide/usage/linter/rules/unicorn/numeric-separators-style.html) | unicorn | | 🛠️ |
@@ -47406,7 +47444,7 @@ Code that should be written in a more idiomatic way.
 | [prefer-classlist-toggle](/docs/guide/usage/linter/rules/unicorn/prefer-classlist-toggle.html) | unicorn | | 🛠️ |
 | [prefer-default-parameters](/docs/guide/usage/linter/rules/unicorn/prefer-default-parameters.html) | unicorn | | 🚧 |
 | [prefer-dom-node-text-content](/docs/guide/usage/linter/rules/unicorn/prefer-dom-node-text-content.html) | unicorn | | 🛠️ |
-| [prefer-global-this](/docs/guide/usage/linter/rules/unicorn/prefer-global-this.html) | unicorn | | 🚧 |
+| [prefer-global-this](/docs/guide/usage/linter/rules/unicorn/prefer-global-this.html) | unicorn | | 💡 |
 | [prefer-includes](/docs/guide/usage/linter/rules/unicorn/prefer-includes.html) | unicorn | | 🚧 |
 | [prefer-keyboard-event-key](/docs/guide/usage/linter/rules/unicorn/prefer-keyboard-event-key.html) | unicorn | | 🛠️ |
 | [prefer-logical-operator-over-ternary](/docs/guide/usage/linter/rules/unicorn/prefer-logical-operator-over-ternary.html) | unicorn | | 🚧 |
@@ -47428,7 +47466,10 @@ Code that should be written in a more idiomatic way.
 | [consistent-test-filename](/docs/guide/usage/linter/rules/vitest/consistent-test-filename.html) | vitest | | |
 | [consistent-vitest-vi](/docs/guide/usage/linter/rules/vitest/consistent-vitest-vi.html) | vitest | | 🛠️ |
 | [no-import-node-test](/docs/guide/usage/linter/rules/vitest/no-import-node-test.html) | vitest | | 🛠️ |
+| [no-unneeded-async-expect-function](/docs/guide/usage/linter/rules/vitest/no-unneeded-async-expect-function.html) | vitest | | 🛠️ |
+| [prefer-called-once](/docs/guide/usage/linter/rules/vitest/prefer-called-once.html) | vitest | | 🛠️ |
 | [prefer-called-times](/docs/guide/usage/linter/rules/vitest/prefer-called-times.html) | vitest | | 🛠️ |
+| [prefer-describe-function-title](/docs/guide/usage/linter/rules/vitest/prefer-describe-function-title.html) | vitest | | 🛠️ |
 | [prefer-to-be-falsy](/docs/guide/usage/linter/rules/vitest/prefer-to-be-falsy.html) | vitest | | 🛠️ |
 | [prefer-to-be-object](/docs/guide/usage/linter/rules/vitest/prefer-to-be-object.html) | vitest | | 🛠️ |
 | [prefer-to-be-truthy](/docs/guide/usage/linter/rules/vitest/prefer-to-be-truthy.html) | vitest | | 🛠️ |
@@ -47437,17 +47478,18 @@ Code that should be written in a more idiomatic way.
 | [define-props-destructuring](/docs/guide/usage/linter/rules/vue/define-props-destructuring.html) | vue | | |
 | [require-typed-ref](/docs/guide/usage/linter/rules/vue/require-typed-ref.html) | vue | | |
 
-## Nursery (9):
+## Nursery (10)
 
 New lints that are still under development.
 | Rule name | Source | Default | Fixable? |
-| ----------------------------- | ------- | ------- | -------- |
+| ------------------------------ | -------- | ------- | -------- |
 | [getter-return](/docs/guide/usage/linter/rules/eslint/getter-return.html) | eslint | | |
 | [no-misleading-character-class](/docs/guide/usage/linter/rules/eslint/no-misleading-character-class.html) | eslint | | |
 | [no-undef](/docs/guide/usage/linter/rules/eslint/no-undef.html) | eslint | | |
 | [no-unreachable](/docs/guide/usage/linter/rules/eslint/no-unreachable.html) | eslint | | |
 | [export](/docs/guide/usage/linter/rules/import/export.html) | import | | |
 | [named](/docs/guide/usage/linter/rules/import/named.html) | import | | |
+| [no-static-element-interactions](/docs/guide/usage/linter/rules/jsx_a11y/no-static-element-interactions.html) | jsx\_a11y | | |
 | [branches-sharing-code](/docs/guide/usage/linter/rules/oxc/branches-sharing-code.html) | oxc | | |
 | [no-return-in-finally](/docs/guide/usage/linter/rules/promise/no-return-in-finally.html) | promise | | |
 | [require-render-return](/docs/guide/usage/linter/rules/react/require-render-return.html) | react | | |
@@ -47462,9 +47504,9 @@ url: /docs/guide/usage/linter/generated-rules.md
 
 The progress of all rule implementations is tracked [here](https://github.com/oxc-project/oxc/issues/481).
 
-* Total number of rules: 652
+* Total number of rules: 660
 * Rules turned on by default: 104
-* Rules with fixes available: 199
+* Rules with fixes available: 208
 
 **Legend for 'Fixable?' column:**
 
@@ -47474,7 +47516,7 @@ The progress of all rule implementations is tracked [here](https://github.com/ox
 * ⚠️💡: a dangerous suggestion is available for this rule
 * 🚧: an auto-fix or suggestion is possible, but currently not implemented
 
-## Correctness (206):
+## Correctness (209)
 
 Code that is outright wrong or useless.
 | Rule name | Source | Default | Fixable? |
@@ -47527,7 +47569,7 @@ Code that is outright wrong or useless.
 | [no-useless-backreference](/docs/guide/usage/linter/rules/eslint/no-useless-backreference.html) | eslint | ✅ | |
 | [no-useless-catch](/docs/guide/usage/linter/rules/eslint/no-useless-catch.html) | eslint | ✅ | |
 | [no-useless-escape](/docs/guide/usage/linter/rules/eslint/no-useless-escape.html) | eslint | ✅ | 🛠️ |
-| [no-useless-rename](/docs/guide/usage/linter/rules/eslint/no-useless-rename.html) | eslint | ✅ | |
+| [no-useless-rename](/docs/guide/usage/linter/rules/eslint/no-useless-rename.html) | eslint | ✅ | 🚧 |
 | [no-with](/docs/guide/usage/linter/rules/eslint/no-with.html) | eslint | ✅ | |
 | [require-yield](/docs/guide/usage/linter/rules/eslint/require-yield.html) | eslint | ✅ | |
 | [use-isnan](/docs/guide/usage/linter/rules/eslint/use-isnan.html) | eslint | ✅ | 🛠️ |
@@ -47577,7 +47619,6 @@ Code that is outright wrong or useless.
 | [no-distracting-elements](/docs/guide/usage/linter/rules/jsx_a11y/no-distracting-elements.html) | jsx\_a11y | | |
 | [no-noninteractive-tabindex](/docs/guide/usage/linter/rules/jsx_a11y/no-noninteractive-tabindex.html) | jsx\_a11y | | |
 | [no-redundant-roles](/docs/guide/usage/linter/rules/jsx_a11y/no-redundant-roles.html) | jsx\_a11y | | 🛠️ |
-| [no-static-element-interactions](/docs/guide/usage/linter/rules/jsx_a11y/no-static-element-interactions.html) | jsx\_a11y | | |
 | [prefer-tag-over-role](/docs/guide/usage/linter/rules/jsx_a11y/prefer-tag-over-role.html) | jsx\_a11y | | |
 | [role-has-required-aria-props](/docs/guide/usage/linter/rules/jsx_a11y/role-has-required-aria-props.html) | jsx\_a11y | | |
 | [role-supports-aria-props](/docs/guide/usage/linter/rules/jsx_a11y/role-supports-aria-props.html) | jsx\_a11y | | |
@@ -47676,17 +47717,21 @@ Code that is outright wrong or useless.
 | [no-useless-spread](/docs/guide/usage/linter/rules/unicorn/no-useless-spread.html) | unicorn | ✅ | ⚠️🛠️️ |
 | [prefer-set-size](/docs/guide/usage/linter/rules/unicorn/prefer-set-size.html) | unicorn | ✅ | 🛠️ |
 | [prefer-string-starts-ends-with](/docs/guide/usage/linter/rules/unicorn/prefer-string-starts-ends-with.html) | unicorn | ✅ | 🛠️ |
+| [consistent-each-for](/docs/guide/usage/linter/rules/vitest/consistent-each-for.html) | vitest | | |
+| [hoisted-apis-on-top](/docs/guide/usage/linter/rules/vitest/hoisted-apis-on-top.html) | vitest | | 💡 |
 | [no-conditional-tests](/docs/guide/usage/linter/rules/vitest/no-conditional-tests.html) | vitest | | |
 | [require-local-test-context-for-concurrent-snapshots](/docs/guide/usage/linter/rules/vitest/require-local-test-context-for-concurrent-snapshots.html) | vitest | | 🚧 |
 | [warn-todo](/docs/guide/usage/linter/rules/vitest/warn-todo.html) | vitest | | |
+| [no-arrow-functions-in-watch](/docs/guide/usage/linter/rules/vue/no-arrow-functions-in-watch.html) | vue | | |
 | [no-deprecated-destroyed-lifecycle](/docs/guide/usage/linter/rules/vue/no-deprecated-destroyed-lifecycle.html) | vue | | 🛠️ |
 | [no-export-in-script-setup](/docs/guide/usage/linter/rules/vue/no-export-in-script-setup.html) | vue | | |
+| [no-lifecycle-after-await](/docs/guide/usage/linter/rules/vue/no-lifecycle-after-await.html) | vue | | |
 | [no-this-in-before-route-enter](/docs/guide/usage/linter/rules/vue/no-this-in-before-route-enter.html) | vue | | |
 | [prefer-import-from-vue](/docs/guide/usage/linter/rules/vue/prefer-import-from-vue.html) | vue | | 🛠️ |
 | [valid-define-emits](/docs/guide/usage/linter/rules/vue/valid-define-emits.html) | vue | | 🚧 |
 | [valid-define-props](/docs/guide/usage/linter/rules/vue/valid-define-props.html) | vue | | 🚧 |
 
-## Perf (12):
+## Perf (12)
 
 Code that can be written to run faster.
 | Rule name | Source | Default | Fixable? |
@@ -47704,7 +47749,7 @@ Code that can be written to run faster.
 | [prefer-array-flat-map](/docs/guide/usage/linter/rules/unicorn/prefer-array-flat-map.html) | unicorn | | 🛠️ |
 | [prefer-set-has](/docs/guide/usage/linter/rules/unicorn/prefer-set-has.html) | unicorn | | ⚠️🛠️️ |
 
-## Restriction (81):
+## Restriction (81)
 
 Lints which prevent the use of language and library features. Must not be enabled as a whole, should be considered on a case-by-case basis before enabling.
 | Rule name | Source | Default | Fixable? |
@@ -47783,7 +47828,7 @@ Lints which prevent the use of language and library features. Must not be enable
 | [no-length-as-slice-end](/docs/guide/usage/linter/rules/unicorn/no-length-as-slice-end.html) | unicorn | | 🛠️ |
 | [no-magic-array-flat-depth](/docs/guide/usage/linter/rules/unicorn/no-magic-array-flat-depth.html) | unicorn | | |
 | [no-process-exit](/docs/guide/usage/linter/rules/unicorn/no-process-exit.html) | unicorn | | 🚧 |
-| [no-useless-error-capture-stack-trace](/docs/guide/usage/linter/rules/unicorn/no-useless-error-capture-stack-trace.html) | unicorn | | 🚧 |
+| [no-useless-error-capture-stack-trace](/docs/guide/usage/linter/rules/unicorn/no-useless-error-capture-stack-trace.html) | unicorn | | 💡 |
 | [prefer-modern-math-apis](/docs/guide/usage/linter/rules/unicorn/prefer-modern-math-apis.html) | unicorn | | 🚧 |
 | [prefer-node-protocol](/docs/guide/usage/linter/rules/unicorn/prefer-node-protocol.html) | unicorn | | 🛠️ |
 | [prefer-number-properties](/docs/guide/usage/linter/rules/unicorn/prefer-number-properties.html) | unicorn | | ⚠️🛠️️ |
@@ -47791,7 +47836,7 @@ Lints which prevent the use of language and library features. Must not be enable
 | [no-import-compiler-macros](/docs/guide/usage/linter/rules/vue/no-import-compiler-macros.html) | vue | | ⚠️🛠️️ |
 | [no-multiple-slot-args](/docs/guide/usage/linter/rules/vue/no-multiple-slot-args.html) | vue | | 🚧 |
 
-## Suspicious (48):
+## Suspicious (48)
 
 code that is most likely wrong or useless.
 | Rule name | Source | Default | Fixable? |
@@ -47842,10 +47887,10 @@ code that is most likely wrong or useless.
 | [prefer-add-event-listener](/docs/guide/usage/linter/rules/unicorn/prefer-add-event-listener.html) | unicorn | | 🚧 |
 | [require-module-specifiers](/docs/guide/usage/linter/rules/unicorn/require-module-specifiers.html) | unicorn | | 🛠️ |
 | [require-post-message-target-origin](/docs/guide/usage/linter/rules/unicorn/require-post-message-target-origin.html) | unicorn | | 💡 |
-| [no-required-prop-with-default](/docs/guide/usage/linter/rules/vue/no-required-prop-with-default.html) | vue | | 🚧 |
+| [no-required-prop-with-default](/docs/guide/usage/linter/rules/vue/no-required-prop-with-default.html) | vue | | 💡 |
 | [require-default-export](/docs/guide/usage/linter/rules/vue/require-default-export.html) | vue | | |
 
-## Pedantic (113):
+## Pedantic (113)
 
 Lints which are rather strict or have occasional false positives.
 | Rule name | Source | Default | Fixable? |
@@ -47964,7 +48009,7 @@ Lints which are rather strict or have occasional false positives.
 | [prefer-type-error](/docs/guide/usage/linter/rules/unicorn/prefer-type-error.html) | unicorn | | 🛠️ |
 | [require-number-to-fixed-digits-argument](/docs/guide/usage/linter/rules/unicorn/require-number-to-fixed-digits-argument.html) | unicorn | | 🛠️ |
 
-## Style (183):
+## Style (187)
 
 Code that should be written in a more idiomatic way.
 | Rule name | Source | Default | Fixable? |
@@ -48098,6 +48143,7 @@ Code that should be written in a more idiomatic way.
 | [prefer-for-of](/docs/guide/usage/linter/rules/typescript/prefer-for-of.html) | typescript | | 🚧 |
 | [prefer-function-type](/docs/guide/usage/linter/rules/typescript/prefer-function-type.html) | typescript | | 🛠️ |
 | [prefer-namespace-keyword](/docs/guide/usage/linter/rules/typescript/prefer-namespace-keyword.html) | typescript | | 🛠️ |
+| [prefer-optional-chain](/docs/guide/usage/linter/rules/typescript/prefer-optional-chain.html) | typescript | | 🛠️ |
 | [prefer-reduce-type-parameter](/docs/guide/usage/linter/rules/typescript/prefer-reduce-type-parameter.html) | typescript | | 🚧 |
 | [prefer-return-this-type](/docs/guide/usage/linter/rules/typescript/prefer-return-this-type.html) | typescript | | 🚧 |
 | [catch-error-name](/docs/guide/usage/linter/rules/unicorn/catch-error-name.html) | unicorn | | 🛠️ |
@@ -48112,7 +48158,7 @@ Code that should be written in a more idiomatic way.
 | [no-nested-ternary](/docs/guide/usage/linter/rules/unicorn/no-nested-ternary.html) | unicorn | | 🛠️ |
 | [no-null](/docs/guide/usage/linter/rules/unicorn/no-null.html) | unicorn | | 🛠️ |
 | [no-unreadable-array-destructuring](/docs/guide/usage/linter/rules/unicorn/no-unreadable-array-destructuring.html) | unicorn | | |
-| [no-useless-collection-argument](/docs/guide/usage/linter/rules/unicorn/no-useless-collection-argument.html) | unicorn | | 🚧 |
+| [no-useless-collection-argument](/docs/guide/usage/linter/rules/unicorn/no-useless-collection-argument.html) | unicorn | | 💡 |
 | [no-zero-fractions](/docs/guide/usage/linter/rules/unicorn/no-zero-fractions.html) | unicorn | | 🛠️ |
 | [number-literal-case](/docs/guide/usage/linter/rules/unicorn/number-literal-case.html) | unicorn | | 🛠️ |
 | [numeric-separators-style](/docs/guide/usage/linter/rules/unicorn/numeric-separators-style.html) | unicorn | | 🛠️ |
@@ -48122,7 +48168,7 @@ Code that should be written in a more idiomatic way.
 | [prefer-classlist-toggle](/docs/guide/usage/linter/rules/unicorn/prefer-classlist-toggle.html) | unicorn | | 🛠️ |
 | [prefer-default-parameters](/docs/guide/usage/linter/rules/unicorn/prefer-default-parameters.html) | unicorn | | 🚧 |
 | [prefer-dom-node-text-content](/docs/guide/usage/linter/rules/unicorn/prefer-dom-node-text-content.html) | unicorn | | 🛠️ |
-| [prefer-global-this](/docs/guide/usage/linter/rules/unicorn/prefer-global-this.html) | unicorn | | 🚧 |
+| [prefer-global-this](/docs/guide/usage/linter/rules/unicorn/prefer-global-this.html) | unicorn | | 💡 |
 | [prefer-includes](/docs/guide/usage/linter/rules/unicorn/prefer-includes.html) | unicorn | | 🚧 |
 | [prefer-keyboard-event-key](/docs/guide/usage/linter/rules/unicorn/prefer-keyboard-event-key.html) | unicorn | | 🛠️ |
 | [prefer-logical-operator-over-ternary](/docs/guide/usage/linter/rules/unicorn/prefer-logical-operator-over-ternary.html) | unicorn | | 🚧 |
@@ -48144,7 +48190,10 @@ Code that should be written in a more idiomatic way.
 | [consistent-test-filename](/docs/guide/usage/linter/rules/vitest/consistent-test-filename.html) | vitest | | |
 | [consistent-vitest-vi](/docs/guide/usage/linter/rules/vitest/consistent-vitest-vi.html) | vitest | | 🛠️ |
 | [no-import-node-test](/docs/guide/usage/linter/rules/vitest/no-import-node-test.html) | vitest | | 🛠️ |
+| [no-unneeded-async-expect-function](/docs/guide/usage/linter/rules/vitest/no-unneeded-async-expect-function.html) | vitest | | 🛠️ |
+| [prefer-called-once](/docs/guide/usage/linter/rules/vitest/prefer-called-once.html) | vitest | | 🛠️ |
 | [prefer-called-times](/docs/guide/usage/linter/rules/vitest/prefer-called-times.html) | vitest | | 🛠️ |
+| [prefer-describe-function-title](/docs/guide/usage/linter/rules/vitest/prefer-describe-function-title.html) | vitest | | 🛠️ |
 | [prefer-to-be-falsy](/docs/guide/usage/linter/rules/vitest/prefer-to-be-falsy.html) | vitest | | 🛠️ |
 | [prefer-to-be-object](/docs/guide/usage/linter/rules/vitest/prefer-to-be-object.html) | vitest | | 🛠️ |
 | [prefer-to-be-truthy](/docs/guide/usage/linter/rules/vitest/prefer-to-be-truthy.html) | vitest | | 🛠️ |
@@ -48153,17 +48202,18 @@ Code that should be written in a more idiomatic way.
 | [define-props-destructuring](/docs/guide/usage/linter/rules/vue/define-props-destructuring.html) | vue | | |
 | [require-typed-ref](/docs/guide/usage/linter/rules/vue/require-typed-ref.html) | vue | | |
 
-## Nursery (9):
+## Nursery (10)
 
 New lints that are still under development.
 | Rule name | Source | Default | Fixable? |
-| ----------------------------- | ------- | ------- | -------- |
+| ------------------------------ | -------- | ------- | -------- |
 | [getter-return](/docs/guide/usage/linter/rules/eslint/getter-return.html) | eslint | | |
 | [no-misleading-character-class](/docs/guide/usage/linter/rules/eslint/no-misleading-character-class.html) | eslint | | |
 | [no-undef](/docs/guide/usage/linter/rules/eslint/no-undef.html) | eslint | | |
 | [no-unreachable](/docs/guide/usage/linter/rules/eslint/no-unreachable.html) | eslint | | |
 | [export](/docs/guide/usage/linter/rules/import/export.html) | import | | |
 | [named](/docs/guide/usage/linter/rules/import/named.html) | import | | |
+| [no-static-element-interactions](/docs/guide/usage/linter/rules/jsx_a11y/no-static-element-interactions.html) | jsx\_a11y | | |
 | [branches-sharing-code](/docs/guide/usage/linter/rules/oxc/branches-sharing-code.html) | oxc | | |
 | [no-return-in-finally](/docs/guide/usage/linter/rules/promise/no-return-in-finally.html) | promise | | |
 | [require-render-return](/docs/guide/usage/linter/rules/react/require-render-return.html) | react | | |
@@ -48453,29 +48503,6 @@ Upon visit, we can call `enter_scope` and `leave_scope` accordingly to build the
 ---
 
 ---
-url: /docs/guide/usage/formatter/ci.md
----
-# Setup CI and other integrations
-
-## Pre-commit hook
-
-If you want to auto-format staged files with Oxfmt in a git pre-commit hook, you can use `oxfmt --no-error-on-unmatched-pattern`.
-
-This command is equivalent to `prettier --no-error-on-unmatched-pattern --write`, and will format all matched files that are supported by oxfmt. The `--no-error-on-unmatched-pattern` flag ensures that Oxfmt will not raise errors if there are no supported files passed into the command by your pre-commit hook tool (e.g. only Ruby files are staged).
-
-You can also pass `--check` to only *check* the formatting of files, and bail if any files are incorrectly formatted.
-
-If you are using a pre-commit hook via husky/lint-staged, you can run Oxfmt with it by updating your package.json like so:
-
-```json
-"lint-staged": {
-  "*": "oxfmt --no-error-on-unmatched-pattern"
-},
-```
-
----
-
----
 url: /docs/guide/usage/linter/ci.md
 description: Run Oxlint in CI or as a git hook.
 ---
@@ -48553,6 +48580,29 @@ Unplugin is supported via a [third-party package](https://www.npmjs.com/package/
 ### Vite plugin
 
 A Vite plugin is supported via a [third-party package](https://www.npmjs.com/package/vite-plugin-oxlint)
+
+---
+
+---
+url: /docs/guide/usage/formatter/ci.md
+---
+# Setup CI and other integrations
+
+## Pre-commit hook
+
+If you want to auto-format staged files with Oxfmt in a git pre-commit hook, you can use `oxfmt --no-error-on-unmatched-pattern`.
+
+This command is equivalent to `prettier --no-error-on-unmatched-pattern --write`, and will format all matched files that are supported by oxfmt. The `--no-error-on-unmatched-pattern` flag ensures that Oxfmt will not raise errors if there are no supported files passed into the command by your pre-commit hook tool (e.g. only Ruby files are staged).
+
+You can also pass `--check` to only *check* the formatting of files, and bail if any files are incorrectly formatted.
+
+If you are using a pre-commit hook via husky/lint-staged, you can run Oxfmt with it by updating your package.json like so:
+
+```json
+"lint-staged": {
+  "*": "oxfmt --no-error-on-unmatched-pattern"
+},
+```
 
 ---
 
@@ -56312,6 +56362,145 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```bash [CLI]
 oxlint --type-aware --deny typescript/prefer-nullish-coalescing
+```
+
+:::
+
+## References
+
+* Rule Source
+* Rule Source (tsgolint)
+
+---
+
+---
+url: /docs/guide/usage/linter/rules/typescript/prefer-optional-chain.md
+---
+# typescript/prefer-optional-chain&#x20;
+
+### What it does
+
+Enforce using concise optional chain expressions instead of chained logical AND
+operators, negated logical OR operators, or empty objects.
+
+### Why is this bad?
+
+TypeScript 3.7 introduced optional chaining (`?.`) which provides a more concise
+and readable way to access properties on potentially nullish values. Using optional
+chaining instead of logical AND chains (`&&`) or other patterns improves code clarity.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```ts
+foo && foo.bar;
+foo && foo.bar && foo.bar.baz;
+foo && foo["bar"];
+foo && foo.bar && foo.bar.baz && foo.bar.baz.buzz;
+foo && foo.bar && foo.bar.baz.buzz;
+foo && foo.bar.baz && foo.bar.baz.buzz;
+(foo || {}).bar;
+```
+
+Examples of **correct** code for this rule:
+
+```ts
+foo?.bar;
+foo?.bar?.baz;
+foo?.["bar"];
+foo?.bar?.baz?.buzz;
+foo?.bar?.baz.buzz;
+foo?.bar.baz?.buzz;
+foo?.bar;
+```
+
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### allowPotentiallyUnsafeFixesThatModifyTheReturnTypeIKnowWhatImDoing
+
+type: `boolean`
+
+default: `false`
+
+Allow autofixers that will change the return type of the expression.
+This option is considered unsafe as it may break the build.
+
+### checkAny
+
+type: `boolean`
+
+default: `true`
+
+Check operands that are typed as `any` when inspecting "loose boolean" operands.
+
+### checkBigInt
+
+type: `boolean`
+
+default: `true`
+
+Check operands that are typed as `bigint` when inspecting "loose boolean" operands.
+
+### checkBoolean
+
+type: `boolean`
+
+default: `true`
+
+Check operands that are typed as `boolean` when inspecting "loose boolean" operands.
+
+### checkNumber
+
+type: `boolean`
+
+default: `true`
+
+Check operands that are typed as `number` when inspecting "loose boolean" operands.
+
+### checkString
+
+type: `boolean`
+
+default: `true`
+
+Check operands that are typed as `string` when inspecting "loose boolean" operands.
+
+### checkUnknown
+
+type: `boolean`
+
+default: `true`
+
+Check operands that are typed as `unknown` when inspecting "loose boolean" operands.
+
+### requireNullish
+
+type: `boolean`
+
+default: `false`
+
+Skip operands that are not typed with `null` and/or `undefined` when inspecting
+"loose boolean" operands.
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "rules": {
+    "typescript/prefer-optional-chain": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --type-aware --deny typescript/prefer-optional-chain
 ```
 
 :::
@@ -66231,7 +66420,7 @@ Arguments:
 * **`    --disable-typescript-plugin`** —
   Disable TypeScript plugin, which is turned on by default
 * **`    --import-plugin`** —
-  Enable import plugin and detect ESM problems. It is recommended to use alongside the `--tsconfig` option.
+  Enable import plugin and detect ESM problems. It should be used with the `--tsconfig` flag if your project has a tsconfig with a name other than `tsconfig.json`.
 * **`    --react-plugin`** —
   Enable react plugin, which is turned off by default
 * **`    --jsdoc-plugin`** —
@@ -66411,6 +66600,98 @@ updates:
 ---
 
 ---
+url: /docs/guide/usage/linter/rules/vitest/consistent-each-for.md
+---
+# vitest/consistent-each-for&#x20;
+
+### What it does
+
+This rule ensure consistency on which method used to create parameterized test.
+This configuration affects to different test function types (`test`, `it`, `describe`, `suite`).
+
+### Why is this bad?
+
+Not having a consistent way to create parametrized tests, we rely on the developer to remember that
+`.for` spread the values as different arguments and `.each` pass the array as an unique argument.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```js
+// { test: 'for' }
+test.each([[1, 1, 2]])("test", (a, b, expected) => {
+  expect(a + b).toBe(expected);
+});
+
+// { describe: 'for' }
+describe.each([[1], [2]])("suite %s", (n) => {
+  test("test", () => {});
+});
+```
+
+Examples of **correct** code for this rule:
+
+```js
+// { test: 'for' }
+test.for([[1, 1, 2]])("test", ([a, b, expected]) => {
+  expect(a + b).toBe(expected);
+});
+
+// { describe: 'for' }
+describe.for([[1], [2]])("suite %s", ([n]) => {
+  test("test", () => {});
+});
+```
+
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### describe
+
+type: `"for" | "each" | null`
+
+### it
+
+type: `"for" | "each" | null`
+
+### suite
+
+type: `"for" | "each" | null`
+
+### test
+
+type: `"for" | "each" | null`
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "plugins": ["vitest"],
+  "rules": {
+    "vitest/consistent-each-for": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --deny vitest/consistent-each-for --vitest-plugin
+```
+
+:::
+
+## References
+
+* Rule Source
+
+---
+
+---
 url: /docs/guide/usage/linter/rules/vitest/consistent-test-filename.md
 ---
 # vitest/consistent-test-filename&#x20;
@@ -66541,6 +66822,115 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```bash [CLI]
 oxlint --deny vitest/consistent-vitest-vi --vitest-plugin
+```
+
+:::
+
+## References
+
+* Rule Source
+
+---
+
+---
+url: /docs/guide/usage/linter/rules/vitest/hoisted-apis-on-top.md
+---
+# vitest/hoisted-apis-on-top&#x20;
+
+### What it does
+
+Enforce hoisted APIs to be on top of the file.
+
+### Why is this bad?
+
+Some Vitest APIs are hoisted automatically during the transform process. Using this APIs
+in look like runtime code can lead to unexpected results running tests.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```js
+if (condition) {
+  vi.mock("some-module", () => {});
+}
+```
+
+```js
+if (condition) {
+  vi.unmock("some-module", () => {});
+}
+```
+
+```js
+if (condition) {
+  vi.hoisted(() => {});
+}
+```
+
+```js
+describe("suite", () => {
+  it("test", async () => {
+    vi.mock("some-module", () => {});
+
+    const sm = await import("some-module");
+  });
+});
+```
+
+Examples of **correct** code for this rule:
+
+```js
+if (condition) {
+  vi.doMock("some-module", () => {});
+}
+```
+
+```js
+vi.mock("some-module", () => {});
+if (condition) {
+}
+```
+
+```js
+vi.unmock("some-module", () => {});
+if (condition) {
+}
+```
+
+```js
+vi.hoisted(() => {});
+if (condition) {
+}
+```
+
+```js
+vi.mock("some-module", () => {});
+
+describe("suite", () => {
+  it("test", async () => {
+    const sm = await import("some-module");
+  });
+});
+```
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "plugins": ["vitest"],
+  "rules": {
+    "vitest/hoisted-apis-on-top": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --deny vitest/hoisted-apis-on-top --vitest-plugin
 ```
 
 :::
@@ -66685,6 +67075,133 @@ oxlint --deny vitest/no-import-node-test --vitest-plugin
 ---
 
 ---
+url: /docs/guide/usage/linter/rules/vitest/no-unneeded-async-expect-function.md
+---
+# vitest/no-unneeded-async-expect-function&#x20;
+
+### What it does
+
+Disallows unnecessary async function wrapper for expected promises.
+
+### Why is this bad?
+
+When the only statement inside an async wrapper is `await someCall()`,
+the call should be passed directly to `expect` instead. This makes the
+test code more concise and easier to read.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```js
+await expect(async () => {
+  await doSomethingAsync();
+}).rejects.toThrow();
+
+await expect(async () => await doSomethingAsync()).rejects.toThrow();
+```
+
+Examples of **correct** code for this rule:
+
+```js
+await expect(doSomethingAsync()).rejects.toThrow();
+```
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "plugins": ["vitest"],
+  "rules": {
+    "vitest/no-unneeded-async-expect-function": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --deny vitest/no-unneeded-async-expect-function --vitest-plugin
+```
+
+:::
+
+## References
+
+* Rule Source
+
+---
+
+---
+url: /docs/guide/usage/linter/rules/vitest/prefer-called-once.md
+---
+# vitest/prefer-called-once&#x20;
+
+### What it does
+
+Substitute `toBeCalledTimes(1)` and `toHaveBeenCalledTimes(1)` with
+`toBeCalledOnce()` and `toHaveBeenCalledOnce()` respectively.
+
+### Why is this bad?
+
+The \*Times method required to read the arguments to know how many times
+is expected a spy to be called. Most of the times you expecting a method is called
+once.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```js
+test("foo", () => {
+  const mock = vi.fn();
+  mock("foo");
+  expect(mock).toBeCalledTimes(1);
+  expect(mock).toHaveBeenCalledTimes(1);
+});
+```
+
+Examples of **correct** code for this rule:
+
+```js
+test("foo", () => {
+  const mock = vi.fn();
+  mock("foo");
+  expect(mock).toBeCalledOnce();
+  expect(mock).toHaveBeenCalledOnce();
+});
+```
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "plugins": ["vitest"],
+  "rules": {
+    "vitest/prefer-called-once": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --deny vitest/prefer-called-once --vitest-plugin
+```
+
+:::
+
+## References
+
+* Rule Source
+
+---
+
+---
 url: /docs/guide/usage/linter/rules/vitest/prefer-called-times.md
 ---
 # vitest/prefer-called-times&#x20;
@@ -66738,6 +67255,73 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```bash [CLI]
 oxlint --deny vitest/prefer-called-times --vitest-plugin
+```
+
+:::
+
+## References
+
+* Rule Source
+
+---
+
+---
+url: /docs/guide/usage/linter/rules/vitest/prefer-describe-function-title.md
+---
+# vitest/prefer-describe-function-title&#x20;
+
+### What it does
+
+When testing a specific function, this rule aims to enforce passing a named function to describe()
+instead of an equivalent hardcoded string.
+
+### Why is this bad?
+
+Tests that are related to a specific function, if the function being tested is renamed,
+the describe title will be not match anymore and can make confusion in the future. Using the function
+ensure a consistency even if the function is renamed.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```js
+// myFunction.test.js
+import { myFunction } from "./myFunction";
+
+describe("myFunction", () => {
+  // ...
+});
+```
+
+Examples of **correct** code for this rule:
+
+```js
+// myFunction.test.js
+import { myFunction } from "./myFunction";
+
+describe(myFunction, () => {
+  // ...
+});
+```
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "plugins": ["vitest"],
+  "rules": {
+    "vitest/prefer-describe-function-title": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --deny vitest/prefer-describe-function-title --vitest-plugin
 ```
 
 :::
@@ -67515,6 +68099,87 @@ oxlint --deny vue/max-props --vue-plugin
 ---
 
 ---
+url: /docs/guide/usage/linter/rules/vue/no-arrow-functions-in-watch.md
+---
+# vue/no-arrow-functions-in-watch&#x20;
+
+### What it does
+
+This rule disallows using arrow functions when defining a watcher.
+
+### Why is this bad?
+
+Arrow functions bind `this` lexically, which means they don't have access to the Vue component instance.
+In Vue watchers, you often need access to `this` to interact with component data, methods, or other properties.
+Using regular functions or method shorthand ensures proper `this` binding.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```vue
+<script>
+export default {
+  watch: {
+    foo: () => {},
+    bar: {
+      handler: () => {},
+    },
+    baz: [
+      (val) => {},
+      {
+        handler: () => {},
+      },
+    ],
+  },
+};
+</script>
+```
+
+Examples of **correct** code for this rule:
+
+```vue
+<script>
+export default {
+  watch: {
+    foo() {},
+    bar: function () {},
+    baz: {
+      handler: function () {},
+    },
+  },
+};
+</script>
+```
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "plugins": ["vue"],
+  "rules": {
+    "vue/no-arrow-functions-in-watch": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --deny vue/no-arrow-functions-in-watch --vue-plugin
+```
+
+:::
+
+## References
+
+* Rule Source
+
+---
+
+---
 url: /docs/guide/usage/linter/rules/vue/no-deprecated-destroyed-lifecycle.md
 ---
 # vue/no-deprecated-destroyed-lifecycle&#x20;
@@ -67698,6 +68363,82 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```bash [CLI]
 oxlint --deny vue/no-import-compiler-macros --vue-plugin
+```
+
+:::
+
+## References
+
+* Rule Source
+
+---
+
+---
+url: /docs/guide/usage/linter/rules/vue/no-lifecycle-after-await.md
+---
+# vue/no-lifecycle-after-await&#x20;
+
+### What it does
+
+Disallow asynchronously registered lifecycle hooks.
+
+### Why is this bad?
+
+Lifecycle hooks must be registered synchronously during `setup()` execution.
+If a lifecycle hook is called after an `await` statement, it may be registered
+too late and might not work as expected.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```vue
+<script>
+import { onMounted } from "vue";
+export default {
+  async setup() {
+    await doSomething();
+    onMounted(() => {
+      /* ... */
+    }); // error
+  },
+};
+</script>
+```
+
+Examples of **correct** code for this rule:
+
+```vue
+<script>
+import { onMounted } from "vue";
+export default {
+  async setup() {
+    onMounted(() => {
+      /* ... */
+    }); // ok
+    await doSomething();
+  },
+};
+</script>
+```
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "plugins": ["vue"],
+  "rules": {
+    "vue/no-lifecycle-after-await": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --deny vue/no-lifecycle-after-await --vue-plugin
 ```
 
 :::

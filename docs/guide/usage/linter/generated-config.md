@@ -280,7 +280,7 @@ omitted, the base config's plugins are used.
 
 ##### overrides\[n].plugins\[n]
 
-type: `string`
+type: `"eslint" | "react" | "unicorn" | "typescript" | "oxc" | "import" | "jsdoc" | "jest" | "vitest" | "jsx-a11y" | "nextjs" | "react-perf" | "promise" | "node" | "vue"`
 
 #### overrides\[n].rules
 
@@ -303,7 +303,7 @@ The `plugins` array should reflect all of the plugins you want to use.
 
 ### plugins\[n]
 
-type: `string`
+type: `"eslint" | "react" | "unicorn" | "typescript" | "oxc" | "import" | "jsdoc" | "jest" | "vitest" | "jsx-a11y" | "nextjs" | "react-perf" | "promise" | "node" | "vue"`
 
 ## rules
 

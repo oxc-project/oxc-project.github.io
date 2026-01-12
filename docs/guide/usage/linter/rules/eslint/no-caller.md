@@ -10,9 +10,8 @@ Disallow the use of `arguments.caller` or `arguments.callee`.
 ### Why is this bad?
 
 The use of `arguments.caller` and `arguments.callee` make several code
-optimizations impossible. They have been deprecated in future versions
-of JavaScript and their use is forbidden in ECMAScript 5 while in strict
-mode.
+optimizations impossible. They have been deprecated in JavaScript, and
+their use is forbidden while in strict mode.
 
 ```js
 function foo() {
@@ -23,6 +22,9 @@ function foo() {
 This rule is aimed at discouraging the use of deprecated and sub-optimal
 code by disallowing the use of `arguments.caller` and `arguments.callee`. As
 such, it will warn when `arguments.caller` and `arguments.callee` are used.
+
+See [the MDN docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments/callee)
+for more information.
 
 ### Examples
 
