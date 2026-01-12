@@ -5,7 +5,7 @@ import { data } from '../version.data.js';
 const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_linter/src/rules/jsx_a11y/no_static_element_interactions.rs`;
 </script>
 
-# jsx_a11y/no-static-element-interactions <Badge type="info" text="Correctness" />
+# jsx_a11y/no-static-element-interactions <Badge type="info" text="Nursery" />
 
 <div class="rule-meta">
 </div>
