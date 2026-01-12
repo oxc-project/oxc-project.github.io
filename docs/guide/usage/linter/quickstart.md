@@ -75,7 +75,7 @@ oxlint
 ```
 
 ::: tip
-If you are migrating from ESLint, use [`@oxlint/migrate`](https://github.com/oxc-project/oxlint-migrate) to generate an Oxlint config from your existing ESLint flat file config.
+If you are migrating from ESLint, see [the "Migrate from ESLint" page](/docs/guide/usage/linter/migrate-from-eslint) for detailed guidance on migrating.
 :::
 
 ### Fix problems
@@ -178,5 +178,5 @@ The full list is in the [Rules reference](/docs/guide/usage/linter/rules).
 * [Setup editors](/docs/guide/usage/linter/editors)
 * [Setup CI](/docs/guide/usage/linter/ci)
 * Learn advanced features: [Multi-file analysis](/docs/guide/usage/linter/multi-file-analysis), [Type-aware linting](/docs/guide/usage/linter/type-aware), [JS plugins](/docs/guide/usage/linter/js-plugins)
-
-- [CLI reference](/docs/guide/usage/linter/cli)
+* Migrate: [From ESLint](/docs/guide/usage/linter/migrate-from-eslint)&#x20;
+* [CLI reference](/docs/guide/usage/linter/cli)

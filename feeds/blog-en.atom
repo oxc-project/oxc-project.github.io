@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://oxc.rs</id>
     <title>The Oxidation Compiler Blog</title>
-    <updated>2026-01-11T20:27:41.766Z</updated>
+    <updated>2026-01-12T05:22:35.060Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://oxc.rs"/>
     <icon>https://cdn.jsdelivr.net/gh/oxc-project/oxc-assets/square.ico</icon>

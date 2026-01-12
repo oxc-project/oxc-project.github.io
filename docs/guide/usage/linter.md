@@ -90,6 +90,10 @@ Next steps:
 
 ## Adoption paths
 
+::: tip
+If you're migrating from ESLint, see [the "Migrate from ESLint" page](/docs/guide/usage/linter/migrate-from-eslint) for detailed guidance.
+:::
+
 Choose the approach that fits your repository:
 
 * **Replace ESLint (recommended for most projects).** Use Oxlint as your primary linter.
@@ -126,7 +130,11 @@ Oxlint is used in production by popular projects such as:
 * [PostHog/posthog](https://github.com/PostHog/posthog)
 * [actualbudget/actual](https://github.com/actualbudget/actual)
 
-## Reference
+## Migration
+
+* [Migrate from ESLint](/docs/guide/usage/linter/migrate-from-eslint)
+
+## References
 
 * [Rules reference](/docs/guide/usage/linter/rules)
 * [CLI reference](/docs/guide/usage/linter/cli)
