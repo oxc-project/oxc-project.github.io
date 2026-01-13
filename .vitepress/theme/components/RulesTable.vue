@@ -10,8 +10,17 @@ const typeAwareOnly = ref(false);
 const hasFixOnly = ref(false);
 
 // Sorting
-// name_asc | name_desc | fix | scope | category
-const sortBy = ref("name_asc");
+const sortColumn = ref<"name" | "source" | "category" | "default" | "fix">("name");
+const sortDirection = ref<"asc" | "desc">("asc");
+
+const toggleSort = (column: "name" | "source" | "category" | "default" | "fix") => {
+  if (sortColumn.value === column) {
+    sortDirection.value = sortDirection.value === "asc" ? "desc" : "asc";
+  } else {
+    sortColumn.value = column;
+    sortDirection.value = "asc";
+  }
+};
 
 // Derive available filter options
 const categories = computed(() => {
@@ -68,28 +77,39 @@ const filteredAndSorted = computed(() => {
 
   // Sort the filtered results
   return filtered.slice().sort((a, b) => {
-    switch (sortBy.value) {
-      case "name_asc":
-        return a.value.localeCompare(b.value);
-      case "name_desc":
-        return b.value.localeCompare(a.value);
+    let comparison = 0;
+
+    switch (sortColumn.value) {
+      case "name":
+        comparison = a.value.localeCompare(b.value);
+        break;
+      case "source": {
+        comparison = a.scope.localeCompare(b.scope);
+        if (comparison === 0) comparison = a.value.localeCompare(b.value);
+        break;
+      }
+      case "category": {
+        comparison = a.category.localeCompare(b.category);
+        if (comparison === 0) comparison = a.value.localeCompare(b.value);
+        break;
+      }
+      case "default": {
+        const aDefault = a.default ? 1 : 0;
+        const bDefault = b.default ? 1 : 0;
+        comparison = bDefault - aDefault; // default rules first
+        if (comparison === 0) comparison = a.value.localeCompare(b.value);
+        break;
+      }
       case "fix": {
         const af = hasFix(a.fix) ? 1 : 0;
         const bf = hasFix(b.fix) ? 1 : 0;
-        if (af !== bf) return bf - af; // put has-fix first
-        return a.value.localeCompare(b.value);
+        comparison = bf - af; // has-fix first
+        if (comparison === 0) comparison = a.value.localeCompare(b.value);
+        break;
       }
-      case "scope": {
-        const s = a.scope.localeCompare(b.scope);
-        return s !== 0 ? s : a.value.localeCompare(b.value);
-      }
-      case "category": {
-        const c = a.category.localeCompare(b.category);
-        return c !== 0 ? c : a.value.localeCompare(b.value);
-      }
-      default:
-        return 0;
     }
+
+    return sortDirection.value === "asc" ? comparison : -comparison;
   });
 });
 </script>
@@ -140,17 +160,6 @@ const filteredAndSorted = computed(() => {
       </div>
 
       <div>
-        <label for="sortBy"><strong>Sort</strong></label>
-        <select id="sortBy" v-model="sortBy">
-          <option value="name_asc">Name (A → Z)</option>
-          <option value="name_desc">Name (Z → A)</option>
-          <option value="fix">Fix availability</option>
-          <option value="scope">Plugin</option>
-          <option value="category">Category</option>
-        </select>
-      </div>
-
-      <div>
         <label style="display: flex; gap: 0.5rem; align-items: center">
           <input type="checkbox" v-model="typeAwareOnly" />
           Type-aware only
@@ -165,11 +174,36 @@ const filteredAndSorted = computed(() => {
     <table>
       <thead>
         <tr>
-          <th>Rule name</th>
-          <th>Source</th>
-          <th>Category</th>
-          <th>Default</th>
-          <th>Fixable?</th>
+          <th @click="toggleSort('name')" class="sortable">
+            Rule name
+            <span v-if="sortColumn === 'name'" class="sort-indicator">
+              {{ sortDirection === "asc" ? "▲" : "▼" }}
+            </span>
+          </th>
+          <th @click="toggleSort('source')" class="sortable">
+            Source
+            <span v-if="sortColumn === 'source'" class="sort-indicator">
+              {{ sortDirection === "asc" ? "▲" : "▼" }}
+            </span>
+          </th>
+          <th @click="toggleSort('category')" class="sortable">
+            Category
+            <span v-if="sortColumn === 'category'" class="sort-indicator">
+              {{ sortDirection === "asc" ? "▲" : "▼" }}
+            </span>
+          </th>
+          <th @click="toggleSort('default')" class="sortable">
+            Default
+            <span v-if="sortColumn === 'default'" class="sort-indicator">
+              {{ sortDirection === "asc" ? "▲" : "▼" }}
+            </span>
+          </th>
+          <th @click="toggleSort('fix')" class="sortable">
+            Fixable?
+            <span v-if="sortColumn === 'fix'" class="sort-indicator">
+              {{ sortDirection === "asc" ? "▲" : "▼" }}
+            </span>
+          </th>
         </tr>
       </thead>
       <tbody>
@@ -194,5 +228,20 @@ const filteredAndSorted = computed(() => {
 <style scoped>
 select {
   width: 100%;
+}
+
+.sortable {
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.sortable:hover {
+  background-color: var(--vp-c-bg-soft);
+}
+
+.sort-indicator {
+  margin-left: 0.25rem;
+  font-size: 0.75em;
 }
 </style>
