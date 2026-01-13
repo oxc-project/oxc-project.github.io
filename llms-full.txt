@@ -22924,6 +22924,41 @@ oxlint --deny import/unambiguous --import-plugin
 ---
 
 ---
+url: /docs/guide/usage/formatter/ignore-comments.md
+---
+# Inline ignore comments
+
+For JS/TS files, you can use a `prettier-ignore` comment.
+
+This takes effect on the next statement/expression.
+
+```js
+// prettier-ignore
+const a=42;
+
+/* prettier-ignore */
+const x=()=>{return      2;}
+
+<>
+  {/* prettier-ignore */}
+  <span     ugly  format=''   />
+</>;
+```
+
+::: warning
+(Not documented, but) Prettier supports trailing ignore comment too.
+However, we don't support it to avoid a performance hit.
+Please update your code in that case.
+:::
+
+For non-JS files, the same convention as Prettier works.
+Please see Prettier's [documentation](https://prettier.io/docs/ignore#html).
+
+For TOML files, ignore comments are not supported.
+
+---
+
+---
 url: /docs/guide/usage/linter/ignore-comments.md
 description: Disable specific rules inline using Oxlint ignore comments
 ---
@@ -23009,41 +23044,6 @@ oxlint --report-unused-disable-directives-severity error
 ```
 
 Only one of these options can be used at a time.
-
----
-
----
-url: /docs/guide/usage/formatter/ignore-comments.md
----
-# Inline ignore comments
-
-For JS/TS files, you can use a `prettier-ignore` comment.
-
-This takes effect on the next statement/expression.
-
-```js
-// prettier-ignore
-const a=42;
-
-/* prettier-ignore */
-const x=()=>{return      2;}
-
-<>
-  {/* prettier-ignore */}
-  <span     ugly  format=''   />
-</>;
-```
-
-::: warning
-(Not documented, but) Prettier supports trailing ignore comment too.
-However, we don't support it to avoid a performance hit.
-Please update your code in that case.
-:::
-
-For non-JS files, the same convention as Prettier works.
-Please see Prettier's [documentation](https://prettier.io/docs/ignore#html).
-
-For TOML files, ignore comments are not supported.
 
 ---
 
@@ -39213,70 +39213,6 @@ Test results are stored in snapshot files for tracking changes:
 ---
 
 ---
-url: /docs/guide/usage/parser.md
----
-
-# Parser
-
-This is production ready.
-
-## Features
-
-* 3x faster than swc parser ([benchmark][url-benchmark]).
-* Parses `.js(x)` and `.ts(x)`.
-* Passes all parser tests from Test262 and 99% from Babel and TypeScript.
-* Returns ESM information directly, no need for [`es-module-lexer`](https://github.com/guybedford/es-module-lexer).
-* [✅ works with checker.ts](https://x.com/robpalmer2/status/1805502964435505559)
-
-## Installation
-
-### Node.js
-
-* Use the node binding [oxc-parser][url-oxc-parser-npm].
-* Try on [stackblitz](https://stackblitz.com/edit/oxc-parser).
-
-### Rust
-
-Use the umbrella crate [oxc][url-oxc-crate] or the individual [oxc\_ast][url-oxc-ast-crate] and [oxc\_parser][url-oxc-parser-crate] crates.
-
-Rust usage example can be found [here](https://github.com/oxc-project/oxc/blob/main/crates/oxc_parser/examples/parser.rs).
-
-## Print
-
-After parsing and transforming, you can print code.
-
-Here's a direct example using [esrap](https://www.npmjs.com/package/esrap) *(`parse` in reverse!)*:
-
-```js
-import { print } from "esrap";
-import ts from "esrap/languages/ts";
-import { parseSync } from "oxc-parser";
-
-const { program } = parseSync("test.js", 'alert("hello oxc & esrap");');
-const { code } = print(program, ts());
-
-console.log(code); // alert("hello oxc & esrap");
-```
-
-:::info
-Today, comments are not printed. *It will be supported thanks to [oxc-parser #13285](https://github.com/oxc-project/oxc/pull/13285).*
-:::
-
-[url-swc]: https://swc.rs
-
-[url-benchmark]: https://github.com/oxc-project/bench-javascript-parser-written-in-rust
-
-[url-oxc-crate]: https://docs.rs/oxc
-
-[url-oxc-ast-crate]: https://docs.rs/oxc_ast
-
-[url-oxc-parser-crate]: https://docs.rs/oxc_parser
-
-[url-oxc-parser-npm]: https://www.npmjs.com/package/oxc-parser
-
----
-
----
 url: /docs/learn/architecture/parser.md
 ---
 
@@ -39451,6 +39387,70 @@ The parser provides:
 * **Zero-copy parsing**: Eliminate unnecessary string copies
 
 [estree]: https://github.com/estree/estree
+
+---
+
+---
+url: /docs/guide/usage/parser.md
+---
+
+# Parser
+
+This is production ready.
+
+## Features
+
+* 3x faster than swc parser ([benchmark][url-benchmark]).
+* Parses `.js(x)` and `.ts(x)`.
+* Passes all parser tests from Test262 and 99% from Babel and TypeScript.
+* Returns ESM information directly, no need for [`es-module-lexer`](https://github.com/guybedford/es-module-lexer).
+* [✅ works with checker.ts](https://x.com/robpalmer2/status/1805502964435505559)
+
+## Installation
+
+### Node.js
+
+* Use the node binding [oxc-parser][url-oxc-parser-npm].
+* Try on [stackblitz](https://stackblitz.com/edit/oxc-parser).
+
+### Rust
+
+Use the umbrella crate [oxc][url-oxc-crate] or the individual [oxc\_ast][url-oxc-ast-crate] and [oxc\_parser][url-oxc-parser-crate] crates.
+
+Rust usage example can be found [here](https://github.com/oxc-project/oxc/blob/main/crates/oxc_parser/examples/parser.rs).
+
+## Print
+
+After parsing and transforming, you can print code.
+
+Here's a direct example using [esrap](https://www.npmjs.com/package/esrap) *(`parse` in reverse!)*:
+
+```js
+import { print } from "esrap";
+import ts from "esrap/languages/ts";
+import { parseSync } from "oxc-parser";
+
+const { program } = parseSync("test.js", 'alert("hello oxc & esrap");');
+const { code } = print(program, ts());
+
+console.log(code); // alert("hello oxc & esrap");
+```
+
+:::info
+Today, comments are not printed. *It will be supported thanks to [oxc-parser #13285](https://github.com/oxc-project/oxc/pull/13285).*
+:::
+
+[url-swc]: https://swc.rs
+
+[url-benchmark]: https://github.com/oxc-project/bench-javascript-parser-written-in-rust
+
+[url-oxc-crate]: https://docs.rs/oxc
+
+[url-oxc-ast-crate]: https://docs.rs/oxc_ast
+
+[url-oxc-parser-crate]: https://docs.rs/oxc_parser
+
+[url-oxc-parser-npm]: https://www.npmjs.com/package/oxc-parser
 
 ---
 
@@ -48658,6 +48658,31 @@ A Vite plugin is supported via a [third-party package](https://www.npmjs.com/pac
 ---
 
 ---
+url: /docs/guide/usage/formatter/editors.md
+---
+# Setup editors
+
+For VS Code, the Oxc extension is available from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=oxc.oxc-vscode) and [Open VSX Registry](https://open-vsx.org/extension/oxc/oxc-vscode).
+
+For other editors, by running `oxfmt --lsp` you can start a language server that responds to standard `textDocument/formatting` requests.
+
+:::warning
+
+Currently, LSP support has some limitations, such as not supporting formatting of embedded parts in JS/TS files, non-JS files support.
+
+:::
+
+Formatting via stdin and stdout are also supported.
+
+```sh
+cat foo/bar.js | oxfmt --stdin-filepath f.js --config ./path/to/config.json
+```
+
+In addition, we have confirmed that some editors and extensions can work with the CLI by configuring them to use temporary files.
+
+---
+
+---
 url: /docs/guide/usage/linter/editors.md
 ---
 
@@ -48781,31 +48806,6 @@ oxlint --lsp
 ### Reference (language server implementation and issues)
 
 * <https://github.com/oxc-project/oxc/tree/main/crates/oxc_language_server>
-
----
-
----
-url: /docs/guide/usage/formatter/editors.md
----
-# Setup editors
-
-For VS Code, the Oxc extension is available from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=oxc.oxc-vscode) and [Open VSX Registry](https://open-vsx.org/extension/oxc/oxc-vscode).
-
-For other editors, by running `oxfmt --lsp` you can start a language server that responds to standard `textDocument/formatting` requests.
-
-:::warning
-
-Currently, LSP support has some limitations, such as not supporting formatting of embedded parts in JS/TS files, non-JS files support.
-
-:::
-
-Formatting via stdin and stdout are also supported.
-
-```sh
-cat foo/bar.js | oxfmt --stdin-filepath f.js --config ./path/to/config.json
-```
-
-In addition, we have confirmed that some editors and extensions can work with the CLI by configuring them to use temporary files.
 
 ---
 
