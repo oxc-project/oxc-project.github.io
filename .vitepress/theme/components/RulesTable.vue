@@ -124,6 +124,13 @@ const filteredAndSorted = computed(() => {
     return sortDirection.value === "asc" ? comparison : -comparison;
   });
 });
+
+// Map of plugin values to display names, e.g. jsx_a11y -> jsx-a11y
+// This is only really needed for plugins that have names with underscores.
+const pluginDisplayNames: Record<string, string> = {
+  jsx_a11y: "jsx-a11y",
+  react_perf: "react-perf",
+};
 </script>
 
 <template>
@@ -149,7 +156,7 @@ const filteredAndSorted = computed(() => {
       <label for="scopeFilter"><strong>Source/Plugin</strong></label>
       <select id="scopeFilter" v-model="scopeFilter">
         <option value="all">All</option>
-        <option v-for="s in scopes" :key="s" :value="s">{{ s }}</option>
+        <option v-for="s in scopes" :key="s" :value="s">{{ pluginDisplayNames[s] || s }}</option>
       </select>
     </div>
 
@@ -205,7 +212,7 @@ const filteredAndSorted = computed(() => {
         <td>
           <a :href="r.docs_url">{{ r.value }}</a>
         </td>
-        <td>{{ r.scope }}</td>
+        <td>{{ pluginDisplayNames[r.scope] || r.scope }}</td>
         <td>{{ r.category }}</td>
         <td v-if="r.default">✅</td>
         <td v-else></td>
