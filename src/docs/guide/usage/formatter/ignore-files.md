@@ -1,39 +1,46 @@
 # Ignore files
 
-Oxfmt provides several ways to ignore files.
+Oxfmt provides several ways to exclude files from formatting.
 
-### `.gitignore`
+## `ignorePatterns`
 
-Respects `.gitignore` in the current working directory and subdirectories.
+The recommended way to ignore files. Add to `.oxfmtrc.json`:
 
-Does not respect global, exclude, or `.gitignore` in parent directories.
-Does not require `.git` directory to exist.
+```json [.oxfmtrc.json]
+{
+  "ignorePatterns": ["dist/**", "*.min.js"]
+}
+```
 
-Files listed here can still be formatted if explicitly specified.
-This is safe for use cases like `husky`, as ignored files are never staged.
+- Uses `.gitignore` syntax
+- Paths are resolved relative to the directory containing the Oxfmt config file
+- Formatter-specific and independent of Git
 
-### `.prettierignore` / `oxfmtrc.ignorePatterns`
+Files matching `ignorePatterns` **cannot be formatted**, even if explicitly specified.
 
-These are formatter-specific ignore settings, separate from Git, and each operates within its own scope.
+## `.gitignore`
 
-`.prettierignore` is only read from the current working directory. For `.oxfmtrc.json(c)`, see [Configuration](./config).
+Oxfmt respects `.gitignore` files in the current directory tree.
 
-The syntax is the same as `.gitignore`, and paths are resolved relative to the directory containing the ignore file.
+- Global gitignore and parent `.gitignore` files are not read
+- A `.git` directory is not required
 
-Files ignored here cannot be formatted even if explicitly specified. This behavior is intended for use cases like `husky`.
+Files ignored by `.gitignore` **can still be formatted** if explicitly specified.
 
-You can also specify custom ignore paths with `--ignore-path`, or use `!`-prefixed positional paths to exclude files.
+## VCS directories and `node_modules`
 
-### VCS directories and `node_modules`
+Ignored by default: `.git`, `.svn`, `.jj`, `node_modules`
 
-Directories like `.git`, `.svn` and `.jj` are ignored by default.
+Use `--with-node-modules` to include `node_modules`.
 
-The `node_modules` directory is also ignored unless `--with-node_modules` flag is specified.
+## Lock files
 
-If the current working directory is inside these directories, formatting is still possible.
+`package-lock.json`, `pnpm-lock.yaml`, etc. are always ignored.
 
-### Lock files
+## `.prettierignore`
 
-Files like `package-lock.json` and `pnpm-lock.yaml` are ignored by default.
+Supported for Prettier compatibility. Uses `.gitignore` syntax.
 
-These cannot be formatted even if explicitly specified.
+Files in `.prettierignore` cannot be formatted, even when explicitly specified.
+
+For new projects, prefer `ignorePatterns`.

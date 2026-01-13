@@ -10,196 +10,88 @@ badges:
 
 <AppBadgeList />
 
-Oxfmt (`/oʊ-ɛks-fɔːr-mæt/`) is a Prettier-compatible code formatter.
+Oxfmt (`/oʊ-ɛks-fɔːr-mæt/`) is a high-performance formatter for the JavaScript ecosystem.
 
 :::info
-Oxfmt is currently in alpha.
+Oxfmt is currently in alpha. Please join the discussion!
 
-Please join the discussion!
+[RFC: Formatter · oxc-project/oxc · Discussion #13608](https://github.com/oxc-project/oxc/discussions/13608)
 
-> RFC: Formatter · oxc-project/oxc · Discussion #13608\
-> https://github.com/oxc-project/oxc/discussions/13608
-
-Waiting on Oxfmt to implement additional features? Consider using [@prettier/plugin-oxc](https://github.com/prettier/prettier/tree/main/packages/plugin-oxc) in Prettier to gain some parsing speed in the meantime.
 :::
-
-## Features
-
-- Support many kinds of file types
-  - JS/TS(X): Supported by `oxc_formatter`
-  - All file types supported by Prettier by default
-- Faster alternative of Prettier CLI
-  - Over [30×](/blog/2025-12-01-oxfmt-alpha.html#performance) faster than Prettier’s experimental CLI without cache
-- Experimental but usable features
-  - Native sort-imports
-  - Native sort-packagejson
 
 ## Supported languages
 
-- JS, JSX
-- TS, TSX
-- TOML
-- JSON, JSONC, JSON5
-- YAML
-- HTML, Angular, Vue, MJML
-- Ember, Handlebars
-- CSS, SCSS, Less
-- GraphQL
-- Markdown, MDX
+JavaScript, JSX, TypeScript, TSX, JSON, JSONC, JSON5, YAML, TOML, HTML, Angular, Vue, CSS, SCSS, Less, Markdown, MDX, GraphQL, Ember, Handlebars
 
-## Quickstart
+## Built for scale
 
-Run `oxfmt` directly at the root of your repository:
+Oxfmt targets large codebases and CI environments, with an emphasis on high throughput and predictable performance.
 
-::: code-group
+It is built on the Oxc compiler stack and avoids architectural bottlenecks common in existing formatter implementations.
 
-```sh [npm]
-$ npx oxfmt@latest
+Our [benchmarks](https://github.com/oxc-project/bench-formatter) show Oxfmt to be approximately 30x faster than Prettier and 2x faster than Biome.
+
+## Batteries included
+
+Oxfmt includes built-in features that typically require external Prettier plugins:
+
+- [Import sorting](./formatter/sorting#sort-imports)
+- [Tailwind CSS class sorting](./formatter/sorting#tailwind-css-class-sorting)
+- [package.json field sorting](./formatter/sorting#sort-package-json-fields)
+- [Embedded formatting](./formatter/embedded-formatting) (CSS-in-JS, GraphQL, etc.)
+
+## Prettier-compatible
+
+Oxfmt integrates into existing Prettier-based workflows.
+
+The `oxfmt` CLI behaves similarly to Prettier by default, allowing adoption with minimal changes to scripts and tooling.
+
+Oxfmt matches Prettier’s JavaScript formatting. When migrating from recent versions of Prettier, formatting differences should not occur; any differences are considered bugs.
+
+Oxfmt currently passes approximately 95% of Prettier's JavaScript and TypeScript test suite. The remaining cases are niche scenarios, and we work with the Prettier team to converge on formatting over time.
+
+No additional dependencies or configuration needed.
+
+## Getting started
+
+Install `oxfmt` as a dev dependency:
+
+```sh
+pnpm add -D oxfmt
 ```
 
-```sh [pnpm]
-$ pnpm dlx oxfmt@latest
-```
+Add scripts to `package.json`:
 
-```sh [yarn]
-$ yarn dlx oxfmt@latest
-```
-
-```sh [bun]
-$ bunx oxfmt@latest
-```
-
-```sh [deno]
-$ deno run npm:oxfmt@latest
-```
-
-:::
-
-Or save it to your `package.json`:
-
-::: code-group
-
-```sh [npm]
-$ npm add -D oxfmt
-```
-
-```sh [pnpm]
-$ pnpm add -D oxfmt
-```
-
-```sh [yarn]
-$ yarn add -D oxfmt
-```
-
-```sh [bun]
-$ bun add -D oxfmt
-```
-
-:::
-
-Add the following scripts to your `package.json`:
-
-```json
+```json [package.json]
 {
   "scripts": {
-    "format": "oxfmt",
-    "format:check": "oxfmt --check"
+    "fmt": "oxfmt",
+    "fmt:check": "oxfmt --check"
   }
 }
 ```
 
-Apply formatting:
+Format files:
 
-```bash
-pnpm run format
+```sh
+pnpm run fmt
 ```
 
-Check formatting without modifying files:
+Check formatting without writing files:
 
-```bash
-pnpm run format:check
+```sh
+pnpm run fmt:check
 ```
 
-## Command-line Interface
+## Next steps:
 
-`oxfmt` CLI works like `prettier --write .` by default.
+- [Quickstart](./formatter/quickstart)
+- [Configuration](./formatter/config)
+- [Setup editors](./formatter/editors)
+- [Setup CI](./formatter/ci)
 
-Formatting config options like `--no-semi` are not supported via CLI flags.
-We recommend setting these via the configuration file instead. This will ensure that the CLI and editor integrations always use the same settings.
+## References
 
-Globs in positional paths are not expanded. (You can rely on your shell.) But `!`-prefixed exclude paths do support glob expansion.
-
-See more details in the [CLI reference](./formatter/cli).
-
-## Node.js API
-
-`oxfmt` is also available via Node.js API: `format()` function.
-
-```ts
-import { format } from "oxfmt";
-import type { FormatOptions } from "oxfmt";
-
-const INPUT = `let a=42;`;
-const options: FormatOptions = {
-  semi: false,
-};
-
-const { code, errors } = await format("a.js", INPUT, options);
-console.log(code); // "let a = 42"
-```
-
-## System Requirements
-
-- **Node.js**: >= 20.19.0 or >= 22.12.0
-- **Platforms**: darwin-arm64, darwin-x64, linux-arm64, linux-x64, win32-arm64, and win32-x64
-
-## FAQs
-
-### Are there any formatting differences with Prettier?
-
-For JS/TS files, we're tested against the `v3.7.3` of Prettier.
-
-For known differences, please see this discussion.
-
-> `Oxfmt` differences with `Prettier` · oxc-project/oxc · Discussion #14669\
-> https://github.com/oxc-project/oxc/discussions/14669
-
-### Are there any limitations for configuration with Prettier?
-
-The following are NOT currently supported:
-
-- `prettier` field in `package.json`
-- Config file format other than `.json` and `.jsonc`
-- `overrides` field
-- Nested configs in sub directories
-- Nested `.editorconfig` in sub directories
-- `experimentalTernaries` and `experimentalOperatorPosition` option
-
-Also, if `printWidth` is not specified, its default value is `100`. This differs from Prettier's default `80`.
-
-### Are Prettier plugins supported?
-
-Currently, NOT supported.
-
-However, we have some experimental sorting options:
-
-- `experimentalSortImports`
-  - Based on `eslint-plugin-perfectionist/sort-imports`
-  - Disabled by default
-- `experimentalSortPackageJson`
-  - Based on `prettier-plugin-packagejson`
-  - Enabled by default
-- `experimentalTailwindcss`
-  - Based on `prettier-plugin-tailwindcss`
-  - Disabled by default
-
-See more details in the [Configuration file reference](./formatter/config-file-reference).
-
-### Why are embedded template literals not formatted?
-
-Currently, not fully implemented.
-
-For known differences, please see this discussion.
-
-> oxfmt: embedded formatting full support (aka xxx-in-js) · Issue #15180 · oxc-project/oxc\
-> https://github.com/oxc-project/oxc/issues/15180
+- [CLI reference](./formatter/cli)
+- [Config file reference](./formatter/config-file-reference)
+- [Unsupported features](./formatter/unsupported-features)

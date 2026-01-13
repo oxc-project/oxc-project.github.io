@@ -9,7 +9,7 @@ This page shows the recommended setup for Oxlint and the most common workflows, 
 
 ## Install
 
-Install Oxlint as a dev dependency:
+Install `oxlint` as a dev dependency:
 
 ```sh
 pnpm add -D oxlint
