@@ -4,11 +4,11 @@
         <title>The Oxidation Compiler Blog</title>
         <link>https://oxc.rs</link>
         <description>undefined</description>
-        <lastBuildDate>Tue, 13 Jan 2026 04:41:33 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 13 Jan 2026 09:08:03 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
-        <copyright>Copyright © 2023-present VoidZero Inc.</copyright>
+        <copyright>© 2026 VoidZero Inc. and Oxc contributors.</copyright>
         <item>
             <title><![CDATA[Oxlint General Availability]]></title>
             <link>https://oxc.rs/blog/2023-12-12-announcing-oxlint</link>
