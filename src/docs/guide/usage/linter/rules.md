@@ -4,7 +4,7 @@ editLink: false
 
 <script setup>
 import RulesTable from '@components/RulesTable.vue';
-import rules from '../../../../../rules.json' with { type: 'json' };
+import rules from '@data/rules.json' with { type: 'json' };
 
 const hasFix = (fix) => {
   if (fix === "none" || fix === "pending") {

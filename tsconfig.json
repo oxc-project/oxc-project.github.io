@@ -12,7 +12,8 @@
     "skipLibCheck": true,
     "paths": {
       "@components/*": ["./.vitepress/theme/components/*"],
-      "@constants/*": ["./.vitepress/theme/constants/*"]
+      "@constants/*": ["./.vitepress/theme/constants/*"],
+      "@data/*": ["./.vitepress/data/*"]
     }
   },
   "include": ["src/**/*", ".vitepress/**/*"],

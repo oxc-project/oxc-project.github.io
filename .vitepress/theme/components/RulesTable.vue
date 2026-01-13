@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
 // Import the generated rules data
-import rules from "../../../rules.json" with { type: "json" };
+import rules from "@data/rules.json" with { type: "json" };
 
 // Filters
 const categoryFilter = ref("all");
