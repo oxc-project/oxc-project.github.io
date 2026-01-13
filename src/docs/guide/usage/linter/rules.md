@@ -3,7 +3,6 @@ editLink: false
 ---
 
 <script setup>
-import RulesTable from '@components/RulesTable.vue';
 import rules from '@data/rules.json' with { type: 'json' };
 
 const hasFix = (fix) => {
