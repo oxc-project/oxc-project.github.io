@@ -6,7 +6,7 @@ import rules from "../../../rules.json" with { type: "json" };
 // Filters
 const categoryFilter = ref("all");
 const scopeFilter = ref("all");
-const typeAwareOnly = ref(false);
+const includeTypeAware = ref(true);
 const hasFixOnly = ref(false);
 
 // Sorting
@@ -68,10 +68,22 @@ const fixIcons = (fix: string) => {
 // Apply filters and sorting to all rules
 const filteredAndSorted = computed(() => {
   let filtered = rules.filter((r) => {
-    if (categoryFilter.value !== "all" && r.category !== categoryFilter.value) return false;
-    if (scopeFilter.value !== "all" && r.scope !== scopeFilter.value) return false;
-    if (typeAwareOnly.value && !r.type_aware) return false;
-    if (hasFixOnly.value && !hasFix(r.fix)) return false;
+    if (categoryFilter.value !== "all" && r.category !== categoryFilter.value) {
+      return false;
+    }
+
+    if (scopeFilter.value !== "all" && r.scope !== scopeFilter.value) {
+      return false;
+    }
+
+    if (!includeTypeAware.value && r.type_aware) {
+      return false;
+    }
+
+    if (hasFixOnly.value && !hasFix(r.fix)) {
+      return false;
+    }
+
     return true;
   });
 
@@ -143,8 +155,8 @@ const filteredAndSorted = computed(() => {
 
     <div>
       <label style="display: flex; gap: 0.5rem; align-items: center">
-        <input type="checkbox" v-model="typeAwareOnly" />
-        Type-aware only
+        <input type="checkbox" v-model="includeTypeAware" />
+        Include type-aware rules
       </label>
       <label style="display: flex; gap: 0.5rem; align-items: center; margin-top: 0.25rem">
         <input type="checkbox" v-model="hasFixOnly" />
