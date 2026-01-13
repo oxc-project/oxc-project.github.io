@@ -6,4 +6,6 @@ editLink: false
 import RulesTable from '@components/RulesTable.vue';
 </script>
 
+# Rules
+
 <RulesTable />

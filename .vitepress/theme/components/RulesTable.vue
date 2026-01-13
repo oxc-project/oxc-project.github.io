@@ -96,6 +96,21 @@ const filteredAndSorted = computed(() => {
 
 <template>
   <div class="vp-doc">
+    <div style="margin-top: 1rem; margin-bottom: 1rem">
+      <strong>Total rules: {{ filteredAndSorted.length }}</strong>
+    </div>
+
+    <div class="rules-legend" style="margin-bottom: 1rem">
+      <strong>Legend for 'Fixable?' column:</strong>
+      <div>
+        <p>🛠️: auto-fix available</p>
+        <p>💡: suggestion available</p>
+        <p>⚠️🛠️: dangerous auto-fix</p>
+        <p>⚠️💡: dangerous suggestion</p>
+        <p>🚧: possible but not implemented</p>
+      </div>
+    </div>
+
     <div
       class="rules-controls"
       style="
@@ -143,21 +158,6 @@ const filteredAndSorted = computed(() => {
           Has fix available
         </label>
       </div>
-    </div>
-
-    <div class="rules-legend" style="margin-bottom: 1rem">
-      <strong>Legend for 'Fixable?' column:</strong>
-      <div>
-        <p>🛠️: auto-fix available</p>
-        <p>💡: suggestion available</p>
-        <p>⚠️🛠️: dangerous auto-fix</p>
-        <p>⚠️💡: dangerous suggestion</p>
-        <p>🚧: possible but not implemented</p>
-      </div>
-    </div>
-
-    <div style="margin-bottom: 1rem">
-      <strong>Total rules: {{ filteredAndSorted.length }}</strong>
     </div>
 
     <table>
