@@ -15,10 +15,10 @@
 - [Built-in Plugins](/docs/guide/usage/transformer/plugins.md)
 - [Command-line Interface](/docs/guide/usage/formatter/cli.md)
 - [Command-line Interface](/docs/guide/usage/linter/cli.md)
-- [Configuration](/docs/guide/usage/formatter/config.md): Configure Oxfmt using a .oxfmtrc.json file.
 - [Configuration](/docs/guide/usage/linter/config.md): Configure Oxlint using a .oxlintrc.json file.
-- [Configuration options for the Oxfmt.](/docs/guide/usage/formatter/config-file-reference.md)
+- [Configuration](/docs/guide/usage/formatter/config.md): Configure Oxfmt using a .oxfmtrc.json file.
 - [Configuration options for the Oxfmt.](/docs/guide/usage/formatter/generated-config.md)
+- [Configuration options for the Oxfmt.](/docs/guide/usage/formatter/config-file-reference.md)
 - [Dead Code Elimination](/docs/guide/usage/minifier/dead-code-elimination.md)
 - [Dealing with Errors](/docs/learn/parser_in_rust/errors.md)
 - [Debugging](/docs/contribute/debugging.md)
@@ -428,8 +428,8 @@
 - [promise/prefer-catch&#x20;](/docs/guide/usage/linter/rules/promise/prefer-catch.md)
 - [promise/spec-only&#x20;](/docs/guide/usage/linter/rules/promise/spec-only.md)
 - [promise/valid-params&#x20;](/docs/guide/usage/linter/rules/promise/valid-params.md)
+- [Quickstart](/docs/guide/usage/formatter/quickstart.md): Install Oxfmt and learn the common workflows.
 - [Quickstart](/docs/guide/usage/linter/quickstart.md): Install Oxlint and learn the common workflows.
-- [Quickstart](/docs/guide/usage/formatter/quickstart.md)
 - [react/button-has-type&#x20;](/docs/guide/usage/linter/rules/react/button-has-type.md)
 - [react/checked-requires-onchange-or-readonly&#x20;](/docs/guide/usage/linter/rules/react/checked-requires-onchange-or-readonly.md)
 - [react/exhaustive-deps&#x20;](/docs/guide/usage/linter/rules/react/exhaustive-deps.md)
@@ -492,18 +492,18 @@
 - [Rules and Policy](/docs/contribute/rules.md)
 - [Security Policy](/docs/contribute/security.md)
 - [Semantic Analysis](/docs/learn/parser_in_rust/semantic_analysis.md)
-- [Setup CI and other integrations](/docs/guide/usage/formatter/ci.md)
 - [Setup CI and other integrations](/docs/guide/usage/linter/ci.md): Run Oxlint in CI or as a git hook.
-- [Setup editors](/docs/guide/usage/formatter/editors.md)
-- [Setup editors](/docs/guide/usage/linter/editors.md)
+- [Setup CI and other integrations](/docs/guide/usage/formatter/ci.md): Run Oxfmt in CI or as a git hook.
+- [Setup editors](/docs/guide/usage/linter/editors.md): Configure Oxlint in VS Code, Zed, JetBrains, and other editors.
+- [Setup editors](/docs/guide/usage/formatter/editors.md): Configure Oxfmt in VS Code, Zed, JetBrains, and other editors.
 - [Sorting](/docs/guide/usage/formatter/sorting.md)
 - [Specification](/docs/learn/ecmascript/spec.md)
 - [Syntax Lowering](/docs/guide/usage/transformer/lowering.md)
 - [Syntax Normalization](/docs/guide/usage/minifier/syntax-normalization.md)
 - [Terminology](/docs/learn/terminology.md)
 - [Test Infrastructure](/docs/learn/architecture/test.md)
-- [Transformer](/docs/guide/usage/transformer.md)
 - [Transformer](/docs/contribute/transformer.md)
+- [Transformer](/docs/guide/usage/transformer.md)
 - [Troubleshooting](/docs/guide/troubleshooting.md)
 - [Type-Aware Linting](/docs/guide/usage/linter/type-aware.md): Linting with type information.
 - [TypeScript](/docs/guide/usage/transformer/typescript.md)

@@ -1293,7 +1293,7 @@ It is **strongly recommended** to use a config file to enable plugins, as it mak
 
 You can also enable plugins in `.oxlintrc.json` using the `plugins` field:
 
-```json
+```json [.oxlintrc.json]
 {
   "plugins": ["import"]
 }
@@ -1329,7 +1329,7 @@ Tip: run `oxlint --help` to see the full list of plugin flags.
 
 To disable all default plugins in a config file, set `plugins` to an empty array:
 
-```json
+```json [.oxlintrc.json]
 {
   "plugins": []
 }
@@ -1729,6 +1729,326 @@ Arguments:
 ---
 
 ---
+url: /docs/guide/usage/linter/config.md
+description: Configure Oxlint using a .oxlintrc.json file.
+---
+
+# Configuration
+
+Oxlint works out of the box, but most teams commit a configuration file to keep linting consistent across local runs, editors, and CI.
+
+This page focuses on project configuration: rules, categories, plugins, overrides, and shared settings.
+
+## Create a config file
+
+To generate a starter config in the current directory:
+
+```sh
+oxlint --init
+```
+
+Oxlint automatically looks for a `.oxlintrc.json` in the current working directory. You can also pass a config explicitly (note that this will disable nested config lookup):
+
+```sh
+oxlint -c ./oxlintrc.json
+# or
+oxlint --config ./oxlintrc.json
+```
+
+Notes:
+
+* Only `.json` config files are supported, but oxlint configuration files support comments (like jsonc).
+* The configuration format aims to be compatible with ESLint v8's format (`eslintrc.json`).
+
+A minimal configuration looks like this:
+
+```json [.oxlintrc.json]
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "categories": {
+    "correctness": "warn"
+  },
+  "rules": {
+    "eslint/no-unused-vars": "error"
+  }
+}
+```
+
+## Configuration file format
+
+A configuration file is a JSON object. The most common top-level fields are:
+
+* `rules`: Enable or disable rules, set severity, and configure rule options.
+* `categories`: Enable groups of rules with similar intent.
+* `plugins`: Enable built-in plugins that provide additional rules.
+* `jsPlugins`: Configure JavaScript plugins (experimental).
+* `overrides`: Apply different configuration to different file patterns.
+* `extends`: Inherit configuration from other files.
+* `ignorePatterns`: Ignore additional files from the config file.
+* `env`: Enable predefined globals for common environments.
+* `globals`: Declare custom globals as read-only or writable.
+* `settings`: Plugin-wide configuration shared by multiple rules.
+
+For a complete list of fields, see the [Config file reference](/docs/guide/usage/linter/config-file-reference.html).
+
+## Configure rules
+
+Rules are configured under `rules`.
+
+A rule value is either:
+
+* a severity (`"off"`, `"warn"`, `"error"`), or
+* an array of `[severity, options]`
+
+If a rule name is unique, you can configure it without a plugin prefix. For example, `no-console` is the same as `eslint/no-console`.
+
+```json [.oxlintrc.json]
+{
+  "rules": {
+    "no-alert": "error",
+    "oxc/approx-constant": "warn",
+    "no-plusplus": "off"
+  }
+}
+```
+
+### Severity values
+
+Oxlint accepts ESLint-style severities:
+
+* Allow rule: `"off"`, `0`, `"allow"`
+* Warning on rule: `"warn"`, `1`
+* Error on rule: `"error"`, `2`, `"deny"`
+
+### Rule options
+
+To configure rule options, use an array:
+
+```json [.oxlintrc.json]
+{
+  "rules": {
+    "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }]
+  }
+}
+```
+
+All available rules, and their configuration options, are listed in the [Rules reference](/docs/guide/usage/linter/rules).
+
+### Override severity from the CLI
+
+For quick experiments, you can adjust severity from the command line using:
+
+* `-A` / `--allow`
+* `-W` / `--warn`
+* `-D` / `--deny`
+
+Arguments are applied from left to right:
+
+```sh
+oxlint -D no-alert -W oxc/approx-constant -A no-plusplus
+```
+
+## Enable groups of rules with categories
+
+Categories let you enable or disable sets of rules with similar intent. By default, Oxlint enables rules in the `correctness` category.
+
+Configure categories using `categories`:
+
+```json [.oxlintrc.json]
+{
+  "categories": {
+    "correctness": "error",
+    "suspicious": "warn",
+    "pedantic": "off"
+  }
+}
+```
+
+Available categories include:
+
+* `correctness`: Code that is definitely wrong or useless
+* `suspicious`: Code that is likely to be wrong or useless
+* `pedantic`: Extra strict rules that may have false positives
+* `perf`: Rules that aim to improve runtime performance
+* `style`: Idiomatic and consistent style rules
+* `restriction`: Rules that ban specific patterns or features
+* `nursery`: Rules under development that may change
+
+You can also change categories from the CLI with the same `-A`, `-W`, and `-D` options:
+
+```sh
+oxlint -D correctness -D suspicious
+```
+
+## Configure plugins
+
+Plugins extend the set of available rules.
+
+Oxlint supports many popular plugins natively in Rust. This provides broad rule coverage without a large JavaScript dependency tree. See [Native Plugins](/docs/guide/usage/linter/plugins).
+
+Configure plugins using `plugins`. Setting `plugins` overwrites the default plugin set, so the array should include everything you want enabled:
+
+```json [.oxlintrc.json]
+{
+  "plugins": ["unicorn", "typescript", "oxc"]
+}
+```
+
+To disable all default plugins:
+
+```json [.oxlintrc.json]
+{
+  "plugins": []
+}
+```
+
+For plugin details and CLI flags such as `--import-plugin`, see [Native Plugins](/docs/guide/usage/linter/plugins).
+
+## Configure JS plugins (experimental)
+
+Oxlint also supports JavaScript plugins via `jsPlugins`. This is intended for compatibility with existing ESLint plugins and advanced integrations.
+
+Notes:
+
+* JS plugins are experimental and not subject to semver.
+* JS plugins are not supported in the language server at present.
+
+JS plugins can be declared as strings, or as objects with an alias:
+
+```json [.oxlintrc.json]
+{
+  "jsPlugins": [
+    "eslint-plugin-playwright",
+    { "name": "my-eslint-react", "specifier": "eslint-plugin-react" }
+  ]
+}
+```
+
+Some plugin names are reserved because they are implemented natively in Rust (for example `react`, `unicorn`, `typescript`, `oxc`, `import`, `jest`, `vitest`, `jsx-a11y`, `nextjs`). If you need the JavaScript version of a reserved plugin, give it a custom `name` to avoid conflicts.
+
+For details, see [JS plugins](/docs/guide/usage/linter/js-plugins).
+
+## Apply configuration by file pattern
+
+Use `overrides` to apply different configuration to different files, such as tests, scripts, or TypeScript-only paths.
+
+`overrides` is an array of objects. Each override can include:
+
+* `files`: glob patterns
+* `rules`: rule configuration (same shape as top-level `rules`)
+* `env`: environment configuration (same shape as top-level `env`)
+* `globals`: globals configuration (same shape as top-level `globals`)
+* `plugins`: optionally change what plugins are enabled for this override
+* `jsPlugins`: JS plugins for this override (experimental)
+
+Example:
+
+```json [.oxlintrc.json]
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "rules": {
+    "no-console": "error"
+  },
+  "overrides": [
+    {
+      "files": ["scripts/*.js"],
+      "rules": {
+        "no-console": "off"
+      }
+    },
+    {
+      "files": ["**/*.{ts,tsx}"],
+      "plugins": ["typescript"],
+      "rules": {
+        "typescript/no-explicit-any": "error"
+      }
+    },
+    {
+      "files": ["**/test/**"],
+      "plugins": ["jest"],
+      "env": {
+        "jest": true
+      },
+      "rules": {
+        "jest/no-disabled-tests": "off"
+      }
+    }
+  ]
+}
+```
+
+## Extend shared configs
+
+Use `extends` to inherit from other configuration files.
+
+Paths in `extends` are resolved relative to the configuration file that declares `extends`. Configs are merged from first to last, with later entries overriding earlier ones.
+
+```json [.oxlintrc.json]
+{
+  "extends": ["./configs/base.json", "./configs/frontend.json"]
+}
+```
+
+## Configure environments and globals
+
+Use `env` to enable predefined globals for common environments such as browser or node.
+
+Use `globals` to declare project-specific globals, mark them writable or readonly, or disable a global that would otherwise be present.
+
+```json [.oxlintrc.json]
+{
+  "env": {
+    "es6": true
+  },
+  "globals": {
+    "MY_GLOBAL": "readonly",
+    "Promise": "off"
+  }
+}
+```
+
+`globals` accepts:
+
+* `"readonly"` or `"readable"` or `false`
+* `"writable"` or `"writeable"` or `true`
+* `"off"` to disable a global
+
+## Plugin settings
+
+Use `settings` for plugin-wide configuration shared by multiple rules.
+
+Example (monorepo + React + jsx-a11y):
+
+```json [.oxlintrc.json]
+{
+  "settings": {
+    "next": {
+      "rootDir": "apps/dashboard/"
+    },
+    "react": {
+      "linkComponents": [{ "name": "Link", "linkAttribute": "to" }]
+    },
+    "jsx-a11y": {
+      "components": {
+        "Link": "a",
+        "Button": "button"
+      }
+    }
+  }
+}
+```
+
+## Next steps
+
+* [Ignore files](/docs/guide/usage/linter/ignore-files): Ignore files and patterns, `.gitignore` and `.eslintignore` workflows, and symlink behavior.
+* [Inline ignore comments](/docs/guide/usage/linter/ignore-comments): Inline suppressions and scoped exceptions.
+* [Nested configs](/docs/guide/usage/linter/nested-config): Monorepos and per-package configuration.
+* [Config file reference](/docs/guide/usage/linter/config-file-reference.html): Full schema and field documentation.
+* [CLI reference](/docs/guide/usage/linter/cli.html): Complete list of flags and output formats.
+
+---
+
+---
 url: /docs/guide/usage/formatter/config.md
 description: Configure Oxfmt using a .oxfmtrc.json file.
 ---
@@ -1851,327 +2171,7 @@ To match Prettier's default:
 ---
 
 ---
-url: /docs/guide/usage/linter/config.md
-description: Configure Oxlint using a .oxlintrc.json file.
----
-
-# Configuration
-
-Oxlint works out of the box, but most teams commit a configuration file to keep linting consistent across local runs, editors, and CI.
-
-This page focuses on project configuration: rules, categories, plugins, overrides, and shared settings.
-
-## Create a config file
-
-To generate a starter config in the current directory:
-
-```sh
-oxlint --init
-```
-
-Oxlint automatically looks for a `.oxlintrc.json` in the current working directory. You can also pass a config explicitly (note that this will disable nested config lookup):
-
-```sh
-oxlint -c ./oxlintrc.json
-# or
-oxlint --config ./oxlintrc.json
-```
-
-Notes:
-
-* Only `.json` config files are supported, but oxlint configuration files support comments (like jsonc).
-* The configuration format aims to be compatible with ESLint v8's format (`eslintrc.json`).
-
-A minimal configuration looks like this:
-
-```jsonc [.oxlintrc.json]
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "categories": {
-    "correctness": "warn",
-  },
-  "rules": {
-    "eslint/no-unused-vars": "error",
-  },
-}
-```
-
-## Configuration file format
-
-A configuration file is a JSON object. The most common top-level fields are:
-
-* `rules`: Enable or disable rules, set severity, and configure rule options.
-* `categories`: Enable groups of rules with similar intent.
-* `plugins`: Enable built-in plugins that provide additional rules.
-* `jsPlugins`: Configure JavaScript plugins (experimental).
-* `overrides`: Apply different configuration to different file patterns.
-* `extends`: Inherit configuration from other files.
-* `ignorePatterns`: Ignore additional files from the config file.
-* `env`: Enable predefined globals for common environments.
-* `globals`: Declare custom globals as read-only or writable.
-* `settings`: Plugin-wide configuration shared by multiple rules.
-
-For a complete list of fields, see the [Config file reference](/docs/guide/usage/linter/config-file-reference.html).
-
-## Configure rules
-
-Rules are configured under `rules`.
-
-A rule value is either:
-
-* a severity (`"off"`, `"warn"`, `"error"`), or
-* an array of `[severity, options]`
-
-If a rule name is unique, you can configure it without a plugin prefix. For example, `no-console` is the same as `eslint/no-console`.
-
-```jsonc
-{
-  "rules": {
-    "no-alert": "error",
-    "oxc/approx-constant": "warn",
-    "no-plusplus": "off",
-  },
-}
-```
-
-### Severity values
-
-Oxlint accepts ESLint-style severities:
-
-* Allow rule: `"off"`, `0`, `"allow"`
-* Warning on rule: `"warn"`, `1`
-* Error on rule: `"error"`, `2`, `"deny"`
-
-### Rule options
-
-To configure rule options, use an array:
-
-```jsonc
-{
-  "rules": {
-    "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
-  },
-}
-```
-
-All available rules, and their configuration options, are listed in the [Rules reference](/docs/guide/usage/linter/rules).
-
-### Override severity from the CLI
-
-For quick experiments, you can adjust severity from the command line using:
-
-* `-A` / `--allow`
-* `-W` / `--warn`
-* `-D` / `--deny`
-
-Arguments are applied from left to right:
-
-```sh
-oxlint -D no-alert -W oxc/approx-constant -A no-plusplus
-```
-
-## Enable groups of rules with categories
-
-Categories let you enable or disable sets of rules with similar intent. By default, Oxlint enables rules in the `correctness` category.
-
-Configure categories using `categories`:
-
-```jsonc
-{
-  "categories": {
-    "correctness": "error",
-    "suspicious": "warn",
-    "pedantic": "off",
-  },
-}
-```
-
-Available categories include:
-
-* `correctness`: Code that is definitely wrong or useless
-* `suspicious`: Code that is likely to be wrong or useless
-* `pedantic`: Extra strict rules that may have false positives
-* `perf`: Rules that aim to improve runtime performance
-* `style`: Idiomatic and consistent style rules
-* `restriction`: Rules that ban specific patterns or features
-* `nursery`: Rules under development that may change
-
-You can also change categories from the CLI with the same `-A`, `-W`, and `-D` options:
-
-```sh
-oxlint -D correctness -D suspicious
-```
-
-## Configure plugins
-
-Plugins extend the set of available rules.
-
-Oxlint supports many popular plugins natively in Rust. This provides broad rule coverage without a large JavaScript dependency tree. See [Native Plugins](/docs/guide/usage/linter/plugins).
-
-Configure plugins using `plugins`. Setting `plugins` overwrites the default plugin set, so the array should include everything you want enabled:
-
-```jsonc
-{
-  "plugins": ["unicorn", "typescript", "oxc"],
-}
-```
-
-To disable all default plugins:
-
-```jsonc
-{
-  "plugins": [],
-}
-```
-
-For plugin details and CLI flags such as `--import-plugin`, see [Native Plugins](/docs/guide/usage/linter/plugins).
-
-## Configure JS plugins (experimental)
-
-Oxlint also supports JavaScript plugins via `jsPlugins`. This is intended for compatibility with existing ESLint plugins and advanced integrations.
-
-Notes:
-
-* JS plugins are experimental and not subject to semver.
-* JS plugins are not supported in the language server at present.
-
-JS plugins can be declared as strings, or as objects with an alias:
-
-```jsonc
-{
-  "jsPlugins": [
-    "eslint-plugin-playwright",
-    { "name": "my-eslint-react", "specifier": "eslint-plugin-react" },
-  ],
-}
-```
-
-Some plugin names are reserved because they are implemented natively in Rust (for example `react`, `unicorn`, `typescript`, `oxc`, `import`, `jest`, `vitest`, `jsx-a11y`, `nextjs`). If you need the JavaScript version of a reserved plugin, give it a custom `name` to avoid conflicts.
-
-For details, see [JS plugins](/docs/guide/usage/linter/js-plugins).
-
-## Apply configuration by file pattern
-
-Use `overrides` to apply different configuration to different files, such as tests, scripts, or TypeScript-only paths.
-
-`overrides` is an array of objects. Each override can include:
-
-* `files`: glob patterns
-* `rules`: rule configuration (same shape as top-level `rules`)
-* `env`: environment configuration (same shape as top-level `env`)
-* `globals`: globals configuration (same shape as top-level `globals`)
-* `plugins`: optionally change what plugins are enabled for this override
-* `jsPlugins`: JS plugins for this override (experimental)
-
-Example:
-
-```jsonc
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "rules": {
-    "no-console": "error",
-  },
-  "overrides": [
-    {
-      "files": ["scripts/*.js"],
-      "rules": {
-        "no-console": "off",
-      },
-    },
-    {
-      "files": ["**/*.{ts,tsx}"],
-      "plugins": ["typescript"],
-      "rules": {
-        "typescript/no-explicit-any": "error",
-      },
-    },
-    {
-      "files": ["**/test/**"],
-      "plugins": ["jest"],
-      "env": {
-        "jest": true,
-      },
-      "rules": {
-        "jest/no-disabled-tests": "off",
-      },
-    },
-  ],
-}
-```
-
-## Extend shared configs
-
-Use `extends` to inherit from other configuration files.
-
-Paths in `extends` are resolved relative to the configuration file that declares `extends`. Configs are merged from first to last, with later entries overriding earlier ones.
-
-```jsonc
-{
-  "extends": ["./configs/base.json", "./configs/frontend.json"],
-}
-```
-
-## Configure environments and globals
-
-Use `env` to enable predefined globals for common environments such as browser or node.
-
-Use `globals` to declare project-specific globals, mark them writable or readonly, or disable a global that would otherwise be present.
-
-```jsonc
-{
-  "env": {
-    "es6": true,
-  },
-  "globals": {
-    "MY_GLOBAL": "readonly",
-    "Promise": "off",
-  },
-}
-```
-
-`globals` accepts:
-
-* `"readonly"` or `"readable"` or `false`
-* `"writable"` or `"writeable"` or `true`
-* `"off"` to disable a global
-
-## Plugin settings
-
-Use `settings` for plugin-wide configuration shared by multiple rules.
-
-Example (monorepo + React + jsx-a11y):
-
-```jsonc
-{
-  "settings": {
-    "next": {
-      "rootDir": "apps/dashboard/",
-    },
-    "react": {
-      "linkComponents": [{ "name": "Link", "linkAttribute": "to" }],
-    },
-    "jsx-a11y": {
-      "components": {
-        "Link": "a",
-        "Button": "button",
-      },
-    },
-  },
-}
-```
-
-## Next steps
-
-* [Ignore files](/docs/guide/usage/linter/ignore-files): Ignore files and patterns, `.gitignore` and `.eslintignore` workflows, and symlink behavior.
-* [Inline ignore comments](/docs/guide/usage/linter/ignore-comments): Inline suppressions and scoped exceptions.
-* [Nested configs](/docs/guide/usage/linter/nested-config): Monorepos and per-package configuration.
-* [Config file reference](/docs/guide/usage/linter/config-file-reference.html): Full schema and field documentation.
-* [CLI reference](/docs/guide/usage/linter/cli.html): Complete list of flags and output formats.
-
----
-
----
-url: /docs/guide/usage/formatter/config-file-reference.md
+url: /docs/guide/usage/formatter/generated-config.md
 ---
 
 # Configuration options for the Oxfmt.
@@ -2433,7 +2433,7 @@ Use tabs for indentation or spaces. (Default: `false`)
 ---
 
 ---
-url: /docs/guide/usage/formatter/generated-config.md
+url: /docs/guide/usage/formatter/config-file-reference.md
 ---
 
 # Configuration options for the Oxfmt.
@@ -20309,13 +20309,10 @@ The recommended approach is to define ignores in `.oxlintrc.json` using `ignoreP
 
 Patterns are resolved relative to the configuration file.
 
-```jsonc [.oxlintrc.json]
+```json [.oxlintrc.json]
 {
   "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "ignorePatterns": ["dist/**", "coverage/**", "vendor/**", "test/snapshots/**"],
-  "rules": {
-    // ...
-  },
+  "ignorePatterns": ["dist/**", "coverage/**", "vendor/**", "test/snapshots/**"]
 }
 ```
 
@@ -20351,13 +20348,10 @@ Ignore files support negation patterns, which allow a directory to be ignored wh
 
 To ignore everything under `build/` except one file, ignore the contents rather than the directory itself:
 
-```jsonc [.oxlintrc.json]
+```json [.oxlintrc.json]
 {
   "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "ignorePatterns": ["build/**/*", "!build/keep.js"],
-  "rules": {
-    // ...
-  },
+  "ignorePatterns": ["build/**/*", "!build/keep.js"]
 }
 ```
 
@@ -33085,13 +33079,10 @@ If you use local custom ESLint plugins from within your own repo (e.g. `import p
 
 However, they can be added manually to the `.oxlintrc.json` after running the migration script:
 
-```jsonc [.oxlintrc.json]
+```json [.oxlintrc.json]
 {
   "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "jsPlugins": ["./eslint-plugin-company/lib/index.js"],
-  "rules": {
-    // ...
-  },
+  "jsPlugins": ["./eslint-plugin-company/lib/index.js"]
 }
 ```
 
@@ -33118,7 +33109,7 @@ oxlint && eslint
 You can use [`eslint-plugin-oxlint`](https://www.npmjs.com/package/eslint-plugin-oxlint) to disable ESLint rules that are already handled by Oxlint:
 
 ```bash
-npm install --save-dev oxlint-eslint-plugin
+npm install --save-dev eslint-plugin-oxlint
 ```
 
 This reduces duplicate diagnostics, can help cut down your linting time considerably, and allows ESLint to focus only on rules that Oxlint does not yet support.
@@ -33594,9 +33585,7 @@ In a monorepo, you often want one shared baseline at the root, and small package
 
 You do this by keeping a root `.oxlintrc.json`, then having package configs extend it.
 
-`my-project/.oxlintrc.json`
-
-```json
+```json [my-project/.oxlintrc.json]
 {
   "rules": {
     "no-debugger": "error"
@@ -33604,9 +33593,7 @@ You do this by keeping a root `.oxlintrc.json`, then having package configs exte
 }
 ```
 
-`my-project/package1/.oxlintrc.json`
-
-```json
+```json [my-project/package1/.oxlintrc.json]
 {
   "extends": ["../.oxlintrc.json"],
   "rules": {
@@ -33625,23 +33612,21 @@ Extended files can have any name. They do not need to be named `.oxlintrc.json`,
 
 Example:
 
-```jsonc
-// oxlint-typescript.json
+```json [oxlint-typescript.json]
 {
   "plugins": ["typescript"],
   "rules": {
-    "typescript/no-explicit-any": "error",
-  },
+    "typescript/no-explicit-any": "error"
+  }
 }
 ```
 
-```jsonc
-// .oxlintrc.json
+```json [.oxlintrc.json]
 {
   "extends": ["oxlint-typescript.json"],
   "rules": {
-    "no-unused-vars": "warn",
-  },
+    "no-unused-vars": "warn"
+  }
 }
 ```
 
@@ -42097,193 +42082,10 @@ oxlint --deny promise/valid-params --promise-plugin
 ---
 
 ---
-url: /docs/guide/usage/linter/quickstart.md
-description: Install Oxlint and learn the common workflows.
----
-
-# Quickstart
-
-This page shows the recommended setup for Oxlint and the most common workflows, with copy-paste commands.
-
-## Install
-
-Install `oxlint` as a dev dependency:
-
-```sh
-pnpm add -D oxlint
-```
-
-Add lint commands to `package.json`:
-
-```json
-{
-  "scripts": {
-    "lint": "oxlint",
-    "lint:fix": "oxlint --fix"
-  }
-}
-```
-
-Run it:
-
-```sh
-pnpm run lint
-```
-
-Apply fixes:
-
-```sh
-pnpm run lint:fix
-```
-
-## Usage
-
-For the complete list of options, see the [CLI reference](/docs/guide/usage/linter/cli.html).
-
-```sh
-oxlint [OPTIONS] [PATH]...
-```
-
-If `PATH` is omitted, Oxlint lints the current working directory.
-
-## Common workflows
-
-### Pre-commit with [lint-staged](https://github.com/lint-staged/lint-staged)
-
-```json
-{
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx,mjs,cjs}": "pnpm run lint"
-  }
-}
-```
-
-### Create a config file
-
-Initialize the `.oxlintrc.json` config with default values:
-
-```sh
-oxlint --init
-```
-
-Then run Oxlint:
-
-```sh
-oxlint
-```
-
-::: tip
-If you are migrating from ESLint, see [the "Migrate from ESLint" page](/docs/guide/usage/linter/migrate-from-eslint) for detailed guidance on migrating.
-:::
-
-### Fix problems
-
-Apply safe fixes:
-
-```sh
-oxlint --fix
-```
-
-Apply suggestions (may change program behavior):
-
-```sh
-oxlint --fix-suggestions
-```
-
-Apply dangerous fixes and suggestions:
-
-```sh
-oxlint --fix-dangerously
-```
-
-See [Automatic fixes](/docs/guide/usage/linter/automatic-fixes) for guidance on when to use each mode.
-
-### Ignore files
-
-Use an explicit ignore file:
-
-```sh
-oxlint --ignore-path .oxlintignore
-```
-
-Add ignore patterns from the command line:
-
-```sh
-oxlint --ignore-pattern "dist/**" --ignore-pattern "*.min.js"
-```
-
-Disable ignore handling:
-
-```sh
-oxlint --no-ignore
-```
-
-See [Ignore files](/docs/guide/usage/linter/ignore-files).
-
-### Fail CI reliably
-
-Only report errors:
-
-```sh
-oxlint --quiet
-```
-
-Fail if any warnings are found:
-
-```sh
-oxlint --deny-warnings
-```
-
-Fail if warnings exceed a threshold:
-
-```sh
-oxlint --max-warnings 0
-```
-
-See [CI setup](/docs/guide/usage/linter/ci).
-
-### Use machine-readable output
-
-Select an output format:
-
-```sh
-oxlint -f json
-```
-
-Available formats include: `default`, `json`, `unix`, `checkstyle`, `github`, `gitlab`, `junit`, `stylish`.
-
-### Inspect the effective configuration
-
-Print the configuration that would be used for a file:
-
-```sh
-oxlint --print-config path/to/file.ts
-```
-
-### List available rules
-
-List registered rules, including those enabled by your current oxlint config:
-
-```sh
-oxlint --rules
-```
-
-The full list is in the [Rules reference](/docs/guide/usage/linter/rules).
-
-## Next steps
-
-* Configure rules, plugins, and ignores: [Configuration](/docs/guide/usage/linter/config)
-* [Setup editors](/docs/guide/usage/linter/editors)
-* [Setup CI](/docs/guide/usage/linter/ci)
-* Learn advanced features: [Multi-file analysis](/docs/guide/usage/linter/multi-file-analysis), [Type-aware linting](/docs/guide/usage/linter/type-aware), [JS plugins](/docs/guide/usage/linter/js-plugins)
-* Migrate: [From ESLint](/docs/guide/usage/linter/migrate-from-eslint)&#x20;
-* [CLI reference](/docs/guide/usage/linter/cli)
-
----
-
----
 url: /docs/guide/usage/formatter/quickstart.md
+description: Install Oxfmt and learn the common workflows.
 ---
+
 # Quickstart
 
 Recommended setup and common workflows.
@@ -42416,6 +42218,207 @@ console.log(code); // "let a = 42"
 * [Setup CI](./ci)
 * Learn advanced features: [sorting](./sorting), [embedded formatting](./embedded-formatting)
 * Check [CLI reference](./cli)
+
+---
+
+---
+url: /docs/guide/usage/linter/quickstart.md
+description: Install Oxlint and learn the common workflows.
+---
+
+# Quickstart
+
+This page shows the recommended setup for Oxlint and the most common workflows, with copy-paste commands.
+
+## Install
+
+Install `oxlint` as a dev dependency:
+
+::: code-group
+
+```sh [npm]
+$ npm add -D oxlint
+```
+
+```sh [pnpm]
+$ pnpm add -D oxlint
+```
+
+```sh [yarn]
+$ yarn add -D oxlint
+```
+
+```sh [bun]
+$ bun add -D oxlint
+```
+
+:::
+
+Add lint commands to `package.json`:
+
+```json [package.json]
+{
+  "scripts": {
+    "lint": "oxlint",
+    "lint:fix": "oxlint --fix"
+  }
+}
+```
+
+Run it:
+
+```sh
+pnpm run lint
+```
+
+Apply fixes:
+
+```sh
+pnpm run lint:fix
+```
+
+## Usage
+
+For the complete list of options, see the [CLI reference](/docs/guide/usage/linter/cli.html).
+
+```sh
+oxlint [OPTIONS] [PATH]...
+```
+
+If `PATH` is omitted, Oxlint lints the current working directory.
+
+## Common workflows
+
+### Pre-commit with [lint-staged](https://github.com/lint-staged/lint-staged)
+
+```json [package.json]
+{
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,mjs,cjs}": "pnpm run lint"
+  }
+}
+```
+
+### Create a config file
+
+Initialize the `.oxlintrc.json` config with default values:
+
+```sh
+oxlint --init
+```
+
+Then run Oxlint:
+
+```sh
+oxlint
+```
+
+::: tip
+If you are migrating from ESLint, see [the "Migrate from ESLint" page](/docs/guide/usage/linter/migrate-from-eslint) for detailed guidance on migrating.
+:::
+
+### Fix problems
+
+Apply safe fixes:
+
+```sh
+oxlint --fix
+```
+
+Apply suggestions (may change program behavior):
+
+```sh
+oxlint --fix-suggestions
+```
+
+Apply dangerous fixes and suggestions:
+
+```sh
+oxlint --fix-dangerously
+```
+
+See [Automatic fixes](/docs/guide/usage/linter/automatic-fixes) for guidance on when to use each mode.
+
+### Ignore files
+
+Use an explicit ignore file:
+
+```sh
+oxlint --ignore-path .oxlintignore
+```
+
+Add ignore patterns from the command line:
+
+```sh
+oxlint --ignore-pattern "dist/**" --ignore-pattern "*.min.js"
+```
+
+Disable ignore handling:
+
+```sh
+oxlint --no-ignore
+```
+
+See [Ignore files](/docs/guide/usage/linter/ignore-files).
+
+### Fail CI reliably
+
+Only report errors:
+
+```sh
+oxlint --quiet
+```
+
+Fail if any warnings are found:
+
+```sh
+oxlint --deny-warnings
+```
+
+Fail if warnings exceed a threshold:
+
+```sh
+oxlint --max-warnings 0
+```
+
+See [CI setup](/docs/guide/usage/linter/ci).
+
+### Use machine-readable output
+
+Select an output format:
+
+```sh
+oxlint -f json
+```
+
+Available formats include: `default`, `json`, `unix`, `checkstyle`, `github`, `gitlab`, `junit`, `stylish`.
+
+### Inspect the effective configuration
+
+Print the configuration that would be used for a file:
+
+```sh
+oxlint --print-config path/to/file.ts
+```
+
+### List available rules
+
+List registered rules, including those enabled by your current oxlint config:
+
+```sh
+oxlint --rules
+```
+
+The full list is in the [Rules reference](/docs/guide/usage/linter/rules).
+
+## Next steps
+
+* Configure rules, plugins, and ignores: [Configuration](/docs/guide/usage/linter/config)
+* [Setup editors](/docs/guide/usage/linter/editors)
+* [Setup CI](/docs/guide/usage/linter/ci)
+* Learn advanced features: [Multi-file analysis](/docs/guide/usage/linter/multi-file-analysis), [Type-aware linting](/docs/guide/usage/linter/type-aware), [JS plugins](/docs/guide/usage/linter/js-plugins)
+* Migrate: [From ESLint](/docs/guide/usage/linter/migrate-from-eslint)&#x20;
+* [CLI reference](/docs/guide/usage/linter/cli)
 
 ---
 
@@ -48674,8 +48677,93 @@ Upon visit, we can call `enter_scope` and `leave_scope` accordingly to build the
 ---
 
 ---
-url: /docs/guide/usage/formatter/ci.md
+url: /docs/guide/usage/linter/ci.md
+description: Run Oxlint in CI or as a git hook.
 ---
+
+# Setup CI and other integrations
+
+You can - and should - setup your CI pipeline to run Oxlint and fail the build on lint errors.
+
+This page also covers other integrations you may want to include, like git pre-commit hooks.
+
+## CI
+
+### GitHub Actions
+
+Create `.github/workflows/oxlint.yml`:
+
+```yaml [.github/workflows/oxlint.yml]
+name: Lint
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  oxlint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm run lint --deny-warnings
+```
+
+## Git hooks
+
+### lint-staged
+
+For JS/TS projects using [lint-staged](https://github.com/lint-staged/lint-staged), you can set up oxlint to run pre-commit as follows:
+
+```json [package.json]
+{
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,mjs,cjs}": "pnpm run lint"
+  }
+}
+```
+
+### pre-commit
+
+If you use [pre-commit](https://pre-commit.com/) to manage git hooks, you can set up Oxlint as follows:
+
+```yaml [.pre-commit-config.yaml]
+repos:
+  - repo: https://github.com/oxc-project/mirrors-oxlint
+    rev: v0.0.0
+    hooks:
+      - id: oxlint
+        verbose: true
+```
+
+Replace `v0.0.0` with the latest version.
+
+## Other integrations
+
+### Unplugin
+
+Unplugin is supported via a [third-party package](https://www.npmjs.com/package/unplugin-oxlint)
+
+### Vite plugin
+
+A Vite plugin is supported via a [third-party package](https://www.npmjs.com/package/vite-plugin-oxlint)
+
+---
+
+---
+url: /docs/guide/usage/formatter/ci.md
+description: Run Oxfmt in CI or as a git hook.
+---
+
 # Setup CI and other integrations
 
 You can - and should - setup your CI pipeline to run Oxfmt and fail the build on format errors.
@@ -48702,13 +48790,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - uses: pnpm/action-setup@v4
+
       - uses: actions/setup-node@v4
         with:
           node-version: lts/*
           cache: pnpm
 
       - run: pnpm install --frozen-lockfile
-
       - run: pnpm run fmt:check
 ```
 
@@ -48731,88 +48820,124 @@ For husky/lint-staged, add to `package.json`:
 ---
 
 ---
-url: /docs/guide/usage/linter/ci.md
-description: Run Oxlint in CI or as a git hook.
+url: /docs/guide/usage/linter/editors.md
+description: 'Configure Oxlint in VS Code, Zed, JetBrains, and other editors.'
 ---
 
-# Setup CI and other integrations
+# Setup editors
 
-You can - and should - setup your CI pipeline to run Oxlint and fail the build on lint errors.
+Editor extensions use `oxlint --lsp` from your project, so `oxlint` must be installed locally.
 
-This page also covers other integrations you may want to include, like git pre-commit hooks.
+See [Quickstart](./quickstart) to install Oxlint.
 
-## CI
+## Supported editors
 
-### GitHub Actions
+* [VS Code](#vs-code) (and Cursor, etc.)
+* [Zed](#zed)
+* [JetBrains](#jetbrains)
+* [coc.nvim](#cocnvim)
+* [Other editors](#other-editors)
 
-Create `.github/workflows/oxlint.yml`:
+## VS Code
 
-```yaml
-name: Lint
+### Install
 
-on:
-  pull_request:
-  push:
-    branches: [main]
+Download the official Oxc VS Code extension from:
 
-jobs:
-  oxlint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
+* [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=oxc.oxc-vscode)
+* [Open VSX Registry](https://open-vsx.org/extension/oxc/oxc-vscode)
 
-      - uses: pnpm/action-setup@v4
+**The extension is compatible with other VS Code-based editors**, including Cursor.
 
-      - uses: actions/setup-node@v4
-        with:
-          node-version: lts/*
-          cache: pnpm
+### Team setup
 
-      - run: pnpm install --frozen-lockfile
-      - run: pnpm run lint --deny-warnings # given package.json scripts "lint": "oxlint"
+1. Recommend the extension for contributors:
+
+`.vscode/extensions.json`:
+
+```json [.vscode/extensions.json]
+{
+  "recommendations": ["oxc.oxc-vscode"]
+}
 ```
 
-## Git hooks
+2. Enable fix-on-save in `.vscode/settings.json`:
 
-### lint-staged
-
-For JS/TS projects using [lint-staged](https://github.com/lint-staged/lint-staged), you can set up oxlint to run pre-commit as follows:
-
-```json
+```json [.vscode/settings.json]
 {
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx,mjs,cjs}": "pnpm run lint"
+  "editor.codeActionsOnSave": {
+    "source.fixAll.oxc": "always"
   }
 }
 ```
 
-### pre-commit
+3. Enable type-aware linting in `.vscode/settings.json`:
 
-If you use [pre-commit](https://pre-commit.com/) to manage git hooks, you can set up Oxlint as follows:
-
-```yaml [.pre-commit-hooks.yaml]
-repos:
-  - repo: https://github.com/oxc-project/mirrors-oxlint
-    rev: v0.0.0 # change to the latest version
-    hooks:
-      - id: oxlint
-        verbose: true
+```json [.vscode/settings.json]
+{
+  "oxc.typeAware": true
+}
 ```
 
-## Other integrations
+You also need to ensure `oxlint-tsgolint` is installed in your project. See [the type-aware linting docs](/docs/guide/usage/linter/type-aware) for more details.
 
-### Unplugin
+### Reference
 
-Unplugin is supported via a [third-party package](https://www.npmjs.com/package/unplugin-oxlint)
+* [oxc-project/oxc/editors/vscode](https://github.com/oxc-project/oxc/tree/main/editors/vscode)
 
-### Vite plugin
+## Zed
 
-A Vite plugin is supported via a [third-party package](https://www.npmjs.com/package/vite-plugin-oxlint)
+### Install
+
+* [Oxc Zed Extension](https://zed.dev/extensions/oxc)
+
+### Reference
+
+* [oxc-project/oxc-zed](https://github.com/oxc-project/oxc-zed)
+
+***
+
+## JetBrains
+
+IntelliJ IDEA and WebStorm.
+
+### Install
+
+* [Oxc in JetBrains Marketplace](https://plugins.jetbrains.com/plugin/27061-oxc)
+
+### Reference
+
+* [oxc-project/oxc-intellij-plugin](https://github.com/oxc-project/oxc-intellij-plugin)
+
+## coc.nvim
+
+### Install
+
+```vim
+:CocInstall coc-oxc
+```
+
+### Reference
+
+* [oxc-project/coc-oxc](https://github.com/oxc-project/coc-oxc)
+
+## Other editors
+
+For editors with LSP support (Neovim, Emacs, Helix, Sublime), configure:
+
+```bash
+oxlint --lsp
+```
+
+## Reference
+
+* [oxc\_language\_server](https://github.com/oxc-project/oxc/tree/main/crates/oxc_language_server)
 
 ---
 
 ---
 url: /docs/guide/usage/formatter/editors.md
+description: 'Configure Oxfmt in VS Code, Zed, JetBrains, and other editors.'
 ---
 
 # Setup editors
@@ -48936,135 +49061,6 @@ cat foo/bar.js | oxfmt --stdin-filepath f.js --config ./path/to/config.json
 ## Reference
 
 * [oxc\_language\_server](https://github.com/oxc-project/oxc/tree/main/crates/oxc_language_server)
-
----
-
----
-url: /docs/guide/usage/linter/editors.md
----
-
-# Setup editors
-
-Oxlint editor extensions start the language server with `oxlint --lsp` from your **project installation**, so `oxlint` must be installed in the project.
-
-See [Quickstart](./quickstart) to install and run Oxlint from the command line.
-
-## Supported editors
-
-* [VS Code](#vs-code) (and Cursor, etc.)
-* [Zed](#zed)
-* [JetBrains](#jetbrains)
-* [coc.nvim](#cocnvim)
-* [Other editors](#other-editors)
-
-## VS Code
-
-### Install
-
-Download the official Oxc VS Code extension from:
-
-* [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=oxc.oxc-vscode)
-* [Open VSX Registry](https://open-vsx.org/extension/oxc/oxc-vscode)
-
-**The extension is compatible with other VS Code-based editors**, including Cursor.
-
-### Use (recommended setup for teams)
-
-1. Recommend the extension in your repository so contributors install the same tooling.
-
-Create `.vscode/extensions.json`:
-
-```json
-{
-  "recommendations": ["oxc.oxc-vscode"]
-}
-```
-
-2. Enable fix-on-save (optional).
-
-Add to `.vscode/settings.json`:
-
-```jsonc
-{
-  "editor.codeActionsOnSave": {
-    "source.fixAll.oxc": "always",
-  },
-}
-```
-
-3. Enable type-aware linting (optional).
-
-If you'd like to use type-aware rules and show type-related lint violations, ensure that `typeAware` is set to `true` in your VS Code settings (`.vscode/settings.json`):
-
-```jsonc
-{
-  "oxc.typeAware": true,
-}
-```
-
-You also need to ensure `oxlint-tsgolint` is installed in your project. See [the type-aware linting docs](/docs/guide/usage/linter/type-aware) for more details.
-
-### Usage and configuration reference
-
-* <https://github.com/oxc-project/oxc/tree/main/editors/vscode>
-
-## Zed
-
-### Install
-
-* [Oxc Zed Extension](https://zed.dev/extensions/oxc)
-
-### Use
-
-Configure the extension in Zed’s `settings.json` (workspace or user settings), then open your project as a folder/workspace.
-
-### Usage and configuration reference
-
-* <https://github.com/oxc-project/oxc-zed>
-
-***
-
-## JetBrains
-
-IntelliJ IDEA and WebStorm
-
-### Install
-
-* [Oxc in JetBrains Marketplace](https://plugins.jetbrains.com/plugin/27061-oxc)
-
-### Use
-
-Install the plugin, restart the IDE, and open your repository as a project.
-
-### Usage and configuration reference
-
-* <https://github.com/oxc-project/oxc-intellij-plugin>
-
-## coc.nvim
-
-### Install
-
-```vim
-:CocInstall coc-oxc
-```
-
-### Usage and configuration reference
-
-* <https://github.com/oxc-project/coc-oxc>
-
-## Other editors
-
-If your editor supports custom LSP configuration (Neovim LSP, Emacs, Helix, Sublime LSP, etc.), configure it to launch:
-
-```bash
-oxlint --lsp
-```
-
-## Reference
-
-For language server implementation and issues:
-
-* <https://github.com/oxc-project/oxc/tree/main/crates/oxc_language_server>
 
 ---
 
@@ -49752,6 +49748,33 @@ feel free to contact us on [Discord][discord-url].
 ---
 
 ---
+url: /docs/contribute/transformer.md
+---
+
+# Transformer
+
+The Oxc transformer is responsible for converting higher versions of ECMAScript and TypeScript to lower versions that can run in older browsers and environments.
+
+### Repository Structure
+
+```
+crates/oxc_transformer/
+├── src/
+│   ├── lib.rs                    # Main transformer interface
+│   ├── transformer.rs            # Core transformation logic
+│   ├── typescript/               # TypeScript transformations
+│   ├── jsx/                      # JSX transformations
+│   ├── es2015/                   # ES2015+ transformations
+│   ├── isolated_declarations/    # .d.ts generation
+│   └── helpers/                  # Utility functions
+├── tests/                        # Integration tests
+├── examples/                     # Usage examples
+└── benches/                      # Performance benchmarks
+```
+
+---
+
+---
 url: /docs/guide/usage/transformer.md
 ---
 # Transformer
@@ -49786,33 +49809,6 @@ Rust usage example can be found [here](https://github.com/oxc-project/oxc/blob/m
 [url-oxc-crate]: https://docs.rs/oxc
 
 [url-oxc-transform-npm]: https://www.npmjs.com/package/oxc-transform
-
----
-
----
-url: /docs/contribute/transformer.md
----
-
-# Transformer
-
-The Oxc transformer is responsible for converting higher versions of ECMAScript and TypeScript to lower versions that can run in older browsers and environments.
-
-### Repository Structure
-
-```
-crates/oxc_transformer/
-├── src/
-│   ├── lib.rs                    # Main transformer interface
-│   ├── transformer.rs            # Core transformation logic
-│   ├── typescript/               # TypeScript transformations
-│   ├── jsx/                      # JSX transformations
-│   ├── es2015/                   # ES2015+ transformations
-│   ├── isolated_declarations/    # .d.ts generation
-│   └── helpers/                  # Utility functions
-├── tests/                        # Integration tests
-├── examples/                     # Usage examples
-└── benches/                      # Performance benchmarks
-```
 
 ---
 
@@ -49949,7 +49945,7 @@ oxlint --type-aware --type-check
 
 Type-aware rules are configured like other Oxlint rules.
 
-```json
+```json [.oxlintrc.json]
 {
   "plugins": ["typescript"],
   "rules": {
@@ -49961,7 +49957,7 @@ Type-aware rules are configured like other Oxlint rules.
 
 Rules support the same options as their `typescript-eslint` equivalents.
 
-```json
+```json [.oxlintrc.json]
 {
   "plugins": ["typescript"],
   "rules": {
@@ -67016,17 +67012,17 @@ If a new version of Oxlint reports additional issues in your code, that’s expe
 
 Add the snippet below to your Renovate config to let it keep Oxlint automatically up to date.
 
-```jsonc
+```json [renovate.json]
 {
   "extends": ["config:recommended"],
   "packageRules": [
     {
       "matchPackageNames": ["oxlint"],
       "groupName": "oxlint",
-      "automergeType": "branch", // or "pr"
-      "stabilityDays": 1, // wait 24 h to catch regressions
-    },
-  ],
+      "automergeType": "branch",
+      "stabilityDays": 1
+    }
+  ]
 }
 ```
 

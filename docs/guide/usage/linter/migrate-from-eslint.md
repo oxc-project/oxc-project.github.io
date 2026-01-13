@@ -86,13 +86,10 @@ If you use local custom ESLint plugins from within your own repo (e.g. `import p
 
 However, they can be added manually to the `.oxlintrc.json` after running the migration script:
 
-```jsonc [.oxlintrc.json]
+```json [.oxlintrc.json]
 {
   "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "jsPlugins": ["./eslint-plugin-company/lib/index.js"],
-  "rules": {
-    // ...
-  },
+  "jsPlugins": ["./eslint-plugin-company/lib/index.js"]
 }
 ```
 
@@ -119,7 +116,7 @@ oxlint && eslint
 You can use [`eslint-plugin-oxlint`](https://www.npmjs.com/package/eslint-plugin-oxlint) to disable ESLint rules that are already handled by Oxlint:
 
 ```bash
-npm install --save-dev oxlint-eslint-plugin
+npm install --save-dev eslint-plugin-oxlint
 ```
 
 This reduces duplicate diagnostics, can help cut down your linting time considerably, and allows ESLint to focus only on rules that Oxlint does not yet support.

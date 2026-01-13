@@ -32,15 +32,15 @@ Notes:
 
 A minimal configuration looks like this:
 
-```jsonc [.oxlintrc.json]
+```json [.oxlintrc.json]
 {
   "$schema": "./node_modules/oxlint/configuration_schema.json",
   "categories": {
-    "correctness": "warn",
+    "correctness": "warn"
   },
   "rules": {
-    "eslint/no-unused-vars": "error",
-  },
+    "eslint/no-unused-vars": "error"
+  }
 }
 ```
 
@@ -72,13 +72,13 @@ A rule value is either:
 
 If a rule name is unique, you can configure it without a plugin prefix. For example, `no-console` is the same as `eslint/no-console`.
 
-```jsonc
+```json [.oxlintrc.json]
 {
   "rules": {
     "no-alert": "error",
     "oxc/approx-constant": "warn",
-    "no-plusplus": "off",
-  },
+    "no-plusplus": "off"
+  }
 }
 ```
 
@@ -94,11 +94,11 @@ Oxlint accepts ESLint-style severities:
 
 To configure rule options, use an array:
 
-```jsonc
+```json [.oxlintrc.json]
 {
   "rules": {
-    "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
-  },
+    "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }]
+  }
 }
 ```
 
@@ -124,13 +124,13 @@ Categories let you enable or disable sets of rules with similar intent. By defau
 
 Configure categories using `categories`:
 
-```jsonc
+```json [.oxlintrc.json]
 {
   "categories": {
     "correctness": "error",
     "suspicious": "warn",
-    "pedantic": "off",
-  },
+    "pedantic": "off"
+  }
 }
 ```
 
@@ -158,17 +158,17 @@ Oxlint supports many popular plugins natively in Rust. This provides broad rule 
 
 Configure plugins using `plugins`. Setting `plugins` overwrites the default plugin set, so the array should include everything you want enabled:
 
-```jsonc
+```json [.oxlintrc.json]
 {
-  "plugins": ["unicorn", "typescript", "oxc"],
+  "plugins": ["unicorn", "typescript", "oxc"]
 }
 ```
 
 To disable all default plugins:
 
-```jsonc
+```json [.oxlintrc.json]
 {
-  "plugins": [],
+  "plugins": []
 }
 ```
 
@@ -185,12 +185,12 @@ Notes:
 
 JS plugins can be declared as strings, or as objects with an alias:
 
-```jsonc
+```json [.oxlintrc.json]
 {
   "jsPlugins": [
     "eslint-plugin-playwright",
-    { "name": "my-eslint-react", "specifier": "eslint-plugin-react" },
-  ],
+    { "name": "my-eslint-react", "specifier": "eslint-plugin-react" }
+  ]
 }
 ```
 
@@ -213,37 +213,37 @@ Use `overrides` to apply different configuration to different files, such as tes
 
 Example:
 
-```jsonc
+```json [.oxlintrc.json]
 {
   "$schema": "./node_modules/oxlint/configuration_schema.json",
   "rules": {
-    "no-console": "error",
+    "no-console": "error"
   },
   "overrides": [
     {
       "files": ["scripts/*.js"],
       "rules": {
-        "no-console": "off",
-      },
+        "no-console": "off"
+      }
     },
     {
       "files": ["**/*.{ts,tsx}"],
       "plugins": ["typescript"],
       "rules": {
-        "typescript/no-explicit-any": "error",
-      },
+        "typescript/no-explicit-any": "error"
+      }
     },
     {
       "files": ["**/test/**"],
       "plugins": ["jest"],
       "env": {
-        "jest": true,
+        "jest": true
       },
       "rules": {
-        "jest/no-disabled-tests": "off",
-      },
-    },
-  ],
+        "jest/no-disabled-tests": "off"
+      }
+    }
+  ]
 }
 ```
 
@@ -253,9 +253,9 @@ Use `extends` to inherit from other configuration files.
 
 Paths in `extends` are resolved relative to the configuration file that declares `extends`. Configs are merged from first to last, with later entries overriding earlier ones.
 
-```jsonc
+```json [.oxlintrc.json]
 {
-  "extends": ["./configs/base.json", "./configs/frontend.json"],
+  "extends": ["./configs/base.json", "./configs/frontend.json"]
 }
 ```
 
@@ -265,15 +265,15 @@ Use `env` to enable predefined globals for common environments such as browser o
 
 Use `globals` to declare project-specific globals, mark them writable or readonly, or disable a global that would otherwise be present.
 
-```jsonc
+```json [.oxlintrc.json]
 {
   "env": {
-    "es6": true,
+    "es6": true
   },
   "globals": {
     "MY_GLOBAL": "readonly",
-    "Promise": "off",
-  },
+    "Promise": "off"
+  }
 }
 ```
 
@@ -289,22 +289,22 @@ Use `settings` for plugin-wide configuration shared by multiple rules.
 
 Example (monorepo + React + jsx-a11y):
 
-```jsonc
+```json [.oxlintrc.json]
 {
   "settings": {
     "next": {
-      "rootDir": "apps/dashboard/",
+      "rootDir": "apps/dashboard/"
     },
     "react": {
-      "linkComponents": [{ "name": "Link", "linkAttribute": "to" }],
+      "linkComponents": [{ "name": "Link", "linkAttribute": "to" }]
     },
     "jsx-a11y": {
       "components": {
         "Link": "a",
-        "Button": "button",
-      },
-    },
-  },
+        "Button": "button"
+      }
+    }
+  }
 }
 ```
 

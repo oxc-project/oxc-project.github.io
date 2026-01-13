@@ -1,5 +1,6 @@
 ---
 url: /docs/guide/usage/formatter/editors.md
+description: 'Configure Oxfmt in VS Code, Zed, JetBrains, and other editors.'
 ---
 
 # Setup editors

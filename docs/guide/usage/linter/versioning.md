@@ -39,17 +39,17 @@ If a new version of Oxlint reports additional issues in your code, that’s expe
 
 Add the snippet below to your Renovate config to let it keep Oxlint automatically up to date.
 
-```jsonc
+```json [renovate.json]
 {
   "extends": ["config:recommended"],
   "packageRules": [
     {
       "matchPackageNames": ["oxlint"],
       "groupName": "oxlint",
-      "automergeType": "branch", // or "pr"
-      "stabilityDays": 1, // wait 24 h to catch regressions
-    },
-  ],
+      "automergeType": "branch",
+      "stabilityDays": 1
+    }
+  ]
 }
 ```
 

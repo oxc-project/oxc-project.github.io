@@ -1,6 +1,8 @@
 ---
 url: /docs/guide/usage/formatter/quickstart.md
+description: Install Oxfmt and learn the common workflows.
 ---
+
 # Quickstart
 
 Recommended setup and common workflows.
