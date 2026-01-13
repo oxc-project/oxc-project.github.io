@@ -28,7 +28,7 @@ const head: HeadConfig[] = [
     "meta",
     {
       property: "og:image",
-      content: "/og.jpg",
+      content: "https://oxc.rs/og.jpg",
     },
   ],
   // Twitter (X)
@@ -38,7 +38,7 @@ const head: HeadConfig[] = [
     "meta",
     {
       name: "twitter:image",
-      content: "/og.jpg",
+      content: "https://oxc.rs/og.jpg",
     },
   ],
   // banner
