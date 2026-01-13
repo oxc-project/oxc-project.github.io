@@ -1,3 +1,8 @@
+---
+title: Setup CI and other integrations
+description: Run Oxfmt in CI or as a git hook.
+---
+
 # Setup CI and other integrations
 
 You can - and should - setup your CI pipeline to run Oxfmt and fail the build on format errors.
@@ -24,13 +29,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - uses: pnpm/action-setup@v4
+
       - uses: actions/setup-node@v4
         with:
           node-version: lts/*
           cache: pnpm
 
       - run: pnpm install --frozen-lockfile
-
       - run: pnpm run fmt:check
 ```
 

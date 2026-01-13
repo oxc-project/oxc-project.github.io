@@ -15,7 +15,7 @@ This page also covers other integrations you may want to include, like git pre-c
 
 Create `.github/workflows/oxlint.yml`:
 
-```yaml
+```yaml [.github/workflows/oxlint.yml]
 name: Lint
 
 on:
@@ -37,7 +37,7 @@ jobs:
           cache: pnpm
 
       - run: pnpm install --frozen-lockfile
-      - run: pnpm run lint --deny-warnings # given package.json scripts "lint": "oxlint"
+      - run: pnpm run lint --deny-warnings
 ```
 
 ## Git hooks
@@ -58,14 +58,16 @@ For JS/TS projects using [lint-staged](https://github.com/lint-staged/lint-stage
 
 If you use [pre-commit](https://pre-commit.com/) to manage git hooks, you can set up Oxlint as follows:
 
-```yaml [.pre-commit-hooks.yaml]
+```yaml [.pre-commit-config.yaml]
 repos:
   - repo: https://github.com/oxc-project/mirrors-oxlint
-    rev: v0.0.0 # change to the latest version
+    rev: v0.0.0
     hooks:
       - id: oxlint
         verbose: true
 ```
+
+Replace `v0.0.0` with the latest version.
 
 ## Other integrations
 
