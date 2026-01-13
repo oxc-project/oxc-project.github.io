@@ -121,6 +121,7 @@ export const enConfig = defineLocaleConfig("root", {
                   link: "/docs/guide/usage/formatter/config",
                 },
                 { text: "Editor setup", link: "/docs/guide/usage/formatter/editors" },
+                { text: "CI & other setup", link: "/docs/guide/usage/formatter/ci" },
               ],
             },
             {

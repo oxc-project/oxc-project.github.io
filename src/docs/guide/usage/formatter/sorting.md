@@ -1,6 +1,6 @@
 # Sorting
 
-Oxfmt includes several sorting features that go beyond basic formatting to improve consistency and readability.
+Oxfmt includes sorting features for imports, Tailwind classes, and package.json.
 
 - [Sort imports](#sort-imports)
 - [Tailwind CSS class sorting](#tailwind-css-class-sorting)
@@ -8,15 +8,13 @@ Oxfmt includes several sorting features that go beyond basic formatting to impro
 
 ## Sort imports
 
-Oxfmt can sort import declarations, which is modeled after `sort-imports` from the [ESLint Perfectionist Plugin](https://perfectionist.dev/rules/sort-imports).
+Based on [eslint-plugin-perfectionist/sort-imports](https://perfectionist.dev/rules/sort-imports). Disabled by default.
 
-Implemented and unimplemented features are tracked at https://github.com/oxc-project/oxc/issues/14253.
-
-This feature is disabled by default.
+Progress: https://github.com/oxc-project/oxc/issues/14253
 
 ### Configuration
 
-A recommended approach is to sort imports by distance, from the furthest to the closest:
+Sort imports by distance (furthest to closest):
 
 ```json [.oxfmtrc.json]
 {
@@ -36,48 +34,44 @@ A recommended approach is to sort imports by distance, from the furthest to the 
 
 ## Tailwind CSS class sorting
 
-Oxfmt can sort Tailwind CSS utility classes in JSX and markup.
+Sorts Tailwind utility classes in JSX / TSX.
 
-Configurations are based on [prettier-plugin-tailwindcss](https://github.com/tailwindlabs/prettier-plugin-tailwindcss).
+Based on [prettier-plugin-tailwindcss](https://github.com/tailwindlabs/prettier-plugin-tailwindcss).
 
-This feature is disabled by default.
+Disabled by default.
 
 ### Configuration
 
-```jsonc [.oxfmtrc.json]
+```json [.oxfmtrc.json]
 {
   "experimentalTailwindcss": {
     "config": "./tailwind.config.js",
     "stylesheet": "./path/to/stylesheet.css",
     "attributes": ["class", "className"],
     "functions": ["clsx", "cn"],
-    "preserveDuplicates": false, // default false
-    "preserveWhitespace": false, // default false
-  },
+    "preserveDuplicates": false,
+    "preserveWhitespace": false
+  }
 }
 ```
 
 ### Limitations
 
-Regex patterns for `tailwindAttributes` is not supported:
+Regex patterns for `attributes` are not supported:
 
-```jsonc [.oxfmtrc.json]
+```json [.oxfmtrc.json]
 {
   "experimentalTailwindcss": {
-    "attributes": ["/data-.*/"], // not supported
-  },
+    "attributes": ["/data-.*/"]
+  }
 }
 ```
 
 ## Sort package.json fields
 
-Oxfmt can sort keys in `package.json` using a fixed, opinionated order that improves scanability.
-
-The orders are grouped by logical groups, followed by unknown fields alphabetically, then private fields (starting with `_`) at the end.
+Sorts keys in `package.json` using an opinionated order. Enabled by default.
 
 See [field ordering](https://github.com/oxc-project/sort-package-json?tab=readme-ov-file#field-ordering) for details.
-
-This feature is enabled by default.
 
 ### Configuration
 
@@ -89,7 +83,7 @@ To disable:
 }
 ```
 
-The `scripts` field is not sorted by default, enable `sortScripts`:
+To sort `scripts` alphabetically:
 
 ```json [.oxfmtrc.json]
 {

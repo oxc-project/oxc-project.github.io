@@ -1,8 +1,6 @@
 # Inline ignore comments
 
-For JS/TS files, you can use a `oxfmt-ignore` comment.
-
-This takes effect on the next statement/expression.
+Use `oxfmt-ignore` to skip formatting the next statement:
 
 ```js
 // oxfmt-ignore
@@ -20,15 +18,12 @@ const x = () => {
 ```
 
 ::: warning
-(Not documented, but) Prettier supports trailing ignore comment too.
-However, we don't support it to avoid a performance hit.
-Please update your code in that case.
+Prettier's trailing ignore comments are not supported for performance reasons.
 :::
 
-For non-JS files, the same convention as Prettier works.
-Please see Prettier's [documentation](https://prettier.io/docs/ignore#html).
+For non-JS files, see Prettier's [ignore documentation](https://prettier.io/docs/ignore#html).
 
-For TOML files, ignore comments are not supported.
+TOML files do not support ignore comments.
 
 ## Prettier compatibility
 

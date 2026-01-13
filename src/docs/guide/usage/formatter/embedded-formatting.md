@@ -1,21 +1,12 @@
 # Embedded Formatting
 
-Oxfmt includes support for embedded language formatting - formatting code for languages embedded within JavaScript/TypeScript files (e.g., CSS in template literals, GraphQL, HTML in JSX). This feature leverages the language’s native formatter where possible, and falls back to Prettier for embedded segments when necessary.
+:::warning
+Not fully implemented. See [tracking issue](https://github.com/oxc-project/oxc/issues/15180).
+:::
 
-## Overview
-
-Many modern web applications include multiple languages in a single file - for example:
-
-- CSS inside template literals (e.g., `styled-components`, `css`)
-- HTML within JSX/TSX
-- GraphQL queries embedded in strings
-- Handlebars templates in scripts
+Formats code embedded in JS/TS files (CSS in template literals, GraphQL, HTML in JSX).
 
 ## Configuration
-
-Oxfmt exposes embedded formatting control through the `embeddedLanguageFormatting` option in the Oxfmt configuration schema. See the configuration reference for full details.
-
-### Example
 
 ```json [.oxfmtrc.json]
 {
@@ -23,35 +14,14 @@ Oxfmt exposes embedded formatting control through the `embeddedLanguageFormattin
 }
 ```
 
-#### Possible Values
+### Values
 
-- `"auto"` — (Default) Attempt to format embedded sections with appropriate language formatters.
-- `"off"` — Do not format embedded languages; only format the outer JS/TS code.
-
-## Supported and Unsupported Cases
-
-### Supported
-
-Oxfmt can format many embedded languages when parsing template literals and JSX attributes, including:
-
-- CSS and SCSS in tagged template literals
-- GraphQL queries in strings
-- HTML segments in JSX/TSX
+- `"auto"` — (default) Format embedded sections
+- `"off"` — Skip embedded formatting
 
 ## Example
 
-### Before
-
-```jsx
-const styles = css`
-  .container {
-    background: blue;
-    color: red;
-  }
-`;
-```
-
-### After (expected embedded CSS formatting)
+CSS inside a tagged template literal:
 
 ```jsx
 const styles = css`

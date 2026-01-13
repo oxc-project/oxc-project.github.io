@@ -4,9 +4,9 @@ outline: 2
 
 # Setup editors
 
-Oxfmt editor extensions start the language server with `oxfmt --lsp` from your **project installation**, so `oxfmt` must be installed in the project.
+Editor extensions use `oxfmt --lsp` from your project, so `oxfmt` must be installed locally.
 
-See [Quickstart](./quickstart) to install and run Oxfmt from the command line.
+See [Quickstart](./quickstart) to install Oxfmt.
 
 ## Supported editors
 
@@ -27,11 +27,11 @@ Download the official Oxc VS Code extension from:
 
 **The extension is compatible with other VS Code-based editors**, including Cursor.
 
-### Use (recommended setup for teams)
+### Team setup
 
-1. Recommend the extension in your repository so contributors install the same tooling.
+1. Recommend the extension for contributors:
 
-Create `.vscode/extensions.json`:
+`.vscode/extensions.json`:
 
 ```json [.vscode/extensions.json]
 {
@@ -39,13 +39,20 @@ Create `.vscode/extensions.json`:
 }
 ```
 
-2. Enable format on save.
-
-Add to `.vscode/settings.json`:
+2. Enable format on save in `.vscode/settings.json`:
 
 ```json [.vscode/settings.json]
 {
-  "oxc.fmt.configPath": ".oxfmtrc.jsonc",
+  "oxc.fmt.configPath": ".oxfmtrc.json",
+  "editor.defaultFormatter": "oxc.oxc-vscode",
+  "editor.formatOnSave": true
+}
+```
+
+To set per language:
+
+```json [.vscode/settings.json]
+{
   "[javascript]": {
     "editor.defaultFormatter": "oxc.oxc-vscode",
     "editor.formatOnSave": true
@@ -57,9 +64,9 @@ Add to `.vscode/settings.json`:
 }
 ```
 
-### Usage and configuration reference
+### Reference
 
-- [https://github.com/oxc-project/oxc/tree/main/editors/vscode](https://github.com/oxc-project/oxc/tree/main/editors/vscode)
+- [oxc-project/oxc/editors/vscode](https://github.com/oxc-project/oxc/tree/main/editors/vscode)
 
 ## Zed
 
@@ -67,31 +74,23 @@ Add to `.vscode/settings.json`:
 
 - [Oxc Zed Extension](https://zed.dev/extensions/oxc)
 
-### Use
+### Reference
 
-Configure the extension in Zed’s `settings.json` (workspace or user settings), then open your project as a folder/workspace.
-
-### Usage and configuration reference
-
-- [https://github.com/oxc-project/oxc-zed](https://github.com/oxc-project/oxc-zed)
+- [oxc-project/oxc-zed](https://github.com/oxc-project/oxc-zed)
 
 ---
 
 ## JetBrains
 
-IntelliJ IDEA and WebStorm
+IntelliJ IDEA and WebStorm.
 
 ### Install
 
 - [Oxc in JetBrains Marketplace](https://plugins.jetbrains.com/plugin/27061-oxc)
 
-### Use
+### Reference
 
-Install the plugin, restart the IDE, and open your repository as a project.
-
-### Usage and configuration reference
-
-- [https://github.com/oxc-project/oxc-intellij-plugin](https://github.com/oxc-project/oxc-intellij-plugin)
+- [oxc-project/oxc-intellij-plugin](https://github.com/oxc-project/oxc-intellij-plugin)
 
 ## coc.nvim
 
@@ -101,23 +100,21 @@ Install the plugin, restart the IDE, and open your repository as a project.
 :CocInstall coc-oxc
 ```
 
-### Usage and configuration reference
+### Reference
 
-- [https://github.com/oxc-project/coc-oxc](https://github.com/oxc-project/coc-oxc)
+- [oxc-project/coc-oxc](https://github.com/oxc-project/coc-oxc)
 
 ## Other editors
 
-If your editor supports custom LSP configuration (Neovim LSP, Emacs, Helix, Sublime LSP, etc.), configure it to launch:
+For editors with LSP support (Neovim, Emacs, Helix, Sublime), configure:
 
 ```bash
 oxfmt --lsp
 ```
 
-And respond to standard `textDocument/formatting` requests.
+### Via stdin
 
-### Via temporary files
-
-Some editors and extensions can work with the CLI by configuring them to use temporary files.
+For editors without LSP support:
 
 ```sh
 cat foo/bar.js | oxfmt --stdin-filepath f.js --config ./path/to/config.json
@@ -125,6 +122,4 @@ cat foo/bar.js | oxfmt --stdin-filepath f.js --config ./path/to/config.json
 
 ## Reference
 
-For language server implementation and issues:
-
-- [https://github.com/oxc-project/oxc/tree/main/crates/oxc_language_server](https://github.com/oxc-project/oxc/tree/main/crates/oxc_language_server)
+- [oxc_language_server](https://github.com/oxc-project/oxc/tree/main/crates/oxc_language_server)

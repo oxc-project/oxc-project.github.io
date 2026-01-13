@@ -1,28 +1,25 @@
 # Unsupported features
 
 :::info
-These are unsupported features at present.
-We plan to implement them all. Please follow our [milestone](https://github.com/oxc-project/oxc/milestone/15).
+These features are planned. Follow our [milestone](https://github.com/oxc-project/oxc/milestone/15).
 :::
 
-## Are there any limitations for configuration with Prettier?
+## Configuration limitations
 
-The following are NOT currently supported:
+Not currently supported:
 
 - `prettier` field in `package.json`
 - Config file format other than `.json` and `.jsonc`
 - `overrides` field
 - Nested configs in sub directories
 - Nested `.editorconfig` in sub directories
-- `experimentalTernaries` and `experimentalOperatorPosition` option
+- `experimentalTernaries` and `experimentalOperatorPosition` options
 
-Also, if `printWidth` is not specified, its default value is `100`. This differs from Prettier's default `80`.
+Note: Default `printWidth` is `100` (Prettier uses `80`).
 
-## Are Prettier plugins supported?
+## Prettier plugins
 
-Currently, NOT supported.
-
-However, we have some experimental sorting options:
+Not supported. However, Oxfmt provides built-in alternatives:
 
 - `experimentalSortImports`
   - Based on `eslint-plugin-perfectionist/sort-imports`
@@ -34,13 +31,11 @@ However, we have some experimental sorting options:
   - Based on `prettier-plugin-tailwindcss`
   - Disabled by default
 
-See more details in the [Configuration file reference](./config-file-reference).
+See [Configuration file reference](./config-file-reference) for details.
 
-## Why are embedded template literals not formatted?
+## Embedded template literals
 
-Currently, not fully implemented.
-
-For known differences, please see this discussion.
+Not fully implemented. See:
 
 > oxfmt: embedded formatting full support (aka xxx-in-js) · Issue #15180 · oxc-project/oxc\
 > https://github.com/oxc-project/oxc/issues/15180

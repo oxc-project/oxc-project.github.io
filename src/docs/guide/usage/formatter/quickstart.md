@@ -1,6 +1,6 @@
 # Quickstart
 
-This page shows the recommended setup for Oxfmt and the most common workflows, with copy-paste commands.
+Recommended setup and common workflows.
 
 ## Install
 
@@ -55,11 +55,11 @@ pnpm run fmt:check
 oxfmt [OPTIONS] [PATH]...
 ```
 
-Running `oxfmt` without any options or arguments will format the current working directory, which is the same as `prettier --write .`
+Running `oxfmt` without arguments formats the current directory (equivalent to `prettier --write .`).
 
-CLI options like `--no-semi` are not supported. We recommend setting these via the configuration file instead. This will ensure that the CLI and editor integrations always use the same settings.
+CLI options like `--no-semi` are not supported. Use the configuration file instead to ensure consistent settings across CLI and editor integrations.
 
-Globs in positional paths are not expanded. (You can rely on your shell.) But `!`-prefixed exclude paths do support glob expansion.
+Globs in positional paths are not expanded (rely on your shell). However, `!`-prefixed exclude paths support glob expansion.
 
 For the complete list of options, see the [CLI reference](/docs/guide/usage/formatter/cli.html).
 
@@ -67,19 +67,19 @@ For the complete list of options, see the [CLI reference](/docs/guide/usage/form
 
 ### Pre-commit with lint-staged
 
-```json
+```json [package.json]
 {
   "lint-staged": {
-    "*": "pnpm run fmt --no-error-on-unmatched-pattern"
+    "*": "oxfmt --no-error-on-unmatched-pattern"
   }
 }
 ```
 
-`--no-error-on-unmatched-pattern` prevents the command from exiting with an error when a pattern does not match any files.
+`--no-error-on-unmatched-pattern` prevents errors when no files match the pattern.
 
 ### Create a config file
 
-Initialize the `.oxfmtrc.json` config with default values:
+Initialize `.oxfmtrc.json` with defaults:
 
 ```sh
 oxfmt --init
