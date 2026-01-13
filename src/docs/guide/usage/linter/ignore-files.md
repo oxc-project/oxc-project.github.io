@@ -26,13 +26,10 @@ The recommended approach is to define ignores in `.oxlintrc.json` using `ignoreP
 
 Patterns are resolved relative to the configuration file.
 
-```jsonc [.oxlintrc.json]
+```json [.oxlintrc.json]
 {
   "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "ignorePatterns": ["dist/**", "coverage/**", "vendor/**", "test/snapshots/**"],
-  "rules": {
-    // ...
-  },
+  "ignorePatterns": ["dist/**", "coverage/**", "vendor/**", "test/snapshots/**"]
 }
 ```
 
@@ -68,13 +65,10 @@ Ignore files support negation patterns, which allow a directory to be ignored wh
 
 To ignore everything under `build/` except one file, ignore the contents rather than the directory itself:
 
-```jsonc [.oxlintrc.json]
+```json [.oxlintrc.json]
 {
   "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "ignorePatterns": ["build/**/*", "!build/keep.js"],
-  "rules": {
-    // ...
-  },
+  "ignorePatterns": ["build/**/*", "!build/keep.js"]
 }
 ```
 

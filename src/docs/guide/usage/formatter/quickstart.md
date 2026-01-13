@@ -1,3 +1,8 @@
+---
+title: Quickstart
+description: Install Oxfmt and learn the common workflows.
+---
+
 # Quickstart
 
 Recommended setup and common workflows.

@@ -11,9 +11,25 @@ This page shows the recommended setup for Oxlint and the most common workflows, 
 
 Install `oxlint` as a dev dependency:
 
-```sh
-pnpm add -D oxlint
+::: code-group
+
+```sh [npm]
+$ npm add -D oxlint
 ```
+
+```sh [pnpm]
+$ pnpm add -D oxlint
+```
+
+```sh [yarn]
+$ yarn add -D oxlint
+```
+
+```sh [bun]
+$ bun add -D oxlint
+```
+
+:::
 
 Add lint commands to `package.json`:
 
