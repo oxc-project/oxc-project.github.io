@@ -8,6 +8,7 @@ import {
   localIconLoader,
 } from "vitepress-plugin-group-icons";
 import llmstxt from "vitepress-plugin-llms";
+import BLOG_SIDEBAR from "../sidebar.blog.json" with { type: "json" };
 
 function inlineScript(file: string): HeadConfig {
   return ["script", {}, readFileSync(resolve(__dirname, `./inlined-scripts/${file}`), "utf-8")];
@@ -154,7 +155,7 @@ export const sharedConfig = defineConfig({
         {
           title: "Resources",
           items: [
-            { text: "Blog", link: "/blog/2025-12-01-oxfmt-alpha" },
+            { text: "Blog", link: BLOG_SIDEBAR[0].link },
             { text: "Team", link: "/team" },
           ],
         },

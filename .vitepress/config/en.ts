@@ -1,4 +1,4 @@
-import BLOG_SIDEBAR from "../sidebar.blog.json";
+import BLOG_SIDEBAR from "../sidebar.blog.json" with { type: "json" };
 import { defineLocaleConfig } from "./utils";
 
 const TITLE = "The JavaScript Oxidation Compiler";
