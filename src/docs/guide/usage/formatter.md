@@ -1,6 +1,16 @@
-# Formatter (oxfmt)
+---
+title: Oxfmt
+outline: deep
+badges:
+  - src: https://img.shields.io/npm/dw/oxfmt
+    alt: npm weekly downloads
+---
 
-Oxfmt (`/oh-eks-for-mat/`) is a Prettier-compatible code formatter.
+# Oxfmt
+
+<AppBadgeList />
+
+Oxfmt (`/oʊ-ɛks-fɔːr-mæt/`) is a Prettier-compatible code formatter.
 
 :::info
 Oxfmt is currently in alpha.

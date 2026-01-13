@@ -6,6 +6,18 @@ badges:
     alt: npm weekly downloads
 ---
 
+<script setup>
+import { data } from './rule-count.data.js';
+const ruleCount = data;
+// Subtract 1 and then round down to nearest 5 so we can say "More than 650 rules" when the number is 655, instead of saying "More than 655 rules" when that's incorrect.
+// Inputs and outputs:
+// 655 -> 650
+// 654 -> 650
+// 651 -> 650
+// 656 -> 655
+const ruleCountRounded = Math.floor((data - 1) / 5) * 5;
+</script>
+
 # Oxlint
 
 <AppBadgeList />
@@ -26,7 +38,7 @@ Additional rules can be enabled incrementally as requirements evolve.
 
 ## A large and growing rule set
 
-Oxlint includes [more than 645 rules](/docs/guide/usage/linter/rules.md), with coverage across the plugins most teams already use, including:
+Oxlint includes [more than {{ ruleCountRounded }} rules](/docs/guide/usage/linter/rules.md), with coverage across the plugins most teams already use, including:
 
 - ESLint core rules
 - TypeScript rules
@@ -96,12 +108,15 @@ Next steps:
 
 ## Adoption paths
 
+::: tip
+If you're migrating from ESLint, see [the "Migrate from ESLint" page](/docs/guide/usage/linter/migrate-from-eslint) for detailed guidance.
+:::
+
 Choose the approach that fits your repository:
 
 - **Replace ESLint (recommended for most projects).** Use Oxlint as your primary linter.
   - Use tooling such as [`@oxlint/migrate`](https://github.com/oxc-project/oxlint-migrate) to migrate your existing ESLint config.
 - **Migrate incrementally (recommended for large repos).** Run Oxlint first, then run ESLint with overlapping rules disabled. This keeps CI fast while you migrate.
-  <!-- TODO: - See [Migrate from ESLint](/docs/guide/usage/linter/migrate-from-eslint) for guidance and tooling such as [`oxlint-migrate`](https://github.com/oxc-project/oxlint-migrate). -->
   - Use [`eslint-plugin-oxlint`](https://www.npmjs.com/package/eslint-plugin-oxlint) to disable overlapping ESLint rules while running both.
   - You can - and should - also use [`@oxlint/migrate`](https://github.com/oxc-project/oxlint-migrate) for this approach as well.
 
@@ -115,7 +130,7 @@ Oxlint supports:
 
 ## Features
 
-- [Native plugins](/docs/guide/usage/linter/plugins) for broad rule coverage with 645+ built-in rules, without a large JavaScript dependency tree.
+- [Native plugins](/docs/guide/usage/linter/plugins) for broad rule coverage with {{ ruleCount }} built-in rules, without a large JavaScript dependency tree.
 - [Automatic fixes](/docs/guide/usage/linter/automatic-fixes) to apply safe changes quickly.
 - [Ignore files](/docs/guide/usage/linter/ignore-files) to control which paths are linted.
 - [Inline ignore comments](/docs/guide/usage/linter/ignore-comments) for ignoring rules within a file.
@@ -133,12 +148,12 @@ Oxlint is used in production by popular projects such as:
 - [PostHog/posthog](https://github.com/PostHog/posthog)
 - [actualbudget/actual](https://github.com/actualbudget/actual)
 
-<!-- ## Migration -->
+## Migration
 
-<!-- - [Migrate from ESLint](/docs/guide/usage/linter/migrate-from-eslint) -->
+- [Migrate from ESLint](/docs/guide/usage/linter/migrate-from-eslint)
 <!-- - [Migrate from Biome](/docs/guide/usage/linter/migrate-from-biome) -->
 
-## Reference
+## References
 
 - [Rules reference](/docs/guide/usage/linter/rules)
 - [CLI reference](/docs/guide/usage/linter/cli)

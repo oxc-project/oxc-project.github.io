@@ -79,13 +79,13 @@ export const enConfig = defineLocaleConfig("root", {
                 { text: "JS plugins", link: "/docs/guide/usage/linter/js-plugins" },
               ],
             },
-            // {
-            // text: "Migration",
-            // items: [
-            // { text: "From ESLint", link: "/docs/guide/usage/linter/migrate-from-eslint" },
-            // { text: "From Biome", link: "/docs/guide/usage/linter/migrate-from-biome" },
-            // ],
-            // },
+            {
+              text: "Migration",
+              items: [
+                { text: "From ESLint", link: "/docs/guide/usage/linter/migrate-from-eslint" },
+                // { text: "From Biome", link: "/docs/guide/usage/linter/migrate-from-biome" },
+              ],
+            },
             {
               text: "Reference",
               items: [
@@ -110,28 +110,49 @@ export const enConfig = defineLocaleConfig("root", {
               link: "/docs/guide/usage/formatter",
             },
             {
-              text: "Configuration",
-              link: "/docs/guide/usage/formatter/config",
+              text: "Configure and integrate",
+              items: [
+                {
+                  text: "Configuration",
+                  link: "/docs/guide/usage/formatter/config",
+                },
+                { text: "Editor setup", link: "/docs/guide/usage/formatter/editors" },
+              ],
             },
             {
-              text: "Ignoring",
-              link: "/docs/guide/usage/formatter/ignoring",
+              text: "Features",
+              items: [
+                {
+                  text: "Ignore files",
+                  link: "/docs/guide/usage/formatter/ignore-files",
+                },
+                {
+                  text: "Inline ignore comments",
+                  link: "/docs/guide/usage/formatter/ignore-comments",
+                },
+              ],
             },
             {
-              text: "Integration",
-              link: "/docs/guide/usage/formatter/integration",
+              text: "Migration",
+              items: [
+                {
+                  text: "Migrate from Prettier",
+                  link: "/docs/guide/usage/formatter/migrate-from-prettier",
+                },
+              ],
             },
             {
-              text: "CLI reference",
-              link: "/docs/guide/usage/formatter/cli",
-            },
-            {
-              text: "Configuration file reference",
-              link: "/docs/guide/usage/formatter/config-file-reference",
-            },
-            {
-              text: "Migrating from Prettier",
-              link: "/docs/guide/usage/formatter/migrate-from-prettier",
+              text: "Reference",
+              items: [
+                {
+                  text: "CLI reference",
+                  link: "/docs/guide/usage/formatter/cli",
+                },
+                {
+                  text: "Configuration file reference",
+                  link: "/docs/guide/usage/formatter/config-file-reference",
+                },
+              ],
             },
           ],
         },

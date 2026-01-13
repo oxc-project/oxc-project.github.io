@@ -27,10 +27,10 @@
     "knip": "^5.78.0",
     "lint-staged": "16.2.7",
     "markdown-it-container": "^4.0.0",
-    "oxc-minify": "^0.107.0",
-    "oxfmt": "^0.23.0",
+    "oxc-minify": "^0.108.0",
+    "oxfmt": "^0.24.0",
     "oxlint": "^1.35.0",
-    "oxlint-tsgolint": "^0.10.0",
+    "oxlint-tsgolint": "^0.11.0",
     "typescript": "~5.9.3",
     "vitepress": "2.0.0-alpha.15",
     "vitepress-plugin-group-icons": "^1.6.5",
@@ -43,7 +43,7 @@
   "packageManager": "pnpm@10.27.0",
   "pnpm": {
     "overrides": {
-      "vitepress>vite": "npm:vite@8.0.0-beta.5"
+      "vitepress>vite": "npm:vite@8.0.0-beta.7"
     },
     "onlyBuiltDependencies": [
       "esbuild"
