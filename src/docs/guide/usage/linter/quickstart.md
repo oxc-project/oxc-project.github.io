@@ -17,7 +17,7 @@ pnpm add -D oxlint
 
 Add lint commands to `package.json`:
 
-```json
+```json [package.json]
 {
   "scripts": {
     "lint": "oxlint",
@@ -52,7 +52,7 @@ If `PATH` is omitted, Oxlint lints the current working directory.
 
 ### Pre-commit with [lint-staged](https://github.com/lint-staged/lint-staged)
 
-```json
+```json [package.json]
 {
   "lint-staged": {
     "*.{js,jsx,ts,tsx,mjs,cjs}": "pnpm run lint"

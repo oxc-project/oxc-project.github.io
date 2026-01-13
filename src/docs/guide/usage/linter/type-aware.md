@@ -95,7 +95,7 @@ oxlint --type-aware --type-check
 
 Type-aware rules are configured like other Oxlint rules.
 
-```json
+```json [.oxlintrc.json]
 {
   "plugins": ["typescript"],
   "rules": {
@@ -107,7 +107,7 @@ Type-aware rules are configured like other Oxlint rules.
 
 Rules support the same options as their `typescript-eslint` equivalents.
 
-```json
+```json [.oxlintrc.json]
 {
   "plugins": ["typescript"],
   "rules": {

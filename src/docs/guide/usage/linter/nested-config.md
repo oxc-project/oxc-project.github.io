@@ -52,9 +52,7 @@ In a monorepo, you often want one shared baseline at the root, and small package
 
 You do this by keeping a root `.oxlintrc.json`, then having package configs extend it.
 
-`my-project/.oxlintrc.json`
-
-```json
+```json [my-project/.oxlintrc.json]
 {
   "rules": {
     "no-debugger": "error"
@@ -62,9 +60,7 @@ You do this by keeping a root `.oxlintrc.json`, then having package configs exte
 }
 ```
 
-`my-project/package1/.oxlintrc.json`
-
-```json
+```json [my-project/package1/.oxlintrc.json]
 {
   "extends": ["../.oxlintrc.json"],
   "rules": {
@@ -83,23 +79,21 @@ Extended files can have any name. They do not need to be named `.oxlintrc.json`,
 
 Example:
 
-```jsonc
-// oxlint-typescript.json
+```json [oxlint-typescript.json]
 {
   "plugins": ["typescript"],
   "rules": {
-    "typescript/no-explicit-any": "error",
-  },
+    "typescript/no-explicit-any": "error"
+  }
 }
 ```
 
-```jsonc
-// .oxlintrc.json
+```json [.oxlintrc.json]
 {
   "extends": ["oxlint-typescript.json"],
   "rules": {
-    "no-unused-vars": "warn",
-  },
+    "no-unused-vars": "warn"
+  }
 }
 ```
 

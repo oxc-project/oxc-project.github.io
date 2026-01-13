@@ -33,7 +33,7 @@ Download the official Oxc VS Code extension from:
 
 Create `.vscode/extensions.json`:
 
-```json
+```json [.vscode/extensions.json]
 {
   "recommendations": ["oxc.oxc-vscode"]
 }
@@ -43,11 +43,11 @@ Create `.vscode/extensions.json`:
 
 Add to `.vscode/settings.json`:
 
-```jsonc
+```json [.vscode/settings.json]
 {
   "editor.codeActionsOnSave": {
-    "source.fixAll.oxc": "always",
-  },
+    "source.fixAll.oxc": "always"
+  }
 }
 ```
 
@@ -55,9 +55,9 @@ Add to `.vscode/settings.json`:
 
 If you'd like to use type-aware rules and show type-related lint violations, ensure that `typeAware` is set to `true` in your VS Code settings (`.vscode/settings.json`):
 
-```jsonc
+```json [.vscode/settings.json]
 {
-  "oxc.typeAware": true,
+  "oxc.typeAware": true
 }
 ```
 

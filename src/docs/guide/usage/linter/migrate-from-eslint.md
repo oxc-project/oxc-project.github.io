@@ -116,7 +116,7 @@ oxlint && eslint
 You can use [`eslint-plugin-oxlint`](https://www.npmjs.com/package/eslint-plugin-oxlint) to disable ESLint rules that are already handled by Oxlint:
 
 ```bash
-npm install --save-dev oxlint-eslint-plugin
+npm install --save-dev eslint-plugin-oxlint
 ```
 
 This reduces duplicate diagnostics, can help cut down your linting time considerably, and allows ESLint to focus only on rules that Oxlint does not yet support.

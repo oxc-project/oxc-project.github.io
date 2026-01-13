@@ -23,7 +23,7 @@ It is **strongly recommended** to use a config file to enable plugins, as it mak
 
 You can also enable plugins in `.oxlintrc.json` using the `plugins` field:
 
-```json
+```json [.oxlintrc.json]
 {
   "plugins": ["import"]
 }
@@ -59,7 +59,7 @@ Tip: run `oxlint --help` to see the full list of plugin flags.
 
 To disable all default plugins in a config file, set `plugins` to an empty array:
 
-```json
+```json [.oxlintrc.json]
 {
   "plugins": []
 }
