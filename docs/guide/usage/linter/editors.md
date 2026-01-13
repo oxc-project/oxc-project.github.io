@@ -119,6 +119,8 @@ If your editor supports custom LSP configuration (Neovim LSP, Emacs, Helix, Subl
 oxlint --lsp
 ```
 
-### Reference (language server implementation and issues)
+## Reference
+
+For language server implementation and issues:
 
 * <https://github.com/oxc-project/oxc/tree/main/crates/oxc_language_server>

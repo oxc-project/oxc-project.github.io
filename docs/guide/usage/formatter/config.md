@@ -1,44 +1,119 @@
 ---
 url: /docs/guide/usage/formatter/config.md
+description: Configure Oxfmt using a .oxfmtrc.json file.
 ---
+
 # Configuration
 
-## `.oxfmtrc.json(c)`
+Oxfmt works out of the box, but most teams commit a configuration file to keep formatting consistent across local runs, editors, and CI.
 
-We support `.json` or `.jsonc` config file.
+This page focuses on project configuration: formatting options, ignore patterns, and experimental features.
 
-Almost all formatting options are compatible with Prettier's [options](https://prettier.io/docs/options).
+## Create a config file
 
-We also recommend adding the `$schema` to the config file:
+To generate a starter config in the current directory:
 
-```json
+```sh
+oxfmt --init
+```
+
+Oxfmt automatically looks for `.oxfmtrc.json` or `.oxfmtrc.jsonc` starting from the current directory and walking up the tree. You can also pass a config explicitly:
+
+```sh
+oxfmt -c path/to/yourconfig.json
+```
+
+A minimal configuration looks like this:
+
+```json [.oxfmtrc.json]
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "printWidth": 80
+}
+```
+
+## Configuration file format
+
+A configuration file is a JSON object. The most common top-level fields are:
+
+* `printWidth`: Line width limit (default: 100)
+* `tabWidth`: Spaces per indentation level (default: 2)
+* `useTabs`: Use tabs instead of spaces (default: false)
+* `semi`: Add semicolons (default: true)
+* `singleQuote`: Use single quotes (default: false)
+* `trailingComma`: Trailing commas in multi-line structures (default: "all")
+* `ignorePatterns`: Glob patterns to exclude from formatting
+* `experimentalSortImports`: Configure import sorting (disabled by default)
+* `experimentalSortPackageJson`: Configure package.json sorting (enabled by default)
+* `experimentalTailwindcss`: Configure Tailwind class sorting (disabled by default)
+
+For a complete list of fields, see the [Config file reference](./config-file-reference).
+
+Most options are compatible with Prettier. See the [Prettier documentation](https://prettier.io/docs/options) for shared options.
+
+## JSON schema
+
+Add a `$schema` field for editor validation and autocomplete:
+
+```json [.oxfmtrc.json]
 {
   "$schema": "./node_modules/oxfmt/configuration_schema.json"
 }
 ```
 
-For full reference, see also [Configuration file reference](./config-file-reference).
-
-By default, `oxfmt` automatically tries to find the nearest `.oxfmtrc.json` or `.oxfmtrc.jsonc` file from the current working directory. If not found, the default configuration options are used.
-
-You can also specify your config file with the `-c yourconfig.jsonc` flag.
-
 ## `.editorconfig`
 
-`.editorconfig` file is also supported by Oxfmt.
+Oxfmt reads these `.editorconfig` properties:
 
-And these fields will override default Oxfmt options.
+* `end_of_line` → `endOfLine`
+* `indent_style` → `useTabs`
+* `indent_size` → `tabWidth`
+* `max_line_length` → `printWidth`
+* `insert_final_newline` → `insertFinalNewline`
 
-* `end_of_line`: `endOfLine`
-* `indent_style`: `useTabs`
-* `indent_size`: `tabWidth`
-* `max_line_length`: `printWidth`
-* `insert_final_newline`: `insertFinalNewline`
+Glob-based overrides are supported.
 
-If both `.editorconfig` and `.oxfmtrc.json` has the same field, `.oxfmtrc` will win.
+Oxfmt uses only the nearest `.editorconfig` from the current directory:
 
-For those properties, glob path overrides also work.
+* `root = true` is not respected
+* Nested `.editorconfig` files are not merged
 
-By default, `oxfmt` automatically tries to find the nearest `.editorconfig` file from the current working directory.
+## Precedence
 
-Unlike Prettier, Oxfmt does not respect `root = true` and does not merge nested `.editorconfig` files.
+Options are applied in order (lowest to highest priority):
+
+1. Defaults
+2. `.editorconfig`
+3. `.oxfmtrc.json` / `.oxfmtrc.jsonc`
+
+## Oxfmt-specific options
+
+### `insertFinalNewline`
+
+Controls whether a final newline is added to formatted files. Defaults to `true`.
+
+This is a [frequently requested Prettier feature](https://github.com/prettier/prettier/issues/6360), as some environments (e.g., Salesforce) strip trailing newlines.
+
+### `printWidth`
+
+Oxfmt defaults to `printWidth: 100` (Prettier uses 80). Reasons:
+
+* TypeScript code is longer due to type annotations
+* Import statements often have many specifiers
+* Modern screens are wider
+* Fewer line breaks mean fewer LLM tokens
+
+To match Prettier's default:
+
+```json [.oxfmtrc.json]
+{
+  "printWidth": 80
+}
+```
+
+## Next steps
+
+* [Ignore files](./ignore-files): Ignore files and patterns, `.gitignore` and `.prettierignore` workflows.
+* [Inline ignore comments](./ignore-comments): Inline suppressions for specific code.
+* [Config file reference](./config-file-reference): Full schema and field documentation.
+* [CLI reference](./cli): Complete list of flags.
