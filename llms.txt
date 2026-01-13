@@ -13,10 +13,10 @@
 - [Automatic fixes](/docs/guide/usage/linter/automatic-fixes.md): Apply safe, suggested, and dangerous fixes with Oxlint.
 - [Built-in Plugins](/docs/guide/usage/linter/plugins.md): Enable built in plugin rule sets and extend Oxlint with ESLint compatible JavaScript plugins.
 - [Built-in Plugins](/docs/guide/usage/transformer/plugins.md)
-- [Command-line Interface](/docs/guide/usage/formatter/cli.md)
 - [Command-line Interface](/docs/guide/usage/linter/cli.md)
-- [Configuration](/docs/guide/usage/formatter/config.md): Configure Oxfmt using a .oxfmtrc.json file.
+- [Command-line Interface](/docs/guide/usage/formatter/cli.md)
 - [Configuration](/docs/guide/usage/linter/config.md): Configure Oxlint using a .oxlintrc.json file.
+- [Configuration](/docs/guide/usage/formatter/config.md): Configure Oxfmt using a .oxfmtrc.json file.
 - [Configuration options for the Oxfmt.](/docs/guide/usage/formatter/generated-config.md)
 - [Configuration options for the Oxfmt.](/docs/guide/usage/formatter/config-file-reference.md)
 - [Dead Code Elimination](/docs/guide/usage/minifier/dead-code-elimination.md)
@@ -192,8 +192,8 @@
 - [eslint/yoda&#x20;](/docs/guide/usage/linter/rules/eslint/yoda.md)
 - [FAQ](/docs/guide/usage/minifier/faq.md)
 - [Formatter](/docs/contribute/formatter.md)
-- [Getting Started](/docs/contribute/development.md)
 - [Getting Started](/docs/guide/introduction.md)
+- [Getting Started](/docs/contribute/development.md)
 - [Global Variable Replacement](/docs/guide/usage/transformer/global-variable-replacement.md)
 - [Grammar](/docs/learn/ecmascript/grammar.md)
 - [Ignore files](/docs/guide/usage/formatter/ignore-files.md)
@@ -403,11 +403,11 @@
 - [oxc/uninvoked-array-callback&#x20;](/docs/guide/usage/linter/rules/oxc/uninvoked-array-callback.md)
 - [Oxfmt](/docs/guide/usage/formatter.md)
 - [Oxlint](/docs/guide/usage/linter.md)
-- [Oxlint Configuration File](/docs/guide/usage/linter/config-file-reference.md)
 - [Oxlint Configuration File](/docs/guide/usage/linter/generated-config.md)
+- [Oxlint Configuration File](/docs/guide/usage/linter/config-file-reference.md)
 - [Parser](/docs/contribute/parser.md)
-- [Parser](/docs/learn/architecture/parser.md)
 - [Parser](/docs/guide/usage/parser.md)
+- [Parser](/docs/learn/architecture/parser.md)
 - [Parser](/docs/learn/parser_in_rust/parser.md)
 - [Performance](/docs/learn/performance.md)
 - [Profiling](/docs/contribute/profiling.md)
@@ -428,8 +428,8 @@
 - [promise/prefer-catch&#x20;](/docs/guide/usage/linter/rules/promise/prefer-catch.md)
 - [promise/spec-only&#x20;](/docs/guide/usage/linter/rules/promise/spec-only.md)
 - [promise/valid-params&#x20;](/docs/guide/usage/linter/rules/promise/valid-params.md)
-- [Quickstart](/docs/guide/usage/formatter/quickstart.md): Install Oxfmt and learn the common workflows.
 - [Quickstart](/docs/guide/usage/linter/quickstart.md): Install Oxlint and learn the common workflows.
+- [Quickstart](/docs/guide/usage/formatter/quickstart.md): Install Oxfmt and learn the common workflows.
 - [react/button-has-type&#x20;](/docs/guide/usage/linter/rules/react/button-has-type.md)
 - [react/checked-requires-onchange-or-readonly&#x20;](/docs/guide/usage/linter/rules/react/checked-requires-onchange-or-readonly.md)
 - [react/exhaustive-deps&#x20;](/docs/guide/usage/linter/rules/react/exhaustive-deps.md)
@@ -492,10 +492,10 @@
 - [Rules and Policy](/docs/contribute/rules.md)
 - [Security Policy](/docs/contribute/security.md)
 - [Semantic Analysis](/docs/learn/parser_in_rust/semantic_analysis.md)
-- [Setup CI and other integrations](/docs/guide/usage/linter/ci.md): Run Oxlint in CI or as a git hook.
 - [Setup CI and other integrations](/docs/guide/usage/formatter/ci.md): Run Oxfmt in CI or as a git hook.
-- [Setup editors](/docs/guide/usage/formatter/editors.md): Configure Oxfmt in VS Code, Zed, JetBrains, and other editors.
+- [Setup CI and other integrations](/docs/guide/usage/linter/ci.md): Run Oxlint in CI or as a git hook.
 - [Setup editors](/docs/guide/usage/linter/editors.md): Configure Oxlint in VS Code, Zed, JetBrains, and other editors.
+- [Setup editors](/docs/guide/usage/formatter/editors.md): Configure Oxfmt in VS Code, Zed, JetBrains, and other editors.
 - [Sorting](/docs/guide/usage/formatter/sorting.md)
 - [Specification](/docs/learn/ecmascript/spec.md)
 - [Syntax Lowering](/docs/guide/usage/transformer/lowering.md)
@@ -718,8 +718,8 @@
 - [unicorn/text-encoding-identifier-case&#x20;](/docs/guide/usage/linter/rules/unicorn/text-encoding-identifier-case.md)
 - [unicorn/throw-new-error&#x20;](/docs/guide/usage/linter/rules/unicorn/throw-new-error.md)
 - [Unsupported features](/docs/guide/usage/formatter/unsupported-features.md)
-- [Untitled](/docs/guide/usage/linter/generated-cli.md)
 - [Untitled](/docs/guide/usage/formatter/generated-cli.md)
+- [Untitled](/docs/guide/usage/linter/generated-cli.md)
 - [Versioning policy](/docs/guide/usage/linter/versioning.md)
 - [vitest/consistent-each-for&#x20;](/docs/guide/usage/linter/rules/vitest/consistent-each-for.md)
 - [vitest/consistent-test-filename&#x20;](/docs/guide/usage/linter/rules/vitest/consistent-test-filename.md)
