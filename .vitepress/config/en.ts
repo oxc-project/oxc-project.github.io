@@ -13,24 +13,24 @@ export const enConfig = defineLocaleConfig("root", {
   themeConfig: {
     nav: [
       { text: "Guide", link: "/docs/guide/introduction" },
-      { text: "Learn", link: "/docs/learn/parser_in_rust/intro" },
       { text: "Contribute", link: "/docs/contribute/introduction" },
       {
         text: "Playground",
         target: "_blank",
         link: "https://playground.oxc.rs",
       },
+      { text: "Sponsor", link: "/sponsor" },
       {
         text: "Resources",
         items: [
           { text: "Release Blog", link: BLOG_SIDEBAR[0].link },
           { text: "Endorsements", link: "/endorsements" },
+          { text: "Learn", link: "/docs/learn/parser_in_rust/intro" },
           { text: "Team", link: "/team" },
           { text: "Releases", link: "https://github.com/oxc-project/oxc/releases" },
           { text: "Website GitHub", link: "https://github.com/oxc-project/oxc-project.github.io" },
         ],
       },
-      { text: "Sponsor", link: "/sponsor" },
     ],
     sidebar: {
       "/docs/guide/": [
