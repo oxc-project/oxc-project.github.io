@@ -96,19 +96,21 @@ const filteredAndSorted = computed(() => {
 
 <template>
   <div class="vp-doc">
-    <div style="margin-top: 1rem; margin-bottom: 1rem">
-      <strong>Total rules: {{ filteredAndSorted.length }}</strong>
-    </div>
+    <ul>
+      <li>Total number of rules: {{ rules.length }}</li>
+      <li>Rules turned on by default: {{ rules.filter((r) => r.default).length }}</li>
+      <li>Rules with fixes available: {{ rules.filter((r) => hasFix(r.fix)).length }}</li>
+    </ul>
 
     <div class="rules-legend" style="margin-bottom: 1rem">
       <strong>Legend for 'Fixable?' column:</strong>
-      <div>
-        <p>🛠️: auto-fix available</p>
-        <p>💡: suggestion available</p>
-        <p>⚠️🛠️: dangerous auto-fix</p>
-        <p>⚠️💡: dangerous suggestion</p>
-        <p>🚧: possible but not implemented</p>
-      </div>
+      <ul>
+        <li>🛠️: an auto-fix is available for this rule</li>
+        <li>💡: a suggestion is available for this rule</li>
+        <li>⚠️🛠️: a dangerous auto-fix is available for this rule</li>
+        <li>⚠️💡: a dangerous suggestion is available for this rule</li>
+        <li>🚧: an auto-fix or suggestion is possible, but currently not implemented</li>
+      </ul>
     </div>
 
     <div
