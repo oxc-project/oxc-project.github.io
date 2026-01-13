@@ -2,7 +2,11 @@ import { readFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { defineConfig, HeadConfig } from "vitepress";
-import { groupIconMdPlugin, groupIconVitePlugin } from "vitepress-plugin-group-icons";
+import {
+  groupIconMdPlugin,
+  groupIconVitePlugin,
+  localIconLoader,
+} from "vitepress-plugin-group-icons";
 import llmstxt from "vitepress-plugin-llms";
 
 function inlineScript(file: string): HeadConfig {
@@ -14,7 +18,8 @@ const head: HeadConfig[] = [
     "link",
     {
       rel: "icon",
-      href: "https://cdn.jsdelivr.net/gh/oxc-project/oxc-assets/square.ico",
+      type: "image/svg+xml",
+      href: "/logo-without-border.svg",
     },
   ],
   // Open Graph
@@ -23,7 +28,7 @@ const head: HeadConfig[] = [
     "meta",
     {
       property: "og:image",
-      content: "https://cdn.jsdelivr.net/gh/oxc-project/oxc-assets/preview-universal.png",
+      content: "https://oxc.rs/og.jpg",
     },
   ],
   // Twitter (X)
@@ -33,7 +38,7 @@ const head: HeadConfig[] = [
     "meta",
     {
       name: "twitter:image",
-      content: "https://cdn.jsdelivr.net/gh/oxc-project/oxc-assets/preview-universal.png",
+      content: "https://oxc.rs/og.jpg",
     },
   ],
   // banner
@@ -109,6 +114,14 @@ export const sharedConfig = defineConfig({
     pageData.frontmatter.head.push(["meta", { property: "og:url", content: url }]);
   },
   themeConfig: {
+    variant: "oxc",
+
+    banner: {
+      id: "type-aware-alpha",
+      text: "Announcing Type-Aware Linting Alpha",
+      url: "https://oxc.rs/blog/2025-12-08-type-aware-alpha",
+    },
+
     siteTitle: "Oxc",
     logo: "https://cdn.jsdelivr.net/gh/oxc-project/oxc-assets/round.svg",
     search: {
@@ -126,8 +139,40 @@ export const sharedConfig = defineConfig({
       },
     },
     footer: {
-      message: `Released under the MIT License.`,
-      copyright: "Copyright © 2023-present VoidZero Inc.",
+      copyright: `© ${new Date().getFullYear()} VoidZero Inc. and Oxc contributors.`,
+      nav: [
+        {
+          title: "Oxc",
+          items: [
+            { text: "Guide", link: "/docs/guide/introduction" },
+            { text: "Learn", link: "/docs/learn/parser_in_rust/intro" },
+            { text: "Contribute", link: "/docs/contribute/introduction" },
+            { text: "Playground", link: "https://playground.oxc.rs" },
+            { text: "Sponsor", link: "/sponsor" },
+          ],
+        },
+        {
+          title: "Resources",
+          items: [
+            { text: "Blog", link: "/blog/2025-12-01-oxfmt-alpha" },
+            { text: "Team", link: "/team" },
+          ],
+        },
+        /*{
+          title: "Legal",
+          items: [
+            { text: "Terms & Conditions", link: "https://voidzero.dev/terms" },
+            { text: "Privacy Policy", link: "https://voidzero.dev/privacy" },
+            { text: "Cookie Policy", link: "https://voidzero.dev/cookies" },
+          ],
+        },*/
+      ],
+      social: [
+        { icon: "github", link: "https://github.com/oxc-project/oxc" },
+        { icon: "discord", link: "https://discord.gg/9uXCAwqQZW" },
+        { icon: "x", link: "https://x.com/OxcProject" },
+        { icon: "bluesky", link: "https://bsky.app/profile/boshen.github.io" },
+      ],
     },
   },
   markdown: {
@@ -136,10 +181,14 @@ export const sharedConfig = defineConfig({
     },
   },
   vite: {
+    publicDir: resolve(dirname(fileURLToPath(import.meta.url)), "../../public"),
+    optimizeDeps: {
+      exclude: ["@docsearch/css"],
+    },
     plugins: [
       groupIconVitePlugin({
         customIcon: {
-          ".oxlintrc": "https://cdn.jsdelivr.net/gh/oxc-project/oxc-assets/round.svg",
+          ".oxlintrc": localIconLoader(import.meta.url, "../../public/logo-without-border.svg"),
         },
       }),
       llmstxt(),
@@ -147,19 +196,8 @@ export const sharedConfig = defineConfig({
     resolve: {
       alias: [
         {
-          find: "@components",
-          replacement: resolve(dirname(fileURLToPath(import.meta.url)), "../theme/components"),
-        },
-        {
           find: "@constants",
           replacement: resolve(dirname(fileURLToPath(import.meta.url)), "../theme/constants"),
-        },
-        {
-          find: /^.*\/VPHero\.vue$/,
-          replacement: resolve(
-            dirname(fileURLToPath(import.meta.url)),
-            "../theme/components/Hero.vue",
-          ),
         },
       ],
     },

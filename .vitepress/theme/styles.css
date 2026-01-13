@@ -1,3 +1,21 @@
+@import "@voidzero-dev/vitepress-theme/src/styles/index.css";
+
+@source "./**/*.vue";
+
+:root[data-variant="oxc"] {
+  --color-brand: #0d6a73;
+}
+
+:root.dark:not([data-theme])[data-variant="oxc"],
+:root[data-theme="dark"][data-variant="oxc"] {
+  --color-brand: var(--color-aqua);
+}
+
+:root[data-theme="light"][data-variant="oxc"] {
+  --color-brand: #0d6a73;
+}
+
+/*  Override unusual GitHub avatars */
 .VPTeamMembersItem {
   --member-item-avatar-size-small: 64px;
   --member-item-avatar-size-medium: 96px;

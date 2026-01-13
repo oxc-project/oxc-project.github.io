@@ -1,24 +1,12 @@
 import "virtual:group-icons.css";
 import type { Theme } from "vitepress";
-import DefaultTheme from "vitepress/theme";
-import { defineAsyncComponent, h } from "vue";
-import Alert from "./components/Alert.vue";
-import AppBadgeList from "./components/AppBadgeList.vue";
-import AppBlogList from "./components/AppBlogList.vue";
+import OxcTheme from "@voidzero-dev/vitepress-theme/src/oxc";
 import AppBlogPostHeader from "./components/AppBlogPostHeader.vue";
-import "./overrides.css";
+import "./styles.css";
 
 export default {
-  extends: DefaultTheme,
+  extends: OxcTheme as unknown as any,
   async enhanceApp({ app }) {
-    app.component("AppBadgeList", AppBadgeList);
-    app.component("AppBlogList", AppBlogList);
     app.component("AppBlogPostHeader", AppBlogPostHeader);
-    app.component("Alert", Alert);
-  },
-  Layout() {
-    return h(DefaultTheme.Layout, null, {
-      "layout-top": () => h(defineAsyncComponent(() => import("./components/Banner.vue"))),
-    });
   },
 } satisfies Theme;
