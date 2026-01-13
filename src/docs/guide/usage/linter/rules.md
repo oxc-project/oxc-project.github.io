@@ -36,4 +36,6 @@ The progress of all rule implementations is tracked [here](https://github.com/ox
 
 :::
 
+---
+
 <RulesTable />
