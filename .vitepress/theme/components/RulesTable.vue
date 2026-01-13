@@ -26,7 +26,7 @@ const scopes = computed(() => {
 
 // Helpers
 const hasFix = (fix: string) => {
-  if (!fix || fix === "none" || fix === "pending") {
+  if (fix === "none" || fix === "pending") {
     return false;
   }
   return true;
@@ -132,7 +132,7 @@ const filteredAndSorted = computed(() => {
       </div>
 
       <div>
-        <label for="scopeFilter"><strong>Plugin (scope)</strong></label>
+        <label for="scopeFilter"><strong>Source/Plugin</strong></label>
         <select id="scopeFilter" v-model="scopeFilter">
           <option value="all">All</option>
           <option v-for="s in scopes" :key="s" :value="s">{{ s }}</option>
