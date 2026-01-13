@@ -115,114 +115,95 @@ const filteredAndSorted = computed(() => {
 </script>
 
 <template>
-  <div class="vp-doc">
-    <ul>
-      <li>Total number of rules: {{ rules.length }}</li>
-      <li>Rules turned on by default: {{ rules.filter((r) => r.default).length }}</li>
-      <li>Rules with fixes available: {{ rules.filter((r) => hasFix(r.fix)).length }}</li>
-    </ul>
-
-    <div class="rules-legend" style="margin-bottom: 1rem">
-      <strong>Legend for 'Fixable?' column:</strong>
-      <ul>
-        <li>🛠️: an auto-fix is available for this rule</li>
-        <li>💡: a suggestion is available for this rule</li>
-        <li>⚠️🛠️: a dangerous auto-fix is available for this rule</li>
-        <li>⚠️💡: a dangerous suggestion is available for this rule</li>
-        <li>🚧: an auto-fix or suggestion is possible, but currently not implemented</li>
-      </ul>
+  <div
+    class="rules-controls"
+    style="
+      margin: 1rem 0;
+      display: grid;
+      gap: 0.75rem;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      align-items: end;
+    "
+  >
+    <div>
+      <label for="categoryFilter"><strong>Category</strong></label>
+      <select id="categoryFilter" v-model="categoryFilter">
+        <option value="all">All</option>
+        <option v-for="c in categories" :key="c" :value="c">{{ c }}</option>
+      </select>
     </div>
 
-    <div
-      class="rules-controls"
-      style="
-        margin: 1rem 0;
-        display: grid;
-        gap: 0.75rem;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        align-items: end;
-      "
-    >
-      <div>
-        <label for="categoryFilter"><strong>Category</strong></label>
-        <select id="categoryFilter" v-model="categoryFilter">
-          <option value="all">All</option>
-          <option v-for="c in categories" :key="c" :value="c">{{ c }}</option>
-        </select>
-      </div>
-
-      <div>
-        <label for="scopeFilter"><strong>Source/Plugin</strong></label>
-        <select id="scopeFilter" v-model="scopeFilter">
-          <option value="all">All</option>
-          <option v-for="s in scopes" :key="s" :value="s">{{ s }}</option>
-        </select>
-      </div>
-
-      <div>
-        <label style="display: flex; gap: 0.5rem; align-items: center">
-          <input type="checkbox" v-model="typeAwareOnly" />
-          Type-aware only
-        </label>
-        <label style="display: flex; gap: 0.5rem; align-items: center; margin-top: 0.25rem">
-          <input type="checkbox" v-model="hasFixOnly" />
-          Has fix available
-        </label>
-      </div>
+    <div>
+      <label for="scopeFilter"><strong>Source/Plugin</strong></label>
+      <select id="scopeFilter" v-model="scopeFilter">
+        <option value="all">All</option>
+        <option v-for="s in scopes" :key="s" :value="s">{{ s }}</option>
+      </select>
     </div>
 
-    <table>
-      <thead>
-        <tr>
-          <th @click="toggleSort('name')" class="sortable">
-            Rule name
-            <span v-if="sortColumn === 'name'" class="sort-indicator">
-              {{ sortDirection === "asc" ? "▲" : "▼" }}
-            </span>
-          </th>
-          <th @click="toggleSort('source')" class="sortable">
-            Source
-            <span v-if="sortColumn === 'source'" class="sort-indicator">
-              {{ sortDirection === "asc" ? "▲" : "▼" }}
-            </span>
-          </th>
-          <th @click="toggleSort('category')" class="sortable">
-            Category
-            <span v-if="sortColumn === 'category'" class="sort-indicator">
-              {{ sortDirection === "asc" ? "▲" : "▼" }}
-            </span>
-          </th>
-          <th @click="toggleSort('default')" class="sortable">
-            Default
-            <span v-if="sortColumn === 'default'" class="sort-indicator">
-              {{ sortDirection === "asc" ? "▲" : "▼" }}
-            </span>
-          </th>
-          <th @click="toggleSort('fix')" class="sortable">
-            Fixable?
-            <span v-if="sortColumn === 'fix'" class="sort-indicator">
-              {{ sortDirection === "asc" ? "▲" : "▼" }}
-            </span>
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="r in filteredAndSorted" :key="`${r.scope}:${r.value}`">
-          <td>
-            <a :href="r.docs_url">{{ r.value }}</a>
-          </td>
-          <td>{{ r.scope }}</td>
-          <td>{{ r.category }}</td>
-          <td v-if="r.default">✅</td>
-          <td v-else></td>
-          <td>{{ fixIcons(r.fix) }}</td>
-        </tr>
-        <tr v-if="filteredAndSorted.length === 0">
-          <td colspan="5" style="opacity: 0.7">No rules match current filters.</td>
-        </tr>
-      </tbody>
-    </table>
+    <div>
+      <label style="display: flex; gap: 0.5rem; align-items: center">
+        <input type="checkbox" v-model="typeAwareOnly" />
+        Type-aware only
+      </label>
+      <label style="display: flex; gap: 0.5rem; align-items: center; margin-top: 0.25rem">
+        <input type="checkbox" v-model="hasFixOnly" />
+        Has fix available
+      </label>
+    </div>
   </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th @click="toggleSort('name')" class="sortable">
+          Rule name
+          <span v-if="sortColumn === 'name'" class="sort-indicator">
+            {{ sortDirection === "asc" ? "▲" : "▼" }}
+          </span>
+        </th>
+        <th @click="toggleSort('source')" class="sortable">
+          Source
+          <span v-if="sortColumn === 'source'" class="sort-indicator">
+            {{ sortDirection === "asc" ? "▲" : "▼" }}
+          </span>
+        </th>
+        <th @click="toggleSort('category')" class="sortable">
+          Category
+          <span v-if="sortColumn === 'category'" class="sort-indicator">
+            {{ sortDirection === "asc" ? "▲" : "▼" }}
+          </span>
+        </th>
+        <th @click="toggleSort('default')" class="sortable">
+          Default
+          <span v-if="sortColumn === 'default'" class="sort-indicator">
+            {{ sortDirection === "asc" ? "▲" : "▼" }}
+          </span>
+        </th>
+        <th @click="toggleSort('fix')" class="sortable">
+          Fixable?
+          <span v-if="sortColumn === 'fix'" class="sort-indicator">
+            {{ sortDirection === "asc" ? "▲" : "▼" }}
+          </span>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr v-for="r in filteredAndSorted" :key="`${r.scope}:${r.value}`">
+        <td>
+          <a :href="r.docs_url">{{ r.value }}</a>
+        </td>
+        <td>{{ r.scope }}</td>
+        <td>{{ r.category }}</td>
+        <td v-if="r.default">✅</td>
+        <td v-else></td>
+        <td>{{ fixIcons(r.fix) }}</td>
+      </tr>
+      <tr v-if="filteredAndSorted.length === 0">
+        <td colspan="5" style="opacity: 0.7">No rules match current filters.</td>
+      </tr>
+    </tbody>
+  </table>
 </template>
 
 <style scoped>
