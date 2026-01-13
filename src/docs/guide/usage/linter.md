@@ -1,241 +1,146 @@
 ---
-title: Linter
+title: Oxlint
 outline: deep
 badges:
   - src: https://img.shields.io/npm/dw/oxlint
     alt: npm weekly downloads
 ---
 
-# Linter (oxlint)
+# Oxlint
 
 <AppBadgeList />
 
-Oxlint (`/oh-eks-lint/`) is designed to catch erroneous or useless code without requiring any configurations by default.
+Oxlint (`/oʊ-ɛks-lɪnt/`) is a high-performance linter for JavaScript and TypeScript built on the Oxc compiler stack.
 
-:::info
-At this stage, Oxlint can be used to fully replace ESLint in small to medium projects.
+## Built for scale
 
-For larger projects, our current advice is to turn off ESLint rules via
-[eslint-plugin-oxlint](https://www.npmjs.com/package/eslint-plugin-oxlint),
-and run Oxlint before ESLint in your local or CI setup for a quicker feedback loop.
+Oxlint is built for large repositories and CI environments. Its architecture removes structural bottlenecks that limit performance in ESLint.
 
-Oxlint now supports JS plugins with an ESLint-compatible API. JS plugins support is currently experimental but,
-once stabilized, users will be able to migrate fully to Oxlint, running any ESLint rules/plugins that Oxlint
-doesn't support natively as JS plugins.
-:::
+Our [benchmarks](https://github.com/oxc-project/bench-linter) show Oxlint is 50 to 100 times faster than ESLint.
 
-## Features
+## Correctness-focused defaults
 
-- 50 - 100 times faster than ESLint, and scales with the number of CPU cores
-  ([benchmark](https://github.com/oxc-project/bench-javascript-linter)).
-- Over 600 rules with a growing list from `eslint`, `typescript`, `eslint-plugin-react`,
-  `eslint-plugin-jest`, `eslint-plugin-unicorn`, `eslint-plugin-jsx-a11y` and
-  [many more](https://github.com/oxc-project/oxc/issues/481).
-- Supports
-  - [type-aware rules](./linter/type-aware) (alpha)
-  - [`.oxlintrc.json` configuration file](./linter/config)
-  - [Nested configuration file](./linter/nested-config)
-  - [Comment disabling](./linter/config.html#configuring-rules-via-inline-configuration-comments)
-  - [Automatic Fixes](./linter/automatic-fixes)
-  - [JS plugins](./linter/js-plugins) (experimental)
+Oxlint is useful out of the box. By default, it prioritizes high-signal correctness checks. These checks surface code that is incorrect, unsafe, or useless, so teams can adopt Oxlint without excessive noise.
 
-## Language Support
+Additional rules can be enabled incrementally as requirements evolve.
 
-- Supports:
-  - JavaScript and TypeScript by their extensions `js`, `mjs`, `cjs`, `jsx`, `ts`, `mts`, `cts`, and `tsx`.
-  - `<script>` content of `.vue`, `.astro`, and `.svelte` files.
-  - [type-aware rules](https://typescript-eslint.io/getting-started/typed-linting) defined by
-    `typescript-eslint` (alpha, requires `--type-aware` flag and `oxlint-tsgolint` package).
-- No support for:
-  - [stylistic rules](https://eslint.style)
+## A large and growing rule set
 
-## Installation
+Oxlint includes [more than 645 rules](/docs/guide/usage/linter/rules.md), with coverage across the plugins most teams already use, including:
 
-Run `oxlint` directly at the root of your repository:
+- ESLint core rules
+- TypeScript rules
+- Popular plugins such as React, Jest, Unicorn, and jsx-a11y
+- Custom JS plugins compatible with the ESLint plugin ecosystem
 
-::: code-group
+This breadth makes migration straightforward without sacrificing rule coverage.
 
-```sh [npm]
-$ npx oxlint@latest
+## Type-aware linting
+
+Oxlint leverages the native Go port of the TypeScript compiler ([tsgo](https://github.com/microsoft/typescript-go) aka TypeScript 7), providing full TypeScript compatibility and the same type system behavior you expect from TypeScript itself.
+
+This enables mission critical checks that require types, such as detecting floating promises.
+
+In contrast, [Biome’s approach](https://biomejs.dev/blog/biome-v2) is to implement its own type inference instead of relying on the TypeScript compiler, and they note coverage is still improving.
+
+See: [Type-aware linting](/docs/guide/usage/linter/type-aware)
+
+## Multi-file analysis
+
+Oxlint supports multi-file analysis as a first-class capability.
+
+When enabled, Oxlint builds a project-wide module graph and shares parsing and resolution across rules. This improves checks that depend on cross-file imports and helps avoid the performance cliff often seen with rules like [`import/no-cycle`](https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-cycle.md) in ESLint.
+
+See: [Multi-file analysis](/docs/guide/usage/linter/multi-file-analysis.md)
+
+## AI-friendly diagnostics
+
+Oxlint diagnostics are designed to be both human-readable and machine-actionable.
+
+In addition to clear messages, diagnostics include structured information such as precise spans and contextual data. This helps AI to understand issues and apply fixes reliably.
+
+## Reliability as a priority
+
+Oxlint is built for workflows where failures are not acceptable.
+
+Crashes are treated as top priority bugs.
+Performance regressions are treated as bugs.
+
+Stability and throughput are always prioritized, especially for CI and large monorepos.
+
+## Getting started
+
+The recommended setup is to install Oxlint as a dev dependency and add scripts.
+
+```sh
+pnpm add -D oxlint
 ```
 
-```sh [pnpm]
-$ pnpm dlx oxlint@latest
-```
-
-```sh [yarn]
-$ yarn dlx oxlint@latest
-```
-
-```sh [bun]
-$ bunx oxlint@latest
-```
-
-```sh [deno]
-$ deno run npm:oxlint@latest
-```
-
-:::
-
-Or save it to your package.json:
-
-::: code-group
-
-```sh [npm]
-$ npm add -D oxlint
-```
-
-```sh [pnpm]
-$ pnpm add -D oxlint
-```
-
-```sh [yarn]
-$ yarn add -D oxlint
-```
-
-```sh [bun]
-$ bun add -D oxlint
-```
-
-:::
-
-### Type-Aware Linting (Alpha)
-
-Oxlint supports type-aware rules in alpha. To enable type-aware linting:
-
-1. Install the required dependency:
-
-::: code-group
-
-```sh [npm]
-$ npm add -D oxlint-tsgolint@latest
-```
-
-```sh [pnpm]
-$ pnpm add -D oxlint-tsgolint@latest
-```
-
-```sh [yarn]
-$ yarn add -D oxlint-tsgolint@latest
-```
-
-```sh [bun]
-$ bun add -D oxlint-tsgolint@latest
-```
-
-:::
-
-2. Run oxlint with the `--type-aware` flag:
-
-::: code-group
-
-```sh [npm]
-$ npx oxlint --type-aware
-```
-
-```sh [pnpm]
-$ pnpm oxlint --type-aware
-```
-
-```sh [yarn]
-$ yarn oxlint --type-aware
-```
-
-```sh [bun]
-$ bunx oxlint --type-aware
-```
-
-```sh [deno]
-$ deno run oxlint --type-aware
-```
-
-:::
-
-For more details and the list of supported type-aware rules,
-see the [Type-Aware Linting](./linter/type-aware.md#configuration).
-
-## Command-line Interface
-
-See [Command-line Interface](./linter/cli)
-
-## Configuration File
-
-See [Configuration File](./linter/config)
-
-## Migrate from eslint flat config
-
-If you have an existing `eslint.config.*` file, you can convert it to an `.oxlintrc.json` config with
-[oxlint-migrate](https://github.com/oxc-project/oxlint-migrate).
-
-## Integration
-
-### ESLint
-
-If you are looking for a way to use oxlint in projects that still need ESLint, you can use
-[eslint-plugin-oxlint](https://github.com/oxc-project/eslint-plugin-oxlint) to turn off ESLint rules
-that are already supported by oxlint. So you can enjoy the speed of oxlint while still using ESLint.
-
-### lint-staged
+Add scripts to `package.json`:
 
 ```json [package.json]
 {
-  "lint-staged": {
-    "**/*.{js,mjs,cjs,jsx,ts,mts,cts,tsx,vue,astro,svelte}": "oxlint"
+  "scripts": {
+    "lint": "oxlint",
+    "lint:fix": "oxlint --fix"
   }
 }
 ```
 
-### VS Code Extension
+Next steps:
 
-Download the official VS Code extension from:
+- [Quickstart](/docs/guide/usage/linter/quickstart)
+- [Configuration](/docs/guide/usage/linter/config)
+- [Setup editors](/docs/guide/usage/linter/editors)
+- [Setup CI](/docs/guide/usage/linter/ci)
 
-- [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=oxc.oxc-vscode)
-- [Open VSX Registry](https://open-vsx.org/extension/oxc/oxc-vscode)
+## Adoption paths
 
-It is also compatible with other VS Code-based editors like Cursor.
+Choose the approach that fits your repository:
 
-### Zed Extension
+- **Replace ESLint (recommended for most projects).** Use Oxlint as your primary linter.
+  - Use tooling such as [`@oxlint/migrate`](https://github.com/oxc-project/oxlint-migrate) to migrate your existing ESLint config.
+- **Migrate incrementally (recommended for large repos).** Run Oxlint first, then run ESLint with overlapping rules disabled. This keeps CI fast while you migrate.
+  <!-- TODO: - See [Migrate from ESLint](/docs/guide/usage/linter/migrate-from-eslint) for guidance and tooling such as [`oxlint-migrate`](https://github.com/oxc-project/oxlint-migrate). -->
+  - Use [`eslint-plugin-oxlint`](https://www.npmjs.com/package/eslint-plugin-oxlint) to disable overlapping ESLint rules while running both.
+  - You can - and should - also use [`@oxlint/migrate`](https://github.com/oxc-project/oxlint-migrate) for this approach as well.
 
-https://zed.dev/extensions?query=oxc
+## What Oxlint supports
 
-### Continuous Integration
+Oxlint supports:
 
-Since `oxlint` only takes a few seconds to run, we recommend running `oxlint` before ESLint for faster feedback loops.
+- JavaScript and TypeScript (`.js`, `.mjs`, `.cjs`, `.ts`, `.mts`, `.cts`)
+- JSX and TSX (`.jsx`, `.tsx`)
+- Framework files (`.vue`, `.svelte`, `.astro`) by linting only their `<script>` blocks
 
-#### GitHub Actions
+## Features
 
-```yaml
-jobs:
-  oxlint:
-    name: Lint JS
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - run: npx --yes oxlint@0.0.0 --deny-warnings # change to the latest release
-```
+- [Native plugins](/docs/guide/usage/linter/plugins) for broad rule coverage with 645+ built-in rules, without a large JavaScript dependency tree.
+- [Automatic fixes](/docs/guide/usage/linter/automatic-fixes) to apply safe changes quickly.
+- [Ignore files](/docs/guide/usage/linter/ignore-files) to control which paths are linted.
+- [Inline ignore comments](/docs/guide/usage/linter/ignore-comments) for ignoring rules within a file.
+- [Multi-file analysis](/docs/guide/usage/linter/multi-file-analysis) for rules that require project-wide context such as import analysis like [no-cycle](/docs/guide/usage/linter/rules/import/no-cycle.html).
+- [Type-aware linting](/docs/guide/usage/linter/type-aware) for rules that require TypeScript type information.
+- [JS plugins](/docs/guide/usage/linter/js-plugins) (**experimental**) for compatibility with existing ESLint plugins.
 
-It is advised to pin the version, otherwise CI may fail after a new release.
+## Projects using Oxlint
 
-### pre-commit
+Oxlint is used in production by popular projects such as:
 
-```yaml [.pre-commit-hooks.yaml]
-repos:
-  - repo: https://github.com/oxc-project/mirrors-oxlint
-    rev: v0.0.0 # change to the latest version
-    hooks:
-      - id: oxlint
-        verbose: true
-```
+- [preactjs/preact](https://github.com/preactjs/preact)
+- [date-fns/date-fns](https://github.com/date-fns/date-fns)
+- [outline/outline](https://github.com/outline/outline)
+- [PostHog/posthog](https://github.com/PostHog/posthog)
+- [actualbudget/actual](https://github.com/actualbudget/actual)
 
-### Unplugin
+<!-- ## Migration -->
 
-https://www.npmjs.com/package/unplugin-oxlint
+<!-- - [Migrate from ESLint](/docs/guide/usage/linter/migrate-from-eslint) -->
+<!-- - [Migrate from Biome](/docs/guide/usage/linter/migrate-from-biome) -->
 
-### Vite plugin
+## Reference
 
-https://www.npmjs.com/package/vite-plugin-oxlint
-
-## System Requirements
-
-- **Node.js**: >= 20.19.0 or >= 22.12.0
-- **Platforms**: darwin-arm64, darwin-x64, linux-arm64, linux-x64, win32-arm64, and win32-x64
+- [Rules reference](/docs/guide/usage/linter/rules)
+- [CLI reference](/docs/guide/usage/linter/cli)
+- [Config file reference](/docs/guide/usage/linter/config-file-reference)
+- [Versioning policy](/docs/guide/usage/linter/versioning)

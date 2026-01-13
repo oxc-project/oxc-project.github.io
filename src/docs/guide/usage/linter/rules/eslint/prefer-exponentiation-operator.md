@@ -8,6 +8,9 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 # eslint/prefer-exponentiation-operator <Badge type="info" text="Style" />
 
 <div class="rule-meta">
+<Alert class="fix" type="info">
+<span class="emoji">🚧</span> An auto-fix is planned for this rule, but not implemented at this time.
+</Alert>
 </div>
 
 ### What it does

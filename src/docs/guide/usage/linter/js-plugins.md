@@ -6,14 +6,14 @@ outline: deep
 
 Oxlint supports plugins written in JS - either custom-written, or from NPM.
 
-Oxlint's plugin API is compatible with ESLint, so most existing ESLint plugins should work out of the box with Oxlint.
+Oxlint's plugin API is compatible with ESLint v9+, so most existing ESLint plugins should work out of the box with Oxlint.
 
 We are working towards implementing _all_ of ESLint's plugin APIs, and Oxlint will soon be able to run
 _any_ ESLint plugin.
 
 :::warning
 JS plugins are currently in technical preview, and remain under heavy development.
-Almost all of ESLint's plugin API is implemented (see [here](#api-support)).
+Almost all of ESLint's plugin API is implemented (see [below](#api-support)).
 
 All APIs should behave identically to ESLint. If you find any differences in behavior,
 that's a bug - please [report it](https://github.com/oxc-project/oxc/issues/new?template=linter_bug_report.yaml).
@@ -21,21 +21,22 @@ that's a bug - please [report it](https://github.com/oxc-project/oxc/issues/new?
 
 ## Using JS plugins
 
-1. Add path to the plugin to `.oxlintrc.json` config file, under `jsPlugins`.
+1. Add a path to the plugin to the `.oxlintrc.json` config file, under `jsPlugins`.
 2. Add rules from the plugin, under `rules`.
 
-Path can be any valid import specifier e.g. `./plugin.js` or `plugin-package`.
+The path can be any valid import specifier e.g. `./plugin.js`, `eslint-plugin-foo`, or `@foo/eslint-plugin`.
 Paths are resolved relative to the config file itself.
 
 ```json
 // .oxlintrc.json
 {
-  "jsPlugins": ["./path/to/my-plugin.js", "eslint-plugin-whatever"],
+  "jsPlugins": ["./path/to/my-plugin.js", "eslint-plugin-whatever", "@foobar/eslint-plugin"],
   "rules": {
     "my-plugin/rule1": "error",
     "my-plugin/rule2": "warn",
     "whatever/rule1": "error",
-    "whatever/rule2": "warn"
+    "whatever/rule2": "warn",
+    "@foobar/rule1": "error"
   }
   // ... other config ...
 }
@@ -45,8 +46,8 @@ Paths are resolved relative to the config file itself.
 
 You can also define a different name (alias) for a plugin. This is useful if:
 
-- Plugin name clashes with name of a native Oxlint plugin.
-- Plugin name is very long.
+- The default plugin name clashes with name of a native Oxlint plugin (e.g. jsdoc, react, etc.).
+- The default plugin name is very long.
 - You want to use a plugin that Oxlint supports natively, but a specific rule you need is not yet implemented in Oxlint's native version.
 
 ```json
@@ -372,11 +373,14 @@ Oxlint supports almost all of ESLint's API surface:
 - `SourceCode` tokens APIs (e.g. `context.sourceCode.getTokens(node)`).
 - Scope analysis.
 - Control flow analysis (code paths).
+- Inline disable directives. (`// oxlint-disable`)
 
 Not supported yet:
 
-- Language server (IDE) support + suggestions.
+- Language server (IDE) support + suggestions (so no in-editor diagnostics or quick-fixes yet).
 - Custom file formats and parsers (e.g. Svelte, Vue, Angular).
+
+ESLint APIs that were removed in ESLint v9 or earlier will not be implemented in most cases. If an ESLint plugin is unmaintained and was never updated to upgrade their API usage for ESLint v9, you may need to modify the plugin yourself or find an alternative.
 
 We will be implementing the remaining features over the next few months, aiming to support 100% of ESLint's
 plugin API surface.

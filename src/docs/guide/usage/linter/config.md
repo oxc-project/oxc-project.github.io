@@ -1,192 +1,221 @@
 ---
-editLink: false
+title: Configuration
+description: Configure Oxlint using a .oxlintrc.json file.
 ---
 
-# Configuring Oxlint
+# Configuration
 
-This is a general overview of how to configure Oxlint for linting your project. There are several ways of configuring Oxlint:
+Oxlint works out of the box, but most teams commit a configuration file to keep linting consistent across local runs, editors, and CI.
 
-1. **Configuration files**, which can be passed to Oxlint via the `--config` option.
-2. **Inline comments**, which can be used to enable/disable specific rules for a specific section of code.
-3. **CLI options**, which can be used to override configuration files or specify inputs and outputs. (See [command-line interface](./cli.md) for more information.)
+This page focuses on project configuration: rules, categories, plugins, overrides, and shared settings.
 
-This page will mostly cover how to use configuration files, as they are the primary way of configuring Oxlint, but also includes information on how to use inline comments and CLI options. In general, inline comments and command-line arguments take precedence over the configuration file.
+## Create a config file
 
-## Configuration file format
+To generate a starter config in the current directory:
 
-Configuration files for Oxlint are written in JSON, with support for comments (JSONC). Oxlint will automatically search for files named `.oxlintrc.json` and automatically use those. But you can name the file anything when you are using the `--config` CLI option.
+```sh
+oxlint --init
+```
 
-A configuration file is a JSON object with top-level properties that will change how Oxlint behaves. Some of the most important properties are:
+Oxlint automatically looks for a `.oxlintrc.json` in the current working directory. You can also pass a config explicitly (note that this will disable nested config lookup):
 
-- `rules`: Configures what lint rules are enabled or disabled, their severity, and any rule-specific options.
-- `plugins`: Extends the set of available rules with built-in plugins specific to certain frameworks or file types.
-- `categories`: Enables groups of lint rules which have similar behavior or purpose, such as stylistic rules or correctness rules.
-- `ignorePatterns`: Specifies file patterns to ignore when searching for lintable files.
-- `env`: Enables sets of global variables which are known to be predefined based on the environment.
-- `globals`: Declares individual global variables as predefined and read-only or writable, and also allows for global variables to be removed from the base set.
-- `settings`: Adds configuration for plugins that apply to several rules at once.
+```sh
+oxlint -c ./oxlintrc.json
+# or
+oxlint --config ./oxlintrc.json
+```
 
-## Configuring rules
+Notes:
 
-Rules can be configured in a configuration file using the `rules` property. Rules are declared using the plugin name and rule name as the key, and either a string severity level, or an array with the severity level as the first element and an object with rule-specific options as the second element.
+- Only `.json` config files are supported, but oxlint configuration files support comments (like jsonc).
+- The configuration format aims to be compatible with ESLint v8's format (`eslintrc.json`).
 
-If a rule's name is unique, it can also be configured without specifying the plugin name. For example: `eslint/no-console` is the same rule as `no-console`.
+A minimal configuration looks like this:
 
-```jsonc
+```jsonc [.oxlintrc.json]
 {
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "categories": {
+    "correctness": "warn",
+  },
   "rules": {
-    "no-alert": "error", // Emit an error message when a call to `alert()` is found
-    "oxc/approx-constant": "warn", // Show a warning when you write a number close to a known constant
-    "no-plusplus": "off", // Allow using the `++` and `--` operators
+    "eslint/no-unused-vars": "error",
   },
 }
 ```
 
-The allowed severity levels are:
+## Configuration file format
+
+A configuration file is a JSON object. The most common top-level fields are:
+
+- `rules`: Enable or disable rules, set severity, and configure rule options.
+- `categories`: Enable groups of rules with similar intent.
+- `plugins`: Enable built-in plugins that provide additional rules.
+- `jsPlugins`: Configure JavaScript plugins (experimental).
+- `overrides`: Apply different configuration to different file patterns.
+- `extends`: Inherit configuration from other files.
+- `ignorePatterns`: Ignore additional files from the config file.
+- `env`: Enable predefined globals for common environments.
+- `globals`: Declare custom globals as read-only or writable.
+- `settings`: Plugin-wide configuration shared by multiple rules.
+
+For a complete list of fields, see the [Config file reference](/docs/guide/usage/linter/config-file-reference.html).
+
+## Configure rules
+
+Rules are configured under `rules`.
+
+A rule value is either:
+
+- a severity (`"off"`, `"warn"`, `"error"`), or
+- an array of `[severity, options]`
+
+If a rule name is unique, you can configure it without a plugin prefix. For example, `no-console` is the same as `eslint/no-console`.
+
+```jsonc
+{
+  "rules": {
+    "no-alert": "error",
+    "oxc/approx-constant": "warn",
+    "no-plusplus": "off",
+  },
+}
+```
+
+### Severity values
+
+Oxlint accepts ESLint-style severities:
 
 - Allow rule: `"off"`, `0`, `"allow"`
 - Warning on rule: `"warn"`, `1`
 - Error on rule: `"error"`, `2`, `"deny"`
 
-To configure a rule with rule-specific options, use an array with the severity level as the first element, and an object with the rule-specific options as the second element. For example:
+### Rule options
+
+To configure rule options, use an array:
 
 ```jsonc
 {
   "rules": {
-    // Generally error on `x++`, but allow it be used in a for-loop, like `for (let x = 0; x < 10; x++)`
     "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
   },
 }
 ```
 
-All of the available rules can be found on the [rules reference](./rules.md) page.
+All available rules, and their configuration options, are listed in the [Rules reference](/docs/guide/usage/linter/rules).
 
-### Configuring rules via the command-line
+### Override severity from the CLI
 
-In the command-line, you can change the severity of a lint rule to allow, warn, or deny, using the `-A` (`--allow`), `-W` (`--warn`), and `-D` (`--deny`) options, respectively:
+For quick experiments, you can adjust severity from the command line using:
+
+- `-A` / `--allow`
+- `-W` / `--warn`
+- `-D` / `--deny`
+
+Arguments are applied from left to right:
 
 ```sh
 oxlint -D no-alert -W oxc/approx-constant -A no-plusplus
 ```
 
-### Configuring rules via inline configuration comments
+## Enable groups of rules with categories
 
-Rules can also be enabled or disabled for specific sections of code using inline comments. Comments can be line comments (`//`) or block comments (`/* */`), and must start with a specific directive. These directives are:
+Categories let you enable or disable sets of rules with similar intent. By default, Oxlint enables rules in the `correctness` category.
 
-- `oxlint-disable`: Disable one or more rules until the end of the file, or it is re-enabled with another comment
-
-  ```javascript
-  // Disable oxlint for the rest of the file
-  /* oxlint-disable */
-
-  // Disable the `no-console` rule in this file
-  /* oxlint-disable no-console */
-
-  // Disable multiple rules in this file
-  /* oxlint-disable no-console, no-alert */
-  ```
-
-- `oxlint-enable`: Enable one or more rules until the end of the file, or it is disabled with another comment
-
-  ```javascript
-  // Enable the `no-console` rule in this file
-  /* oxlint-enable no-console */
-
-  // Enable multiple rules in this file
-  /* oxlint-enable no-console, no-alert */
-  ```
-
-- `oxlint-disable-line`: Disable one or more rules on the current line
-
-  ```javascript
-  console.log("Hello, world!"); // oxlint-disable-line no-console
-  // Disable multiple rules on this line
-  console.log(x++); // oxlint-disable-line no-console, no-plusplus
-  ```
-
-- `oxlint-enable-line`: Enable one or more rules on the current line
-- `oxlint-disable-next-line`: Disable one or more rules on the line following the comment, then re-enable it
-
-  ```javascript
-  // oxlint-disable-next-line no-console
-  console.log("Hello, world!"); // allowed because of the previous comment
-  console.log(x++); // not allowed because the previous comment only applied to the previous line
-
-  // oxlint-disable-next-line no-console, no-plusplus
-  console.log("Hello, world!"); // allowed
-  ```
-
-- `oxlint-enable-next-line`: Enable one or more rules on the line following the comment, then re-enable it
-
-Oxlint does not support modifying the configuration of a lint rule through inline comments. If you need to change the configuration of a rule, you should use a configuration file instead. Oxlint also supports all of the following directives with `oxlint` replaced with `eslint` for compatibility with ESLint, such as `/* eslint-disable */` or `// eslint-disable-next-line`. We recommend preferring `oxlint-*`, and using `eslint-*` only for rules that Oxlint doesn't support yet.
-
-### Enabling groups of rules (categories)
-
-Each lint rule belongs to a category, which describes the general purpose or behavior of the rule. By default, `oxlint` enables all rules in the `correctness` category. Categories can be enabled with the `category` property in a configuration file.
+Configure categories using `categories`:
 
 ```jsonc
 {
-  // Enable all rules in the `correctness` and `suspicious` categories
   "categories": {
     "correctness": "error",
     "suspicious": "warn",
+    "pedantic": "off",
   },
 }
 ```
 
-The available categories are:
+Available categories include:
 
-- `correctness`: Rules to lint code that is definitely wrong or useless
-- `suspicious`: Rules to lint code that is likely to be wrong or useless
-- `pedantic`: Rules which are extra strict or might have false positives
-- `perf`: Rules that aim to improve the performance of code
-- `style`: Rules that help maintain a consistent style or enforce idiomatic syntax
-- `restriction`: Rules that ban specific patterns, syntax, or features and should be enabled on a case-by-case basis
-- `nursery`: Rules that are in development, may change significantly, or contain false positives
+- `correctness`: Code that is definitely wrong or useless
+- `suspicious`: Code that is likely to be wrong or useless
+- `pedantic`: Extra strict rules that may have false positives
+- `perf`: Rules that aim to improve runtime performance
+- `style`: Idiomatic and consistent style rules
+- `restriction`: Rules that ban specific patterns or features
+- `nursery`: Rules under development that may change
 
-Categories can also be enabled or disabled in the command line using the same `-A` (allow), `-W` (warn) and `-D` (deny) options used to configure rules:
+You can also change categories from the CLI with the same `-A`, `-W`, and `-D` options:
 
 ```sh
-# Enable all correctness and suspicious rules
-oxlint -D correctness -D pedantic
+oxlint -D correctness -D suspicious
 ```
 
-### Configuring plugins
+## Configure plugins
 
-Plugins are used to extend the set of available rules with built-in plugins specific to certain frameworks or file types. By default, Oxlint enables several plugins which are useful to most codebases.
+Plugins extend the set of available rules.
 
-Plugins can be enabled with the `plugins` property in a configuration file. The value of the `plugins` property is an array of plugin names, and it overwrites the default set of plugins. For example:
+Oxlint supports many popular plugins natively in Rust. This provides broad rule coverage without a large JavaScript dependency tree. See [Native Plugins](/docs/guide/usage/linter/plugins).
+
+Configure plugins using `plugins`. Setting `plugins` overwrites the default plugin set, so the array should include everything you want enabled:
 
 ```jsonc
 {
-  // Enable all of these plugins (which are enabled by default):
   "plugins": ["unicorn", "typescript", "oxc"],
 }
 ```
 
-Default plugins can be disabled by setting an empty array as the value of the `plugins` property. For example:
+To disable all default plugins:
 
 ```jsonc
 {
-  // Disable all default plugins
   "plugins": [],
 }
 ```
 
-For more details, see the [plugins](./plugins.md) page.
+For plugin details and CLI flags such as `--import-plugin`, see [Native Plugins](/docs/guide/usage/linter/plugins).
 
-### Overriding rule configurations
+## Configure JS plugins (experimental)
 
-Rule configurations can be changed depending on the file path, and this is done using the `overrides` property in a configuration file. The value of the `overrides` property is an array of objects, each with the following supported properties:
+Oxlint also supports JavaScript plugins via `jsPlugins`. This is intended for compatibility with existing ESLint plugins and advanced integrations.
 
-- `files`: A glob pattern to match file paths against
-- `rules`: A rules configuration object (same as the top-level `rules` property)
-- `env`: An `env` configuration object (same as the top-level `env` property)
-- `plugins`: A `plugins` configuration object (same as the top-level `plugins` property), except plugins will append to the top-level `plugins` property instead of overwriting it
-- `globals`: A `globals` configuration object (same as the top-level `globals` property)
+Notes:
+
+- JS plugins are experimental and not subject to semver.
+- JS plugins are not supported in the language server at present.
+
+JS plugins can be declared as strings, or as objects with an alias:
 
 ```jsonc
 {
+  "jsPlugins": [
+    "eslint-plugin-playwright",
+    { "name": "my-eslint-react", "specifier": "eslint-plugin-react" },
+  ],
+}
+```
+
+Some plugin names are reserved because they are implemented natively in Rust (for example `react`, `unicorn`, `typescript`, `oxc`, `import`, `jest`, `vitest`, `jsx-a11y`, `nextjs`). If you need the JavaScript version of a reserved plugin, give it a custom `name` to avoid conflicts.
+
+For details, see [JS plugins](/docs/guide/usage/linter/js-plugins).
+
+## Apply configuration by file pattern
+
+Use `overrides` to apply different configuration to different files, such as tests, scripts, or TypeScript-only paths.
+
+`overrides` is an array of objects. Each override can include:
+
+- `files`: glob patterns
+- `rules`: rule configuration (same shape as top-level `rules`)
+- `env`: environment configuration (same shape as top-level `env`)
+- `globals`: globals configuration (same shape as top-level `globals`)
+- `plugins`: optionally change what plugins are enabled for this override
+- `jsPlugins`: JS plugins for this override (experimental)
+
+Example:
+
+```jsonc
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
   "rules": {
     "no-console": "error",
   },
@@ -194,12 +223,10 @@ Rule configurations can be changed depending on the file path, and this is done 
     {
       "files": ["scripts/*.js"],
       "rules": {
-        // Allow `console.*` calls in scripts
         "no-console": "off",
       },
     },
     {
-      // Enable TypeScript-specific rules for TypeScript files
       "files": ["**/*.{ts,tsx}"],
       "plugins": ["typescript"],
       "rules": {
@@ -207,7 +234,6 @@ Rule configurations can be changed depending on the file path, and this is done 
       },
     },
     {
-      // Enable Jest rules for tests
       "files": ["**/test/**"],
       "plugins": ["jest"],
       "env": {
@@ -221,34 +247,71 @@ Rule configurations can be changed depending on the file path, and this is done 
 }
 ```
 
-## Specifying files to process
+## Extend shared configs
 
-The primary way of specifying files to process is by passing a file path as an argument to the `oxlint` command. By default, files in the current directory and below will be processed. Additionally, `oxlint` will automatically lint all files that have one of the following extensions:
+Use `extends` to inherit from other configuration files.
 
-- `.js`
-- `.jsx`
-- `.mjs`
-- `.cjs`
-- `.ts`
-- `.tsx`
-- `.mts`
-- `.cts`
-- `.astro` _\*_
-- `.svelte` _\*_
-- `.vue` _\*_
-
-_\*Note: Supports only the `<script>` content, ignores the rest. For Astro, both the frontmatter and component script are linted._
-
-### Ignoring files
-
-You can ignore certain patterns of files by configuring the `ignorePatterns` property in a configuration file. The value of the `ignorePatterns` property is an array of file patterns (globs), which are resolved relative to the location of the configuration file.
+Paths in `extends` are resolved relative to the configuration file that declares `extends`. Configs are merged from first to last, with later entries overriding earlier ones.
 
 ```jsonc
 {
-  "ignorePatterns": ["vendor", "test/snapshots/**", "test.js"],
+  "extends": ["./configs/base.json", "./configs/frontend.json"],
 }
 ```
 
-### .eslintignore
+## Configure environments and globals
 
-Oxlint works with existing [.eslintignore](https://eslint.org/docs/latest/use/configure/ignore#the-eslintignore-file) files.
+Use `env` to enable predefined globals for common environments such as browser or node.
+
+Use `globals` to declare project-specific globals, mark them writable or readonly, or disable a global that would otherwise be present.
+
+```jsonc
+{
+  "env": {
+    "es6": true,
+  },
+  "globals": {
+    "MY_GLOBAL": "readonly",
+    "Promise": "off",
+  },
+}
+```
+
+`globals` accepts:
+
+- `"readonly"` or `"readable"` or `false`
+- `"writable"` or `"writeable"` or `true`
+- `"off"` to disable a global
+
+## Plugin settings
+
+Use `settings` for plugin-wide configuration shared by multiple rules.
+
+Example (monorepo + React + jsx-a11y):
+
+```jsonc
+{
+  "settings": {
+    "next": {
+      "rootDir": "apps/dashboard/",
+    },
+    "react": {
+      "linkComponents": [{ "name": "Link", "linkAttribute": "to" }],
+    },
+    "jsx-a11y": {
+      "components": {
+        "Link": "a",
+        "Button": "button",
+      },
+    },
+  },
+}
+```
+
+## Next steps
+
+- [Ignore files](/docs/guide/usage/linter/ignore-files): Ignore files and patterns, `.gitignore` and `.eslintignore` workflows, and symlink behavior.
+- [Inline ignore comments](/docs/guide/usage/linter/ignore-comments): Inline suppressions and scoped exceptions.
+- [Nested configs](/docs/guide/usage/linter/nested-config): Monorepos and per-package configuration.
+- [Config file reference](/docs/guide/usage/linter/config-file-reference.html): Full schema and field documentation.
+- [CLI reference](/docs/guide/usage/linter/cli.html): Complete list of flags and output formats.

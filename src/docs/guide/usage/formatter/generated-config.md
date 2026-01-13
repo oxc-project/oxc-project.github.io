@@ -32,7 +32,8 @@ Print spaces between brackets in object literals. (Default: `true`)
 
 type: `string | null`
 
-Control whether formats quoted code embedded in the file. (Default: `"auto"`)
+Control whether to format embedded parts in the file.
+e.g. JS-in-Vue, CSS-in-JS, etc. (Default: `"auto"`)
 
 ## endOfLine
 
@@ -105,6 +106,71 @@ Sort side-effect imports. (Default: `false`)
 type: `boolean | null`
 
 Experimental: Sort `package.json` keys. (Default: `true`)
+
+## experimentalTailwindcss
+
+type: `object | null`
+
+Experimental: Enable Tailwind CSS class sorting in JSX class/className attributes.
+When enabled, class strings will be collected and passed to a callback for sorting.
+Pass `true` or an object with options from `prettier-plugin-tailwindcss`.
+(Default: disabled)
+
+### experimentalTailwindcss.attributes
+
+type: `string[]`
+
+List of attributes that contain Tailwind CSS classes.
+
+Example: `["myClassProp", ":class"]`
+
+Default: `["class", "className"]`
+
+### experimentalTailwindcss.config
+
+type: `string | null`
+
+Path to your Tailwind CSS configuration file (v3).
+
+Note: Paths are resolved relative to the Oxfmt configuration file.
+
+Default: `"./tailwind.config.js"`
+
+### experimentalTailwindcss.functions
+
+type: `string[]`
+
+List of custom function names that contain Tailwind CSS classes.
+
+Example: `["clsx", "cn", "cva", "tw"]`
+
+Default: `[]`
+
+### experimentalTailwindcss.preserveDuplicates
+
+type: `boolean | null`
+
+Preserve duplicate classes.
+
+Default: `false`
+
+### experimentalTailwindcss.preserveWhitespace
+
+type: `boolean | null`
+
+Preserve whitespace around classes.
+
+Default: `false`
+
+### experimentalTailwindcss.stylesheet
+
+type: `string | null`
+
+Path to your Tailwind CSS stylesheet (v4).
+
+Note: Paths are resolved relative to the Oxfmt configuration file.
+
+Example: `"./src/app.css"`
 
 ## ignorePatterns
 

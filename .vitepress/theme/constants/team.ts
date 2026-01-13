@@ -101,6 +101,17 @@ export const CORE_MEMBERS: TeamMember[] = [
     links: [{ icon: "github", link: "https://github.com/Sysix" }],
   },
   {
+    id: "connorshea",
+    type: "core",
+    name: "Connor Shea",
+    title: "Member",
+    avatar: "https://www.github.com/connorshea.png",
+    links: [
+      { icon: "github", link: "https://github.com/connorshea" },
+      { icon: "bluesky", link: "https://bsky.app/profile/connorshea.bsky.social" },
+    ],
+  },
+  {
     id: "mysteryven",
     type: "emeriti",
     name: "Mysteryven",
@@ -165,6 +176,20 @@ export const CORE_MEMBERS: TeamMember[] = [
     org: "typescript-eslint",
     orgLink: "https://github.com/typescript-eslint",
     links: [{ icon: "github", link: "https://github.com/auvred" }],
+  },
+  {
+    id: "bradzacher",
+    type: "consultant",
+    name: "Brad Zacher",
+    title: "Maintainer",
+    avatar: "https://www.github.com/bradzacher.png",
+    org: "typescript-eslint",
+    orgLink: "https://github.com/typescript-eslint",
+    links: [
+      { icon: "github", link: "https://github.com/bradzacher" },
+      { icon: "x", link: "https://x.com/bradzacher" },
+      { icon: "bluesky", link: "https://bsky.app/profile/brad.zacher.com.au" },
+    ],
   },
 ];
 

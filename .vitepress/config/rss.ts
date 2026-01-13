@@ -66,13 +66,13 @@ export const rssConfig = defineConfig({
       };
     });
     // Override https://github.com/vuejs/vitepress/blob/179ee6/src/node/markdown/plugins/containers.ts#L26
-    md.use(container, "code-group", {
+    (md.use as Function)(container, "code-group", {
       render(tokens: Token[], idx: number) {
         return tokens[idx].nesting === 1 ? "<table><tbody>" : "</tbody></table>\n";
       },
     });
     // `createMarkdownRenderer` returns a cached global renderer, so the above modifications will be applied to the next rendering
-    const posts = await createContentLoader("blog/*.md", {
+    const posts = await createContentLoader(["blog/*.md", "!blog/index.md"], {
       excerpt: true,
       render: true,
     }).load();

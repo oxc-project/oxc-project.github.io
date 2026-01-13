@@ -99,9 +99,6 @@ Arguments:
 - **`    --no-ignore`** &mdash;
   Disable excluding files from `.eslintignore` files, **`--ignore-path`** flags and **`--ignore-pattern`** flags
 
-> [!NOTE]
-> `.gitignore` is only respected inside a Git repository.
-
 ## Handle Warnings
 
 - **`    --quiet`** &mdash;

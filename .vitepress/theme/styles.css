@@ -14,3 +14,27 @@
 :root[data-theme="light"][data-variant="oxc"] {
   --color-brand: #0d6a73;
 }
+
+/*  Override unusual GitHub avatars */
+.VPTeamMembersItem {
+  --member-item-avatar-size-small: 64px;
+  --member-item-avatar-size-medium: 96px;
+
+  .avatar-img {
+    object-fit: fill;
+  }
+
+  &.small {
+    .avatar-img {
+      width: var(--member-item-avatar-size-small);
+      height: var(--member-item-avatar-size-small);
+    }
+  }
+
+  &.medium {
+    .avatar-img {
+      width: var(--member-item-avatar-size-medium);
+      height: var(--member-item-avatar-size-medium);
+    }
+  }
+}

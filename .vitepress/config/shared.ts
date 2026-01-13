@@ -7,6 +7,7 @@ import {
   groupIconVitePlugin,
   localIconLoader,
 } from "vitepress-plugin-group-icons";
+import llmstxt from "vitepress-plugin-llms";
 
 function inlineScript(file: string): HeadConfig {
   return ["script", {}, readFileSync(resolve(__dirname, `./inlined-scripts/${file}`), "utf-8")];
@@ -127,9 +128,9 @@ export const sharedConfig = defineConfig({
       provider: "local",
     },
     socialLinks: [
+      { icon: "x", link: "https://x.com/OxcProject" },
       { icon: "bluesky", link: "https://bsky.app/profile/boshen.github.io" },
       { icon: "discord", link: "https://discord.gg/9uXCAwqQZW" },
-      { icon: "x", link: "https://x.com/OxcProject" },
       { icon: "github", link: "https://github.com/oxc-project/oxc" },
     ],
     lastUpdated: {
@@ -190,6 +191,7 @@ export const sharedConfig = defineConfig({
           ".oxlintrc": localIconLoader(import.meta.url, "../../public/logo-without-border.svg"),
         },
       }),
+      llmstxt(),
     ],
     resolve: {
       alias: [
