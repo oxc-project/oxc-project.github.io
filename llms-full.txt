@@ -1498,6 +1498,69 @@ import styled from "styled-components/primitives";
 ---
 
 ---
+url: /docs/guide/usage/formatter/cli.md
+---
+
+# Command-line Interface
+
+## Usage
+
+**`oxfmt`** \[**`-c`**=*`PATH`*] \[*`PATH`*]...
+
+## Mode Options:
+
+* **`    --init`** —
+  Initialize `.oxfmtrc.json` with default values
+* **`    --migrate`**=*`SOURCE`* —
+  Migrate configuration to `.oxfmtrc.json` from specified source Available sources: prettier
+* **`    --lsp`** —
+  Start language server protocol (LSP) server
+* **`    --stdin-filepath`**=*`PATH`* —
+  Specify the file name to use to infer which parser to use
+
+## Output Options:
+
+* **`    --write`** —
+  Format and write files in place (default)
+* **`    --check`** —
+  Check if files are formatted, also show statistics
+* **`    --list-different`** —
+  List files that would be changed
+
+## Config Options
+
+* **`-c`**, **`--config`**=*`PATH`* —
+  Path to the configuration file
+
+## Ignore Options
+
+* **`    --ignore-path`**=*`PATH`* —
+  Path to ignore file(s). Can be specified multiple times. If not specified, .gitignore and .prettierignore in the current directory are used.
+* **`    --with-node-modules`** —
+  Format code in node\_modules directory (skipped by default)
+
+## Runtime Options
+
+* **`    --no-error-on-unmatched-pattern`** —
+  Do not exit with error when pattern is unmatched
+* **`    --threads`**=*`INT`* —
+  Number of threads to use. Set to 1 for using only 1 CPU core.
+
+## Available positional items:
+
+* *`PATH`* —
+  Single file, single path or list of paths. If not provided, current working directory is used. Glob is supported only for exclude patterns like `'!**/fixtures/*.js'`.
+
+## Available options:
+
+* **`-h`**, **`--help`** —
+  Prints help information
+* **`-V`**, **`--version`** —
+  Prints version information
+
+---
+
+---
 url: /docs/guide/usage/linter/cli.md
 ---
 
@@ -1648,69 +1711,6 @@ Arguments:
   Enable rules that require type information
 * **`    --type-check`** —
   Enable experimental type checking (includes TypeScript compiler diagnostics)
-* **`-h`**, **`--help`** —
-  Prints help information
-* **`-V`**, **`--version`** —
-  Prints version information
-
----
-
----
-url: /docs/guide/usage/formatter/cli.md
----
-
-# Command-line Interface
-
-## Usage
-
-**`oxfmt`** \[**`-c`**=*`PATH`*] \[*`PATH`*]...
-
-## Mode Options:
-
-* **`    --init`** —
-  Initialize `.oxfmtrc.json` with default values
-* **`    --migrate`**=*`SOURCE`* —
-  Migrate configuration to `.oxfmtrc.json` from specified source Available sources: prettier
-* **`    --lsp`** —
-  Start language server protocol (LSP) server
-* **`    --stdin-filepath`**=*`PATH`* —
-  Specify the file name to use to infer which parser to use
-
-## Output Options:
-
-* **`    --write`** —
-  Format and write files in place (default)
-* **`    --check`** —
-  Check if files are formatted, also show statistics
-* **`    --list-different`** —
-  List files that would be changed
-
-## Config Options
-
-* **`-c`**, **`--config`**=*`PATH`* —
-  Path to the configuration file
-
-## Ignore Options
-
-* **`    --ignore-path`**=*`PATH`* —
-  Path to ignore file(s). Can be specified multiple times. If not specified, .gitignore and .prettierignore in the current directory are used.
-* **`    --with-node-modules`** —
-  Format code in node\_modules directory (skipped by default)
-
-## Runtime Options
-
-* **`    --no-error-on-unmatched-pattern`** —
-  Do not exit with error when pattern is unmatched
-* **`    --threads`**=*`INT`* —
-  Number of threads to use. Set to 1 for using only 1 CPU core.
-
-## Available positional items:
-
-* *`PATH`* —
-  Single file, single path or list of paths. If not provided, current working directory is used. Glob is supported only for exclude patterns like `'!**/fixtures/*.js'`.
-
-## Available options:
-
 * **`-h`**, **`--help`** —
   Prints help information
 * **`-V`**, **`--version`** —
@@ -23029,42 +23029,6 @@ oxlint --deny import/unambiguous --import-plugin
 ---
 
 ---
-url: /docs/guide/usage/formatter/ignore-comments.md
----
-# Inline ignore comments
-
-Use `oxfmt-ignore` to skip formatting the next statement:
-
-```js
-// oxfmt-ignore
-const a = 42;
-
-/* oxfmt-ignore */
-const x = () => {
-  return 2;
-};
-
-<>
-  {/* oxfmt-ignore */}
-  <span ugly format="" />
-</>;
-```
-
-::: warning
-Prettier's trailing ignore comments are not supported for performance reasons.
-:::
-
-For non-JS files, see Prettier's [ignore documentation](https://prettier.io/docs/ignore#html).
-
-TOML files do not support ignore comments.
-
-## Prettier compatibility
-
-`prettier-ignore` is also supported.
-
----
-
----
 url: /docs/guide/usage/linter/ignore-comments.md
 description: Disable specific rules inline using Oxlint ignore comments
 ---
@@ -23150,6 +23114,42 @@ oxlint --report-unused-disable-directives-severity error
 ```
 
 Only one of these options can be used at a time.
+
+---
+
+---
+url: /docs/guide/usage/formatter/ignore-comments.md
+---
+# Inline ignore comments
+
+Use `oxfmt-ignore` to skip formatting the next statement:
+
+```js
+// oxfmt-ignore
+const a = 42;
+
+/* oxfmt-ignore */
+const x = () => {
+  return 2;
+};
+
+<>
+  {/* oxfmt-ignore */}
+  <span ugly format="" />
+</>;
+```
+
+::: warning
+Prettier's trailing ignore comments are not supported for performance reasons.
+:::
+
+For non-JS files, see Prettier's [ignore documentation](https://prettier.io/docs/ignore#html).
+
+TOML files do not support ignore comments.
+
+## Prettier compatibility
+
+`prettier-ignore` is also supported.
 
 ---
 
@@ -33324,60 +33324,6 @@ Add the reformatting commit SHA to `.git-blame-ignore-revs` to hide it from `git
 ---
 
 ---
-url: /docs/guide/usage/minifier.md
----
-# Minifier
-
-::: tip
-`oxc-minify` is currently in alpha and may still have bugs.
-We recommend thoroughly testing its output before deploying to production environments.
-:::
-
-## Features
-
-* [Eliminate dead code.](./minifier/dead-code-elimination)
-* [Transforms syntaxes to make the output shorter and repetitive.](./minifier/syntax-normalization)
-* [Mangle variable names.](./minifier/mangling)
-* [Remove whitespace and comments.](./minifier/whitespace-stripping)
-
-## Assumptions
-
-To allow better optimizations, Oxc minifier makes some assumptions about your code. See [Assumptions document](https://github.com/oxc-project/oxc/blob/main/crates/oxc_minifier/docs/ASSUMPTIONS.md) for more information.
-
-## FAQ
-
-See [FAQ](./minifier/faq) for common questions.
-
-## Installation
-
-### With Rolldown
-
-If you are using [Rolldown][url-rolldown], `oxc-minify` will be used for minification by default. No extra installation is required.
-
-### Node.js
-
-* Use the node binding [oxc-minify][url-oxc-minify-npm].
-* Try on [stackblitz](https://stackblitz.com/edit/oxc-minify).
-
-### Rust
-
-Use the umbrella crate [oxc][url-oxc-crate] with the `minifier` feature.
-
-Rust usage example can be found [here](https://github.com/oxc-project/oxc/blob/main/crates/oxc_minifier/examples/minifier.rs).
-
-## Integrations
-
-* [`unplugin-oxc`](https://github.com/unplugin/unplugin-oxc)
-
-[url-oxc-crate]: https://docs.rs/oxc
-
-[url-oxc-minify-npm]: https://www.npmjs.com/package/oxc-minify
-
-[url-rolldown]: https://rolldown.rs
-
----
-
----
 url: /docs/contribute/minifier.md
 ---
 
@@ -33466,6 +33412,60 @@ Key strategies for maintaining performance:
 [esbuild]: https://github.com/evanw/esbuild
 
 [tdewolff-minify]: https://github.com/tdewolff/minify
+
+---
+
+---
+url: /docs/guide/usage/minifier.md
+---
+# Minifier
+
+::: tip
+`oxc-minify` is currently in alpha and may still have bugs.
+We recommend thoroughly testing its output before deploying to production environments.
+:::
+
+## Features
+
+* [Eliminate dead code.](./minifier/dead-code-elimination)
+* [Transforms syntaxes to make the output shorter and repetitive.](./minifier/syntax-normalization)
+* [Mangle variable names.](./minifier/mangling)
+* [Remove whitespace and comments.](./minifier/whitespace-stripping)
+
+## Assumptions
+
+To allow better optimizations, Oxc minifier makes some assumptions about your code. See [Assumptions document](https://github.com/oxc-project/oxc/blob/main/crates/oxc_minifier/docs/ASSUMPTIONS.md) for more information.
+
+## FAQ
+
+See [FAQ](./minifier/faq) for common questions.
+
+## Installation
+
+### With Rolldown
+
+If you are using [Rolldown][url-rolldown], `oxc-minify` will be used for minification by default. No extra installation is required.
+
+### Node.js
+
+* Use the node binding [oxc-minify][url-oxc-minify-npm].
+* Try on [stackblitz](https://stackblitz.com/edit/oxc-minify).
+
+### Rust
+
+Use the umbrella crate [oxc][url-oxc-crate] with the `minifier` feature.
+
+Rust usage example can be found [here](https://github.com/oxc-project/oxc/blob/main/crates/oxc_minifier/examples/minifier.rs).
+
+## Integrations
+
+* [`unplugin-oxc`](https://github.com/unplugin/unplugin-oxc)
+
+[url-oxc-crate]: https://docs.rs/oxc
+
+[url-oxc-minify-npm]: https://www.npmjs.com/package/oxc-minify
+
+[url-rolldown]: https://rolldown.rs
 
 ---
 
@@ -39061,66 +39061,111 @@ to accommodate TypeScript type checking scenarios.
 ---
 
 ---
-url: /docs/guide/usage/parser.md
+url: /docs/contribute/parser.md
 ---
 
 # Parser
 
-This is production ready.
+The Oxc parser is designed to be the fastest and most conformant JavaScript and TypeScript parser available. Contributing to the parser requires understanding both the implementation details and the extensive test infrastructure.
 
-## Features
+## Architecture Overview
 
-* 3x faster than swc parser ([benchmark][url-benchmark]).
-* Parses `.js(x)` and `.ts(x)`.
-* Passes all parser tests from Test262 and 99% from Babel and TypeScript.
-* Returns ESM information directly, no need for [`es-module-lexer`](https://github.com/guybedford/es-module-lexer).
-* [✅ works with checker.ts](https://x.com/robpalmer2/status/1805502964435505559)
+The parser follows a traditional compiler frontend architecture:
 
-## Installation
-
-### Node.js
-
-* Use the node binding [oxc-parser][url-oxc-parser-npm].
-* Try on [stackblitz](https://stackblitz.com/edit/oxc-parser).
-
-### Rust
-
-Use the umbrella crate [oxc][url-oxc-crate] or the individual [oxc\_ast][url-oxc-ast-crate] and [oxc\_parser][url-oxc-parser-crate] crates.
-
-Rust usage example can be found [here](https://github.com/oxc-project/oxc/blob/main/crates/oxc_parser/examples/parser.rs).
-
-## Print
-
-After parsing and transforming, you can print code.
-
-Here's a direct example using [esrap](https://www.npmjs.com/package/esrap) *(`parse` in reverse!)*:
-
-```js
-import { print } from "esrap";
-import ts from "esrap/languages/ts";
-import { parseSync } from "oxc-parser";
-
-const { program } = parseSync("test.js", 'alert("hello oxc & esrap");');
-const { code } = print(program, ts());
-
-console.log(code); // alert("hello oxc & esrap");
+```
+Source Text → Lexer → Tokens → Parser → AST
 ```
 
-:::info
-Today, comments are not printed. *It will be supported thanks to [oxc-parser #13285](https://github.com/oxc-project/oxc/pull/13285).*
-:::
+### Key Components
 
-[url-swc]: https://swc.rs
+* **Lexer**: Tokenizes source text into structured tokens
+* **Parser**: Recursive descent parser that builds the AST
+* **AST**: Memory-efficient abstract syntax tree
+* **Error Recovery**: Advanced error handling and recovery
+* **Semantic Analysis**: Symbol resolution and scope management
 
-[url-benchmark]: https://github.com/oxc-project/bench-javascript-parser-written-in-rust
+### Design Goals
 
-[url-oxc-crate]: https://docs.rs/oxc
+We aim to be the fastest Rust-based ready-for-production parser with:
 
-[url-oxc-ast-crate]: https://docs.rs/oxc_ast
+* **Speed**: 3x faster than SWC, 5x faster than Biome
+* **Conformance**: 100% Test262 compliance, 99%+ Babel/TypeScript compatibility
+* **Memory Efficiency**: Arena-based allocation, minimal heap usage
+* **Error Quality**: Helpful error messages with recovery
 
-[url-oxc-parser-crate]: https://docs.rs/oxc_parser
+## Development Workflow
 
-[url-oxc-parser-npm]: https://www.npmjs.com/package/oxc-parser
+### Setting Up
+
+```bash
+# Run parser tests
+cargo test -p oxc_parser
+
+# Run conformance tests
+just c  # or `just coverage`
+```
+
+### Project Structure
+
+```
+crates/oxc_parser/
+├── src/
+│   ├── lib.rs              # Public API
+│   ├── lexer/              # Tokenization
+│   ├── parser/             # Parsing logic
+│   ├── cursor.rs           # Token stream management
+│   └── diagnostics.rs      # Error handling
+├── tests/                  # Unit tests
+└── examples/               # Usage examples
+```
+
+### Core Parser Files
+
+* **`parser/mod.rs`**: Main parser entry point
+* **`parser/statement.rs`**: Statement parsing
+* **`parser/expression.rs`**: Expression parsing
+* **`parser/typescript.rs`**: TypeScript-specific parsing
+* **`parser/jsx.rs`**: JSX parsing logic
+
+## Conformance Testing
+
+### Running Conformance Tests
+
+```bash
+just c
+```
+
+This runs conformance test suites using the runner in [tasks/coverage](https://github.com/oxc-project/oxc/tree/main/tasks/coverage):
+
+### Test262 - ECMAScript Conformance
+
+JavaScript has the [ECMAScript Test Suite](https://github.com/tc39/test262) called Test262.
+The goal of Test262 is to provide test material that covers every observable behavior specified in the specification.
+
+Parser conformance uses the [parse phase tests](https://github.com/tc39/test262/blob/main/INTERPRETING.md#negative).
+
+**Current Status**: `43765/43765 (100.00%)`
+
+### Babel Parser Tests
+
+When new language features are added to JavaScript, Babel implements them first.
+Babel has comprehensive [parser tests](https://github.com/babel/babel/tree/main/packages/babel-parser/test) for cutting-edge features.
+
+**Current Status**: `2093/2101 (99.62%)`
+
+### TypeScript Conformance
+
+The TypeScript conformance tests can be found [here](https://github.com/microsoft/TypeScript/tree/main/tests/cases/conformance).
+
+**Current Status**: `6470/6479 (99.86%)`
+
+### Viewing Results
+
+Test results are stored in snapshot files for tracking changes:
+
+* [`parser_test262.snap`](https://github.com/oxc-project/oxc/blob/main/tasks/coverage/snapshots/parser_test262.snap)
+* [`parser_babel.snap`](https://github.com/oxc-project/oxc/blob/main/tasks/coverage/snapshots/parser_babel.snap)
+* [`parser_typescript.snap`](https://github.com/oxc-project/oxc/blob/main/tasks/coverage/snapshots/parser_typescript.snap)
 
 ---
 
@@ -39299,6 +39344,70 @@ The parser provides:
 * **Zero-copy parsing**: Eliminate unnecessary string copies
 
 [estree]: https://github.com/estree/estree
+
+---
+
+---
+url: /docs/guide/usage/parser.md
+---
+
+# Parser
+
+This is production ready.
+
+## Features
+
+* 3x faster than swc parser ([benchmark][url-benchmark]).
+* Parses `.js(x)` and `.ts(x)`.
+* Passes all parser tests from Test262 and 99% from Babel and TypeScript.
+* Returns ESM information directly, no need for [`es-module-lexer`](https://github.com/guybedford/es-module-lexer).
+* [✅ works with checker.ts](https://x.com/robpalmer2/status/1805502964435505559)
+
+## Installation
+
+### Node.js
+
+* Use the node binding [oxc-parser][url-oxc-parser-npm].
+* Try on [stackblitz](https://stackblitz.com/edit/oxc-parser).
+
+### Rust
+
+Use the umbrella crate [oxc][url-oxc-crate] or the individual [oxc\_ast][url-oxc-ast-crate] and [oxc\_parser][url-oxc-parser-crate] crates.
+
+Rust usage example can be found [here](https://github.com/oxc-project/oxc/blob/main/crates/oxc_parser/examples/parser.rs).
+
+## Print
+
+After parsing and transforming, you can print code.
+
+Here's a direct example using [esrap](https://www.npmjs.com/package/esrap) *(`parse` in reverse!)*:
+
+```js
+import { print } from "esrap";
+import ts from "esrap/languages/ts";
+import { parseSync } from "oxc-parser";
+
+const { program } = parseSync("test.js", 'alert("hello oxc & esrap");');
+const { code } = print(program, ts());
+
+console.log(code); // alert("hello oxc & esrap");
+```
+
+:::info
+Today, comments are not printed. *It will be supported thanks to [oxc-parser #13285](https://github.com/oxc-project/oxc/pull/13285).*
+:::
+
+[url-swc]: https://swc.rs
+
+[url-benchmark]: https://github.com/oxc-project/bench-javascript-parser-written-in-rust
+
+[url-oxc-crate]: https://docs.rs/oxc
+
+[url-oxc-ast-crate]: https://docs.rs/oxc_ast
+
+[url-oxc-parser-crate]: https://docs.rs/oxc_parser
+
+[url-oxc-parser-npm]: https://www.npmjs.com/package/oxc-parser
 
 ---
 
@@ -39709,115 +39818,6 @@ function isParenthesizedArrowFunctionExpression(): Tristate {
 ```
 
 In summary, the TypeScript parser uses a combination of lookahead (fast path) and backtracking to parse arrow functions.
-
----
-
----
-url: /docs/contribute/parser.md
----
-
-# Parser
-
-The Oxc parser is designed to be the fastest and most conformant JavaScript and TypeScript parser available. Contributing to the parser requires understanding both the implementation details and the extensive test infrastructure.
-
-## Architecture Overview
-
-The parser follows a traditional compiler frontend architecture:
-
-```
-Source Text → Lexer → Tokens → Parser → AST
-```
-
-### Key Components
-
-* **Lexer**: Tokenizes source text into structured tokens
-* **Parser**: Recursive descent parser that builds the AST
-* **AST**: Memory-efficient abstract syntax tree
-* **Error Recovery**: Advanced error handling and recovery
-* **Semantic Analysis**: Symbol resolution and scope management
-
-### Design Goals
-
-We aim to be the fastest Rust-based ready-for-production parser with:
-
-* **Speed**: 3x faster than SWC, 5x faster than Biome
-* **Conformance**: 100% Test262 compliance, 99%+ Babel/TypeScript compatibility
-* **Memory Efficiency**: Arena-based allocation, minimal heap usage
-* **Error Quality**: Helpful error messages with recovery
-
-## Development Workflow
-
-### Setting Up
-
-```bash
-# Run parser tests
-cargo test -p oxc_parser
-
-# Run conformance tests
-just c  # or `just coverage`
-```
-
-### Project Structure
-
-```
-crates/oxc_parser/
-├── src/
-│   ├── lib.rs              # Public API
-│   ├── lexer/              # Tokenization
-│   ├── parser/             # Parsing logic
-│   ├── cursor.rs           # Token stream management
-│   └── diagnostics.rs      # Error handling
-├── tests/                  # Unit tests
-└── examples/               # Usage examples
-```
-
-### Core Parser Files
-
-* **`parser/mod.rs`**: Main parser entry point
-* **`parser/statement.rs`**: Statement parsing
-* **`parser/expression.rs`**: Expression parsing
-* **`parser/typescript.rs`**: TypeScript-specific parsing
-* **`parser/jsx.rs`**: JSX parsing logic
-
-## Conformance Testing
-
-### Running Conformance Tests
-
-```bash
-just c
-```
-
-This runs conformance test suites using the runner in [tasks/coverage](https://github.com/oxc-project/oxc/tree/main/tasks/coverage):
-
-### Test262 - ECMAScript Conformance
-
-JavaScript has the [ECMAScript Test Suite](https://github.com/tc39/test262) called Test262.
-The goal of Test262 is to provide test material that covers every observable behavior specified in the specification.
-
-Parser conformance uses the [parse phase tests](https://github.com/tc39/test262/blob/main/INTERPRETING.md#negative).
-
-**Current Status**: `43765/43765 (100.00%)`
-
-### Babel Parser Tests
-
-When new language features are added to JavaScript, Babel implements them first.
-Babel has comprehensive [parser tests](https://github.com/babel/babel/tree/main/packages/babel-parser/test) for cutting-edge features.
-
-**Current Status**: `2093/2101 (99.62%)`
-
-### TypeScript Conformance
-
-The TypeScript conformance tests can be found [here](https://github.com/microsoft/TypeScript/tree/main/tests/cases/conformance).
-
-**Current Status**: `6470/6479 (99.86%)`
-
-### Viewing Results
-
-Test results are stored in snapshot files for tracking changes:
-
-* [`parser_test262.snap`](https://github.com/oxc-project/oxc/blob/main/tasks/coverage/snapshots/parser_test262.snap)
-* [`parser_babel.snap`](https://github.com/oxc-project/oxc/blob/main/tasks/coverage/snapshots/parser_babel.snap)
-* [`parser_typescript.snap`](https://github.com/oxc-project/oxc/blob/main/tasks/coverage/snapshots/parser_typescript.snap)
 
 ---
 
@@ -48667,66 +48667,6 @@ Upon visit, we can call `enter_scope` and `leave_scope` accordingly to build the
 ---
 
 ---
-url: /docs/guide/usage/formatter/ci.md
-description: Run Oxfmt in CI or as a git hook.
----
-
-# Setup CI and other integrations
-
-You can - and should - setup your CI pipeline to run Oxfmt and fail the build on format errors.
-
-This page also covers other integrations you may want to include, like git pre-commit hooks.
-
-## CI
-
-### GitHub Actions
-
-Add a formatting check to your GitHub Actions workflow:
-
-```yaml [.github/workflows/ci.yml]
-name: CI
-
-on:
-  pull_request:
-  push:
-    branches: [main]
-
-jobs:
-  format:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: pnpm/action-setup@v4
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: lts/*
-          cache: pnpm
-
-      - run: pnpm install --frozen-lockfile
-      - run: pnpm run fmt:check
-```
-
-## Pre-commit hook
-
-To auto-format staged files, use `oxfmt --no-error-on-unmatched-pattern`. This formats all supported files and avoids errors when no files match (e.g., only Ruby files staged).
-
-Use `--check` to verify formatting without writing files.
-
-For husky/lint-staged, add to `package.json`:
-
-```json [package.json]
-{
-  "lint-staged": {
-    "*": "oxfmt --no-error-on-unmatched-pattern"
-  }
-}
-```
-
----
-
----
 url: /docs/guide/usage/linter/ci.md
 description: Run Oxlint in CI or as a git hook.
 ---
@@ -48806,6 +48746,66 @@ Unplugin is supported via a [third-party package](https://www.npmjs.com/package/
 ### Vite plugin
 
 A Vite plugin is supported via a [third-party package](https://www.npmjs.com/package/vite-plugin-oxlint)
+
+---
+
+---
+url: /docs/guide/usage/formatter/ci.md
+description: Run Oxfmt in CI or as a git hook.
+---
+
+# Setup CI and other integrations
+
+You can - and should - setup your CI pipeline to run Oxfmt and fail the build on format errors.
+
+This page also covers other integrations you may want to include, like git pre-commit hooks.
+
+## CI
+
+### GitHub Actions
+
+Add a formatting check to your GitHub Actions workflow:
+
+```yaml [.github/workflows/ci.yml]
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  format:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm run fmt:check
+```
+
+## Pre-commit hook
+
+To auto-format staged files, use `oxfmt --no-error-on-unmatched-pattern`. This formats all supported files and avoids errors when no files match (e.g., only Ruby files staged).
+
+Use `--check` to verify formatting without writing files.
+
+For husky/lint-staged, add to `package.json`:
+
+```json [package.json]
+{
+  "lint-staged": {
+    "*": "oxfmt --no-error-on-unmatched-pattern"
+  }
+}
+```
 
 ---
 
@@ -66745,6 +66745,67 @@ Not fully implemented. See:
 ---
 
 ---
+url: /docs/guide/usage/formatter/generated-cli.md
+---
+
+## Usage
+
+**`oxfmt`** \[**`-c`**=*`PATH`*] \[*`PATH`*]...
+
+## Mode Options:
+
+* **`    --init`** —
+  Initialize `.oxfmtrc.json` with default values
+* **`    --migrate`**=*`SOURCE`* —
+  Migrate configuration to `.oxfmtrc.json` from specified source Available sources: prettier
+* **`    --lsp`** —
+  Start language server protocol (LSP) server
+* **`    --stdin-filepath`**=*`PATH`* —
+  Specify the file name to use to infer which parser to use
+
+## Output Options:
+
+* **`    --write`** —
+  Format and write files in place (default)
+* **`    --check`** —
+  Check if files are formatted, also show statistics
+* **`    --list-different`** —
+  List files that would be changed
+
+## Config Options
+
+* **`-c`**, **`--config`**=*`PATH`* —
+  Path to the configuration file
+
+## Ignore Options
+
+* **`    --ignore-path`**=*`PATH`* —
+  Path to ignore file(s). Can be specified multiple times. If not specified, .gitignore and .prettierignore in the current directory are used.
+* **`    --with-node-modules`** —
+  Format code in node\_modules directory (skipped by default)
+
+## Runtime Options
+
+* **`    --no-error-on-unmatched-pattern`** —
+  Do not exit with error when pattern is unmatched
+* **`    --threads`**=*`INT`* —
+  Number of threads to use. Set to 1 for using only 1 CPU core.
+
+## Available positional items:
+
+* *`PATH`* —
+  Single file, single path or list of paths. If not provided, current working directory is used. Glob is supported only for exclude patterns like `'!**/fixtures/*.js'`.
+
+## Available options:
+
+* **`-h`**, **`--help`** —
+  Prints help information
+* **`-V`**, **`--version`** —
+  Prints version information
+
+---
+
+---
 url: /docs/guide/usage/linter/generated-cli.md
 ---
 
@@ -66893,67 +66954,6 @@ Arguments:
   Enable rules that require type information
 * **`    --type-check`** —
   Enable experimental type checking (includes TypeScript compiler diagnostics)
-* **`-h`**, **`--help`** —
-  Prints help information
-* **`-V`**, **`--version`** —
-  Prints version information
-
----
-
----
-url: /docs/guide/usage/formatter/generated-cli.md
----
-
-## Usage
-
-**`oxfmt`** \[**`-c`**=*`PATH`*] \[*`PATH`*]...
-
-## Mode Options:
-
-* **`    --init`** —
-  Initialize `.oxfmtrc.json` with default values
-* **`    --migrate`**=*`SOURCE`* —
-  Migrate configuration to `.oxfmtrc.json` from specified source Available sources: prettier
-* **`    --lsp`** —
-  Start language server protocol (LSP) server
-* **`    --stdin-filepath`**=*`PATH`* —
-  Specify the file name to use to infer which parser to use
-
-## Output Options:
-
-* **`    --write`** —
-  Format and write files in place (default)
-* **`    --check`** —
-  Check if files are formatted, also show statistics
-* **`    --list-different`** —
-  List files that would be changed
-
-## Config Options
-
-* **`-c`**, **`--config`**=*`PATH`* —
-  Path to the configuration file
-
-## Ignore Options
-
-* **`    --ignore-path`**=*`PATH`* —
-  Path to ignore file(s). Can be specified multiple times. If not specified, .gitignore and .prettierignore in the current directory are used.
-* **`    --with-node-modules`** —
-  Format code in node\_modules directory (skipped by default)
-
-## Runtime Options
-
-* **`    --no-error-on-unmatched-pattern`** —
-  Do not exit with error when pattern is unmatched
-* **`    --threads`**=*`INT`* —
-  Number of threads to use. Set to 1 for using only 1 CPU core.
-
-## Available positional items:
-
-* *`PATH`* —
-  Single file, single path or list of paths. If not provided, current working directory is used. Glob is supported only for exclude patterns like `'!**/fixtures/*.js'`.
-
-## Available options:
-
 * **`-h`**, **`--help`** —
   Prints help information
 * **`-V`**, **`--version`** —
