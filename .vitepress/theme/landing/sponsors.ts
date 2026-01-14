@@ -28,12 +28,12 @@ export const sponsors: SponsorTier[] = [
     items: [
       {
         name: "N-iX Ltd",
-        url: "https://github.com/n-ix-ltd",
+        url: "https://opencollective.com/n-ix-ltd",
         img: "https://images.opencollective.com/n-ix-ltd/575a7a5/logo/460.png",
       },
       {
         name: "Miro",
-        url: "https://github.com/mirohq",
+        url: "https://opencollective.com/mirohq",
         img: "https://images.opencollective.com/mirohq/3c1699c/logo/460.png",
       },
     ],
@@ -159,17 +159,17 @@ export const sponsors: SponsorTier[] = [
       },
       {
         name: "Arciom Picikin",
-        url: "https://github.com/kasmacioma",
+        url: "https://opencollective.com/kasmacioma",
         img: "https://images.opencollective.com/kasmacioma/4f6640c/avatar/460.png",
       },
       {
         name: "Hyeseong Kim",
-        url: "https://github.com/cometkim",
+        url: "https://opencollective.com/cometkim",
         img: "https://images.opencollective.com/cometkim/3523805/avatar/460.png",
       },
       {
         name: "Mikel Software",
-        url: "https://github.com/mikel-software",
+        url: "https://opencollective.com/mikel-software",
         img: "https://images.opencollective.com/mikel-software/5198efd/logo/460.png",
       },
       {
@@ -209,7 +209,7 @@ export const sponsors: SponsorTier[] = [
       },
       {
         name: "kzhrk",
-        url: "https://github.com/kzhrk",
+        url: "https://opencollective.com/kzhrk",
         img: "https://images.opencollective.com/kzhrk/e4448b3/avatar/460.png",
       },
     ],

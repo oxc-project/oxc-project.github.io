@@ -26,7 +26,7 @@ function getSponsorTier(monthlyDollars) {
 function createSponsorItem(entry) {
   const sponsor = entry.sponsor;
   const name = sponsor.name || sponsor.login;
-  const url = `https://github.com/${sponsor.login}`;
+  const url = sponsor.linkUrl;
   const img = sponsor.avatarUrl;
 
   return { name, url, img };
