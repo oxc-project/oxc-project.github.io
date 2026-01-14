@@ -201,6 +201,10 @@ export const sharedConfig = defineConfig({
           find: "@constants",
           replacement: resolve(dirname(fileURLToPath(import.meta.url)), "../theme/constants"),
         },
+        {
+          find: "@data",
+          replacement: resolve(dirname(fileURLToPath(import.meta.url)), "../data"),
+        },
       ],
     },
   },
