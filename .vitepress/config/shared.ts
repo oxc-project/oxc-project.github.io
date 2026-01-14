@@ -117,6 +117,7 @@ export const sharedConfig = defineConfig({
   themeConfig: {
     variant: "oxc",
 
+    // NOTE: Also update banner.js when changing this
     banner: {
       id: "type-aware-alpha",
       text: "Announcing Type-Aware Linting Alpha",
