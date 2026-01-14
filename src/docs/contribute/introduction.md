@@ -56,10 +56,10 @@ We welcome and appreciate any form of contributions:
 Oxc is organized into several crates:
 
 - **`oxc_parser`**: High-performance JavaScript/TypeScript parser
-- **`oxc_linter`**: Fast linting engine with 500+ rules
+- **`oxc_linter`**: Fast linting engine with 650+ rules
 - **`oxc_transformer`**: TypeScript and JSX transformation
 - **`oxc_minifier`**: JavaScript minification (in development)
-- **`oxc_formatter`**: Code formatting (in development)
+- **`oxc_formatter`**: Code formatting, compatible with Prettier (in alpha)
 
 ### Your First Contribution
 
