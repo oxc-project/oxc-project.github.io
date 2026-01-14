@@ -27,7 +27,7 @@ function createSponsorItem(entry) {
   const sponsor = entry.sponsor;
   const name = sponsor.name || sponsor.login;
   const url = `https://github.com/${sponsor.login}`;
-  const img = `https://avatars.githubusercontent.com/${sponsor.login}`;
+  const img = sponsor.avatarUrl;
 
   return { name, url, img };
 }
