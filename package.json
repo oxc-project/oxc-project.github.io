@@ -12,7 +12,7 @@
     "lint:fix": "pnpm lint --fix && typos -w",
     "fmt": "oxfmt",
     "knip": "knip",
-    "sponsors": "degit Boshen/sponsors temp --force && mv temp/sponsors.svg public/sponsors.svg",
+    "sponsors": "degit Boshen/sponsors sponsors --force && node scripts/generate-sponsors.js",
     "prepare": "husky"
   },
   "devDependencies": {
