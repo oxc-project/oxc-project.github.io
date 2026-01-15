@@ -228,6 +228,26 @@ const pluginDisplayNames: Record<string, string> = {
 <style scoped>
 select {
   width: 100%;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--vp-c-border);
+  border-radius: 4px;
+  background-color: var(--vp-c-bg);
+  color: var(--vp-c-text-1);
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+
+select:hover {
+  border-color: var(--vp-c-brand-1);
+}
+
+select:focus {
+  outline: none;
+  border-color: var(--vp-c-brand-2);
+  box-shadow: 0 0 0 2px var(--vp-c-brand-soft);
 }
 
 .sortable {
