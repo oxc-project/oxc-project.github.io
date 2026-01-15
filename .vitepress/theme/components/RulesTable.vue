@@ -259,6 +259,11 @@ select:focus {
   box-shadow: 0 0 0 2px var(--vp-c-brand-soft);
 }
 
+input[type="checkbox"]:focus {
+  outline: 1px solid var(--vp-c-brand-1);
+  outline-offset: 1px;
+}
+
 .sortable {
   cursor: pointer;
   user-select: none;
