@@ -65,6 +65,34 @@ const fixIcons = (fix: string) => {
   }
 };
 
+const fixTitle = (fix: string) => {
+  switch (fix) {
+    case "fixable_fix":
+      return "Has automatic fix";
+    case "conditional_fix":
+      return "Has conditional automatic fix";
+    case "fixable_suggestion":
+      return "Has automatic suggestion";
+    case "conditional_suggestion":
+      return "Has conditional suggestion";
+    case "fixable_dangerous_fix":
+      return "Has dangerous automatic fix";
+    case "conditional_dangerous_fix":
+      return "Has conditional dangerous fix";
+    case "fixable_dangerous_suggestion":
+      return "Has dangerous suggestion";
+    case "conditional_dangerous_suggestion":
+      return "Has conditional dangerous suggestion";
+    case "conditional_safe_fix_or_suggestion":
+      return "Has conditional fix or suggestion";
+    case "pending":
+      return "Fix implementation pending";
+    case "none":
+    default:
+      return "No fix available";
+  }
+};
+
 // Apply filters and sorting to all rules
 const filteredAndSorted = computed(() => {
   let filtered = rules.filter((r) => {
@@ -258,7 +286,7 @@ const pluginDisplayNames: Record<string, string> = {
         <td>{{ r.category }}</td>
         <td v-if="r.default">✅</td>
         <td v-else></td>
-        <td>{{ fixIcons(r.fix) }}</td>
+        <td :title="fixTitle(r.fix)">{{ fixIcons(r.fix) }}</td>
       </tr>
       <tr v-if="filteredAndSorted.length === 0">
         <td colspan="5" style="opacity: 0.7">No rules match current filters.</td>
