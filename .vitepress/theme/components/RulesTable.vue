@@ -113,10 +113,19 @@ const filteredAndSorted = computed(() => {
         break;
       }
       case "fix": {
-        const af = hasFix(a.fix) ? 1 : 0;
-        const bf = hasFix(b.fix) ? 1 : 0;
-        comparison = bf - af; // has-fix first
-        if (comparison === 0) comparison = a.value.localeCompare(b.value);
+        // sort by whether it has a fix or not,
+        // and then by fix type alphabetically.
+        const af = a.fix;
+        const bf = b.fix;
+
+        if (hasFix(af) && !hasFix(bf)) {
+          comparison = 1;
+        } else if (!hasFix(af) && hasFix(bf)) {
+          comparison = -1;
+        } else {
+          comparison = af.localeCompare(bf);
+        }
+
         break;
       }
     }
