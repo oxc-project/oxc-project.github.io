@@ -210,7 +210,7 @@ const pluginDisplayNames: Record<string, string> = {
     <tbody>
       <tr v-for="r in filteredAndSorted" :key="`${r.scope}:${r.value}`">
         <td>
-          <a :href="r.docs_url">{{ r.value }}</a>
+          <a :href="`/docs/guide/usage/linter/rules/${r.scope}/${r.value}`">{{ r.value }}</a>
         </td>
         <td>{{ pluginDisplayNames[r.scope] || r.scope }}</td>
         <td>{{ r.category }}</td>
