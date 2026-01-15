@@ -33,6 +33,8 @@ const fixEmoji = computed(() => {
       return "⚠️💡";
     case "conditional_safe_fix_or_suggestion":
       return "🛠️💡";
+    case "fixable_dangerous_fix_or_suggestion":
+      return "⚠️🛠️💡";
     case "pending":
       return "🚧";
     default:

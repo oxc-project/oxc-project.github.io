@@ -57,6 +57,8 @@ const fixIcons = (fix: string) => {
       return "⚠️💡";
     case "conditional_safe_fix_or_suggestion":
       return "🛠️💡";
+    case "fixable_dangerous_fix_or_suggestion":
+      return "⚠️🛠️💡";
     case "pending":
       return "🚧";
     case "none":
