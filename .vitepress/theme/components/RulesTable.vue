@@ -187,31 +187,61 @@ const pluginDisplayNames: Record<string, string> = {
   <table>
     <thead>
       <tr>
-        <th @click="toggleSort('name')" class="sortable">
+        <th
+          @click="toggleSort('name')"
+          @keydown.enter="toggleSort('name')"
+          @keydown.space.prevent="toggleSort('name')"
+          tabindex="0"
+          class="sortable"
+        >
           Rule name
           <span v-if="sortColumn === 'name'" class="sort-indicator">
             {{ sortDirection === "asc" ? "▲" : "▼" }}
           </span>
         </th>
-        <th @click="toggleSort('source')" class="sortable">
+        <th
+          @click="toggleSort('source')"
+          @keydown.enter="toggleSort('source')"
+          @keydown.space.prevent="toggleSort('source')"
+          tabindex="0"
+          class="sortable"
+        >
           Source
           <span v-if="sortColumn === 'source'" class="sort-indicator">
             {{ sortDirection === "asc" ? "▲" : "▼" }}
           </span>
         </th>
-        <th @click="toggleSort('category')" class="sortable">
+        <th
+          @click="toggleSort('category')"
+          @keydown.enter="toggleSort('category')"
+          @keydown.space.prevent="toggleSort('category')"
+          tabindex="0"
+          class="sortable"
+        >
           Category
           <span v-if="sortColumn === 'category'" class="sort-indicator">
             {{ sortDirection === "asc" ? "▲" : "▼" }}
           </span>
         </th>
-        <th @click="toggleSort('default')" class="sortable">
+        <th
+          @click="toggleSort('default')"
+          @keydown.enter="toggleSort('default')"
+          @keydown.space.prevent="toggleSort('default')"
+          tabindex="0"
+          class="sortable"
+        >
           Default
           <span v-if="sortColumn === 'default'" class="sort-indicator">
             {{ sortDirection === "asc" ? "▲" : "▼" }}
           </span>
         </th>
-        <th @click="toggleSort('fix')" class="sortable">
+        <th
+          @click="toggleSort('fix')"
+          @keydown.enter="toggleSort('fix')"
+          @keydown.space.prevent="toggleSort('fix')"
+          tabindex="0"
+          class="sortable"
+        >
           Fixable?
           <span v-if="sortColumn === 'fix'" class="sort-indicator">
             {{ sortDirection === "asc" ? "▲" : "▼" }}
@@ -275,6 +305,12 @@ input[type="checkbox"]:focus {
 }
 
 .sortable:hover {
+  background-color: var(--vp-c-bg-soft);
+}
+
+.sortable:focus {
+  outline: 1px solid var(--vp-c-brand-1);
+  outline-offset: -1px;
   background-color: var(--vp-c-bg-soft);
 }
 
