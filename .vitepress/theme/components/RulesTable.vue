@@ -65,6 +65,34 @@ const fixIcons = (fix: string) => {
   }
 };
 
+const fixTitle = (fix: string) => {
+  switch (fix) {
+    case "fixable_fix":
+      return "Has automatic fix";
+    case "conditional_fix":
+      return "Has conditional automatic fix";
+    case "fixable_suggestion":
+      return "Has automatic suggestion";
+    case "conditional_suggestion":
+      return "Has conditional suggestion";
+    case "fixable_dangerous_fix":
+      return "Has dangerous automatic fix";
+    case "conditional_dangerous_fix":
+      return "Has conditional dangerous fix";
+    case "fixable_dangerous_suggestion":
+      return "Has dangerous suggestion";
+    case "conditional_dangerous_suggestion":
+      return "Has conditional dangerous suggestion";
+    case "conditional_safe_fix_or_suggestion":
+      return "Has conditional fix or suggestion";
+    case "pending":
+      return "Fix implementation pending";
+    case "none":
+    default:
+      return "No fix available";
+  }
+};
+
 // Apply filters and sorting to all rules
 const filteredAndSorted = computed(() => {
   let filtered = rules.filter((r) => {
@@ -113,10 +141,19 @@ const filteredAndSorted = computed(() => {
         break;
       }
       case "fix": {
-        const af = hasFix(a.fix) ? 1 : 0;
-        const bf = hasFix(b.fix) ? 1 : 0;
-        comparison = bf - af; // has-fix first
-        if (comparison === 0) comparison = a.value.localeCompare(b.value);
+        // sort by whether it has a fix or not,
+        // and then by fix type alphabetically.
+        const af = a.fix;
+        const bf = b.fix;
+
+        if (hasFix(af) && !hasFix(bf)) {
+          comparison = 1;
+        } else if (!hasFix(af) && hasFix(bf)) {
+          comparison = -1;
+        } else {
+          comparison = af.localeCompare(bf);
+        }
+
         break;
       }
     }
@@ -148,7 +185,10 @@ const pluginDisplayNames: Record<string, string> = {
       <label for="categoryFilter"><strong>Category</strong></label>
       <select id="categoryFilter" v-model="categoryFilter">
         <option value="all">All</option>
-        <option v-for="c in categories" :key="c" :value="c">{{ c }}</option>
+        <!-- Display categories with the first letter capitalized. -->
+        <option v-for="c in categories" :key="c" :value="c">
+          {{ c.charAt(0).toUpperCase() + c.slice(1) }}
+        </option>
       </select>
     </div>
 
@@ -175,31 +215,61 @@ const pluginDisplayNames: Record<string, string> = {
   <table>
     <thead>
       <tr>
-        <th @click="toggleSort('name')" class="sortable">
+        <th
+          @click="toggleSort('name')"
+          @keydown.enter="toggleSort('name')"
+          @keydown.space.prevent="toggleSort('name')"
+          tabindex="0"
+          class="sortable"
+        >
           Rule name
           <span v-if="sortColumn === 'name'" class="sort-indicator">
             {{ sortDirection === "asc" ? "▲" : "▼" }}
           </span>
         </th>
-        <th @click="toggleSort('source')" class="sortable">
+        <th
+          @click="toggleSort('source')"
+          @keydown.enter="toggleSort('source')"
+          @keydown.space.prevent="toggleSort('source')"
+          tabindex="0"
+          class="sortable"
+        >
           Source
           <span v-if="sortColumn === 'source'" class="sort-indicator">
             {{ sortDirection === "asc" ? "▲" : "▼" }}
           </span>
         </th>
-        <th @click="toggleSort('category')" class="sortable">
+        <th
+          @click="toggleSort('category')"
+          @keydown.enter="toggleSort('category')"
+          @keydown.space.prevent="toggleSort('category')"
+          tabindex="0"
+          class="sortable"
+        >
           Category
           <span v-if="sortColumn === 'category'" class="sort-indicator">
             {{ sortDirection === "asc" ? "▲" : "▼" }}
           </span>
         </th>
-        <th @click="toggleSort('default')" class="sortable">
+        <th
+          @click="toggleSort('default')"
+          @keydown.enter="toggleSort('default')"
+          @keydown.space.prevent="toggleSort('default')"
+          tabindex="0"
+          class="sortable"
+        >
           Default
           <span v-if="sortColumn === 'default'" class="sort-indicator">
             {{ sortDirection === "asc" ? "▲" : "▼" }}
           </span>
         </th>
-        <th @click="toggleSort('fix')" class="sortable">
+        <th
+          @click="toggleSort('fix')"
+          @keydown.enter="toggleSort('fix')"
+          @keydown.space.prevent="toggleSort('fix')"
+          tabindex="0"
+          class="sortable"
+        >
           Fixable?
           <span v-if="sortColumn === 'fix'" class="sort-indicator">
             {{ sortDirection === "asc" ? "▲" : "▼" }}
@@ -216,7 +286,7 @@ const pluginDisplayNames: Record<string, string> = {
         <td>{{ r.category }}</td>
         <td v-if="r.default">✅</td>
         <td v-else></td>
-        <td>{{ fixIcons(r.fix) }}</td>
+        <td :title="fixTitle(r.fix)">{{ fixIcons(r.fix) }}</td>
       </tr>
       <tr v-if="filteredAndSorted.length === 0">
         <td colspan="5" style="opacity: 0.7">No rules match current filters.</td>
@@ -228,6 +298,32 @@ const pluginDisplayNames: Record<string, string> = {
 <style scoped>
 select {
   width: 100%;
+  padding: 0.5rem 0.75rem;
+  margin-top: 0.5rem;
+  border: 1px solid var(--vp-c-border);
+  border-radius: 4px;
+  background-color: var(--vp-c-bg);
+  color: var(--vp-c-text-1);
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+
+select:hover {
+  border-color: var(--vp-c-brand-1);
+}
+
+select:focus {
+  outline: none;
+  border-color: var(--vp-c-brand-2);
+  box-shadow: 0 0 0 2px var(--vp-c-brand-soft);
+}
+
+input[type="checkbox"]:focus {
+  outline: 1px solid var(--vp-c-brand-1);
+  outline-offset: 1px;
 }
 
 .sortable {
@@ -237,6 +333,12 @@ select {
 }
 
 .sortable:hover {
+  background-color: var(--vp-c-bg-soft);
+}
+
+.sortable:focus {
+  outline: 1px solid var(--vp-c-brand-1);
+  outline-offset: -1px;
   background-color: var(--vp-c-bg-soft);
 }
 
