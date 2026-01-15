@@ -157,7 +157,10 @@ const pluginDisplayNames: Record<string, string> = {
       <label for="categoryFilter"><strong>Category</strong></label>
       <select id="categoryFilter" v-model="categoryFilter">
         <option value="all">All</option>
-        <option v-for="c in categories" :key="c" :value="c">{{ c }}</option>
+        <!-- Display categories with the first letter capitalized. -->
+        <option v-for="c in categories" :key="c" :value="c">
+          {{ c.charAt(0).toUpperCase() + c.slice(1) }}
+        </option>
       </select>
     </div>
 
@@ -238,6 +241,7 @@ const pluginDisplayNames: Record<string, string> = {
 select {
   width: 100%;
   padding: 0.5rem 0.75rem;
+  margin-top: 0.5rem;
   border: 1px solid var(--vp-c-border);
   border-radius: 4px;
   background-color: var(--vp-c-bg);
