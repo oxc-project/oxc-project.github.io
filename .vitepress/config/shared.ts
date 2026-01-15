@@ -141,7 +141,7 @@ export const sharedConfig = defineConfig({
           // If we don't do this, the search index will not have the rule
           // name as a header.
           if (env.frontmatter?.title && !env.title) {
-            return (await md.renderAsync(`# ${env.frontmatter.title}`)) + html;
+            return (await md.renderAsync(`# ${(env.frontmatter as any).title}`)) + html;
           }
           return html;
         },
