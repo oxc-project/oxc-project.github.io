@@ -2,6 +2,7 @@
 import { useData } from "vitepress";
 import Alert from "./Alert.vue";
 import { computed } from "vue";
+import fixEmoji from "./utils/fixEmoji";
 
 const { frontmatter } = useData();
 const title = frontmatter.value.title;
@@ -17,30 +18,7 @@ const defaultMessage = typeAware
   ? "This rule is turned on by default when type-aware linting is enabled."
   : "This rule is turned on by default.";
 
-const fixEmoji = computed(() => {
-  switch (fix) {
-    case "fixable_fix":
-    case "conditional_fix":
-      return "🛠️";
-    case "fixable_suggestion":
-    case "conditional_suggestion":
-      return "💡";
-    case "fixable_dangerous_fix":
-    case "conditional_dangerous_fix":
-      return "⚠️🛠️";
-    case "fixable_dangerous_suggestion":
-    case "conditional_dangerous_suggestion":
-      return "⚠️💡";
-    case "conditional_safe_fix_or_suggestion":
-      return "🛠️💡";
-    case "fixable_dangerous_fix_or_suggestion":
-      return "⚠️🛠️💡";
-    case "pending":
-      return "🚧";
-    default:
-      return "";
-  }
-});
+const emoji = computed(() => fixEmoji(fix));
 
 const fixMessage = computed(() => {
   const f = fix ?? "none";
@@ -107,7 +85,7 @@ const fixMessage = computed(() => {
       </Alert>
 
       <Alert v-if="hasFixMessage" class="fix" type="info">
-        <span class="emoji">{{ fixEmoji }}</span> {{ fixMessage }}
+        <span class="emoji">{{ emoji }}</span> {{ fixMessage }}
       </Alert>
     </div>
   </div>
