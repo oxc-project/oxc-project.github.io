@@ -44,15 +44,15 @@ const head: HeadConfig[] = [
   ],
   // banner
   inlineScript("banner.js"),
-  // Google Analytics
-  ["script", { async: "", src: "https://www.googletagmanager.com/gtag/js?id=G-X7WQ091KL7" }],
+  // Fathom Analytics
   [
     "script",
-    {},
-    `window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-X7WQ091KL7');`,
+    {
+      src: "https://cdn.usefathom.com/script.js",
+      "data-site": "XPSGWNDW",
+      "data-spa": "auto",
+      defer: "",
+    },
   ],
 ];
 
