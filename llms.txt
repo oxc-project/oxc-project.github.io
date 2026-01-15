@@ -428,8 +428,8 @@
 - [promise/prefer-catch&#x20;](/docs/guide/usage/linter/rules/promise/prefer-catch.md)
 - [promise/spec-only&#x20;](/docs/guide/usage/linter/rules/promise/spec-only.md)
 - [promise/valid-params&#x20;](/docs/guide/usage/linter/rules/promise/valid-params.md)
-- [Quickstart](/docs/guide/usage/formatter/quickstart.md): Install Oxfmt and learn the common workflows.
 - [Quickstart](/docs/guide/usage/linter/quickstart.md): Install Oxlint and learn the common workflows.
+- [Quickstart](/docs/guide/usage/formatter/quickstart.md): Install Oxfmt and learn the common workflows.
 - [react/button-has-type&#x20;](/docs/guide/usage/linter/rules/react/button-has-type.md)
 - [react/checked-requires-onchange-or-readonly&#x20;](/docs/guide/usage/linter/rules/react/checked-requires-onchange-or-readonly.md)
 - [react/exhaustive-deps&#x20;](/docs/guide/usage/linter/rules/react/exhaustive-deps.md)
@@ -491,8 +491,8 @@
 - [Rules and Policy](/docs/contribute/rules.md)
 - [Security Policy](/docs/contribute/security.md)
 - [Semantic Analysis](/docs/learn/parser_in_rust/semantic_analysis.md)
-- [Setup CI and other integrations](/docs/guide/usage/linter/ci.md): Run Oxlint in CI or as a git hook.
 - [Setup CI and other integrations](/docs/guide/usage/formatter/ci.md): Run Oxfmt in CI or as a git hook.
+- [Setup CI and other integrations](/docs/guide/usage/linter/ci.md): Run Oxlint in CI or as a git hook.
 - [Setup editors](/docs/guide/usage/formatter/editors.md): Configure Oxfmt in VS Code, Zed, JetBrains, and other editors.
 - [Setup editors](/docs/guide/usage/linter/editors.md): Configure Oxlint in VS Code, Zed, JetBrains, and other editors.
 - [Sorting](/docs/guide/usage/formatter/sorting.md)
