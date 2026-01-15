@@ -2,6 +2,7 @@
 import { computed, ref } from "vue";
 // Import the generated rules data
 import rules from "@data/rules.json" with { type: "json" };
+import fixEmoji from "./utils/fixEmoji";
 
 // Filters
 const categoryFilter = ref("all");
@@ -41,30 +42,6 @@ const hasFix = (fix: string) => {
   return true;
 };
 
-const fixIcons = (fix: string) => {
-  switch (fix) {
-    case "fixable_fix":
-    case "conditional_fix":
-      return "🛠️";
-    case "fixable_suggestion":
-    case "conditional_suggestion":
-      return "💡";
-    case "fixable_dangerous_fix":
-    case "conditional_dangerous_fix":
-      return "⚠️🛠️";
-    case "fixable_dangerous_suggestion":
-    case "conditional_dangerous_suggestion":
-      return "⚠️💡";
-    case "conditional_safe_fix_or_suggestion":
-      return "🛠️💡";
-    case "pending":
-      return "🚧";
-    case "none":
-    default:
-      return "";
-  }
-};
-
 const fixTitle = (fix: string) => {
   switch (fix) {
     case "fixable_fix":
@@ -85,6 +62,8 @@ const fixTitle = (fix: string) => {
       return "Has conditional dangerous suggestion";
     case "conditional_safe_fix_or_suggestion":
       return "Has conditional fix or suggestion";
+    case "conditional_dangerous_fix_or_suggestion":
+      return "Has conditional dangerous fix or suggestion";
     case "pending":
       return "Fix implementation pending";
     case "none":
@@ -286,7 +265,7 @@ const pluginDisplayNames: Record<string, string> = {
         <td>{{ r.category }}</td>
         <td v-if="r.default">✅</td>
         <td v-else></td>
-        <td :title="fixTitle(r.fix)">{{ fixIcons(r.fix) }}</td>
+        <td :title="fixTitle(r.fix)">{{ fixEmoji(r.fix) }}</td>
       </tr>
       <tr v-if="filteredAndSorted.length === 0">
         <td colspan="5" style="opacity: 0.7">No rules match current filters.</td>

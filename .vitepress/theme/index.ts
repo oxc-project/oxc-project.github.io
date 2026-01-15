@@ -4,6 +4,7 @@ import OxcTheme from "@voidzero-dev/vitepress-theme/src/oxc";
 import AppBlogPostHeader from "./components/AppBlogPostHeader.vue";
 import AppBlogList from "./components/AppBlogList.vue";
 import RulesTable from "./components/RulesTable.vue";
+import RuleHeader from "./components/RuleHeader.vue";
 import Alert from "./components/Alert.vue";
 import "./styles.css";
 
@@ -14,5 +15,6 @@ export default {
     app.component("AppBlogPostHeader", AppBlogPostHeader);
     app.component("AppBlogList", AppBlogList);
     app.component("RulesTable", RulesTable);
+    app.component("RuleHeader", RuleHeader);
   },
 } satisfies Theme;
