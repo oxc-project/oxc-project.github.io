@@ -85,7 +85,10 @@ const fixMessage = computed(() => {
 
 <template>
   <div>
-    <header class="AppBlogPostHeader">
+    <header>
+      <a class="back-to-rules" href="/docs/guide/usage/linter/rules" aria-label="Back to rules"
+        >← Back to rules</a
+      >
       <h1>{{ title }} <Badge type="info" :text="category" /></h1>
     </header>
 
@@ -107,3 +110,21 @@ const fixMessage = computed(() => {
     </div>
   </div>
 </template>
+
+<style scoped>
+.back-to-rules {
+  display: inline-block;
+  margin-bottom: 0.25rem;
+  color: var(--vp-c-link);
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.back-to-rules:hover {
+  text-decoration: underline;
+}
+
+header .back-to-rules {
+  margin-bottom: 0.5rem;
+}
+</style>
