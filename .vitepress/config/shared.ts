@@ -128,6 +128,24 @@ export const sharedConfig = defineConfig({
     logo: "https://cdn.jsdelivr.net/gh/oxc-project/oxc-assets/round.svg",
     search: {
       provider: "local",
+      options: {
+        async _render(src, env, md) {
+          const html = await md.renderAsync(src, env);
+          // Filter out pages with `search: false` in the frontmatter.
+          if (env.frontmatter?.search === false) {
+            return "";
+          }
+
+          // This is necessary because the page title for rules is stored
+          // in `frontmatter.title` instead of in the markdown itself.
+          // If we don't do this, the search index will not have the rule
+          // name as a header.
+          if (env.frontmatter?.title && !env.title) {
+            return (await md.renderAsync(`# ${env.frontmatter.title}`)) + html;
+          }
+          return html;
+        },
+      },
     },
     socialLinks: [
       { icon: "x", link: "https://x.com/OxcProject" },
