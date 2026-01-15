@@ -4,7 +4,7 @@ import Alert from "./Alert.vue";
 import { computed } from "vue";
 
 const { frontmatter } = useData();
-const title = frontmatter.value.rule_name;
+const title = frontmatter.value.title;
 const category = frontmatter.value.category;
 const fix = frontmatter.value.fix;
 const typeAware = frontmatter.value.type_aware;
