@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-redeclare.md
 ---
-# eslint/no-redeclare&#x20;
 
 ### What it does
 

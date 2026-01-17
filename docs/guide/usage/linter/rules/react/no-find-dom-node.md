@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/react/no-find-dom-node.md
 ---
-# react/no-find-dom-node&#x20;
 
 ### What it does
 

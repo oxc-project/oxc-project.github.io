@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/jest/valid-title.md
 ---
-# jest/valid-title&#x20;
 
 ### What it does
 

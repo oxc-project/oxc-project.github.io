@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/nextjs/no-html-link-for-pages.md
 ---
-# nextjs/no-html-link-for-pages&#x20;
 
 ### What it does
 

@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-lone-blocks.md
 ---
-# eslint/no-lone-blocks&#x20;
 
 ### What it does
 

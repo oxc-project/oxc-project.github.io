@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-array-index-of.md
 ---
-# unicorn/prefer-array-index-of&#x20;
 
 ### What it does
 

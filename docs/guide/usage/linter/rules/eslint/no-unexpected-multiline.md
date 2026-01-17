@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-unexpected-multiline.md
 ---
-# eslint/no-unexpected-multiline&#x20;
 
 ### What it does
 

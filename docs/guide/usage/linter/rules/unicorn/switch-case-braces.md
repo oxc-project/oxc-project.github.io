@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/switch-case-braces.md
 ---
-# unicorn/switch-case-braces&#x20;
 
 ### What it does
 

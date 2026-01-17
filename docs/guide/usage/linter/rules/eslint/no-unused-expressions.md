@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-unused-expressions.md
 ---
-# eslint/no-unused-expressions&#x20;
 
 ### What it does
 

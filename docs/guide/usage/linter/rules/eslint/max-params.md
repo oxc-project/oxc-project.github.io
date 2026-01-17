@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/max-params.md
 ---
-# eslint/max-params&#x20;
 
 ### What it does
 

@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/jsx_a11y/autocomplete-valid.md
 ---
-# jsx\_a11y/autocomplete-valid&#x20;
 
 ### What it does
 

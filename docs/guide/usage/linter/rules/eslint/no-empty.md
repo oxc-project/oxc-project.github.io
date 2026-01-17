@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-empty.md
 ---
-# eslint/no-empty&#x20;
 
 ### What it does
 

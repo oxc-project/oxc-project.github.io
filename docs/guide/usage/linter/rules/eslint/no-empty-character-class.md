@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-empty-character-class.md
 ---
-# eslint/no-empty-character-class&#x20;
 
 ### What it does
 

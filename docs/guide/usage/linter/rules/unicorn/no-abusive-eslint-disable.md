@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/no-abusive-eslint-disable.md
 ---
-# unicorn/no-abusive-eslint-disable&#x20;
 
 ### What it does
 

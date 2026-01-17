@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/typescript/await-thenable.md
 ---
-# typescript/await-thenable&#x20;
 
 ### What it does
 

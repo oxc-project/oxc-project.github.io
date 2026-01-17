@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/react/forbid-elements.md
 ---
-# react/forbid-elements&#x20;
 
 ### What it does
 

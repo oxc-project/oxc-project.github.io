@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/typescript/no-unsafe-enum-comparison.md
 ---
-# typescript/no-unsafe-enum-comparison&#x20;
 
 ### What it does
 

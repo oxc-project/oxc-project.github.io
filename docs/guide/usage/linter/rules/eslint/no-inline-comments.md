@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-inline-comments.md
 ---
-# eslint/no-inline-comments&#x20;
 
 ### What it does
 

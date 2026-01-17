@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/valid-typeof.md
 ---
-# eslint/valid-typeof&#x20;
 
 ### What it does
 

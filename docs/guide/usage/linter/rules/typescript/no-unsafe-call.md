@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/typescript/no-unsafe-call.md
 ---
-# typescript/no-unsafe-call&#x20;
 
 ### What it does
 

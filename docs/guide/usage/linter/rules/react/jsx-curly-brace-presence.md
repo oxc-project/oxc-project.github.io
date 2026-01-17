@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/react/jsx-curly-brace-presence.md
 ---
-# react/jsx-curly-brace-presence&#x20;
 
 ### What it does
 

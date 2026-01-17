@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/no-useless-switch-case.md
 ---
-# unicorn/no-useless-switch-case&#x20;
 
 ### What it does
 

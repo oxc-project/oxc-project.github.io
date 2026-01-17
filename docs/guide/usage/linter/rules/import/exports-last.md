@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/import/exports-last.md
 ---
-# import/exports-last&#x20;
 
 ### What it does
 

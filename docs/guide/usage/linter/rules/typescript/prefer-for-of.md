@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/typescript/prefer-for-of.md
 ---
-# typescript/prefer-for-of&#x20;
 
 ### What it does
 

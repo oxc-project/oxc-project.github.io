@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/no-lonely-if.md
 ---
-# unicorn/no-lonely-if&#x20;
 
 ### What it does
 

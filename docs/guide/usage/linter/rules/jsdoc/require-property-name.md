@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/jsdoc/require-property-name.md
 ---
-# jsdoc/require-property-name&#x20;
 
 ### What it does
 

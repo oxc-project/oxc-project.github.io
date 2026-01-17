@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/init-declarations.md
 ---
-# eslint/init-declarations&#x20;
 
 ### What it does
 

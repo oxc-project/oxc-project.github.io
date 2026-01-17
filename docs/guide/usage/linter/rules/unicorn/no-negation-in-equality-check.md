@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/no-negation-in-equality-check.md
 ---
-# unicorn/no-negation-in-equality-check&#x20;
 
 ### What it does
 

@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/no-array-sort.md
 ---
-# unicorn/no-array-sort&#x20;
 
 ### What it does
 

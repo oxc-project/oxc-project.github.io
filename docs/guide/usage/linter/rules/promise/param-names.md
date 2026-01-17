@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/promise/param-names.md
 ---
-# promise/param-names&#x20;
 
 ### What it does
 

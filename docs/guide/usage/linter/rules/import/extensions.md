@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/import/extensions.md
 ---
-# import/extensions&#x20;
 
 ### What it does
 

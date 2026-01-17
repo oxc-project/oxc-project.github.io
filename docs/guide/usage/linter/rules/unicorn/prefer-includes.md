@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-includes.md
 ---
-# unicorn/prefer-includes&#x20;
 
 ### What it does
 

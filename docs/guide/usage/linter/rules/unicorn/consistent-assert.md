@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/consistent-assert.md
 ---
-# unicorn/consistent-assert&#x20;
 
 ### What it does
 

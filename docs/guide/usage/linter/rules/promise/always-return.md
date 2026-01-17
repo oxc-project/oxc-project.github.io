@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/promise/always-return.md
 ---
-# promise/always-return&#x20;
 
 ### What it does
 

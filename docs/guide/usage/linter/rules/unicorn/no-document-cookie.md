@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/no-document-cookie.md
 ---
-# unicorn/no-document-cookie&#x20;
 
 ### What it does
 

@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/vue/define-props-declaration.md
 ---
-# vue/define-props-declaration&#x20;
 
 ### What it does
 

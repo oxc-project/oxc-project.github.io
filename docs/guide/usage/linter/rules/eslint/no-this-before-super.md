@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-this-before-super.md
 ---
-# eslint/no-this-before-super&#x20;
 
 ### What it does
 

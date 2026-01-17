@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-class-assign.md
 ---
-# eslint/no-class-assign&#x20;
 
 ### What it does
 

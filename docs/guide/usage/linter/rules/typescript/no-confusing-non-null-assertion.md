@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/typescript/no-confusing-non-null-assertion.md
 ---
-# typescript/no-confusing-non-null-assertion&#x20;
 
 ### What it does
 

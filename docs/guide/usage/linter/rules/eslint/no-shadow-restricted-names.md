@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-shadow-restricted-names.md
 ---
-# eslint/no-shadow-restricted-names&#x20;
 
 ### What it does
 

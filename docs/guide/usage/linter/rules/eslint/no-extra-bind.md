@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-extra-bind.md
 ---
-# eslint/no-extra-bind&#x20;
 
 ### What it does
 

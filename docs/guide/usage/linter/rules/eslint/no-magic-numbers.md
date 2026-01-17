@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-magic-numbers.md
 ---
-# eslint/no-magic-numbers&#x20;
 
 ### What it does
 

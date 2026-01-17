@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/error-message.md
 ---
-# unicorn/error-message&#x20;
 
 ### What it does
 

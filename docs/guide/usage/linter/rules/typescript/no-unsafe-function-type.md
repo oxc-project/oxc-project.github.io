@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/typescript/no-unsafe-function-type.md
 ---
-# typescript/no-unsafe-function-type&#x20;
 
 ### What it does
 

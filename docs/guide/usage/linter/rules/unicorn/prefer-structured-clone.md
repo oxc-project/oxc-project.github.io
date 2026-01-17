@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-structured-clone.md
 ---
-# unicorn/prefer-structured-clone&#x20;
 
 ### What it does
 

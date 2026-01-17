@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/import/no-dynamic-require.md
 ---
-# import/no-dynamic-require&#x20;
 
 ### What it does
 

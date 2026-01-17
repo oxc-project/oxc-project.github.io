@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/react/no-unescaped-entities.md
 ---
-# react/no-unescaped-entities&#x20;
 
 ### What it does
 

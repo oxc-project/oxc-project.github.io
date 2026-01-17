@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/vars-on-top.md
 ---
-# eslint/vars-on-top&#x20;
 
 ### What it does
 

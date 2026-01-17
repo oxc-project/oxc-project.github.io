@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/typescript/no-inferrable-types.md
 ---
-# typescript/no-inferrable-types&#x20;
 
 ### What it does
 

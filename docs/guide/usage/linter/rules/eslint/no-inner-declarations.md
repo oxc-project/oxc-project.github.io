@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-inner-declarations.md
 ---
-# eslint/no-inner-declarations&#x20;
 
 ### What it does
 

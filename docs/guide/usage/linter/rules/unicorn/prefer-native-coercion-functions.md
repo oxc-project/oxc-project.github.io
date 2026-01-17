@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-native-coercion-functions.md
 ---
-# unicorn/prefer-native-coercion-functions&#x20;
 
 ### What it does
 

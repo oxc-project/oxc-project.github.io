@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/oxc/bad-min-max-func.md
 ---
-# oxc/bad-min-max-func&#x20;
 
 ### What it does
 

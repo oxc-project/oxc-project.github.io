@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/oxc/const-comparisons.md
 ---
-# oxc/const-comparisons&#x20;
 
 ### What it does
 

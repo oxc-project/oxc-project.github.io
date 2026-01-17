@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/prefer-rest-params.md
 ---
-# eslint/prefer-rest-params&#x20;
 
 ### What it does
 

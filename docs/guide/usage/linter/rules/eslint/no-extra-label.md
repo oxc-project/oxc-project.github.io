@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-extra-label.md
 ---
-# eslint/no-extra-label&#x20;
 
 ### What it does
 

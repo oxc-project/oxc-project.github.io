@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/typescript/no-unsafe-argument.md
 ---
-# typescript/no-unsafe-argument&#x20;
 
 ### What it does
 

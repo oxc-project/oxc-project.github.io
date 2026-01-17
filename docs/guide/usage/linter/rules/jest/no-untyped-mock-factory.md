@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/jest/no-untyped-mock-factory.md
 ---
-# jest/no-untyped-mock-factory&#x20;
 
 ### What it does
 

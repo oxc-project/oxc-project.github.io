@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/require-post-message-target-origin.md
 ---
-# unicorn/require-post-message-target-origin&#x20;
 
 ### What it does
 

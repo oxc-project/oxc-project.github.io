@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/jest/no-test-return-statement.md
 ---
-# jest/no-test-return-statement&#x20;
 
 ### What it does
 

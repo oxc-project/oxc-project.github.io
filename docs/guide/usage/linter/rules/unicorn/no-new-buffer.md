@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/no-new-buffer.md
 ---
-# unicorn/no-new-buffer&#x20;
 
 ### What it does
 

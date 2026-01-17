@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/react/jsx-filename-extension.md
 ---
-# react/jsx-filename-extension&#x20;
 
 ### What it does
 

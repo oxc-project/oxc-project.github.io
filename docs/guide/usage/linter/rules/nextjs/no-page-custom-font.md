@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/nextjs/no-page-custom-font.md
 ---
-# nextjs/no-page-custom-font&#x20;
 
 ### What it does
 

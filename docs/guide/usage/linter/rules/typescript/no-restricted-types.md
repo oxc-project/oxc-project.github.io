@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/typescript/no-restricted-types.md
 ---
-# typescript/no-restricted-types&#x20;
 
 ### What it does
 

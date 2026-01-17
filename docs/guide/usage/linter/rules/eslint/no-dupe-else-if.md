@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-dupe-else-if.md
 ---
-# eslint/no-dupe-else-if&#x20;
 
 ### What it does
 

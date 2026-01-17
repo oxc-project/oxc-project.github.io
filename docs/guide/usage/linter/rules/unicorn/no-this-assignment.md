@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/no-this-assignment.md
 ---
-# unicorn/no-this-assignment&#x20;
 
 ### What it does
 

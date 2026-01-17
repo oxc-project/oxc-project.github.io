@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/prefer-exponentiation-operator.md
 ---
-# eslint/prefer-exponentiation-operator&#x20;
 
 ### What it does
 

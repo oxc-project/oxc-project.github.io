@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/jest/prefer-spy-on.md
 ---
-# jest/prefer-spy-on&#x20;
 
 ### What it does
 

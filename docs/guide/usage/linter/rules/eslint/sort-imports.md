@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/sort-imports.md
 ---
-# eslint/sort-imports&#x20;
 
 ### What it does
 

@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/jest/no-interpolation-in-snapshots.md
 ---
-# jest/no-interpolation-in-snapshots&#x20;
 
 ### What it does
 

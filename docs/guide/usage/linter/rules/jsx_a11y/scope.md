@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/jsx_a11y/scope.md
 ---
-# jsx\_a11y/scope&#x20;
 
 ### What it does
 

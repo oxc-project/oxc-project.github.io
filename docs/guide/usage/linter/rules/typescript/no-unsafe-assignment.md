@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/typescript/no-unsafe-assignment.md
 ---
-# typescript/no-unsafe-assignment&#x20;
 
 ### What it does
 

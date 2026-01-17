@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-blob-reading-methods.md
 ---
-# unicorn/prefer-blob-reading-methods&#x20;
 
 ### What it does
 

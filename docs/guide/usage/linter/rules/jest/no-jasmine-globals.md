@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/jest/no-jasmine-globals.md
 ---
-# jest/no-jasmine-globals&#x20;
 
 ### What it does
 

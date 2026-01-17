@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/react/no-children-prop.md
 ---
-# react/no-children-prop&#x20;
 
 ### What it does
 

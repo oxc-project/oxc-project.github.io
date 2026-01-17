@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-continue.md
 ---
-# eslint/no-continue&#x20;
 
 ### What it does
 

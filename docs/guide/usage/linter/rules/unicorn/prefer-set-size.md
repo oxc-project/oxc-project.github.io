@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-set-size.md
 ---
-# unicorn/prefer-set-size&#x20;
 
 ### What it does
 

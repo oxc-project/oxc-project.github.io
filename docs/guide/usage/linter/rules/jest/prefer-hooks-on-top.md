@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/jest/prefer-hooks-on-top.md
 ---
-# jest/prefer-hooks-on-top&#x20;
 
 ### What it does
 

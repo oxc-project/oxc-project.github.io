@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-new-native-nonconstructor.md
 ---
-# eslint/no-new-native-nonconstructor&#x20;
 
 ### What it does
 

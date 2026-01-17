@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-useless-backreference.md
 ---
-# eslint/no-useless-backreference&#x20;
 
 ### What it does
 

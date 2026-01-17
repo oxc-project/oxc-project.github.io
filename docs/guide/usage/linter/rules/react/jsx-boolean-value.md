@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/react/jsx-boolean-value.md
 ---
-# react/jsx-boolean-value&#x20;
 
 ### What it does
 

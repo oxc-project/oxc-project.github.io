@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-unsafe-finally.md
 ---
-# eslint/no-unsafe-finally&#x20;
 
 ### What it does
 

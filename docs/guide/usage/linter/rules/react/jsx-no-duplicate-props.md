@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/react/jsx-no-duplicate-props.md
 ---
-# react/jsx-no-duplicate-props&#x20;
 
 ### What it does
 

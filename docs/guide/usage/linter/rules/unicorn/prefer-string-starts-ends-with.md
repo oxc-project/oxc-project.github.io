@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-string-starts-ends-with.md
 ---
-# unicorn/prefer-string-starts-ends-with&#x20;
 
 ### What it does
 

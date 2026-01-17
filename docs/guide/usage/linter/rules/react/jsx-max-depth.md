@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/react/jsx-max-depth.md
 ---
-# react/jsx-max-depth&#x20;
 
 ### What it does
 

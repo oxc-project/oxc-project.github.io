@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/react/no-direct-mutation-state.md
 ---
-# react/no-direct-mutation-state&#x20;
 
 ### What it does
 

@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/react_perf/jsx-no-jsx-as-prop.md
 ---
-# react\_perf/jsx-no-jsx-as-prop&#x20;
 
 ### What it does
 

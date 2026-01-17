@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-classlist-toggle.md
 ---
-# unicorn/prefer-classlist-toggle&#x20;
 
 ### What it does
 

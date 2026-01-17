@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-cond-assign.md
 ---
-# eslint/no-cond-assign&#x20;
 
 ### What it does
 

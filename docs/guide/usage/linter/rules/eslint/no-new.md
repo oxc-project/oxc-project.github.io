@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-new.md
 ---
-# eslint/no-new&#x20;
 
 ### What it does
 

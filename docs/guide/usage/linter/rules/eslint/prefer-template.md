@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/prefer-template.md
 ---
-# eslint/prefer-template&#x20;
 
 ### What it does
 

@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/vue/no-this-in-before-route-enter.md
 ---
-# vue/no-this-in-before-route-enter&#x20;
 
 ### What it does
 

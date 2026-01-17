@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/max-lines-per-function.md
 ---
-# eslint/max-lines-per-function&#x20;
 
 ### What it does
 

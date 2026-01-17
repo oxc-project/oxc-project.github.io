@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-iterator.md
 ---
-# eslint/no-iterator&#x20;
 
 ### What it does
 

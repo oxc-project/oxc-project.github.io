@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/react/no-will-update-set-state.md
 ---
-# react/no-will-update-set-state&#x20;
 
 ### What it does
 

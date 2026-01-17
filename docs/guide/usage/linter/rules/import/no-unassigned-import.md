@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/import/no-unassigned-import.md
 ---
-# import/no-unassigned-import&#x20;
 
 ### What it does
 

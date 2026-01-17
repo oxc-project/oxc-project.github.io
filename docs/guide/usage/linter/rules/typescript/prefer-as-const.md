@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/typescript/prefer-as-const.md
 ---
-# typescript/prefer-as-const&#x20;
 
 ### What it does
 

@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/react/jsx-pascal-case.md
 ---
-# react/jsx-pascal-case&#x20;
 
 ### What it does
 

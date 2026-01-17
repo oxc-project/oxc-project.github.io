@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-case-declarations.md
 ---
-# eslint/no-case-declarations&#x20;
 
 ### What it does
 

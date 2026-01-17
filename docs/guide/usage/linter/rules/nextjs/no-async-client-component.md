@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/nextjs/no-async-client-component.md
 ---
-# nextjs/no-async-client-component&#x20;
 
 ### What it does
 

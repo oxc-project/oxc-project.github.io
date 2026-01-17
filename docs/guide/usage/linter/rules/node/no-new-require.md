@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/node/no-new-require.md
 ---
-# node/no-new-require&#x20;
 
 ### What it does
 

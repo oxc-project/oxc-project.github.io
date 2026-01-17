@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-await-in-loop.md
 ---
-# eslint/no-await-in-loop&#x20;
 
 ### What it does
 

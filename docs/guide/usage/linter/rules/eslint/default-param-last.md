@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/default-param-last.md
 ---
-# eslint/default-param-last&#x20;
 
 ### What it does
 

@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-self-assign.md
 ---
-# eslint/no-self-assign&#x20;
 
 ### What it does
 

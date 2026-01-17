@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/typescript/no-useless-empty-export.md
 ---
-# typescript/no-useless-empty-export&#x20;
 
 ### What it does
 

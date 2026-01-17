@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/typescript/no-dynamic-delete.md
 ---
-# typescript/no-dynamic-delete&#x20;
 
 ### What it does
 

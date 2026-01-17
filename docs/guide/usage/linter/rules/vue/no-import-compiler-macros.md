@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/vue/no-import-compiler-macros.md
 ---
-# vue/no-import-compiler-macros&#x20;
 
 ### What it does
 

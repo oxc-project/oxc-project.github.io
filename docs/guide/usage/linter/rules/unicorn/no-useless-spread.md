@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/no-useless-spread.md
 ---
-# unicorn/no-useless-spread&#x20;
 
 ### What it does
 

@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/jsx_a11y/lang.md
 ---
-# jsx\_a11y/lang&#x20;
 
 ### What it does
 

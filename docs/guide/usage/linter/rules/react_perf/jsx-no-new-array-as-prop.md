@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/react_perf/jsx-no-new-array-as-prop.md
 ---
-# react\_perf/jsx-no-new-array-as-prop&#x20;
 
 ### What it does
 

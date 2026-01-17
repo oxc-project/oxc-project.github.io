@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/jsdoc/empty-tags.md
 ---
-# jsdoc/empty-tags&#x20;
 
 ### What it does
 

@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/yoda.md
 ---
-# eslint/yoda&#x20;
 
 ### What it does
 

@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/oxc/no-map-spread.md
 ---
-# oxc/no-map-spread&#x20;
 
 ### What it does
 

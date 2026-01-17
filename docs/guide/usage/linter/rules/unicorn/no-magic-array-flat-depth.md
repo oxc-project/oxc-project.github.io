@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/no-magic-array-flat-depth.md
 ---
-# unicorn/no-magic-array-flat-depth&#x20;
 
 ### What it does
 

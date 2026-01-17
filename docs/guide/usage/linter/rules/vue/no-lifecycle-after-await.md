@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/vue/no-lifecycle-after-await.md
 ---
-# vue/no-lifecycle-after-await&#x20;
 
 ### What it does
 

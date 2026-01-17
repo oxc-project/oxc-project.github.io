@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/new-cap.md
 ---
-# eslint/new-cap&#x20;
 
 ### What it does
 

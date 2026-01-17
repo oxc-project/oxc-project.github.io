@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-keyboard-event-key.md
 ---
-# unicorn/prefer-keyboard-event-key&#x20;
 
 ### What it does
 

@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-new-wrappers.md
 ---
-# eslint/no-new-wrappers&#x20;
 
 ### What it does
 

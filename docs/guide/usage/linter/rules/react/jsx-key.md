@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/react/jsx-key.md
 ---
-# react/jsx-key&#x20;
 
 ### What it does
 

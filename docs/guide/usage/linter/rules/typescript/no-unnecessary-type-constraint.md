@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/typescript/no-unnecessary-type-constraint.md
 ---
-# typescript/no-unnecessary-type-constraint&#x20;
 
 ### What it does
 

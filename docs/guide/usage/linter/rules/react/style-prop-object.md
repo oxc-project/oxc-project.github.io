@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/react/style-prop-object.md
 ---
-# react/style-prop-object&#x20;
 
 ### What it does
 

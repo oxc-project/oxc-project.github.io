@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-array-flat-map.md
 ---
-# unicorn/prefer-array-flat-map&#x20;
 
 ### What it does
 

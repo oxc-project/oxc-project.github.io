@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/class-methods-use-this.md
 ---
-# eslint/class-methods-use-this&#x20;
 
 ### What it does
 

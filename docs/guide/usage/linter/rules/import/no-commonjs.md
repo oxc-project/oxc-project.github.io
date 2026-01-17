@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/import/no-commonjs.md
 ---
-# import/no-commonjs&#x20;
 
 ### What it does
 

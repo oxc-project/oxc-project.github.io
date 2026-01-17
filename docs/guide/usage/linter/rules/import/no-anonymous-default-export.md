@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/import/no-anonymous-default-export.md
 ---
-# import/no-anonymous-default-export&#x20;
 
 ### What it does
 

@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/typescript/related-getter-setter-pairs.md
 ---
-# typescript/related-getter-setter-pairs&#x20;
 
 ### What it does
 

@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/oxc/no-barrel-file.md
 ---
-# oxc/no-barrel-file&#x20;
 
 ### What it does
 

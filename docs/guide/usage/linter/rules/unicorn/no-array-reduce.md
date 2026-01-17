@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/no-array-reduce.md
 ---
-# unicorn/no-array-reduce&#x20;
 
 ### What it does
 

@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/typescript/prefer-promise-reject-errors.md
 ---
-# typescript/prefer-promise-reject-errors&#x20;
 
 ### What it does
 

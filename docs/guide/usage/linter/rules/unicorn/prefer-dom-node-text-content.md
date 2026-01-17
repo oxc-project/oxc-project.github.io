@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-dom-node-text-content.md
 ---
-# unicorn/prefer-dom-node-text-content&#x20;
 
 ### What it does
 

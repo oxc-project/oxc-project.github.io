@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/jest/prefer-expect-resolves.md
 ---
-# jest/prefer-expect-resolves&#x20;
 
 ### What it does
 

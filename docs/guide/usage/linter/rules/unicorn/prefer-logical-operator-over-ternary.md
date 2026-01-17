@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-logical-operator-over-ternary.md
 ---
-# unicorn/prefer-logical-operator-over-ternary&#x20;
 
 ### What it does
 

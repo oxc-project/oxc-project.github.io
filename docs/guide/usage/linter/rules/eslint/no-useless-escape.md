@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-useless-escape.md
 ---
-# eslint/no-useless-escape&#x20;
 
 ### What it does
 

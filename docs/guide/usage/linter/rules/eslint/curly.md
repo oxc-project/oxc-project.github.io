@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/curly.md
 ---
-# eslint/curly&#x20;
 
 ### What it does
 

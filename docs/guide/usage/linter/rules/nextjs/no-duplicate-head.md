@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/nextjs/no-duplicate-head.md
 ---
-# nextjs/no-duplicate-head&#x20;
 
 ### What it does
 

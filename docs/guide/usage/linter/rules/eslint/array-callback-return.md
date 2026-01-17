@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/array-callback-return.md
 ---
-# eslint/array-callback-return&#x20;
 
 ### What it does
 

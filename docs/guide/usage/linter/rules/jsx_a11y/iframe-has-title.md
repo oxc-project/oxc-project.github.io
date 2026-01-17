@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/jsx_a11y/iframe-has-title.md
 ---
-# jsx\_a11y/iframe-has-title&#x20;
 
 ### What it does
 

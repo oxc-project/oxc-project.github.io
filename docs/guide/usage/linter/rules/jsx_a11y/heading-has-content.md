@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/jsx_a11y/heading-has-content.md
 ---
-# jsx\_a11y/heading-has-content&#x20;
 
 ### What it does
 

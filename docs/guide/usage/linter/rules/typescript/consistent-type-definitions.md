@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/typescript/consistent-type-definitions.md
 ---
-# typescript/consistent-type-definitions&#x20;
 
 ### What it does
 

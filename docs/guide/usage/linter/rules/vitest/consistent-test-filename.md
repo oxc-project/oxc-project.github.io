@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/vitest/consistent-test-filename.md
 ---
-# vitest/consistent-test-filename&#x20;
 
 ### What it does
 

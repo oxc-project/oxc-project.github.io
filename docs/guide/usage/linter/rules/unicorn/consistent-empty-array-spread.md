@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/consistent-empty-array-spread.md
 ---
-# unicorn/consistent-empty-array-spread&#x20;
 
 ### What it does
 

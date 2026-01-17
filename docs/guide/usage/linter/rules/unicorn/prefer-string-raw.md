@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-string-raw.md
 ---
-# unicorn/prefer-string-raw&#x20;
 
 ### What it does
 

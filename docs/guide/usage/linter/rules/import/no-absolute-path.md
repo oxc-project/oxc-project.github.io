@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/import/no-absolute-path.md
 ---
-# import/no-absolute-path&#x20;
 
 ### What it does
 

@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/typescript/prefer-nullish-coalescing.md
 ---
-# typescript/prefer-nullish-coalescing&#x20;
 
 ### What it does
 

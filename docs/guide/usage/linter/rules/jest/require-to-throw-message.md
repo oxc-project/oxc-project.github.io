@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/jest/require-to-throw-message.md
 ---
-# jest/require-to-throw-message&#x20;
 
 ### What it does
 

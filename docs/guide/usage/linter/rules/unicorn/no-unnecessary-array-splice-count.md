@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/no-unnecessary-array-splice-count.md
 ---
-# unicorn/no-unnecessary-array-splice-count&#x20;
 
 ### What it does
 

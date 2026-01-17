@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/nextjs/no-title-in-document-head.md
 ---
-# nextjs/no-title-in-document-head&#x20;
 
 ### What it does
 

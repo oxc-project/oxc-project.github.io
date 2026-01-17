@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-date-now.md
 ---
-# unicorn/prefer-date-now&#x20;
 
 ### What it does
 

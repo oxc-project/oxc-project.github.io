@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-code-point.md
 ---
-# unicorn/prefer-code-point&#x20;
 
 ### What it does
 

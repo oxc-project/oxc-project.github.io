@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/oxc/double-comparisons.md
 ---
-# oxc/double-comparisons&#x20;
 
 ### What it does
 

@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/promise/no-multiple-resolved.md
 ---
-# promise/no-multiple-resolved&#x20;
 
 ### What it does
 

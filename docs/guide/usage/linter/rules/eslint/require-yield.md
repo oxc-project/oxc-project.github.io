@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/require-yield.md
 ---
-# eslint/require-yield&#x20;
 
 ### What it does
 

@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-else-return.md
 ---
-# eslint/no-else-return&#x20;
 
 ### What it does
 

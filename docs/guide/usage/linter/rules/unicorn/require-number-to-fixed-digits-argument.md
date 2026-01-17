@@ -2,7 +2,6 @@
 url: >-
   /docs/guide/usage/linter/rules/unicorn/require-number-to-fixed-digits-argument.md
 ---
-# unicorn/require-number-to-fixed-digits-argument&#x20;
 
 ### What it does
 

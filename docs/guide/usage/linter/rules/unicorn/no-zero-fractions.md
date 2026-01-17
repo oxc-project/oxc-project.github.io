@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/no-zero-fractions.md
 ---
-# unicorn/no-zero-fractions&#x20;
 
 ### What it does
 

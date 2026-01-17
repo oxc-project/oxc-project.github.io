@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/react/no-unsafe.md
 ---
-# react/no-unsafe&#x20;
 
 ### What it does
 

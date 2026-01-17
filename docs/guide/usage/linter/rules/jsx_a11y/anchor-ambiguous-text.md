@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/jsx_a11y/anchor-ambiguous-text.md
 ---
-# jsx\_a11y/anchor-ambiguous-text&#x20;
 
 ### What it does
 

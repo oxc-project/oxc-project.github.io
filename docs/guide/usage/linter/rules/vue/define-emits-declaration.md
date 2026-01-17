@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/vue/define-emits-declaration.md
 ---
-# vue/define-emits-declaration&#x20;
 
 ### What it does
 

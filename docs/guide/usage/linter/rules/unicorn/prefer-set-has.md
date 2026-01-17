@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-set-has.md
 ---
-# unicorn/prefer-set-has&#x20;
 
 ### What it does
 

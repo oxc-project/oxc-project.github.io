@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-unused-vars.md
 ---
-# eslint/no-unused-vars&#x20;
 
 ### What it does
 

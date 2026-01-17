@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-div-regex.md
 ---
-# eslint/no-div-regex&#x20;
 
 ### What it does
 

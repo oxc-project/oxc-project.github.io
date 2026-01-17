@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/node/no-process-env.md
 ---
-# node/no-process-env&#x20;
 
 ### What it does
 

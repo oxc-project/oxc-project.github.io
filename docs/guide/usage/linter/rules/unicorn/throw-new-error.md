@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/throw-new-error.md
 ---
-# unicorn/throw-new-error&#x20;
 
 ### What it does
 

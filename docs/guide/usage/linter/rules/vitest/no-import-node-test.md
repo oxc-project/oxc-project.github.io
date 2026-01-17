@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/vitest/no-import-node-test.md
 ---
-# vitest/no-import-node-test&#x20;
 
 ### What it does
 

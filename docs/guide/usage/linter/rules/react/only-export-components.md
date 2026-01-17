@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/react/only-export-components.md
 ---
-# react/only-export-components&#x20;
 
 ### What it does
 

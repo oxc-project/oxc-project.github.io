@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/typescript/no-import-type-side-effects.md
 ---
-# typescript/no-import-type-side-effects&#x20;
 
 ### What it does
 

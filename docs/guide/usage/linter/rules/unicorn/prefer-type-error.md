@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-type-error.md
 ---
-# unicorn/prefer-type-error&#x20;
 
 ### What it does
 

@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/no-useless-length-check.md
 ---
-# unicorn/no-useless-length-check&#x20;
 
 ### What it does
 

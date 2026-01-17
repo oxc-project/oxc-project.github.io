@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/vitest/no-unneeded-async-expect-function.md
 ---
-# vitest/no-unneeded-async-expect-function&#x20;
 
 ### What it does
 

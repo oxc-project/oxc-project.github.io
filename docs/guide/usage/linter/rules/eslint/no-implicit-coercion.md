@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-implicit-coercion.md
 ---
-# eslint/no-implicit-coercion&#x20;
 
 ### What it does
 

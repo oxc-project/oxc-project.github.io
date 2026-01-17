@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/arrow-body-style.md
 ---
-# eslint/arrow-body-style&#x20;
 
 ### What it does
 

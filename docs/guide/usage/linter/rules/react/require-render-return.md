@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/react/require-render-return.md
 ---
-# react/require-render-return&#x20;
 
 ### What it does
 

@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/jest/prefer-equality-matcher.md
 ---
-# jest/prefer-equality-matcher&#x20;
 
 ### What it does
 

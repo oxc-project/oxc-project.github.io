@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-modern-dom-apis.md
 ---
-# unicorn/prefer-modern-dom-apis&#x20;
 
 ### What it does
 

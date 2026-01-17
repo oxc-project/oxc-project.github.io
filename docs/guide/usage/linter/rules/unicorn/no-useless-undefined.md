@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/no-useless-undefined.md
 ---
-# unicorn/no-useless-undefined&#x20;
 
 ### What it does
 

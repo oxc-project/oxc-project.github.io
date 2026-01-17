@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/react/no-is-mounted.md
 ---
-# react/no-is-mounted&#x20;
 
 ### What it does
 

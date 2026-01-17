@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/jest/prefer-to-be.md
 ---
-# jest/prefer-to-be&#x20;
 
 ### What it does
 

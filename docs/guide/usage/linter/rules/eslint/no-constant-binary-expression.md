@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-constant-binary-expression.md
 ---
-# eslint/no-constant-binary-expression&#x20;
 
 ### What it does
 

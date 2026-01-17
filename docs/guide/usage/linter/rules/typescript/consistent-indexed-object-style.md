@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/typescript/consistent-indexed-object-style.md
 ---
-# typescript/consistent-indexed-object-style&#x20;
 
 ### What it does
 

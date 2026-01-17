@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/import/no-mutable-exports.md
 ---
-# import/no-mutable-exports&#x20;
 
 ### What it does
 

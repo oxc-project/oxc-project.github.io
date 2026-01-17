@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/typescript/no-unsafe-type-assertion.md
 ---
-# typescript/no-unsafe-type-assertion&#x20;
 
 ### What it does
 

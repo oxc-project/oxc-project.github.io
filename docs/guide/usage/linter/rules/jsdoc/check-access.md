@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/jsdoc/check-access.md
 ---
-# jsdoc/check-access&#x20;
 
 ### What it does
 

@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/react/checked-requires-onchange-or-readonly.md
 ---
-# react/checked-requires-onchange-or-readonly&#x20;
 
 ### What it does
 

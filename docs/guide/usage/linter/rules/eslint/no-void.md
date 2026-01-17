@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-void.md
 ---
-# eslint/no-void&#x20;
 
 ### What it does
 

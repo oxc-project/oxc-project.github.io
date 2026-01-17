@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/consistent-existence-index-check.md
 ---
-# unicorn/consistent-existence-index-check&#x20;
 
 ### What it does
 

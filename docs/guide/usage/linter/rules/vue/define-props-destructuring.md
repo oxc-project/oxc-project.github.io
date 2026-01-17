@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/vue/define-props-destructuring.md
 ---
-# vue/define-props-destructuring&#x20;
 
 ### What it does
 

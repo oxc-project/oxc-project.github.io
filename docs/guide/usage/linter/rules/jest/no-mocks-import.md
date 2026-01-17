@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/jest/no-mocks-import.md
 ---
-# jest/no-mocks-import&#x20;
 
 ### What it does
 

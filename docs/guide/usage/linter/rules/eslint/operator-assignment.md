@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/operator-assignment.md
 ---
-# eslint/operator-assignment&#x20;
 
 ### What it does
 

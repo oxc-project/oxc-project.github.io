@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/jest/no-disabled-tests.md
 ---
-# jest/no-disabled-tests&#x20;
 
 ### What it does
 

@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-modern-math-apis.md
 ---
-# unicorn/prefer-modern-math-apis&#x20;
 
 ### What it does
 

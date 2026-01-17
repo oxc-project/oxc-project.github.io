@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-lonely-if.md
 ---
-# eslint/no-lonely-if&#x20;
 
 ### What it does
 

@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/vitest/prefer-to-be-truthy.md
 ---
-# vitest/prefer-to-be-truthy&#x20;
 
 ### What it does
 

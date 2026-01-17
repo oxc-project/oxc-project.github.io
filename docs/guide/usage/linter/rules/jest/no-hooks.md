@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/jest/no-hooks.md
 ---
-# jest/no-hooks&#x20;
 
 ### What it does
 

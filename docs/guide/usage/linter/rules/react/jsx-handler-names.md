@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/react/jsx-handler-names.md
 ---
-# react/jsx-handler-names&#x20;
 
 ### What it does
 

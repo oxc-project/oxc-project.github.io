@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/require-module-specifiers.md
 ---
-# unicorn/require-module-specifiers&#x20;
 
 ### What it does
 

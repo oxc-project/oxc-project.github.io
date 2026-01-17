@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/oxc/no-const-enum.md
 ---
-# oxc/no-const-enum&#x20;
 
 ### What it does
 

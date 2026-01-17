@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-fallthrough.md
 ---
-# eslint/no-fallthrough&#x20;
 
 ### What it does
 

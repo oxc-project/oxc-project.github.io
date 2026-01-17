@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-class-fields.md
 ---
-# unicorn/prefer-class-fields&#x20;
 
 ### What it does
 

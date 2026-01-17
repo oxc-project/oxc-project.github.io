@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/capitalized-comments.md
 ---
-# eslint/capitalized-comments&#x20;
 
 ### What it does
 

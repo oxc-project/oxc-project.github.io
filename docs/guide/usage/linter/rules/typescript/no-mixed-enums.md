@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/typescript/no-mixed-enums.md
 ---
-# typescript/no-mixed-enums&#x20;
 
 ### What it does
 

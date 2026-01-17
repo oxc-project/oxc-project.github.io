@@ -2,7 +2,6 @@
 url: >-
   /docs/guide/usage/linter/rules/vitest/require-local-test-context-for-concurrent-snapshots.md
 ---
-# vitest/require-local-test-context-for-concurrent-snapshots&#x20;
 
 ### What it does
 

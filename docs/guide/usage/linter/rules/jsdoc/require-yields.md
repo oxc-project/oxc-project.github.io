@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/jsdoc/require-yields.md
 ---
-# jsdoc/require-yields&#x20;
 
 ### What it does
 

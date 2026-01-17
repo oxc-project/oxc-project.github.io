@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/promise/prefer-await-to-then.md
 ---
-# promise/prefer-await-to-then&#x20;
 
 ### What it does
 

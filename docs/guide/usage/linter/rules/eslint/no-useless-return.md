@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-useless-return.md
 ---
-# eslint/no-useless-return&#x20;
 
 ### What it does
 

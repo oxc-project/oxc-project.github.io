@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/typescript/no-confusing-void-expression.md
 ---
-# typescript/no-confusing-void-expression&#x20;
 
 ### What it does
 

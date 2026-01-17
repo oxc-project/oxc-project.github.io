@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/react/state-in-constructor.md
 ---
-# react/state-in-constructor&#x20;
 
 ### What it does
 

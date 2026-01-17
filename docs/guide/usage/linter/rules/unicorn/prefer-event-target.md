@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-event-target.md
 ---
-# unicorn/prefer-event-target&#x20;
 
 ### What it does
 

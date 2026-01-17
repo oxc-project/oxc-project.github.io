@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/numeric-separators-style.md
 ---
-# unicorn/numeric-separators-style&#x20;
 
 ### What it does
 

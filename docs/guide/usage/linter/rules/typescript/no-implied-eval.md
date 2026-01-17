@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/typescript/no-implied-eval.md
 ---
-# typescript/no-implied-eval&#x20;
 
 ### What it does
 

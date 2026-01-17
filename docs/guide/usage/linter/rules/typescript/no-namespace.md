@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/typescript/no-namespace.md
 ---
-# typescript/no-namespace&#x20;
 
 ### What it does
 

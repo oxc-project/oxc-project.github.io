@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/vitest/consistent-vitest-vi.md
 ---
-# vitest/consistent-vitest-vi&#x20;
 
 ### What it does
 

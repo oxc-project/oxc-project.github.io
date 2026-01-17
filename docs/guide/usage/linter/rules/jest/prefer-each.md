@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/jest/prefer-each.md
 ---
-# jest/prefer-each&#x20;
 
 ### What it does
 

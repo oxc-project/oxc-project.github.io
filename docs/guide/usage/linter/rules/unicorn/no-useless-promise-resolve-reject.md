@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/no-useless-promise-resolve-reject.md
 ---
-# unicorn/no-useless-promise-resolve-reject&#x20;
 
 ### What it does
 

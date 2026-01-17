@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/use-isnan.md
 ---
-# eslint/use-isnan&#x20;
 
 ### What it does
 

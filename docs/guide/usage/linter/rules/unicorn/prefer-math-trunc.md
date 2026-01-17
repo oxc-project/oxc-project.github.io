@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-math-trunc.md
 ---
-# unicorn/prefer-math-trunc&#x20;
 
 ### What it does
 

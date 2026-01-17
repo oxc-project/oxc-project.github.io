@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/max-classes-per-file.md
 ---
-# eslint/max-classes-per-file&#x20;
 
 ### What it does
 

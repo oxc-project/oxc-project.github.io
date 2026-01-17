@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/typescript/no-misused-new.md
 ---
-# typescript/no-misused-new&#x20;
 
 ### What it does
 

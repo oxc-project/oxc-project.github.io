@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/jest/prefer-lowercase-title.md
 ---
-# jest/prefer-lowercase-title&#x20;
 
 ### What it does
 

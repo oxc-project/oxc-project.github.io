@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/typescript/switch-exhaustiveness-check.md
 ---
-# typescript/switch-exhaustiveness-check&#x20;
 
 ### What it does
 

@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/import/no-amd.md
 ---
-# import/no-amd&#x20;
 
 ### What it does
 

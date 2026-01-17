@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/react/no-string-refs.md
 ---
-# react/no-string-refs&#x20;
 
 ### What it does
 

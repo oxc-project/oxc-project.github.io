@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-unused-private-class-members.md
 ---
-# eslint/no-unused-private-class-members&#x20;
 
 ### What it does
 

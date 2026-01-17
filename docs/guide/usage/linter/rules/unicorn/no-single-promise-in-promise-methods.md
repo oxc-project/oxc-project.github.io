@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/no-single-promise-in-promise-methods.md
 ---
-# unicorn/no-single-promise-in-promise-methods&#x20;
 
 ### What it does
 

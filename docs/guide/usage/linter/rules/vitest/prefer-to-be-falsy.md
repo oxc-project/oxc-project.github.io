@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/vitest/prefer-to-be-falsy.md
 ---
-# vitest/prefer-to-be-falsy&#x20;
 
 ### What it does
 

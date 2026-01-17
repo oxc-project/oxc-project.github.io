@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/nextjs/no-styled-jsx-in-document.md
 ---
-# nextjs/no-styled-jsx-in-document&#x20;
 
 ### What it does
 

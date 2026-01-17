@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/oxc/erasing-op.md
 ---
-# oxc/erasing-op&#x20;
 
 ### What it does
 

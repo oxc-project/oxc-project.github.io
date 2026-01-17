@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-top-level-await.md
 ---
-# unicorn/prefer-top-level-await&#x20;
 
 ### What it does
 

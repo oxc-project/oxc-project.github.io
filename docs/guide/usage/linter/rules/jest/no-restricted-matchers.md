@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/jest/no-restricted-matchers.md
 ---
-# jest/no-restricted-matchers&#x20;
 
 ### What it does
 

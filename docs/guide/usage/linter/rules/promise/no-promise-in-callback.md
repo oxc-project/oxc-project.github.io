@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/promise/no-promise-in-callback.md
 ---
-# promise/no-promise-in-callback&#x20;
 
 ### What it does
 

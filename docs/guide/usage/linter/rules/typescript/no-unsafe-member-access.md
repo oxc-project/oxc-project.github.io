@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/typescript/no-unsafe-member-access.md
 ---
-# typescript/no-unsafe-member-access&#x20;
 
 ### What it does
 

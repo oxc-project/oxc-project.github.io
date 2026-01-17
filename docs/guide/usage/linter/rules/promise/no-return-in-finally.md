@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/promise/no-return-in-finally.md
 ---
-# promise/no-return-in-finally&#x20;
 
 ### What it does
 

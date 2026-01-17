@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/no-unnecessary-slice-end.md
 ---
-# unicorn/no-unnecessary-slice-end&#x20;
 
 ### What it does
 

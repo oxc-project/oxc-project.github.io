@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-template-curly-in-string.md
 ---
-# eslint/no-template-curly-in-string&#x20;
 
 ### What it does
 

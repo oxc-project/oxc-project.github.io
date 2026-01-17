@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-script-url.md
 ---
-# eslint/no-script-url&#x20;
 
 ### What it does
 

@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/no-unreadable-iife.md
 ---
-# unicorn/no-unreadable-iife&#x20;
 
 ### What it does
 

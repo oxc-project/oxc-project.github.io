@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-math-min-max.md
 ---
-# unicorn/prefer-math-min-max&#x20;
 
 ### What it does
 

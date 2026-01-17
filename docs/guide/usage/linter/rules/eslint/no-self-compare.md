@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-self-compare.md
 ---
-# eslint/no-self-compare&#x20;
 
 ### What it does
 

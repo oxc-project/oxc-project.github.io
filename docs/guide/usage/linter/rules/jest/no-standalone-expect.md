@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/jest/no-standalone-expect.md
 ---
-# jest/no-standalone-expect&#x20;
 
 ### What it does
 

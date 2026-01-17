@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/typescript/no-this-alias.md
 ---
-# typescript/no-this-alias&#x20;
 
 ### What it does
 

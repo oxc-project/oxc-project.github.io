@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/jsdoc/require-param-name.md
 ---
-# jsdoc/require-param-name&#x20;
 
 ### What it does
 

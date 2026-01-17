@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/jest/consistent-test-it.md
 ---
-# jest/consistent-test-it&#x20;
 
 ### What it does
 

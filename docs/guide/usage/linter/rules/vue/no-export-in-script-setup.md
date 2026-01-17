@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/vue/no-export-in-script-setup.md
 ---
-# vue/no-export-in-script-setup&#x20;
 
 ### What it does
 

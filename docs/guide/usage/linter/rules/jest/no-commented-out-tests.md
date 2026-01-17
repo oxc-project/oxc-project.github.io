@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/jest/no-commented-out-tests.md
 ---
-# jest/no-commented-out-tests&#x20;
 
 ### What it does
 

@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/oxc/bad-bitwise-operator.md
 ---
-# oxc/bad-bitwise-operator&#x20;
 
 ### What it does
 

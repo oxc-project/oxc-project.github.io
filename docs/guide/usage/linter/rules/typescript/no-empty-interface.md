@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/typescript/no-empty-interface.md
 ---
-# typescript/no-empty-interface&#x20;
 
 ### What it does
 

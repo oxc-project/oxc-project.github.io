@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/jsx_a11y/aria-proptypes.md
 ---
-# jsx\_a11y/aria-proptypes&#x20;
 
 ### What it does
 

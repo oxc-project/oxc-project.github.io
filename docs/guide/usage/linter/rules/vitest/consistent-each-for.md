@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/vitest/consistent-each-for.md
 ---
-# vitest/consistent-each-for&#x20;
 
 ### What it does
 

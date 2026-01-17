@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/jsx_a11y/prefer-tag-over-role.md
 ---
-# jsx\_a11y/prefer-tag-over-role&#x20;
 
 ### What it does
 

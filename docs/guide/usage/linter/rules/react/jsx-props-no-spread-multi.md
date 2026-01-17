@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/react/jsx-props-no-spread-multi.md
 ---
-# react/jsx-props-no-spread-multi&#x20;
 
 ### What it does
 

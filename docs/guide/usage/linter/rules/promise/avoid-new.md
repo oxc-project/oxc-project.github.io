@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/promise/avoid-new.md
 ---
-# promise/avoid-new&#x20;
 
 ### What it does
 

@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/react/no-danger-with-children.md
 ---
-# react/no-danger-with-children&#x20;
 
 ### What it does
 

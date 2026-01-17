@@ -2,7 +2,6 @@
 url: >-
   /docs/guide/usage/linter/rules/typescript/use-unknown-in-catch-callback-variable.md
 ---
-# typescript/use-unknown-in-catch-callback-variable&#x20;
 
 ### What it does
 

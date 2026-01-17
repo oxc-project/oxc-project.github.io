@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/typescript/no-redundant-type-constituents.md
 ---
-# typescript/no-redundant-type-constituents&#x20;
 
 ### What it does
 

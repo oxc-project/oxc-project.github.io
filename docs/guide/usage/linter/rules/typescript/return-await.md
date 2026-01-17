@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/typescript/return-await.md
 ---
-# typescript/return-await&#x20;
 
 ### What it does
 

@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/nextjs/no-document-import-in-page.md
 ---
-# nextjs/no-document-import-in-page&#x20;
 
 ### What it does
 

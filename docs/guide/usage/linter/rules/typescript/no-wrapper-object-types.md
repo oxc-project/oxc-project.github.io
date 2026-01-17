@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/typescript/no-wrapper-object-types.md
 ---
-# typescript/no-wrapper-object-types&#x20;
 
 ### What it does
 

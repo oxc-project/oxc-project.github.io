@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/no-static-only-class.md
 ---
-# unicorn/no-static-only-class&#x20;
 
 ### What it does
 

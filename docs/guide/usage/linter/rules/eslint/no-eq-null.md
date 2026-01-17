@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-eq-null.md
 ---
-# eslint/no-eq-null&#x20;
 
 ### What it does
 

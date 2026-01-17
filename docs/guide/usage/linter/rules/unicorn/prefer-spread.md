@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-spread.md
 ---
-# unicorn/prefer-spread&#x20;
 
 ### What it does
 

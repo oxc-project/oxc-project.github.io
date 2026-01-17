@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/func-names.md
 ---
-# eslint/func-names&#x20;
 
 ### What it does
 

@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/import/unambiguous.md
 ---
-# import/unambiguous&#x20;
 
 ### What it does
 

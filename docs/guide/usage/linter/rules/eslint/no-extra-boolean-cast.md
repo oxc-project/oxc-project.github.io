@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-extra-boolean-cast.md
 ---
-# eslint/no-extra-boolean-cast&#x20;
 
 ### What it does
 

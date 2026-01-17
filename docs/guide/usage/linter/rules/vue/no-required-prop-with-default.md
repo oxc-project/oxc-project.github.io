@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/vue/no-required-prop-with-default.md
 ---
-# vue/no-required-prop-with-default&#x20;
 
 ### What it does
 

@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/react/jsx-no-target-blank.md
 ---
-# react/jsx-no-target-blank&#x20;
 
 ### What it does
 

@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-unreachable.md
 ---
-# eslint/no-unreachable&#x20;
 
 ### What it does
 

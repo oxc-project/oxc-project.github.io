@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/oxc/approx-constant.md
 ---
-# oxc/approx-constant&#x20;
 
 ### What it does
 

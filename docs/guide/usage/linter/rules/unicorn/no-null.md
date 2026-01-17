@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/no-null.md
 ---
-# unicorn/no-null&#x20;
 
 ### What it does
 

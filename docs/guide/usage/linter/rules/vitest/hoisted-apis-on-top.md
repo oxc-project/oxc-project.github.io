@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/vitest/hoisted-apis-on-top.md
 ---
-# vitest/hoisted-apis-on-top&#x20;
 
 ### What it does
 

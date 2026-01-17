@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/typescript/array-type.md
 ---
-# typescript/array-type&#x20;
 
 ### What it does
 

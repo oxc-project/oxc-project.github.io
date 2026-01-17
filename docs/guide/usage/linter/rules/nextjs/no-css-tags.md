@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/nextjs/no-css-tags.md
 ---
-# nextjs/no-css-tags&#x20;
 
 ### What it does
 

@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/react/no-render-return-value.md
 ---
-# react/no-render-return-value&#x20;
 
 ### What it does
 

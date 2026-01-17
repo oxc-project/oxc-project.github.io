@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/jest/no-alias-methods.md
 ---
-# jest/no-alias-methods&#x20;
 
 ### What it does
 

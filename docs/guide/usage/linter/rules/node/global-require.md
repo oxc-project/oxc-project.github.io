@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/node/global-require.md
 ---
-# node/global-require&#x20;
 
 ### What it does
 

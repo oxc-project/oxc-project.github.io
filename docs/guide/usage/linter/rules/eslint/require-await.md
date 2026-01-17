@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/require-await.md
 ---
-# eslint/require-await&#x20;
 
 ### What it does
 

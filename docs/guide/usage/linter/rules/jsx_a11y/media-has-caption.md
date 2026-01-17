@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/jsx_a11y/media-has-caption.md
 ---
-# jsx\_a11y/media-has-caption&#x20;
 
 ### What it does
 

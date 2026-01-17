@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/prefer-spread.md
 ---
-# eslint/prefer-spread&#x20;
 
 This rule is combined 2 rules from `eslint:prefer-spread` and `unicorn:prefer-spread`.
 

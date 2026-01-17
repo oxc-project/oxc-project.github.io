@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-query-selector.md
 ---
-# unicorn/prefer-query-selector&#x20;
 
 ### What it does
 

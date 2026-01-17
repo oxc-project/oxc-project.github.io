@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/getter-return.md
 ---
-# eslint/getter-return&#x20;
 
 ### What it does
 

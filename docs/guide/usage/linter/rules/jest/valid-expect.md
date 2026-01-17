@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/jest/valid-expect.md
 ---
-# jest/valid-expect&#x20;
 
 ### What it does
 

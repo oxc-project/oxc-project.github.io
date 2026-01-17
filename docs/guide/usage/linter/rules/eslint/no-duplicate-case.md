@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-duplicate-case.md
 ---
-# eslint/no-duplicate-case&#x20;
 
 ### What it does
 

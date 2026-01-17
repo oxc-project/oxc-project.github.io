@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-unsafe-negation.md
 ---
-# eslint/no-unsafe-negation&#x20;
 
 ### What it does
 

@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/consistent-function-scoping.md
 ---
-# unicorn/consistent-function-scoping&#x20;
 
 ### What it does
 

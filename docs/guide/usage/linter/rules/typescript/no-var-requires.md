@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/typescript/no-var-requires.md
 ---
-# typescript/no-var-requires&#x20;
 
 ### What it does
 

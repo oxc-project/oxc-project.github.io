@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-number-properties.md
 ---
-# unicorn/prefer-number-properties&#x20;
 
 ### What it does
 

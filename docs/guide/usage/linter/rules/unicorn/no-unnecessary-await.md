@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/no-unnecessary-await.md
 ---
-# unicorn/no-unnecessary-await&#x20;
 
 ### What it does
 

@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/typescript/no-array-delete.md
 ---
-# typescript/no-array-delete&#x20;
 
 ### What it does
 

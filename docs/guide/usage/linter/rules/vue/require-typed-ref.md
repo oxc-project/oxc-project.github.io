@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/vue/require-typed-ref.md
 ---
-# vue/require-typed-ref&#x20;
 
 ### What it does
 

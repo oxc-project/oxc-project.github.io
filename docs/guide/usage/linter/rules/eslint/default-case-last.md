@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/default-case-last.md
 ---
-# eslint/default-case-last&#x20;
 
 ### What it does
 

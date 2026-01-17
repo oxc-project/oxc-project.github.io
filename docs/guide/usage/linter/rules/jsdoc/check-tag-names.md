@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/jsdoc/check-tag-names.md
 ---
-# jsdoc/check-tag-names&#x20;
 
 ### What it does
 

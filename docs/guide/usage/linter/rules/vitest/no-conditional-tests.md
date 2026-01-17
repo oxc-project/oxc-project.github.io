@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/vitest/no-conditional-tests.md
 ---
-# vitest/no-conditional-tests&#x20;
 
 ### What it does
 

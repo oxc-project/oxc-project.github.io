@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-dupe-class-members.md
 ---
-# eslint/no-dupe-class-members&#x20;
 
 ### What it does
 

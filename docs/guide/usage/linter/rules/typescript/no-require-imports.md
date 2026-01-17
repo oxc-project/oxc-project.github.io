@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/typescript/no-require-imports.md
 ---
-# typescript/no-require-imports&#x20;
 
 ### What it does
 

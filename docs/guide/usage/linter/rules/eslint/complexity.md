@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/complexity.md
 ---
-# eslint/complexity&#x20;
 
 ### What it does
 

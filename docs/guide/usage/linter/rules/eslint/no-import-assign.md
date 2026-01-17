@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-import-assign.md
 ---
-# eslint/no-import-assign&#x20;
 
 ### What it does
 

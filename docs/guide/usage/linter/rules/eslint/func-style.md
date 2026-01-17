@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/func-style.md
 ---
-# eslint/func-style&#x20;
 
 ### What it does
 

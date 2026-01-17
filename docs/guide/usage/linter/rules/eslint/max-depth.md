@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/max-depth.md
 ---
-# eslint/max-depth&#x20;
 
 ### What it does
 

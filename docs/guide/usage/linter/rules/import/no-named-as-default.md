@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/import/no-named-as-default.md
 ---
-# import/no-named-as-default&#x20;
 
 ### What it does
 

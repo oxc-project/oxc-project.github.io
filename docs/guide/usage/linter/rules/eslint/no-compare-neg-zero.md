@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-compare-neg-zero.md
 ---
-# eslint/no-compare-neg-zero&#x20;
 
 ### What it does
 

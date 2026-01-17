@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/typescript/prefer-function-type.md
 ---
-# typescript/prefer-function-type&#x20;
 
 ### What it does
 

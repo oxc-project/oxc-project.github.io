@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/jest/prefer-to-have-been-called-times.md
 ---
-# jest/prefer-to-have-been-called-times&#x20;
 
 ### What it does
 

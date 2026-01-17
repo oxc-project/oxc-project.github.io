@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-console.md
 ---
-# eslint/no-console&#x20;
 
 ### What it does
 

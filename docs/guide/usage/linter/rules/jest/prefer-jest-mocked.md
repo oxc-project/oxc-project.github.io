@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/jest/prefer-jest-mocked.md
 ---
-# jest/prefer-jest-mocked&#x20;
 
 ### What it does
 

@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-dom-node-remove.md
 ---
-# unicorn/prefer-dom-node-remove&#x20;
 
 ### What it does
 

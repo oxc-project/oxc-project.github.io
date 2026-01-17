@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-loop-func.md
 ---
-# eslint/no-loop-func&#x20;
 
 ### What it does
 

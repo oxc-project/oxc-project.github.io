@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/jest/padding-around-test-blocks.md
 ---
-# jest/padding-around-test-blocks&#x20;
 
 ### What it does
 

@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/vitest/prefer-called-once.md
 ---
-# vitest/prefer-called-once&#x20;
 
 ### What it does
 

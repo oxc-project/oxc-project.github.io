@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-var.md
 ---
-# eslint/no-var&#x20;
 
 ### What it does
 

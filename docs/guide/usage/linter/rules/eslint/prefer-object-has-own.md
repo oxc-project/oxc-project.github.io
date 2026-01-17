@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/prefer-object-has-own.md
 ---
-# eslint/prefer-object-has-own&#x20;
 
 ### What it does
 

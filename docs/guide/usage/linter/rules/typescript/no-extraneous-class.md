@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/typescript/no-extraneous-class.md
 ---
-# typescript/no-extraneous-class&#x20;
 
 ### What it does
 

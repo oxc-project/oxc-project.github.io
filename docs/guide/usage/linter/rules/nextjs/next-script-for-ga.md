@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/nextjs/next-script-for-ga.md
 ---
-# nextjs/next-script-for-ga&#x20;
 
 ### What it does
 

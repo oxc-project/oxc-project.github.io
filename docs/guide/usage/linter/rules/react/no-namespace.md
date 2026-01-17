@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/react/no-namespace.md
 ---
-# react/no-namespace&#x20;
 
 ### What it does
 

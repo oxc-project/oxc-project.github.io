@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/import/max-dependencies.md
 ---
-# import/max-dependencies&#x20;
 
 ### What it does
 

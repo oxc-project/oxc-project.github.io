@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-nested-ternary.md
 ---
-# eslint/no-nested-ternary&#x20;
 
 ### What it does
 

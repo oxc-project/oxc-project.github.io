@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-dom-node-append.md
 ---
-# unicorn/prefer-dom-node-append&#x20;
 
 ### What it does
 

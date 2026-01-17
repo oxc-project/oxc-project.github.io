@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-at.md
 ---
-# unicorn/prefer-at&#x20;
 
 ### What it does
 

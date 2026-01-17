@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/jest/no-confusing-set-timeout.md
 ---
-# jest/no-confusing-set-timeout&#x20;
 
 ### What it does
 

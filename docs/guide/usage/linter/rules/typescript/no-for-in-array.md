@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/typescript/no-for-in-array.md
 ---
-# typescript/no-for-in-array&#x20;
 
 ### What it does
 

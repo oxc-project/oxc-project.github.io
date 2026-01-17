@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/no-typeof-undefined.md
 ---
-# unicorn/no-typeof-undefined&#x20;
 
 ### What it does
 

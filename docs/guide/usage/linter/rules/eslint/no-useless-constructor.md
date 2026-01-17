@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-useless-constructor.md
 ---
-# eslint/no-useless-constructor&#x20;
 
 ### What it does
 

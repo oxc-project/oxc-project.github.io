@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/jest/require-hook.md
 ---
-# jest/require-hook&#x20;
 
 ### What it does
 

@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/no-instanceof-array.md
 ---
-# unicorn/no-instanceof-array&#x20;
 
 ### What it does
 

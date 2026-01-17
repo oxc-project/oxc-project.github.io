@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/nextjs/inline-script-id.md
 ---
-# nextjs/inline-script-id&#x20;
 
 ### What it does
 

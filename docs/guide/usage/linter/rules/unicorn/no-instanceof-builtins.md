@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/no-instanceof-builtins.md
 ---
-# unicorn/no-instanceof-builtins&#x20;
 
 ### What it does
 

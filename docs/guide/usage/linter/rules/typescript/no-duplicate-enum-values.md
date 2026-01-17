@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/typescript/no-duplicate-enum-values.md
 ---
-# typescript/no-duplicate-enum-values&#x20;
 
 ### What it does
 

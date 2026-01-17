@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/oxc/no-optional-chaining.md
 ---
-# oxc/no-optional-chaining&#x20;
 
 ### What it does
 

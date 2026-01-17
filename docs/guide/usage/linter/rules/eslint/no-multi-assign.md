@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-multi-assign.md
 ---
-# eslint/no-multi-assign&#x20;
 
 ### What it does
 

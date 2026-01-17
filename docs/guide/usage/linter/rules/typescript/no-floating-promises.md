@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/typescript/no-floating-promises.md
 ---
-# typescript/no-floating-promises&#x20;
 
 ### What it does
 

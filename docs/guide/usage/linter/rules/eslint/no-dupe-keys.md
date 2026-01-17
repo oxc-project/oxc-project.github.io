@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-dupe-keys.md
 ---
-# eslint/no-dupe-keys&#x20;
 
 ### What it does
 

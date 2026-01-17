@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/jsx_a11y/html-has-lang.md
 ---
-# jsx\_a11y/html-has-lang&#x20;
 
 ### What it does
 

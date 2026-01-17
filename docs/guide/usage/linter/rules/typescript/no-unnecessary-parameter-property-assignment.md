@@ -2,7 +2,6 @@
 url: >-
   /docs/guide/usage/linter/rules/typescript/no-unnecessary-parameter-property-assignment.md
 ---
-# typescript/no-unnecessary-parameter-property-assignment&#x20;
 
 ### What it does
 

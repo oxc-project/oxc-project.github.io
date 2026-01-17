@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-unassigned-vars.md
 ---
-# eslint/no-unassigned-vars&#x20;
 
 ### What it does
 

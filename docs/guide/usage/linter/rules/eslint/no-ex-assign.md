@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-ex-assign.md
 ---
-# eslint/no-ex-assign&#x20;
 
 ### What it does
 

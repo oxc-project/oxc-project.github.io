@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/require-array-join-separator.md
 ---
-# unicorn/require-array-join-separator&#x20;
 
 ### What it does
 

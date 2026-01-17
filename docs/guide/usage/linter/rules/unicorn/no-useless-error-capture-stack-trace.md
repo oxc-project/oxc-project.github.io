@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/no-useless-error-capture-stack-trace.md
 ---
-# unicorn/no-useless-error-capture-stack-trace&#x20;
 
 ### What it does
 

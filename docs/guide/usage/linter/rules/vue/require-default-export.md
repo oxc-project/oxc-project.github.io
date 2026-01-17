@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/vue/require-default-export.md
 ---
-# vue/require-default-export&#x20;
 
 ### What it does
 

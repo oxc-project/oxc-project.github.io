@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-bigint-literals.md
 ---
-# unicorn/prefer-bigint-literals&#x20;
 
 ### What it does
 

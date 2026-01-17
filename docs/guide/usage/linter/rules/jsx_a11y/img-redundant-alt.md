@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/jsx_a11y/img-redundant-alt.md
 ---
-# jsx\_a11y/img-redundant-alt&#x20;
 
 ### What it does
 

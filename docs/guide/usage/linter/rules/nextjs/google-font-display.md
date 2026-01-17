@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/nextjs/google-font-display.md
 ---
-# nextjs/google-font-display&#x20;
 
 ### What it does
 

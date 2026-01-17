@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/no-array-method-this-argument.md
 ---
-# unicorn/no-array-method-this-argument&#x20;
 
 ### What it does
 

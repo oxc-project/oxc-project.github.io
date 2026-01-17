@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/no-process-exit.md
 ---
-# unicorn/no-process-exit&#x20;
 
 ### What it does
 

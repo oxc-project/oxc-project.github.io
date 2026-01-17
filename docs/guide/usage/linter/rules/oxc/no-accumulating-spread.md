@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/oxc/no-accumulating-spread.md
 ---
-# oxc/no-accumulating-spread&#x20;
 
 ### What it does
 

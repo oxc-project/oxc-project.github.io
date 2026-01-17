@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-unsafe-optional-chaining.md
 ---
-# eslint/no-unsafe-optional-chaining&#x20;
 
 ### What it does
 

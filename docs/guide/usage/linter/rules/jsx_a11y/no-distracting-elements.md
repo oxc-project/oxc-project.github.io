@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/jsx_a11y/no-distracting-elements.md
 ---
-# jsx\_a11y/no-distracting-elements&#x20;
 
 ### What it does
 

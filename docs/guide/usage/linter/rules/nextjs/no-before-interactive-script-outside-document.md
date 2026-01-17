@@ -2,7 +2,6 @@
 url: >-
   /docs/guide/usage/linter/rules/nextjs/no-before-interactive-script-outside-document.md
 ---
-# nextjs/no-before-interactive-script-outside-document&#x20;
 
 ### What it does
 

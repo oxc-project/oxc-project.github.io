@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/promise/no-return-wrap.md
 ---
-# promise/no-return-wrap&#x20;
 
 ### What it does
 

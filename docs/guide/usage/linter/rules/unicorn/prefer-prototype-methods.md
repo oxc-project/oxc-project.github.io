@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-prototype-methods.md
 ---
-# unicorn/prefer-prototype-methods&#x20;
 
 ### What it does
 

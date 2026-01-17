@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/vue/prefer-import-from-vue.md
 ---
-# vue/prefer-import-from-vue&#x20;
 
 ### What it does
 

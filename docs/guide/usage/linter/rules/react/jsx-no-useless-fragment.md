@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/react/jsx-no-useless-fragment.md
 ---
-# react/jsx-no-useless-fragment&#x20;
 
 ### What it does
 

@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/prefer-destructuring.md
 ---
-# eslint/prefer-destructuring&#x20;
 
 ### What it does
 

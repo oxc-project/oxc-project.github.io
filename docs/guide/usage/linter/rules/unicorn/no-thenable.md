@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/no-thenable.md
 ---
-# unicorn/no-thenable&#x20;
 
 ### What it does
 

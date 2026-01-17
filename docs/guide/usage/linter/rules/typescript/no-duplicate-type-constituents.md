@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/typescript/no-duplicate-type-constituents.md
 ---
-# typescript/no-duplicate-type-constituents&#x20;
 
 ### What it does
 

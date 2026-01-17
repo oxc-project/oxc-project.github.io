@@ -2,7 +2,6 @@
 url: >-
   /docs/guide/usage/linter/rules/typescript/no-unnecessary-template-expression.md
 ---
-# typescript/no-unnecessary-template-expression&#x20;
 
 ### What it does
 

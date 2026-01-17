@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/text-encoding-identifier-case.md
 ---
-# unicorn/text-encoding-identifier-case&#x20;
 
 ### What it does
 

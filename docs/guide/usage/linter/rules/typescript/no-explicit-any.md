@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/typescript/no-explicit-any.md
 ---
-# typescript/no-explicit-any&#x20;
 
 ### What it does
 

@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/jest/no-large-snapshots.md
 ---
-# jest/no-large-snapshots&#x20;
 
 ### What it does
 

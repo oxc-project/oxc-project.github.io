@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/react/no-redundant-should-component-update.md
 ---
-# react/no-redundant-should-component-update&#x20;
 
 ### What it does
 

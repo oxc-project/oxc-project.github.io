@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/typescript/no-unsafe-return.md
 ---
-# typescript/no-unsafe-return&#x20;
 
 ### What it does
 

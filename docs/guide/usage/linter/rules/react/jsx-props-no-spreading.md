@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/react/jsx-props-no-spreading.md
 ---
-# react/jsx-props-no-spreading&#x20;
 
 ### What it does
 

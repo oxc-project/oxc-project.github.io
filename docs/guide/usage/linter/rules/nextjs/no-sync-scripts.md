@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/nextjs/no-sync-scripts.md
 ---
-# nextjs/no-sync-scripts&#x20;
 
 ### What it does
 

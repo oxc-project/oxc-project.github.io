@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/jsdoc/require-property-type.md
 ---
-# jsdoc/require-property-type&#x20;
 
 ### What it does
 

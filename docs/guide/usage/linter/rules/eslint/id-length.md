@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/id-length.md
 ---
-# eslint/id-length&#x20;
 
 ### What it does
 

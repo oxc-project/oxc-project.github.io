@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-useless-call.md
 ---
-# eslint/no-useless-call&#x20;
 
 ### What it does
 

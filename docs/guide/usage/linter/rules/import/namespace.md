@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/import/namespace.md
 ---
-# import/namespace&#x20;
 
 ### What it does
 

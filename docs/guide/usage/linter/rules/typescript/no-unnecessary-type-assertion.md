@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/typescript/no-unnecessary-type-assertion.md
 ---
-# typescript/no-unnecessary-type-assertion&#x20;
 
 ### What it does
 

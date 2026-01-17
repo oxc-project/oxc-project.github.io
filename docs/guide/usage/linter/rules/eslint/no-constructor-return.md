@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-constructor-return.md
 ---
-# eslint/no-constructor-return&#x20;
 
 ### What it does
 

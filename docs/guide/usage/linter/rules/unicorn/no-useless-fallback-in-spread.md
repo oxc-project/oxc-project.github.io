@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/no-useless-fallback-in-spread.md
 ---
-# unicorn/no-useless-fallback-in-spread&#x20;
 
 ### What it does
 

@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/typescript/no-empty-object-type.md
 ---
-# typescript/no-empty-object-type&#x20;
 
 ### What it does
 

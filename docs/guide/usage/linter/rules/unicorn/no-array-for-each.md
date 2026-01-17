@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/no-array-for-each.md
 ---
-# unicorn/no-array-for-each&#x20;
 
 ### What it does
 

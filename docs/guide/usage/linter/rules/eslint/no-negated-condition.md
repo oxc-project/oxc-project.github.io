@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-negated-condition.md
 ---
-# eslint/no-negated-condition&#x20;
 
 ### What it does
 

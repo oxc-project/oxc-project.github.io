@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-object-from-entries.md
 ---
-# unicorn/prefer-object-from-entries&#x20;
 
 ### What it does
 

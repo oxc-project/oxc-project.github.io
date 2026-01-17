@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-warning-comments.md
 ---
-# eslint/no-warning-comments&#x20;
 
 ### What it does
 

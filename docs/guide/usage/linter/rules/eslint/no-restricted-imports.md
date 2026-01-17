@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-restricted-imports.md
 ---
-# eslint/no-restricted-imports&#x20;
 
 ### What it does
 

@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/no-empty-file.md
 ---
-# unicorn/no-empty-file&#x20;
 
 ### What it does
 

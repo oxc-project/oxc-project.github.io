@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/catch-error-name.md
 ---
-# unicorn/catch-error-name&#x20;
 
 ### What it does
 

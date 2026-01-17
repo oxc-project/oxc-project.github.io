@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/typescript/ban-ts-comment.md
 ---
-# typescript/ban-ts-comment&#x20;
 
 ### What it does
 

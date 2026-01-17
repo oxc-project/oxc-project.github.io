@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/typescript/no-unnecessary-type-arguments.md
 ---
-# typescript/no-unnecessary-type-arguments&#x20;
 
 ### What it does
 

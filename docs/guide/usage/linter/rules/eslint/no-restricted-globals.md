@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-restricted-globals.md
 ---
-# eslint/no-restricted-globals&#x20;
 
 ### What it does
 

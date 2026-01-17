@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/vue/valid-define-emits.md
 ---
-# vue/valid-define-emits&#x20;
 
 ### What it does
 

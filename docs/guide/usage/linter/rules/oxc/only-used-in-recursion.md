@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/oxc/only-used-in-recursion.md
 ---
-# oxc/only-used-in-recursion&#x20;
 
 ### What it does
 

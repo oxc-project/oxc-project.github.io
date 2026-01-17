@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/vitest/prefer-called-times.md
 ---
-# vitest/prefer-called-times&#x20;
 
 ### What it does
 

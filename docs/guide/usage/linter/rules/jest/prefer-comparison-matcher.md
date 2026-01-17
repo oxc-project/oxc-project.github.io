@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/jest/prefer-comparison-matcher.md
 ---
-# jest/prefer-comparison-matcher&#x20;
 
 ### What it does
 

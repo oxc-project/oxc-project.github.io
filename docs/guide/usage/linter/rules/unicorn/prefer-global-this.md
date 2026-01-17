@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-global-this.md
 ---
-# unicorn/prefer-global-this&#x20;
 
 ### What it does
 

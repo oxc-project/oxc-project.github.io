@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/typescript/prefer-return-this-type.md
 ---
-# typescript/prefer-return-this-type&#x20;
 
 ### What it does
 

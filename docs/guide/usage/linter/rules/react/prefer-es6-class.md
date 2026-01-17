@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/react/prefer-es6-class.md
 ---
-# react/prefer-es6-class&#x20;
 
 ### What it does
 

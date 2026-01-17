@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-array-some.md
 ---
-# unicorn/prefer-array-some&#x20;
 
 ### What it does
 

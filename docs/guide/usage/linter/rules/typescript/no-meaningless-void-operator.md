@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/typescript/no-meaningless-void-operator.md
 ---
-# typescript/no-meaningless-void-operator&#x20;
 
 ### What it does
 

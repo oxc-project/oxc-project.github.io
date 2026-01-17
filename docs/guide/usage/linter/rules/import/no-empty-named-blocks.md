@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/import/no-empty-named-blocks.md
 ---
-# import/no-empty-named-blocks&#x20;
 
 ### What it does
 

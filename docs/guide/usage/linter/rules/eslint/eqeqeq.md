@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/eqeqeq.md
 ---
-# eslint/eqeqeq&#x20;
 
 ### What it does
 

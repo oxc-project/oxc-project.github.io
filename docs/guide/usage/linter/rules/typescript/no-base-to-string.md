@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/typescript/no-base-to-string.md
 ---
-# typescript/no-base-to-string&#x20;
 
 ### What it does
 

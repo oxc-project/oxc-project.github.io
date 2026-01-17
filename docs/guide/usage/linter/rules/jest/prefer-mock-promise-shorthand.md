@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/jest/prefer-mock-promise-shorthand.md
 ---
-# jest/prefer-mock-promise-shorthand&#x20;
 
 ### What it does
 

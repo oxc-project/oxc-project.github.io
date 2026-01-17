@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/oxc/bad-comparison-sequence.md
 ---
-# oxc/bad-comparison-sequence&#x20;
 
 ### What it does
 

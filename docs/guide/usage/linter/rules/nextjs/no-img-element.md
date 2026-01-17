@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/nextjs/no-img-element.md
 ---
-# nextjs/no-img-element&#x20;
 
 ### What it does
 

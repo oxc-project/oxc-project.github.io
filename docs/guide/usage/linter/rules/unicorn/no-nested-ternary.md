@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/no-nested-ternary.md
 ---
-# unicorn/no-nested-ternary&#x20;
 
 ### What it does
 

@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/vitest/prefer-to-be-object.md
 ---
-# vitest/prefer-to-be-object&#x20;
 
 ### What it does
 

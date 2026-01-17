@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-string-slice.md
 ---
-# unicorn/prefer-string-slice&#x20;
 
 ### What it does
 

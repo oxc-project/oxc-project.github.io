@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/default-case.md
 ---
-# eslint/default-case&#x20;
 
 ### What it does
 

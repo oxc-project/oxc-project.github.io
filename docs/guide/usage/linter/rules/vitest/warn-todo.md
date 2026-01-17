@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/vitest/warn-todo.md
 ---
-# vitest/warn-todo&#x20;
 
 ### What it does
 

@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-duplicate-imports.md
 ---
-# eslint/no-duplicate-imports&#x20;
 
 ### What it does
 

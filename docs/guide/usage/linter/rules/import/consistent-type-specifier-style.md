@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/import/consistent-type-specifier-style.md
 ---
-# import/consistent-type-specifier-style&#x20;
 
 ### What it does
 

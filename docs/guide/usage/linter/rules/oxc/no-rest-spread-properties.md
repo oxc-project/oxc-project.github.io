@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/oxc/no-rest-spread-properties.md
 ---
-# oxc/no-rest-spread-properties&#x20;
 
 ### What it does
 

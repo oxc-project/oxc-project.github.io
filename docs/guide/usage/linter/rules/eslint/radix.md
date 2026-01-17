@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/radix.md
 ---
-# eslint/radix&#x20;
 
 ### What it does
 

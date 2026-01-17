@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-misleading-character-class.md
 ---
-# eslint/no-misleading-character-class&#x20;
 
 ### What it does
 

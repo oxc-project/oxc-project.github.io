@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-eval.md
 ---
-# eslint/no-eval&#x20;
 
 ### What it does
 

@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/for-direction.md
 ---
-# eslint/for-direction&#x20;
 
 ### What it does
 

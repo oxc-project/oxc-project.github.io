@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-empty-static-block.md
 ---
-# eslint/no-empty-static-block&#x20;
 
 ### What it does
 

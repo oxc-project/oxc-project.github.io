@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-node-protocol.md
 ---
-# unicorn/prefer-node-protocol&#x20;
 
 ### What it does
 

@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/typescript/adjacent-overload-signatures.md
 ---
-# typescript/adjacent-overload-signatures&#x20;
 
 ### What it does
 

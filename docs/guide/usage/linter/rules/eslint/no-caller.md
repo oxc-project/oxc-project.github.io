@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-caller.md
 ---
-# eslint/no-caller&#x20;
 
 ### What it does
 

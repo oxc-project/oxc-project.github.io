@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/jsx_a11y/role-has-required-aria-props.md
 ---
-# jsx\_a11y/role-has-required-aria-props&#x20;
 
 ### What it does
 

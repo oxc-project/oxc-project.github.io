@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/import/no-cycle.md
 ---
-# import/no-cycle&#x20;
 
 ### What it does
 

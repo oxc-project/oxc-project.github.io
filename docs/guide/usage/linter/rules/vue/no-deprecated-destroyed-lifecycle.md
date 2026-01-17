@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/vue/no-deprecated-destroyed-lifecycle.md
 ---
-# vue/no-deprecated-destroyed-lifecycle&#x20;
 
 ### What it does
 

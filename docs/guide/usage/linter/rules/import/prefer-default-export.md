@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/import/prefer-default-export.md
 ---
-# import/prefer-default-export&#x20;
 
 ### What it does
 

@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-default-parameters.md
 ---
-# unicorn/prefer-default-parameters&#x20;
 
 ### What it does
 

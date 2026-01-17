@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/vue/no-multiple-slot-args.md
 ---
-# vue/no-multiple-slot-args&#x20;
 
 ### What it does
 

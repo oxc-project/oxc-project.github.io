@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-optional-catch-binding.md
 ---
-# unicorn/prefer-optional-catch-binding&#x20;
 
 ### What it does
 

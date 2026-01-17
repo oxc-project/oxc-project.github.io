@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-dom-node-dataset.md
 ---
-# unicorn/prefer-dom-node-dataset&#x20;
 
 ### What it does
 

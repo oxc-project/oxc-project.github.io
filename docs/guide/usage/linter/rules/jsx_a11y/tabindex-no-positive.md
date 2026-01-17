@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/jsx_a11y/tabindex-no-positive.md
 ---
-# jsx\_a11y/tabindex-no-positive&#x20;
 
 ### What it does
 

@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/import/no-duplicates.md
 ---
-# import/no-duplicates&#x20;
 
 ### What it does
 

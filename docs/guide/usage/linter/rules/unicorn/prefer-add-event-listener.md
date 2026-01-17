@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-add-event-listener.md
 ---
-# unicorn/prefer-add-event-listener&#x20;
 
 ### What it does
 

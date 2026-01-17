@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/nextjs/no-head-import-in-document.md
 ---
-# nextjs/no-head-import-in-document&#x20;
 
 ### What it does
 

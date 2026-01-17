@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/no-array-reverse.md
 ---
-# unicorn/no-array-reverse&#x20;
 
 ### What it does
 

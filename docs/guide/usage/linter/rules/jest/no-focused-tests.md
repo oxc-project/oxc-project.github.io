@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/jest/no-focused-tests.md
 ---
-# jest/no-focused-tests&#x20;
 
 ### What it does
 

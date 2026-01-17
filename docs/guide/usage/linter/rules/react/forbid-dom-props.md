@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/react/forbid-dom-props.md
 ---
-# react/forbid-dom-props&#x20;
 
 ### What it does
 

@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/vue/valid-define-props.md
 ---
-# vue/valid-define-props&#x20;
 
 ### What it does
 

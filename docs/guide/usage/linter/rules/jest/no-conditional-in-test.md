@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/jest/no-conditional-in-test.md
 ---
-# jest/no-conditional-in-test&#x20;
 
 ### What it does
 

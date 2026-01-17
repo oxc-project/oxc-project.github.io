@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-multi-str.md
 ---
-# eslint/no-multi-str&#x20;
 
 ### What it does
 

@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/no-unreadable-array-destructuring.md
 ---
-# unicorn/no-unreadable-array-destructuring&#x20;
 
 ### What it does
 

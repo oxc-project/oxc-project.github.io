@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/unicode-bom.md
 ---
-# eslint/unicode-bom&#x20;
 
 ### What it does
 

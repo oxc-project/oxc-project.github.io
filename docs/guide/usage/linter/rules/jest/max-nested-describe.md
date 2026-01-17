@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/jest/max-nested-describe.md
 ---
-# jest/max-nested-describe&#x20;
 
 ### What it does
 

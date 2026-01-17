@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/typescript/triple-slash-reference.md
 ---
-# typescript/triple-slash-reference&#x20;
 
 ### What it does
 

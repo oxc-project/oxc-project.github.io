@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/typescript/prefer-optional-chain.md
 ---
-# typescript/prefer-optional-chain&#x20;
 
 ### What it does
 

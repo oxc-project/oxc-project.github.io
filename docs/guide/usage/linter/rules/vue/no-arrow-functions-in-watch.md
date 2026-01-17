@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/vue/no-arrow-functions-in-watch.md
 ---
-# vue/no-arrow-functions-in-watch&#x20;
 
 ### What it does
 

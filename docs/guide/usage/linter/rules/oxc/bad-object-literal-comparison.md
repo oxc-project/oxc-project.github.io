@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/oxc/bad-object-literal-comparison.md
 ---
-# oxc/bad-object-literal-comparison&#x20;
 
 ### What it does
 

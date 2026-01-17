@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/import/named.md
 ---
-# import/named&#x20;
 
 ### What it does
 

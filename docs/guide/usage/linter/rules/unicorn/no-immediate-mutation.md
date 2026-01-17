@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/no-immediate-mutation.md
 ---
-# unicorn/no-immediate-mutation&#x20;
 
 ### What it does
 

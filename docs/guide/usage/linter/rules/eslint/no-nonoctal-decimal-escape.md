@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-nonoctal-decimal-escape.md
 ---
-# eslint/no-nonoctal-decimal-escape&#x20;
 
 ### What it does
 

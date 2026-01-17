@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/typescript/restrict-plus-operands.md
 ---
-# typescript/restrict-plus-operands&#x20;
 
 ### What it does
 

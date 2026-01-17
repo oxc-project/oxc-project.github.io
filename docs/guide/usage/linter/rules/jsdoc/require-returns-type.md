@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/jsdoc/require-returns-type.md
 ---
-# jsdoc/require-returns-type&#x20;
 
 ### What it does
 

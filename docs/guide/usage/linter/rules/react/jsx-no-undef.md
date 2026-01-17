@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/react/jsx-no-undef.md
 ---
-# react/jsx-no-undef&#x20;
 
 ### What it does
 

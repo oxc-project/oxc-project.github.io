@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/jest/prefer-hooks-in-order.md
 ---
-# jest/prefer-hooks-in-order&#x20;
 
 ### What it does
 

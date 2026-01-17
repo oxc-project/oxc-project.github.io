@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/typescript/no-misused-spread.md
 ---
-# typescript/no-misused-spread&#x20;
 
 ### What it does
 

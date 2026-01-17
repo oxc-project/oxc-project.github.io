@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/typescript/consistent-type-imports.md
 ---
-# typescript/consistent-type-imports&#x20;
 
 ### What it does
 

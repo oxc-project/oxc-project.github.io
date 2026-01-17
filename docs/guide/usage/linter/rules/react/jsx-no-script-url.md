@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/react/jsx-no-script-url.md
 ---
-# react/jsx-no-script-url&#x20;
 
 ### What it does
 

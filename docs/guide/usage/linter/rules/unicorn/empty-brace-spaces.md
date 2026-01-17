@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/empty-brace-spaces.md
 ---
-# unicorn/empty-brace-spaces&#x20;
 
 ### What it does
 

@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/vitest/prefer-describe-function-title.md
 ---
-# vitest/prefer-describe-function-title&#x20;
 
 ### What it does
 

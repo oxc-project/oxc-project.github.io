@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/react/no-this-in-sfc.md
 ---
-# react/no-this-in-sfc&#x20;
 
 ### What it does
 

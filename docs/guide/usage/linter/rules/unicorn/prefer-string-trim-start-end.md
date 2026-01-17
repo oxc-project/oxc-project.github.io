@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-string-trim-start-end.md
 ---
-# unicorn/prefer-string-trim-start-end&#x20;
 
 ### What it does
 

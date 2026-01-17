@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/typescript/consistent-generic-constructors.md
 ---
-# typescript/consistent-generic-constructors&#x20;
 
 ### What it does
 

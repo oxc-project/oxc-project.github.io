@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-reflect-apply.md
 ---
-# unicorn/prefer-reflect-apply&#x20;
 
 ### What it does
 

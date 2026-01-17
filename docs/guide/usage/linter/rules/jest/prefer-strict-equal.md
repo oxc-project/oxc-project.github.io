@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/jest/prefer-strict-equal.md
 ---
-# jest/prefer-strict-equal&#x20;
 
 ### What it does
 

@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/nextjs/google-font-preconnect.md
 ---
-# nextjs/google-font-preconnect&#x20;
 
 ### What it does
 

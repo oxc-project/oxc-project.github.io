@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-debugger.md
 ---
-# eslint/no-debugger&#x20;
 
 ### What it does
 

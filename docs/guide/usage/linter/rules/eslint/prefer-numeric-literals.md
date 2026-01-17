@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/prefer-numeric-literals.md
 ---
-# eslint/prefer-numeric-literals&#x20;
 
 ### What it does
 

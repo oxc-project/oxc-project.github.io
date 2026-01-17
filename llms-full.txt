@@ -2161,7 +2161,7 @@ Example (monorepo + React + jsx-a11y):
 ---
 
 ---
-url: /docs/guide/usage/formatter/generated-config.md
+url: /docs/guide/usage/formatter/config-file-reference.md
 ---
 
 # Configuration options for the Oxfmt.
@@ -2423,7 +2423,7 @@ Use tabs for indentation or spaces. (Default: `false`)
 ---
 
 ---
-url: /docs/guide/usage/formatter/config-file-reference.md
+url: /docs/guide/usage/formatter/generated-config.md
 ---
 
 # Configuration options for the Oxfmt.
@@ -3310,7 +3310,6 @@ url: /endorsements.md
 ---
 url: /docs/guide/usage/linter/rules/eslint/accessor-pairs.md
 ---
-# eslint/accessor-pairs&#x20;
 
 ### What it does
 
@@ -3427,7 +3426,6 @@ oxlint --deny accessor-pairs
 ---
 url: /docs/guide/usage/linter/rules/eslint/array-callback-return.md
 ---
-# eslint/array-callback-return&#x20;
 
 ### What it does
 
@@ -3511,7 +3509,6 @@ oxlint --deny array-callback-return
 ---
 url: /docs/guide/usage/linter/rules/eslint/arrow-body-style.md
 ---
-# eslint/arrow-body-style&#x20;
 
 ### What it does
 
@@ -3687,7 +3684,6 @@ oxlint --deny arrow-body-style
 ---
 url: /docs/guide/usage/linter/rules/eslint/block-scoped-var.md
 ---
-# eslint/block-scoped-var&#x20;
 
 ### What it does
 
@@ -3809,7 +3805,6 @@ oxlint --deny block-scoped-var
 ---
 url: /docs/guide/usage/linter/rules/eslint/capitalized-comments.md
 ---
-# eslint/capitalized-comments&#x20;
 
 ### What it does
 
@@ -3914,7 +3909,6 @@ oxlint --deny capitalized-comments
 ---
 url: /docs/guide/usage/linter/rules/eslint/class-methods-use-this.md
 ---
-# eslint/class-methods-use-this&#x20;
 
 ### What it does
 
@@ -4031,7 +4025,6 @@ oxlint --deny class-methods-use-this
 ---
 url: /docs/guide/usage/linter/rules/eslint/complexity.md
 ---
-# eslint/complexity&#x20;
 
 ### What it does
 
@@ -4163,7 +4156,6 @@ oxlint --deny complexity
 ---
 url: /docs/guide/usage/linter/rules/eslint/constructor-super.md
 ---
-# eslint/constructor-super&#x20;
 
 ### What it does
 
@@ -4262,7 +4254,6 @@ oxlint --deny constructor-super
 ---
 url: /docs/guide/usage/linter/rules/eslint/curly.md
 ---
-# eslint/curly&#x20;
 
 ### What it does
 
@@ -4523,107 +4514,8 @@ oxlint --deny curly
 ---
 
 ---
-url: /docs/guide/usage/linter/rules/eslint/default-case-last.md
----
-# eslint/default-case-last&#x20;
-
-### What it does
-
-Requires the `default` clause in `switch` statements to be the last one.
-
-### Why is this bad?
-
-By convention and for readability, the `default` clause should be the last one in a `switch`.
-While it is legal to place it before or between `case` clauses, doing so is confusing and may
-lead to unexpected "fall-through" behavior.
-
-### Examples
-
-Examples of **incorrect** code for this rule:
-
-```js
-/* default-case-last: "error" */
-
-switch (foo) {
-  default:
-    bar();
-    break;
-  case "a":
-    baz();
-    break;
-}
-
-switch (foo) {
-  case 1:
-    bar();
-    break;
-  default:
-    baz();
-    break;
-  case 2:
-    qux();
-    break;
-}
-```
-
-Examples of **correct** code for this rule:
-
-```js
-/* default-case-last: "error" */
-
-switch (foo) {
-  case 1:
-    bar();
-    break;
-  case 2:
-    qux();
-    break;
-  default:
-    baz();
-    break;
-}
-
-switch (foo) {
-  case "x":
-    bar();
-    break;
-  case "y":
-  default:
-    baz();
-    break;
-}
-```
-
-## How to use
-
-To **enable** this rule using the config file or in the CLI, you can use:
-
-::: code-group
-
-```json [Config (.oxlintrc.json)]
-{
-  "rules": {
-    "default-case-last": "error"
-  }
-}
-```
-
-```bash [CLI]
-oxlint --deny default-case-last
-```
-
-:::
-
-## References
-
-* Rule Source
-
----
-
----
 url: /docs/guide/usage/linter/rules/eslint/default-case.md
 ---
-# eslint/default-case&#x20;
 
 ### What it does
 
@@ -4741,9 +4633,105 @@ oxlint --deny default-case
 ---
 
 ---
+url: /docs/guide/usage/linter/rules/eslint/default-case-last.md
+---
+
+### What it does
+
+Requires the `default` clause in `switch` statements to be the last one.
+
+### Why is this bad?
+
+By convention and for readability, the `default` clause should be the last one in a `switch`.
+While it is legal to place it before or between `case` clauses, doing so is confusing and may
+lead to unexpected "fall-through" behavior.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```js
+/* default-case-last: "error" */
+
+switch (foo) {
+  default:
+    bar();
+    break;
+  case "a":
+    baz();
+    break;
+}
+
+switch (foo) {
+  case 1:
+    bar();
+    break;
+  default:
+    baz();
+    break;
+  case 2:
+    qux();
+    break;
+}
+```
+
+Examples of **correct** code for this rule:
+
+```js
+/* default-case-last: "error" */
+
+switch (foo) {
+  case 1:
+    bar();
+    break;
+  case 2:
+    qux();
+    break;
+  default:
+    baz();
+    break;
+}
+
+switch (foo) {
+  case "x":
+    bar();
+    break;
+  case "y":
+  default:
+    baz();
+    break;
+}
+```
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "rules": {
+    "default-case-last": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --deny default-case-last
+```
+
+:::
+
+## References
+
+* Rule Source
+
+---
+
+---
 url: /docs/guide/usage/linter/rules/eslint/default-param-last.md
 ---
-# eslint/default-param-last&#x20;
 
 ### What it does
 
@@ -4829,7 +4817,6 @@ oxlint --deny default-param-last
 ---
 url: /docs/guide/usage/linter/rules/eslint/eqeqeq.md
 ---
-# eslint/eqeqeq&#x20;
 
 ### What it does
 
@@ -5046,7 +5033,6 @@ oxlint --deny eqeqeq
 ---
 url: /docs/guide/usage/linter/rules/eslint/for-direction.md
 ---
-# eslint/for-direction&#x20;
 
 ### What it does
 
@@ -5127,7 +5113,6 @@ oxlint --deny for-direction
 ---
 url: /docs/guide/usage/linter/rules/eslint/func-names.md
 ---
-# eslint/func-names&#x20;
 
 ### What it does
 
@@ -5349,7 +5334,6 @@ oxlint --deny func-names
 ---
 url: /docs/guide/usage/linter/rules/eslint/func-style.md
 ---
-# eslint/func-style&#x20;
 
 ### What it does
 
@@ -5547,7 +5531,6 @@ oxlint --deny func-style
 ---
 url: /docs/guide/usage/linter/rules/eslint/getter-return.md
 ---
-# eslint/getter-return&#x20;
 
 ### What it does
 
@@ -5629,7 +5612,6 @@ oxlint --deny getter-return
 ---
 url: /docs/guide/usage/linter/rules/eslint/grouped-accessor-pairs.md
 ---
-# eslint/grouped-accessor-pairs&#x20;
 
 ### What it does
 
@@ -5807,7 +5789,6 @@ oxlint --deny grouped-accessor-pairs
 ---
 url: /docs/guide/usage/linter/rules/eslint/guard-for-in.md
 ---
-# eslint/guard-for-in&#x20;
 
 ### What it does
 
@@ -5884,7 +5865,6 @@ oxlint --deny guard-for-in
 ---
 url: /docs/guide/usage/linter/rules/eslint/id-length.md
 ---
-# eslint/id-length&#x20;
 
 ### What it does
 
@@ -6070,7 +6050,6 @@ oxlint --deny id-length
 ---
 url: /docs/guide/usage/linter/rules/eslint/init-declarations.md
 ---
-# eslint/init-declarations&#x20;
 
 ### What it does
 
@@ -6192,7 +6171,6 @@ oxlint --deny init-declarations
 ---
 url: /docs/guide/usage/linter/rules/eslint/max-classes-per-file.md
 ---
-# eslint/max-classes-per-file&#x20;
 
 ### What it does
 
@@ -6271,7 +6249,6 @@ oxlint --deny max-classes-per-file
 ---
 url: /docs/guide/usage/linter/rules/eslint/max-depth.md
 ---
-# eslint/max-depth&#x20;
 
 ### What it does
 
@@ -6372,9 +6349,78 @@ oxlint --deny max-depth
 ---
 
 ---
+url: /docs/guide/usage/linter/rules/eslint/max-lines.md
+---
+
+### What it does
+
+Enforce a maximum number of lines per file.
+
+### Why is this bad?
+
+Some people consider large files a code smell. Large files tend to do a
+lot of things and can make it hard following what’s going. While there
+is not an objective maximum number of lines considered acceptable in a
+file, most people would agree it should not be in the thousands.
+Recommendations usually range from 100 to 500 lines.
+
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### max
+
+type: `integer`
+
+default: `300`
+
+Maximum number of lines allowed per file.
+
+### skipBlankLines
+
+type: `boolean`
+
+default: `false`
+
+Whether to ignore blank lines when counting.
+
+### skipComments
+
+type: `boolean`
+
+default: `false`
+
+Whether to ignore comments when counting.
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "rules": {
+    "max-lines": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --deny max-lines
+```
+
+:::
+
+## References
+
+* Rule Source
+
+---
+
+---
 url: /docs/guide/usage/linter/rules/eslint/max-lines-per-function.md
 ---
-# eslint/max-lines-per-function&#x20;
 
 ### What it does
 
@@ -6488,80 +6534,8 @@ oxlint --deny max-lines-per-function
 ---
 
 ---
-url: /docs/guide/usage/linter/rules/eslint/max-lines.md
----
-# eslint/max-lines&#x20;
-
-### What it does
-
-Enforce a maximum number of lines per file.
-
-### Why is this bad?
-
-Some people consider large files a code smell. Large files tend to do a
-lot of things and can make it hard following what’s going. While there
-is not an objective maximum number of lines considered acceptable in a
-file, most people would agree it should not be in the thousands.
-Recommendations usually range from 100 to 500 lines.
-
-## Configuration
-
-This rule accepts a configuration object with the following properties:
-
-### max
-
-type: `integer`
-
-default: `300`
-
-Maximum number of lines allowed per file.
-
-### skipBlankLines
-
-type: `boolean`
-
-default: `false`
-
-Whether to ignore blank lines when counting.
-
-### skipComments
-
-type: `boolean`
-
-default: `false`
-
-Whether to ignore comments when counting.
-
-## How to use
-
-To **enable** this rule using the config file or in the CLI, you can use:
-
-::: code-group
-
-```json [Config (.oxlintrc.json)]
-{
-  "rules": {
-    "max-lines": "error"
-  }
-}
-```
-
-```bash [CLI]
-oxlint --deny max-lines
-```
-
-:::
-
-## References
-
-* Rule Source
-
----
-
----
 url: /docs/guide/usage/linter/rules/eslint/max-nested-callbacks.md
 ---
-# eslint/max-nested-callbacks&#x20;
 
 ### What it does
 
@@ -6655,7 +6629,6 @@ oxlint --deny max-nested-callbacks
 ---
 url: /docs/guide/usage/linter/rules/eslint/max-params.md
 ---
-# eslint/max-params&#x20;
 
 ### What it does
 
@@ -6752,7 +6725,6 @@ oxlint --deny max-params
 ---
 url: /docs/guide/usage/linter/rules/eslint/max-statements.md
 ---
-# eslint/max-statements&#x20;
 
 ### What it does
 
@@ -6941,7 +6913,6 @@ oxlint --deny max-statements
 ---
 url: /docs/guide/usage/linter/rules/eslint/new-cap.md
 ---
-# eslint/new-cap&#x20;
 
 ### What it does
 
@@ -7340,7 +7311,6 @@ oxlint --deny new-cap
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-alert.md
 ---
-# eslint/no-alert&#x20;
 
 ### What it does
 
@@ -7407,7 +7377,6 @@ oxlint --deny no-alert
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-array-constructor.md
 ---
-# eslint/no-array-constructor&#x20;
 
 ### What it does
 
@@ -7467,7 +7436,6 @@ oxlint --deny no-array-constructor
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-async-promise-executor.md
 ---
-# eslint/no-async-promise-executor&#x20;
 
 ### What it does
 
@@ -7564,7 +7532,6 @@ oxlint --deny no-async-promise-executor
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-await-in-loop.md
 ---
-# eslint/no-await-in-loop&#x20;
 
 ### What it does
 
@@ -7624,7 +7591,6 @@ oxlint --deny no-await-in-loop
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-bitwise.md
 ---
-# eslint/no-bitwise&#x20;
 
 ### What it does
 
@@ -7729,7 +7695,6 @@ oxlint --deny no-bitwise
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-caller.md
 ---
-# eslint/no-caller&#x20;
 
 ### What it does
 
@@ -7817,7 +7782,6 @@ oxlint --deny no-caller
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-case-declarations.md
 ---
-# eslint/no-case-declarations&#x20;
 
 ### What it does
 
@@ -7900,7 +7864,6 @@ oxlint --deny no-case-declarations
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-class-assign.md
 ---
-# eslint/no-class-assign&#x20;
 
 ### What it does
 
@@ -7997,7 +7960,6 @@ oxlint --deny no-class-assign
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-compare-neg-zero.md
 ---
-# eslint/no-compare-neg-zero&#x20;
 
 ### What it does
 
@@ -8074,7 +8036,6 @@ oxlint --deny no-compare-neg-zero
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-cond-assign.md
 ---
-# eslint/no-cond-assign&#x20;
 
 ### What it does
 
@@ -8151,7 +8112,6 @@ oxlint --deny no-cond-assign
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-console.md
 ---
-# eslint/no-console&#x20;
 
 ### What it does
 
@@ -8239,7 +8199,6 @@ oxlint --deny no-console
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-const-assign.md
 ---
-# eslint/no-const-assign&#x20;
 
 ### What it does
 
@@ -8304,7 +8263,6 @@ oxlint --deny no-const-assign
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-constant-binary-expression.md
 ---
-# eslint/no-constant-binary-expression&#x20;
 
 ### What it does
 
@@ -8375,7 +8333,6 @@ oxlint --deny no-constant-binary-expression
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-constant-condition.md
 ---
-# eslint/no-constant-condition&#x20;
 
 ### What it does
 
@@ -8469,7 +8426,6 @@ oxlint --deny no-constant-condition
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-constructor-return.md
 ---
-# eslint/no-constructor-return&#x20;
 
 ### What it does
 
@@ -8531,7 +8487,6 @@ oxlint --deny no-constructor-return
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-continue.md
 ---
-# eslint/no-continue&#x20;
 
 ### What it does
 
@@ -8599,7 +8554,6 @@ oxlint --deny no-continue
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-control-regex.md
 ---
-# eslint/no-control-regex&#x20;
 
 ### What it does
 
@@ -8669,7 +8623,6 @@ oxlint --deny no-control-regex
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-debugger.md
 ---
-# eslint/no-debugger&#x20;
 
 ### What it does
 
@@ -8730,7 +8683,6 @@ oxlint --deny no-debugger
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-delete-var.md
 ---
-# eslint/no-delete-var&#x20;
 
 ### What it does
 
@@ -8789,7 +8741,6 @@ oxlint --deny no-delete-var
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-div-regex.md
 ---
-# eslint/no-div-regex&#x20;
 
 ### What it does
 
@@ -8847,7 +8798,6 @@ oxlint --deny no-div-regex
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-dupe-class-members.md
 ---
-# eslint/no-dupe-class-members&#x20;
 
 ### What it does
 
@@ -8917,7 +8867,6 @@ oxlint --deny no-dupe-class-members
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-dupe-else-if.md
 ---
-# eslint/no-dupe-else-if&#x20;
 
 ### What it does
 
@@ -9028,7 +8977,6 @@ oxlint --deny no-dupe-else-if
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-dupe-keys.md
 ---
-# eslint/no-dupe-keys&#x20;
 
 ### What it does
 
@@ -9101,7 +9049,6 @@ oxlint --deny no-dupe-keys
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-duplicate-case.md
 ---
-# eslint/no-duplicate-case&#x20;
 
 ### What it does
 
@@ -9195,7 +9142,6 @@ oxlint --deny no-duplicate-case
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-duplicate-imports.md
 ---
-# eslint/no-duplicate-imports&#x20;
 
 ### What it does
 
@@ -9320,7 +9266,6 @@ oxlint --deny no-duplicate-imports
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-else-return.md
 ---
-# eslint/no-else-return&#x20;
 
 ### What it does
 
@@ -9510,9 +9455,76 @@ oxlint --deny no-else-return
 ---
 
 ---
+url: /docs/guide/usage/linter/rules/eslint/no-empty.md
+---
+
+### What it does
+
+Disallows empty block statements
+
+### Why is this bad?
+
+Empty block statements, while not technically errors, usually occur due to refactoring that wasn’t completed.
+They can cause confusion when reading code.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```javascript
+if (condition) {
+}
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
+if (condition) {
+  throw new Error("condition should be false");
+}
+```
+
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### allowEmptyCatch
+
+type: `boolean`
+
+default: `false`
+
+If set to `true`, allows an empty `catch` block without triggering the linter.
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "rules": {
+    "no-empty": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --deny no-empty
+```
+
+:::
+
+## References
+
+* Rule Source
+
+---
+
+---
 url: /docs/guide/usage/linter/rules/eslint/no-empty-character-class.md
 ---
-# eslint/no-empty-character-class&#x20;
 
 ### What it does
 
@@ -9566,7 +9578,6 @@ oxlint --deny no-empty-character-class
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-empty-function.md
 ---
-# eslint/no-empty-function&#x20;
 
 ### What it does
 
@@ -9679,7 +9690,6 @@ oxlint --deny no-empty-function
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-empty-pattern.md
 ---
-# eslint/no-empty-pattern&#x20;
 
 ### What it does
 
@@ -9766,7 +9776,6 @@ oxlint --deny no-empty-pattern
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-empty-static-block.md
 ---
-# eslint/no-empty-static-block&#x20;
 
 ### What it does
 
@@ -9830,78 +9839,8 @@ oxlint --deny no-empty-static-block
 ---
 
 ---
-url: /docs/guide/usage/linter/rules/eslint/no-empty.md
----
-# eslint/no-empty&#x20;
-
-### What it does
-
-Disallows empty block statements
-
-### Why is this bad?
-
-Empty block statements, while not technically errors, usually occur due to refactoring that wasn’t completed.
-They can cause confusion when reading code.
-
-### Examples
-
-Examples of **incorrect** code for this rule:
-
-```javascript
-if (condition) {
-}
-```
-
-Examples of **correct** code for this rule:
-
-```javascript
-if (condition) {
-  throw new Error("condition should be false");
-}
-```
-
-## Configuration
-
-This rule accepts a configuration object with the following properties:
-
-### allowEmptyCatch
-
-type: `boolean`
-
-default: `false`
-
-If set to `true`, allows an empty `catch` block without triggering the linter.
-
-## How to use
-
-To **enable** this rule using the config file or in the CLI, you can use:
-
-::: code-group
-
-```json [Config (.oxlintrc.json)]
-{
-  "rules": {
-    "no-empty": "error"
-  }
-}
-```
-
-```bash [CLI]
-oxlint --deny no-empty
-```
-
-:::
-
-## References
-
-* Rule Source
-
----
-
----
 url: /docs/guide/usage/linter/rules/eslint/no-eq-null.md
 ---
-# eslint/no-eq-null&#x20;
 
 ### What it does
 
@@ -9971,7 +9910,6 @@ oxlint --deny no-eq-null
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-eval.md
 ---
-# eslint/no-eval&#x20;
 
 ### What it does
 
@@ -10072,7 +10010,6 @@ oxlint --deny no-eval
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-ex-assign.md
 ---
-# eslint/no-ex-assign&#x20;
 
 ### What it does
 
@@ -10137,7 +10074,6 @@ oxlint --deny no-ex-assign
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-extend-native.md
 ---
-# eslint/no-extend-native&#x20;
 
 ### What it does
 
@@ -10223,7 +10159,6 @@ oxlint --deny no-extend-native
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-extra-bind.md
 ---
-# eslint/no-extra-bind&#x20;
 
 ### What it does
 
@@ -10290,7 +10225,6 @@ oxlint --deny no-extra-bind
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-extra-boolean-cast.md
 ---
-# eslint/no-extra-boolean-cast&#x20;
 
 ### What it does
 
@@ -10380,7 +10314,6 @@ oxlint --deny no-extra-boolean-cast
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-extra-label.md
 ---
-# eslint/no-extra-label&#x20;
 
 ### What it does
 
@@ -10482,7 +10415,6 @@ oxlint --deny no-extra-label
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-fallthrough.md
 ---
-# eslint/no-fallthrough&#x20;
 
 ### What it does
 
@@ -10710,7 +10642,6 @@ oxlint --deny no-fallthrough
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-func-assign.md
 ---
-# eslint/no-func-assign&#x20;
 
 ### What it does
 
@@ -10794,7 +10725,6 @@ oxlint --deny no-func-assign
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-global-assign.md
 ---
-# eslint/no-global-assign&#x20;
 
 ### What it does
 
@@ -10854,7 +10784,6 @@ oxlint --deny no-global-assign
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-implicit-coercion.md
 ---
-# eslint/no-implicit-coercion&#x20;
 
 ### What it does
 
@@ -10955,7 +10884,6 @@ oxlint --deny no-implicit-coercion
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-import-assign.md
 ---
-# eslint/no-import-assign&#x20;
 
 ### What it does
 
@@ -11015,7 +10943,6 @@ oxlint --deny no-import-assign
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-inline-comments.md
 ---
-# eslint/no-inline-comments&#x20;
 
 ### What it does
 
@@ -11095,7 +11022,6 @@ oxlint --deny no-inline-comments
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-inner-declarations.md
 ---
-# eslint/no-inner-declarations&#x20;
 
 ### What it does
 
@@ -11191,7 +11117,6 @@ oxlint --deny no-inner-declarations
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-invalid-regexp.md
 ---
-# eslint/no-invalid-regexp&#x20;
 
 ### What it does
 
@@ -11261,7 +11186,6 @@ oxlint --deny no-invalid-regexp
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-irregular-whitespace.md
 ---
-# eslint/no-irregular-whitespace&#x20;
 
 ### What it does
 
@@ -11321,7 +11245,6 @@ oxlint --deny no-irregular-whitespace
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-iterator.md
 ---
-# eslint/no-iterator&#x20;
 
 ### What it does
 
@@ -11394,7 +11317,6 @@ oxlint --deny no-iterator
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-label-var.md
 ---
-# eslint/no-label-var&#x20;
 
 ### What it does
 
@@ -11463,7 +11385,6 @@ oxlint --deny no-label-var
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-labels.md
 ---
-# eslint/no-labels&#x20;
 
 ### What it does
 
@@ -11595,7 +11516,6 @@ oxlint --deny no-labels
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-lone-blocks.md
 ---
-# eslint/no-lone-blocks&#x20;
 
 ### What it does
 
@@ -11657,7 +11577,6 @@ oxlint --deny no-lone-blocks
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-lonely-if.md
 ---
-# eslint/no-lonely-if&#x20;
 
 ### What it does
 
@@ -11754,7 +11673,6 @@ oxlint --deny no-lonely-if
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-loop-func.md
 ---
-# eslint/no-loop-func&#x20;
 
 ### What it does
 
@@ -11820,7 +11738,6 @@ oxlint --deny no-loop-func
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-loss-of-precision.md
 ---
-# eslint/no-loss-of-precision&#x20;
 
 ### What it does
 
@@ -11912,7 +11829,6 @@ oxlint --deny no-loss-of-precision
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-magic-numbers.md
 ---
-# eslint/no-magic-numbers&#x20;
 
 ### What it does
 
@@ -12153,7 +12069,6 @@ oxlint --deny no-magic-numbers
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-misleading-character-class.md
 ---
-# eslint/no-misleading-character-class&#x20;
 
 ### What it does
 
@@ -12261,7 +12176,6 @@ oxlint --deny no-misleading-character-class
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-multi-assign.md
 ---
-# eslint/no-multi-assign&#x20;
 
 ### What it does
 
@@ -12384,7 +12298,6 @@ oxlint --deny no-multi-assign
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-multi-str.md
 ---
-# eslint/no-multi-str&#x20;
 
 ### What it does
 
@@ -12434,7 +12347,6 @@ oxlint --deny no-multi-str
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-negated-condition.md
 ---
-# eslint/no-negated-condition&#x20;
 
 ### What it does
 
@@ -12499,7 +12411,6 @@ oxlint --deny no-negated-condition
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-nested-ternary.md
 ---
-# eslint/no-nested-ternary&#x20;
 
 ### What it does
 
@@ -12555,9 +12466,65 @@ oxlint --deny no-nested-ternary
 ---
 
 ---
+url: /docs/guide/usage/linter/rules/eslint/no-new.md
+---
+
+### What it does
+
+Disallow new operators outside of assignments or comparisons.
+
+### Why is this bad?
+
+Calling new without assigning or comparing it the reference is thrown away and in many
+cases the constructor can be replaced with a function.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```javascript
+new Person();
+
+() => {
+  new Date();
+};
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
+var a = new Date()(() => new Date());
+```
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "rules": {
+    "no-new": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --deny no-new
+```
+
+:::
+
+## References
+
+* Rule Source
+
+---
+
+---
 url: /docs/guide/usage/linter/rules/eslint/no-new-func.md
 ---
-# eslint/no-new-func&#x20;
 
 ### What it does
 
@@ -12617,7 +12584,6 @@ oxlint --deny no-new-func
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-new-native-nonconstructor.md
 ---
-# eslint/no-new-native-nonconstructor&#x20;
 
 ### What it does
 
@@ -12681,7 +12647,6 @@ oxlint --deny no-new-native-nonconstructor
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-new-wrappers.md
 ---
-# eslint/no-new-wrappers&#x20;
 
 ### What it does
 
@@ -12745,67 +12710,8 @@ oxlint --deny no-new-wrappers
 ---
 
 ---
-url: /docs/guide/usage/linter/rules/eslint/no-new.md
----
-# eslint/no-new&#x20;
-
-### What it does
-
-Disallow new operators outside of assignments or comparisons.
-
-### Why is this bad?
-
-Calling new without assigning or comparing it the reference is thrown away and in many
-cases the constructor can be replaced with a function.
-
-### Examples
-
-Examples of **incorrect** code for this rule:
-
-```javascript
-new Person();
-
-() => {
-  new Date();
-};
-```
-
-Examples of **correct** code for this rule:
-
-```javascript
-var a = new Date()(() => new Date());
-```
-
-## How to use
-
-To **enable** this rule using the config file or in the CLI, you can use:
-
-::: code-group
-
-```json [Config (.oxlintrc.json)]
-{
-  "rules": {
-    "no-new": "error"
-  }
-}
-```
-
-```bash [CLI]
-oxlint --deny no-new
-```
-
-:::
-
-## References
-
-* Rule Source
-
----
-
----
 url: /docs/guide/usage/linter/rules/eslint/no-nonoctal-decimal-escape.md
 ---
-# eslint/no-nonoctal-decimal-escape&#x20;
 
 ### What it does
 
@@ -12860,7 +12766,6 @@ oxlint --deny no-nonoctal-decimal-escape
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-obj-calls.md
 ---
-# eslint/no-obj-calls&#x20;
 
 ### What it does
 
@@ -12933,7 +12838,6 @@ oxlint --deny no-obj-calls
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-object-constructor.md
 ---
-# eslint/no-object-constructor&#x20;
 
 ### What it does
 
@@ -12990,7 +12894,6 @@ oxlint --deny no-object-constructor
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-param-reassign.md
 ---
-# eslint/no-param-reassign&#x20;
 
 ### What it does
 
@@ -13071,7 +12974,6 @@ oxlint --deny no-param-reassign
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-plusplus.md
 ---
-# eslint/no-plusplus&#x20;
 
 ### What it does
 
@@ -13167,7 +13069,6 @@ oxlint --deny no-plusplus
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-promise-executor-return.md
 ---
-# eslint/no-promise-executor-return&#x20;
 
 ### What it does
 
@@ -13289,7 +13190,6 @@ oxlint --deny no-promise-executor-return
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-proto.md
 ---
-# eslint/no-proto&#x20;
 
 ### What it does
 
@@ -13349,7 +13249,6 @@ oxlint --deny no-proto
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-prototype-builtins.md
 ---
-# eslint/no-prototype-builtins&#x20;
 
 ### What it does
 
@@ -13404,7 +13303,6 @@ oxlint --deny no-prototype-builtins
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-redeclare.md
 ---
-# eslint/no-redeclare&#x20;
 
 ### What it does
 
@@ -13473,7 +13371,6 @@ oxlint --deny no-redeclare
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-regex-spaces.md
 ---
-# eslint/no-regex-spaces&#x20;
 
 ### What it does
 
@@ -13526,7 +13423,6 @@ oxlint --deny no-regex-spaces
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-restricted-globals.md
 ---
-# eslint/no-restricted-globals&#x20;
 
 ### What it does
 
@@ -13600,7 +13496,6 @@ oxlint --deny no-restricted-globals
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-restricted-imports.md
 ---
-# eslint/no-restricted-imports&#x20;
 
 ### What it does
 
@@ -13957,7 +13852,6 @@ oxlint --deny no-restricted-imports
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-return-assign.md
 ---
-# eslint/no-return-assign&#x20;
 
 ### What it does
 
@@ -14032,7 +13926,6 @@ oxlint --deny no-return-assign
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-script-url.md
 ---
-# eslint/no-script-url&#x20;
 
 ### What it does
 
@@ -14086,7 +13979,6 @@ oxlint --deny no-script-url
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-self-assign.md
 ---
-# eslint/no-self-assign&#x20;
 
 ### What it does
 
@@ -14192,7 +14084,6 @@ oxlint --deny no-self-assign
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-self-compare.md
 ---
-# eslint/no-self-compare&#x20;
 
 ### What it does
 
@@ -14243,7 +14134,6 @@ oxlint --deny no-self-compare
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-sequences.md
 ---
-# eslint/no-sequences&#x20;
 
 ### What it does
 
@@ -14335,7 +14225,6 @@ oxlint --deny no-sequences
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-setter-return.md
 ---
-# eslint/no-setter-return&#x20;
 
 ### What it does
 
@@ -14391,7 +14280,6 @@ oxlint --deny no-setter-return
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-shadow-restricted-names.md
 ---
-# eslint/no-shadow-restricted-names&#x20;
 
 ### What it does
 
@@ -14492,7 +14380,6 @@ oxlint --deny no-shadow-restricted-names
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-sparse-arrays.md
 ---
-# eslint/no-sparse-arrays&#x20;
 
 ### What it does
 
@@ -14569,7 +14456,6 @@ oxlint --deny no-sparse-arrays
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-template-curly-in-string.md
 ---
-# eslint/no-template-curly-in-string&#x20;
 
 ### What it does
 
@@ -14632,7 +14518,6 @@ oxlint --deny no-template-curly-in-string
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-ternary.md
 ---
-# eslint/no-ternary&#x20;
 
 ### What it does
 
@@ -14709,7 +14594,6 @@ oxlint --deny no-ternary
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-this-before-super.md
 ---
-# eslint/no-this-before-super&#x20;
 
 ### What it does
 
@@ -14766,7 +14650,6 @@ oxlint --deny no-this-before-super
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-throw-literal.md
 ---
-# eslint/no-throw-literal&#x20;
 
 ### What it does
 
@@ -14845,7 +14728,6 @@ oxlint --deny no-throw-literal
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-unassigned-vars.md
 ---
-# eslint/no-unassigned-vars&#x20;
 
 ### What it does
 
@@ -14907,7 +14789,6 @@ oxlint --deny no-unassigned-vars
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-undef.md
 ---
-# eslint/no-undef&#x20;
 
 ### What it does
 
@@ -14971,7 +14852,6 @@ oxlint --deny no-undef
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-undefined.md
 ---
-# eslint/no-undefined&#x20;
 
 ### What it does
 
@@ -15047,7 +14927,6 @@ oxlint --deny no-undefined
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-unexpected-multiline.md
 ---
-# eslint/no-unexpected-multiline&#x20;
 
 ### What it does
 
@@ -15120,7 +14999,6 @@ oxlint --deny no-unexpected-multiline
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-unneeded-ternary.md
 ---
-# eslint/no-unneeded-ternary&#x20;
 
 ### What it does
 
@@ -15199,7 +15077,6 @@ oxlint --deny no-unneeded-ternary
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-unreachable.md
 ---
-# eslint/no-unreachable&#x20;
 
 ### What it does
 
@@ -15261,7 +15138,6 @@ oxlint --deny no-unreachable
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-unsafe-finally.md
 ---
-# eslint/no-unsafe-finally&#x20;
 
 ### What it does
 
@@ -15324,7 +15200,6 @@ oxlint --deny no-unsafe-finally
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-unsafe-negation.md
 ---
-# eslint/no-unsafe-negation&#x20;
 
 ### What it does
 
@@ -15407,7 +15282,6 @@ oxlint --deny no-unsafe-negation
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-unsafe-optional-chaining.md
 ---
-# eslint/no-unsafe-optional-chaining&#x20;
 
 ### What it does
 
@@ -15474,7 +15348,6 @@ oxlint --deny no-unsafe-optional-chaining
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-unused-expressions.md
 ---
-# eslint/no-unused-expressions&#x20;
 
 ### What it does
 
@@ -15565,7 +15438,6 @@ oxlint --deny no-unused-expressions
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-unused-labels.md
 ---
-# eslint/no-unused-labels&#x20;
 
 ### What it does
 
@@ -15628,7 +15500,6 @@ oxlint --deny no-unused-labels
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-unused-private-class-members.md
 ---
-# eslint/no-unused-private-class-members&#x20;
 
 ### What it does
 
@@ -15729,7 +15600,6 @@ oxlint --deny no-unused-private-class-members
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-unused-vars.md
 ---
-# eslint/no-unused-vars&#x20;
 
 ### What it does
 
@@ -16248,7 +16118,6 @@ oxlint --deny no-unused-vars
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-useless-backreference.md
 ---
-# eslint/no-useless-backreference&#x20;
 
 ### What it does
 
@@ -16314,7 +16183,6 @@ oxlint --deny no-useless-backreference
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-useless-call.md
 ---
-# eslint/no-useless-call&#x20;
 
 ### What it does
 
@@ -16390,7 +16258,6 @@ oxlint --deny no-useless-call
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-useless-catch.md
 ---
-# eslint/no-useless-catch&#x20;
 
 ### What it does
 
@@ -16450,7 +16317,6 @@ oxlint --deny no-useless-catch
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-useless-computed-key.md
 ---
-# eslint/no-useless-computed-key&#x20;
 
 ### What it does
 
@@ -16574,7 +16440,6 @@ oxlint --deny no-useless-computed-key
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-useless-concat.md
 ---
-# eslint/no-useless-concat&#x20;
 
 ### What it does
 
@@ -16638,7 +16503,6 @@ oxlint --deny no-useless-concat
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-useless-constructor.md
 ---
-# eslint/no-useless-constructor&#x20;
 
 ### What it does
 
@@ -16727,7 +16591,6 @@ oxlint --deny no-useless-constructor
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-useless-escape.md
 ---
-# eslint/no-useless-escape&#x20;
 
 ### What it does
 
@@ -16821,7 +16684,6 @@ oxlint --deny no-useless-escape
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-useless-rename.md
 ---
-# eslint/no-useless-rename&#x20;
 
 ### What it does
 
@@ -16906,7 +16768,6 @@ oxlint --deny no-useless-rename
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-useless-return.md
 ---
-# eslint/no-useless-return&#x20;
 
 ### What it does
 
@@ -16988,7 +16849,6 @@ oxlint --deny no-useless-return
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-var.md
 ---
-# eslint/no-var&#x20;
 
 ### What it does
 
@@ -17046,7 +16906,6 @@ oxlint --deny no-var
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-void.md
 ---
-# eslint/no-void&#x20;
 
 ### What it does
 
@@ -17115,7 +16974,6 @@ oxlint --deny no-void
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-warning-comments.md
 ---
-# eslint/no-warning-comments&#x20;
 
 ### What it does
 
@@ -17210,7 +17068,6 @@ oxlint --deny no-warning-comments
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-with.md
 ---
-# eslint/no-with&#x20;
 
 ### What it does
 
@@ -17265,7 +17122,6 @@ oxlint --deny no-with
 ---
 url: /docs/guide/usage/linter/rules/eslint/operator-assignment.md
 ---
-# eslint/operator-assignment&#x20;
 
 ### What it does
 
@@ -17357,7 +17213,6 @@ oxlint --deny operator-assignment
 ---
 url: /docs/guide/usage/linter/rules/eslint/prefer-destructuring.md
 ---
-# eslint/prefer-destructuring&#x20;
 
 ### What it does
 
@@ -17476,7 +17331,6 @@ oxlint --deny prefer-destructuring
 ---
 url: /docs/guide/usage/linter/rules/eslint/prefer-exponentiation-operator.md
 ---
-# eslint/prefer-exponentiation-operator&#x20;
 
 ### What it does
 
@@ -17531,7 +17385,6 @@ oxlint --deny prefer-exponentiation-operator
 ---
 url: /docs/guide/usage/linter/rules/eslint/prefer-numeric-literals.md
 ---
-# eslint/prefer-numeric-literals&#x20;
 
 ### What it does
 
@@ -17588,7 +17441,6 @@ oxlint --deny prefer-numeric-literals
 ---
 url: /docs/guide/usage/linter/rules/eslint/prefer-object-has-own.md
 ---
-# eslint/prefer-object-has-own&#x20;
 
 ### What it does
 
@@ -17660,7 +17512,6 @@ oxlint --deny prefer-object-has-own
 ---
 url: /docs/guide/usage/linter/rules/eslint/prefer-object-spread.md
 ---
-# eslint/prefer-object-spread&#x20;
 
 ### What it does
 
@@ -17737,7 +17588,6 @@ oxlint --deny prefer-object-spread
 ---
 url: /docs/guide/usage/linter/rules/eslint/prefer-promise-reject-errors.md
 ---
-# eslint/prefer-promise-reject-errors&#x20;
 
 ### What it does
 
@@ -17827,7 +17677,6 @@ oxlint --deny prefer-promise-reject-errors
 ---
 url: /docs/guide/usage/linter/rules/eslint/prefer-rest-params.md
 ---
-# eslint/prefer-rest-params&#x20;
 
 ### What it does
 
@@ -17908,7 +17757,6 @@ oxlint --deny prefer-rest-params
 ---
 url: /docs/guide/usage/linter/rules/eslint/prefer-spread.md
 ---
-# eslint/prefer-spread&#x20;
 
 This rule is combined 2 rules from `eslint:prefer-spread` and `unicorn:prefer-spread`.
 
@@ -17990,7 +17838,6 @@ oxlint --deny prefer-spread
 ---
 url: /docs/guide/usage/linter/rules/eslint/prefer-template.md
 ---
-# eslint/prefer-template&#x20;
 
 ### What it does
 
@@ -18046,7 +17893,6 @@ oxlint --deny prefer-template
 ---
 url: /docs/guide/usage/linter/rules/eslint/preserve-caught-error.md
 ---
-# eslint/preserve-caught-error&#x20;
 
 ### What it does
 
@@ -18121,7 +17967,6 @@ oxlint --deny preserve-caught-error
 ---
 url: /docs/guide/usage/linter/rules/eslint/radix.md
 ---
-# eslint/radix&#x20;
 
 ### What it does
 
@@ -18191,7 +18036,6 @@ oxlint --deny radix
 ---
 url: /docs/guide/usage/linter/rules/eslint/require-await.md
 ---
-# eslint/require-await&#x20;
 
 ### What it does
 
@@ -18273,7 +18117,6 @@ oxlint --deny require-await
 ---
 url: /docs/guide/usage/linter/rules/eslint/require-yield.md
 ---
-# eslint/require-yield&#x20;
 
 ### What it does
 
@@ -18322,7 +18165,6 @@ oxlint --deny require-yield
 ---
 url: /docs/guide/usage/linter/rules/eslint/sort-imports.md
 ---
-# eslint/sort-imports&#x20;
 
 ### What it does
 
@@ -18425,7 +18267,6 @@ oxlint --deny sort-imports
 ---
 url: /docs/guide/usage/linter/rules/eslint/sort-keys.md
 ---
-# eslint/sort-keys&#x20;
 
 ### What it does
 
@@ -18529,7 +18370,6 @@ oxlint --deny sort-keys
 ---
 url: /docs/guide/usage/linter/rules/eslint/sort-vars.md
 ---
-# eslint/sort-vars&#x20;
 
 ### What it does
 
@@ -18597,7 +18437,6 @@ oxlint --deny sort-vars
 ---
 url: /docs/guide/usage/linter/rules/eslint/symbol-description.md
 ---
-# eslint/symbol-description&#x20;
 
 ### What it does
 
@@ -18666,7 +18505,6 @@ oxlint --deny symbol-description
 ---
 url: /docs/guide/usage/linter/rules/eslint/unicode-bom.md
 ---
-# eslint/unicode-bom&#x20;
 
 ### What it does
 
@@ -18730,7 +18568,6 @@ oxlint --deny unicode-bom
 ---
 url: /docs/guide/usage/linter/rules/eslint/use-isnan.md
 ---
-# eslint/use-isnan&#x20;
 
 ### What it does
 
@@ -18811,7 +18648,6 @@ oxlint --deny use-isnan
 ---
 url: /docs/guide/usage/linter/rules/eslint/valid-typeof.md
 ---
-# eslint/valid-typeof&#x20;
 
 ### What it does
 
@@ -18907,7 +18743,6 @@ oxlint --deny valid-typeof
 ---
 url: /docs/guide/usage/linter/rules/eslint/vars-on-top.md
 ---
-# eslint/vars-on-top&#x20;
 
 ### What it does
 
@@ -19011,7 +18846,6 @@ oxlint --deny vars-on-top
 ---
 url: /docs/guide/usage/linter/rules/eslint/yoda.md
 ---
-# eslint/yoda&#x20;
 
 ### What it does
 
@@ -19262,6 +19096,44 @@ The Oxc formatter is built around the same core concepts as Prettier but with si
 ---
 
 ---
+url: /docs/guide/introduction.md
+---
+
+# Getting Started
+
+[What is Oxc?](/docs/guide/what-is-oxc)
+
+## Lint or format a codebase
+
+* Lint: [Oxlint](/docs/guide/usage/linter)
+* Format: [Oxfmt](/docs/guide/usage/formatter)
+
+## Build tooling on top of Oxc
+
+* Parse JavaScript and TypeScript: [Parser](/docs/guide/usage/parser)
+* Transform TypeScript, JSX, and modern JavaScript: [Transformer](/docs/guide/usage/transformer)
+* Minify JavaScript for production builds: [Minifier](/docs/guide/usage/minifier)
+* Resolve modules for JavaScript and TypeScript: [Resolver](/docs/guide/usage/resolver)
+
+## Contribute or learn
+
+* [Contribute](/docs/contribute/introduction)
+* [Learn](/docs/learn/parser_in_rust/intro.html)
+
+## Other resources
+
+* [Troubleshooting](/docs/guide/troubleshooting)
+* [Benchmarks](/docs/guide/benchmarks)
+* [Projects using Oxc](/docs/guide/projects)
+* [Talks and media](/docs/guide/media)
+* [Team](/team)
+* [Endorsements](/endorsements)
+* [Release Blog](/blog/)
+* [Releases](https://github.com/oxc-project/oxc/releases)
+
+---
+
+---
 url: /docs/contribute/development.md
 ---
 
@@ -19342,44 +19214,6 @@ macOS has an antivirus feature called XProtect that scans executables for malwar
 **Note:** This disables an OS security feature. Only do this if you're comfortable with the trade-off.
 
 More details: https://nnethercote.github.io/2025/09/04/faster-rust-builds-on-mac.html
-
----
-
----
-url: /docs/guide/introduction.md
----
-
-# Getting Started
-
-[What is Oxc?](/docs/guide/what-is-oxc)
-
-## Lint or format a codebase
-
-* Lint: [Oxlint](/docs/guide/usage/linter)
-* Format: [Oxfmt](/docs/guide/usage/formatter)
-
-## Build tooling on top of Oxc
-
-* Parse JavaScript and TypeScript: [Parser](/docs/guide/usage/parser)
-* Transform TypeScript, JSX, and modern JavaScript: [Transformer](/docs/guide/usage/transformer)
-* Minify JavaScript for production builds: [Minifier](/docs/guide/usage/minifier)
-* Resolve modules for JavaScript and TypeScript: [Resolver](/docs/guide/usage/resolver)
-
-## Contribute or learn
-
-* [Contribute](/docs/contribute/introduction)
-* [Learn](/docs/learn/parser_in_rust/intro.html)
-
-## Other resources
-
-* [Troubleshooting](/docs/guide/troubleshooting)
-* [Benchmarks](/docs/guide/benchmarks)
-* [Projects using Oxc](/docs/guide/projects)
-* [Talks and media](/docs/guide/media)
-* [Team](/team)
-* [Endorsements](/endorsements)
-* [Release Blog](/blog/)
-* [Releases](https://github.com/oxc-project/oxc/releases)
 
 ---
 
@@ -20437,7 +20271,6 @@ For TOML files, ignore comments are not supported.
 ---
 url: /docs/guide/usage/linter/rules/import/consistent-type-specifier-style.md
 ---
-# import/consistent-type-specifier-style&#x20;
 
 ### What it does
 
@@ -20521,7 +20354,6 @@ oxlint --deny import/consistent-type-specifier-style --import-plugin
 ---
 url: /docs/guide/usage/linter/rules/import/default.md
 ---
-# import/default&#x20;
 
 ### What it does
 
@@ -20591,7 +20423,6 @@ oxlint --deny import/default --import-plugin
 ---
 url: /docs/guide/usage/linter/rules/import/export.md
 ---
-# import/export&#x20;
 
 ### What it does
 
@@ -20651,7 +20482,6 @@ oxlint --deny import/export --import-plugin
 ---
 url: /docs/guide/usage/linter/rules/import/exports-last.md
 ---
-# import/exports-last&#x20;
 
 ### What it does
 
@@ -20714,7 +20544,6 @@ oxlint --deny import/exports-last --import-plugin
 ---
 url: /docs/guide/usage/linter/rules/import/extensions.md
 ---
-# import/extensions&#x20;
 
 ### What it does
 
@@ -20967,7 +20796,6 @@ oxlint --deny import/extensions --import-plugin
 ---
 url: /docs/guide/usage/linter/rules/import/first.md
 ---
-# import/first&#x20;
 
 ### What it does
 
@@ -21055,7 +20883,6 @@ oxlint --deny import/first --import-plugin
 ---
 url: /docs/guide/usage/linter/rules/import/group-exports.md
 ---
-# import/group-exports&#x20;
 
 ### What it does
 
@@ -21116,7 +20943,6 @@ oxlint --deny import/group-exports --import-plugin
 ---
 url: /docs/guide/usage/linter/rules/import/max-dependencies.md
 ---
-# import/max-dependencies&#x20;
 
 ### What it does
 
@@ -21197,7 +21023,6 @@ oxlint --deny import/max-dependencies --import-plugin
 ---
 url: /docs/guide/usage/linter/rules/import/named.md
 ---
-# import/named&#x20;
 
 ### What it does
 
@@ -21290,7 +21115,6 @@ oxlint --deny import/named --import-plugin
 ---
 url: /docs/guide/usage/linter/rules/import/namespace.md
 ---
-# import/namespace&#x20;
 
 ### What it does
 
@@ -21387,7 +21211,6 @@ oxlint --deny import/namespace --import-plugin
 ---
 url: /docs/guide/usage/linter/rules/import/no-absolute-path.md
 ---
-# import/no-absolute-path&#x20;
 
 ### What it does
 
@@ -21514,7 +21337,6 @@ oxlint --deny import/no-absolute-path --import-plugin
 ---
 url: /docs/guide/usage/linter/rules/import/no-amd.md
 ---
-# import/no-amd&#x20;
 
 ### What it does
 
@@ -21574,7 +21396,6 @@ oxlint --deny import/no-amd --import-plugin
 ---
 url: /docs/guide/usage/linter/rules/import/no-anonymous-default-export.md
 ---
-# import/no-anonymous-default-export&#x20;
 
 ### What it does
 
@@ -21734,7 +21555,6 @@ oxlint --deny import/no-anonymous-default-export --import-plugin
 ---
 url: /docs/guide/usage/linter/rules/import/no-commonjs.md
 ---
-# import/no-commonjs&#x20;
 
 ### What it does
 
@@ -21859,7 +21679,6 @@ oxlint --deny import/no-commonjs --import-plugin
 ---
 url: /docs/guide/usage/linter/rules/import/no-cycle.md
 ---
-# import/no-cycle&#x20;
 
 ### What it does
 
@@ -21981,7 +21800,6 @@ oxlint --deny import/no-cycle --import-plugin
 ---
 url: /docs/guide/usage/linter/rules/import/no-default-export.md
 ---
-# import/no-default-export&#x20;
 
 ### What it does
 
@@ -22043,7 +21861,6 @@ oxlint --deny import/no-default-export --import-plugin
 ---
 url: /docs/guide/usage/linter/rules/import/no-duplicates.md
 ---
-# import/no-duplicates&#x20;
 
 ### What it does
 
@@ -22129,7 +21946,6 @@ oxlint --deny import/no-duplicates --import-plugin
 ---
 url: /docs/guide/usage/linter/rules/import/no-dynamic-require.md
 ---
-# import/no-dynamic-require&#x20;
 
 ### What it does
 
@@ -22201,7 +22017,6 @@ oxlint --deny import/no-dynamic-require --import-plugin
 ---
 url: /docs/guide/usage/linter/rules/import/no-empty-named-blocks.md
 ---
-# import/no-empty-named-blocks&#x20;
 
 ### What it does
 
@@ -22258,7 +22073,6 @@ oxlint --deny import/no-empty-named-blocks --import-plugin
 ---
 url: /docs/guide/usage/linter/rules/import/no-mutable-exports.md
 ---
-# import/no-mutable-exports&#x20;
 
 ### What it does
 
@@ -22321,9 +22135,76 @@ oxlint --deny import/no-mutable-exports --import-plugin
 ---
 
 ---
+url: /docs/guide/usage/linter/rules/import/no-named-as-default.md
+---
+
+### What it does
+
+Reports use of an exported name as the locally imported name of a default export.
+This happens when an imported default export is assigned a name that conflicts
+with a named export from the same module.
+
+### Why is this bad?
+
+Using a named export's identifier for a default export can cause confusion
+and errors in understanding which value is being imported. It also reduces
+code clarity, making it harder for other developers to understand the intended
+imports.
+
+### Examples
+
+Given
+
+```javascript
+// foo.js
+export default "foo";
+export const bar = "baz";
+```
+
+Examples of **incorrect** code for this rule:
+
+```javascript
+// Invalid: using exported name 'bar' as the identifier for default export.
+import bar from "./foo.js";
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
+// Valid: correctly importing default export with a non-conflicting name.
+import foo from "./foo.js";
+```
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "plugins": ["import"],
+  "rules": {
+    "import/no-named-as-default": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --deny import/no-named-as-default --import-plugin
+```
+
+:::
+
+## References
+
+* Rule Source
+
+---
+
+---
 url: /docs/guide/usage/linter/rules/import/no-named-as-default-member.md
 ---
-# import/no-named-as-default-member&#x20;
 
 ### What it does
 
@@ -22395,78 +22276,8 @@ oxlint --deny import/no-named-as-default-member --import-plugin
 ---
 
 ---
-url: /docs/guide/usage/linter/rules/import/no-named-as-default.md
----
-# import/no-named-as-default&#x20;
-
-### What it does
-
-Reports use of an exported name as the locally imported name of a default export.
-This happens when an imported default export is assigned a name that conflicts
-with a named export from the same module.
-
-### Why is this bad?
-
-Using a named export's identifier for a default export can cause confusion
-and errors in understanding which value is being imported. It also reduces
-code clarity, making it harder for other developers to understand the intended
-imports.
-
-### Examples
-
-Given
-
-```javascript
-// foo.js
-export default "foo";
-export const bar = "baz";
-```
-
-Examples of **incorrect** code for this rule:
-
-```javascript
-// Invalid: using exported name 'bar' as the identifier for default export.
-import bar from "./foo.js";
-```
-
-Examples of **correct** code for this rule:
-
-```javascript
-// Valid: correctly importing default export with a non-conflicting name.
-import foo from "./foo.js";
-```
-
-## How to use
-
-To **enable** this rule using the config file or in the CLI, you can use:
-
-::: code-group
-
-```json [Config (.oxlintrc.json)]
-{
-  "plugins": ["import"],
-  "rules": {
-    "import/no-named-as-default": "error"
-  }
-}
-```
-
-```bash [CLI]
-oxlint --deny import/no-named-as-default --import-plugin
-```
-
-:::
-
-## References
-
-* Rule Source
-
----
-
----
 url: /docs/guide/usage/linter/rules/import/no-named-default.md
 ---
-# import/no-named-default&#x20;
 
 ### What it does
 
@@ -22523,7 +22334,6 @@ oxlint --deny import/no-named-default --import-plugin
 ---
 url: /docs/guide/usage/linter/rules/import/no-named-export.md
 ---
-# import/no-named-export&#x20;
 
 ### What it does
 
@@ -22584,7 +22394,6 @@ oxlint --deny import/no-named-export --import-plugin
 ---
 url: /docs/guide/usage/linter/rules/import/no-namespace.md
 ---
-# import/no-namespace&#x20;
 
 ### What it does
 
@@ -22671,7 +22480,6 @@ oxlint --deny import/no-namespace --import-plugin
 ---
 url: /docs/guide/usage/linter/rules/import/no-self-import.md
 ---
-# import/no-self-import&#x20;
 
 ### What it does
 
@@ -22730,7 +22538,6 @@ oxlint --deny import/no-self-import --import-plugin
 ---
 url: /docs/guide/usage/linter/rules/import/no-unassigned-import.md
 ---
-# import/no-unassigned-import&#x20;
 
 ### What it does
 
@@ -22813,7 +22620,6 @@ oxlint --deny import/no-unassigned-import --import-plugin
 ---
 url: /docs/guide/usage/linter/rules/import/no-webpack-loader-syntax.md
 ---
-# import/no-webpack-loader-syntax&#x20;
 
 ### What it does
 
@@ -22876,7 +22682,6 @@ oxlint --deny import/no-webpack-loader-syntax --import-plugin
 ---
 url: /docs/guide/usage/linter/rules/import/prefer-default-export.md
 ---
-# import/prefer-default-export&#x20;
 
 ### What it does
 
@@ -22961,7 +22766,6 @@ oxlint --deny import/prefer-default-export --import-plugin
 ---
 url: /docs/guide/usage/linter/rules/import/unambiguous.md
 ---
-# import/unambiguous&#x20;
 
 ### What it does
 
@@ -23378,7 +23182,6 @@ const result = await isolatedDeclaration("lib.ts", sourceCode, {
 ---
 url: /docs/guide/usage/linter/rules/jest/consistent-test-it.md
 ---
-# jest/consistent-test-it&#x20;
 
 ### What it does
 
@@ -23486,7 +23289,6 @@ oxlint --deny jest/consistent-test-it --jest-plugin
 ---
 url: /docs/guide/usage/linter/rules/jest/expect-expect.md
 ---
-# jest/expect-expect&#x20;
 
 ### What it does
 
@@ -23571,7 +23373,6 @@ oxlint --deny jest/expect-expect --jest-plugin
 ---
 url: /docs/guide/usage/linter/rules/jest/max-expects.md
 ---
-# jest/max-expects&#x20;
 
 ### What it does
 
@@ -23660,7 +23461,6 @@ oxlint --deny jest/max-expects --jest-plugin
 ---
 url: /docs/guide/usage/linter/rules/jest/max-nested-describe.md
 ---
-# jest/max-nested-describe&#x20;
 
 ### What it does
 
@@ -23801,7 +23601,6 @@ oxlint --deny jest/max-nested-describe --jest-plugin
 ---
 url: /docs/guide/usage/linter/rules/jest/no-alias-methods.md
 ---
-# jest/no-alias-methods&#x20;
 
 ### What it does
 
@@ -23913,7 +23712,6 @@ oxlint --deny jest/no-alias-methods --jest-plugin
 ---
 url: /docs/guide/usage/linter/rules/jest/no-commented-out-tests.md
 ---
-# jest/no-commented-out-tests&#x20;
 
 ### What it does
 
@@ -23981,7 +23779,6 @@ oxlint --deny jest/no-commented-out-tests --jest-plugin
 ---
 url: /docs/guide/usage/linter/rules/jest/no-conditional-expect.md
 ---
-# jest/no-conditional-expect&#x20;
 
 ### What it does
 
@@ -24097,7 +23894,6 @@ oxlint --deny jest/no-conditional-expect --jest-plugin
 ---
 url: /docs/guide/usage/linter/rules/jest/no-conditional-in-test.md
 ---
-# jest/no-conditional-in-test&#x20;
 
 ### What it does
 
@@ -24216,7 +24012,6 @@ oxlint --deny jest/no-conditional-in-test --jest-plugin
 ---
 url: /docs/guide/usage/linter/rules/jest/no-confusing-set-timeout.md
 ---
-# jest/no-confusing-set-timeout&#x20;
 
 ### What it does
 
@@ -24288,7 +24083,6 @@ oxlint --deny jest/no-confusing-set-timeout --jest-plugin
 ---
 url: /docs/guide/usage/linter/rules/jest/no-deprecated-functions.md
 ---
-# jest/no-deprecated-functions&#x20;
 
 ### What it does
 
@@ -24386,7 +24180,6 @@ oxlint --deny jest/no-deprecated-functions --jest-plugin
 ---
 url: /docs/guide/usage/linter/rules/jest/no-disabled-tests.md
 ---
-# jest/no-disabled-tests&#x20;
 
 ### What it does
 
@@ -24463,7 +24256,6 @@ oxlint --deny jest/no-disabled-tests --jest-plugin
 ---
 url: /docs/guide/usage/linter/rules/jest/no-done-callback.md
 ---
-# jest/no-done-callback&#x20;
 
 ### What it does
 
@@ -24539,7 +24331,6 @@ oxlint --deny jest/no-done-callback --jest-plugin
 ---
 url: /docs/guide/usage/linter/rules/jest/no-duplicate-hooks.md
 ---
-# jest/no-duplicate-hooks&#x20;
 
 ### What it does
 
@@ -24661,7 +24452,6 @@ oxlint --deny jest/no-duplicate-hooks --jest-plugin
 ---
 url: /docs/guide/usage/linter/rules/jest/no-export.md
 ---
-# jest/no-export&#x20;
 
 ### What it does
 
@@ -24714,7 +24504,6 @@ oxlint --deny jest/no-export --jest-plugin
 ---
 url: /docs/guide/usage/linter/rules/jest/no-focused-tests.md
 ---
-# jest/no-focused-tests&#x20;
 
 ### What it does
 
@@ -24788,7 +24577,6 @@ oxlint --deny jest/no-focused-tests --jest-plugin
 ---
 url: /docs/guide/usage/linter/rules/jest/no-hooks.md
 ---
-# jest/no-hooks&#x20;
 
 ### What it does
 
@@ -24898,7 +24686,6 @@ oxlint --deny jest/no-hooks --jest-plugin
 ---
 url: /docs/guide/usage/linter/rules/jest/no-identical-title.md
 ---
-# jest/no-identical-title&#x20;
 
 ### What it does
 
@@ -24966,7 +24753,6 @@ oxlint --deny jest/no-identical-title --jest-plugin
 ---
 url: /docs/guide/usage/linter/rules/jest/no-interpolation-in-snapshots.md
 ---
-# jest/no-interpolation-in-snapshots&#x20;
 
 ### What it does
 
@@ -25041,7 +24827,6 @@ oxlint --deny jest/no-interpolation-in-snapshots --jest-plugin
 ---
 url: /docs/guide/usage/linter/rules/jest/no-jasmine-globals.md
 ---
-# jest/no-jasmine-globals&#x20;
 
 ### What it does
 
@@ -25113,7 +24898,6 @@ oxlint --deny jest/no-jasmine-globals --jest-plugin
 ---
 url: /docs/guide/usage/linter/rules/jest/no-large-snapshots.md
 ---
-# jest/no-large-snapshots&#x20;
 
 ### What it does
 
@@ -25268,7 +25052,6 @@ oxlint --deny jest/no-large-snapshots --jest-plugin
 ---
 url: /docs/guide/usage/linter/rules/jest/no-mocks-import.md
 ---
-# jest/no-mocks-import&#x20;
 
 ### What it does
 
@@ -25339,7 +25122,6 @@ oxlint --deny jest/no-mocks-import --jest-plugin
 ---
 url: /docs/guide/usage/linter/rules/jest/no-restricted-jest-methods.md
 ---
-# jest/no-restricted-jest-methods&#x20;
 
 ### What it does
 
@@ -25432,7 +25214,6 @@ oxlint --deny jest/no-restricted-jest-methods --jest-plugin
 ---
 url: /docs/guide/usage/linter/rules/jest/no-restricted-matchers.md
 ---
-# jest/no-restricted-matchers&#x20;
 
 ### What it does
 
@@ -25550,7 +25331,6 @@ oxlint --deny jest/no-restricted-matchers --jest-plugin
 ---
 url: /docs/guide/usage/linter/rules/jest/no-standalone-expect.md
 ---
-# jest/no-standalone-expect&#x20;
 
 ### What it does
 
@@ -25631,7 +25411,6 @@ oxlint --deny jest/no-standalone-expect --jest-plugin
 ---
 url: /docs/guide/usage/linter/rules/jest/no-test-prefixes.md
 ---
-# jest/no-test-prefixes&#x20;
 
 ### What it does
 
@@ -25700,7 +25479,6 @@ oxlint --deny jest/no-test-prefixes --jest-plugin
 ---
 url: /docs/guide/usage/linter/rules/jest/no-test-return-statement.md
 ---
-# jest/no-test-return-statement&#x20;
 
 ### What it does
 
@@ -25771,7 +25549,6 @@ oxlint --deny jest/no-test-return-statement --jest-plugin
 ---
 url: /docs/guide/usage/linter/rules/jest/no-untyped-mock-factory.md
 ---
-# jest/no-untyped-mock-factory&#x20;
 
 ### What it does
 
@@ -25866,7 +25643,6 @@ oxlint --deny jest/no-untyped-mock-factory --jest-plugin
 ---
 url: /docs/guide/usage/linter/rules/jest/padding-around-test-blocks.md
 ---
-# jest/padding-around-test-blocks&#x20;
 
 ### What it does
 
@@ -25936,7 +25712,6 @@ oxlint --deny jest/padding-around-test-blocks --jest-plugin
 ---
 url: /docs/guide/usage/linter/rules/jest/prefer-called-with.md
 ---
-# jest/prefer-called-with&#x20;
 
 ### What it does
 
@@ -26009,7 +25784,6 @@ oxlint --deny jest/prefer-called-with --jest-plugin
 ---
 url: /docs/guide/usage/linter/rules/jest/prefer-comparison-matcher.md
 ---
-# jest/prefer-comparison-matcher&#x20;
 
 ### What it does
 
@@ -26089,7 +25863,6 @@ oxlint --deny jest/prefer-comparison-matcher --jest-plugin
 ---
 url: /docs/guide/usage/linter/rules/jest/prefer-each.md
 ---
-# jest/prefer-each&#x20;
 
 ### What it does
 
@@ -26162,7 +25935,6 @@ oxlint --deny jest/prefer-each --jest-plugin
 ---
 url: /docs/guide/usage/linter/rules/jest/prefer-equality-matcher.md
 ---
-# jest/prefer-equality-matcher&#x20;
 
 ### What it does
 
@@ -26236,7 +26008,6 @@ oxlint --deny jest/prefer-equality-matcher --jest-plugin
 ---
 url: /docs/guide/usage/linter/rules/jest/prefer-expect-resolves.md
 ---
-# jest/prefer-expect-resolves&#x20;
 
 ### What it does
 
@@ -26331,7 +26102,6 @@ oxlint --deny jest/prefer-expect-resolves --jest-plugin
 ---
 url: /docs/guide/usage/linter/rules/jest/prefer-hooks-in-order.md
 ---
-# jest/prefer-hooks-in-order&#x20;
 
 ### What it does
 
@@ -26479,7 +26249,6 @@ oxlint --deny jest/prefer-hooks-in-order --jest-plugin
 ---
 url: /docs/guide/usage/linter/rules/jest/prefer-hooks-on-top.md
 ---
-# jest/prefer-hooks-on-top&#x20;
 
 ### What it does
 
@@ -26645,7 +26414,6 @@ oxlint --deny jest/prefer-hooks-on-top --jest-plugin
 ---
 url: /docs/guide/usage/linter/rules/jest/prefer-jest-mocked.md
 ---
-# jest/prefer-jest-mocked&#x20;
 
 ### What it does
 
@@ -26719,7 +26487,6 @@ oxlint --deny jest/prefer-jest-mocked --jest-plugin
 ---
 url: /docs/guide/usage/linter/rules/jest/prefer-lowercase-title.md
 ---
-# jest/prefer-lowercase-title&#x20;
 
 ### What it does
 
@@ -26902,7 +26669,6 @@ oxlint --deny jest/prefer-lowercase-title --jest-plugin
 ---
 url: /docs/guide/usage/linter/rules/jest/prefer-mock-promise-shorthand.md
 ---
-# jest/prefer-mock-promise-shorthand&#x20;
 
 ### What it does
 
@@ -26985,7 +26751,6 @@ oxlint --deny jest/prefer-mock-promise-shorthand --jest-plugin
 ---
 url: /docs/guide/usage/linter/rules/jest/prefer-spy-on.md
 ---
-# jest/prefer-spy-on&#x20;
 
 ### What it does
 
@@ -27065,7 +26830,6 @@ oxlint --deny jest/prefer-spy-on --jest-plugin
 ---
 url: /docs/guide/usage/linter/rules/jest/prefer-strict-equal.md
 ---
-# jest/prefer-strict-equal&#x20;
 
 ### What it does
 
@@ -27133,7 +26897,6 @@ oxlint --deny jest/prefer-strict-equal --jest-plugin
 ---
 url: /docs/guide/usage/linter/rules/jest/prefer-to-be.md
 ---
-# jest/prefer-to-be&#x20;
 
 ### What it does
 
@@ -27212,7 +26975,6 @@ oxlint --deny jest/prefer-to-be --jest-plugin
 ---
 url: /docs/guide/usage/linter/rules/jest/prefer-to-contain.md
 ---
-# jest/prefer-to-contain&#x20;
 
 ### What it does
 
@@ -27282,9 +27044,65 @@ oxlint --deny jest/prefer-to-contain --jest-plugin
 ---
 
 ---
+url: /docs/guide/usage/linter/rules/jest/prefer-to-have-been-called.md
+---
+
+### What it does
+
+Suggests using `toHaveBeenCalled()` or `not.toHaveBeenCalled()` over `toHaveBeenCalledTimes(0)` or `toBeCalledTimes(0)`.
+
+### Why is this bad?
+
+`toHaveBeenCalled()` is more explicit and readable than `toHaveBeenCalledTimes(0)`.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```js
+expect(mock).toHaveBeenCalledTimes(0);
+expect(mock).toBeCalledTimes(0);
+expect(mock).not.toHaveBeenCalledTimes(0);
+```
+
+Examples of **correct** code for this rule:
+
+```js
+expect(mock).not.toHaveBeenCalled();
+expect(mock).toHaveBeenCalled();
+expect(mock).toHaveBeenCalledTimes(1);
+```
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "plugins": ["jest"],
+  "rules": {
+    "jest/prefer-to-have-been-called": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --deny jest/prefer-to-have-been-called --jest-plugin
+```
+
+:::
+
+## References
+
+* Rule Source
+
+---
+
+---
 url: /docs/guide/usage/linter/rules/jest/prefer-to-have-been-called-times.md
 ---
-# jest/prefer-to-have-been-called-times&#x20;
 
 ### What it does
 
@@ -27343,67 +27161,8 @@ oxlint --deny jest/prefer-to-have-been-called-times --jest-plugin
 ---
 
 ---
-url: /docs/guide/usage/linter/rules/jest/prefer-to-have-been-called.md
----
-# jest/prefer-to-have-been-called&#x20;
-
-### What it does
-
-Suggests using `toHaveBeenCalled()` or `not.toHaveBeenCalled()` over `toHaveBeenCalledTimes(0)` or `toBeCalledTimes(0)`.
-
-### Why is this bad?
-
-`toHaveBeenCalled()` is more explicit and readable than `toHaveBeenCalledTimes(0)`.
-
-### Examples
-
-Examples of **incorrect** code for this rule:
-
-```js
-expect(mock).toHaveBeenCalledTimes(0);
-expect(mock).toBeCalledTimes(0);
-expect(mock).not.toHaveBeenCalledTimes(0);
-```
-
-Examples of **correct** code for this rule:
-
-```js
-expect(mock).not.toHaveBeenCalled();
-expect(mock).toHaveBeenCalled();
-expect(mock).toHaveBeenCalledTimes(1);
-```
-
-## How to use
-
-To **enable** this rule using the config file or in the CLI, you can use:
-
-::: code-group
-
-```json [Config (.oxlintrc.json)]
-{
-  "plugins": ["jest"],
-  "rules": {
-    "jest/prefer-to-have-been-called": "error"
-  }
-}
-```
-
-```bash [CLI]
-oxlint --deny jest/prefer-to-have-been-called --jest-plugin
-```
-
-:::
-
-## References
-
-* Rule Source
-
----
-
----
 url: /docs/guide/usage/linter/rules/jest/prefer-to-have-length.md
 ---
-# jest/prefer-to-have-length&#x20;
 
 ### What it does
 
@@ -27472,7 +27231,6 @@ oxlint --deny jest/prefer-to-have-length --jest-plugin
 ---
 url: /docs/guide/usage/linter/rules/jest/prefer-todo.md
 ---
-# jest/prefer-todo&#x20;
 
 ### What it does
 
@@ -27540,7 +27298,6 @@ oxlint --deny jest/prefer-todo --jest-plugin
 ---
 url: /docs/guide/usage/linter/rules/jest/require-hook.md
 ---
-# jest/require-hook&#x20;
 
 ### What it does
 
@@ -27713,7 +27470,6 @@ oxlint --deny jest/require-hook --jest-plugin
 ---
 url: /docs/guide/usage/linter/rules/jest/require-to-throw-message.md
 ---
-# jest/require-to-throw-message&#x20;
 
 ### What it does
 
@@ -27792,7 +27548,6 @@ oxlint --deny jest/require-to-throw-message --jest-plugin
 ---
 url: /docs/guide/usage/linter/rules/jest/require-top-level-describe.md
 ---
-# jest/require-top-level-describe&#x20;
 
 ### What it does
 
@@ -27900,7 +27655,6 @@ oxlint --deny jest/require-top-level-describe --jest-plugin
 ---
 url: /docs/guide/usage/linter/rules/jest/valid-describe-callback.md
 ---
-# jest/valid-describe-callback&#x20;
 
 ### What it does
 
@@ -27980,7 +27734,6 @@ oxlint --deny jest/valid-describe-callback --jest-plugin
 ---
 url: /docs/guide/usage/linter/rules/jest/valid-expect.md
 ---
-# jest/valid-expect&#x20;
 
 ### What it does
 
@@ -28088,7 +27841,6 @@ oxlint --deny jest/valid-expect --jest-plugin
 ---
 url: /docs/guide/usage/linter/rules/jest/valid-title.md
 ---
-# jest/valid-title&#x20;
 
 ### What it does
 
@@ -28562,7 +28314,6 @@ plugin API surface.
 ---
 url: /docs/guide/usage/linter/rules/jsdoc/check-access.md
 ---
-# jsdoc/check-access&#x20;
 
 ### What it does
 
@@ -28631,7 +28382,6 @@ oxlint --deny jsdoc/check-access --jsdoc-plugin
 ---
 url: /docs/guide/usage/linter/rules/jsdoc/check-property-names.md
 ---
-# jsdoc/check-property-names&#x20;
 
 ### What it does
 
@@ -28703,7 +28453,6 @@ oxlint --deny jsdoc/check-property-names --jsdoc-plugin
 ---
 url: /docs/guide/usage/linter/rules/jsdoc/check-tag-names.md
 ---
-# jsdoc/check-tag-names&#x20;
 
 ### What it does
 
@@ -28833,7 +28582,6 @@ oxlint --deny jsdoc/check-tag-names --jsdoc-plugin
 ---
 url: /docs/guide/usage/linter/rules/jsdoc/empty-tags.md
 ---
-# jsdoc/empty-tags&#x20;
 
 ### What it does
 
@@ -28922,7 +28670,6 @@ oxlint --deny jsdoc/empty-tags --jsdoc-plugin
 ---
 url: /docs/guide/usage/linter/rules/jsdoc/implements-on-classes.md
 ---
-# jsdoc/implements-on-classes&#x20;
 
 ### What it does
 
@@ -28990,7 +28737,6 @@ oxlint --deny jsdoc/implements-on-classes --jsdoc-plugin
 ---
 url: /docs/guide/usage/linter/rules/jsdoc/no-defaults.md
 ---
-# jsdoc/no-defaults&#x20;
 
 ### What it does
 
@@ -29061,177 +28807,8 @@ oxlint --deny jsdoc/no-defaults --jsdoc-plugin
 ---
 
 ---
-url: /docs/guide/usage/linter/rules/jsdoc/require-param-description.md
----
-# jsdoc/require-param-description&#x20;
-
-### What it does
-
-Requires that each `@param` tag has a description value.
-
-### Why is this bad?
-
-The description of a param should be documented.
-
-### Examples
-
-Examples of **incorrect** code for this rule:
-
-```javascript
-/** @param foo */
-function quux(foo) {}
-```
-
-Examples of **correct** code for this rule:
-
-```javascript
-/** @param foo Foo. */
-function quux(foo) {}
-```
-
-## How to use
-
-To **enable** this rule using the config file or in the CLI, you can use:
-
-::: code-group
-
-```json [Config (.oxlintrc.json)]
-{
-  "plugins": ["jsdoc"],
-  "rules": {
-    "jsdoc/require-param-description": "error"
-  }
-}
-```
-
-```bash [CLI]
-oxlint --deny jsdoc/require-param-description --jsdoc-plugin
-```
-
-:::
-
-## References
-
-* Rule Source
-
----
-
----
-url: /docs/guide/usage/linter/rules/jsdoc/require-param-name.md
----
-# jsdoc/require-param-name&#x20;
-
-### What it does
-
-Requires that all `@param` tags have names.
-
-### Why is this bad?
-
-The name of a param should be documented.
-
-### Examples
-
-Examples of **incorrect** code for this rule:
-
-```javascript
-/** @param {SomeType} */
-function quux(foo) {}
-```
-
-Examples of **correct** code for this rule:
-
-```javascript
-/** @param {SomeType} foo */
-function quux(foo) {}
-```
-
-## How to use
-
-To **enable** this rule using the config file or in the CLI, you can use:
-
-::: code-group
-
-```json [Config (.oxlintrc.json)]
-{
-  "plugins": ["jsdoc"],
-  "rules": {
-    "jsdoc/require-param-name": "error"
-  }
-}
-```
-
-```bash [CLI]
-oxlint --deny jsdoc/require-param-name --jsdoc-plugin
-```
-
-:::
-
-## References
-
-* Rule Source
-
----
-
----
-url: /docs/guide/usage/linter/rules/jsdoc/require-param-type.md
----
-# jsdoc/require-param-type&#x20;
-
-### What it does
-
-Requires that each `@param` tag has a type value (within curly brackets).
-
-### Why is this bad?
-
-The type of a parameter should be documented.
-
-### Examples
-
-Examples of **incorrect** code for this rule:
-
-```javascript
-/** @param foo */
-function quux(foo) {}
-```
-
-Examples of **correct** code for this rule:
-
-```javascript
-/** @param {SomeType} foo */
-function quux(foo) {}
-```
-
-## How to use
-
-To **enable** this rule using the config file or in the CLI, you can use:
-
-::: code-group
-
-```json [Config (.oxlintrc.json)]
-{
-  "plugins": ["jsdoc"],
-  "rules": {
-    "jsdoc/require-param-type": "error"
-  }
-}
-```
-
-```bash [CLI]
-oxlint --deny jsdoc/require-param-type --jsdoc-plugin
-```
-
-:::
-
-## References
-
-* Rule Source
-
----
-
----
 url: /docs/guide/usage/linter/rules/jsdoc/require-param.md
 ---
-# jsdoc/require-param&#x20;
 
 ### What it does
 
@@ -29357,36 +28934,31 @@ oxlint --deny jsdoc/require-param --jsdoc-plugin
 ---
 
 ---
-url: /docs/guide/usage/linter/rules/jsdoc/require-property-description.md
+url: /docs/guide/usage/linter/rules/jsdoc/require-param-description.md
 ---
-# jsdoc/require-property-description&#x20;
 
 ### What it does
 
-Requires that all `@property` tags have descriptions.
+Requires that each `@param` tag has a description value.
 
 ### Why is this bad?
 
-The description of a property should be documented.
+The description of a param should be documented.
 
 ### Examples
 
 Examples of **incorrect** code for this rule:
 
 ```javascript
-/**
- * @typedef {SomeType} SomeTypedef
- * @property {number} foo
- */
+/** @param foo */
+function quux(foo) {}
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
-/**
- * @typedef {SomeType} SomeTypedef
- * @property {number} foo Foo.
- */
+/** @param foo Foo. */
+function quux(foo) {}
 ```
 
 ## How to use
@@ -29399,13 +28971,13 @@ To **enable** this rule using the config file or in the CLI, you can use:
 {
   "plugins": ["jsdoc"],
   "rules": {
-    "jsdoc/require-property-description": "error"
+    "jsdoc/require-param-description": "error"
   }
 }
 ```
 
 ```bash [CLI]
-oxlint --deny jsdoc/require-property-description --jsdoc-plugin
+oxlint --deny jsdoc/require-param-description --jsdoc-plugin
 ```
 
 :::
@@ -29417,36 +28989,31 @@ oxlint --deny jsdoc/require-property-description --jsdoc-plugin
 ---
 
 ---
-url: /docs/guide/usage/linter/rules/jsdoc/require-property-name.md
+url: /docs/guide/usage/linter/rules/jsdoc/require-param-name.md
 ---
-# jsdoc/require-property-name&#x20;
 
 ### What it does
 
-Requires that all `@property` tags have names.
+Requires that all `@param` tags have names.
 
 ### Why is this bad?
 
-The name of a property type should be documented.
+The name of a param should be documented.
 
 ### Examples
 
 Examples of **incorrect** code for this rule:
 
 ```javascript
-/**
- * @typedef {SomeType} SomeTypedef
- * @property {number}
- */
+/** @param {SomeType} */
+function quux(foo) {}
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
-/**
- * @typedef {SomeType} SomeTypedef
- * @property {number} foo
- */
+/** @param {SomeType} foo */
+function quux(foo) {}
 ```
 
 ## How to use
@@ -29459,13 +29026,13 @@ To **enable** this rule using the config file or in the CLI, you can use:
 {
   "plugins": ["jsdoc"],
   "rules": {
-    "jsdoc/require-property-name": "error"
+    "jsdoc/require-param-name": "error"
   }
 }
 ```
 
 ```bash [CLI]
-oxlint --deny jsdoc/require-property-name --jsdoc-plugin
+oxlint --deny jsdoc/require-param-name --jsdoc-plugin
 ```
 
 :::
@@ -29477,36 +29044,31 @@ oxlint --deny jsdoc/require-property-name --jsdoc-plugin
 ---
 
 ---
-url: /docs/guide/usage/linter/rules/jsdoc/require-property-type.md
+url: /docs/guide/usage/linter/rules/jsdoc/require-param-type.md
 ---
-# jsdoc/require-property-type&#x20;
 
 ### What it does
 
-Requires that each `@property` tag has a type value (within curly brackets).
+Requires that each `@param` tag has a type value (within curly brackets).
 
 ### Why is this bad?
 
-The type of a property should be documented.
+The type of a parameter should be documented.
 
 ### Examples
 
 Examples of **incorrect** code for this rule:
 
 ```javascript
-/**
- * @typedef {SomeType} SomeTypedef
- * @property foo
- */
+/** @param foo */
+function quux(foo) {}
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
-/**
- * @typedef {SomeType} SomeTypedef
- * @property {number} foo
- */
+/** @param {SomeType} foo */
+function quux(foo) {}
 ```
 
 ## How to use
@@ -29519,13 +29081,13 @@ To **enable** this rule using the config file or in the CLI, you can use:
 {
   "plugins": ["jsdoc"],
   "rules": {
-    "jsdoc/require-property-type": "error"
+    "jsdoc/require-param-type": "error"
   }
 }
 ```
 
 ```bash [CLI]
-oxlint --deny jsdoc/require-property-type --jsdoc-plugin
+oxlint --deny jsdoc/require-param-type --jsdoc-plugin
 ```
 
 :::
@@ -29539,7 +29101,6 @@ oxlint --deny jsdoc/require-property-type --jsdoc-plugin
 ---
 url: /docs/guide/usage/linter/rules/jsdoc/require-property.md
 ---
-# jsdoc/require-property&#x20;
 
 ### What it does
 
@@ -29608,33 +29169,35 @@ oxlint --deny jsdoc/require-property --jsdoc-plugin
 ---
 
 ---
-url: /docs/guide/usage/linter/rules/jsdoc/require-returns-description.md
+url: /docs/guide/usage/linter/rules/jsdoc/require-property-description.md
 ---
-# jsdoc/require-returns-description&#x20;
 
 ### What it does
 
-Requires that the `@returns` tag has a description value.
-The error will not be reported if the return value is `void `or `undefined` or if it is `Promise<void>` or `Promise<undefined>`.
+Requires that all `@property` tags have descriptions.
 
 ### Why is this bad?
 
-A `@returns` tag should have a description value.
+The description of a property should be documented.
 
 ### Examples
 
 Examples of **incorrect** code for this rule:
 
 ```javascript
-/** @returns */
-function quux(foo) {}
+/**
+ * @typedef {SomeType} SomeTypedef
+ * @property {number} foo
+ */
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
-/** @returns Foo. */
-function quux(foo) {}
+/**
+ * @typedef {SomeType} SomeTypedef
+ * @property {number} foo Foo.
+ */
 ```
 
 ## How to use
@@ -29647,13 +29210,13 @@ To **enable** this rule using the config file or in the CLI, you can use:
 {
   "plugins": ["jsdoc"],
   "rules": {
-    "jsdoc/require-returns-description": "error"
+    "jsdoc/require-property-description": "error"
   }
 }
 ```
 
 ```bash [CLI]
-oxlint --deny jsdoc/require-returns-description --jsdoc-plugin
+oxlint --deny jsdoc/require-property-description --jsdoc-plugin
 ```
 
 :::
@@ -29665,32 +29228,35 @@ oxlint --deny jsdoc/require-returns-description --jsdoc-plugin
 ---
 
 ---
-url: /docs/guide/usage/linter/rules/jsdoc/require-returns-type.md
+url: /docs/guide/usage/linter/rules/jsdoc/require-property-name.md
 ---
-# jsdoc/require-returns-type&#x20;
 
 ### What it does
 
-Requires that `@returns` tag has a type value (in curly brackets).
+Requires that all `@property` tags have names.
 
 ### Why is this bad?
 
-A `@returns` tag should have a type value.
+The name of a property type should be documented.
 
 ### Examples
 
 Examples of **incorrect** code for this rule:
 
 ```javascript
-/** @returns */
-function quux(foo) {}
+/**
+ * @typedef {SomeType} SomeTypedef
+ * @property {number}
+ */
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
-/** @returns {string} */
-function quux(foo) {}
+/**
+ * @typedef {SomeType} SomeTypedef
+ * @property {number} foo
+ */
 ```
 
 ## How to use
@@ -29703,13 +29269,72 @@ To **enable** this rule using the config file or in the CLI, you can use:
 {
   "plugins": ["jsdoc"],
   "rules": {
-    "jsdoc/require-returns-type": "error"
+    "jsdoc/require-property-name": "error"
   }
 }
 ```
 
 ```bash [CLI]
-oxlint --deny jsdoc/require-returns-type --jsdoc-plugin
+oxlint --deny jsdoc/require-property-name --jsdoc-plugin
+```
+
+:::
+
+## References
+
+* Rule Source
+
+---
+
+---
+url: /docs/guide/usage/linter/rules/jsdoc/require-property-type.md
+---
+
+### What it does
+
+Requires that each `@property` tag has a type value (within curly brackets).
+
+### Why is this bad?
+
+The type of a property should be documented.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```javascript
+/**
+ * @typedef {SomeType} SomeTypedef
+ * @property foo
+ */
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
+/**
+ * @typedef {SomeType} SomeTypedef
+ * @property {number} foo
+ */
+```
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "plugins": ["jsdoc"],
+  "rules": {
+    "jsdoc/require-property-type": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --deny jsdoc/require-property-type --jsdoc-plugin
 ```
 
 :::
@@ -29723,7 +29348,6 @@ oxlint --deny jsdoc/require-returns-type --jsdoc-plugin
 ---
 url: /docs/guide/usage/linter/rules/jsdoc/require-returns.md
 ---
-# jsdoc/require-returns&#x20;
 
 ### What it does
 
@@ -29834,9 +29458,119 @@ oxlint --deny jsdoc/require-returns --jsdoc-plugin
 ---
 
 ---
+url: /docs/guide/usage/linter/rules/jsdoc/require-returns-description.md
+---
+
+### What it does
+
+Requires that the `@returns` tag has a description value.
+The error will not be reported if the return value is `void `or `undefined` or if it is `Promise<void>` or `Promise<undefined>`.
+
+### Why is this bad?
+
+A `@returns` tag should have a description value.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```javascript
+/** @returns */
+function quux(foo) {}
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
+/** @returns Foo. */
+function quux(foo) {}
+```
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "plugins": ["jsdoc"],
+  "rules": {
+    "jsdoc/require-returns-description": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --deny jsdoc/require-returns-description --jsdoc-plugin
+```
+
+:::
+
+## References
+
+* Rule Source
+
+---
+
+---
+url: /docs/guide/usage/linter/rules/jsdoc/require-returns-type.md
+---
+
+### What it does
+
+Requires that `@returns` tag has a type value (in curly brackets).
+
+### Why is this bad?
+
+A `@returns` tag should have a type value.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```javascript
+/** @returns */
+function quux(foo) {}
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
+/** @returns {string} */
+function quux(foo) {}
+```
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "plugins": ["jsdoc"],
+  "rules": {
+    "jsdoc/require-returns-type": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --deny jsdoc/require-returns-type --jsdoc-plugin
+```
+
+:::
+
+## References
+
+* Rule Source
+
+---
+
+---
 url: /docs/guide/usage/linter/rules/jsdoc/require-yields.md
 ---
-# jsdoc/require-yields&#x20;
 
 ### What it does
 
@@ -30052,7 +29786,6 @@ const result = await transform("App.jsx", sourceCode, {
 ---
 url: /docs/guide/usage/linter/rules/jsx_a11y/alt-text.md
 ---
-# jsx\_a11y/alt-text&#x20;
 
 ### What it does
 
@@ -30152,7 +29885,6 @@ oxlint --deny jsx-a11y/alt-text --jsx-a11y-plugin
 ---
 url: /docs/guide/usage/linter/rules/jsx_a11y/anchor-ambiguous-text.md
 ---
-# jsx\_a11y/anchor-ambiguous-text&#x20;
 
 ### What it does
 
@@ -30228,7 +29960,6 @@ oxlint --deny jsx-a11y/anchor-ambiguous-text --jsx-a11y-plugin
 ---
 url: /docs/guide/usage/linter/rules/jsx_a11y/anchor-has-content.md
 ---
-# jsx\_a11y/anchor-has-content&#x20;
 
 ### What it does
 
@@ -30288,7 +30019,6 @@ oxlint --deny jsx-a11y/anchor-has-content --jsx-a11y-plugin
 ---
 url: /docs/guide/usage/linter/rules/jsx_a11y/anchor-is-valid.md
 ---
-# jsx\_a11y/anchor-is-valid&#x20;
 
 ### What it does
 
@@ -30405,7 +30135,6 @@ oxlint --deny jsx-a11y/anchor-is-valid --jsx-a11y-plugin
 ---
 url: /docs/guide/usage/linter/rules/jsx_a11y/aria-activedescendant-has-tabindex.md
 ---
-# jsx\_a11y/aria-activedescendant-has-tabindex&#x20;
 
 ### What it does
 
@@ -30480,7 +30209,6 @@ oxlint --deny jsx-a11y/aria-activedescendant-has-tabindex --jsx-a11y-plugin
 ---
 url: /docs/guide/usage/linter/rules/jsx_a11y/aria-props.md
 ---
-# jsx\_a11y/aria-props&#x20;
 
 ### What it does
 
@@ -30538,7 +30266,6 @@ oxlint --deny jsx-a11y/aria-props --jsx-a11y-plugin
 ---
 url: /docs/guide/usage/linter/rules/jsx_a11y/aria-proptypes.md
 ---
-# jsx\_a11y/aria-proptypes&#x20;
 
 ### What it does
 
@@ -30597,7 +30324,6 @@ oxlint --deny jsx-a11y/aria-proptypes --jsx-a11y-plugin
 ---
 url: /docs/guide/usage/linter/rules/jsx_a11y/aria-role.md
 ---
-# jsx\_a11y/aria-role&#x20;
 
 ### What it does
 
@@ -30700,7 +30426,6 @@ oxlint --deny jsx-a11y/aria-role --jsx-a11y-plugin
 ---
 url: /docs/guide/usage/linter/rules/jsx_a11y/aria-unsupported-elements.md
 ---
-# jsx\_a11y/aria-unsupported-elements&#x20;
 
 ### What it does
 
@@ -30758,7 +30483,6 @@ oxlint --deny jsx-a11y/aria-unsupported-elements --jsx-a11y-plugin
 ---
 url: /docs/guide/usage/linter/rules/jsx_a11y/autocomplete-valid.md
 ---
-# jsx\_a11y/autocomplete-valid&#x20;
 
 ### What it does
 
@@ -30824,7 +30548,6 @@ oxlint --deny jsx-a11y/autocomplete-valid --jsx-a11y-plugin
 ---
 url: /docs/guide/usage/linter/rules/jsx_a11y/click-events-have-key-events.md
 ---
-# jsx\_a11y/click-events-have-key-events&#x20;
 
 ### What it does
 
@@ -30879,7 +30602,6 @@ oxlint --deny jsx-a11y/click-events-have-key-events --jsx-a11y-plugin
 ---
 url: /docs/guide/usage/linter/rules/jsx_a11y/heading-has-content.md
 ---
-# jsx\_a11y/heading-has-content&#x20;
 
 ### What it does
 
@@ -30951,7 +30673,6 @@ oxlint --deny jsx-a11y/heading-has-content --jsx-a11y-plugin
 ---
 url: /docs/guide/usage/linter/rules/jsx_a11y/html-has-lang.md
 ---
-# jsx\_a11y/html-has-lang&#x20;
 
 ### What it does
 
@@ -31008,7 +30729,6 @@ oxlint --deny jsx-a11y/html-has-lang --jsx-a11y-plugin
 ---
 url: /docs/guide/usage/linter/rules/jsx_a11y/iframe-has-title.md
 ---
-# jsx\_a11y/iframe-has-title&#x20;
 
 ### What it does
 
@@ -31074,7 +30794,6 @@ oxlint --deny jsx-a11y/iframe-has-title --jsx-a11y-plugin
 ---
 url: /docs/guide/usage/linter/rules/jsx_a11y/img-redundant-alt.md
 ---
-# jsx\_a11y/img-redundant-alt&#x20;
 
 ### What it does
 
@@ -31157,7 +30876,6 @@ oxlint --deny jsx-a11y/img-redundant-alt --jsx-a11y-plugin
 ---
 url: /docs/guide/usage/linter/rules/jsx_a11y/label-has-associated-control.md
 ---
-# jsx\_a11y/label-has-associated-control&#x20;
 
 ### What it does
 
@@ -31269,7 +30987,6 @@ oxlint --deny jsx-a11y/label-has-associated-control --jsx-a11y-plugin
 ---
 url: /docs/guide/usage/linter/rules/jsx_a11y/lang.md
 ---
-# jsx\_a11y/lang&#x20;
 
 ### What it does
 
@@ -31333,7 +31050,6 @@ oxlint --deny jsx-a11y/lang --jsx-a11y-plugin
 ---
 url: /docs/guide/usage/linter/rules/jsx_a11y/media-has-caption.md
 ---
-# jsx\_a11y/media-has-caption&#x20;
 
 ### What it does
 
@@ -31419,7 +31135,6 @@ oxlint --deny jsx-a11y/media-has-caption --jsx-a11y-plugin
 ---
 url: /docs/guide/usage/linter/rules/jsx_a11y/mouse-events-have-key-events.md
 ---
-# jsx\_a11y/mouse-events-have-key-events&#x20;
 
 ### What it does
 
@@ -31494,7 +31209,6 @@ oxlint --deny jsx-a11y/mouse-events-have-key-events --jsx-a11y-plugin
 ---
 url: /docs/guide/usage/linter/rules/jsx_a11y/no-access-key.md
 ---
-# jsx\_a11y/no-access-key&#x20;
 
 ### What it does
 
@@ -31549,7 +31263,6 @@ oxlint --deny jsx-a11y/no-access-key --jsx-a11y-plugin
 ---
 url: /docs/guide/usage/linter/rules/jsx_a11y/no-aria-hidden-on-focusable.md
 ---
-# jsx\_a11y/no-aria-hidden-on-focusable&#x20;
 
 ### What it does
 
@@ -31603,7 +31316,6 @@ oxlint --deny jsx-a11y/no-aria-hidden-on-focusable --jsx-a11y-plugin
 ---
 url: /docs/guide/usage/linter/rules/jsx_a11y/no-autofocus.md
 ---
-# jsx\_a11y/no-autofocus&#x20;
 
 ### What it does
 
@@ -31675,7 +31387,6 @@ oxlint --deny jsx-a11y/no-autofocus --jsx-a11y-plugin
 ---
 url: /docs/guide/usage/linter/rules/jsx_a11y/no-distracting-elements.md
 ---
-# jsx\_a11y/no-distracting-elements&#x20;
 
 ### What it does
 
@@ -31739,7 +31450,6 @@ oxlint --deny jsx-a11y/no-distracting-elements --jsx-a11y-plugin
 ---
 url: /docs/guide/usage/linter/rules/jsx_a11y/no-noninteractive-tabindex.md
 ---
-# jsx\_a11y/no-noninteractive-tabindex&#x20;
 
 ### What it does
 
@@ -31838,7 +31548,6 @@ oxlint --deny jsx-a11y/no-noninteractive-tabindex --jsx-a11y-plugin
 ---
 url: /docs/guide/usage/linter/rules/jsx_a11y/no-redundant-roles.md
 ---
-# jsx\_a11y/no-redundant-roles&#x20;
 
 ### What it does
 
@@ -31893,7 +31602,6 @@ oxlint --deny jsx-a11y/no-redundant-roles --jsx-a11y-plugin
 ---
 url: /docs/guide/usage/linter/rules/jsx_a11y/no-static-element-interactions.md
 ---
-# jsx\_a11y/no-static-element-interactions&#x20;
 
 ### What it does
 
@@ -31973,7 +31681,6 @@ oxlint --deny jsx-a11y/no-static-element-interactions --jsx-a11y-plugin
 ---
 url: /docs/guide/usage/linter/rules/jsx_a11y/prefer-tag-over-role.md
 ---
-# jsx\_a11y/prefer-tag-over-role&#x20;
 
 ### What it does
 
@@ -32027,7 +31734,6 @@ oxlint --deny jsx-a11y/prefer-tag-over-role --jsx-a11y-plugin
 ---
 url: /docs/guide/usage/linter/rules/jsx_a11y/role-has-required-aria-props.md
 ---
-# jsx\_a11y/role-has-required-aria-props&#x20;
 
 ### What it does
 
@@ -32083,7 +31789,6 @@ oxlint --deny jsx-a11y/role-has-required-aria-props --jsx-a11y-plugin
 ---
 url: /docs/guide/usage/linter/rules/jsx_a11y/role-supports-aria-props.md
 ---
-# jsx\_a11y/role-supports-aria-props&#x20;
 
 ### What it does
 
@@ -32141,7 +31846,6 @@ oxlint --deny jsx-a11y/role-supports-aria-props --jsx-a11y-plugin
 ---
 url: /docs/guide/usage/linter/rules/jsx_a11y/scope.md
 ---
-# jsx\_a11y/scope&#x20;
 
 ### What it does
 
@@ -32198,7 +31902,6 @@ oxlint --deny jsx-a11y/scope --jsx-a11y-plugin
 ---
 url: /docs/guide/usage/linter/rules/jsx_a11y/tabindex-no-positive.md
 ---
-# jsx\_a11y/tabindex-no-positive&#x20;
 
 ### What it does
 
@@ -33631,7 +33334,6 @@ Only some properties can be extended. The supported properties are:
 ---
 url: /docs/guide/usage/linter/rules/nextjs/google-font-display.md
 ---
-# nextjs/google-font-display&#x20;
 
 ### What it does
 
@@ -33706,7 +33408,6 @@ oxlint --deny nextjs/google-font-display --nextjs-plugin
 ---
 url: /docs/guide/usage/linter/rules/nextjs/google-font-preconnect.md
 ---
-# nextjs/google-font-preconnect&#x20;
 
 ### What it does
 
@@ -33763,7 +33464,6 @@ oxlint --deny nextjs/google-font-preconnect --nextjs-plugin
 ---
 url: /docs/guide/usage/linter/rules/nextjs/inline-script-id.md
 ---
-# nextjs/inline-script-id&#x20;
 
 ### What it does
 
@@ -33866,7 +33566,6 @@ oxlint --deny nextjs/inline-script-id --nextjs-plugin
 ---
 url: /docs/guide/usage/linter/rules/nextjs/next-script-for-ga.md
 ---
-# nextjs/next-script-for-ga&#x20;
 
 ### What it does
 
@@ -33952,7 +33651,6 @@ oxlint --deny nextjs/next-script-for-ga --nextjs-plugin
 ---
 url: /docs/guide/usage/linter/rules/nextjs/no-assign-module-variable.md
 ---
-# nextjs/no-assign-module-variable&#x20;
 
 ### What it does
 
@@ -34027,7 +33725,6 @@ oxlint --deny nextjs/no-assign-module-variable --nextjs-plugin
 ---
 url: /docs/guide/usage/linter/rules/nextjs/no-async-client-component.md
 ---
-# nextjs/no-async-client-component&#x20;
 
 ### What it does
 
@@ -34129,7 +33826,6 @@ oxlint --deny nextjs/no-async-client-component --nextjs-plugin
 url: >-
   /docs/guide/usage/linter/rules/nextjs/no-before-interactive-script-outside-document.md
 ---
-# nextjs/no-before-interactive-script-outside-document&#x20;
 
 ### What it does
 
@@ -34225,7 +33921,6 @@ oxlint --deny nextjs/no-before-interactive-script-outside-document --nextjs-plug
 ---
 url: /docs/guide/usage/linter/rules/nextjs/no-css-tags.md
 ---
-# nextjs/no-css-tags&#x20;
 
 ### What it does
 
@@ -34305,7 +34000,6 @@ oxlint --deny nextjs/no-css-tags --nextjs-plugin
 ---
 url: /docs/guide/usage/linter/rules/nextjs/no-document-import-in-page.md
 ---
-# nextjs/no-document-import-in-page&#x20;
 
 ### What it does
 
@@ -34374,7 +34068,6 @@ oxlint --deny nextjs/no-document-import-in-page --nextjs-plugin
 ---
 url: /docs/guide/usage/linter/rules/nextjs/no-duplicate-head.md
 ---
-# nextjs/no-duplicate-head&#x20;
 
 ### What it does
 
@@ -34459,7 +34152,6 @@ oxlint --deny nextjs/no-duplicate-head --nextjs-plugin
 ---
 url: /docs/guide/usage/linter/rules/nextjs/no-head-element.md
 ---
-# nextjs/no-head-element&#x20;
 
 ### What it does
 
@@ -34538,7 +34230,6 @@ oxlint --deny nextjs/no-head-element --nextjs-plugin
 ---
 url: /docs/guide/usage/linter/rules/nextjs/no-head-import-in-document.md
 ---
-# nextjs/no-head-import-in-document&#x20;
 
 ### What it does
 
@@ -34626,7 +34317,6 @@ oxlint --deny nextjs/no-head-import-in-document --nextjs-plugin
 ---
 url: /docs/guide/usage/linter/rules/nextjs/no-html-link-for-pages.md
 ---
-# nextjs/no-html-link-for-pages&#x20;
 
 ### What it does
 
@@ -34718,7 +34408,6 @@ oxlint --deny nextjs/no-html-link-for-pages --nextjs-plugin
 ---
 url: /docs/guide/usage/linter/rules/nextjs/no-img-element.md
 ---
-# nextjs/no-img-element&#x20;
 
 ### What it does
 
@@ -34790,7 +34479,6 @@ oxlint --deny nextjs/no-img-element --nextjs-plugin
 ---
 url: /docs/guide/usage/linter/rules/nextjs/no-page-custom-font.md
 ---
-# nextjs/no-page-custom-font&#x20;
 
 ### What it does
 
@@ -34873,7 +34561,6 @@ oxlint --deny nextjs/no-page-custom-font --nextjs-plugin
 ---
 url: /docs/guide/usage/linter/rules/nextjs/no-script-component-in-head.md
 ---
-# nextjs/no-script-component-in-head&#x20;
 
 ### What it does
 
@@ -34950,7 +34637,6 @@ oxlint --deny nextjs/no-script-component-in-head --nextjs-plugin
 ---
 url: /docs/guide/usage/linter/rules/nextjs/no-styled-jsx-in-document.md
 ---
-# nextjs/no-styled-jsx-in-document&#x20;
 
 ### What it does
 
@@ -35039,7 +34725,6 @@ oxlint --deny nextjs/no-styled-jsx-in-document --nextjs-plugin
 ---
 url: /docs/guide/usage/linter/rules/nextjs/no-sync-scripts.md
 ---
-# nextjs/no-sync-scripts&#x20;
 
 ### What it does
 
@@ -35108,7 +34793,6 @@ oxlint --deny nextjs/no-sync-scripts --nextjs-plugin
 ---
 url: /docs/guide/usage/linter/rules/nextjs/no-title-in-document-head.md
 ---
-# nextjs/no-title-in-document-head&#x20;
 
 ### What it does
 
@@ -35183,7 +34867,6 @@ oxlint --deny nextjs/no-title-in-document-head --nextjs-plugin
 ---
 url: /docs/guide/usage/linter/rules/nextjs/no-typos.md
 ---
-# nextjs/no-typos&#x20;
 
 ### What it does
 
@@ -35243,7 +34926,6 @@ oxlint --deny nextjs/no-typos --nextjs-plugin
 ---
 url: /docs/guide/usage/linter/rules/nextjs/no-unwanted-polyfillio.md
 ---
-# nextjs/no-unwanted-polyfillio&#x20;
 
 ### What it does
 
@@ -35304,7 +34986,6 @@ oxlint --deny nextjs/no-unwanted-polyfillio --nextjs-plugin
 ---
 url: /docs/guide/usage/linter/rules/node/global-require.md
 ---
-# node/global-require&#x20;
 
 ### What it does
 
@@ -35426,7 +35107,6 @@ oxlint --deny node/global-require --node-plugin
 ---
 url: /docs/guide/usage/linter/rules/node/no-exports-assign.md
 ---
-# node/no-exports-assign&#x20;
 
 ### What it does
 
@@ -35493,7 +35173,6 @@ oxlint --deny node/no-exports-assign --node-plugin
 ---
 url: /docs/guide/usage/linter/rules/node/no-new-require.md
 ---
-# node/no-new-require&#x20;
 
 ### What it does
 
@@ -35549,7 +35228,6 @@ oxlint --deny node/no-new-require --node-plugin
 ---
 url: /docs/guide/usage/linter/rules/node/no-process-env.md
 ---
-# node/no-process-env&#x20;
 
 ### What it does
 
@@ -35637,7 +35315,6 @@ url: /docs/guide/media.md
 ---
 url: /docs/guide/usage/linter/rules/oxc/approx-constant.md
 ---
-# oxc/approx-constant&#x20;
 
 ### What it does
 
@@ -35694,7 +35371,6 @@ oxlint --deny oxc/approx-constant
 ---
 url: /docs/guide/usage/linter/rules/oxc/bad-array-method-on-arguments.md
 ---
-# oxc/bad-array-method-on-arguments&#x20;
 
 ### What it does
 
@@ -35766,7 +35442,6 @@ oxlint --deny oxc/bad-array-method-on-arguments
 ---
 url: /docs/guide/usage/linter/rules/oxc/bad-bitwise-operator.md
 ---
-# oxc/bad-bitwise-operator&#x20;
 
 ### What it does
 
@@ -35836,7 +35511,6 @@ oxlint --deny oxc/bad-bitwise-operator
 ---
 url: /docs/guide/usage/linter/rules/oxc/bad-char-at-comparison.md
 ---
-# oxc/bad-char-at-comparison&#x20;
 
 ### What it does
 
@@ -35891,7 +35565,6 @@ oxlint --deny oxc/bad-char-at-comparison
 ---
 url: /docs/guide/usage/linter/rules/oxc/bad-comparison-sequence.md
 ---
-# oxc/bad-comparison-sequence&#x20;
 
 ### What it does
 
@@ -35949,7 +35622,6 @@ oxlint --deny oxc/bad-comparison-sequence
 ---
 url: /docs/guide/usage/linter/rules/oxc/bad-min-max-func.md
 ---
-# oxc/bad-min-max-func&#x20;
 
 ### What it does
 
@@ -36006,7 +35678,6 @@ oxlint --deny oxc/bad-min-max-func
 ---
 url: /docs/guide/usage/linter/rules/oxc/bad-object-literal-comparison.md
 ---
-# oxc/bad-object-literal-comparison&#x20;
 
 ### What it does
 
@@ -36067,7 +35738,6 @@ oxlint --deny oxc/bad-object-literal-comparison
 ---
 url: /docs/guide/usage/linter/rules/oxc/bad-replace-all-arg.md
 ---
-# oxc/bad-replace-all-arg&#x20;
 
 ### What it does
 
@@ -36120,7 +35790,6 @@ oxlint --deny oxc/bad-replace-all-arg
 ---
 url: /docs/guide/usage/linter/rules/oxc/branches-sharing-code.md
 ---
-# oxc/branches-sharing-code&#x20;
 
 ### What it does
 
@@ -36200,7 +35869,6 @@ oxlint --deny oxc/branches-sharing-code
 ---
 url: /docs/guide/usage/linter/rules/oxc/const-comparisons.md
 ---
-# oxc/const-comparisons&#x20;
 
 ### What it does
 
@@ -36268,7 +35936,6 @@ oxlint --deny oxc/const-comparisons
 ---
 url: /docs/guide/usage/linter/rules/oxc/double-comparisons.md
 ---
-# oxc/double-comparisons&#x20;
 
 ### What it does
 
@@ -36323,7 +35990,6 @@ oxlint --deny oxc/double-comparisons
 ---
 url: /docs/guide/usage/linter/rules/oxc/erasing-op.md
 ---
-# oxc/erasing-op&#x20;
 
 ### What it does
 
@@ -36380,7 +36046,6 @@ oxlint --deny oxc/erasing-op
 ---
 url: /docs/guide/usage/linter/rules/oxc/misrefactored-assign-op.md
 ---
-# oxc/misrefactored-assign-op&#x20;
 
 ### What it does
 
@@ -36437,7 +36102,6 @@ oxlint --deny oxc/misrefactored-assign-op
 ---
 url: /docs/guide/usage/linter/rules/oxc/missing-throw.md
 ---
-# oxc/missing-throw&#x20;
 
 ### What it does
 
@@ -36500,7 +36164,6 @@ oxlint --deny oxc/missing-throw
 ---
 url: /docs/guide/usage/linter/rules/oxc/no-accumulating-spread.md
 ---
-# oxc/no-accumulating-spread&#x20;
 
 ### What it does
 
@@ -36583,7 +36246,6 @@ oxlint --deny oxc/no-accumulating-spread
 ---
 url: /docs/guide/usage/linter/rules/oxc/no-async-await.md
 ---
-# oxc/no-async-await&#x20;
 
 ### What it does
 
@@ -36639,7 +36301,6 @@ oxlint --deny oxc/no-async-await
 ---
 url: /docs/guide/usage/linter/rules/oxc/no-async-endpoint-handlers.md
 ---
-# oxc/no-async-endpoint-handlers&#x20;
 
 ### What it does
 
@@ -36776,7 +36437,6 @@ oxlint --deny oxc/no-async-endpoint-handlers
 ---
 url: /docs/guide/usage/linter/rules/oxc/no-barrel-file.md
 ---
-# oxc/no-barrel-file&#x20;
 
 ### What it does
 
@@ -36855,7 +36515,6 @@ oxlint --deny oxc/no-barrel-file
 ---
 url: /docs/guide/usage/linter/rules/oxc/no-const-enum.md
 ---
-# oxc/no-const-enum&#x20;
 
 ### What it does
 
@@ -36908,7 +36567,6 @@ oxlint --deny oxc/no-const-enum
 ---
 url: /docs/guide/usage/linter/rules/oxc/no-map-spread.md
 ---
-# oxc/no-map-spread&#x20;
 
 ### What it does
 
@@ -37177,7 +36835,6 @@ oxlint --deny oxc/no-map-spread
 ---
 url: /docs/guide/usage/linter/rules/oxc/no-optional-chaining.md
 ---
-# oxc/no-optional-chaining&#x20;
 
 ### What it does
 
@@ -37248,7 +36905,6 @@ oxlint --deny oxc/no-optional-chaining
 ---
 url: /docs/guide/usage/linter/rules/oxc/no-rest-spread-properties.md
 ---
-# oxc/no-rest-spread-properties&#x20;
 
 ### What it does
 
@@ -37320,7 +36976,6 @@ oxlint --deny oxc/no-rest-spread-properties
 ---
 url: /docs/guide/usage/linter/rules/oxc/no-this-in-exported-function.md
 ---
-# oxc/no-this-in-exported-function&#x20;
 
 ### What it does
 
@@ -37393,7 +37048,6 @@ oxlint --deny oxc/no-this-in-exported-function
 ---
 url: /docs/guide/usage/linter/rules/oxc/number-arg-out-of-range.md
 ---
-# oxc/number-arg-out-of-range&#x20;
 
 ### What it does
 
@@ -37451,7 +37105,6 @@ oxlint --deny oxc/number-arg-out-of-range
 ---
 url: /docs/guide/usage/linter/rules/oxc/only-used-in-recursion.md
 ---
-# oxc/only-used-in-recursion&#x20;
 
 ### What it does
 
@@ -37516,7 +37169,6 @@ oxlint --deny oxc/only-used-in-recursion
 ---
 url: /docs/guide/usage/linter/rules/oxc/uninvoked-array-callback.md
 ---
-# oxc/uninvoked-array-callback&#x20;
 
 ### What it does
 
@@ -37807,7 +37459,7 @@ Oxlint is used in production by popular projects such as:
 ---
 
 ---
-url: /docs/guide/usage/linter/config-file-reference.md
+url: /docs/guide/usage/linter/generated-config.md
 ---
 
 # Oxlint Configuration File
@@ -38434,7 +38086,7 @@ to accommodate TypeScript type checking scenarios.
 ---
 
 ---
-url: /docs/guide/usage/linter/generated-config.md
+url: /docs/guide/usage/linter/config-file-reference.md
 ---
 
 # Oxlint Configuration File
@@ -39170,6 +38822,248 @@ Test results are stored in snapshot files for tracking changes:
 ---
 
 ---
+url: /docs/learn/architecture/parser.md
+---
+
+# Parser Architecture
+
+Oxc maintains its own AST and parser, which is by far the fastest and most conformant JavaScript and TypeScript (including JSX and TSX) parser written in Rust.
+
+As the parser often represents a key performance bottleneck in JavaScript tooling,
+any minor improvements can have a cascading effect on our downstream tools.
+By developing our parser, we have the opportunity to explore and implement well-researched performance techniques.
+
+## AST Design Philosophy
+
+While many existing JavaScript tools rely on [estree] as their AST specification,
+a notable drawback is its abundance of ambiguous nodes.
+This ambiguity often leads to confusion during development with [estree].
+
+The Oxc AST differs from the [estree] AST by removing ambiguous nodes and introducing distinct types.
+For example, instead of using a generic [estree] `Identifier`,
+the Oxc AST provides specific types such as `BindingIdentifier`, `IdentifierReference`, and `IdentifierName`.
+
+This clear distinction greatly enhances the development experience by aligning more closely with the ECMAScript specification.
+
+### AST Node Types
+
+```rust
+// Instead of generic Identifier
+pub struct BindingIdentifier<'a> {
+    pub span: Span,
+    pub name: Atom<'a>,
+}
+
+pub struct IdentifierReference<'a> {
+    pub span: Span,
+    pub name: Atom<'a>,
+    pub reference_id: Cell<Option<ReferenceId>>,
+}
+
+pub struct IdentifierName<'a> {
+    pub span: Span,
+    pub name: Atom<'a>,
+}
+```
+
+### Semantic Clarity
+
+This approach provides semantic clarity:
+
+* **`BindingIdentifier`**: Variable declarations (`let x = 1`)
+* **`IdentifierReference`**: Variable usage (`console.log(x)`)
+* **`IdentifierName`**: Property names (`obj.property`)
+
+## Performance Architecture
+
+### How is it so fast
+
+* **Memory Arena**: AST is allocated in a [memory arena](https://crates.io/crates/bumpalo) for fast allocation and deallocation
+* **String Optimization**: Short strings are inlined by [CompactString](https://crates.io/crates/compact_str)
+* **Minimal Heap Usage**: No other heap allocations are done except the above two
+* **Separation of Concerns**: Scope binding, symbol resolution and some syntax errors are delegated to the semantic analyzer
+
+### Memory Management Details
+
+#### Arena Allocation
+
+```rust
+use oxc_allocator::Allocator;
+
+// All AST nodes are allocated in this arena
+let allocator = Allocator::default();
+let ast_node = allocator.alloc(Expression::NumericLiteral(
+    allocator.alloc(NumericLiteral { value: 42.0, span: SPAN })
+));
+```
+
+Benefits:
+
+* **O(1) allocation**: Simple pointer bump
+* **O(1) deallocation**: Drop entire arena at once
+* **Cache-friendly**: Linear memory layout
+* **No fragmentation**: Continuous memory usage
+
+#### String Interning with CompactString
+
+```rust
+// Strings ≤ 24 bytes are stored inline (no heap allocation)
+let short_name = CompactString::from("variableName");  // Stack allocated
+let long_name = CompactString::from("a_very_long_variable_name_that_exceeds_limit");  // Heap allocated
+```
+
+This reduces memory allocations for the majority of JavaScript identifiers and string literals.
+
+## Parser Architecture
+
+### Two-Phase Design
+
+The Oxc parser follows a two-phase approach:
+
+1. **Parsing Phase**: Build AST structure with minimal semantic analysis
+2. **Semantic Phase**: Perform scope analysis, symbol resolution, and advanced error checking
+
+```rust
+// Phase 1: Parse to AST
+let parser_result = Parser::new(&allocator, source_text, source_type).parse();
+
+// Phase 2: Semantic analysis
+let semantic_result = SemanticBuilder::new(source_text, source_type)
+    .with_trivias(parser_result.trivias)
+    .build(&parser_result.program);
+```
+
+### Parser Components
+
+#### Lexer
+
+* **Token generation**: Converts source text to structured tokens
+* **SIMD optimization**: Uses SIMD instructions for whitespace skipping
+* **Context-aware**: Handles regex vs division operator disambiguation
+
+#### Recursive Descent Parser
+
+* **Hand-written**: Custom implementation for maximum performance
+* **Error recovery**: Advanced error handling with meaningful messages
+* **Grammar compliance**: Follows ECMAScript specification precisely
+
+#### AST Builder
+
+* **Type safety**: Leverages Rust's type system for correctness
+* **Memory efficiency**: Direct arena allocation
+* **Builder pattern**: Convenient node construction methods
+
+## Conformance Strategy
+
+### Test Suite Coverage
+
+* **Test262**: 100% pass rate on ECMAScript conformance tests
+* **Babel**: 99.62% compatibility with Babel parser tests
+* **TypeScript**: 99.86% compatibility with TypeScript compiler tests
+
+### Error Handling Philosophy
+
+```rust
+// Meaningful error messages with source location
+pub struct OxcDiagnostic {
+    pub message: String,
+    pub span: Span,
+    pub severity: Severity,
+    pub help: Option<String>,
+}
+```
+
+The parser provides:
+
+* **Precise error locations**: Exact source positions
+* **Recovery strategies**: Continue parsing after errors
+* **Helpful suggestions**: Actionable error messages
+
+## Advanced Features
+
+### TypeScript Support
+
+* **Type stripping**: Removes TypeScript-specific syntax
+* **Decorator parsing**: Handles experimental decorators
+* **Namespace support**: Full module and namespace parsing
+* **JSX integration**: TypeScript + JSX (TSX) support
+
+### Research Areas
+
+* **SIMD text processing**: Vectorized string operations
+* **Cache optimization**: Minimize memory access patterns
+* **Branch prediction**: Optimize hot parsing paths
+* **Zero-copy parsing**: Eliminate unnecessary string copies
+
+[estree]: https://github.com/estree/estree
+
+---
+
+---
+url: /docs/guide/usage/parser.md
+---
+
+# Parser
+
+This is production ready.
+
+## Features
+
+* 3x faster than swc parser ([benchmark][url-benchmark]).
+* Parses `.js(x)` and `.ts(x)`.
+* Passes all parser tests from Test262 and 99% from Babel and TypeScript.
+* Returns ESM information directly, no need for [`es-module-lexer`](https://github.com/guybedford/es-module-lexer).
+* [✅ works with checker.ts](https://x.com/robpalmer2/status/1805502964435505559)
+
+## Installation
+
+### Node.js
+
+* Use the node binding [oxc-parser][url-oxc-parser-npm].
+* Try on [stackblitz](https://stackblitz.com/edit/oxc-parser).
+
+### Rust
+
+Use the umbrella crate [oxc][url-oxc-crate] or the individual [oxc\_ast][url-oxc-ast-crate] and [oxc\_parser][url-oxc-parser-crate] crates.
+
+Rust usage example can be found [here](https://github.com/oxc-project/oxc/blob/main/crates/oxc_parser/examples/parser.rs).
+
+## Print
+
+After parsing and transforming, you can print code.
+
+Here's a direct example using [esrap](https://www.npmjs.com/package/esrap) *(`parse` in reverse!)*:
+
+```js
+import { print } from "esrap";
+import ts from "esrap/languages/ts";
+import { parseSync } from "oxc-parser";
+
+const { program } = parseSync("test.js", 'alert("hello oxc & esrap");');
+const { code } = print(program, ts());
+
+console.log(code); // alert("hello oxc & esrap");
+```
+
+:::info
+Today, comments are not printed. *It will be supported thanks to [oxc-parser #13285](https://github.com/oxc-project/oxc/pull/13285).*
+:::
+
+[url-swc]: https://swc.rs
+
+[url-benchmark]: https://github.com/oxc-project/bench-javascript-parser-written-in-rust
+
+[url-oxc-crate]: https://docs.rs/oxc
+
+[url-oxc-ast-crate]: https://docs.rs/oxc_ast
+
+[url-oxc-parser-crate]: https://docs.rs/oxc_parser
+
+[url-oxc-parser-npm]: https://www.npmjs.com/package/oxc-parser
+
+---
+
+---
 url: /docs/learn/parser_in_rust/parser.md
 ---
 
@@ -39576,248 +39470,6 @@ function isParenthesizedArrowFunctionExpression(): Tristate {
 ```
 
 In summary, the TypeScript parser uses a combination of lookahead (fast path) and backtracking to parse arrow functions.
-
----
-
----
-url: /docs/learn/architecture/parser.md
----
-
-# Parser Architecture
-
-Oxc maintains its own AST and parser, which is by far the fastest and most conformant JavaScript and TypeScript (including JSX and TSX) parser written in Rust.
-
-As the parser often represents a key performance bottleneck in JavaScript tooling,
-any minor improvements can have a cascading effect on our downstream tools.
-By developing our parser, we have the opportunity to explore and implement well-researched performance techniques.
-
-## AST Design Philosophy
-
-While many existing JavaScript tools rely on [estree] as their AST specification,
-a notable drawback is its abundance of ambiguous nodes.
-This ambiguity often leads to confusion during development with [estree].
-
-The Oxc AST differs from the [estree] AST by removing ambiguous nodes and introducing distinct types.
-For example, instead of using a generic [estree] `Identifier`,
-the Oxc AST provides specific types such as `BindingIdentifier`, `IdentifierReference`, and `IdentifierName`.
-
-This clear distinction greatly enhances the development experience by aligning more closely with the ECMAScript specification.
-
-### AST Node Types
-
-```rust
-// Instead of generic Identifier
-pub struct BindingIdentifier<'a> {
-    pub span: Span,
-    pub name: Atom<'a>,
-}
-
-pub struct IdentifierReference<'a> {
-    pub span: Span,
-    pub name: Atom<'a>,
-    pub reference_id: Cell<Option<ReferenceId>>,
-}
-
-pub struct IdentifierName<'a> {
-    pub span: Span,
-    pub name: Atom<'a>,
-}
-```
-
-### Semantic Clarity
-
-This approach provides semantic clarity:
-
-* **`BindingIdentifier`**: Variable declarations (`let x = 1`)
-* **`IdentifierReference`**: Variable usage (`console.log(x)`)
-* **`IdentifierName`**: Property names (`obj.property`)
-
-## Performance Architecture
-
-### How is it so fast
-
-* **Memory Arena**: AST is allocated in a [memory arena](https://crates.io/crates/bumpalo) for fast allocation and deallocation
-* **String Optimization**: Short strings are inlined by [CompactString](https://crates.io/crates/compact_str)
-* **Minimal Heap Usage**: No other heap allocations are done except the above two
-* **Separation of Concerns**: Scope binding, symbol resolution and some syntax errors are delegated to the semantic analyzer
-
-### Memory Management Details
-
-#### Arena Allocation
-
-```rust
-use oxc_allocator::Allocator;
-
-// All AST nodes are allocated in this arena
-let allocator = Allocator::default();
-let ast_node = allocator.alloc(Expression::NumericLiteral(
-    allocator.alloc(NumericLiteral { value: 42.0, span: SPAN })
-));
-```
-
-Benefits:
-
-* **O(1) allocation**: Simple pointer bump
-* **O(1) deallocation**: Drop entire arena at once
-* **Cache-friendly**: Linear memory layout
-* **No fragmentation**: Continuous memory usage
-
-#### String Interning with CompactString
-
-```rust
-// Strings ≤ 24 bytes are stored inline (no heap allocation)
-let short_name = CompactString::from("variableName");  // Stack allocated
-let long_name = CompactString::from("a_very_long_variable_name_that_exceeds_limit");  // Heap allocated
-```
-
-This reduces memory allocations for the majority of JavaScript identifiers and string literals.
-
-## Parser Architecture
-
-### Two-Phase Design
-
-The Oxc parser follows a two-phase approach:
-
-1. **Parsing Phase**: Build AST structure with minimal semantic analysis
-2. **Semantic Phase**: Perform scope analysis, symbol resolution, and advanced error checking
-
-```rust
-// Phase 1: Parse to AST
-let parser_result = Parser::new(&allocator, source_text, source_type).parse();
-
-// Phase 2: Semantic analysis
-let semantic_result = SemanticBuilder::new(source_text, source_type)
-    .with_trivias(parser_result.trivias)
-    .build(&parser_result.program);
-```
-
-### Parser Components
-
-#### Lexer
-
-* **Token generation**: Converts source text to structured tokens
-* **SIMD optimization**: Uses SIMD instructions for whitespace skipping
-* **Context-aware**: Handles regex vs division operator disambiguation
-
-#### Recursive Descent Parser
-
-* **Hand-written**: Custom implementation for maximum performance
-* **Error recovery**: Advanced error handling with meaningful messages
-* **Grammar compliance**: Follows ECMAScript specification precisely
-
-#### AST Builder
-
-* **Type safety**: Leverages Rust's type system for correctness
-* **Memory efficiency**: Direct arena allocation
-* **Builder pattern**: Convenient node construction methods
-
-## Conformance Strategy
-
-### Test Suite Coverage
-
-* **Test262**: 100% pass rate on ECMAScript conformance tests
-* **Babel**: 99.62% compatibility with Babel parser tests
-* **TypeScript**: 99.86% compatibility with TypeScript compiler tests
-
-### Error Handling Philosophy
-
-```rust
-// Meaningful error messages with source location
-pub struct OxcDiagnostic {
-    pub message: String,
-    pub span: Span,
-    pub severity: Severity,
-    pub help: Option<String>,
-}
-```
-
-The parser provides:
-
-* **Precise error locations**: Exact source positions
-* **Recovery strategies**: Continue parsing after errors
-* **Helpful suggestions**: Actionable error messages
-
-## Advanced Features
-
-### TypeScript Support
-
-* **Type stripping**: Removes TypeScript-specific syntax
-* **Decorator parsing**: Handles experimental decorators
-* **Namespace support**: Full module and namespace parsing
-* **JSX integration**: TypeScript + JSX (TSX) support
-
-### Research Areas
-
-* **SIMD text processing**: Vectorized string operations
-* **Cache optimization**: Minimize memory access patterns
-* **Branch prediction**: Optimize hot parsing paths
-* **Zero-copy parsing**: Eliminate unnecessary string copies
-
-[estree]: https://github.com/estree/estree
-
----
-
----
-url: /docs/guide/usage/parser.md
----
-
-# Parser
-
-This is production ready.
-
-## Features
-
-* 3x faster than swc parser ([benchmark][url-benchmark]).
-* Parses `.js(x)` and `.ts(x)`.
-* Passes all parser tests from Test262 and 99% from Babel and TypeScript.
-* Returns ESM information directly, no need for [`es-module-lexer`](https://github.com/guybedford/es-module-lexer).
-* [✅ works with checker.ts](https://x.com/robpalmer2/status/1805502964435505559)
-
-## Installation
-
-### Node.js
-
-* Use the node binding [oxc-parser][url-oxc-parser-npm].
-* Try on [stackblitz](https://stackblitz.com/edit/oxc-parser).
-
-### Rust
-
-Use the umbrella crate [oxc][url-oxc-crate] or the individual [oxc\_ast][url-oxc-ast-crate] and [oxc\_parser][url-oxc-parser-crate] crates.
-
-Rust usage example can be found [here](https://github.com/oxc-project/oxc/blob/main/crates/oxc_parser/examples/parser.rs).
-
-## Print
-
-After parsing and transforming, you can print code.
-
-Here's a direct example using [esrap](https://www.npmjs.com/package/esrap) *(`parse` in reverse!)*:
-
-```js
-import { print } from "esrap";
-import ts from "esrap/languages/ts";
-import { parseSync } from "oxc-parser";
-
-const { program } = parseSync("test.js", 'alert("hello oxc & esrap");');
-const { code } = print(program, ts());
-
-console.log(code); // alert("hello oxc & esrap");
-```
-
-:::info
-Today, comments are not printed. *It will be supported thanks to [oxc-parser #13285](https://github.com/oxc-project/oxc/pull/13285).*
-:::
-
-[url-swc]: https://swc.rs
-
-[url-benchmark]: https://github.com/oxc-project/bench-javascript-parser-written-in-rust
-
-[url-oxc-crate]: https://docs.rs/oxc
-
-[url-oxc-ast-crate]: https://docs.rs/oxc_ast
-
-[url-oxc-parser-crate]: https://docs.rs/oxc_parser
-
-[url-oxc-parser-npm]: https://www.npmjs.com/package/oxc-parser
 
 ---
 
@@ -40758,7 +40410,6 @@ url: /docs/guide/projects.md
 ---
 url: /docs/guide/usage/linter/rules/promise/always-return.md
 ---
-# promise/always-return&#x20;
 
 ### What it does
 
@@ -40934,7 +40585,6 @@ oxlint --deny promise/always-return --promise-plugin
 ---
 url: /docs/guide/usage/linter/rules/promise/avoid-new.md
 ---
-# promise/avoid-new&#x20;
 
 ### What it does
 
@@ -40996,7 +40646,6 @@ oxlint --deny promise/avoid-new --promise-plugin
 ---
 url: /docs/guide/usage/linter/rules/promise/catch-or-return.md
 ---
-# promise/catch-or-return&#x20;
 
 ### What it does
 
@@ -41087,7 +40736,6 @@ oxlint --deny promise/catch-or-return --promise-plugin
 ---
 url: /docs/guide/usage/linter/rules/promise/no-callback-in-promise.md
 ---
-# promise/no-callback-in-promise&#x20;
 
 ### What it does
 
@@ -41186,7 +40834,6 @@ oxlint --deny promise/no-callback-in-promise --promise-plugin
 ---
 url: /docs/guide/usage/linter/rules/promise/no-multiple-resolved.md
 ---
-# promise/no-multiple-resolved&#x20;
 
 ### What it does
 
@@ -41261,7 +40908,6 @@ oxlint --deny promise/no-multiple-resolved --promise-plugin
 ---
 url: /docs/guide/usage/linter/rules/promise/no-nesting.md
 ---
-# promise/no-nesting&#x20;
 
 ### What it does
 
@@ -41344,7 +40990,6 @@ oxlint --deny promise/no-nesting --promise-plugin
 ---
 url: /docs/guide/usage/linter/rules/promise/no-new-statics.md
 ---
-# promise/no-new-statics&#x20;
 
 ### What it does
 
@@ -41399,7 +41044,6 @@ oxlint --deny promise/no-new-statics --promise-plugin
 ---
 url: /docs/guide/usage/linter/rules/promise/no-promise-in-callback.md
 ---
-# promise/no-promise-in-callback&#x20;
 
 ### What it does
 
@@ -41459,7 +41103,6 @@ oxlint --deny promise/no-promise-in-callback --promise-plugin
 ---
 url: /docs/guide/usage/linter/rules/promise/no-return-in-finally.md
 ---
-# promise/no-return-in-finally&#x20;
 
 ### What it does
 
@@ -41518,7 +41161,6 @@ oxlint --deny promise/no-return-in-finally --promise-plugin
 ---
 url: /docs/guide/usage/linter/rules/promise/no-return-wrap.md
 ---
-# promise/no-return-wrap&#x20;
 
 ### What it does
 
@@ -41656,7 +41298,6 @@ oxlint --deny promise/no-return-wrap --promise-plugin
 ---
 url: /docs/guide/usage/linter/rules/promise/param-names.md
 ---
-# promise/param-names&#x20;
 
 ### What it does
 
@@ -41736,7 +41377,6 @@ oxlint --deny promise/param-names --promise-plugin
 ---
 url: /docs/guide/usage/linter/rules/promise/prefer-await-to-callbacks.md
 ---
-# promise/prefer-await-to-callbacks&#x20;
 
 ### What it does
 
@@ -41804,7 +41444,6 @@ oxlint --deny promise/prefer-await-to-callbacks --promise-plugin
 ---
 url: /docs/guide/usage/linter/rules/promise/prefer-await-to-then.md
 ---
-# promise/prefer-await-to-then&#x20;
 
 ### What it does
 
@@ -41884,7 +41523,6 @@ oxlint --deny promise/prefer-await-to-then --promise-plugin
 ---
 url: /docs/guide/usage/linter/rules/promise/prefer-catch.md
 ---
-# promise/prefer-catch&#x20;
 
 ### What it does
 
@@ -41951,7 +41589,6 @@ oxlint --deny promise/prefer-catch --promise-plugin
 ---
 url: /docs/guide/usage/linter/rules/promise/spec-only.md
 ---
-# promise/spec-only&#x20;
 
 ### What it does
 
@@ -42017,7 +41654,6 @@ oxlint --deny promise/spec-only --promise-plugin
 ---
 url: /docs/guide/usage/linter/rules/promise/valid-params.md
 ---
-# promise/valid-params&#x20;
 
 ### What it does
 
@@ -42413,9 +42049,252 @@ The full list is in the [Rules reference](/docs/guide/usage/linter/rules).
 ---
 
 ---
+url: /docs/guide/usage/linter/rules/react_perf/jsx-no-jsx-as-prop.md
+---
+
+### What it does
+
+Prevent JSX elements that are local to the current method from being
+used as values of JSX props.
+
+### Why is this bad?
+
+Using locally defined JSX elements as values for props can lead to
+unintentional re-renders and performance issues. Every time the parent
+renders, a new instance of the JSX element is created, causing unnecessary
+re-renders of child components. This also leads to harder-to-maintain code
+as the component's props are not passed consistently.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```jsx
+<Item jsx={<SubItem />} />
+<Item jsx={this.props.jsx || <SubItem />} />
+<Item jsx={this.props.jsx ? this.props.jsx : <SubItem />} />
+```
+
+Examples of **correct** code for this rule:
+
+```jsx
+<Item callback={this.props.jsx} />
+```
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "plugins": ["react-perf"],
+  "rules": {
+    "react-perf/jsx-no-jsx-as-prop": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --deny react-perf/jsx-no-jsx-as-prop --react-perf-plugin
+```
+
+:::
+
+## References
+
+* Rule Source
+
+---
+
+---
+url: /docs/guide/usage/linter/rules/react_perf/jsx-no-new-array-as-prop.md
+---
+
+### What it does
+
+Prevent Arrays that are local to the current method from being used
+as values of JSX props.
+
+### Why is this bad?
+
+Using locally defined Arrays as values for props can lead to unintentional
+re-renders and performance issues. Every time the parent component renders,
+a new instance of the Array is created, causing unnecessary re-renders of
+child components. This also leads to harder-to-maintain code as the
+component's props are not passed consistently.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```jsx
+<Item list={[]} />
+<Item list={new Array()} />
+<Item list={Array()} />
+<Item list={this.props.list || []} />
+<Item list={this.props.list ? this.props.list : []} />
+```
+
+Examples of **correct** code for this rule:
+
+```jsx
+<Item list={this.props.list} />
+```
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "plugins": ["react-perf"],
+  "rules": {
+    "react-perf/jsx-no-new-array-as-prop": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --deny react-perf/jsx-no-new-array-as-prop --react-perf-plugin
+```
+
+:::
+
+## References
+
+* Rule Source
+
+---
+
+---
+url: /docs/guide/usage/linter/rules/react_perf/jsx-no-new-function-as-prop.md
+---
+
+### What it does
+
+Prevent Functions that are local to the current method from being used
+as values of JSX props.
+
+### Why is this bad?
+
+Using locally defined Functions as values for props can lead to unintentional
+re-renders and performance issues. Every time the parent component renders,
+a new instance of the Function is created, causing unnecessary re-renders
+of child components. This also leads to harder-to-maintain code as the
+component's props are not passed consistently.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```jsx
+<Item callback={new Function(...)} />
+<Item callback={this.props.callback || function() {}} />
+```
+
+Examples of **correct** code for this rule:
+
+```jsx
+<Item callback={this.props.callback} />
+```
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "plugins": ["react-perf"],
+  "rules": {
+    "react-perf/jsx-no-new-function-as-prop": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --deny react-perf/jsx-no-new-function-as-prop --react-perf-plugin
+```
+
+:::
+
+## References
+
+* Rule Source
+
+---
+
+---
+url: /docs/guide/usage/linter/rules/react_perf/jsx-no-new-object-as-prop.md
+---
+
+### What it does
+
+Prevent Objects that are local to the current method from being used
+as values of JSX props.
+
+### Why is this bad?
+
+Using locally defined Objects as values for props can lead to unintentional
+re-renders and performance issues. Every time the parent component renders,
+a new instance of the Object is created, causing unnecessary re-renders of
+child components. This also leads to harder-to-maintain code as the
+component's props are not passed consistently.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```jsx
+<Item config={{}} />
+<Item config={new Object()} />
+<Item config={Object()} />
+<Item config={this.props.config || {}} />
+<Item config={this.props.config ? this.props.config : {}} />
+<div style={{display: 'none'}} />
+```
+
+Examples of **correct** code for this rule:
+
+```jsx
+<Item config={staticConfig} />
+```
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "plugins": ["react-perf"],
+  "rules": {
+    "react-perf/jsx-no-new-object-as-prop": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --deny react-perf/jsx-no-new-object-as-prop --react-perf-plugin
+```
+
+:::
+
+## References
+
+* Rule Source
+
+---
+
+---
 url: /docs/guide/usage/linter/rules/react/button-has-type.md
 ---
-# react/button-has-type&#x20;
 
 ### What it does
 
@@ -42501,7 +42380,6 @@ oxlint --deny react/button-has-type --react-plugin
 ---
 url: /docs/guide/usage/linter/rules/react/checked-requires-onchange-or-readonly.md
 ---
-# react/checked-requires-onchange-or-readonly&#x20;
 
 ### What it does
 
@@ -42586,7 +42464,6 @@ oxlint --deny react/checked-requires-onchange-or-readonly --react-plugin
 ---
 url: /docs/guide/usage/linter/rules/react/exhaustive-deps.md
 ---
-# react/exhaustive-deps&#x20;
 
 ### What it does
 
@@ -42663,7 +42540,6 @@ oxlint --deny react/exhaustive-deps --react-plugin
 ---
 url: /docs/guide/usage/linter/rules/react/forbid-dom-props.md
 ---
-# react/forbid-dom-props&#x20;
 
 ### What it does
 
@@ -42734,7 +42610,6 @@ oxlint --deny react/forbid-dom-props --react-plugin
 ---
 url: /docs/guide/usage/linter/rules/react/forbid-elements.md
 ---
-# react/forbid-elements&#x20;
 
 ### What it does
 
@@ -42809,7 +42684,6 @@ oxlint --deny react/forbid-elements --react-plugin
 ---
 url: /docs/guide/usage/linter/rules/react/forward-ref-uses-ref.md
 ---
-# react/forward-ref-uses-ref&#x20;
 
 ### What it does
 
@@ -42876,7 +42750,6 @@ oxlint --deny react/forward-ref-uses-ref --react-plugin
 ---
 url: /docs/guide/usage/linter/rules/react/iframe-missing-sandbox.md
 ---
-# react/iframe-missing-sandbox&#x20;
 
 ### What it does
 
@@ -42944,7 +42817,6 @@ oxlint --deny react/iframe-missing-sandbox --react-plugin
 ---
 url: /docs/guide/usage/linter/rules/react/jsx-boolean-value.md
 ---
-# react/jsx-boolean-value&#x20;
 
 ### What it does
 
@@ -43026,7 +42898,6 @@ oxlint --deny react/jsx-boolean-value --react-plugin
 ---
 url: /docs/guide/usage/linter/rules/react/jsx-curly-brace-presence.md
 ---
-# react/jsx-curly-brace-presence&#x20;
 
 ### What it does
 
@@ -43324,7 +43195,6 @@ oxlint --deny react/jsx-curly-brace-presence --react-plugin
 ---
 url: /docs/guide/usage/linter/rules/react/jsx-filename-extension.md
 ---
-# react/jsx-filename-extension&#x20;
 
 ### What it does
 
@@ -43415,7 +43285,6 @@ oxlint --deny react/jsx-filename-extension --react-plugin
 ---
 url: /docs/guide/usage/linter/rules/react/jsx-fragments.md
 ---
-# react/jsx-fragments&#x20;
 
 ### What it does
 
@@ -43512,7 +43381,6 @@ oxlint --deny react/jsx-fragments --react-plugin
 ---
 url: /docs/guide/usage/linter/rules/react/jsx-handler-names.md
 ---
-# react/jsx-handler-names&#x20;
 
 ### What it does
 
@@ -43624,7 +43492,6 @@ oxlint --deny react/jsx-handler-names --react-plugin
 ---
 url: /docs/guide/usage/linter/rules/react/jsx-key.md
 ---
-# react/jsx-key&#x20;
 
 ### What it does
 
@@ -43708,7 +43575,6 @@ oxlint --deny react/jsx-key --react-plugin
 ---
 url: /docs/guide/usage/linter/rules/react/jsx-max-depth.md
 ---
-# react/jsx-max-depth&#x20;
 
 ### What it does
 
@@ -43786,7 +43652,6 @@ oxlint --deny react/jsx-max-depth --react-plugin
 ---
 url: /docs/guide/usage/linter/rules/react/jsx-no-comment-textnodes.md
 ---
-# react/jsx-no-comment-textnodes&#x20;
 
 ### What it does
 
@@ -43848,7 +43713,6 @@ oxlint --deny react/jsx-no-comment-textnodes --react-plugin
 ---
 url: /docs/guide/usage/linter/rules/react/jsx-no-duplicate-props.md
 ---
-# react/jsx-no-duplicate-props&#x20;
 
 ### What it does
 
@@ -43911,7 +43775,6 @@ oxlint --deny react/jsx-no-duplicate-props --react-plugin
 ---
 url: /docs/guide/usage/linter/rules/react/jsx-no-script-url.md
 ---
-# react/jsx-no-script-url&#x20;
 
 ### What it does
 
@@ -43991,7 +43854,6 @@ oxlint --deny react/jsx-no-script-url --react-plugin
 ---
 url: /docs/guide/usage/linter/rules/react/jsx-no-target-blank.md
 ---
-# react/jsx-no-target-blank&#x20;
 
 ### What it does
 
@@ -44105,7 +43967,6 @@ oxlint --deny react/jsx-no-target-blank --react-plugin
 ---
 url: /docs/guide/usage/linter/rules/react/jsx-no-undef.md
 ---
-# react/jsx-no-undef&#x20;
 
 ### What it does
 
@@ -44154,7 +44015,6 @@ oxlint --deny react/jsx-no-undef --react-plugin
 ---
 url: /docs/guide/usage/linter/rules/react/jsx-no-useless-fragment.md
 ---
-# react/jsx-no-useless-fragment&#x20;
 
 ### What it does
 
@@ -44225,7 +44085,6 @@ oxlint --deny react/jsx-no-useless-fragment --react-plugin
 ---
 url: /docs/guide/usage/linter/rules/react/jsx-pascal-case.md
 ---
-# react/jsx-pascal-case&#x20;
 
 ### What it does
 
@@ -44351,7 +44210,6 @@ oxlint --deny react/jsx-pascal-case --react-plugin
 ---
 url: /docs/guide/usage/linter/rules/react/jsx-props-no-spread-multi.md
 ---
-# react/jsx-props-no-spread-multi&#x20;
 
 ### What it does
 
@@ -44407,7 +44265,6 @@ oxlint --deny react/jsx-props-no-spread-multi --react-plugin
 ---
 url: /docs/guide/usage/linter/rules/react/jsx-props-no-spreading.md
 ---
-# react/jsx-props-no-spreading&#x20;
 
 ### What it does
 
@@ -44509,7 +44366,6 @@ oxlint --deny react/jsx-props-no-spreading --react-plugin
 ---
 url: /docs/guide/usage/linter/rules/react/no-array-index-key.md
 ---
-# react/no-array-index-key&#x20;
 
 ### What it does
 
@@ -44566,7 +44422,6 @@ oxlint --deny react/no-array-index-key --react-plugin
 ---
 url: /docs/guide/usage/linter/rules/react/no-children-prop.md
 ---
-# react/no-children-prop&#x20;
 
 ### What it does
 
@@ -44633,65 +44488,8 @@ oxlint --deny react/no-children-prop --react-plugin
 ---
 
 ---
-url: /docs/guide/usage/linter/rules/react/no-danger-with-children.md
----
-# react/no-danger-with-children&#x20;
-
-### What it does
-
-Disallows when a DOM element is using both `children` and `dangerouslySetInnerHTML` properties.
-
-### Why is this bad?
-
-React will throw a warning if this rule is ignored and both `children` and `dangerouslySetInnerHTML` are used.
-
-### Examples
-
-Examples of **incorrect** code for this rule:
-
-```jsx
-<div dangerouslySetInnerHTML={{ __html: "HTML" }}>Children</div>;
-React.createElement("div", { dangerouslySetInnerHTML: { __html: "HTML" } }, "Children");
-```
-
-Examples of **correct** code for this rule:
-
-```jsx
-<div>Children</div>
-<div dangerouslySetInnerHTML={{ __html: "HTML" }} />
-```
-
-## How to use
-
-To **enable** this rule using the config file or in the CLI, you can use:
-
-::: code-group
-
-```json [Config (.oxlintrc.json)]
-{
-  "plugins": ["react"],
-  "rules": {
-    "react/no-danger-with-children": "error"
-  }
-}
-```
-
-```bash [CLI]
-oxlint --deny react/no-danger-with-children --react-plugin
-```
-
-:::
-
-## References
-
-* Rule Source
-
----
-
----
 url: /docs/guide/usage/linter/rules/react/no-danger.md
 ---
-# react/no-danger&#x20;
 
 ### What it does
 
@@ -44749,9 +44547,63 @@ oxlint --deny react/no-danger --react-plugin
 ---
 
 ---
+url: /docs/guide/usage/linter/rules/react/no-danger-with-children.md
+---
+
+### What it does
+
+Disallows when a DOM element is using both `children` and `dangerouslySetInnerHTML` properties.
+
+### Why is this bad?
+
+React will throw a warning if this rule is ignored and both `children` and `dangerouslySetInnerHTML` are used.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```jsx
+<div dangerouslySetInnerHTML={{ __html: "HTML" }}>Children</div>;
+React.createElement("div", { dangerouslySetInnerHTML: { __html: "HTML" } }, "Children");
+```
+
+Examples of **correct** code for this rule:
+
+```jsx
+<div>Children</div>
+<div dangerouslySetInnerHTML={{ __html: "HTML" }} />
+```
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "plugins": ["react"],
+  "rules": {
+    "react/no-danger-with-children": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --deny react/no-danger-with-children --react-plugin
+```
+
+:::
+
+## References
+
+* Rule Source
+
+---
+
+---
 url: /docs/guide/usage/linter/rules/react/no-did-mount-set-state.md
 ---
-# react/no-did-mount-set-state&#x20;
 
 ### What it does
 
@@ -44838,7 +44690,6 @@ oxlint --deny react/no-did-mount-set-state --react-plugin
 ---
 url: /docs/guide/usage/linter/rules/react/no-direct-mutation-state.md
 ---
-# react/no-direct-mutation-state&#x20;
 
 ### What it does
 
@@ -44924,7 +44775,6 @@ oxlint --deny react/no-direct-mutation-state --react-plugin
 ---
 url: /docs/guide/usage/linter/rules/react/no-find-dom-node.md
 ---
-# react/no-find-dom-node&#x20;
 
 ### What it does
 
@@ -44981,7 +44831,6 @@ oxlint --deny react/no-find-dom-node --react-plugin
 ---
 url: /docs/guide/usage/linter/rules/react/no-is-mounted.md
 ---
-# react/no-is-mounted&#x20;
 
 ### What it does
 
@@ -45039,7 +44888,6 @@ oxlint --deny react/no-is-mounted --react-plugin
 ---
 url: /docs/guide/usage/linter/rules/react/no-namespace.md
 ---
-# react/no-namespace&#x20;
 
 ### What it does
 
@@ -45095,7 +44943,6 @@ oxlint --deny react/no-namespace --react-plugin
 ---
 url: /docs/guide/usage/linter/rules/react/no-redundant-should-component-update.md
 ---
-# react/no-redundant-should-component-update&#x20;
 
 ### What it does
 
@@ -45197,7 +45044,6 @@ oxlint --deny react/no-redundant-should-component-update --react-plugin
 ---
 url: /docs/guide/usage/linter/rules/react/no-render-return-value.md
 ---
-# react/no-render-return-value&#x20;
 
 ### What it does
 
@@ -45254,7 +45100,6 @@ oxlint --deny react/no-render-return-value --react-plugin
 ---
 url: /docs/guide/usage/linter/rules/react/no-set-state.md
 ---
-# react/no-set-state&#x20;
 
 ### What it does
 
@@ -45319,7 +45164,6 @@ oxlint --deny react/no-set-state --react-plugin
 ---
 url: /docs/guide/usage/linter/rules/react/no-string-refs.md
 ---
-# react/no-string-refs&#x20;
 
 ### What it does
 
@@ -45415,7 +45259,6 @@ oxlint --deny react/no-string-refs --react-plugin
 ---
 url: /docs/guide/usage/linter/rules/react/no-this-in-sfc.md
 ---
-# react/no-this-in-sfc&#x20;
 
 ### What it does
 
@@ -45492,7 +45335,6 @@ oxlint --deny react/no-this-in-sfc --react-plugin
 ---
 url: /docs/guide/usage/linter/rules/react/no-unescaped-entities.md
 ---
-# react/no-unescaped-entities&#x20;
 
 ### What it does
 
@@ -45550,7 +45392,6 @@ oxlint --deny react/no-unescaped-entities --react-plugin
 ---
 url: /docs/guide/usage/linter/rules/react/no-unknown-property.md
 ---
-# react/no-unknown-property&#x20;
 
 ### What it does
 
@@ -45634,7 +45475,6 @@ oxlint --deny react/no-unknown-property --react-plugin
 ---
 url: /docs/guide/usage/linter/rules/react/no-unsafe.md
 ---
-# react/no-unsafe&#x20;
 
 ### What it does
 
@@ -45723,7 +45563,6 @@ oxlint --deny react/no-unsafe --react-plugin
 ---
 url: /docs/guide/usage/linter/rules/react/no-will-update-set-state.md
 ---
-# react/no-will-update-set-state&#x20;
 
 ### What it does
 
@@ -45794,7 +45633,6 @@ oxlint --deny react/no-will-update-set-state --react-plugin
 ---
 url: /docs/guide/usage/linter/rules/react/only-export-components.md
 ---
-# react/only-export-components&#x20;
 
 ### What it does
 
@@ -45949,7 +45787,6 @@ oxlint --deny react/only-export-components --react-plugin
 ---
 url: /docs/guide/usage/linter/rules/react/prefer-es6-class.md
 ---
-# react/prefer-es6-class&#x20;
 
 ### What it does
 
@@ -46014,7 +45851,6 @@ oxlint --deny react/prefer-es6-class --react-plugin
 ---
 url: /docs/guide/usage/linter/rules/react/react-in-jsx-scope.md
 ---
-# react/react-in-jsx-scope&#x20;
 
 ### What it does
 
@@ -46081,7 +45917,6 @@ oxlint --deny react/react-in-jsx-scope --react-plugin
 ---
 url: /docs/guide/usage/linter/rules/react/require-render-return.md
 ---
-# react/require-render-return&#x20;
 
 ### What it does
 
@@ -46155,7 +45990,6 @@ oxlint --deny react/require-render-return --react-plugin
 ---
 url: /docs/guide/usage/linter/rules/react/rules-of-hooks.md
 ---
-# react/rules-of-hooks&#x20;
 
 ### What it does
 
@@ -46247,7 +46081,6 @@ oxlint --deny react/rules-of-hooks --react-plugin
 ---
 url: /docs/guide/usage/linter/rules/react/self-closing-comp.md
 ---
-# react/self-closing-comp&#x20;
 
 ### What it does
 
@@ -46331,7 +46164,6 @@ oxlint --deny react/self-closing-comp --react-plugin
 ---
 url: /docs/guide/usage/linter/rules/react/state-in-constructor.md
 ---
-# react/state-in-constructor&#x20;
 
 ### What it does
 
@@ -46446,7 +46278,6 @@ oxlint --deny react/state-in-constructor --react-plugin
 ---
 url: /docs/guide/usage/linter/rules/react/style-prop-object.md
 ---
-# react/style-prop-object&#x20;
 
 ### What it does
 
@@ -46530,7 +46361,6 @@ oxlint --deny react/style-prop-object --react-plugin
 ---
 url: /docs/guide/usage/linter/rules/react/void-dom-elements-no-children.md
 ---
-# react/void-dom-elements-no-children&#x20;
 
 ### What it does
 
@@ -46582,254 +46412,6 @@ To **enable** this rule using the config file or in the CLI, you can use:
 
 ```bash [CLI]
 oxlint --deny react/void-dom-elements-no-children --react-plugin
-```
-
-:::
-
-## References
-
-* Rule Source
-
----
-
----
-url: /docs/guide/usage/linter/rules/react_perf/jsx-no-jsx-as-prop.md
----
-# react\_perf/jsx-no-jsx-as-prop&#x20;
-
-### What it does
-
-Prevent JSX elements that are local to the current method from being
-used as values of JSX props.
-
-### Why is this bad?
-
-Using locally defined JSX elements as values for props can lead to
-unintentional re-renders and performance issues. Every time the parent
-renders, a new instance of the JSX element is created, causing unnecessary
-re-renders of child components. This also leads to harder-to-maintain code
-as the component's props are not passed consistently.
-
-### Examples
-
-Examples of **incorrect** code for this rule:
-
-```jsx
-<Item jsx={<SubItem />} />
-<Item jsx={this.props.jsx || <SubItem />} />
-<Item jsx={this.props.jsx ? this.props.jsx : <SubItem />} />
-```
-
-Examples of **correct** code for this rule:
-
-```jsx
-<Item callback={this.props.jsx} />
-```
-
-## How to use
-
-To **enable** this rule using the config file or in the CLI, you can use:
-
-::: code-group
-
-```json [Config (.oxlintrc.json)]
-{
-  "plugins": ["react-perf"],
-  "rules": {
-    "react-perf/jsx-no-jsx-as-prop": "error"
-  }
-}
-```
-
-```bash [CLI]
-oxlint --deny react-perf/jsx-no-jsx-as-prop --react-perf-plugin
-```
-
-:::
-
-## References
-
-* Rule Source
-
----
-
----
-url: /docs/guide/usage/linter/rules/react_perf/jsx-no-new-array-as-prop.md
----
-# react\_perf/jsx-no-new-array-as-prop&#x20;
-
-### What it does
-
-Prevent Arrays that are local to the current method from being used
-as values of JSX props.
-
-### Why is this bad?
-
-Using locally defined Arrays as values for props can lead to unintentional
-re-renders and performance issues. Every time the parent component renders,
-a new instance of the Array is created, causing unnecessary re-renders of
-child components. This also leads to harder-to-maintain code as the
-component's props are not passed consistently.
-
-### Examples
-
-Examples of **incorrect** code for this rule:
-
-```jsx
-<Item list={[]} />
-<Item list={new Array()} />
-<Item list={Array()} />
-<Item list={this.props.list || []} />
-<Item list={this.props.list ? this.props.list : []} />
-```
-
-Examples of **correct** code for this rule:
-
-```jsx
-<Item list={this.props.list} />
-```
-
-## How to use
-
-To **enable** this rule using the config file or in the CLI, you can use:
-
-::: code-group
-
-```json [Config (.oxlintrc.json)]
-{
-  "plugins": ["react-perf"],
-  "rules": {
-    "react-perf/jsx-no-new-array-as-prop": "error"
-  }
-}
-```
-
-```bash [CLI]
-oxlint --deny react-perf/jsx-no-new-array-as-prop --react-perf-plugin
-```
-
-:::
-
-## References
-
-* Rule Source
-
----
-
----
-url: /docs/guide/usage/linter/rules/react_perf/jsx-no-new-function-as-prop.md
----
-# react\_perf/jsx-no-new-function-as-prop&#x20;
-
-### What it does
-
-Prevent Functions that are local to the current method from being used
-as values of JSX props.
-
-### Why is this bad?
-
-Using locally defined Functions as values for props can lead to unintentional
-re-renders and performance issues. Every time the parent component renders,
-a new instance of the Function is created, causing unnecessary re-renders
-of child components. This also leads to harder-to-maintain code as the
-component's props are not passed consistently.
-
-### Examples
-
-Examples of **incorrect** code for this rule:
-
-```jsx
-<Item callback={new Function(...)} />
-<Item callback={this.props.callback || function() {}} />
-```
-
-Examples of **correct** code for this rule:
-
-```jsx
-<Item callback={this.props.callback} />
-```
-
-## How to use
-
-To **enable** this rule using the config file or in the CLI, you can use:
-
-::: code-group
-
-```json [Config (.oxlintrc.json)]
-{
-  "plugins": ["react-perf"],
-  "rules": {
-    "react-perf/jsx-no-new-function-as-prop": "error"
-  }
-}
-```
-
-```bash [CLI]
-oxlint --deny react-perf/jsx-no-new-function-as-prop --react-perf-plugin
-```
-
-:::
-
-## References
-
-* Rule Source
-
----
-
----
-url: /docs/guide/usage/linter/rules/react_perf/jsx-no-new-object-as-prop.md
----
-# react\_perf/jsx-no-new-object-as-prop&#x20;
-
-### What it does
-
-Prevent Objects that are local to the current method from being used
-as values of JSX props.
-
-### Why is this bad?
-
-Using locally defined Objects as values for props can lead to unintentional
-re-renders and performance issues. Every time the parent component renders,
-a new instance of the Object is created, causing unnecessary re-renders of
-child components. This also leads to harder-to-maintain code as the
-component's props are not passed consistently.
-
-### Examples
-
-Examples of **incorrect** code for this rule:
-
-```jsx
-<Item config={{}} />
-<Item config={new Object()} />
-<Item config={Object()} />
-<Item config={this.props.config || {}} />
-<Item config={this.props.config ? this.props.config : {}} />
-<div style={{display: 'none'}} />
-```
-
-Examples of **correct** code for this rule:
-
-```jsx
-<Item config={staticConfig} />
-```
-
-## How to use
-
-To **enable** this rule using the config file or in the CLI, you can use:
-
-::: code-group
-
-```json [Config (.oxlintrc.json)]
-{
-  "plugins": ["react-perf"],
-  "rules": {
-    "react-perf/jsx-no-new-object-as-prop": "error"
-  }
-}
-```
-
-```bash [CLI]
-oxlint --deny react-perf/jsx-no-new-object-as-prop --react-perf-plugin
 ```
 
 :::
@@ -48795,7 +48377,6 @@ To avoid using unsupported features, you should enable the [`isolatedModules`](h
 ---
 url: /docs/guide/usage/linter/rules/typescript/adjacent-overload-signatures.md
 ---
-# typescript/adjacent-overload-signatures&#x20;
 
 ### What it does
 
@@ -48876,7 +48457,6 @@ oxlint --deny typescript/adjacent-overload-signatures
 ---
 url: /docs/guide/usage/linter/rules/typescript/array-type.md
 ---
-# typescript/array-type&#x20;
 
 ### What it does
 
@@ -48977,7 +48557,6 @@ oxlint --deny typescript/array-type
 ---
 url: /docs/guide/usage/linter/rules/typescript/await-thenable.md
 ---
-# typescript/await-thenable&#x20;
 
 ### What it does
 
@@ -49054,7 +48633,6 @@ oxlint --type-aware --deny typescript/await-thenable
 ---
 url: /docs/guide/usage/linter/rules/typescript/ban-ts-comment.md
 ---
-# typescript/ban-ts-comment&#x20;
 
 ### What it does
 
@@ -49155,7 +48733,6 @@ oxlint --deny typescript/ban-ts-comment
 ---
 url: /docs/guide/usage/linter/rules/typescript/ban-tslint-comment.md
 ---
-# typescript/ban-tslint-comment&#x20;
 
 ### What it does
 
@@ -49210,7 +48787,6 @@ oxlint --deny typescript/ban-tslint-comment
 ---
 url: /docs/guide/usage/linter/rules/typescript/ban-types.md
 ---
-# typescript/ban-types&#x20;
 
 ### What it does
 
@@ -49267,7 +48843,6 @@ oxlint --deny typescript/ban-types
 ---
 url: /docs/guide/usage/linter/rules/typescript/consistent-generic-constructors.md
 ---
-# typescript/consistent-generic-constructors&#x20;
 
 ### What it does
 
@@ -49349,7 +48924,6 @@ oxlint --deny typescript/consistent-generic-constructors
 ---
 url: /docs/guide/usage/linter/rules/typescript/consistent-indexed-object-style.md
 ---
-# typescript/consistent-indexed-object-style&#x20;
 
 ### What it does
 
@@ -49450,7 +49024,6 @@ oxlint --deny typescript/consistent-indexed-object-style
 ---
 url: /docs/guide/usage/linter/rules/typescript/consistent-type-definitions.md
 ---
-# typescript/consistent-type-definitions&#x20;
 
 ### What it does
 
@@ -49534,7 +49107,6 @@ oxlint --deny typescript/consistent-type-definitions
 ---
 url: /docs/guide/usage/linter/rules/typescript/consistent-type-imports.md
 ---
-# typescript/consistent-type-imports&#x20;
 
 ### What it does
 
@@ -49690,7 +49262,6 @@ oxlint --deny typescript/consistent-type-imports
 ---
 url: /docs/guide/usage/linter/rules/typescript/explicit-function-return-type.md
 ---
-# typescript/explicit-function-return-type&#x20;
 
 ### What it does
 
@@ -49852,7 +49423,6 @@ oxlint --deny typescript/explicit-function-return-type
 ---
 url: /docs/guide/usage/linter/rules/typescript/explicit-module-boundary-types.md
 ---
-# typescript/explicit-module-boundary-types&#x20;
 
 ### What it does
 
@@ -50007,7 +49577,6 @@ oxlint --deny typescript/explicit-module-boundary-types
 ---
 url: /docs/guide/usage/linter/rules/typescript/no-array-delete.md
 ---
-# typescript/no-array-delete&#x20;
 
 ### What it does
 
@@ -50070,7 +49639,6 @@ oxlint --type-aware --deny typescript/no-array-delete
 ---
 url: /docs/guide/usage/linter/rules/typescript/no-base-to-string.md
 ---
-# typescript/no-base-to-string&#x20;
 
 ### What it does
 
@@ -50168,7 +49736,6 @@ oxlint --type-aware --deny typescript/no-base-to-string
 ---
 url: /docs/guide/usage/linter/rules/typescript/no-confusing-non-null-assertion.md
 ---
-# typescript/no-confusing-non-null-assertion&#x20;
 
 ### What it does
 
@@ -50225,7 +49792,6 @@ oxlint --deny typescript/no-confusing-non-null-assertion
 ---
 url: /docs/guide/usage/linter/rules/typescript/no-confusing-void-expression.md
 ---
-# typescript/no-confusing-void-expression&#x20;
 
 ### What it does
 
@@ -50334,7 +49900,6 @@ oxlint --type-aware --deny typescript/no-confusing-void-expression
 ---
 url: /docs/guide/usage/linter/rules/typescript/no-deprecated.md
 ---
-# typescript/no-deprecated&#x20;
 
 ### What it does
 
@@ -50458,7 +50023,6 @@ oxlint --type-aware --deny typescript/no-deprecated
 ---
 url: /docs/guide/usage/linter/rules/typescript/no-duplicate-enum-values.md
 ---
-# typescript/no-duplicate-enum-values&#x20;
 
 ### What it does
 
@@ -50543,7 +50107,6 @@ oxlint --deny typescript/no-duplicate-enum-values
 ---
 url: /docs/guide/usage/linter/rules/typescript/no-duplicate-type-constituents.md
 ---
-# typescript/no-duplicate-type-constituents&#x20;
 
 ### What it does
 
@@ -50635,7 +50198,6 @@ oxlint --type-aware --deny typescript/no-duplicate-type-constituents
 ---
 url: /docs/guide/usage/linter/rules/typescript/no-dynamic-delete.md
 ---
-# typescript/no-dynamic-delete&#x20;
 
 ### What it does
 
@@ -50692,7 +50254,6 @@ oxlint --deny typescript/no-dynamic-delete
 ---
 url: /docs/guide/usage/linter/rules/typescript/no-empty-interface.md
 ---
-# typescript/no-empty-interface&#x20;
 
 ### What it does
 
@@ -50765,7 +50326,6 @@ oxlint --deny typescript/no-empty-interface
 ---
 url: /docs/guide/usage/linter/rules/typescript/no-empty-object-type.md
 ---
-# typescript/no-empty-object-type&#x20;
 
 ### What it does
 
@@ -50905,7 +50465,6 @@ oxlint --deny typescript/no-empty-object-type
 ---
 url: /docs/guide/usage/linter/rules/typescript/no-explicit-any.md
 ---
-# typescript/no-explicit-any&#x20;
 
 ### What it does
 
@@ -51000,7 +50559,6 @@ oxlint --deny typescript/no-explicit-any
 ---
 url: /docs/guide/usage/linter/rules/typescript/no-extra-non-null-assertion.md
 ---
-# typescript/no-extra-non-null-assertion&#x20;
 
 ### What it does
 
@@ -51081,7 +50639,6 @@ oxlint --deny typescript/no-extra-non-null-assertion
 ---
 url: /docs/guide/usage/linter/rules/typescript/no-extraneous-class.md
 ---
-# typescript/no-extraneous-class&#x20;
 
 ### What it does
 
@@ -51207,7 +50764,6 @@ oxlint --deny typescript/no-extraneous-class
 ---
 url: /docs/guide/usage/linter/rules/typescript/no-floating-promises.md
 ---
-# typescript/no-floating-promises&#x20;
 
 ### What it does
 
@@ -51422,7 +50978,6 @@ oxlint --type-aware --deny typescript/no-floating-promises
 ---
 url: /docs/guide/usage/linter/rules/typescript/no-for-in-array.md
 ---
-# typescript/no-for-in-array&#x20;
 
 ### What it does
 
@@ -51505,7 +51060,6 @@ oxlint --type-aware --deny typescript/no-for-in-array
 ---
 url: /docs/guide/usage/linter/rules/typescript/no-implied-eval.md
 ---
-# typescript/no-implied-eval&#x20;
 
 ### What it does
 
@@ -51581,7 +51135,6 @@ oxlint --type-aware --deny typescript/no-implied-eval
 ---
 url: /docs/guide/usage/linter/rules/typescript/no-import-type-side-effects.md
 ---
-# typescript/no-import-type-side-effects&#x20;
 
 ### What it does
 
@@ -51663,7 +51216,6 @@ oxlint --deny typescript/no-import-type-side-effects
 ---
 url: /docs/guide/usage/linter/rules/typescript/no-inferrable-types.md
 ---
-# typescript/no-inferrable-types&#x20;
 
 ### What it does
 
@@ -51742,7 +51294,6 @@ oxlint --deny typescript/no-inferrable-types
 ---
 url: /docs/guide/usage/linter/rules/typescript/no-meaningless-void-operator.md
 ---
-# typescript/no-meaningless-void-operator&#x20;
 
 ### What it does
 
@@ -51830,7 +51381,6 @@ oxlint --type-aware --deny typescript/no-meaningless-void-operator
 ---
 url: /docs/guide/usage/linter/rules/typescript/no-misused-new.md
 ---
-# typescript/no-misused-new&#x20;
 
 ### What it does
 
@@ -51907,7 +51457,6 @@ oxlint --deny typescript/no-misused-new
 ---
 url: /docs/guide/usage/linter/rules/typescript/no-misused-promises.md
 ---
-# typescript/no-misused-promises&#x20;
 
 ### What it does
 
@@ -52063,7 +51612,6 @@ oxlint --type-aware --deny typescript/no-misused-promises
 ---
 url: /docs/guide/usage/linter/rules/typescript/no-misused-spread.md
 ---
-# typescript/no-misused-spread&#x20;
 
 ### What it does
 
@@ -52190,7 +51738,6 @@ oxlint --type-aware --deny typescript/no-misused-spread
 ---
 url: /docs/guide/usage/linter/rules/typescript/no-mixed-enums.md
 ---
-# typescript/no-mixed-enums&#x20;
 
 ### What it does
 
@@ -52273,7 +51820,6 @@ oxlint --type-aware --deny typescript/no-mixed-enums
 ---
 url: /docs/guide/usage/linter/rules/typescript/no-namespace.md
 ---
-# typescript/no-namespace&#x20;
 
 ### What it does
 
@@ -52410,7 +51956,6 @@ oxlint --deny typescript/no-namespace
 url: >-
   /docs/guide/usage/linter/rules/typescript/no-non-null-asserted-nullish-coalescing.md
 ---
-# typescript/no-non-null-asserted-nullish-coalescing&#x20;
 
 ### What it does
 
@@ -52487,7 +52032,6 @@ oxlint --deny typescript/no-non-null-asserted-nullish-coalescing
 url: >-
   /docs/guide/usage/linter/rules/typescript/no-non-null-asserted-optional-chain.md
 ---
-# typescript/no-non-null-asserted-optional-chain&#x20;
 
 ### What it does
 
@@ -52550,7 +52094,6 @@ oxlint --deny typescript/no-non-null-asserted-optional-chain
 ---
 url: /docs/guide/usage/linter/rules/typescript/no-non-null-assertion.md
 ---
-# typescript/no-non-null-assertion&#x20;
 
 ### What it does
 
@@ -52607,7 +52150,6 @@ oxlint --deny typescript/no-non-null-assertion
 ---
 url: /docs/guide/usage/linter/rules/typescript/no-redundant-type-constituents.md
 ---
-# typescript/no-redundant-type-constituents&#x20;
 
 ### What it does
 
@@ -52684,7 +52226,6 @@ oxlint --type-aware --deny typescript/no-redundant-type-constituents
 ---
 url: /docs/guide/usage/linter/rules/typescript/no-require-imports.md
 ---
-# typescript/no-require-imports&#x20;
 
 ### What it does
 
@@ -52807,7 +52348,6 @@ oxlint --deny typescript/no-require-imports
 ---
 url: /docs/guide/usage/linter/rules/typescript/no-restricted-types.md
 ---
-# typescript/no-restricted-types&#x20;
 
 ### What it does
 
@@ -52886,7 +52426,6 @@ oxlint --deny typescript/no-restricted-types
 ---
 url: /docs/guide/usage/linter/rules/typescript/no-this-alias.md
 ---
-# typescript/no-this-alias&#x20;
 
 ### What it does
 
@@ -52946,7 +52485,6 @@ oxlint --deny typescript/no-this-alias
 url: >-
   /docs/guide/usage/linter/rules/typescript/no-unnecessary-boolean-literal-compare.md
 ---
-# typescript/no-unnecessary-boolean-literal-compare&#x20;
 
 ### What it does
 
@@ -53064,7 +52602,6 @@ oxlint --type-aware --deny typescript/no-unnecessary-boolean-literal-compare
 url: >-
   /docs/guide/usage/linter/rules/typescript/no-unnecessary-parameter-property-assignment.md
 ---
-# typescript/no-unnecessary-parameter-property-assignment&#x20;
 
 ### What it does
 
@@ -53126,7 +52663,6 @@ oxlint --deny typescript/no-unnecessary-parameter-property-assignment
 url: >-
   /docs/guide/usage/linter/rules/typescript/no-unnecessary-template-expression.md
 ---
-# typescript/no-unnecessary-template-expression&#x20;
 
 ### What it does
 
@@ -53215,7 +52751,6 @@ oxlint --type-aware --deny typescript/no-unnecessary-template-expression
 ---
 url: /docs/guide/usage/linter/rules/typescript/no-unnecessary-type-arguments.md
 ---
-# typescript/no-unnecessary-type-arguments&#x20;
 
 ### What it does
 
@@ -53306,7 +52841,6 @@ oxlint --type-aware --deny typescript/no-unnecessary-type-arguments
 ---
 url: /docs/guide/usage/linter/rules/typescript/no-unnecessary-type-assertion.md
 ---
-# typescript/no-unnecessary-type-assertion&#x20;
 
 ### What it does
 
@@ -53406,7 +52940,6 @@ oxlint --type-aware --deny typescript/no-unnecessary-type-assertion
 ---
 url: /docs/guide/usage/linter/rules/typescript/no-unnecessary-type-constraint.md
 ---
-# typescript/no-unnecessary-type-constraint&#x20;
 
 ### What it does
 
@@ -53487,7 +53020,6 @@ oxlint --deny typescript/no-unnecessary-type-constraint
 ---
 url: /docs/guide/usage/linter/rules/typescript/no-unsafe-argument.md
 ---
-# typescript/no-unsafe-argument&#x20;
 
 ### What it does
 
@@ -53566,7 +53098,6 @@ oxlint --type-aware --deny typescript/no-unsafe-argument
 ---
 url: /docs/guide/usage/linter/rules/typescript/no-unsafe-assignment.md
 ---
-# typescript/no-unsafe-assignment&#x20;
 
 ### What it does
 
@@ -53651,7 +53182,6 @@ oxlint --type-aware --deny typescript/no-unsafe-assignment
 ---
 url: /docs/guide/usage/linter/rules/typescript/no-unsafe-call.md
 ---
-# typescript/no-unsafe-call&#x20;
 
 ### What it does
 
@@ -53728,7 +53258,6 @@ oxlint --type-aware --deny typescript/no-unsafe-call
 ---
 url: /docs/guide/usage/linter/rules/typescript/no-unsafe-declaration-merging.md
 ---
-# typescript/no-unsafe-declaration-merging&#x20;
 
 ### What it does
 
@@ -53784,7 +53313,6 @@ oxlint --deny typescript/no-unsafe-declaration-merging
 ---
 url: /docs/guide/usage/linter/rules/typescript/no-unsafe-enum-comparison.md
 ---
-# typescript/no-unsafe-enum-comparison&#x20;
 
 ### What it does
 
@@ -53879,7 +53407,6 @@ oxlint --type-aware --deny typescript/no-unsafe-enum-comparison
 ---
 url: /docs/guide/usage/linter/rules/typescript/no-unsafe-function-type.md
 ---
-# typescript/no-unsafe-function-type&#x20;
 
 ### What it does
 
@@ -53946,7 +53473,6 @@ oxlint --deny typescript/no-unsafe-function-type
 ---
 url: /docs/guide/usage/linter/rules/typescript/no-unsafe-member-access.md
 ---
-# typescript/no-unsafe-member-access&#x20;
 
 ### What it does
 
@@ -54037,7 +53563,6 @@ oxlint --type-aware --deny typescript/no-unsafe-member-access
 ---
 url: /docs/guide/usage/linter/rules/typescript/no-unsafe-return.md
 ---
-# typescript/no-unsafe-return&#x20;
 
 ### What it does
 
@@ -54121,7 +53646,6 @@ oxlint --type-aware --deny typescript/no-unsafe-return
 ---
 url: /docs/guide/usage/linter/rules/typescript/no-unsafe-type-assertion.md
 ---
-# typescript/no-unsafe-type-assertion&#x20;
 
 ### What it does
 
@@ -54191,7 +53715,6 @@ oxlint --type-aware --deny typescript/no-unsafe-type-assertion
 ---
 url: /docs/guide/usage/linter/rules/typescript/no-unsafe-unary-minus.md
 ---
-# typescript/no-unsafe-unary-minus&#x20;
 
 ### What it does
 
@@ -54273,7 +53796,6 @@ oxlint --type-aware --deny typescript/no-unsafe-unary-minus
 ---
 url: /docs/guide/usage/linter/rules/typescript/no-useless-empty-export.md
 ---
-# typescript/no-useless-empty-export&#x20;
 
 ### What it does
 
@@ -54341,7 +53863,6 @@ oxlint --deny typescript/no-useless-empty-export
 ---
 url: /docs/guide/usage/linter/rules/typescript/no-var-requires.md
 ---
-# typescript/no-var-requires&#x20;
 
 ### What it does
 
@@ -54390,7 +53911,6 @@ oxlint --deny typescript/no-var-requires
 ---
 url: /docs/guide/usage/linter/rules/typescript/no-wrapper-object-types.md
 ---
-# typescript/no-wrapper-object-types&#x20;
 
 ### What it does
 
@@ -54455,7 +53975,6 @@ oxlint --deny typescript/no-wrapper-object-types
 ---
 url: /docs/guide/usage/linter/rules/typescript/non-nullable-type-assertion-style.md
 ---
-# typescript/non-nullable-type-assertion-style&#x20;
 
 ### What it does
 
@@ -54539,7 +54058,6 @@ oxlint --type-aware --deny typescript/non-nullable-type-assertion-style
 ---
 url: /docs/guide/usage/linter/rules/typescript/only-throw-error.md
 ---
-# typescript/only-throw-error&#x20;
 
 ### What it does
 
@@ -54696,7 +54214,6 @@ oxlint --type-aware --deny typescript/only-throw-error
 ---
 url: /docs/guide/usage/linter/rules/typescript/prefer-as-const.md
 ---
-# typescript/prefer-as-const&#x20;
 
 ### What it does
 
@@ -54761,7 +54278,6 @@ oxlint --deny typescript/prefer-as-const
 ---
 url: /docs/guide/usage/linter/rules/typescript/prefer-enum-initializers.md
 ---
-# typescript/prefer-enum-initializers&#x20;
 
 ### What it does
 
@@ -54821,7 +54337,6 @@ oxlint --deny typescript/prefer-enum-initializers
 ---
 url: /docs/guide/usage/linter/rules/typescript/prefer-for-of.md
 ---
-# typescript/prefer-for-of&#x20;
 
 ### What it does
 
@@ -54880,7 +54395,6 @@ oxlint --deny typescript/prefer-for-of
 ---
 url: /docs/guide/usage/linter/rules/typescript/prefer-function-type.md
 ---
-# typescript/prefer-function-type&#x20;
 
 ### What it does
 
@@ -54971,7 +54485,6 @@ oxlint --deny typescript/prefer-function-type
 ---
 url: /docs/guide/usage/linter/rules/typescript/prefer-includes.md
 ---
-# typescript/prefer-includes&#x20;
 
 ### What it does
 
@@ -55071,7 +54584,6 @@ oxlint --type-aware --deny typescript/prefer-includes
 ---
 url: /docs/guide/usage/linter/rules/typescript/prefer-literal-enum-member.md
 ---
-# typescript/prefer-literal-enum-member&#x20;
 
 ### What it does
 
@@ -55139,7 +54651,6 @@ oxlint --deny typescript/prefer-literal-enum-member
 ---
 url: /docs/guide/usage/linter/rules/typescript/prefer-namespace-keyword.md
 ---
-# typescript/prefer-namespace-keyword&#x20;
 
 ### What it does
 
@@ -55194,7 +54705,6 @@ oxlint --deny typescript/prefer-namespace-keyword
 ---
 url: /docs/guide/usage/linter/rules/typescript/prefer-nullish-coalescing.md
 ---
-# typescript/prefer-nullish-coalescing&#x20;
 
 ### What it does
 
@@ -55348,7 +54858,6 @@ oxlint --type-aware --deny typescript/prefer-nullish-coalescing
 ---
 url: /docs/guide/usage/linter/rules/typescript/prefer-optional-chain.md
 ---
-# typescript/prefer-optional-chain&#x20;
 
 ### What it does
 
@@ -55487,7 +54996,6 @@ oxlint --type-aware --deny typescript/prefer-optional-chain
 ---
 url: /docs/guide/usage/linter/rules/typescript/prefer-promise-reject-errors.md
 ---
-# typescript/prefer-promise-reject-errors&#x20;
 
 ### What it does
 
@@ -55599,7 +55107,6 @@ oxlint --type-aware --deny typescript/prefer-promise-reject-errors
 ---
 url: /docs/guide/usage/linter/rules/typescript/prefer-reduce-type-parameter.md
 ---
-# typescript/prefer-reduce-type-parameter&#x20;
 
 ### What it does
 
@@ -55684,7 +55191,6 @@ oxlint --type-aware --deny typescript/prefer-reduce-type-parameter
 ---
 url: /docs/guide/usage/linter/rules/typescript/prefer-return-this-type.md
 ---
-# typescript/prefer-return-this-type&#x20;
 
 ### What it does
 
@@ -55791,7 +55297,6 @@ oxlint --type-aware --deny typescript/prefer-return-this-type
 ---
 url: /docs/guide/usage/linter/rules/typescript/prefer-ts-expect-error.md
 ---
-# typescript/prefer-ts-expect-error&#x20;
 
 ### What it does
 
@@ -55859,7 +55364,6 @@ oxlint --deny typescript/prefer-ts-expect-error
 ---
 url: /docs/guide/usage/linter/rules/typescript/promise-function-async.md
 ---
-# typescript/promise-function-async&#x20;
 
 ### What it does
 
@@ -56008,7 +55512,6 @@ oxlint --type-aware --deny typescript/promise-function-async
 ---
 url: /docs/guide/usage/linter/rules/typescript/related-getter-setter-pairs.md
 ---
-# typescript/related-getter-setter-pairs&#x20;
 
 ### What it does
 
@@ -56107,7 +55610,6 @@ oxlint --type-aware --deny typescript/related-getter-setter-pairs
 ---
 url: /docs/guide/usage/linter/rules/typescript/require-array-sort-compare.md
 ---
-# typescript/require-array-sort-compare&#x20;
 
 ### What it does
 
@@ -56203,7 +55705,6 @@ oxlint --type-aware --deny typescript/require-array-sort-compare
 ---
 url: /docs/guide/usage/linter/rules/typescript/require-await.md
 ---
-# typescript/require-await&#x20;
 
 ### What it does
 
@@ -56303,7 +55804,6 @@ oxlint --type-aware --deny typescript/require-await
 ---
 url: /docs/guide/usage/linter/rules/typescript/restrict-plus-operands.md
 ---
-# typescript/restrict-plus-operands&#x20;
 
 ### What it does
 
@@ -56441,7 +55941,6 @@ oxlint --type-aware --deny typescript/restrict-plus-operands
 ---
 url: /docs/guide/usage/linter/rules/typescript/restrict-template-expressions.md
 ---
-# typescript/restrict-template-expressions&#x20;
 
 ### What it does
 
@@ -56640,7 +56139,6 @@ oxlint --type-aware --deny typescript/restrict-template-expressions
 ---
 url: /docs/guide/usage/linter/rules/typescript/return-await.md
 ---
-# typescript/return-await&#x20;
 
 ### What it does
 
@@ -56763,7 +56261,6 @@ oxlint --type-aware --deny typescript/return-await
 ---
 url: /docs/guide/usage/linter/rules/typescript/strict-boolean-expressions.md
 ---
-# typescript/strict-boolean-expressions&#x20;
 
 ### What it does
 
@@ -56946,7 +56443,6 @@ oxlint --type-aware --deny typescript/strict-boolean-expressions
 ---
 url: /docs/guide/usage/linter/rules/typescript/switch-exhaustiveness-check.md
 ---
-# typescript/switch-exhaustiveness-check&#x20;
 
 ### What it does
 
@@ -57112,7 +56608,6 @@ oxlint --type-aware --deny typescript/switch-exhaustiveness-check
 ---
 url: /docs/guide/usage/linter/rules/typescript/triple-slash-reference.md
 ---
-# typescript/triple-slash-reference&#x20;
 
 ### What it does
 
@@ -57224,7 +56719,6 @@ oxlint --deny typescript/triple-slash-reference
 ---
 url: /docs/guide/usage/linter/rules/typescript/unbound-method.md
 ---
-# typescript/unbound-method&#x20;
 
 ### What it does
 
@@ -57350,7 +56844,6 @@ oxlint --type-aware --deny typescript/unbound-method
 url: >-
   /docs/guide/usage/linter/rules/typescript/use-unknown-in-catch-callback-variable.md
 ---
-# typescript/use-unknown-in-catch-callback-variable&#x20;
 
 ### What it does
 
@@ -57457,7 +56950,6 @@ oxlint --type-aware --deny typescript/use-unknown-in-catch-callback-variable
 ---
 url: /docs/guide/usage/linter/rules/unicorn/catch-error-name.md
 ---
-# unicorn/catch-error-name&#x20;
 
 ### What it does
 
@@ -57556,7 +57048,6 @@ oxlint --deny unicorn/catch-error-name
 ---
 url: /docs/guide/usage/linter/rules/unicorn/consistent-assert.md
 ---
-# unicorn/consistent-assert&#x20;
 
 ### What it does
 
@@ -57613,7 +57104,6 @@ oxlint --deny unicorn/consistent-assert
 ---
 url: /docs/guide/usage/linter/rules/unicorn/consistent-date-clone.md
 ---
-# unicorn/consistent-date-clone&#x20;
 
 ### What it does
 
@@ -57670,7 +57160,6 @@ oxlint --deny unicorn/consistent-date-clone
 ---
 url: /docs/guide/usage/linter/rules/unicorn/consistent-empty-array-spread.md
 ---
-# unicorn/consistent-empty-array-spread&#x20;
 
 ### What it does
 
@@ -57728,7 +57217,6 @@ oxlint --deny unicorn/consistent-empty-array-spread
 ---
 url: /docs/guide/usage/linter/rules/unicorn/consistent-existence-index-check.md
 ---
-# unicorn/consistent-existence-index-check&#x20;
 
 ### What it does
 
@@ -57798,7 +57286,6 @@ oxlint --deny unicorn/consistent-existence-index-check
 ---
 url: /docs/guide/usage/linter/rules/unicorn/consistent-function-scoping.md
 ---
-# unicorn/consistent-function-scoping&#x20;
 
 ### What it does
 
@@ -57929,7 +57416,6 @@ oxlint --deny unicorn/consistent-function-scoping
 ---
 url: /docs/guide/usage/linter/rules/unicorn/empty-brace-spaces.md
 ---
-# unicorn/empty-brace-spaces&#x20;
 
 ### What it does
 
@@ -57988,7 +57474,6 @@ oxlint --deny unicorn/empty-brace-spaces
 ---
 url: /docs/guide/usage/linter/rules/unicorn/error-message.md
 ---
-# unicorn/error-message&#x20;
 
 ### What it does
 
@@ -58046,7 +57531,6 @@ oxlint --deny unicorn/error-message
 ---
 url: /docs/guide/usage/linter/rules/unicorn/escape-case.md
 ---
-# unicorn/escape-case&#x20;
 
 ### What it does
 
@@ -58107,7 +57591,6 @@ oxlint --deny unicorn/escape-case
 ---
 url: /docs/guide/usage/linter/rules/unicorn/explicit-length-check.md
 ---
-# unicorn/explicit-length-check&#x20;
 
 ### What it does
 
@@ -58181,7 +57664,6 @@ oxlint --deny unicorn/explicit-length-check
 ---
 url: /docs/guide/usage/linter/rules/unicorn/filename-case.md
 ---
-# unicorn/filename-case&#x20;
 
 ### What it does
 
@@ -58357,7 +57839,6 @@ oxlint --deny unicorn/filename-case
 ---
 url: /docs/guide/usage/linter/rules/unicorn/new-for-builtins.md
 ---
-# unicorn/new-for-builtins&#x20;
 
 ### What it does
 
@@ -58419,7 +57900,6 @@ oxlint --deny unicorn/new-for-builtins
 ---
 url: /docs/guide/usage/linter/rules/unicorn/no-abusive-eslint-disable.md
 ---
-# unicorn/no-abusive-eslint-disable&#x20;
 
 ### What it does
 
@@ -58505,7 +57985,6 @@ oxlint --deny unicorn/no-abusive-eslint-disable
 ---
 url: /docs/guide/usage/linter/rules/unicorn/no-accessor-recursion.md
 ---
-# unicorn/no-accessor-recursion&#x20;
 
 ### What it does
 
@@ -58567,7 +58046,6 @@ oxlint --deny unicorn/no-accessor-recursion
 ---
 url: /docs/guide/usage/linter/rules/unicorn/no-anonymous-default-export.md
 ---
-# unicorn/no-anonymous-default-export&#x20;
 
 ### What it does
 
@@ -58636,7 +58114,6 @@ oxlint --deny unicorn/no-anonymous-default-export
 ---
 url: /docs/guide/usage/linter/rules/unicorn/no-array-callback-reference.md
 ---
-# unicorn/no-array-callback-reference&#x20;
 
 ### What it does
 
@@ -58701,7 +58178,6 @@ oxlint --deny unicorn/no-array-callback-reference
 ---
 url: /docs/guide/usage/linter/rules/unicorn/no-array-for-each.md
 ---
-# unicorn/no-array-for-each&#x20;
 
 ### What it does
 
@@ -58766,7 +58242,6 @@ oxlint --deny unicorn/no-array-for-each
 ---
 url: /docs/guide/usage/linter/rules/unicorn/no-array-method-this-argument.md
 ---
-# unicorn/no-array-method-this-argument&#x20;
 
 ### What it does
 
@@ -58832,7 +58307,6 @@ oxlint --deny unicorn/no-array-method-this-argument
 ---
 url: /docs/guide/usage/linter/rules/unicorn/no-array-reduce.md
 ---
-# unicorn/no-array-reduce&#x20;
 
 ### What it does
 
@@ -58894,7 +58368,6 @@ oxlint --deny unicorn/no-array-reduce
 ---
 url: /docs/guide/usage/linter/rules/unicorn/no-array-reverse.md
 ---
-# unicorn/no-array-reverse&#x20;
 
 ### What it does
 
@@ -58967,7 +58440,6 @@ oxlint --deny unicorn/no-array-reverse
 ---
 url: /docs/guide/usage/linter/rules/unicorn/no-array-sort.md
 ---
-# unicorn/no-array-sort&#x20;
 
 ### What it does
 
@@ -59040,7 +58512,6 @@ oxlint --deny unicorn/no-array-sort
 ---
 url: /docs/guide/usage/linter/rules/unicorn/no-await-expression-member.md
 ---
-# unicorn/no-await-expression-member&#x20;
 
 ### What it does
 
@@ -59098,7 +58569,6 @@ oxlint --deny unicorn/no-await-expression-member
 ---
 url: /docs/guide/usage/linter/rules/unicorn/no-await-in-promise-methods.md
 ---
-# unicorn/no-await-in-promise-methods&#x20;
 
 ### What it does
 
@@ -59163,7 +58633,6 @@ oxlint --deny unicorn/no-await-in-promise-methods
 ---
 url: /docs/guide/usage/linter/rules/unicorn/no-console-spaces.md
 ---
-# unicorn/no-console-spaces&#x20;
 
 ### What it does
 
@@ -59216,7 +58685,6 @@ oxlint --deny unicorn/no-console-spaces
 ---
 url: /docs/guide/usage/linter/rules/unicorn/no-document-cookie.md
 ---
-# unicorn/no-document-cookie&#x20;
 
 ### What it does
 
@@ -59287,7 +58755,6 @@ oxlint --deny unicorn/no-document-cookie
 ---
 url: /docs/guide/usage/linter/rules/unicorn/no-empty-file.md
 ---
-# unicorn/no-empty-file&#x20;
 
 ### What it does
 
@@ -59337,7 +58804,6 @@ oxlint --deny unicorn/no-empty-file
 ---
 url: /docs/guide/usage/linter/rules/unicorn/no-hex-escape.md
 ---
-# unicorn/no-hex-escape&#x20;
 
 ### What it does
 
@@ -59390,7 +58856,6 @@ oxlint --deny unicorn/no-hex-escape
 ---
 url: /docs/guide/usage/linter/rules/unicorn/no-immediate-mutation.md
 ---
-# unicorn/no-immediate-mutation&#x20;
 
 ### What it does
 
@@ -59464,7 +58929,6 @@ oxlint --deny unicorn/no-immediate-mutation
 ---
 url: /docs/guide/usage/linter/rules/unicorn/no-instanceof-array.md
 ---
-# unicorn/no-instanceof-array&#x20;
 
 ### What it does
 
@@ -59519,7 +58983,6 @@ oxlint --deny unicorn/no-instanceof-array
 ---
 url: /docs/guide/usage/linter/rules/unicorn/no-instanceof-builtins.md
 ---
-# unicorn/no-instanceof-builtins&#x20;
 
 ### What it does
 
@@ -59621,7 +59084,6 @@ oxlint --deny unicorn/no-instanceof-builtins
 ---
 url: /docs/guide/usage/linter/rules/unicorn/no-invalid-fetch-options.md
 ---
-# unicorn/no-invalid-fetch-options&#x20;
 
 ### What it does
 
@@ -59681,7 +59143,6 @@ oxlint --deny unicorn/no-invalid-fetch-options
 ---
 url: /docs/guide/usage/linter/rules/unicorn/no-invalid-remove-event-listener.md
 ---
-# unicorn/no-invalid-remove-event-listener&#x20;
 
 ### What it does
 
@@ -59736,7 +59197,6 @@ oxlint --deny unicorn/no-invalid-remove-event-listener
 ---
 url: /docs/guide/usage/linter/rules/unicorn/no-length-as-slice-end.md
 ---
-# unicorn/no-length-as-slice-end&#x20;
 
 ### What it does
 
@@ -59789,7 +59249,6 @@ oxlint --deny unicorn/no-length-as-slice-end
 ---
 url: /docs/guide/usage/linter/rules/unicorn/no-lonely-if.md
 ---
-# unicorn/no-lonely-if&#x20;
 
 ### What it does
 
@@ -59848,7 +59307,6 @@ oxlint --deny unicorn/no-lonely-if
 ---
 url: /docs/guide/usage/linter/rules/unicorn/no-magic-array-flat-depth.md
 ---
-# unicorn/no-magic-array-flat-depth&#x20;
 
 ### What it does
 
@@ -59905,7 +59363,6 @@ oxlint --deny unicorn/no-magic-array-flat-depth
 ---
 url: /docs/guide/usage/linter/rules/unicorn/no-negation-in-equality-check.md
 ---
-# unicorn/no-negation-in-equality-check&#x20;
 
 ### What it does
 
@@ -59966,7 +59423,6 @@ oxlint --deny unicorn/no-negation-in-equality-check
 ---
 url: /docs/guide/usage/linter/rules/unicorn/no-nested-ternary.md
 ---
-# unicorn/no-nested-ternary&#x20;
 
 ### What it does
 
@@ -60022,7 +59478,6 @@ oxlint --deny unicorn/no-nested-ternary
 ---
 url: /docs/guide/usage/linter/rules/unicorn/no-new-array.md
 ---
-# unicorn/no-new-array&#x20;
 
 ### What it does
 
@@ -60078,7 +59533,6 @@ oxlint --deny unicorn/no-new-array
 ---
 url: /docs/guide/usage/linter/rules/unicorn/no-new-buffer.md
 ---
-# unicorn/no-new-buffer&#x20;
 
 ### What it does
 
@@ -60131,7 +59585,6 @@ oxlint --deny unicorn/no-new-buffer
 ---
 url: /docs/guide/usage/linter/rules/unicorn/no-null.md
 ---
-# unicorn/no-null&#x20;
 
 ### What it does
 
@@ -60200,7 +59653,6 @@ oxlint --deny unicorn/no-null
 ---
 url: /docs/guide/usage/linter/rules/unicorn/no-object-as-default-parameter.md
 ---
-# unicorn/no-object-as-default-parameter&#x20;
 
 ### What it does
 
@@ -60253,7 +59705,6 @@ oxlint --deny unicorn/no-object-as-default-parameter
 ---
 url: /docs/guide/usage/linter/rules/unicorn/no-process-exit.md
 ---
-# unicorn/no-process-exit&#x20;
 
 ### What it does
 
@@ -60311,7 +59762,6 @@ oxlint --deny unicorn/no-process-exit
 ---
 url: /docs/guide/usage/linter/rules/unicorn/no-single-promise-in-promise-methods.md
 ---
-# unicorn/no-single-promise-in-promise-methods&#x20;
 
 ### What it does
 
@@ -60376,7 +59826,6 @@ oxlint --deny unicorn/no-single-promise-in-promise-methods
 ---
 url: /docs/guide/usage/linter/rules/unicorn/no-static-only-class.md
 ---
-# unicorn/no-static-only-class&#x20;
 
 ### What it does
 
@@ -60449,7 +59898,6 @@ oxlint --deny unicorn/no-static-only-class
 ---
 url: /docs/guide/usage/linter/rules/unicorn/no-thenable.md
 ---
-# unicorn/no-thenable&#x20;
 
 ### What it does
 
@@ -60521,7 +59969,6 @@ oxlint --deny unicorn/no-thenable
 ---
 url: /docs/guide/usage/linter/rules/unicorn/no-this-assignment.md
 ---
-# unicorn/no-this-assignment&#x20;
 
 ### What it does
 
@@ -60590,7 +60037,6 @@ oxlint --deny unicorn/no-this-assignment
 ---
 url: /docs/guide/usage/linter/rules/unicorn/no-typeof-undefined.md
 ---
-# unicorn/no-typeof-undefined&#x20;
 
 ### What it does
 
@@ -60656,7 +60102,6 @@ oxlint --deny unicorn/no-typeof-undefined
 ---
 url: /docs/guide/usage/linter/rules/unicorn/no-unnecessary-array-flat-depth.md
 ---
-# unicorn/no-unnecessary-array-flat-depth&#x20;
 
 ### What it does
 
@@ -60709,7 +60154,6 @@ oxlint --deny unicorn/no-unnecessary-array-flat-depth
 ---
 url: /docs/guide/usage/linter/rules/unicorn/no-unnecessary-array-splice-count.md
 ---
-# unicorn/no-unnecessary-array-splice-count&#x20;
 
 ### What it does
 
@@ -60768,7 +60212,6 @@ oxlint --deny unicorn/no-unnecessary-array-splice-count
 ---
 url: /docs/guide/usage/linter/rules/unicorn/no-unnecessary-await.md
 ---
-# unicorn/no-unnecessary-await&#x20;
 
 ### What it does
 
@@ -60825,7 +60268,6 @@ oxlint --deny unicorn/no-unnecessary-await
 ---
 url: /docs/guide/usage/linter/rules/unicorn/no-unnecessary-slice-end.md
 ---
-# unicorn/no-unnecessary-slice-end&#x20;
 
 ### What it does
 
@@ -60882,7 +60324,6 @@ oxlint --deny unicorn/no-unnecessary-slice-end
 ---
 url: /docs/guide/usage/linter/rules/unicorn/no-unreadable-array-destructuring.md
 ---
-# unicorn/no-unreadable-array-destructuring&#x20;
 
 ### What it does
 
@@ -60936,7 +60377,6 @@ oxlint --deny unicorn/no-unreadable-array-destructuring
 ---
 url: /docs/guide/usage/linter/rules/unicorn/no-unreadable-iife.md
 ---
-# unicorn/no-unreadable-iife&#x20;
 
 ### What it does
 
@@ -60999,7 +60439,6 @@ oxlint --deny unicorn/no-unreadable-iife
 ---
 url: /docs/guide/usage/linter/rules/unicorn/no-useless-collection-argument.md
 ---
-# unicorn/no-useless-collection-argument&#x20;
 
 ### What it does
 
@@ -61067,7 +60506,6 @@ oxlint --deny unicorn/no-useless-collection-argument
 ---
 url: /docs/guide/usage/linter/rules/unicorn/no-useless-error-capture-stack-trace.md
 ---
-# unicorn/no-useless-error-capture-stack-trace&#x20;
 
 ### What it does
 
@@ -61129,7 +60567,6 @@ oxlint --deny unicorn/no-useless-error-capture-stack-trace
 ---
 url: /docs/guide/usage/linter/rules/unicorn/no-useless-fallback-in-spread.md
 ---
-# unicorn/no-useless-fallback-in-spread&#x20;
 
 ### What it does
 
@@ -61183,7 +60620,6 @@ oxlint --deny unicorn/no-useless-fallback-in-spread
 ---
 url: /docs/guide/usage/linter/rules/unicorn/no-useless-length-check.md
 ---
-# unicorn/no-useless-length-check&#x20;
 
 ### What it does
 
@@ -61245,7 +60681,6 @@ oxlint --deny unicorn/no-useless-length-check
 ---
 url: /docs/guide/usage/linter/rules/unicorn/no-useless-promise-resolve-reject.md
 ---
-# unicorn/no-useless-promise-resolve-reject&#x20;
 
 ### What it does
 
@@ -61310,7 +60745,6 @@ oxlint --deny unicorn/no-useless-promise-resolve-reject
 ---
 url: /docs/guide/usage/linter/rules/unicorn/no-useless-spread.md
 ---
-# unicorn/no-useless-spread&#x20;
 
 ### What it does
 
@@ -61409,7 +60843,6 @@ oxlint --deny unicorn/no-useless-spread
 ---
 url: /docs/guide/usage/linter/rules/unicorn/no-useless-switch-case.md
 ---
-# unicorn/no-useless-switch-case&#x20;
 
 ### What it does
 
@@ -61472,7 +60905,6 @@ oxlint --deny unicorn/no-useless-switch-case
 ---
 url: /docs/guide/usage/linter/rules/unicorn/no-useless-undefined.md
 ---
-# unicorn/no-useless-undefined&#x20;
 
 ### What it does
 
@@ -61545,7 +60977,6 @@ oxlint --deny unicorn/no-useless-undefined
 ---
 url: /docs/guide/usage/linter/rules/unicorn/no-zero-fractions.md
 ---
-# unicorn/no-zero-fractions&#x20;
 
 ### What it does
 
@@ -61603,7 +61034,6 @@ oxlint --deny unicorn/no-zero-fractions
 ---
 url: /docs/guide/usage/linter/rules/unicorn/number-literal-case.md
 ---
-# unicorn/number-literal-case&#x20;
 
 ### What it does
 
@@ -61671,7 +61101,6 @@ oxlint --deny unicorn/number-literal-case
 ---
 url: /docs/guide/usage/linter/rules/unicorn/numeric-separators-style.md
 ---
-# unicorn/numeric-separators-style&#x20;
 
 ### What it does
 
@@ -61826,7 +61255,6 @@ oxlint --deny unicorn/numeric-separators-style
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-add-event-listener.md
 ---
-# unicorn/prefer-add-event-listener&#x20;
 
 ### What it does
 
@@ -61881,7 +61309,6 @@ oxlint --deny unicorn/prefer-add-event-listener
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-array-find.md
 ---
-# unicorn/prefer-array-find&#x20;
 
 ### What it does
 
@@ -61937,62 +61364,8 @@ oxlint --deny unicorn/prefer-array-find
 ---
 
 ---
-url: /docs/guide/usage/linter/rules/unicorn/prefer-array-flat-map.md
----
-# unicorn/prefer-array-flat-map&#x20;
-
-### What it does
-
-Prefers the use of `.flatMap()` when `map().flat()` are used together.
-
-### Why is this bad?
-
-It is slightly more efficient to use `.flatMap(…)` instead of `.map(…).flat()`.
-
-### Examples
-
-Examples of **incorrect** code for this rule:
-
-```javascript
-const bar = [1, 2, 3].map((i) => [i]).flat();
-```
-
-Examples of **correct** code for this rule:
-
-```javascript
-const bar = [1, 2, 3].flatMap((i) => [i]);
-```
-
-## How to use
-
-To **enable** this rule using the config file or in the CLI, you can use:
-
-::: code-group
-
-```json [Config (.oxlintrc.json)]
-{
-  "rules": {
-    "unicorn/prefer-array-flat-map": "error"
-  }
-}
-```
-
-```bash [CLI]
-oxlint --deny unicorn/prefer-array-flat-map
-```
-
-:::
-
-## References
-
-* Rule Source
-
----
-
----
 url: /docs/guide/usage/linter/rules/unicorn/prefer-array-flat.md
 ---
-# unicorn/prefer-array-flat&#x20;
 
 ### What it does
 
@@ -62054,9 +61427,60 @@ oxlint --deny unicorn/prefer-array-flat
 ---
 
 ---
+url: /docs/guide/usage/linter/rules/unicorn/prefer-array-flat-map.md
+---
+
+### What it does
+
+Prefers the use of `.flatMap()` when `map().flat()` are used together.
+
+### Why is this bad?
+
+It is slightly more efficient to use `.flatMap(…)` instead of `.map(…).flat()`.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```javascript
+const bar = [1, 2, 3].map((i) => [i]).flat();
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
+const bar = [1, 2, 3].flatMap((i) => [i]);
+```
+
+## How to use
+
+To **enable** this rule using the config file or in the CLI, you can use:
+
+::: code-group
+
+```json [Config (.oxlintrc.json)]
+{
+  "rules": {
+    "unicorn/prefer-array-flat-map": "error"
+  }
+}
+```
+
+```bash [CLI]
+oxlint --deny unicorn/prefer-array-flat-map
+```
+
+:::
+
+## References
+
+* Rule Source
+
+---
+
+---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-array-index-of.md
 ---
-# unicorn/prefer-array-index-of&#x20;
 
 ### What it does
 
@@ -62114,7 +61538,6 @@ oxlint --deny unicorn/prefer-array-index-of
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-array-some.md
 ---
-# unicorn/prefer-array-some&#x20;
 
 ### What it does
 
@@ -62176,7 +61599,6 @@ oxlint --deny unicorn/prefer-array-some
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-at.md
 ---
-# unicorn/prefer-at&#x20;
 
 ### What it does
 
@@ -62256,7 +61678,6 @@ oxlint --deny unicorn/prefer-at
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-bigint-literals.md
 ---
-# unicorn/prefer-bigint-literals&#x20;
 
 ### What it does
 
@@ -62323,7 +61744,6 @@ oxlint --deny unicorn/prefer-bigint-literals
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-blob-reading-methods.md
 ---
-# unicorn/prefer-blob-reading-methods&#x20;
 
 ### What it does
 
@@ -62389,7 +61809,6 @@ oxlint --deny unicorn/prefer-blob-reading-methods
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-class-fields.md
 ---
-# unicorn/prefer-class-fields&#x20;
 
 ### What it does
 
@@ -62450,7 +61869,6 @@ oxlint --deny unicorn/prefer-class-fields
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-classlist-toggle.md
 ---
-# unicorn/prefer-classlist-toggle&#x20;
 
 ### What it does
 
@@ -62513,7 +61931,6 @@ oxlint --deny unicorn/prefer-classlist-toggle
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-code-point.md
 ---
-# unicorn/prefer-code-point&#x20;
 
 ### What it does
 
@@ -62571,7 +61988,6 @@ oxlint --deny unicorn/prefer-code-point
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-date-now.md
 ---
-# unicorn/prefer-date-now&#x20;
 
 ### What it does
 
@@ -62625,7 +62041,6 @@ oxlint --deny unicorn/prefer-date-now
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-default-parameters.md
 ---
-# unicorn/prefer-default-parameters&#x20;
 
 ### What it does
 
@@ -62695,7 +62110,6 @@ oxlint --deny unicorn/prefer-default-parameters
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-dom-node-append.md
 ---
-# unicorn/prefer-dom-node-append&#x20;
 
 ### What it does
 
@@ -62748,7 +62162,6 @@ oxlint --deny unicorn/prefer-dom-node-append
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-dom-node-dataset.md
 ---
-# unicorn/prefer-dom-node-dataset&#x20;
 
 ### What it does
 
@@ -62801,7 +62214,6 @@ oxlint --deny unicorn/prefer-dom-node-dataset
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-dom-node-remove.md
 ---
-# unicorn/prefer-dom-node-remove&#x20;
 
 ### What it does
 
@@ -62854,7 +62266,6 @@ oxlint --deny unicorn/prefer-dom-node-remove
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-dom-node-text-content.md
 ---
-# unicorn/prefer-dom-node-text-content&#x20;
 
 ### What it does
 
@@ -62911,7 +62322,6 @@ oxlint --deny unicorn/prefer-dom-node-text-content
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-event-target.md
 ---
-# unicorn/prefer-event-target&#x20;
 
 ### What it does
 
@@ -62968,7 +62378,6 @@ oxlint --deny unicorn/prefer-event-target
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-global-this.md
 ---
-# unicorn/prefer-global-this&#x20;
 
 ### What it does
 
@@ -63041,7 +62450,6 @@ oxlint --deny unicorn/prefer-global-this
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-includes.md
 ---
-# unicorn/prefer-includes&#x20;
 
 ### What it does
 
@@ -63097,7 +62505,6 @@ oxlint --deny unicorn/prefer-includes
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-keyboard-event-key.md
 ---
-# unicorn/prefer-keyboard-event-key&#x20;
 
 ### What it does
 
@@ -63167,7 +62574,6 @@ oxlint --deny unicorn/prefer-keyboard-event-key
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-logical-operator-over-ternary.md
 ---
-# unicorn/prefer-logical-operator-over-ternary&#x20;
 
 ### What it does
 
@@ -63222,7 +62628,6 @@ oxlint --deny unicorn/prefer-logical-operator-over-ternary
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-math-min-max.md
 ---
-# unicorn/prefer-math-min-max&#x20;
 
 ### What it does
 
@@ -63281,7 +62686,6 @@ oxlint --deny unicorn/prefer-math-min-max
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-math-trunc.md
 ---
-# unicorn/prefer-math-trunc&#x20;
 
 ### What it does
 
@@ -63342,7 +62746,6 @@ oxlint --deny unicorn/prefer-math-trunc
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-modern-dom-apis.md
 ---
-# unicorn/prefer-modern-dom-apis&#x20;
 
 ### What it does
 
@@ -63404,7 +62807,6 @@ oxlint --deny unicorn/prefer-modern-dom-apis
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-modern-math-apis.md
 ---
-# unicorn/prefer-modern-math-apis&#x20;
 
 ### What it does
 
@@ -63464,7 +62866,6 @@ oxlint --deny unicorn/prefer-modern-math-apis
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-native-coercion-functions.md
 ---
-# unicorn/prefer-native-coercion-functions&#x20;
 
 ### What it does
 
@@ -63523,7 +62924,6 @@ oxlint --deny unicorn/prefer-native-coercion-functions
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-negative-index.md
 ---
-# unicorn/prefer-negative-index&#x20;
 
 ### What it does
 
@@ -63578,7 +62978,6 @@ oxlint --deny unicorn/prefer-negative-index
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-node-protocol.md
 ---
-# unicorn/prefer-node-protocol&#x20;
 
 ### What it does
 
@@ -63631,7 +63030,6 @@ oxlint --deny unicorn/prefer-node-protocol
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-number-properties.md
 ---
-# unicorn/prefer-number-properties&#x20;
 
 ### What it does
 
@@ -63714,7 +63112,6 @@ oxlint --deny unicorn/prefer-number-properties
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-object-from-entries.md
 ---
-# unicorn/prefer-object-from-entries&#x20;
 
 ### What it does
 
@@ -63790,7 +63187,6 @@ oxlint --deny unicorn/prefer-object-from-entries
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-optional-catch-binding.md
 ---
-# unicorn/prefer-optional-catch-binding&#x20;
 
 ### What it does
 
@@ -63847,7 +63243,6 @@ oxlint --deny unicorn/prefer-optional-catch-binding
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-prototype-methods.md
 ---
-# unicorn/prefer-prototype-methods&#x20;
 
 ### What it does
 
@@ -63905,7 +63300,6 @@ oxlint --deny unicorn/prefer-prototype-methods
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-query-selector.md
 ---
-# unicorn/prefer-query-selector&#x20;
 
 ### What it does
 
@@ -63967,7 +63361,6 @@ oxlint --deny unicorn/prefer-query-selector
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-reflect-apply.md
 ---
-# unicorn/prefer-reflect-apply&#x20;
 
 ### What it does
 
@@ -64020,7 +63413,6 @@ oxlint --deny unicorn/prefer-reflect-apply
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-regexp-test.md
 ---
-# unicorn/prefer-regexp-test&#x20;
 
 ### What it does
 
@@ -64082,7 +63474,6 @@ oxlint --deny unicorn/prefer-regexp-test
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-response-static-json.md
 ---
-# unicorn/prefer-response-static-json&#x20;
 
 ### What it does
 
@@ -64139,7 +63530,6 @@ oxlint --deny unicorn/prefer-response-static-json
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-set-has.md
 ---
-# unicorn/prefer-set-has&#x20;
 
 ### What it does
 
@@ -64199,7 +63589,6 @@ oxlint --deny unicorn/prefer-set-has
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-set-size.md
 ---
-# unicorn/prefer-set-size&#x20;
 
 ### What it does
 
@@ -64252,7 +63641,6 @@ oxlint --deny unicorn/prefer-set-size
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-spread.md
 ---
-# unicorn/prefer-spread&#x20;
 
 ### What it does
 
@@ -64307,7 +63695,6 @@ oxlint --deny unicorn/prefer-spread
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-string-raw.md
 ---
-# unicorn/prefer-string-raw&#x20;
 
 ### What it does
 
@@ -64362,7 +63749,6 @@ oxlint --deny unicorn/prefer-string-raw
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-string-replace-all.md
 ---
-# unicorn/prefer-string-replace-all&#x20;
 
 ### What it does
 
@@ -64419,7 +63805,6 @@ oxlint --deny unicorn/prefer-string-replace-all
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-string-slice.md
 ---
-# unicorn/prefer-string-slice&#x20;
 
 ### What it does
 
@@ -64472,7 +63857,6 @@ oxlint --deny unicorn/prefer-string-slice
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-string-starts-ends-with.md
 ---
-# unicorn/prefer-string-starts-ends-with&#x20;
 
 ### What it does
 
@@ -64527,7 +63911,6 @@ oxlint --deny unicorn/prefer-string-starts-ends-with
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-string-trim-start-end.md
 ---
-# unicorn/prefer-string-trim-start-end&#x20;
 
 ### What it does
 
@@ -64582,7 +63965,6 @@ oxlint --deny unicorn/prefer-string-trim-start-end
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-structured-clone.md
 ---
-# unicorn/prefer-structured-clone&#x20;
 
 ### What it does
 
@@ -64649,7 +64031,6 @@ oxlint --deny unicorn/prefer-structured-clone
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-top-level-await.md
 ---
-# unicorn/prefer-top-level-await&#x20;
 
 ### What it does
 
@@ -64714,7 +64095,6 @@ oxlint --deny unicorn/prefer-top-level-await
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-type-error.md
 ---
-# unicorn/prefer-type-error&#x20;
 
 ### What it does
 
@@ -64771,7 +64151,6 @@ oxlint --deny unicorn/prefer-type-error
 ---
 url: /docs/guide/usage/linter/rules/unicorn/require-array-join-separator.md
 ---
-# unicorn/require-array-join-separator&#x20;
 
 ### What it does
 
@@ -64825,7 +64204,6 @@ oxlint --deny unicorn/require-array-join-separator
 ---
 url: /docs/guide/usage/linter/rules/unicorn/require-module-attributes.md
 ---
-# unicorn/require-module-attributes&#x20;
 
 ### What it does
 
@@ -64892,7 +64270,6 @@ oxlint --deny unicorn/require-module-attributes
 ---
 url: /docs/guide/usage/linter/rules/unicorn/require-module-specifiers.md
 ---
-# unicorn/require-module-specifiers&#x20;
 
 ### What it does
 
@@ -64951,7 +64328,6 @@ oxlint --deny unicorn/require-module-specifiers
 url: >-
   /docs/guide/usage/linter/rules/unicorn/require-number-to-fixed-digits-argument.md
 ---
-# unicorn/require-number-to-fixed-digits-argument&#x20;
 
 ### What it does
 
@@ -65006,7 +64382,6 @@ oxlint --deny unicorn/require-number-to-fixed-digits-argument
 ---
 url: /docs/guide/usage/linter/rules/unicorn/require-post-message-target-origin.md
 ---
-# unicorn/require-post-message-target-origin&#x20;
 
 ### What it does
 
@@ -65062,7 +64437,6 @@ oxlint --deny unicorn/require-post-message-target-origin
 ---
 url: /docs/guide/usage/linter/rules/unicorn/switch-case-braces.md
 ---
-# unicorn/switch-case-braces&#x20;
 
 ### What it does
 
@@ -65147,7 +64521,6 @@ oxlint --deny unicorn/switch-case-braces
 ---
 url: /docs/guide/usage/linter/rules/unicorn/text-encoding-identifier-case.md
 ---
-# unicorn/text-encoding-identifier-case&#x20;
 
 ### What it does
 
@@ -65216,7 +64589,6 @@ oxlint --deny unicorn/text-encoding-identifier-case
 ---
 url: /docs/guide/usage/linter/rules/unicorn/throw-new-error.md
 ---
-# unicorn/throw-new-error&#x20;
 
 ### What it does
 
@@ -65317,67 +64689,6 @@ Not fully implemented. See:
 
 > oxfmt: embedded formatting full support (aka xxx-in-js) · Issue #15180 · oxc-project/oxc\
 > https://github.com/oxc-project/oxc/issues/15180
-
----
-
----
-url: /docs/guide/usage/formatter/generated-cli.md
----
-
-## Usage
-
-**`oxfmt`** \[**`-c`**=*`PATH`*] \[*`PATH`*]...
-
-## Mode Options:
-
-* **`    --init`** —
-  Initialize `.oxfmtrc.json` with default values
-* **`    --migrate`**=*`SOURCE`* —
-  Migrate configuration to `.oxfmtrc.json` from specified source Available sources: prettier
-* **`    --lsp`** —
-  Start language server protocol (LSP) server
-* **`    --stdin-filepath`**=*`PATH`* —
-  Specify the file name to use to infer which parser to use
-
-## Output Options:
-
-* **`    --write`** —
-  Format and write files in place (default)
-* **`    --check`** —
-  Check if files are formatted, also show statistics
-* **`    --list-different`** —
-  List files that would be changed
-
-## Config Options
-
-* **`-c`**, **`--config`**=*`PATH`* —
-  Path to the configuration file
-
-## Ignore Options
-
-* **`    --ignore-path`**=*`PATH`* —
-  Path to ignore file(s). Can be specified multiple times. If not specified, .gitignore and .prettierignore in the current directory are used.
-* **`    --with-node-modules`** —
-  Format code in node\_modules directory (skipped by default)
-
-## Runtime Options
-
-* **`    --no-error-on-unmatched-pattern`** —
-  Do not exit with error when pattern is unmatched
-* **`    --threads`**=*`INT`* —
-  Number of threads to use. Set to 1 for using only 1 CPU core.
-
-## Available positional items:
-
-* *`PATH`* —
-  Single file, single path or list of paths. If not provided, current working directory is used. Glob is supported only for exclude patterns like `'!**/fixtures/*.js'`.
-
-## Available options:
-
-* **`-h`**, **`--help`** —
-  Prints help information
-* **`-V`**, **`--version`** —
-  Prints version information
 
 ---
 
@@ -65538,6 +64849,67 @@ Arguments:
 ---
 
 ---
+url: /docs/guide/usage/formatter/generated-cli.md
+---
+
+## Usage
+
+**`oxfmt`** \[**`-c`**=*`PATH`*] \[*`PATH`*]...
+
+## Mode Options:
+
+* **`    --init`** —
+  Initialize `.oxfmtrc.json` with default values
+* **`    --migrate`**=*`SOURCE`* —
+  Migrate configuration to `.oxfmtrc.json` from specified source Available sources: prettier
+* **`    --lsp`** —
+  Start language server protocol (LSP) server
+* **`    --stdin-filepath`**=*`PATH`* —
+  Specify the file name to use to infer which parser to use
+
+## Output Options:
+
+* **`    --write`** —
+  Format and write files in place (default)
+* **`    --check`** —
+  Check if files are formatted, also show statistics
+* **`    --list-different`** —
+  List files that would be changed
+
+## Config Options
+
+* **`-c`**, **`--config`**=*`PATH`* —
+  Path to the configuration file
+
+## Ignore Options
+
+* **`    --ignore-path`**=*`PATH`* —
+  Path to ignore file(s). Can be specified multiple times. If not specified, .gitignore and .prettierignore in the current directory are used.
+* **`    --with-node-modules`** —
+  Format code in node\_modules directory (skipped by default)
+
+## Runtime Options
+
+* **`    --no-error-on-unmatched-pattern`** —
+  Do not exit with error when pattern is unmatched
+* **`    --threads`**=*`INT`* —
+  Number of threads to use. Set to 1 for using only 1 CPU core.
+
+## Available positional items:
+
+* *`PATH`* —
+  Single file, single path or list of paths. If not provided, current working directory is used. Glob is supported only for exclude patterns like `'!**/fixtures/*.js'`.
+
+## Available options:
+
+* **`-h`**, **`--help`** —
+  Prints help information
+* **`-V`**, **`--version`** —
+  Prints version information
+
+---
+
+---
 url: /docs/guide/usage/linter/versioning.md
 ---
 
@@ -65621,7 +64993,6 @@ updates:
 ---
 url: /docs/guide/usage/linter/rules/vitest/consistent-each-for.md
 ---
-# vitest/consistent-each-for&#x20;
 
 ### What it does
 
@@ -65713,7 +65084,6 @@ oxlint --deny vitest/consistent-each-for --vitest-plugin
 ---
 url: /docs/guide/usage/linter/rules/vitest/consistent-test-filename.md
 ---
-# vitest/consistent-test-filename&#x20;
 
 ### What it does
 
@@ -65783,7 +65153,6 @@ oxlint --deny vitest/consistent-test-filename --vitest-plugin
 ---
 url: /docs/guide/usage/linter/rules/vitest/consistent-vitest-vi.md
 ---
-# vitest/consistent-vitest-vi&#x20;
 
 ### What it does
 
@@ -65854,7 +65223,6 @@ oxlint --deny vitest/consistent-vitest-vi --vitest-plugin
 ---
 url: /docs/guide/usage/linter/rules/vitest/hoisted-apis-on-top.md
 ---
-# vitest/hoisted-apis-on-top&#x20;
 
 ### What it does
 
@@ -65963,7 +65331,6 @@ oxlint --deny vitest/hoisted-apis-on-top --vitest-plugin
 ---
 url: /docs/guide/usage/linter/rules/vitest/no-conditional-tests.md
 ---
-# vitest/no-conditional-tests&#x20;
 
 ### What it does
 
@@ -66030,7 +65397,6 @@ oxlint --deny vitest/no-conditional-tests --vitest-plugin
 ---
 url: /docs/guide/usage/linter/rules/vitest/no-import-node-test.md
 ---
-# vitest/no-import-node-test&#x20;
 
 ### What it does
 
@@ -66096,7 +65462,6 @@ oxlint --deny vitest/no-import-node-test --vitest-plugin
 ---
 url: /docs/guide/usage/linter/rules/vitest/no-unneeded-async-expect-function.md
 ---
-# vitest/no-unneeded-async-expect-function&#x20;
 
 ### What it does
 
@@ -66156,7 +65521,6 @@ oxlint --deny vitest/no-unneeded-async-expect-function --vitest-plugin
 ---
 url: /docs/guide/usage/linter/rules/vitest/prefer-called-once.md
 ---
-# vitest/prefer-called-once&#x20;
 
 ### What it does
 
@@ -66223,7 +65587,6 @@ oxlint --deny vitest/prefer-called-once --vitest-plugin
 ---
 url: /docs/guide/usage/linter/rules/vitest/prefer-called-times.md
 ---
-# vitest/prefer-called-times&#x20;
 
 ### What it does
 
@@ -66287,7 +65650,6 @@ oxlint --deny vitest/prefer-called-times --vitest-plugin
 ---
 url: /docs/guide/usage/linter/rules/vitest/prefer-describe-function-title.md
 ---
-# vitest/prefer-describe-function-title&#x20;
 
 ### What it does
 
@@ -66354,7 +65716,6 @@ oxlint --deny vitest/prefer-describe-function-title --vitest-plugin
 ---
 url: /docs/guide/usage/linter/rules/vitest/prefer-to-be-falsy.md
 ---
-# vitest/prefer-to-be-falsy&#x20;
 
 ### What it does
 
@@ -66413,7 +65774,6 @@ oxlint --deny vitest/prefer-to-be-falsy --vitest-plugin
 ---
 url: /docs/guide/usage/linter/rules/vitest/prefer-to-be-object.md
 ---
-# vitest/prefer-to-be-object&#x20;
 
 ### What it does
 
@@ -66472,7 +65832,6 @@ oxlint --deny vitest/prefer-to-be-object --vitest-plugin
 ---
 url: /docs/guide/usage/linter/rules/vitest/prefer-to-be-truthy.md
 ---
-# vitest/prefer-to-be-truthy&#x20;
 
 ### What it does
 
@@ -66532,7 +65891,6 @@ oxlint --deny vitest/prefer-to-be-truthy --vitest-plugin
 url: >-
   /docs/guide/usage/linter/rules/vitest/require-local-test-context-for-concurrent-snapshots.md
 ---
-# vitest/require-local-test-context-for-concurrent-snapshots&#x20;
 
 ### What it does
 
@@ -66604,7 +65962,6 @@ oxlint --deny vitest/require-local-test-context-for-concurrent-snapshots --vites
 ---
 url: /docs/guide/usage/linter/rules/vitest/warn-todo.md
 ---
-# vitest/warn-todo&#x20;
 
 ### What it does
 
@@ -66747,7 +66104,6 @@ Example: expecting a lint fix to be applied, when executing a command or code ac
 ---
 url: /docs/guide/usage/linter/rules/vue/define-emits-declaration.md
 ---
-# vue/define-emits-declaration&#x20;
 
 ### What it does
 
@@ -66870,7 +66226,6 @@ oxlint --deny vue/define-emits-declaration --vue-plugin
 ---
 url: /docs/guide/usage/linter/rules/vue/define-props-declaration.md
 ---
-# vue/define-props-declaration&#x20;
 
 ### What it does
 
@@ -66957,7 +66312,6 @@ oxlint --deny vue/define-props-declaration --vue-plugin
 ---
 url: /docs/guide/usage/linter/rules/vue/define-props-destructuring.md
 ---
-# vue/define-props-destructuring&#x20;
 
 ### What it does
 
@@ -67044,7 +66398,6 @@ oxlint --deny vue/define-props-destructuring --vue-plugin
 ---
 url: /docs/guide/usage/linter/rules/vue/max-props.md
 ---
-# vue/max-props&#x20;
 
 ### What it does
 
@@ -67120,7 +66473,6 @@ oxlint --deny vue/max-props --vue-plugin
 ---
 url: /docs/guide/usage/linter/rules/vue/no-arrow-functions-in-watch.md
 ---
-# vue/no-arrow-functions-in-watch&#x20;
 
 ### What it does
 
@@ -67201,7 +66553,6 @@ oxlint --deny vue/no-arrow-functions-in-watch --vue-plugin
 ---
 url: /docs/guide/usage/linter/rules/vue/no-deprecated-destroyed-lifecycle.md
 ---
-# vue/no-deprecated-destroyed-lifecycle&#x20;
 
 ### What it does
 
@@ -67267,7 +66618,6 @@ oxlint --deny vue/no-deprecated-destroyed-lifecycle --vue-plugin
 ---
 url: /docs/guide/usage/linter/rules/vue/no-export-in-script-setup.md
 ---
-# vue/no-export-in-script-setup&#x20;
 
 ### What it does
 
@@ -67327,7 +66677,6 @@ oxlint --deny vue/no-export-in-script-setup --vue-plugin
 ---
 url: /docs/guide/usage/linter/rules/vue/no-import-compiler-macros.md
 ---
-# vue/no-import-compiler-macros&#x20;
 
 ### What it does
 
@@ -67395,7 +66744,6 @@ oxlint --deny vue/no-import-compiler-macros --vue-plugin
 ---
 url: /docs/guide/usage/linter/rules/vue/no-lifecycle-after-await.md
 ---
-# vue/no-lifecycle-after-await&#x20;
 
 ### What it does
 
@@ -67471,7 +66819,6 @@ oxlint --deny vue/no-lifecycle-after-await --vue-plugin
 ---
 url: /docs/guide/usage/linter/rules/vue/no-multiple-slot-args.md
 ---
-# vue/no-multiple-slot-args&#x20;
 
 ### What it does
 
@@ -67544,7 +66891,6 @@ oxlint --deny vue/no-multiple-slot-args --vue-plugin
 ---
 url: /docs/guide/usage/linter/rules/vue/no-required-prop-with-default.md
 ---
-# vue/no-required-prop-with-default&#x20;
 
 ### What it does
 
@@ -67620,7 +66966,6 @@ oxlint --deny vue/no-required-prop-with-default --vue-plugin
 ---
 url: /docs/guide/usage/linter/rules/vue/no-this-in-before-route-enter.md
 ---
-# vue/no-this-in-before-route-enter&#x20;
 
 ### What it does
 
@@ -67687,7 +67032,6 @@ oxlint --deny vue/no-this-in-before-route-enter --vue-plugin
 ---
 url: /docs/guide/usage/linter/rules/vue/prefer-import-from-vue.md
 ---
-# vue/prefer-import-from-vue&#x20;
 
 ### What it does
 
@@ -67748,7 +67092,6 @@ oxlint --deny vue/prefer-import-from-vue --vue-plugin
 ---
 url: /docs/guide/usage/linter/rules/vue/require-default-export.md
 ---
-# vue/require-default-export&#x20;
 
 ### What it does
 
@@ -67813,7 +67156,6 @@ oxlint --deny vue/require-default-export --vue-plugin
 ---
 url: /docs/guide/usage/linter/rules/vue/require-typed-ref.md
 ---
-# vue/require-typed-ref&#x20;
 
 ### What it does
 
@@ -67871,7 +67213,6 @@ oxlint --deny vue/require-typed-ref --vue-plugin
 ---
 url: /docs/guide/usage/linter/rules/vue/valid-define-emits.md
 ---
-# vue/valid-define-emits&#x20;
 
 ### What it does
 
@@ -67986,7 +67327,6 @@ oxlint --deny vue/valid-define-emits --vue-plugin
 ---
 url: /docs/guide/usage/linter/rules/vue/valid-define-props.md
 ---
-# vue/valid-define-props&#x20;
 
 ### What it does
 

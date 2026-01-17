@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-response-static-json.md
 ---
-# unicorn/prefer-response-static-json&#x20;
 
 ### What it does
 

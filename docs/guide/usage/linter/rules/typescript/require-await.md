@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/typescript/require-await.md
 ---
-# typescript/require-await&#x20;
 
 ### What it does
 

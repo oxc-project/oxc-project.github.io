@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/vue/max-props.md
 ---
-# vue/max-props&#x20;
 
 ### What it does
 

@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/filename-case.md
 ---
-# unicorn/filename-case&#x20;
 
 ### What it does
 

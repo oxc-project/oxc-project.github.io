@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/typescript/prefer-ts-expect-error.md
 ---
-# typescript/prefer-ts-expect-error&#x20;
 
 ### What it does
 

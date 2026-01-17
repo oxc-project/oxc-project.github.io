@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/react/react-in-jsx-scope.md
 ---
-# react/react-in-jsx-scope&#x20;
 
 ### What it does
 

@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/grouped-accessor-pairs.md
 ---
-# eslint/grouped-accessor-pairs&#x20;
 
 ### What it does
 

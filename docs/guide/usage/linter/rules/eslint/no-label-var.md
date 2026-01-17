@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/eslint/no-label-var.md
 ---
-# eslint/no-label-var&#x20;
 
 ### What it does
 

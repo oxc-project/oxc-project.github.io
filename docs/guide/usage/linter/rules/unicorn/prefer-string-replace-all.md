@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/unicorn/prefer-string-replace-all.md
 ---
-# unicorn/prefer-string-replace-all&#x20;
 
 ### What it does
 

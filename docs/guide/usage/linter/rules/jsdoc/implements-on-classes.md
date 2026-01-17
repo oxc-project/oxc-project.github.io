@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/jsdoc/implements-on-classes.md
 ---
-# jsdoc/implements-on-classes&#x20;
 
 ### What it does
 

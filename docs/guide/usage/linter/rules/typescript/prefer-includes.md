@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/typescript/prefer-includes.md
 ---
-# typescript/prefer-includes&#x20;
 
 ### What it does
 

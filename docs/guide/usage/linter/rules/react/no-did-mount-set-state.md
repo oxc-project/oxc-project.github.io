@@ -1,7 +1,6 @@
 ---
 url: /docs/guide/usage/linter/rules/react/no-did-mount-set-state.md
 ---
-# react/no-did-mount-set-state&#x20;
 
 ### What it does
 
