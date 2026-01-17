@@ -107,4 +107,10 @@ const fixMessage = computed(() => {
 header .back-to-rules {
   margin-bottom: 0.5rem;
 }
+
+header h1 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
 </style>
