@@ -2,11 +2,7 @@ import { readFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { defineConfig, HeadConfig } from "vitepress";
-import {
-  groupIconMdPlugin,
-  groupIconVitePlugin,
-  localIconLoader,
-} from "vitepress-plugin-group-icons";
+import { groupIconMdPlugin, groupIconVitePlugin } from "vitepress-plugin-group-icons";
 import llmstxt from "vitepress-plugin-llms";
 import BLOG_SIDEBAR from "../sidebar.blog.json" with { type: "json" };
 
@@ -205,14 +201,7 @@ export const sharedConfig = defineConfig({
     optimizeDeps: {
       exclude: ["@docsearch/css"],
     },
-    plugins: [
-      groupIconVitePlugin({
-        customIcon: {
-          ".oxlintrc": localIconLoader(import.meta.url, "../../public/logo-without-border.svg"),
-        },
-      }),
-      llmstxt(),
-    ],
+    plugins: [groupIconVitePlugin(), llmstxt()],
     resolve: {
       alias: [
         {
