@@ -3,8 +3,8 @@
     <channel>
         <title>The Oxidation Compiler Blog</title>
         <link>https://oxc.rs</link>
-        <description>undefined</description>
-        <lastBuildDate>Sun, 18 Jan 2026 16:49:08 GMT</lastBuildDate>
+        <description></description>
+        <lastBuildDate>Sun, 18 Jan 2026 16:50:14 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
@@ -111,6 +111,7 @@ or <a href="https://github.com/import-js/eslint-plugin-import/pull/2504#issuecom
 learn more about the <a href="/docs/guide/introduction.html">oxc project</a>,
 or discuss on <a href="https://news.ycombinator.com/item?id=38652887" target="_blank" rel="noreferrer">Hacker News</a>.</p>
 ]]></content:encoded>
+            <author>Boshen</author>
         </item>
         <item>
             <title><![CDATA[Oxlint Import Plugin Alpha]]></title>
@@ -239,6 +240,7 @@ you may consider <a href="https://github.com/sponsors/Boshen" target="_blank" re
 <hr>
 <p>To start using <code>oxlint</code>, follow the <a href="/docs/guide/usage/linter.html">installation guide</a> or learn more about the <a href="/docs/guide/introduction.html">oxc project</a>.</p>
 ]]></content:encoded>
+            <author>Boshen</author>
         </item>
         <item>
             <title><![CDATA[Oxc Transformer Alpha]]></title>
@@ -460,6 +462,9 @@ and the benchmarks are shown in its <a href="https://github.com/oxc-project/benc
 <p>Thank you <a href="https://github.com/dunqing" target="_blank" rel="noreferrer">@Dunqing</a> and <a href="https://github.com/overlookmotel" target="_blank" rel="noreferrer">@overlookmotel</a> for all the hard work involved in this release.</p>
 <p>Thank you <a href="https://snyder.tech" target="_blank" rel="noreferrer">snyder.tech</a>, <a href="https://schoolhouse.world" target="_blank" rel="noreferrer">schoolhouse.world</a>, <a href="https://github.com/lukeed" target="_blank" rel="noreferrer">@lukeed</a> and <a href="https://github.com/maraisr" target="_blank" rel="noreferrer">@maraisr</a> for the generous <a href="https://github.com/sponsors/boshen" target="_blank" rel="noreferrer">sponsorship</a>.</p>
 ]]></content:encoded>
+            <author>Boshen</author>
+            <author>Dunqing</author>
+            <author>overlookmotel</author>
         </item>
         <item>
             <title><![CDATA[Oxlint v0.10 Migration Guide]]></title>
@@ -559,6 +564,7 @@ with CLI arguments.</p>
 <span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">}</span></span></code></pre>
 </div></td></tr></tbody></table>
 ]]></content:encoded>
+            <author>Don</author>
         </item>
         <item>
             <title><![CDATA[Oxc Minifier Alpha]]></title>
@@ -670,6 +676,7 @@ and Rolldown is set to <a href="https://voidzero.dev/posts/announcing-voidzero-i
 <p>Thank you <a href="https://github.com/sapphi-red" target="_blank" rel="noreferrer">@sapphi-red</a> for improving the minifier,
 especially the advanced symbol minification algorithm which <code>esbuild</code> lacks.</p>
 ]]></content:encoded>
+            <author>Boshen</author>
         </item>
         <item>
             <title><![CDATA[Oxlint Beta]]></title>
@@ -855,6 +862,8 @@ and run Oxlint before ESLint in your local or CI setup for a quicker feedback lo
 <li><a href="https://github.com/camchenry" target="_blank" rel="noreferrer">@camchenry</a> for implementing nested configuration support.</li>
 </ul>
 ]]></content:encoded>
+            <author>Boshen</author>
+            <author>Cam</author>
         </item>
         <item>
             <title><![CDATA[Oxlint v1.0 Stable]]></title>
@@ -994,6 +1003,8 @@ Note that minor releases can still break your CI if newly added rules uncover pr
 <h2 id="give-it-a-try" tabindex="-1">Give It a Try <a class="header-anchor" href="#give-it-a-try" aria-label="Permalink to “Give It a Try”">&#8203;</a></h2>
 <p>To get started, follow the <a href="https://oxc.rs/docs/guide/usage/linter" target="_blank" rel="noreferrer">installation guide</a>, or learn more about the <a href="https://oxc.rs/docs/guide/introduction" target="_blank" rel="noreferrer">Oxc project</a>.</p>
 ]]></content:encoded>
+            <author>Boshen</author>
+            <author>Cameron</author>
         </item>
         <item>
             <title><![CDATA[Oxlint Type-Aware Preview]]></title>
@@ -1238,6 +1249,10 @@ We accept this risk and will fix breaking changes when upgrading <code>typescrip
 <span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">  }</span></span>
 <span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">}</span></span></code></pre>
 </div>]]></content:encoded>
+            <author>Boshen</author>
+            <author>auvred</author>
+            <author>Cam</author>
+            <author>Cameron</author>
         </item>
         <item>
             <title><![CDATA[Oxlint JS Plugins Preview]]></title>
@@ -1631,6 +1646,8 @@ the performance of JS plugins being way overestimated in the benchmarks we quote
 <p>We sincerely apologise for this mistake, and thank <a href="https://github.com/HerringtonDarkholme" target="_blank" rel="noreferrer">Herrington Darkholme</a>
 for pointing out the error.</p>
 ]]></content:encoded>
+            <author>overlookmotel</author>
+            <author>Cameron</author>
         </item>
         <item>
             <title><![CDATA[Oxfmt: Oxc Formatter Alpha]]></title>
@@ -1740,6 +1757,9 @@ Additionally, known issues are distinguished by <a href="https://github.com/oxc-
 <h2 id="acknowledgements" tabindex="-1">Acknowledgements <a class="header-anchor" href="#acknowledgements" aria-label="Permalink to “Acknowledgements”">&#8203;</a></h2>
 <p>Oxfmt builds on a fork of the <a href="https://github.com/biomejs/biome/tree/main/crates/biome_formatter" target="_blank" rel="noreferrer"><code>biome_formatter</code></a> infrastructure, and we’d like to thank the Biome team, especially <a href="https://github.com/ematipico" target="_blank" rel="noreferrer">@ematipico</a> and <a href="https://github.com/MichaReiser" target="_blank" rel="noreferrer">@MichaReiser</a>. We’d also like to thank the Prettier team and <a href="https://github.com/fisker" target="_blank" rel="noreferrer">@fisker</a> for collaborating with us on formatting compatibility.</p>
 ]]></content:encoded>
+            <author>Boshen</author>
+            <author>Dunqing</author>
+            <author>Yuji Sugiura</author>
         </item>
         <item>
             <title><![CDATA[Type-Aware Linting Alpha]]></title>
@@ -1951,6 +1971,8 @@ Additionally, known issues are distinguished by <a href="https://github.com/oxc-
 <li><strong>Issues</strong>: Report <code>oxlint</code> bugs to <a href="https://github.com/oxc-project/oxc/issues" target="_blank" rel="noreferrer">oxc</a> and type-aware linting bugs to <a href="https://github.com/oxc-project/tsgolint/issues" target="_blank" rel="noreferrer">tsgolint</a>.</li>
 </ul>
 ]]></content:encoded>
+            <author>Cameron</author>
+            <author>Cam</author>
         </item>
     </channel>
 </rss>
