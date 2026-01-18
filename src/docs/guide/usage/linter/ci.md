@@ -62,9 +62,10 @@ And then add a job to your `.gitlab-ci.yml`, to run the script and upload the re
 oxlint:
   image: node:lts
   stage: test
-  script:
-    # alternatively use pnpm / yarn here
+  before_script:
+    # alternatively use pnpm install / yarn install here
     - npm install
+  script:
     - npm run lint:gitlab
   artifacts:
     reports:
@@ -74,6 +75,8 @@ oxlint:
 ```
 
 If you do not want to use the Code Quality feature, you can simply run oxlint without `--format=gitlab` in the CI job instead.
+
+You should ensure type-aware rules are enabled if you want to use them, and consider caching `node_modules` to speed up the installation of dependencies.
 
 ## Git hooks
 
