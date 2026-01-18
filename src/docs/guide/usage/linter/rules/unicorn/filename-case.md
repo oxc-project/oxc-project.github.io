@@ -73,10 +73,10 @@ You can set the `case` option like this:
 
 ```json
 "unicorn/filename-case": [
-"error",
-{
-"case": "kebabCase"
-}
+  "error",
+  {
+    "case": "kebabCase"
+  }
 ]
 ```
 
@@ -92,13 +92,13 @@ You can set the `cases` option like this:
 
 ```json
 "unicorn/filename-case": [
-"error",
-{
-"cases": {
-"camelCase": true,
-"pascalCase": true
-}
-}
+  "error",
+  {
+    "cases": {
+      "camelCase": true,
+      "pascalCase": true
+    }
+  }
 ]
 ```
 
@@ -144,10 +144,10 @@ You can set the `ignore` option like this:
 
 ```json
 "unicorn/filename-case": [
-"error",
-{
-"ignore": "^foo.*$"
-}
+  "error",
+  {
+    "ignore": "^foo.*$"
+  }
 ]
 ```
 
