@@ -37,7 +37,7 @@ This rule accepts a configuration object with the following properties:
 
 ### ignorePattern
 
-type: `string | null`
+type: `string`
 
 A regex pattern to ignore certain inline comments.
 

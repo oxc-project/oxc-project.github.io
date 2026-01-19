@@ -29,7 +29,7 @@ const str: string = 1;
 const multiLine: number = "value";
 ```
 
-Examples of **incorrect** code for this rule:
+Examples of **correct** code for this rule:
 
 ```ts
 /**

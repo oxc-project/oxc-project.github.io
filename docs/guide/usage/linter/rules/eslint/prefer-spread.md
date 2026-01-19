@@ -2,15 +2,13 @@
 url: /docs/guide/usage/linter/rules/eslint/prefer-spread.md
 ---
 
-This rule is combined 2 rules from `eslint:prefer-spread` and `unicorn:prefer-spread`.
-
 ### What it does
 
-Require spread operators instead of .apply()
+Require spread operators instead of `.apply()`
 
 ### Why is this bad?
 
-Before ES2015, one must use Function.prototype.apply() to call variadic functions.
+Before ES2015, one must use `Function.prototype.apply()` to call variadic functions.
 
 ```javascript
 var args = [1, 2, 3, 4];

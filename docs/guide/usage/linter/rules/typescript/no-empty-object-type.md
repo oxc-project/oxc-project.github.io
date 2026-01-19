@@ -91,7 +91,7 @@ Allowed values are:
 
 ### allowWithName
 
-type: `string | null`
+type: `string`
 
 A stringified regular expression to allow interfaces and object type aliases with the configured name.
 

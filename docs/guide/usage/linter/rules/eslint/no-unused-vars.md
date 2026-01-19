@@ -74,8 +74,8 @@ standard, Oxlint does not support this feature.
 Examples of **incorrect** code for this rule:
 
 ```javascript
-/*eslint no-unused-vars: "error"*/
-/*global some_unused_var*/
+/* no-unused-vars: "error" */
+/* if you have `some_unused_var` defined as a global in .oxlintrc.json */
 
 // It checks variables you have defined as global
 some_unused_var = 42;
@@ -121,7 +121,7 @@ enum Color {
 Examples of **correct** code for this rule:
 
 ```js
-/*eslint no-unused-vars: "error"*/
+/* no-unused-vars: "error" */
 
 var x = 10;
 alert(x);
@@ -181,15 +181,6 @@ default: `"after-used"`
 
 Controls how unused arguments are checked.
 
-This option has three settings:
-
-1. `after-used` - Unused positional arguments that occur before the last
-   used argument will not be checked, but all named arguments and all
-   positional arguments after the last used argument will be checked.
-   This is the default setting.
-2. `all` - All named arguments must be used.
-3. `none` - Do not check arguments.
-
 #### `"after-used"`
 
 Unused positional arguments that occur before the last used argument
@@ -231,12 +222,13 @@ type: `"all" | "none"`
 
 Used for `catch` block validation.
 
-It has two settings:
+#### `"all"`
 
-* `none` - do not check error objects. This is the default setting.
-* `all` - all named arguments must be used.
+All named arguments must be used.
 
-`none` corresponds to `false`, while `all` corresponds to `true`.
+#### `"none"`
+
+Do not check error objects.
 
 ### caughtErrorsIgnorePattern
 
@@ -453,13 +445,6 @@ type: `"all" | "local"`
 default: `"all"`
 
 Controls how usage of a variable in the global scope is checked.
-
-This option has two settings:
-
-1. `all` checks all variables for usage, including those in the global
-   scope. This is the default setting.
-2. `local` checks only that locally-declared variables are used but will
-   allow global variables to be unused.
 
 #### `"all"`
 

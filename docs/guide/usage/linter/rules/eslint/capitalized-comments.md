@@ -34,47 +34,47 @@ This rule accepts a configuration object with the following properties:
 
 ### block
 
-type: `object | null`
+type: `object`
 
 #### block.ignoreConsecutiveComments
 
-type: `boolean | null`
+type: `boolean`
 
 #### block.ignoreInlineComments
 
-type: `boolean | null`
+type: `boolean`
 
 #### block.ignorePattern
 
-type: `string | null`
+type: `string`
 
 ### ignoreConsecutiveComments
 
-type: `boolean | null`
+type: `boolean`
 
 ### ignoreInlineComments
 
-type: `boolean | null`
+type: `boolean`
 
 ### ignorePattern
 
-type: `string | null`
+type: `string`
 
 ### line
 
-type: `object | null`
+type: `object`
 
 #### line.ignoreConsecutiveComments
 
-type: `boolean | null`
+type: `boolean`
 
 #### line.ignoreInlineComments
 
-type: `boolean | null`
+type: `boolean`
 
 #### line.ignorePattern
 
-type: `string | null`
+type: `string`
 
 ## How to use
 

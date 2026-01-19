@@ -1498,69 +1498,6 @@ import styled from "styled-components/primitives";
 ---
 
 ---
-url: /docs/guide/usage/formatter/cli.md
----
-
-# Command-line Interface
-
-## Usage
-
-**`oxfmt`** \[**`-c`**=*`PATH`*] \[*`PATH`*]...
-
-## Mode Options:
-
-* **`    --init`** —
-  Initialize `.oxfmtrc.json` with default values
-* **`    --migrate`**=*`SOURCE`* —
-  Migrate configuration to `.oxfmtrc.json` from specified source Available sources: prettier
-* **`    --lsp`** —
-  Start language server protocol (LSP) server
-* **`    --stdin-filepath`**=*`PATH`* —
-  Specify the file name to use to infer which parser to use
-
-## Output Options:
-
-* **`    --write`** —
-  Format and write files in place (default)
-* **`    --check`** —
-  Check if files are formatted, also show statistics
-* **`    --list-different`** —
-  List files that would be changed
-
-## Config Options
-
-* **`-c`**, **`--config`**=*`PATH`* —
-  Path to the configuration file
-
-## Ignore Options
-
-* **`    --ignore-path`**=*`PATH`* —
-  Path to ignore file(s). Can be specified multiple times. If not specified, .gitignore and .prettierignore in the current directory are used.
-* **`    --with-node-modules`** —
-  Format code in node\_modules directory (skipped by default)
-
-## Runtime Options
-
-* **`    --no-error-on-unmatched-pattern`** —
-  Do not exit with error when pattern is unmatched
-* **`    --threads`**=*`INT`* —
-  Number of threads to use. Set to 1 for using only 1 CPU core.
-
-## Available positional items:
-
-* *`PATH`* —
-  Single file, single path or list of paths. If not provided, current working directory is used. Glob is supported only for exclude patterns like `'!**/fixtures/*.js'`.
-
-## Available options:
-
-* **`-h`**, **`--help`** —
-  Prints help information
-* **`-V`**, **`--version`** —
-  Prints version information
-
----
-
----
 url: /docs/guide/usage/linter/cli.md
 ---
 
@@ -1711,6 +1648,69 @@ Arguments:
   Enable rules that require type information
 * **`    --type-check`** —
   Enable experimental type checking (includes TypeScript compiler diagnostics)
+* **`-h`**, **`--help`** —
+  Prints help information
+* **`-V`**, **`--version`** —
+  Prints version information
+
+---
+
+---
+url: /docs/guide/usage/formatter/cli.md
+---
+
+# Command-line Interface
+
+## Usage
+
+**`oxfmt`** \[**`-c`**=*`PATH`*] \[*`PATH`*]...
+
+## Mode Options:
+
+* **`    --init`** —
+  Initialize `.oxfmtrc.json` with default values
+* **`    --migrate`**=*`SOURCE`* —
+  Migrate configuration to `.oxfmtrc.json` from specified source Available sources: prettier
+* **`    --lsp`** —
+  Start language server protocol (LSP) server
+* **`    --stdin-filepath`**=*`PATH`* —
+  Specify the file name to use to infer which parser to use
+
+## Output Options:
+
+* **`    --write`** —
+  Format and write files in place (default)
+* **`    --check`** —
+  Check if files are formatted, also show statistics
+* **`    --list-different`** —
+  List files that would be changed
+
+## Config Options
+
+* **`-c`**, **`--config`**=*`PATH`* —
+  Path to the configuration file
+
+## Ignore Options
+
+* **`    --ignore-path`**=*`PATH`* —
+  Path to ignore file(s). Can be specified multiple times. If not specified, .gitignore and .prettierignore in the current directory are used.
+* **`    --with-node-modules`** —
+  Format code in node\_modules directory (skipped by default)
+
+## Runtime Options
+
+* **`    --no-error-on-unmatched-pattern`** —
+  Do not exit with error when pattern is unmatched
+* **`    --threads`**=*`INT`* —
+  Number of threads to use. Set to 1 for using only 1 CPU core.
+
+## Available positional items:
+
+* *`PATH`* —
+  Single file, single path or list of paths. If not provided, current working directory is used. Glob is supported only for exclude patterns like `'!**/fixtures/*.js'`.
+
+## Available options:
+
 * **`-h`**, **`--help`** —
   Prints help information
 * **`-V`**, **`--version`** —
@@ -2161,526 +2161,1942 @@ Example (monorepo + React + jsx-a11y):
 ---
 
 ---
-url: /docs/guide/usage/formatter/config-file-reference.md
----
-
-# Configuration options for the Oxfmt.
-
-Most options are the same as Prettier's options.
-See also <https://prettier.io/docs/options>
-
-In addition, some options are our own extensions.
-
-## arrowParens
-
-type: `"always" | "avoid" | null`
-
-Include parentheses around a sole arrow function parameter. (Default: `"always"`)
-
-## bracketSameLine
-
-type: `boolean | null`
-
-Put the `>` of a multi-line JSX element at the end of the last line
-instead of being alone on the next line. (Default: `false`)
-
-## bracketSpacing
-
-type: `boolean | null`
-
-Print spaces between brackets in object literals. (Default: `true`)
-
-## embeddedLanguageFormatting
-
-type: `"auto" | "off" | null`
-
-Control whether to format embedded parts in the file.
-e.g. JS-in-Vue, CSS-in-JS, etc. (Default: `"auto"`)
-
-## endOfLine
-
-type: `"lf" | "crlf" | "cr" | null`
-
-Which end of line characters to apply. (Default: `"lf"`)
-
-## experimentalSortImports
-
-type: `object | null`
-
-Experimental: Sort import statements. (Default: disabled)
-
-### experimentalSortImports.groups
-
-type: `array | null`
-
-Custom groups configuration for organizing imports.
-Each array element represents a group, and multiple group names in the same array are treated as one.
-Accepts both `string` and `string[]` as group elements.
-
-#### experimentalSortImports.groups\[n]
-
-type: `string[]`
-
-### experimentalSortImports.ignoreCase
-
-type: `boolean | null`
-
-Ignore case when sorting. (Default: `true`)
-
-### experimentalSortImports.internalPattern
-
-type: `string[]`
-
-Glob patterns to identify internal imports.
-
-### experimentalSortImports.newlinesBetween
-
-type: `boolean | null`
-
-Add newlines between import groups. (Default: `true`)
-
-### experimentalSortImports.order
-
-type: `"asc" | "desc" | null`
-
-Sort order. (Default: `"asc"`)
-
-### experimentalSortImports.partitionByComment
-
-type: `boolean | null`
-
-Partition imports by comments. (Default: `false`)
-
-### experimentalSortImports.partitionByNewline
-
-type: `boolean | null`
-
-Partition imports by newlines. (Default: `false`)
-
-### experimentalSortImports.sortSideEffects
-
-type: `boolean | null`
-
-Sort side-effect imports. (Default: `false`)
-
-## experimentalSortPackageJson
-
-type: `object | boolean | null`
-
-Experimental: Sort `package.json` keys. (Default: `true`)
-
-### experimentalSortPackageJson.sortScripts
-
-type: `boolean | null`
-
-Sort the `scripts` field alphabetically. (Default: `false`)
-
-## experimentalTailwindcss
-
-type: `object | null`
-
-Experimental: Sort Tailwind CSS classes in string literals.
-
-When enabled, `Oxfmt` sorts Tailwind CSS classes using the same algorithm as
-[`prettier-plugin-tailwindcss`](https://github.com/tailwindlabs/prettier-plugin-tailwindcss).
-
-See \[`TailwindcssConfig`] for available options.
-
-(Default: disabled)
-
-### experimentalTailwindcss.attributes
-
-type: `string[]`
-
-List of attributes that contain Tailwind CSS classes.
-
-Note: Regex patterns are not yet supported.
-
-Example: `["myClassProp", ":class"]`
-
-Default: `["class", "className"]`
-
-### experimentalTailwindcss.config
-
-type: `string | null`
-
-Path to your Tailwind CSS configuration file (v3).
-
-Note: Paths are resolved relative to the Oxfmt configuration file.
-
-Default: `"./tailwind.config.js"`
-
-### experimentalTailwindcss.functions
-
-type: `string[]`
-
-List of custom function names that contain Tailwind CSS classes.
-
-Note: Regex patterns are not yet supported.
-
-Example: `["clsx", "cn", "cva", "tw"]`
-
-Default: `[]`
-
-### experimentalTailwindcss.preserveDuplicates
-
-type: `boolean | null`
-
-Preserve duplicate classes.
-
-Default: `false`
-
-### experimentalTailwindcss.preserveWhitespace
-
-type: `boolean | null`
-
-Preserve whitespace around classes.
-
-Default: `false`
-
-### experimentalTailwindcss.stylesheet
-
-type: `string | null`
-
-Path to your Tailwind CSS stylesheet (v4).
-
-Note: Paths are resolved relative to the Oxfmt configuration file.
-
-Example: `"./src/app.css"`
-
-## ignorePatterns
-
-type: `string[]`
-
-Ignore files matching these glob patterns. Current working directory is used as the root.
-
-## insertFinalNewline
-
-type: `boolean | null`
-
-Whether to insert a final newline at the end of the file. (Default: `true`)
-
-## jsxSingleQuote
-
-type: `boolean | null`
-
-Use single quotes instead of double quotes in JSX. (Default: `false`)
-
-## objectWrap
-
-type: `"preserve" | "collapse" | null`
-
-How to wrap object literals when they could fit on one line or span multiple lines. (Default: `"preserve"`)
-
-## printWidth
-
-type: `integer | null`
-
-The line length that the printer will wrap on. (Default: `100`)
-
-## quoteProps
-
-type: `"as-needed" | "consistent" | "preserve" | null`
-
-Change when properties in objects are quoted. (Default: `"as-needed"`)
-
-## semi
-
-type: `boolean | null`
-
-Print semicolons at the ends of statements. (Default: `true`)
-
-## singleAttributePerLine
-
-type: `boolean | null`
-
-Put each attribute on a new line in JSX. (Default: `false`)
-
-## singleQuote
-
-type: `boolean | null`
-
-Use single quotes instead of double quotes. (Default: `false`)
-
-## tabWidth
-
-type: `integer | null`
-
-Number of spaces per indentation level. (Default: `2`)
-
-## trailingComma
-
-type: `"all" | "es5" | "none" | null`
-
-Print trailing commas wherever possible. (Default: `"all"`)
-
-## useTabs
-
-type: `boolean | null`
-
-Use tabs for indentation or spaces. (Default: `false`)
-
----
-
----
 url: /docs/guide/usage/formatter/generated-config.md
 ---
 
 # Configuration options for the Oxfmt.
 
-Most options are the same as Prettier's options.
-See also <https://prettier.io/docs/options>
-
+Most options are the same as Prettier's options, but not all of them.
 In addition, some options are our own extensions.
 
 ## arrowParens
 
-type: `"always" | "avoid" | null`
+type: `"always" | "avoid"`
 
-Include parentheses around a sole arrow function parameter. (Default: `"always"`)
+Include parentheses around a sole arrow function parameter.
+
+* Default: `"always"`
 
 ## bracketSameLine
 
-type: `boolean | null`
+type: `boolean`
 
-Put the `>` of a multi-line JSX element at the end of the last line
-instead of being alone on the next line. (Default: `false`)
+Put the `>` of a multi-line HTML (HTML, JSX, Vue, Angular) element at the end of the last line,
+instead of being alone on the next line (does not apply to self closing elements).
+
+* Default: `false`
 
 ## bracketSpacing
 
-type: `boolean | null`
+type: `boolean`
 
-Print spaces between brackets in object literals. (Default: `true`)
+Print spaces between brackets in object literals.
+
+* Default: `true`
 
 ## embeddedLanguageFormatting
 
-type: `"auto" | "off" | null`
+type: `"auto" | "off"`
 
-Control whether to format embedded parts in the file.
-e.g. JS-in-Vue, CSS-in-JS, etc. (Default: `"auto"`)
+Control whether to format embedded parts (For example, CSS-in-JS, or JS-in-Vue, etc.) in the file.
+
+NOTE: XXX-in-JS support is incomplete.
+JS-in-XXX is fully supported but still be handled by Prettier.
+
+* Default: `"auto"`
 
 ## endOfLine
 
-type: `"lf" | "crlf" | "cr" | null`
+type: `"lf" | "crlf" | "cr"`
 
-Which end of line characters to apply. (Default: `"lf"`)
+Which end of line characters to apply.
+
+NOTE: `"auto"` is not supported.
+
+* Default: `"lf"`
+* Overrides `.editorconfig.end_of_line`
 
 ## experimentalSortImports
 
-type: `object | null`
+type: `object`
 
-Experimental: Sort import statements. (Default: disabled)
+Experimental: Sort import statements.
 
-### experimentalSortImports.groups
+Using the similar algorithm as [eslint-plugin-perfectionist/sort-imports](https://perfectionist.dev/rules/sort-imports).
+For details, see each field's documentation.
 
-type: `array | null`
+* Default: Disabled
 
-Custom groups configuration for organizing imports.
-Each array element represents a group, and multiple group names in the same array are treated as one.
-Accepts both `string` and `string[]` as group elements.
+### experimentalSortImports.customGroups
 
-#### experimentalSortImports.groups\[n]
+type: `array`
+
+Define your own groups for matching very specific imports.
+
+The `customGroups` list is ordered: The first definition that matches an element will be used.
+Custom groups have a higher priority than any predefined group.
+
+If you want a predefined group to take precedence over a custom group,
+you must write a custom group definition that does the same as what the predefined group does, and put it first in the list.
+
+* Default: `[]`
+
+#### experimentalSortImports.customGroups\[n]
+
+type: `object`
+
+##### experimentalSortImports.customGroups\[n].elementNamePattern
 
 type: `string[]`
 
+default: `[]`
+
+List of import name prefixes to match for this group.
+
+##### experimentalSortImports.customGroups\[n].groupName
+
+type: `string`
+
+default: `""`
+
+Name of the custom group, used in the `groups` option.
+
+### experimentalSortImports.groups
+
+type: `array`
+
+Specifies a list of predefined import groups for sorting.
+
+Each import will be assigned a single group specified in the groups option (or the `unknown` group if no match is found).
+The order of items in the `groups` option determines how groups are ordered.
+
+Within a given group, members will be sorted according to the type, order, ignoreCase, etc. options.
+
+Individual groups can be combined together by placing them in an array.
+The order of groups in that array does not matter.
+All members of the groups in the array will be sorted together as if they were part of a single group.
+
+Predefined groups are characterized by a single selector and potentially multiple modifiers.
+You may enter modifiers in any order, but the selector must always come at the end.
+
+The list of selectors is sorted from most to least important:
+
+* `type` — TypeScript type imports.
+* `side-effect-style` — Side effect style imports.
+* `side-effect` — Side effect imports.
+* `style` — Style imports.
+* `index` — Main file from the current directory.
+* `sibling` — Modules from the same directory.
+* `parent` — Modules from the parent directory.
+* `subpath` — Node.js subpath imports.
+* `internal` — Your internal modules.
+* `builtin` — Node.js Built-in Modules.
+* `external` — External modules installed in the project.
+* `import` — Any import.
+
+The list of modifiers is sorted from most to least important:
+
+* `side-effect` — Side effect imports.
+* `type` — TypeScript type imports.
+* `value` — Value imports.
+* `default` — Imports containing the default specifier.
+* `wildcard` — Imports containing the wildcard (`* as`) specifier.
+* `named` — Imports containing at least one named specifier.
+* `multiline` — Imports on multiple lines.
+* `singleline` — Imports on a single line.
+
+See also <https://perfectionist.dev/rules/sort-imports#groups> for details.
+
+* Default: See below
+
+```json
+[
+  "type-import",
+  ["value-builtin", "value-external"],
+  "type-internal",
+  "value-internal",
+  ["type-parent", "type-sibling", "type-index"],
+  ["value-parent", "value-sibling", "value-index"],
+  "unknown"
+]
+```
+
+#### experimentalSortImports.groups\[n]
+
+type: `array | string`
+
+##### experimentalSortImports.groups\[n]\[n]
+
+type: `string`
+
 ### experimentalSortImports.ignoreCase
 
-type: `boolean | null`
+type: `boolean`
 
-Ignore case when sorting. (Default: `true`)
+Specifies whether sorting should be case-sensitive.
+
+* Default: `true`
 
 ### experimentalSortImports.internalPattern
 
 type: `string[]`
 
-Glob patterns to identify internal imports.
+Specifies a prefix for identifying internal imports.
+
+This is useful for distinguishing your own modules from external dependencies.
+
+* Default: `["~/", "@/"]`
 
 ### experimentalSortImports.newlinesBetween
 
-type: `boolean | null`
+type: `boolean`
 
-Add newlines between import groups. (Default: `true`)
+Specifies whether to add newlines between groups.
+
+When `false`, no newlines are added between groups.
+
+* Default: `true`
 
 ### experimentalSortImports.order
 
-type: `"asc" | "desc" | null`
+type: `"asc" | "desc"`
 
-Sort order. (Default: `"asc"`)
+Specifies whether to sort items in ascending or descending order.
+
+* Default: `"asc"`
 
 ### experimentalSortImports.partitionByComment
 
-type: `boolean | null`
+type: `boolean`
 
-Partition imports by comments. (Default: `false`)
+Enables the use of comments to separate imports into logical groups.
+
+When `true`, all comments will be treated as delimiters, creating partitions.
+
+```js
+import { b1, b2 } from "b";
+// PARTITION
+import { a } from "a";
+import { c } from "c";
+```
+
+* Default: `false`
 
 ### experimentalSortImports.partitionByNewline
 
-type: `boolean | null`
+type: `boolean`
 
-Partition imports by newlines. (Default: `false`)
+Enables the empty line to separate imports into logical groups.
+
+When `true`, formatter will not sort imports if there is an empty line between them.
+This helps maintain the defined order of logically separated groups of members.
+
+```js
+import { b1, b2 } from "b";
+
+import { a } from "a";
+import { c } from "c";
+```
+
+* Default: `false`
 
 ### experimentalSortImports.sortSideEffects
 
-type: `boolean | null`
+type: `boolean`
 
-Sort side-effect imports. (Default: `false`)
+Specifies whether side effect imports should be sorted.
+
+By default, sorting side-effect imports is disabled for security reasons.
+
+* Default: `false`
 
 ## experimentalSortPackageJson
 
-type: `object | boolean | null`
+type: `object | boolean`
 
-Experimental: Sort `package.json` keys. (Default: `true`)
+Experimental: Sort `package.json` keys.
+
+The algorithm is NOT compatible with [prettier-plugin-sort-packagejson](https://github.com/matzkoh/prettier-plugin-packagejson).
+But we believe it is clearer and easier to navigate.
+For details, see each field's documentation.
+
+* Default: `true`
 
 ### experimentalSortPackageJson.sortScripts
 
-type: `boolean | null`
+type: `boolean`
 
-Sort the `scripts` field alphabetically. (Default: `false`)
+Sort the `scripts` field alphabetically.
+
+* Default: `false`
 
 ## experimentalTailwindcss
 
-type: `object | null`
+type: `object`
 
-Experimental: Sort Tailwind CSS classes in string literals.
+Experimental: Sort Tailwind CSS classes.
 
-When enabled, `Oxfmt` sorts Tailwind CSS classes using the same algorithm as
-[`prettier-plugin-tailwindcss`](https://github.com/tailwindlabs/prettier-plugin-tailwindcss).
+Using the same algorithm as [prettier-plugin-tailwindcss](https://github.com/tailwindlabs/prettier-plugin-tailwindcss).
+Option names omit the `tailwind` prefix used in the original plugin (e.g., `config` instead of `tailwindConfig`).
+For details, see each field's documentation.
 
-See \[`TailwindcssConfig`] for available options.
-
-(Default: disabled)
+* Default: Disabled
 
 ### experimentalTailwindcss.attributes
 
 type: `string[]`
 
-List of attributes that contain Tailwind CSS classes.
+List of attribute prefixes that contain Tailwind CSS classes.
 
-Note: Regex patterns are not yet supported.
+NOTE: Regex patterns are not yet supported.
 
-Example: `["myClassProp", ":class"]`
-
-Default: `["class", "className"]`
+* Default: `["class", "className"]`
+* Example: `["myClassProp", ":class"]`
 
 ### experimentalTailwindcss.config
 
-type: `string | null`
+type: `string`
 
 Path to your Tailwind CSS configuration file (v3).
 
-Note: Paths are resolved relative to the Oxfmt configuration file.
+NOTE: Paths are resolved relative to the Oxfmt configuration file.
 
-Default: `"./tailwind.config.js"`
+* Default: Automatically find `"tailwind.config.js"`
 
 ### experimentalTailwindcss.functions
 
 type: `string[]`
 
-List of custom function names that contain Tailwind CSS classes.
+List of custom function name prefixes that contain Tailwind CSS classes.
 
-Note: Regex patterns are not yet supported.
+NOTE: Regex patterns are not yet supported.
 
-Example: `["clsx", "cn", "cva", "tw"]`
-
-Default: `[]`
+* Default: `[]`
+* Example: `["clsx", "cn", "cva", "tw"]`
 
 ### experimentalTailwindcss.preserveDuplicates
 
-type: `boolean | null`
+type: `boolean`
 
 Preserve duplicate classes.
 
-Default: `false`
+* Default: `false`
 
 ### experimentalTailwindcss.preserveWhitespace
 
-type: `boolean | null`
+type: `boolean`
 
 Preserve whitespace around classes.
 
-Default: `false`
+* Default: `false`
 
 ### experimentalTailwindcss.stylesheet
 
-type: `string | null`
+type: `string`
 
 Path to your Tailwind CSS stylesheet (v4).
 
-Note: Paths are resolved relative to the Oxfmt configuration file.
+NOTE: Paths are resolved relative to the Oxfmt configuration file.
 
-Example: `"./src/app.css"`
+* Default: Installed Tailwind CSS's `theme.css`
+
+## htmlWhitespaceSensitivity
+
+type: `"css" | "strict" | "ignore"`
+
+Specify the global whitespace sensitivity for HTML, Vue, Angular, and Handlebars.
+
+* Default: `"css"`
 
 ## ignorePatterns
 
 type: `string[]`
 
-Ignore files matching these glob patterns. Current working directory is used as the root.
+Ignore files matching these glob patterns.
+Patterns are based on the location of the Oxfmt configuration file.
+
+* Default: `[]`
 
 ## insertFinalNewline
 
-type: `boolean | null`
+type: `boolean`
 
-Whether to insert a final newline at the end of the file. (Default: `true`)
+Whether to insert a final newline at the end of the file.
+
+* Default: `true`
+* Overrides `.editorconfig.insert_final_newline`
 
 ## jsxSingleQuote
 
-type: `boolean | null`
+type: `boolean`
 
-Use single quotes instead of double quotes in JSX. (Default: `false`)
+Use single quotes instead of double quotes in JSX.
+
+* Default: `false`
 
 ## objectWrap
 
-type: `"preserve" | "collapse" | null`
+type: `"preserve" | "collapse"`
 
-How to wrap object literals when they could fit on one line or span multiple lines. (Default: `"preserve"`)
+How to wrap object literals when they could fit on one line or span multiple lines.
+
+By default, formats objects as multi-line if there is a newline prior to the first property.
+Authors can use this heuristic to contextually improve readability, though it has some downsides.
+
+* Default: `"preserve"`
+
+## overrides
+
+type: `array`
+
+File-specific overrides.
+When a file matches multiple overrides, the later override takes precedence (array order matters).
+
+* Default: `[]`
+
+### overrides\[n]
+
+type: `object`
+
+#### overrides\[n].excludeFiles
+
+type: `string[]`
+
+Glob patterns to exclude from this override.
+
+#### overrides\[n].files
+
+type: `string[]`
+
+Glob patterns to match files for this override.
+All patterns are relative to the Oxfmt configuration file.
+
+#### overrides\[n].options
+
+type: `object`
+
+##### overrides\[n].options.arrowParens
+
+type: `"always" | "avoid"`
+
+Include parentheses around a sole arrow function parameter.
+
+* Default: `"always"`
+
+##### overrides\[n].options.bracketSameLine
+
+type: `boolean`
+
+Put the `>` of a multi-line HTML (HTML, JSX, Vue, Angular) element at the end of the last line,
+instead of being alone on the next line (does not apply to self closing elements).
+
+* Default: `false`
+
+##### overrides\[n].options.bracketSpacing
+
+type: `boolean`
+
+Print spaces between brackets in object literals.
+
+* Default: `true`
+
+##### overrides\[n].options.embeddedLanguageFormatting
+
+type: `"auto" | "off"`
+
+Control whether to format embedded parts (For example, CSS-in-JS, or JS-in-Vue, etc.) in the file.
+
+NOTE: XXX-in-JS support is incomplete.
+JS-in-XXX is fully supported but still be handled by Prettier.
+
+* Default: `"auto"`
+
+##### overrides\[n].options.endOfLine
+
+type: `"lf" | "crlf" | "cr"`
+
+Which end of line characters to apply.
+
+NOTE: `"auto"` is not supported.
+
+* Default: `"lf"`
+* Overrides `.editorconfig.end_of_line`
+
+##### overrides\[n].options.experimentalSortImports
+
+type: `object`
+
+Experimental: Sort import statements.
+
+Using the similar algorithm as [eslint-plugin-perfectionist/sort-imports](https://perfectionist.dev/rules/sort-imports).
+For details, see each field's documentation.
+
+* Default: Disabled
+
+###### overrides\[n].options.experimentalSortImports.customGroups
+
+type: `array`
+
+Define your own groups for matching very specific imports.
+
+The `customGroups` list is ordered: The first definition that matches an element will be used.
+Custom groups have a higher priority than any predefined group.
+
+If you want a predefined group to take precedence over a custom group,
+you must write a custom group definition that does the same as what the predefined group does, and put it first in the list.
+
+* Default: `[]`
+
+\####### overrides\[n].options.experimentalSortImports.customGroups\[n]
+
+type: `object`
+
+\######## overrides\[n].options.experimentalSortImports.customGroups\[n].elementNamePattern
+
+type: `string[]`
+
+default: `[]`
+
+List of import name prefixes to match for this group.
+
+\######## overrides\[n].options.experimentalSortImports.customGroups\[n].groupName
+
+type: `string`
+
+default: `""`
+
+Name of the custom group, used in the `groups` option.
+
+###### overrides\[n].options.experimentalSortImports.groups
+
+type: `array`
+
+Specifies a list of predefined import groups for sorting.
+
+Each import will be assigned a single group specified in the groups option (or the `unknown` group if no match is found).
+The order of items in the `groups` option determines how groups are ordered.
+
+Within a given group, members will be sorted according to the type, order, ignoreCase, etc. options.
+
+Individual groups can be combined together by placing them in an array.
+The order of groups in that array does not matter.
+All members of the groups in the array will be sorted together as if they were part of a single group.
+
+Predefined groups are characterized by a single selector and potentially multiple modifiers.
+You may enter modifiers in any order, but the selector must always come at the end.
+
+The list of selectors is sorted from most to least important:
+
+* `type` — TypeScript type imports.
+* `side-effect-style` — Side effect style imports.
+* `side-effect` — Side effect imports.
+* `style` — Style imports.
+* `index` — Main file from the current directory.
+* `sibling` — Modules from the same directory.
+* `parent` — Modules from the parent directory.
+* `subpath` — Node.js subpath imports.
+* `internal` — Your internal modules.
+* `builtin` — Node.js Built-in Modules.
+* `external` — External modules installed in the project.
+* `import` — Any import.
+
+The list of modifiers is sorted from most to least important:
+
+* `side-effect` — Side effect imports.
+* `type` — TypeScript type imports.
+* `value` — Value imports.
+* `default` — Imports containing the default specifier.
+* `wildcard` — Imports containing the wildcard (`* as`) specifier.
+* `named` — Imports containing at least one named specifier.
+* `multiline` — Imports on multiple lines.
+* `singleline` — Imports on a single line.
+
+See also <https://perfectionist.dev/rules/sort-imports#groups> for details.
+
+* Default: See below
+
+```json
+[
+  "type-import",
+  ["value-builtin", "value-external"],
+  "type-internal",
+  "value-internal",
+  ["type-parent", "type-sibling", "type-index"],
+  ["value-parent", "value-sibling", "value-index"],
+  "unknown"
+]
+```
+
+\####### overrides\[n].options.experimentalSortImports.groups\[n]
+
+type: `array | string`
+
+\######## overrides\[n].options.experimentalSortImports.groups\[n]\[n]
+
+type: `string`
+
+###### overrides\[n].options.experimentalSortImports.ignoreCase
+
+type: `boolean`
+
+Specifies whether sorting should be case-sensitive.
+
+* Default: `true`
+
+###### overrides\[n].options.experimentalSortImports.internalPattern
+
+type: `string[]`
+
+Specifies a prefix for identifying internal imports.
+
+This is useful for distinguishing your own modules from external dependencies.
+
+* Default: `["~/", "@/"]`
+
+###### overrides\[n].options.experimentalSortImports.newlinesBetween
+
+type: `boolean`
+
+Specifies whether to add newlines between groups.
+
+When `false`, no newlines are added between groups.
+
+* Default: `true`
+
+###### overrides\[n].options.experimentalSortImports.order
+
+type: `"asc" | "desc"`
+
+Specifies whether to sort items in ascending or descending order.
+
+* Default: `"asc"`
+
+###### overrides\[n].options.experimentalSortImports.partitionByComment
+
+type: `boolean`
+
+Enables the use of comments to separate imports into logical groups.
+
+When `true`, all comments will be treated as delimiters, creating partitions.
+
+```js
+import { b1, b2 } from "b";
+// PARTITION
+import { a } from "a";
+import { c } from "c";
+```
+
+* Default: `false`
+
+###### overrides\[n].options.experimentalSortImports.partitionByNewline
+
+type: `boolean`
+
+Enables the empty line to separate imports into logical groups.
+
+When `true`, formatter will not sort imports if there is an empty line between them.
+This helps maintain the defined order of logically separated groups of members.
+
+```js
+import { b1, b2 } from "b";
+
+import { a } from "a";
+import { c } from "c";
+```
+
+* Default: `false`
+
+###### overrides\[n].options.experimentalSortImports.sortSideEffects
+
+type: `boolean`
+
+Specifies whether side effect imports should be sorted.
+
+By default, sorting side-effect imports is disabled for security reasons.
+
+* Default: `false`
+
+##### overrides\[n].options.experimentalSortPackageJson
+
+type: `object | boolean`
+
+Experimental: Sort `package.json` keys.
+
+The algorithm is NOT compatible with [prettier-plugin-sort-packagejson](https://github.com/matzkoh/prettier-plugin-packagejson).
+But we believe it is clearer and easier to navigate.
+For details, see each field's documentation.
+
+* Default: `true`
+
+###### overrides\[n].options.experimentalSortPackageJson.sortScripts
+
+type: `boolean`
+
+Sort the `scripts` field alphabetically.
+
+* Default: `false`
+
+##### overrides\[n].options.experimentalTailwindcss
+
+type: `object`
+
+Experimental: Sort Tailwind CSS classes.
+
+Using the same algorithm as [prettier-plugin-tailwindcss](https://github.com/tailwindlabs/prettier-plugin-tailwindcss).
+Option names omit the `tailwind` prefix used in the original plugin (e.g., `config` instead of `tailwindConfig`).
+For details, see each field's documentation.
+
+* Default: Disabled
+
+###### overrides\[n].options.experimentalTailwindcss.attributes
+
+type: `string[]`
+
+List of attribute prefixes that contain Tailwind CSS classes.
+
+NOTE: Regex patterns are not yet supported.
+
+* Default: `["class", "className"]`
+* Example: `["myClassProp", ":class"]`
+
+###### overrides\[n].options.experimentalTailwindcss.config
+
+type: `string`
+
+Path to your Tailwind CSS configuration file (v3).
+
+NOTE: Paths are resolved relative to the Oxfmt configuration file.
+
+* Default: Automatically find `"tailwind.config.js"`
+
+###### overrides\[n].options.experimentalTailwindcss.functions
+
+type: `string[]`
+
+List of custom function name prefixes that contain Tailwind CSS classes.
+
+NOTE: Regex patterns are not yet supported.
+
+* Default: `[]`
+* Example: `["clsx", "cn", "cva", "tw"]`
+
+###### overrides\[n].options.experimentalTailwindcss.preserveDuplicates
+
+type: `boolean`
+
+Preserve duplicate classes.
+
+* Default: `false`
+
+###### overrides\[n].options.experimentalTailwindcss.preserveWhitespace
+
+type: `boolean`
+
+Preserve whitespace around classes.
+
+* Default: `false`
+
+###### overrides\[n].options.experimentalTailwindcss.stylesheet
+
+type: `string`
+
+Path to your Tailwind CSS stylesheet (v4).
+
+NOTE: Paths are resolved relative to the Oxfmt configuration file.
+
+* Default: Installed Tailwind CSS's `theme.css`
+
+##### overrides\[n].options.htmlWhitespaceSensitivity
+
+type: `"css" | "strict" | "ignore"`
+
+Specify the global whitespace sensitivity for HTML, Vue, Angular, and Handlebars.
+
+* Default: `"css"`
+
+##### overrides\[n].options.insertFinalNewline
+
+type: `boolean`
+
+Whether to insert a final newline at the end of the file.
+
+* Default: `true`
+* Overrides `.editorconfig.insert_final_newline`
+
+##### overrides\[n].options.jsxSingleQuote
+
+type: `boolean`
+
+Use single quotes instead of double quotes in JSX.
+
+* Default: `false`
+
+##### overrides\[n].options.objectWrap
+
+type: `"preserve" | "collapse"`
+
+How to wrap object literals when they could fit on one line or span multiple lines.
+
+By default, formats objects as multi-line if there is a newline prior to the first property.
+Authors can use this heuristic to contextually improve readability, though it has some downsides.
+
+* Default: `"preserve"`
+
+##### overrides\[n].options.printWidth
+
+type: `integer`
+
+Specify the line length that the printer will wrap on.
+
+If you don't want line wrapping when formatting Markdown, you can set the `proseWrap` option to disable it.
+
+* Default: `100`
+* Overrides `.editorconfig.max_line_length`
+
+##### overrides\[n].options.proseWrap
+
+type: `"always" | "never" | "preserve"`
+
+How to wrap prose.
+
+By default, formatter will not change wrapping in markdown text since some services use a linebreak-sensitive renderer, e.g. GitHub comments and BitBucket.
+To wrap prose to the print width, change this option to "always".
+If you want to force all prose blocks to be on a single line and rely on editor/viewer soft wrapping instead, you can use "never".
+
+* Default: `"preserve"`
+
+##### overrides\[n].options.quoteProps
+
+type: `"as-needed" | "consistent" | "preserve"`
+
+Change when properties in objects are quoted.
+
+* Default: `"as-needed"`
+
+##### overrides\[n].options.semi
+
+type: `boolean`
+
+Print semicolons at the ends of statements.
+
+* Default: `true`
+
+##### overrides\[n].options.singleAttributePerLine
+
+type: `boolean`
+
+Enforce single attribute per line in HTML, Vue, and JSX.
+
+* Default: `false`
+
+##### overrides\[n].options.singleQuote
+
+type: `boolean`
+
+Use single quotes instead of double quotes.
+
+For JSX, you can set the `jsxSingleQuote` option.
+
+* Default: `false`
+
+##### overrides\[n].options.tabWidth
+
+type: `integer`
+
+Specify the number of spaces per indentation-level.
+
+* Default: `2`
+* Overrides `.editorconfig.indent_size`
+
+##### overrides\[n].options.trailingComma
+
+type: `"all" | "es5" | "none"`
+
+Print trailing commas wherever possible in multi-line comma-separated syntactic structures.
+
+A single-line array, for example, never gets trailing commas.
+
+* Default: `"all"`
+
+##### overrides\[n].options.useTabs
+
+type: `boolean`
+
+Indent lines with tabs instead of spaces.
+
+* Default: `false`
+* Overrides `.editorconfig.indent_style`
+
+##### overrides\[n].options.vueIndentScriptAndStyle
+
+type: `boolean`
+
+Whether or not to indent the code inside `<script>` and `<style>` tags in Vue files.
+
+* Default: `false`
 
 ## printWidth
 
-type: `integer | null`
+type: `integer`
 
-The line length that the printer will wrap on. (Default: `100`)
+Specify the line length that the printer will wrap on.
+
+If you don't want line wrapping when formatting Markdown, you can set the `proseWrap` option to disable it.
+
+* Default: `100`
+* Overrides `.editorconfig.max_line_length`
+
+## proseWrap
+
+type: `"always" | "never" | "preserve"`
+
+How to wrap prose.
+
+By default, formatter will not change wrapping in markdown text since some services use a linebreak-sensitive renderer, e.g. GitHub comments and BitBucket.
+To wrap prose to the print width, change this option to "always".
+If you want to force all prose blocks to be on a single line and rely on editor/viewer soft wrapping instead, you can use "never".
+
+* Default: `"preserve"`
 
 ## quoteProps
 
-type: `"as-needed" | "consistent" | "preserve" | null`
+type: `"as-needed" | "consistent" | "preserve"`
 
-Change when properties in objects are quoted. (Default: `"as-needed"`)
+Change when properties in objects are quoted.
+
+* Default: `"as-needed"`
 
 ## semi
 
-type: `boolean | null`
+type: `boolean`
 
-Print semicolons at the ends of statements. (Default: `true`)
+Print semicolons at the ends of statements.
+
+* Default: `true`
 
 ## singleAttributePerLine
 
-type: `boolean | null`
+type: `boolean`
 
-Put each attribute on a new line in JSX. (Default: `false`)
+Enforce single attribute per line in HTML, Vue, and JSX.
+
+* Default: `false`
 
 ## singleQuote
 
-type: `boolean | null`
+type: `boolean`
 
-Use single quotes instead of double quotes. (Default: `false`)
+Use single quotes instead of double quotes.
+
+For JSX, you can set the `jsxSingleQuote` option.
+
+* Default: `false`
 
 ## tabWidth
 
-type: `integer | null`
+type: `integer`
 
-Number of spaces per indentation level. (Default: `2`)
+Specify the number of spaces per indentation-level.
+
+* Default: `2`
+* Overrides `.editorconfig.indent_size`
 
 ## trailingComma
 
-type: `"all" | "es5" | "none" | null`
+type: `"all" | "es5" | "none"`
 
-Print trailing commas wherever possible. (Default: `"all"`)
+Print trailing commas wherever possible in multi-line comma-separated syntactic structures.
+
+A single-line array, for example, never gets trailing commas.
+
+* Default: `"all"`
 
 ## useTabs
 
-type: `boolean | null`
+type: `boolean`
 
-Use tabs for indentation or spaces. (Default: `false`)
+Indent lines with tabs instead of spaces.
+
+* Default: `false`
+* Overrides `.editorconfig.indent_style`
+
+## vueIndentScriptAndStyle
+
+type: `boolean`
+
+Whether or not to indent the code inside `<script>` and `<style>` tags in Vue files.
+
+* Default: `false`
+
+---
+
+---
+url: /docs/guide/usage/formatter/config-file-reference.md
+---
+
+# Configuration options for the Oxfmt.
+
+Most options are the same as Prettier's options, but not all of them.
+In addition, some options are our own extensions.
+
+## arrowParens
+
+type: `"always" | "avoid"`
+
+Include parentheses around a sole arrow function parameter.
+
+* Default: `"always"`
+
+## bracketSameLine
+
+type: `boolean`
+
+Put the `>` of a multi-line HTML (HTML, JSX, Vue, Angular) element at the end of the last line,
+instead of being alone on the next line (does not apply to self closing elements).
+
+* Default: `false`
+
+## bracketSpacing
+
+type: `boolean`
+
+Print spaces between brackets in object literals.
+
+* Default: `true`
+
+## embeddedLanguageFormatting
+
+type: `"auto" | "off"`
+
+Control whether to format embedded parts (For example, CSS-in-JS, or JS-in-Vue, etc.) in the file.
+
+NOTE: XXX-in-JS support is incomplete.
+JS-in-XXX is fully supported but still be handled by Prettier.
+
+* Default: `"auto"`
+
+## endOfLine
+
+type: `"lf" | "crlf" | "cr"`
+
+Which end of line characters to apply.
+
+NOTE: `"auto"` is not supported.
+
+* Default: `"lf"`
+* Overrides `.editorconfig.end_of_line`
+
+## experimentalSortImports
+
+type: `object`
+
+Experimental: Sort import statements.
+
+Using the similar algorithm as [eslint-plugin-perfectionist/sort-imports](https://perfectionist.dev/rules/sort-imports).
+For details, see each field's documentation.
+
+* Default: Disabled
+
+### experimentalSortImports.customGroups
+
+type: `array`
+
+Define your own groups for matching very specific imports.
+
+The `customGroups` list is ordered: The first definition that matches an element will be used.
+Custom groups have a higher priority than any predefined group.
+
+If you want a predefined group to take precedence over a custom group,
+you must write a custom group definition that does the same as what the predefined group does, and put it first in the list.
+
+* Default: `[]`
+
+#### experimentalSortImports.customGroups\[n]
+
+type: `object`
+
+##### experimentalSortImports.customGroups\[n].elementNamePattern
+
+type: `string[]`
+
+default: `[]`
+
+List of import name prefixes to match for this group.
+
+##### experimentalSortImports.customGroups\[n].groupName
+
+type: `string`
+
+default: `""`
+
+Name of the custom group, used in the `groups` option.
+
+### experimentalSortImports.groups
+
+type: `array`
+
+Specifies a list of predefined import groups for sorting.
+
+Each import will be assigned a single group specified in the groups option (or the `unknown` group if no match is found).
+The order of items in the `groups` option determines how groups are ordered.
+
+Within a given group, members will be sorted according to the type, order, ignoreCase, etc. options.
+
+Individual groups can be combined together by placing them in an array.
+The order of groups in that array does not matter.
+All members of the groups in the array will be sorted together as if they were part of a single group.
+
+Predefined groups are characterized by a single selector and potentially multiple modifiers.
+You may enter modifiers in any order, but the selector must always come at the end.
+
+The list of selectors is sorted from most to least important:
+
+* `type` — TypeScript type imports.
+* `side-effect-style` — Side effect style imports.
+* `side-effect` — Side effect imports.
+* `style` — Style imports.
+* `index` — Main file from the current directory.
+* `sibling` — Modules from the same directory.
+* `parent` — Modules from the parent directory.
+* `subpath` — Node.js subpath imports.
+* `internal` — Your internal modules.
+* `builtin` — Node.js Built-in Modules.
+* `external` — External modules installed in the project.
+* `import` — Any import.
+
+The list of modifiers is sorted from most to least important:
+
+* `side-effect` — Side effect imports.
+* `type` — TypeScript type imports.
+* `value` — Value imports.
+* `default` — Imports containing the default specifier.
+* `wildcard` — Imports containing the wildcard (`* as`) specifier.
+* `named` — Imports containing at least one named specifier.
+* `multiline` — Imports on multiple lines.
+* `singleline` — Imports on a single line.
+
+See also <https://perfectionist.dev/rules/sort-imports#groups> for details.
+
+* Default: See below
+
+```json
+[
+  "type-import",
+  ["value-builtin", "value-external"],
+  "type-internal",
+  "value-internal",
+  ["type-parent", "type-sibling", "type-index"],
+  ["value-parent", "value-sibling", "value-index"],
+  "unknown"
+]
+```
+
+#### experimentalSortImports.groups\[n]
+
+type: `array | string`
+
+##### experimentalSortImports.groups\[n]\[n]
+
+type: `string`
+
+### experimentalSortImports.ignoreCase
+
+type: `boolean`
+
+Specifies whether sorting should be case-sensitive.
+
+* Default: `true`
+
+### experimentalSortImports.internalPattern
+
+type: `string[]`
+
+Specifies a prefix for identifying internal imports.
+
+This is useful for distinguishing your own modules from external dependencies.
+
+* Default: `["~/", "@/"]`
+
+### experimentalSortImports.newlinesBetween
+
+type: `boolean`
+
+Specifies whether to add newlines between groups.
+
+When `false`, no newlines are added between groups.
+
+* Default: `true`
+
+### experimentalSortImports.order
+
+type: `"asc" | "desc"`
+
+Specifies whether to sort items in ascending or descending order.
+
+* Default: `"asc"`
+
+### experimentalSortImports.partitionByComment
+
+type: `boolean`
+
+Enables the use of comments to separate imports into logical groups.
+
+When `true`, all comments will be treated as delimiters, creating partitions.
+
+```js
+import { b1, b2 } from "b";
+// PARTITION
+import { a } from "a";
+import { c } from "c";
+```
+
+* Default: `false`
+
+### experimentalSortImports.partitionByNewline
+
+type: `boolean`
+
+Enables the empty line to separate imports into logical groups.
+
+When `true`, formatter will not sort imports if there is an empty line between them.
+This helps maintain the defined order of logically separated groups of members.
+
+```js
+import { b1, b2 } from "b";
+
+import { a } from "a";
+import { c } from "c";
+```
+
+* Default: `false`
+
+### experimentalSortImports.sortSideEffects
+
+type: `boolean`
+
+Specifies whether side effect imports should be sorted.
+
+By default, sorting side-effect imports is disabled for security reasons.
+
+* Default: `false`
+
+## experimentalSortPackageJson
+
+type: `object | boolean`
+
+Experimental: Sort `package.json` keys.
+
+The algorithm is NOT compatible with [prettier-plugin-sort-packagejson](https://github.com/matzkoh/prettier-plugin-packagejson).
+But we believe it is clearer and easier to navigate.
+For details, see each field's documentation.
+
+* Default: `true`
+
+### experimentalSortPackageJson.sortScripts
+
+type: `boolean`
+
+Sort the `scripts` field alphabetically.
+
+* Default: `false`
+
+## experimentalTailwindcss
+
+type: `object`
+
+Experimental: Sort Tailwind CSS classes.
+
+Using the same algorithm as [prettier-plugin-tailwindcss](https://github.com/tailwindlabs/prettier-plugin-tailwindcss).
+Option names omit the `tailwind` prefix used in the original plugin (e.g., `config` instead of `tailwindConfig`).
+For details, see each field's documentation.
+
+* Default: Disabled
+
+### experimentalTailwindcss.attributes
+
+type: `string[]`
+
+List of attribute prefixes that contain Tailwind CSS classes.
+
+NOTE: Regex patterns are not yet supported.
+
+* Default: `["class", "className"]`
+* Example: `["myClassProp", ":class"]`
+
+### experimentalTailwindcss.config
+
+type: `string`
+
+Path to your Tailwind CSS configuration file (v3).
+
+NOTE: Paths are resolved relative to the Oxfmt configuration file.
+
+* Default: Automatically find `"tailwind.config.js"`
+
+### experimentalTailwindcss.functions
+
+type: `string[]`
+
+List of custom function name prefixes that contain Tailwind CSS classes.
+
+NOTE: Regex patterns are not yet supported.
+
+* Default: `[]`
+* Example: `["clsx", "cn", "cva", "tw"]`
+
+### experimentalTailwindcss.preserveDuplicates
+
+type: `boolean`
+
+Preserve duplicate classes.
+
+* Default: `false`
+
+### experimentalTailwindcss.preserveWhitespace
+
+type: `boolean`
+
+Preserve whitespace around classes.
+
+* Default: `false`
+
+### experimentalTailwindcss.stylesheet
+
+type: `string`
+
+Path to your Tailwind CSS stylesheet (v4).
+
+NOTE: Paths are resolved relative to the Oxfmt configuration file.
+
+* Default: Installed Tailwind CSS's `theme.css`
+
+## htmlWhitespaceSensitivity
+
+type: `"css" | "strict" | "ignore"`
+
+Specify the global whitespace sensitivity for HTML, Vue, Angular, and Handlebars.
+
+* Default: `"css"`
+
+## ignorePatterns
+
+type: `string[]`
+
+Ignore files matching these glob patterns.
+Patterns are based on the location of the Oxfmt configuration file.
+
+* Default: `[]`
+
+## insertFinalNewline
+
+type: `boolean`
+
+Whether to insert a final newline at the end of the file.
+
+* Default: `true`
+* Overrides `.editorconfig.insert_final_newline`
+
+## jsxSingleQuote
+
+type: `boolean`
+
+Use single quotes instead of double quotes in JSX.
+
+* Default: `false`
+
+## objectWrap
+
+type: `"preserve" | "collapse"`
+
+How to wrap object literals when they could fit on one line or span multiple lines.
+
+By default, formats objects as multi-line if there is a newline prior to the first property.
+Authors can use this heuristic to contextually improve readability, though it has some downsides.
+
+* Default: `"preserve"`
+
+## overrides
+
+type: `array`
+
+File-specific overrides.
+When a file matches multiple overrides, the later override takes precedence (array order matters).
+
+* Default: `[]`
+
+### overrides\[n]
+
+type: `object`
+
+#### overrides\[n].excludeFiles
+
+type: `string[]`
+
+Glob patterns to exclude from this override.
+
+#### overrides\[n].files
+
+type: `string[]`
+
+Glob patterns to match files for this override.
+All patterns are relative to the Oxfmt configuration file.
+
+#### overrides\[n].options
+
+type: `object`
+
+##### overrides\[n].options.arrowParens
+
+type: `"always" | "avoid"`
+
+Include parentheses around a sole arrow function parameter.
+
+* Default: `"always"`
+
+##### overrides\[n].options.bracketSameLine
+
+type: `boolean`
+
+Put the `>` of a multi-line HTML (HTML, JSX, Vue, Angular) element at the end of the last line,
+instead of being alone on the next line (does not apply to self closing elements).
+
+* Default: `false`
+
+##### overrides\[n].options.bracketSpacing
+
+type: `boolean`
+
+Print spaces between brackets in object literals.
+
+* Default: `true`
+
+##### overrides\[n].options.embeddedLanguageFormatting
+
+type: `"auto" | "off"`
+
+Control whether to format embedded parts (For example, CSS-in-JS, or JS-in-Vue, etc.) in the file.
+
+NOTE: XXX-in-JS support is incomplete.
+JS-in-XXX is fully supported but still be handled by Prettier.
+
+* Default: `"auto"`
+
+##### overrides\[n].options.endOfLine
+
+type: `"lf" | "crlf" | "cr"`
+
+Which end of line characters to apply.
+
+NOTE: `"auto"` is not supported.
+
+* Default: `"lf"`
+* Overrides `.editorconfig.end_of_line`
+
+##### overrides\[n].options.experimentalSortImports
+
+type: `object`
+
+Experimental: Sort import statements.
+
+Using the similar algorithm as [eslint-plugin-perfectionist/sort-imports](https://perfectionist.dev/rules/sort-imports).
+For details, see each field's documentation.
+
+* Default: Disabled
+
+###### overrides\[n].options.experimentalSortImports.customGroups
+
+type: `array`
+
+Define your own groups for matching very specific imports.
+
+The `customGroups` list is ordered: The first definition that matches an element will be used.
+Custom groups have a higher priority than any predefined group.
+
+If you want a predefined group to take precedence over a custom group,
+you must write a custom group definition that does the same as what the predefined group does, and put it first in the list.
+
+* Default: `[]`
+
+\####### overrides\[n].options.experimentalSortImports.customGroups\[n]
+
+type: `object`
+
+\######## overrides\[n].options.experimentalSortImports.customGroups\[n].elementNamePattern
+
+type: `string[]`
+
+default: `[]`
+
+List of import name prefixes to match for this group.
+
+\######## overrides\[n].options.experimentalSortImports.customGroups\[n].groupName
+
+type: `string`
+
+default: `""`
+
+Name of the custom group, used in the `groups` option.
+
+###### overrides\[n].options.experimentalSortImports.groups
+
+type: `array`
+
+Specifies a list of predefined import groups for sorting.
+
+Each import will be assigned a single group specified in the groups option (or the `unknown` group if no match is found).
+The order of items in the `groups` option determines how groups are ordered.
+
+Within a given group, members will be sorted according to the type, order, ignoreCase, etc. options.
+
+Individual groups can be combined together by placing them in an array.
+The order of groups in that array does not matter.
+All members of the groups in the array will be sorted together as if they were part of a single group.
+
+Predefined groups are characterized by a single selector and potentially multiple modifiers.
+You may enter modifiers in any order, but the selector must always come at the end.
+
+The list of selectors is sorted from most to least important:
+
+* `type` — TypeScript type imports.
+* `side-effect-style` — Side effect style imports.
+* `side-effect` — Side effect imports.
+* `style` — Style imports.
+* `index` — Main file from the current directory.
+* `sibling` — Modules from the same directory.
+* `parent` — Modules from the parent directory.
+* `subpath` — Node.js subpath imports.
+* `internal` — Your internal modules.
+* `builtin` — Node.js Built-in Modules.
+* `external` — External modules installed in the project.
+* `import` — Any import.
+
+The list of modifiers is sorted from most to least important:
+
+* `side-effect` — Side effect imports.
+* `type` — TypeScript type imports.
+* `value` — Value imports.
+* `default` — Imports containing the default specifier.
+* `wildcard` — Imports containing the wildcard (`* as`) specifier.
+* `named` — Imports containing at least one named specifier.
+* `multiline` — Imports on multiple lines.
+* `singleline` — Imports on a single line.
+
+See also <https://perfectionist.dev/rules/sort-imports#groups> for details.
+
+* Default: See below
+
+```json
+[
+  "type-import",
+  ["value-builtin", "value-external"],
+  "type-internal",
+  "value-internal",
+  ["type-parent", "type-sibling", "type-index"],
+  ["value-parent", "value-sibling", "value-index"],
+  "unknown"
+]
+```
+
+\####### overrides\[n].options.experimentalSortImports.groups\[n]
+
+type: `array | string`
+
+\######## overrides\[n].options.experimentalSortImports.groups\[n]\[n]
+
+type: `string`
+
+###### overrides\[n].options.experimentalSortImports.ignoreCase
+
+type: `boolean`
+
+Specifies whether sorting should be case-sensitive.
+
+* Default: `true`
+
+###### overrides\[n].options.experimentalSortImports.internalPattern
+
+type: `string[]`
+
+Specifies a prefix for identifying internal imports.
+
+This is useful for distinguishing your own modules from external dependencies.
+
+* Default: `["~/", "@/"]`
+
+###### overrides\[n].options.experimentalSortImports.newlinesBetween
+
+type: `boolean`
+
+Specifies whether to add newlines between groups.
+
+When `false`, no newlines are added between groups.
+
+* Default: `true`
+
+###### overrides\[n].options.experimentalSortImports.order
+
+type: `"asc" | "desc"`
+
+Specifies whether to sort items in ascending or descending order.
+
+* Default: `"asc"`
+
+###### overrides\[n].options.experimentalSortImports.partitionByComment
+
+type: `boolean`
+
+Enables the use of comments to separate imports into logical groups.
+
+When `true`, all comments will be treated as delimiters, creating partitions.
+
+```js
+import { b1, b2 } from "b";
+// PARTITION
+import { a } from "a";
+import { c } from "c";
+```
+
+* Default: `false`
+
+###### overrides\[n].options.experimentalSortImports.partitionByNewline
+
+type: `boolean`
+
+Enables the empty line to separate imports into logical groups.
+
+When `true`, formatter will not sort imports if there is an empty line between them.
+This helps maintain the defined order of logically separated groups of members.
+
+```js
+import { b1, b2 } from "b";
+
+import { a } from "a";
+import { c } from "c";
+```
+
+* Default: `false`
+
+###### overrides\[n].options.experimentalSortImports.sortSideEffects
+
+type: `boolean`
+
+Specifies whether side effect imports should be sorted.
+
+By default, sorting side-effect imports is disabled for security reasons.
+
+* Default: `false`
+
+##### overrides\[n].options.experimentalSortPackageJson
+
+type: `object | boolean`
+
+Experimental: Sort `package.json` keys.
+
+The algorithm is NOT compatible with [prettier-plugin-sort-packagejson](https://github.com/matzkoh/prettier-plugin-packagejson).
+But we believe it is clearer and easier to navigate.
+For details, see each field's documentation.
+
+* Default: `true`
+
+###### overrides\[n].options.experimentalSortPackageJson.sortScripts
+
+type: `boolean`
+
+Sort the `scripts` field alphabetically.
+
+* Default: `false`
+
+##### overrides\[n].options.experimentalTailwindcss
+
+type: `object`
+
+Experimental: Sort Tailwind CSS classes.
+
+Using the same algorithm as [prettier-plugin-tailwindcss](https://github.com/tailwindlabs/prettier-plugin-tailwindcss).
+Option names omit the `tailwind` prefix used in the original plugin (e.g., `config` instead of `tailwindConfig`).
+For details, see each field's documentation.
+
+* Default: Disabled
+
+###### overrides\[n].options.experimentalTailwindcss.attributes
+
+type: `string[]`
+
+List of attribute prefixes that contain Tailwind CSS classes.
+
+NOTE: Regex patterns are not yet supported.
+
+* Default: `["class", "className"]`
+* Example: `["myClassProp", ":class"]`
+
+###### overrides\[n].options.experimentalTailwindcss.config
+
+type: `string`
+
+Path to your Tailwind CSS configuration file (v3).
+
+NOTE: Paths are resolved relative to the Oxfmt configuration file.
+
+* Default: Automatically find `"tailwind.config.js"`
+
+###### overrides\[n].options.experimentalTailwindcss.functions
+
+type: `string[]`
+
+List of custom function name prefixes that contain Tailwind CSS classes.
+
+NOTE: Regex patterns are not yet supported.
+
+* Default: `[]`
+* Example: `["clsx", "cn", "cva", "tw"]`
+
+###### overrides\[n].options.experimentalTailwindcss.preserveDuplicates
+
+type: `boolean`
+
+Preserve duplicate classes.
+
+* Default: `false`
+
+###### overrides\[n].options.experimentalTailwindcss.preserveWhitespace
+
+type: `boolean`
+
+Preserve whitespace around classes.
+
+* Default: `false`
+
+###### overrides\[n].options.experimentalTailwindcss.stylesheet
+
+type: `string`
+
+Path to your Tailwind CSS stylesheet (v4).
+
+NOTE: Paths are resolved relative to the Oxfmt configuration file.
+
+* Default: Installed Tailwind CSS's `theme.css`
+
+##### overrides\[n].options.htmlWhitespaceSensitivity
+
+type: `"css" | "strict" | "ignore"`
+
+Specify the global whitespace sensitivity for HTML, Vue, Angular, and Handlebars.
+
+* Default: `"css"`
+
+##### overrides\[n].options.insertFinalNewline
+
+type: `boolean`
+
+Whether to insert a final newline at the end of the file.
+
+* Default: `true`
+* Overrides `.editorconfig.insert_final_newline`
+
+##### overrides\[n].options.jsxSingleQuote
+
+type: `boolean`
+
+Use single quotes instead of double quotes in JSX.
+
+* Default: `false`
+
+##### overrides\[n].options.objectWrap
+
+type: `"preserve" | "collapse"`
+
+How to wrap object literals when they could fit on one line or span multiple lines.
+
+By default, formats objects as multi-line if there is a newline prior to the first property.
+Authors can use this heuristic to contextually improve readability, though it has some downsides.
+
+* Default: `"preserve"`
+
+##### overrides\[n].options.printWidth
+
+type: `integer`
+
+Specify the line length that the printer will wrap on.
+
+If you don't want line wrapping when formatting Markdown, you can set the `proseWrap` option to disable it.
+
+* Default: `100`
+* Overrides `.editorconfig.max_line_length`
+
+##### overrides\[n].options.proseWrap
+
+type: `"always" | "never" | "preserve"`
+
+How to wrap prose.
+
+By default, formatter will not change wrapping in markdown text since some services use a linebreak-sensitive renderer, e.g. GitHub comments and BitBucket.
+To wrap prose to the print width, change this option to "always".
+If you want to force all prose blocks to be on a single line and rely on editor/viewer soft wrapping instead, you can use "never".
+
+* Default: `"preserve"`
+
+##### overrides\[n].options.quoteProps
+
+type: `"as-needed" | "consistent" | "preserve"`
+
+Change when properties in objects are quoted.
+
+* Default: `"as-needed"`
+
+##### overrides\[n].options.semi
+
+type: `boolean`
+
+Print semicolons at the ends of statements.
+
+* Default: `true`
+
+##### overrides\[n].options.singleAttributePerLine
+
+type: `boolean`
+
+Enforce single attribute per line in HTML, Vue, and JSX.
+
+* Default: `false`
+
+##### overrides\[n].options.singleQuote
+
+type: `boolean`
+
+Use single quotes instead of double quotes.
+
+For JSX, you can set the `jsxSingleQuote` option.
+
+* Default: `false`
+
+##### overrides\[n].options.tabWidth
+
+type: `integer`
+
+Specify the number of spaces per indentation-level.
+
+* Default: `2`
+* Overrides `.editorconfig.indent_size`
+
+##### overrides\[n].options.trailingComma
+
+type: `"all" | "es5" | "none"`
+
+Print trailing commas wherever possible in multi-line comma-separated syntactic structures.
+
+A single-line array, for example, never gets trailing commas.
+
+* Default: `"all"`
+
+##### overrides\[n].options.useTabs
+
+type: `boolean`
+
+Indent lines with tabs instead of spaces.
+
+* Default: `false`
+* Overrides `.editorconfig.indent_style`
+
+##### overrides\[n].options.vueIndentScriptAndStyle
+
+type: `boolean`
+
+Whether or not to indent the code inside `<script>` and `<style>` tags in Vue files.
+
+* Default: `false`
+
+## printWidth
+
+type: `integer`
+
+Specify the line length that the printer will wrap on.
+
+If you don't want line wrapping when formatting Markdown, you can set the `proseWrap` option to disable it.
+
+* Default: `100`
+* Overrides `.editorconfig.max_line_length`
+
+## proseWrap
+
+type: `"always" | "never" | "preserve"`
+
+How to wrap prose.
+
+By default, formatter will not change wrapping in markdown text since some services use a linebreak-sensitive renderer, e.g. GitHub comments and BitBucket.
+To wrap prose to the print width, change this option to "always".
+If you want to force all prose blocks to be on a single line and rely on editor/viewer soft wrapping instead, you can use "never".
+
+* Default: `"preserve"`
+
+## quoteProps
+
+type: `"as-needed" | "consistent" | "preserve"`
+
+Change when properties in objects are quoted.
+
+* Default: `"as-needed"`
+
+## semi
+
+type: `boolean`
+
+Print semicolons at the ends of statements.
+
+* Default: `true`
+
+## singleAttributePerLine
+
+type: `boolean`
+
+Enforce single attribute per line in HTML, Vue, and JSX.
+
+* Default: `false`
+
+## singleQuote
+
+type: `boolean`
+
+Use single quotes instead of double quotes.
+
+For JSX, you can set the `jsxSingleQuote` option.
+
+* Default: `false`
+
+## tabWidth
+
+type: `integer`
+
+Specify the number of spaces per indentation-level.
+
+* Default: `2`
+* Overrides `.editorconfig.indent_size`
+
+## trailingComma
+
+type: `"all" | "es5" | "none"`
+
+Print trailing commas wherever possible in multi-line comma-separated syntactic structures.
+
+A single-line array, for example, never gets trailing commas.
+
+* Default: `"all"`
+
+## useTabs
+
+type: `boolean`
+
+Indent lines with tabs instead of spaces.
+
+* Default: `false`
+* Overrides `.editorconfig.indent_style`
+
+## vueIndentScriptAndStyle
+
+type: `boolean`
+
+Whether or not to indent the code inside `<script>` and `<style>` tags in Vue files.
+
+* Default: `false`
 
 ---
 
@@ -3838,47 +5254,47 @@ This rule accepts a configuration object with the following properties:
 
 ### block
 
-type: `object | null`
+type: `object`
 
 #### block.ignoreConsecutiveComments
 
-type: `boolean | null`
+type: `boolean`
 
 #### block.ignoreInlineComments
 
-type: `boolean | null`
+type: `boolean`
 
 #### block.ignorePattern
 
-type: `string | null`
+type: `string`
 
 ### ignoreConsecutiveComments
 
-type: `boolean | null`
+type: `boolean`
 
 ### ignoreInlineComments
 
-type: `boolean | null`
+type: `boolean`
 
 ### ignorePattern
 
-type: `string | null`
+type: `string`
 
 ### line
 
-type: `object | null`
+type: `object`
 
 #### line.ignoreConsecutiveComments
 
-type: `boolean | null`
+type: `boolean`
 
 #### line.ignoreInlineComments
 
-type: `boolean | null`
+type: `boolean`
 
 #### line.ignorePattern
 
-type: `string | null`
+type: `string`
 
 ## How to use
 
@@ -4575,7 +5991,7 @@ This rule accepts a configuration object with the following properties:
 
 ### commentPattern
 
-type: `string | null`
+type: `string`
 
 A regex pattern used to detect comments that mark the absence
 of a `default` case as intentional.
@@ -4865,7 +6281,7 @@ Example JSON configuration:
 Examples of **incorrect** code for this rule:
 
 ```js
-/* eslint eqeqeq: "error" */
+/* eqeqeq: "error" */
 
 if (x == 42) {
 }
@@ -4878,7 +6294,7 @@ if (obj.getStuff() != undefined) {
 Examples of **correct** code for this rule:
 
 ```js
-/* eslint eqeqeq: "error" */
+/* eqeqeq: "error" */
 
 if (x === 42) {
 }
@@ -4893,7 +6309,7 @@ if (obj.getStuff() !== undefined) {
 Examples of **incorrect** code for this rule with the `"smart"` option:
 
 ```js
-/* eslint eqeqeq: ["error", "smart"] */
+/* eqeqeq: ["error", "smart"] */
 
 if (x == 42) {
 }
@@ -4904,7 +6320,7 @@ if ("" == text) {
 Examples of **correct** code for this rule with the `"smart"` option:
 
 ```js
-/* eslint eqeqeq: ["error", "smart"] */
+/* eqeqeq: ["error", "smart"] */
 
 if (typeof foo == "undefined") {
 }
@@ -4919,7 +6335,7 @@ if (foo != null) {
 Examples of **incorrect** code for this rule with the `{ "null": "ignore" }` option:
 
 ```js
-/* eslint eqeqeq: ["error", "always", { "null": "ignore" }] */
+/* eqeqeq: ["error", "always", { "null": "ignore" }] */
 if (x == 42) {
 }
 if ("" == text) {
@@ -4929,7 +6345,7 @@ if ("" == text) {
 Examples of **correct** code for this rule with the `{ "null": "ignore" }` option:
 
 ```js
-/* eslint eqeqeq: ["error", "always", { "null": "ignore" }] */
+/* eqeqeq: ["error", "always", { "null": "ignore" }] */
 if (foo == null) {
 }
 if (foo != null) {
@@ -4941,7 +6357,7 @@ if (foo != null) {
 Examples of **incorrect** code for this rule with the `{ "null": "always" }` option:
 
 ```js
-/* eslint eqeqeq: ["error", "always", { "null": "always" }] */
+/* eqeqeq: ["error", "always", { "null": "always" }] */
 
 if (foo == null) {
 }
@@ -4952,7 +6368,7 @@ if (foo != null) {
 Examples of **correct** code for this rule with the `{ "null": "always" }` option:
 
 ```js
-/* eslint eqeqeq: ["error", "always", { "null": "always" }] */
+/* eqeqeq: ["error", "always", { "null": "always" }] */
 
 if (foo === null) {
 }
@@ -4965,7 +6381,7 @@ if (foo !== null) {
 Examples of **incorrect** code for this rule with the `{ "null": "never" }` option:
 
 ```js
-/* eslint eqeqeq: ["error", "always", { "null": "never" }] */
+/* eqeqeq: ["error", "always", { "null": "never" }] */
 
 if (x == 42) {
 }
@@ -4980,7 +6396,7 @@ if (foo !== null) {
 Examples of **correct** code for this rule with the `{ "null": "never" }` option:
 
 ```js
-/* eslint eqeqeq: ["error", "always", { "null": "never" }] */
+/* eqeqeq: ["error", "always", { "null": "never" }] */
 
 if (x === 42) {
 }
@@ -5337,7 +6753,7 @@ url: /docs/guide/usage/linter/rules/eslint/func-style.md
 
 ### What it does
 
-Enforce the consistent use of either function declarations or expressions assigned to variables
+Enforce the consistent use of either function declarations or expressions assigned to variables.
 
 ### Why is this bad?
 
@@ -5363,20 +6779,20 @@ const doSomethingAgain = function () {
 };
 ```
 
-Examples of incorrect code for this rule with the default "expression" option:
+Examples of **incorrect** code for this rule with the default `"expression"` option:
 
 ```js
-/*eslint func-style: ["error", "expression"]*/
+/* func-style: ["error", "expression"] */
 
 function foo() {
   // ...
 }
 ```
 
-Examples of incorrect code for this rule with the "declaration" option:
+Examples of **incorrect** code for this rule with the `"declaration"` option:
 
 ```js
-/*eslint func-style: ["error", "declaration"]*/
+/* func-style: ["error", "declaration"] */
 var foo = function () {
   // ...
 };
@@ -5384,19 +6800,19 @@ var foo = function () {
 var foo = () => {};
 ```
 
-Examples of incorrect code for this rule with the "declaration" and {"overrides": { "namedExports": "expression" }} option:
+Examples of **incorrect** code for this rule with the `"declaration"` and `{"overrides": { "namedExports": "expression" }}` option:
 
 ```js
-/*eslint func-style: ["error", "declaration", { "overrides": { "namedExports": "expression" } }]*/
+/* func-style: ["error", "declaration", { "overrides": { "namedExports": "expression" } }] */
 export function foo() {
   // ...
 }
 ```
 
-Examples of incorrect code for this rule with the "expression" and {"overrides": { "namedExports": "declaration" }} option:
+Examples of **incorrect** code for this rule with the `"expression"` and `{"overrides": { "namedExports": "declaration" }}` option:
 
 ```js
-/*eslint func-style: ["error", "expression", { "overrides": { "namedExports": "declaration" } }]*/
+/* func-style: ["error", "expression", { "overrides": { "namedExports": "declaration" } }] */
 export var foo = function () {
   // ...
 };
@@ -5404,19 +6820,19 @@ export var foo = function () {
 export var bar = () => {};
 ```
 
-Examples of correct code for this rule with the default "expression" option:
+Examples of **correct** code for this rule with the default `"expression"` option:
 
 ```js
-/*eslint func-style: ["error", "expression"]*/
+/* func-style: ["error", "expression"] */
 var foo = function () {
   // ...
 };
 ```
 
-Examples of correct code for this rule with the "declaration" option:
+Examples of **correct** code for this rule with the `"declaration"` option:
 
 ```js
-/*eslint func-style: ["error", "declaration"]*/
+/* func-style: ["error", "declaration"] */
 function foo() {
   // ...
 }
@@ -5426,36 +6842,36 @@ SomeObject.foo = function () {
 };
 ```
 
-Examples of additional correct code for this rule with the "declaration", { "allowArrowFunctions": true } options:
+Examples of additional correct code for this rule with the `"declaration"`, `{ "allowArrowFunctions": true }` options:
 
 ```js
-/*eslint func-style: ["error", "declaration", { "allowArrowFunctions": true }]*/
+/* func-style: ["error", "declaration", { "allowArrowFunctions": true }] */
 var foo = () => {};
 ```
 
-Examples of correct code for this rule with the "declaration" and {"overrides": { "namedExports": "expression" }} option:
+Examples of **correct** code for this rule with the `"declaration"` and `{"overrides": { "namedExports": "expression" }}` option:
 
 ```js
-/*eslint func-style: ["error", "declaration", { "overrides": { "namedExports": "expression" } }]*/
+/* func-style: ["error", "declaration", { "overrides": { "namedExports": "expression" } }] */
 export var foo = function () {
   // ...
 };
 export var bar = () => {};
 ```
 
-Examples of correct code for this rule with the "expression" and {"overrides": { "namedExports": "declaration" }} option:
+Examples of **correct** code for this rule with the `"expression"` and `{"overrides": { "namedExports": "declaration" }}` option:
 
 ```js
-/*eslint func-style: ["error", "expression", { "overrides": { "namedExports": "declaration" } }]*/
+/* func-style: ["error", "expression", { "overrides": { "namedExports": "declaration" } }] */
 export function foo() {
   // ...
 }
 ```
 
-Examples of correct code for this rule with the {"overrides": { "namedExports": "ignore" }} option:
+Examples of **correct** code for this rule with the `{"overrides": { "namedExports": "ignore" }}` option:
 
 ```js
-/*eslint func-style: ["error", "expression", { "overrides": { "namedExports": "ignore" } }]*/
+/* func-style: ["error", "expression", { "overrides": { "namedExports": "ignore" } }] */
 export var foo = function () {
   // ...
 };
@@ -5488,7 +6904,7 @@ When true, functions with type annotations are allowed regardless of the style s
 
 ### namedExports
 
-type: `"ignore" | "expression" | "declaration" | null`
+type: `"ignore" | "expression" | "declaration"`
 
 default: `null`
 
@@ -5882,7 +7298,7 @@ maintainable. To prevent this, one may enforce a minimum and/or maximum identifi
 Examples of **incorrect** code for this rule:
 
 ```js
-/*eslint id-length: "error"*/ // default is minimum 2-chars ({ "min": 2 })
+/* id-length: "error" */ // default is minimum 2-chars ({ "min": 2 })
 
 const x = 5;
 obj.e = document.body;
@@ -5924,7 +7340,7 @@ const { prop: a } = {};
 Examples of **correct** code for this rule:
 
 ```js
-/*eslint id-length: "error"*/ // default is minimum 2-chars ({ "min": 2 })
+/* id-length: "error" */ // default is minimum 2-chars ({ "min": 2 })
 
 const num = 5;
 function _f() {
@@ -6058,32 +7474,34 @@ Require or disallow initialization in variable declarations
 ### Why is this bad?
 
 In JavaScript, variables can be assigned during declaration, or at any point afterwards using an assignment statement.
-For example, in the following code, foo is initialized during declaration, while bar is initialized later.
+For example, in the following code, `foo` is initialized during declaration, while `bar` is initialized later.
 
-### Examples
-
+```js
 var foo = 1;
 var bar;
 if (foo) {
-bar = 1;
+  bar = 1;
 } else {
-bar = 2;
+  bar = 2;
 }
+```
 
-Examples of incorrect code for the default "always" option:
+### Examples
+
+Examples of incorrect code for the default `"always"` option:
 
 ```js
-/*eslint init-declarations: ["error", "always"]*/
+/* init-declarations: ["error", "always"] */
 function foo() {
   var bar;
   let baz;
 }
 ```
 
-Examples of incorrect code for the "never" option:
+Examples of incorrect code for the `"never"` option:
 
 ```js
-/*eslint init-declarations: ["error", "never"]*/
+/* init-declarations: ["error", "never"] */
 function foo() {
   var bar = 1;
   let baz = 2;
@@ -6091,10 +7509,10 @@ function foo() {
 }
 ```
 
-Examples of correct code for the default "always" option:
+Examples of correct code for the default `"always"` option:
 
 ```js
-/*eslint init-declarations: ["error", "always"]*/
+/* init-declarations: ["error", "always"] */
 
 function foo() {
   var bar = 1;
@@ -6103,10 +7521,10 @@ function foo() {
 }
 ```
 
-Examples of correct code for the "never" option:
+Examples of correct code for the `"never"` option:
 
 ```js
-/*eslint init-declarations: ["error", "never"]*/
+/* init-declarations: ["error", "never"] */
 
 function foo() {
   var bar;
@@ -6115,10 +7533,10 @@ function foo() {
 }
 ```
 
-Examples of correct code for the "never", { "ignoreForLoopInit": true } options:
+Examples of correct code for the `"never", { "ignoreForLoopInit": true }` options:
 
 ```js
-/*eslint init-declarations: ["error", "never", { "ignoreForLoopInit": true }]*/
+/* init-declarations: ["error", "never", { "ignoreForLoopInit": true }] */
 for (var i = 0; i < 1; i++) {}
 ```
 
@@ -6947,7 +8365,7 @@ function foo(arg) {
 Examples of **incorrect** code for this rule with the default `{ "newIsCap": true }` option:
 
 ```js
-/*eslint new-cap: ["error", { "newIsCap": true }]*/
+/* new-cap: ["error", { "newIsCap": true }] */
 
 var friend = new person();
 ```
@@ -6955,7 +8373,7 @@ var friend = new person();
 Examples of **correct** code for this rule with the default `{ "newIsCap": true }` option:
 
 ```js
-/*eslint new-cap: ["error", { "newIsCap": true }]*/
+/* new-cap: ["error", { "newIsCap": true }] */
 
 var friend = new Person();
 ```
@@ -6963,7 +8381,7 @@ var friend = new Person();
 Examples of **correct** code for this rule with the `{ "newIsCap": false }` option:
 
 ```js
-/*eslint new-cap: ["error", { "newIsCap": false }]*/
+/* new-cap: ["error", { "newIsCap": false }] */
 
 var friend = new person();
 ```
@@ -6971,7 +8389,7 @@ var friend = new person();
 Examples of **incorrect** code for this rule with the default `{ "capIsNew": true }` option:
 
 ```js
-/*eslint new-cap: ["error", { "capIsNew": true }]*/
+/* new-cap: ["error", { "capIsNew": true }] */
 
 var colleague = Person();
 ```
@@ -6979,7 +8397,7 @@ var colleague = Person();
 Examples of **correct** code for this rule with the default `{ "capIsNew": true }` option:
 
 ```js
-/*eslint new-cap: ["error", { "capIsNew": true }]*/
+/* new-cap: ["error", { "capIsNew": true }] */
 
 var colleague = new Person();
 ```
@@ -6987,7 +8405,7 @@ var colleague = new Person();
 Examples of **correct** code for this rule with the `{ "capIsNew": false }` option:
 
 ```js
-/*eslint new-cap: ["error", { "capIsNew": false }]*/
+/* new-cap: ["error", { "capIsNew": false }] */
 
 var colleague = Person();
 ```
@@ -6995,7 +8413,7 @@ var colleague = Person();
 Examples of additional **correct** code for this rule with the `{ "newIsCapExceptions": ["events"] }` option:
 
 ```js
-/*eslint new-cap: ["error", { "newIsCapExceptions": ["events"] }]*/
+/* new-cap: ["error", { "newIsCapExceptions": ["events"] }] */
 
 var events = require("events");
 
@@ -7005,7 +8423,7 @@ var emitter = new events();
 Examples of additional **correct** code for this rule with the `{ "newIsCapExceptionPattern": "^person\\.." }` option:
 
 ```js
-/*eslint new-cap: ["error", { "newIsCapExceptionPattern": "^person\\.." }]*/
+/* new-cap: ["error", { "newIsCapExceptionPattern": "^person\\.." }] */
 
 var friend = new person.acquaintance();
 
@@ -7015,7 +8433,7 @@ var bestFriend = new person.friend();
 Examples of additional **correct** code for this rule with the `{ "newIsCapExceptionPattern": "\\.bar$" }` option:
 
 ```js
-/*eslint new-cap: ["error", { "newIsCapExceptionPattern": "\\.bar$" }]*/
+/* new-cap: ["error", { "newIsCapExceptionPattern": "\\.bar$" }] */
 
 var friend = new person.bar();
 ```
@@ -7023,7 +8441,7 @@ var friend = new person.bar();
 Examples of additional **correct** code for this rule with the `{ "capIsNewExceptions": ["Person"] }` option:
 
 ```js
-/*eslint new-cap: ["error", { "capIsNewExceptions": ["Person"] }]*/
+/* new-cap: ["error", { "capIsNewExceptions": ["Person"] }] */
 
 function foo(arg) {
   return Person(arg);
@@ -7033,7 +8451,7 @@ function foo(arg) {
 Examples of additional **correct** code for this rule with the `{ "capIsNewExceptionPattern": "^person\\.." }` option:
 
 ```js
-/*eslint new-cap: ["error", { "capIsNewExceptionPattern": "^person\\.." }]*/
+/* new-cap: ["error", { "capIsNewExceptionPattern": "^person\\.." }] */
 
 var friend = person.Acquaintance();
 var bestFriend = person.Friend();
@@ -7042,7 +8460,7 @@ var bestFriend = person.Friend();
 Examples of additional **correct** code for this rule with the `{ "capIsNewExceptionPattern": "\\.Bar$" }` option:
 
 ```js
-/*eslint new-cap: ["error", { "capIsNewExceptionPattern": "\\.Bar$" }]*/
+/* new-cap: ["error", { "capIsNewExceptionPattern": "\\.Bar$" }] */
 
 foo.Bar();
 ```
@@ -7050,7 +8468,7 @@ foo.Bar();
 Examples of additional **correct** code for this rule with the `{ "capIsNewExceptionPattern": "^Foo" }` option:
 
 ```js
-/*eslint new-cap: ["error", { "capIsNewExceptionPattern": "^Foo" }]*/
+/* new-cap: ["error", { "capIsNewExceptionPattern": "^Foo" }] */
 
 var x = Foo(42);
 
@@ -7064,7 +8482,7 @@ var z = Foo.Bar(42);
 Examples of **incorrect** code for this rule with the default `{ "properties": true }` option:
 
 ```js
-/*eslint new-cap: ["error", { "properties": true }]*/
+/* new-cap: ["error", { "properties": true }] */
 
 var friend = new person.acquaintance();
 ```
@@ -7072,7 +8490,7 @@ var friend = new person.acquaintance();
 Examples of **correct** code for this rule with the default `{ "properties": true }` option:
 
 ```js
-/*eslint new-cap: ["error", { "properties": true }]*/
+/* new-cap: ["error", { "properties": true }] */
 
 var friend = new person.Acquaintance();
 ```
@@ -7080,7 +8498,7 @@ var friend = new person.Acquaintance();
 Examples of **correct** code for this rule with the `{ "properties": false }` option:
 
 ```js
-/*eslint new-cap: ["error", { "properties": false }]*/
+/* new-cap: ["error", { "properties": false }] */
 
 var friend = new person.acquaintance();
 ```
@@ -7088,7 +8506,7 @@ var friend = new person.acquaintance();
 Examples of **incorrect** code for this rule with the default `{ "newIsCap": true }` option:
 
 ```js
-/*eslint new-cap: ["error", { "newIsCap": true }]*/
+/* new-cap: ["error", { "newIsCap": true }] */
 
 var friend = new person();
 ```
@@ -7096,7 +8514,7 @@ var friend = new person();
 Examples of **correct** code for this rule with the default `{ "newIsCap": true }` option:
 
 ```js
-/*eslint new-cap: ["error", { "newIsCap": true }]*/
+/* new-cap: ["error", { "newIsCap": true }] */
 
 var friend = new Person();
 ```
@@ -7104,7 +8522,7 @@ var friend = new Person();
 Examples of **correct** code for this rule with the `{ "newIsCap": false }` option:
 
 ```js
-/*eslint new-cap: ["error", { "newIsCap": false }]*/
+/* new-cap: ["error", { "newIsCap": false }] */
 
 var friend = new person();
 ```
@@ -7112,7 +8530,7 @@ var friend = new person();
 Examples of **incorrect** code for this rule with the default `{ "capIsNew": true }` option:
 
 ```js
-/*eslint new-cap: ["error", { "capIsNew": true }]*/
+/* new-cap: ["error", { "capIsNew": true }] */
 
 var colleague = Person();
 ```
@@ -7120,7 +8538,7 @@ var colleague = Person();
 Examples of **correct** code for this rule with the default `{ "capIsNew": true }` option:
 
 ```js
-/*eslint new-cap: ["error", { "capIsNew": true }]*/
+/* new-cap: ["error", { "capIsNew": true }] */
 
 var colleague = new Person();
 ```
@@ -7128,7 +8546,7 @@ var colleague = new Person();
 Examples of **correct** code for this rule with the `{ "capIsNew": false }` option:
 
 ```js
-/*eslint new-cap: ["error", { "capIsNew": false }]*/
+/* new-cap: ["error", { "capIsNew": false }] */
 
 var colleague = Person();
 ```
@@ -7136,7 +8554,7 @@ var colleague = Person();
 Examples of additional **correct** code for this rule with the `{ "newIsCapExceptions": ["events"] }` option:
 
 ```js
-/*eslint new-cap: ["error", { "newIsCapExceptions": ["events"] }]*/
+/* new-cap: ["error", { "newIsCapExceptions": ["events"] }] */
 
 var events = require("events");
 
@@ -7146,7 +8564,7 @@ var emitter = new events();
 Examples of additional **correct** code for this rule with the `{ "newIsCapExceptionPattern": "^person\\.." }` option:
 
 ```js
-/*eslint new-cap: ["error", { "newIsCapExceptionPattern": "^person\\.." }]*/
+/* new-cap: ["error", { "newIsCapExceptionPattern": "^person\\.." }] */
 
 var friend = new person.acquaintance();
 
@@ -7156,7 +8574,7 @@ var bestFriend = new person.friend();
 Examples of additional **correct** code for this rule with the `{ "newIsCapExceptionPattern": "\\.bar$" }` option:
 
 ```js
-/*eslint new-cap: ["error", { "newIsCapExceptionPattern": "\\.bar$" }]*/
+/* new-cap: ["error", { "newIsCapExceptionPattern": "\\.bar$" }] */
 
 var friend = new person.bar();
 ```
@@ -7166,7 +8584,7 @@ Examples of additional **correct** code for this rule with the `{ "capIsNewExcep
 ::: correct
 
 ```js
-/*eslint new-cap: ["error", { "capIsNewExceptions": ["Person"] }]*/
+/* new-cap: ["error", { "capIsNewExceptions": ["Person"] }] */
 
 function foo(arg) {
   return Person(arg);
@@ -7176,7 +8594,7 @@ function foo(arg) {
 Examples of additional **correct** code for this rule with the `{ "capIsNewExceptionPattern": "^person\\.." }` option:
 
 ```js
-/*eslint new-cap: ["error", { "capIsNewExceptionPattern": "^person\\.." }]*/
+/* new-cap: ["error", { "capIsNewExceptionPattern": "^person\\.." }] */
 
 var friend = person.Acquaintance();
 var bestFriend = person.Friend();
@@ -7185,7 +8603,7 @@ var bestFriend = person.Friend();
 Examples of additional **correct** code for this rule with the `{ "capIsNewExceptionPattern": "\\.Bar$" }` option:
 
 ```js
-/*eslint new-cap: ["error", { "capIsNewExceptionPattern": "\\.Bar$" }]*/
+/* new-cap: ["error", { "capIsNewExceptionPattern": "\\.Bar$" }] */
 
 foo.Bar();
 ```
@@ -7193,7 +8611,7 @@ foo.Bar();
 Examples of additional **correct** code for this rule with the `{ "capIsNewExceptionPattern": "^Foo" }` option:
 
 ```js
-/*eslint new-cap: ["error", { "capIsNewExceptionPattern": "^Foo" }]*/
+/* new-cap: ["error", { "capIsNewExceptionPattern": "^Foo" }] */
 
 var x = Foo(42);
 
@@ -7205,7 +8623,7 @@ var z = Foo.Bar(42);
 Examples of **incorrect** code for this rule with the default `{ "properties": true }` option:
 
 ```js
-/*eslint new-cap: ["error", { "properties": true }]*/
+/* new-cap: ["error", { "properties": true }] */
 
 var friend = new person.acquaintance();
 ```
@@ -7213,7 +8631,7 @@ var friend = new person.acquaintance();
 Examples of **correct** code for this rule with the default `{ "properties": true }` option:
 
 ```js
-/*eslint new-cap: ["error", { "properties": true }]*/
+/* new-cap: ["error", { "properties": true }] */
 
 var friend = new person.Acquaintance();
 ```
@@ -7221,7 +8639,7 @@ var friend = new person.Acquaintance();
 Examples of **correct** code for this rule with the `{ "properties": false }` option:
 
 ```js
-/*eslint new-cap: ["error", { "properties": false }]*/
+/* new-cap: ["error", { "properties": false }] */
 
 var friend = new person.acquaintance();
 ```
@@ -7240,7 +8658,7 @@ default: `true`
 
 ### capIsNewExceptionPattern
 
-type: `string | null`
+type: `string`
 
 A regex pattern to match exceptions for functions with names starting with an uppercase letter.
 
@@ -7262,7 +8680,7 @@ default: `true`
 
 ### newIsCapExceptionPattern
 
-type: `string | null`
+type: `string`
 
 A regex pattern to match exceptions for constructor names starting with an uppercase letter.
 
@@ -9693,7 +11111,7 @@ url: /docs/guide/usage/linter/rules/eslint/no-empty-pattern.md
 
 ### What it does
 
-Disallow empty destructuring patterns
+Disallow empty destructuring patterns.
 
 ### Why is this bad?
 
@@ -9725,7 +11143,7 @@ var {a = {}} = foo;
 The difference between these two patterns is subtle,
 especially because the problematic empty pattern looks just like an object literal.
 
-### Examples of incorrect code for this rule:
+### Examples of **incorrect** code for this rule:
 
 ```JavaScript
 var {} = foo;
@@ -9738,7 +11156,7 @@ function foo({a: {}}) {}
 function foo({a: []}) {}
 ```
 
-### Examples of correct code for this rule:
+### Examples of **correct** code for this rule:
 
 ```JavaScript
 var {a = {}} = foo;
@@ -10601,7 +12019,7 @@ Whether to allow empty case clauses to fall through.
 
 ### commentPattern
 
-type: `string | null`
+type: `string`
 
 Custom regex pattern to match fallthrough comments.
 
@@ -10979,7 +12397,7 @@ This rule accepts a configuration object with the following properties:
 
 ### ignorePattern
 
-type: `string | null`
+type: `string`
 
 A regex pattern to ignore certain inline comments.
 
@@ -13209,8 +14627,6 @@ For more information, see
 Examples of **incorrect** code for this rule:
 
 ```javascript
-/*eslint no-proto: "error"*/
-
 var a = obj.__proto__;
 
 var a = obj["__proto__"];
@@ -13940,11 +15356,9 @@ performance issues.
 
 ### Examples
 
-Examples of **incorrect** code for this rule
+Examples of **incorrect** code for this rule:
 
 ```javascript
-/*eslint no-script-url: "error"*/
-
 location.href = "javascript:void(0)";
 
 location.href = `javascript:void(0)`;
@@ -15673,8 +17087,8 @@ standard, Oxlint does not support this feature.
 Examples of **incorrect** code for this rule:
 
 ```javascript
-/*eslint no-unused-vars: "error"*/
-/*global some_unused_var*/
+/* no-unused-vars: "error" */
+/* if you have `some_unused_var` defined as a global in .oxlintrc.json */
 
 // It checks variables you have defined as global
 some_unused_var = 42;
@@ -15720,7 +17134,7 @@ enum Color {
 Examples of **correct** code for this rule:
 
 ```js
-/*eslint no-unused-vars: "error"*/
+/* no-unused-vars: "error" */
 
 var x = 10;
 alert(x);
@@ -15780,15 +17194,6 @@ default: `"after-used"`
 
 Controls how unused arguments are checked.
 
-This option has three settings:
-
-1. `after-used` - Unused positional arguments that occur before the last
-   used argument will not be checked, but all named arguments and all
-   positional arguments after the last used argument will be checked.
-   This is the default setting.
-2. `all` - All named arguments must be used.
-3. `none` - Do not check arguments.
-
 #### `"after-used"`
 
 Unused positional arguments that occur before the last used argument
@@ -15830,12 +17235,13 @@ type: `"all" | "none"`
 
 Used for `catch` block validation.
 
-It has two settings:
+#### `"all"`
 
-* `none` - do not check error objects. This is the default setting.
-* `all` - all named arguments must be used.
+All named arguments must be used.
 
-`none` corresponds to `false`, while `all` corresponds to `true`.
+#### `"none"`
+
+Do not check error objects.
 
 ### caughtErrorsIgnorePattern
 
@@ -16052,13 +17458,6 @@ type: `"all" | "local"`
 default: `"all"`
 
 Controls how usage of a variable in the global scope is checked.
-
-This option has two settings:
-
-1. `all` checks all variables for usage, including those in the global
-   scope. This is the default setting.
-2. `local` checks only that locally-declared variables are used but will
-   allow global variables to be unused.
 
 #### `"all"`
 
@@ -17758,15 +19157,13 @@ oxlint --deny prefer-rest-params
 url: /docs/guide/usage/linter/rules/eslint/prefer-spread.md
 ---
 
-This rule is combined 2 rules from `eslint:prefer-spread` and `unicorn:prefer-spread`.
-
 ### What it does
 
-Require spread operators instead of .apply()
+Require spread operators instead of `.apply()`
 
 ### Why is this bad?
 
-Before ES2015, one must use Function.prototype.apply() to call variadic functions.
+Before ES2015, one must use `Function.prototype.apply()` to call variadic functions.
 
 ```javascript
 var args = [1, 2, 3, 4];
@@ -21272,7 +22669,7 @@ default: `false`
 If set to `true`, dependency paths for AMD-style define and require calls will be resolved:
 
 ```js
-/* eslint import/no-absolute-path: ['error', { commonjs: false, amd: true }] */
+/* import/no-absolute-path: ["error", { "commonjs": false, "amd": true }] */
 define(["/foo"], function (foo) {
   /*...*/
 }); // reported
@@ -21436,21 +22833,21 @@ export default function foo() {};
 export default class MyClass {};
 export default function foo() {};
 export default foo(bar);
-/* eslint import/no-anonymous-default-export: ['error', {"allowLiteral": true}] */
+/* import/no-anonymous-default-export: ["error", { "allowLiteral": true }] */
 export default 123;
-/* eslint import/no-anonymous-default-export: ['error, {"allowArray": true}] */
+/* import/no-anonymous-default-export: ["error", { "allowArray": true }] */
 export default []
-/* eslint import/no-anonymous-default-export: ['error, {"allowArrowFunction": true}] */
+/* import/no-anonymous-default-export: ["error", { "allowArrowFunction": true }] */
 export default () => {};
-/* eslint import/no-anonymous-default-export: ['error, {"allowAnonymousClass": true}] */
+/* import/no-anonymous-default-export: ["error", { "allowAnonymousClass": true }] */
 export default class {};
-/* eslint import/no-anonymous-default-export: ['error, {"allowAnonymousFunction": true}] */
+/* import/no-anonymous-default-export: ["error", { "allowAnonymousFunction": true }] */
 export default function() {};
-/* eslint import/no-anonymous-default-export: ['error, {"allowObject": true}] */
+/* import/no-anonymous-default-export: ["error", { "allowObject": true }] */
 export default {};
-/* eslint import/no-anonymous-default-export: ['error, {"allowNew": true}] */
+/* import/no-anonymous-default-export: ["error", { "allowNew": true }] */
 export default new Foo();
-/* eslint import/no-anonymous-default-export: ['error, {"allowCallExpression": true}] */
+/* import/no-anonymous-default-export: ["error", { "allowCallExpression": true }] */
 export default foo(bar);
 ```
 
@@ -23198,7 +24595,7 @@ It's a good practice to be consistent in your test suite, so that all tests are 
 ### Examples
 
 ```javascript
-/*eslint jest/consistent-test-it: ["error", {"fn": "test"}]*/
+/* jest/consistent-test-it: ["error", {"fn": "test"}] */
 test("foo"); // valid
 test.only("foo"); // valid
 
@@ -23207,7 +24604,7 @@ it.only("foo"); // invalid
 ```
 
 ```javascript
-/*eslint jest/consistent-test-it: ["error", {"fn": "it"}]*/
+/* jest/consistent-test-it: ["error", {"fn": "it"}] */
 it("foo"); // valid
 it.only("foo"); // valid
 test("foo"); // invalid
@@ -23215,7 +24612,7 @@ test.only("foo"); // invalid
 ```
 
 ```javascript
-/*eslint jest/consistent-test-it: ["error", {"fn": "it", "withinDescribe": "test"}]*/
+/* jest/consistent-test-it: ["error", {"fn": "it", "withinDescribe": "test"}] */
 it("foo"); // valid
 describe("foo", function () {
   test("bar"); // valid
@@ -34071,7 +35468,7 @@ url: /docs/guide/usage/linter/rules/nextjs/no-duplicate-head.md
 
 ### What it does
 
-Prevent duplicate usage of `<Head>` in \`pages/\_document.js\`\`.
+Prevent duplicate usage of `<Head>` in `pages/_document.js`.
 
 ### Why is this bad?
 
@@ -34640,7 +36037,7 @@ url: /docs/guide/usage/linter/rules/nextjs/no-styled-jsx-in-document.md
 
 ### What it does
 
-Prevent usage of styled-jsx in pages/\_document.js.
+Prevent usage of styled-jsx in `pages/_document.js`.
 
 ### Why is this bad?
 
@@ -37459,633 +38856,6 @@ Oxlint is used in production by popular projects such as:
 ---
 
 ---
-url: /docs/guide/usage/linter/generated-config.md
----
-
-# Oxlint Configuration File
-
-This configuration is aligned with ESLint v8's configuration schema (`eslintrc.json`).
-
-Usage: `oxlint -c oxlintrc.json --import-plugin`
-
-::: danger NOTE
-
-Only the `.json` format is supported. You can use comments in configuration files.
-
-:::
-
-Example
-
-`.oxlintrc.json`
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["import", "typescript", "unicorn"],
-  "env": {
-    "browser": true
-  },
-  "globals": {
-    "foo": "readonly"
-  },
-  "settings": {},
-  "rules": {
-    "eqeqeq": "warn",
-    "import/no-cycle": "error",
-    "react/self-closing-comp": [
-      "error",
-      {
-        "html": false
-      }
-    ]
-  },
-  "overrides": [
-    {
-      "files": ["*.test.ts", "*.spec.ts"],
-      "rules": {
-        "@typescript-eslint/no-explicit-any": "off"
-      }
-    }
-  ]
-}
-```
-
-## $schema
-
-type: `string | null`
-
-Schema URI for editor tooling.
-
-## categories
-
-type: `object`
-
-Configure an entire category of rules all at once.
-
-Rules enabled or disabled this way will be overwritten by individual rules in the `rules` field.
-
-Example
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "categories": {
-    "correctness": "warn"
-  },
-  "rules": {
-    "eslint/no-unused-vars": "error"
-  }
-}
-```
-
-### categories.correctness
-
-### categories.nursery
-
-### categories.pedantic
-
-### categories.perf
-
-### categories.restriction
-
-### categories.style
-
-### categories.suspicious
-
-## env
-
-type: `Record<string, boolean>`
-
-Predefine global variables.
-
-Environments specify what global variables are predefined.
-See [ESLint's list of environments](https://eslint.org/docs/v8.x/use/configure/language-options#specifying-environments)
-for what environments are available and what each one provides.
-
-## extends
-
-type: `string[]`
-
-Paths of configuration files that this configuration file extends (inherits from). The files
-are resolved relative to the location of the configuration file that contains the `extends`
-property. The configuration files are merged from the first to the last, with the last file
-overriding the previous ones.
-
-## globals
-
-type: `Record<string, string>`
-
-Add or remove global variables.
-
-For each global variable, set the corresponding value equal to `"writable"`
-to allow the variable to be overwritten or `"readonly"` to disallow overwriting.
-
-Globals can be disabled by setting their value to `"off"`. For example, in
-an environment where most Es2015 globals are available but `Promise` is unavailable,
-you might use this config:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "env": {
-    "es6": true
-  },
-  "globals": {
-    "Promise": "off"
-  }
-}
-```
-
-You may also use `"readable"` or `false` to represent `"readonly"`, and
-`"writeable"` or `true` to represent `"writable"`.
-
-## ignorePatterns
-
-type: `string[]`
-
-default: `[]`
-
-Globs to ignore during linting. These are resolved from the configuration file path.
-
-## jsPlugins
-
-type: `array | null`
-
-JS plugins, allows usage of ESLint plugins with Oxlint.
-
-Read more about JS plugins in
-[the docs](https://oxc.rs/docs/guide/usage/linter/js-plugins.html).
-
-Note: JS plugins are experimental and not subject to semver.
-They are not supported in the language server (and thus editor integrations) at present.
-
-### jsPlugins\[n]
-
-type: `object | string`
-
-#### jsPlugins\[n].name
-
-type: `string`
-
-Custom name/alias for the plugin.
-
-Note: The following plugin names are reserved because they are implemented natively in Rust within oxlint and cannot be used for JS plugins:
-
-* react (includes react-hooks)
-* unicorn
-* typescript (includes @typescript-eslint)
-* oxc
-* import (includes import-x)
-* jsdoc
-* jest
-* vitest
-* jsx-a11y
-* nextjs
-* react-perf
-* promise
-* node
-* vue
-* eslint
-
-If you need to use the JavaScript version of any of these plugins, provide a custom alias to avoid conflicts.
-
-#### jsPlugins\[n].specifier
-
-type: `string`
-
-Path or package name of the plugin
-
-## overrides
-
-type: `array`
-
-### overrides\[n]
-
-type: `object`
-
-#### overrides\[n].env
-
-type: `object | null`
-
-Environments enable and disable collections of global variables.
-
-#### overrides\[n].files
-
-type: `string[]`
-
-A set of glob patterns.
-
-#### overrides\[n].globals
-
-type: `object | null`
-
-Enabled or disabled specific global variables.
-
-#### overrides\[n].jsPlugins
-
-type: `array | null`
-
-JS plugins for this override, allows usage of ESLint plugins with Oxlint.
-
-Read more about JS plugins in
-[the docs](https://oxc.rs/docs/guide/usage/linter/js-plugins.html).
-
-Note: JS plugins are experimental and not subject to semver.
-They are not supported in the language server (and thus editor integrations) at present.
-
-##### overrides\[n].jsPlugins\[n]
-
-type: `object | string`
-
-###### overrides\[n].jsPlugins\[n].name
-
-type: `string`
-
-Custom name/alias for the plugin.
-
-Note: The following plugin names are reserved because they are implemented natively in Rust within oxlint and cannot be used for JS plugins:
-
-* react (includes react-hooks)
-* unicorn
-* typescript (includes @typescript-eslint)
-* oxc
-* import (includes import-x)
-* jsdoc
-* jest
-* vitest
-* jsx-a11y
-* nextjs
-* react-perf
-* promise
-* node
-* vue
-* eslint
-
-If you need to use the JavaScript version of any of these plugins, provide a custom alias to avoid conflicts.
-
-###### overrides\[n].jsPlugins\[n].specifier
-
-type: `string`
-
-Path or package name of the plugin
-
-#### overrides\[n].plugins
-
-type: `array | null`
-
-default: `null`
-
-Optionally change what plugins are enabled for this override. When
-omitted, the base config's plugins are used.
-
-##### overrides\[n].plugins\[n]
-
-type: `"eslint" | "react" | "unicorn" | "typescript" | "oxc" | "import" | "jsdoc" | "jest" | "vitest" | "jsx-a11y" | "nextjs" | "react-perf" | "promise" | "node" | "vue"`
-
-#### overrides\[n].rules
-
-type: `object`
-
-See [Oxlint Rules](https://oxc.rs/docs/guide/usage/linter/rules.html)
-
-## plugins
-
-type: `array | null`
-
-default: `null`
-
-Enabled built-in plugins for Oxlint.
-You can view the list of available plugins on
-[the website](https://oxc.rs/docs/guide/usage/linter/plugins.html#supported-plugins).
-
-NOTE: Setting the `plugins` field will overwrite the base set of plugins.
-The `plugins` array should reflect all of the plugins you want to use.
-
-### plugins\[n]
-
-type: `"eslint" | "react" | "unicorn" | "typescript" | "oxc" | "import" | "jsdoc" | "jest" | "vitest" | "jsx-a11y" | "nextjs" | "react-perf" | "promise" | "node" | "vue"`
-
-## rules
-
-type: `object`
-
-See [Oxlint Rules](https://oxc.rs/docs/guide/usage/linter/rules.html)
-
-## settings
-
-type: `object`
-
-Configure the behavior of linter plugins.
-
-Here's an example if you're using Next.js in a monorepo:
-
-```json
-{
-  "settings": {
-    "next": {
-      "rootDir": "apps/dashboard/"
-    },
-    "react": {
-      "linkComponents": [
-        {
-          "name": "Link",
-          "linkAttribute": "to"
-        }
-      ]
-    },
-    "jsx-a11y": {
-      "components": {
-        "Link": "a",
-        "Button": "button"
-      }
-    }
-  }
-}
-```
-
-### settings.jsdoc
-
-type: `object`
-
-#### settings.jsdoc.augmentsExtendsReplacesDocs
-
-type: `boolean`
-
-default: `false`
-
-Only for `require-(yields|returns|description|example|param|throws)` rule
-
-#### settings.jsdoc.exemptDestructuredRootsFromChecks
-
-type: `boolean`
-
-default: `false`
-
-Only for `require-param-type` and `require-param-description` rule
-
-#### settings.jsdoc.ignoreInternal
-
-type: `boolean`
-
-default: `false`
-
-For all rules but NOT apply to `empty-tags` rule
-
-#### settings.jsdoc.ignorePrivate
-
-type: `boolean`
-
-default: `false`
-
-For all rules but NOT apply to `check-access` and `empty-tags` rule
-
-#### settings.jsdoc.ignoreReplacesDocs
-
-type: `boolean`
-
-default: `true`
-
-Only for `require-(yields|returns|description|example|param|throws)` rule
-
-#### settings.jsdoc.implementsReplacesDocs
-
-type: `boolean`
-
-default: `false`
-
-Only for `require-(yields|returns|description|example|param|throws)` rule
-
-#### settings.jsdoc.overrideReplacesDocs
-
-type: `boolean`
-
-default: `true`
-
-Only for `require-(yields|returns|description|example|param|throws)` rule
-
-#### settings.jsdoc.tagNamePreference
-
-type: `object`
-
-default: `{}`
-
-### settings.jsx-a11y
-
-type: `object`
-
-Configure JSX A11y plugin rules.
-
-See
-[eslint-plugin-jsx-a11y](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y#configurations)'s
-configuration for a full reference.
-
-#### settings.jsx-a11y.attributes
-
-type: `Record<string, array>`
-
-default: `{}`
-
-Map of attribute names to their DOM equivalents.
-This is useful for non-React frameworks that use different attribute names.
-
-Example:
-
-```json
-{
-  "settings": {
-    "jsx-a11y": {
-      "attributes": {
-        "for": ["htmlFor", "for"]
-      }
-    }
-  }
-}
-```
-
-#### settings.jsx-a11y.components
-
-type: `Record<string, string>`
-
-default: `{}`
-
-To have your custom components be checked as DOM elements, you can
-provide a mapping of your component names to the DOM element name.
-
-Example:
-
-```json
-{
-  "settings": {
-    "jsx-a11y": {
-      "components": {
-        "Link": "a",
-        "IconButton": "button"
-      }
-    }
-  }
-}
-```
-
-#### settings.jsx-a11y.polymorphicPropName
-
-type: `string | null`
-
-An optional setting that define the prop your code uses to create polymorphic components.
-This setting will be used to determine the element type in rules that
-require semantic context.
-
-For example, if you set the `polymorphicPropName` to `as`, then this element:
-
-```jsx
-<Box as="h3">Hello</Box>
-```
-
-Will be treated as an `h3`. If not set, this component will be treated
-as a `Box`.
-
-### settings.next
-
-type: `object`
-
-Configure Next.js plugin rules.
-
-#### settings.next.rootDir
-
-type: `array | string`
-
-##### settings.next.rootDir\[n]
-
-type: `string`
-
-### settings.react
-
-type: `object`
-
-Configure React plugin rules.
-
-Derived from [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react#configuration-legacy-eslintrc-)
-
-#### settings.react.formComponents
-
-type: `array`
-
-default: `[]`
-
-Components used as alternatives to `<form>` for forms, such as `<Formik>`.
-
-Example:
-
-```jsonc
-{
-  "settings": {
-    "react": {
-      "formComponents": [
-        "CustomForm",
-        // OtherForm is considered a form component and has an endpoint attribute
-        { "name": "OtherForm", "formAttribute": "endpoint" },
-        // allows specifying multiple properties if necessary
-        { "name": "Form", "formAttribute": ["registerEndpoint", "loginEndpoint"] },
-      ],
-    },
-  },
-}
-```
-
-##### settings.react.formComponents\[n]
-
-type: `object | string`
-
-###### settings.react.formComponents\[n].attribute
-
-type: `string`
-
-###### settings.react.formComponents\[n].name
-
-type: `string`
-
-#### settings.react.linkComponents
-
-type: `array`
-
-default: `[]`
-
-Components used as alternatives to `<a>` for linking, such as `<Link>`.
-
-Example:
-
-```jsonc
-{
-  "settings": {
-    "react": {
-      "linkComponents": [
-        "HyperLink",
-        // Use `linkAttribute` for components that use a different prop name
-        // than `href`.
-        { "name": "MyLink", "linkAttribute": "to" },
-        // allows specifying multiple properties if necessary
-        { "name": "Link", "linkAttribute": ["to", "href"] },
-      ],
-    },
-  },
-}
-```
-
-##### settings.react.linkComponents\[n]
-
-type: `object | string`
-
-###### settings.react.linkComponents\[n].attribute
-
-type: `string`
-
-###### settings.react.linkComponents\[n].name
-
-type: `string`
-
-#### settings.react.version
-
-type: `string | null`
-
-default: `null`
-
-React version to use for version-specific rules.
-
-Accepts semver versions (e.g., "18.2.0", "17.0").
-
-Example:
-
-```jsonc
-{
-  "settings": {
-    "react": {
-      "version": "18.2.0",
-    },
-  },
-}
-```
-
-### settings.vitest
-
-type: `object`
-
-Configure Vitest plugin rules.
-
-See [eslint-plugin-vitest](https://github.com/vitest-dev/eslint-plugin-vitest)'s
-configuration for a full reference.
-
-#### settings.vitest.typecheck
-
-type: `boolean`
-
-default: `false`
-
-Whether to enable typecheck mode for Vitest rules.
-When enabled, some rules will skip certain checks for describe blocks
-to accommodate TypeScript type checking scenarios.
-
----
-
----
 url: /docs/guide/usage/linter/config-file-reference.md
 ---
 
@@ -38139,7 +38909,7 @@ Example
 
 ## $schema
 
-type: `string | null`
+type: `string`
 
 Schema URI for editor tooling.
 
@@ -38236,7 +39006,7 @@ Globs to ignore during linting. These are resolved from the configuration file p
 
 ## jsPlugins
 
-type: `array | null`
+type: `array`
 
 JS plugins, allows usage of ESLint plugins with Oxlint.
 
@@ -38292,7 +39062,7 @@ type: `object`
 
 #### overrides\[n].env
 
-type: `object | null`
+type: `object`
 
 Environments enable and disable collections of global variables.
 
@@ -38304,13 +39074,13 @@ A set of glob patterns.
 
 #### overrides\[n].globals
 
-type: `object | null`
+type: `object`
 
 Enabled or disabled specific global variables.
 
 #### overrides\[n].jsPlugins
 
-type: `array | null`
+type: `array`
 
 JS plugins for this override, allows usage of ESLint plugins with Oxlint.
 
@@ -38358,7 +39128,7 @@ Path or package name of the plugin
 
 #### overrides\[n].plugins
 
-type: `array | null`
+type: `array`
 
 default: `null`
 
@@ -38377,7 +39147,7 @@ See [Oxlint Rules](https://oxc.rs/docs/guide/usage/linter/rules.html)
 
 ## plugins
 
-type: `array | null`
+type: `array`
 
 default: `null`
 
@@ -38555,7 +39325,7 @@ Example:
 
 #### settings.jsx-a11y.polymorphicPropName
 
-type: `string | null`
+type: `string`
 
 An optional setting that define the prop your code uses to create polymorphic components.
 This setting will be used to determine the element type in rules that
@@ -38671,7 +39441,634 @@ type: `string`
 
 #### settings.react.version
 
-type: `string | null`
+type: `string`
+
+default: `null`
+
+React version to use for version-specific rules.
+
+Accepts semver versions (e.g., "18.2.0", "17.0").
+
+Example:
+
+```jsonc
+{
+  "settings": {
+    "react": {
+      "version": "18.2.0",
+    },
+  },
+}
+```
+
+### settings.vitest
+
+type: `object`
+
+Configure Vitest plugin rules.
+
+See [eslint-plugin-vitest](https://github.com/vitest-dev/eslint-plugin-vitest)'s
+configuration for a full reference.
+
+#### settings.vitest.typecheck
+
+type: `boolean`
+
+default: `false`
+
+Whether to enable typecheck mode for Vitest rules.
+When enabled, some rules will skip certain checks for describe blocks
+to accommodate TypeScript type checking scenarios.
+
+---
+
+---
+url: /docs/guide/usage/linter/generated-config.md
+---
+
+# Oxlint Configuration File
+
+This configuration is aligned with ESLint v8's configuration schema (`eslintrc.json`).
+
+Usage: `oxlint -c oxlintrc.json --import-plugin`
+
+::: danger NOTE
+
+Only the `.json` format is supported. You can use comments in configuration files.
+
+:::
+
+Example
+
+`.oxlintrc.json`
+
+```json
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["import", "typescript", "unicorn"],
+  "env": {
+    "browser": true
+  },
+  "globals": {
+    "foo": "readonly"
+  },
+  "settings": {},
+  "rules": {
+    "eqeqeq": "warn",
+    "import/no-cycle": "error",
+    "react/self-closing-comp": [
+      "error",
+      {
+        "html": false
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": ["*.test.ts", "*.spec.ts"],
+      "rules": {
+        "@typescript-eslint/no-explicit-any": "off"
+      }
+    }
+  ]
+}
+```
+
+## $schema
+
+type: `string`
+
+Schema URI for editor tooling.
+
+## categories
+
+type: `object`
+
+Configure an entire category of rules all at once.
+
+Rules enabled or disabled this way will be overwritten by individual rules in the `rules` field.
+
+Example
+
+```json
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "categories": {
+    "correctness": "warn"
+  },
+  "rules": {
+    "eslint/no-unused-vars": "error"
+  }
+}
+```
+
+### categories.correctness
+
+### categories.nursery
+
+### categories.pedantic
+
+### categories.perf
+
+### categories.restriction
+
+### categories.style
+
+### categories.suspicious
+
+## env
+
+type: `Record<string, boolean>`
+
+Predefine global variables.
+
+Environments specify what global variables are predefined.
+See [ESLint's list of environments](https://eslint.org/docs/v8.x/use/configure/language-options#specifying-environments)
+for what environments are available and what each one provides.
+
+## extends
+
+type: `string[]`
+
+Paths of configuration files that this configuration file extends (inherits from). The files
+are resolved relative to the location of the configuration file that contains the `extends`
+property. The configuration files are merged from the first to the last, with the last file
+overriding the previous ones.
+
+## globals
+
+type: `Record<string, string>`
+
+Add or remove global variables.
+
+For each global variable, set the corresponding value equal to `"writable"`
+to allow the variable to be overwritten or `"readonly"` to disallow overwriting.
+
+Globals can be disabled by setting their value to `"off"`. For example, in
+an environment where most Es2015 globals are available but `Promise` is unavailable,
+you might use this config:
+
+```json
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "env": {
+    "es6": true
+  },
+  "globals": {
+    "Promise": "off"
+  }
+}
+```
+
+You may also use `"readable"` or `false` to represent `"readonly"`, and
+`"writeable"` or `true` to represent `"writable"`.
+
+## ignorePatterns
+
+type: `string[]`
+
+default: `[]`
+
+Globs to ignore during linting. These are resolved from the configuration file path.
+
+## jsPlugins
+
+type: `array`
+
+JS plugins, allows usage of ESLint plugins with Oxlint.
+
+Read more about JS plugins in
+[the docs](https://oxc.rs/docs/guide/usage/linter/js-plugins.html).
+
+Note: JS plugins are experimental and not subject to semver.
+They are not supported in the language server (and thus editor integrations) at present.
+
+### jsPlugins\[n]
+
+type: `object | string`
+
+#### jsPlugins\[n].name
+
+type: `string`
+
+Custom name/alias for the plugin.
+
+Note: The following plugin names are reserved because they are implemented natively in Rust within oxlint and cannot be used for JS plugins:
+
+* react (includes react-hooks)
+* unicorn
+* typescript (includes @typescript-eslint)
+* oxc
+* import (includes import-x)
+* jsdoc
+* jest
+* vitest
+* jsx-a11y
+* nextjs
+* react-perf
+* promise
+* node
+* vue
+* eslint
+
+If you need to use the JavaScript version of any of these plugins, provide a custom alias to avoid conflicts.
+
+#### jsPlugins\[n].specifier
+
+type: `string`
+
+Path or package name of the plugin
+
+## overrides
+
+type: `array`
+
+### overrides\[n]
+
+type: `object`
+
+#### overrides\[n].env
+
+type: `object`
+
+Environments enable and disable collections of global variables.
+
+#### overrides\[n].files
+
+type: `string[]`
+
+A set of glob patterns.
+
+#### overrides\[n].globals
+
+type: `object`
+
+Enabled or disabled specific global variables.
+
+#### overrides\[n].jsPlugins
+
+type: `array`
+
+JS plugins for this override, allows usage of ESLint plugins with Oxlint.
+
+Read more about JS plugins in
+[the docs](https://oxc.rs/docs/guide/usage/linter/js-plugins.html).
+
+Note: JS plugins are experimental and not subject to semver.
+They are not supported in the language server (and thus editor integrations) at present.
+
+##### overrides\[n].jsPlugins\[n]
+
+type: `object | string`
+
+###### overrides\[n].jsPlugins\[n].name
+
+type: `string`
+
+Custom name/alias for the plugin.
+
+Note: The following plugin names are reserved because they are implemented natively in Rust within oxlint and cannot be used for JS plugins:
+
+* react (includes react-hooks)
+* unicorn
+* typescript (includes @typescript-eslint)
+* oxc
+* import (includes import-x)
+* jsdoc
+* jest
+* vitest
+* jsx-a11y
+* nextjs
+* react-perf
+* promise
+* node
+* vue
+* eslint
+
+If you need to use the JavaScript version of any of these plugins, provide a custom alias to avoid conflicts.
+
+###### overrides\[n].jsPlugins\[n].specifier
+
+type: `string`
+
+Path or package name of the plugin
+
+#### overrides\[n].plugins
+
+type: `array`
+
+default: `null`
+
+Optionally change what plugins are enabled for this override. When
+omitted, the base config's plugins are used.
+
+##### overrides\[n].plugins\[n]
+
+type: `"eslint" | "react" | "unicorn" | "typescript" | "oxc" | "import" | "jsdoc" | "jest" | "vitest" | "jsx-a11y" | "nextjs" | "react-perf" | "promise" | "node" | "vue"`
+
+#### overrides\[n].rules
+
+type: `object`
+
+See [Oxlint Rules](https://oxc.rs/docs/guide/usage/linter/rules.html)
+
+## plugins
+
+type: `array`
+
+default: `null`
+
+Enabled built-in plugins for Oxlint.
+You can view the list of available plugins on
+[the website](https://oxc.rs/docs/guide/usage/linter/plugins.html#supported-plugins).
+
+NOTE: Setting the `plugins` field will overwrite the base set of plugins.
+The `plugins` array should reflect all of the plugins you want to use.
+
+### plugins\[n]
+
+type: `"eslint" | "react" | "unicorn" | "typescript" | "oxc" | "import" | "jsdoc" | "jest" | "vitest" | "jsx-a11y" | "nextjs" | "react-perf" | "promise" | "node" | "vue"`
+
+## rules
+
+type: `object`
+
+See [Oxlint Rules](https://oxc.rs/docs/guide/usage/linter/rules.html)
+
+## settings
+
+type: `object`
+
+Configure the behavior of linter plugins.
+
+Here's an example if you're using Next.js in a monorepo:
+
+```json
+{
+  "settings": {
+    "next": {
+      "rootDir": "apps/dashboard/"
+    },
+    "react": {
+      "linkComponents": [
+        {
+          "name": "Link",
+          "linkAttribute": "to"
+        }
+      ]
+    },
+    "jsx-a11y": {
+      "components": {
+        "Link": "a",
+        "Button": "button"
+      }
+    }
+  }
+}
+```
+
+### settings.jsdoc
+
+type: `object`
+
+#### settings.jsdoc.augmentsExtendsReplacesDocs
+
+type: `boolean`
+
+default: `false`
+
+Only for `require-(yields|returns|description|example|param|throws)` rule
+
+#### settings.jsdoc.exemptDestructuredRootsFromChecks
+
+type: `boolean`
+
+default: `false`
+
+Only for `require-param-type` and `require-param-description` rule
+
+#### settings.jsdoc.ignoreInternal
+
+type: `boolean`
+
+default: `false`
+
+For all rules but NOT apply to `empty-tags` rule
+
+#### settings.jsdoc.ignorePrivate
+
+type: `boolean`
+
+default: `false`
+
+For all rules but NOT apply to `check-access` and `empty-tags` rule
+
+#### settings.jsdoc.ignoreReplacesDocs
+
+type: `boolean`
+
+default: `true`
+
+Only for `require-(yields|returns|description|example|param|throws)` rule
+
+#### settings.jsdoc.implementsReplacesDocs
+
+type: `boolean`
+
+default: `false`
+
+Only for `require-(yields|returns|description|example|param|throws)` rule
+
+#### settings.jsdoc.overrideReplacesDocs
+
+type: `boolean`
+
+default: `true`
+
+Only for `require-(yields|returns|description|example|param|throws)` rule
+
+#### settings.jsdoc.tagNamePreference
+
+type: `object`
+
+default: `{}`
+
+### settings.jsx-a11y
+
+type: `object`
+
+Configure JSX A11y plugin rules.
+
+See
+[eslint-plugin-jsx-a11y](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y#configurations)'s
+configuration for a full reference.
+
+#### settings.jsx-a11y.attributes
+
+type: `Record<string, array>`
+
+default: `{}`
+
+Map of attribute names to their DOM equivalents.
+This is useful for non-React frameworks that use different attribute names.
+
+Example:
+
+```json
+{
+  "settings": {
+    "jsx-a11y": {
+      "attributes": {
+        "for": ["htmlFor", "for"]
+      }
+    }
+  }
+}
+```
+
+#### settings.jsx-a11y.components
+
+type: `Record<string, string>`
+
+default: `{}`
+
+To have your custom components be checked as DOM elements, you can
+provide a mapping of your component names to the DOM element name.
+
+Example:
+
+```json
+{
+  "settings": {
+    "jsx-a11y": {
+      "components": {
+        "Link": "a",
+        "IconButton": "button"
+      }
+    }
+  }
+}
+```
+
+#### settings.jsx-a11y.polymorphicPropName
+
+type: `string`
+
+An optional setting that define the prop your code uses to create polymorphic components.
+This setting will be used to determine the element type in rules that
+require semantic context.
+
+For example, if you set the `polymorphicPropName` to `as`, then this element:
+
+```jsx
+<Box as="h3">Hello</Box>
+```
+
+Will be treated as an `h3`. If not set, this component will be treated
+as a `Box`.
+
+### settings.next
+
+type: `object`
+
+Configure Next.js plugin rules.
+
+#### settings.next.rootDir
+
+type: `array | string`
+
+##### settings.next.rootDir\[n]
+
+type: `string`
+
+### settings.react
+
+type: `object`
+
+Configure React plugin rules.
+
+Derived from [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react#configuration-legacy-eslintrc-)
+
+#### settings.react.formComponents
+
+type: `array`
+
+default: `[]`
+
+Components used as alternatives to `<form>` for forms, such as `<Formik>`.
+
+Example:
+
+```jsonc
+{
+  "settings": {
+    "react": {
+      "formComponents": [
+        "CustomForm",
+        // OtherForm is considered a form component and has an endpoint attribute
+        { "name": "OtherForm", "formAttribute": "endpoint" },
+        // allows specifying multiple properties if necessary
+        { "name": "Form", "formAttribute": ["registerEndpoint", "loginEndpoint"] },
+      ],
+    },
+  },
+}
+```
+
+##### settings.react.formComponents\[n]
+
+type: `object | string`
+
+###### settings.react.formComponents\[n].attribute
+
+type: `string`
+
+###### settings.react.formComponents\[n].name
+
+type: `string`
+
+#### settings.react.linkComponents
+
+type: `array`
+
+default: `[]`
+
+Components used as alternatives to `<a>` for linking, such as `<Link>`.
+
+Example:
+
+```jsonc
+{
+  "settings": {
+    "react": {
+      "linkComponents": [
+        "HyperLink",
+        // Use `linkAttribute` for components that use a different prop name
+        // than `href`.
+        { "name": "MyLink", "linkAttribute": "to" },
+        // allows specifying multiple properties if necessary
+        { "name": "Link", "linkAttribute": ["to", "href"] },
+      ],
+    },
+  },
+}
+```
+
+##### settings.react.linkComponents\[n]
+
+type: `object | string`
+
+###### settings.react.linkComponents\[n].attribute
+
+type: `string`
+
+###### settings.react.linkComponents\[n].name
+
+type: `string`
+
+#### settings.react.version
+
+type: `string`
 
 default: `null`
 
@@ -38818,184 +40215,6 @@ Test results are stored in snapshot files for tracking changes:
 * [`parser_test262.snap`](https://github.com/oxc-project/oxc/blob/main/tasks/coverage/snapshots/parser_test262.snap)
 * [`parser_babel.snap`](https://github.com/oxc-project/oxc/blob/main/tasks/coverage/snapshots/parser_babel.snap)
 * [`parser_typescript.snap`](https://github.com/oxc-project/oxc/blob/main/tasks/coverage/snapshots/parser_typescript.snap)
-
----
-
----
-url: /docs/learn/architecture/parser.md
----
-
-# Parser Architecture
-
-Oxc maintains its own AST and parser, which is by far the fastest and most conformant JavaScript and TypeScript (including JSX and TSX) parser written in Rust.
-
-As the parser often represents a key performance bottleneck in JavaScript tooling,
-any minor improvements can have a cascading effect on our downstream tools.
-By developing our parser, we have the opportunity to explore and implement well-researched performance techniques.
-
-## AST Design Philosophy
-
-While many existing JavaScript tools rely on [estree] as their AST specification,
-a notable drawback is its abundance of ambiguous nodes.
-This ambiguity often leads to confusion during development with [estree].
-
-The Oxc AST differs from the [estree] AST by removing ambiguous nodes and introducing distinct types.
-For example, instead of using a generic [estree] `Identifier`,
-the Oxc AST provides specific types such as `BindingIdentifier`, `IdentifierReference`, and `IdentifierName`.
-
-This clear distinction greatly enhances the development experience by aligning more closely with the ECMAScript specification.
-
-### AST Node Types
-
-```rust
-// Instead of generic Identifier
-pub struct BindingIdentifier<'a> {
-    pub span: Span,
-    pub name: Atom<'a>,
-}
-
-pub struct IdentifierReference<'a> {
-    pub span: Span,
-    pub name: Atom<'a>,
-    pub reference_id: Cell<Option<ReferenceId>>,
-}
-
-pub struct IdentifierName<'a> {
-    pub span: Span,
-    pub name: Atom<'a>,
-}
-```
-
-### Semantic Clarity
-
-This approach provides semantic clarity:
-
-* **`BindingIdentifier`**: Variable declarations (`let x = 1`)
-* **`IdentifierReference`**: Variable usage (`console.log(x)`)
-* **`IdentifierName`**: Property names (`obj.property`)
-
-## Performance Architecture
-
-### How is it so fast
-
-* **Memory Arena**: AST is allocated in a [memory arena](https://crates.io/crates/bumpalo) for fast allocation and deallocation
-* **String Optimization**: Short strings are inlined by [CompactString](https://crates.io/crates/compact_str)
-* **Minimal Heap Usage**: No other heap allocations are done except the above two
-* **Separation of Concerns**: Scope binding, symbol resolution and some syntax errors are delegated to the semantic analyzer
-
-### Memory Management Details
-
-#### Arena Allocation
-
-```rust
-use oxc_allocator::Allocator;
-
-// All AST nodes are allocated in this arena
-let allocator = Allocator::default();
-let ast_node = allocator.alloc(Expression::NumericLiteral(
-    allocator.alloc(NumericLiteral { value: 42.0, span: SPAN })
-));
-```
-
-Benefits:
-
-* **O(1) allocation**: Simple pointer bump
-* **O(1) deallocation**: Drop entire arena at once
-* **Cache-friendly**: Linear memory layout
-* **No fragmentation**: Continuous memory usage
-
-#### String Interning with CompactString
-
-```rust
-// Strings ≤ 24 bytes are stored inline (no heap allocation)
-let short_name = CompactString::from("variableName");  // Stack allocated
-let long_name = CompactString::from("a_very_long_variable_name_that_exceeds_limit");  // Heap allocated
-```
-
-This reduces memory allocations for the majority of JavaScript identifiers and string literals.
-
-## Parser Architecture
-
-### Two-Phase Design
-
-The Oxc parser follows a two-phase approach:
-
-1. **Parsing Phase**: Build AST structure with minimal semantic analysis
-2. **Semantic Phase**: Perform scope analysis, symbol resolution, and advanced error checking
-
-```rust
-// Phase 1: Parse to AST
-let parser_result = Parser::new(&allocator, source_text, source_type).parse();
-
-// Phase 2: Semantic analysis
-let semantic_result = SemanticBuilder::new(source_text, source_type)
-    .with_trivias(parser_result.trivias)
-    .build(&parser_result.program);
-```
-
-### Parser Components
-
-#### Lexer
-
-* **Token generation**: Converts source text to structured tokens
-* **SIMD optimization**: Uses SIMD instructions for whitespace skipping
-* **Context-aware**: Handles regex vs division operator disambiguation
-
-#### Recursive Descent Parser
-
-* **Hand-written**: Custom implementation for maximum performance
-* **Error recovery**: Advanced error handling with meaningful messages
-* **Grammar compliance**: Follows ECMAScript specification precisely
-
-#### AST Builder
-
-* **Type safety**: Leverages Rust's type system for correctness
-* **Memory efficiency**: Direct arena allocation
-* **Builder pattern**: Convenient node construction methods
-
-## Conformance Strategy
-
-### Test Suite Coverage
-
-* **Test262**: 100% pass rate on ECMAScript conformance tests
-* **Babel**: 99.62% compatibility with Babel parser tests
-* **TypeScript**: 99.86% compatibility with TypeScript compiler tests
-
-### Error Handling Philosophy
-
-```rust
-// Meaningful error messages with source location
-pub struct OxcDiagnostic {
-    pub message: String,
-    pub span: Span,
-    pub severity: Severity,
-    pub help: Option<String>,
-}
-```
-
-The parser provides:
-
-* **Precise error locations**: Exact source positions
-* **Recovery strategies**: Continue parsing after errors
-* **Helpful suggestions**: Actionable error messages
-
-## Advanced Features
-
-### TypeScript Support
-
-* **Type stripping**: Removes TypeScript-specific syntax
-* **Decorator parsing**: Handles experimental decorators
-* **Namespace support**: Full module and namespace parsing
-* **JSX integration**: TypeScript + JSX (TSX) support
-
-### Research Areas
-
-* **SIMD text processing**: Vectorized string operations
-* **Cache optimization**: Minimize memory access patterns
-* **Branch prediction**: Optimize hot parsing paths
-* **Zero-copy parsing**: Eliminate unnecessary string copies
-
-[estree]: https://github.com/estree/estree
 
 ---
 
@@ -39406,6 +40625,184 @@ function isParenthesizedArrowFunctionExpression(): Tristate {
 ```
 
 In summary, the TypeScript parser uses a combination of lookahead (fast path) and backtracking to parse arrow functions.
+
+---
+
+---
+url: /docs/learn/architecture/parser.md
+---
+
+# Parser Architecture
+
+Oxc maintains its own AST and parser, which is by far the fastest and most conformant JavaScript and TypeScript (including JSX and TSX) parser written in Rust.
+
+As the parser often represents a key performance bottleneck in JavaScript tooling,
+any minor improvements can have a cascading effect on our downstream tools.
+By developing our parser, we have the opportunity to explore and implement well-researched performance techniques.
+
+## AST Design Philosophy
+
+While many existing JavaScript tools rely on [estree] as their AST specification,
+a notable drawback is its abundance of ambiguous nodes.
+This ambiguity often leads to confusion during development with [estree].
+
+The Oxc AST differs from the [estree] AST by removing ambiguous nodes and introducing distinct types.
+For example, instead of using a generic [estree] `Identifier`,
+the Oxc AST provides specific types such as `BindingIdentifier`, `IdentifierReference`, and `IdentifierName`.
+
+This clear distinction greatly enhances the development experience by aligning more closely with the ECMAScript specification.
+
+### AST Node Types
+
+```rust
+// Instead of generic Identifier
+pub struct BindingIdentifier<'a> {
+    pub span: Span,
+    pub name: Atom<'a>,
+}
+
+pub struct IdentifierReference<'a> {
+    pub span: Span,
+    pub name: Atom<'a>,
+    pub reference_id: Cell<Option<ReferenceId>>,
+}
+
+pub struct IdentifierName<'a> {
+    pub span: Span,
+    pub name: Atom<'a>,
+}
+```
+
+### Semantic Clarity
+
+This approach provides semantic clarity:
+
+* **`BindingIdentifier`**: Variable declarations (`let x = 1`)
+* **`IdentifierReference`**: Variable usage (`console.log(x)`)
+* **`IdentifierName`**: Property names (`obj.property`)
+
+## Performance Architecture
+
+### How is it so fast
+
+* **Memory Arena**: AST is allocated in a [memory arena](https://crates.io/crates/bumpalo) for fast allocation and deallocation
+* **String Optimization**: Short strings are inlined by [CompactString](https://crates.io/crates/compact_str)
+* **Minimal Heap Usage**: No other heap allocations are done except the above two
+* **Separation of Concerns**: Scope binding, symbol resolution and some syntax errors are delegated to the semantic analyzer
+
+### Memory Management Details
+
+#### Arena Allocation
+
+```rust
+use oxc_allocator::Allocator;
+
+// All AST nodes are allocated in this arena
+let allocator = Allocator::default();
+let ast_node = allocator.alloc(Expression::NumericLiteral(
+    allocator.alloc(NumericLiteral { value: 42.0, span: SPAN })
+));
+```
+
+Benefits:
+
+* **O(1) allocation**: Simple pointer bump
+* **O(1) deallocation**: Drop entire arena at once
+* **Cache-friendly**: Linear memory layout
+* **No fragmentation**: Continuous memory usage
+
+#### String Interning with CompactString
+
+```rust
+// Strings ≤ 24 bytes are stored inline (no heap allocation)
+let short_name = CompactString::from("variableName");  // Stack allocated
+let long_name = CompactString::from("a_very_long_variable_name_that_exceeds_limit");  // Heap allocated
+```
+
+This reduces memory allocations for the majority of JavaScript identifiers and string literals.
+
+## Parser Architecture
+
+### Two-Phase Design
+
+The Oxc parser follows a two-phase approach:
+
+1. **Parsing Phase**: Build AST structure with minimal semantic analysis
+2. **Semantic Phase**: Perform scope analysis, symbol resolution, and advanced error checking
+
+```rust
+// Phase 1: Parse to AST
+let parser_result = Parser::new(&allocator, source_text, source_type).parse();
+
+// Phase 2: Semantic analysis
+let semantic_result = SemanticBuilder::new(source_text, source_type)
+    .with_trivias(parser_result.trivias)
+    .build(&parser_result.program);
+```
+
+### Parser Components
+
+#### Lexer
+
+* **Token generation**: Converts source text to structured tokens
+* **SIMD optimization**: Uses SIMD instructions for whitespace skipping
+* **Context-aware**: Handles regex vs division operator disambiguation
+
+#### Recursive Descent Parser
+
+* **Hand-written**: Custom implementation for maximum performance
+* **Error recovery**: Advanced error handling with meaningful messages
+* **Grammar compliance**: Follows ECMAScript specification precisely
+
+#### AST Builder
+
+* **Type safety**: Leverages Rust's type system for correctness
+* **Memory efficiency**: Direct arena allocation
+* **Builder pattern**: Convenient node construction methods
+
+## Conformance Strategy
+
+### Test Suite Coverage
+
+* **Test262**: 100% pass rate on ECMAScript conformance tests
+* **Babel**: 99.62% compatibility with Babel parser tests
+* **TypeScript**: 99.86% compatibility with TypeScript compiler tests
+
+### Error Handling Philosophy
+
+```rust
+// Meaningful error messages with source location
+pub struct OxcDiagnostic {
+    pub message: String,
+    pub span: Span,
+    pub severity: Severity,
+    pub help: Option<String>,
+}
+```
+
+The parser provides:
+
+* **Precise error locations**: Exact source positions
+* **Recovery strategies**: Continue parsing after errors
+* **Helpful suggestions**: Actionable error messages
+
+## Advanced Features
+
+### TypeScript Support
+
+* **Type stripping**: Removes TypeScript-specific syntax
+* **Decorator parsing**: Handles experimental decorators
+* **Namespace support**: Full module and namespace parsing
+* **JSX integration**: TypeScript + JSX (TSX) support
+
+### Research Areas
+
+* **SIMD text processing**: Vectorized string operations
+* **Cache optimization**: Minimize memory access patterns
+* **Branch prediction**: Optimize hot parsing paths
+* **Zero-copy parsing**: Eliminate unnecessary string copies
+
+[estree]: https://github.com/estree/estree
 
 ---
 
@@ -40473,7 +41870,7 @@ chain does not warn if it does an assignment to a global variable. Default is
 `["globalThis"]`.
 
 ```javascript
-/* eslint promise/always-return: ["error", { ignoreAssignmentVariable: ["globalThis"] }] */
+/* promise/always-return: ["error", { ignoreAssignmentVariable: ["globalThis"] }] */
 
 // OK
 promise.then((x) => {
@@ -41335,14 +42732,14 @@ This rule accepts a configuration object with the following properties:
 
 ### rejectPattern
 
-type: `string | null`
+type: `string`
 
 Regex pattern used to validate the `reject` parameter name. If provided, this pattern
 is used instead of the default `^_?reject$` check.
 
 ### resolvePattern
 
-type: `string | null`
+type: `string`
 
 Regex pattern used to validate the `resolve` parameter name. If provided, this pattern
 is used instead of the default `^_?resolve$` check.
@@ -41708,6 +43105,146 @@ oxlint --deny promise/valid-params --promise-plugin
 ---
 
 ---
+url: /docs/guide/usage/formatter/quickstart.md
+description: Install Oxfmt and learn the common workflows.
+---
+
+# Quickstart
+
+Recommended setup and common workflows.
+
+## Install
+
+Install `oxfmt` as a dev dependency:
+
+::: code-group
+
+```sh [npm]
+$ npm add -D oxfmt
+```
+
+```sh [pnpm]
+$ pnpm add -D oxfmt
+```
+
+```sh [yarn]
+$ yarn add -D oxfmt
+```
+
+```sh [bun]
+$ bun add -D oxfmt
+```
+
+:::
+
+Add scripts to `package.json`:
+
+```json [package.json]
+{
+  "scripts": {
+    "fmt": "oxfmt",
+    "fmt:check": "oxfmt --check"
+  }
+}
+```
+
+Format files:
+
+```sh
+pnpm run fmt
+```
+
+Check formatting without writing files:
+
+```sh
+pnpm run fmt:check
+```
+
+## Usage
+
+```sh
+oxfmt [OPTIONS] [PATH]...
+```
+
+Running `oxfmt` without arguments formats the current directory (equivalent to `prettier --write .`).
+
+CLI options like `--no-semi` are not supported. Use the configuration file instead to ensure consistent settings across CLI and editor integrations.
+
+Globs in positional paths are not expanded (rely on your shell). However, `!`-prefixed exclude paths support glob expansion.
+
+For the complete list of options, see the [CLI reference](/docs/guide/usage/formatter/cli.html).
+
+## Common workflows
+
+### Pre-commit with lint-staged
+
+```json [package.json]
+{
+  "lint-staged": {
+    "*": "oxfmt --no-error-on-unmatched-pattern"
+  }
+}
+```
+
+`--no-error-on-unmatched-pattern` prevents errors when no files match the pattern.
+
+### Create a config file
+
+Initialize `.oxfmtrc.json` with defaults:
+
+```sh
+oxfmt --init
+```
+
+### Migrate from Prettier
+
+```sh
+oxfmt --migrate prettier
+```
+
+See [migrate from prettier](./migrate-from-prettier) for details.
+
+### List files that differ
+
+```sh
+oxfmt --list-different
+```
+
+This is useful for configuring [files to ignore](./ignore-files).
+
+### Piping file contents
+
+```sh
+echo 'const   x   =   1' | oxfmt --stdin-filepath test.ts
+```
+
+Prints `const x = 1;`
+
+### Node.js API
+
+```ts
+import { format, type FormatOptions } from "oxfmt";
+
+const input = `let a=42;`;
+const options: FormatOptions = {
+  semi: false,
+};
+
+const { code } = await format("a.js", input, options);
+console.log(code); // "let a = 42"
+```
+
+## Next steps
+
+* [Change configuration](./config)
+* [Setup editors](./editors)
+* [Setup CI](./ci)
+* Learn advanced features: [sorting](./sorting), [embedded formatting](./embedded-formatting)
+* Check [CLI reference](./cli)
+
+---
+
+---
 url: /docs/guide/usage/linter/quickstart.md
 description: Install Oxlint and learn the common workflows.
 ---
@@ -41905,146 +43442,6 @@ The full list is in the [Rules reference](/docs/guide/usage/linter/rules).
 * Learn advanced features: [Multi-file analysis](/docs/guide/usage/linter/multi-file-analysis), [Type-aware linting](/docs/guide/usage/linter/type-aware), [JS plugins](/docs/guide/usage/linter/js-plugins)
 * Migrate: [From ESLint](/docs/guide/usage/linter/migrate-from-eslint)&#x20;
 * [CLI reference](/docs/guide/usage/linter/cli)
-
----
-
----
-url: /docs/guide/usage/formatter/quickstart.md
-description: Install Oxfmt and learn the common workflows.
----
-
-# Quickstart
-
-Recommended setup and common workflows.
-
-## Install
-
-Install `oxfmt` as a dev dependency:
-
-::: code-group
-
-```sh [npm]
-$ npm add -D oxfmt
-```
-
-```sh [pnpm]
-$ pnpm add -D oxfmt
-```
-
-```sh [yarn]
-$ yarn add -D oxfmt
-```
-
-```sh [bun]
-$ bun add -D oxfmt
-```
-
-:::
-
-Add scripts to `package.json`:
-
-```json [package.json]
-{
-  "scripts": {
-    "fmt": "oxfmt",
-    "fmt:check": "oxfmt --check"
-  }
-}
-```
-
-Format files:
-
-```sh
-pnpm run fmt
-```
-
-Check formatting without writing files:
-
-```sh
-pnpm run fmt:check
-```
-
-## Usage
-
-```sh
-oxfmt [OPTIONS] [PATH]...
-```
-
-Running `oxfmt` without arguments formats the current directory (equivalent to `prettier --write .`).
-
-CLI options like `--no-semi` are not supported. Use the configuration file instead to ensure consistent settings across CLI and editor integrations.
-
-Globs in positional paths are not expanded (rely on your shell). However, `!`-prefixed exclude paths support glob expansion.
-
-For the complete list of options, see the [CLI reference](/docs/guide/usage/formatter/cli.html).
-
-## Common workflows
-
-### Pre-commit with lint-staged
-
-```json [package.json]
-{
-  "lint-staged": {
-    "*": "oxfmt --no-error-on-unmatched-pattern"
-  }
-}
-```
-
-`--no-error-on-unmatched-pattern` prevents errors when no files match the pattern.
-
-### Create a config file
-
-Initialize `.oxfmtrc.json` with defaults:
-
-```sh
-oxfmt --init
-```
-
-### Migrate from Prettier
-
-```sh
-oxfmt --migrate prettier
-```
-
-See [migrate from prettier](./migrate-from-prettier) for details.
-
-### List files that differ
-
-```sh
-oxfmt --list-different
-```
-
-This is useful for configuring [files to ignore](./ignore-files).
-
-### Piping file contents
-
-```sh
-echo 'const   x   =   1' | oxfmt --stdin-filepath test.ts
-```
-
-Prints `const x = 1;`
-
-### Node.js API
-
-```ts
-import { format, type FormatOptions } from "oxfmt";
-
-const input = `let a=42;`;
-const options: FormatOptions = {
-  semi: false,
-};
-
-const { code } = await format("a.js", input, options);
-console.log(code); // "let a = 42"
-```
-
-## Next steps
-
-* [Change configuration](./config)
-* [Setup editors](./editors)
-* [Setup CI](./ci)
-* Learn advanced features: [sorting](./sorting), [embedded formatting](./embedded-formatting)
-* Check [CLI reference](./cli)
 
 ---
 
@@ -42504,7 +43901,7 @@ This rule accepts a configuration object with the following properties:
 
 ### additionalHooks
 
-type: `string | null`
+type: `string`
 
 default: `null`
 
@@ -43444,13 +44841,13 @@ Event handler prop prefixes to check against.
 
 ### eventHandlerPropRegex
 
-type: `string | null`
+type: `string`
 
 Compiled regex for event handler prop prefixes.
 
 ### eventHandlerRegex
 
-type: `string | null`
+type: `string`
 
 Compiled regex for event handler prefixes.
 
@@ -43621,6 +45018,8 @@ This rule accepts a configuration object with the following properties:
 type: `integer`
 
 default: `2`
+
+The maximum allowed depth of nested JSX elements and fragments.
 
 ## How to use
 
@@ -45714,7 +47113,7 @@ This rule accepts a configuration object with the following properties:
 
 ### allowConstantExport
 
-type: `boolean | null`
+type: `boolean`
 
 default: `null`
 
@@ -45741,7 +47140,7 @@ certain exports). For example, in Remix:
 
 ### checkJS
 
-type: `boolean | null`
+type: `boolean`
 
 default: `null`
 
@@ -46825,66 +48224,6 @@ Upon visit, we can call `enter_scope` and `leave_scope` accordingly to build the
 ---
 
 ---
-url: /docs/guide/usage/formatter/ci.md
-description: Run Oxfmt in CI or as a git hook.
----
-
-# Setup CI and other integrations
-
-You can - and should - setup your CI pipeline to run Oxfmt and fail the build on format errors.
-
-This page also covers other integrations you may want to include, like git pre-commit hooks.
-
-## CI
-
-### GitHub Actions
-
-Add a formatting check to your GitHub Actions workflow:
-
-```yaml [.github/workflows/ci.yml]
-name: CI
-
-on:
-  pull_request:
-  push:
-    branches: [main]
-
-jobs:
-  format:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: pnpm/action-setup@v4
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: lts/*
-          cache: pnpm
-
-      - run: pnpm install --frozen-lockfile
-      - run: pnpm run fmt:check
-```
-
-## Pre-commit hook
-
-To auto-format staged files, use `oxfmt --no-error-on-unmatched-pattern`. This formats all supported files and avoids errors when no files match (e.g., only Ruby files staged).
-
-Use `--check` to verify formatting without writing files.
-
-For husky/lint-staged, add to `package.json`:
-
-```json [package.json]
-{
-  "lint-staged": {
-    "*": "oxfmt --no-error-on-unmatched-pattern"
-  }
-}
-```
-
----
-
----
 url: /docs/guide/usage/linter/ci.md
 description: Run Oxlint in CI or as a git hook.
 ---
@@ -47002,6 +48341,66 @@ Unplugin is supported via a [third-party package](https://www.npmjs.com/package/
 ### Vite plugin
 
 A Vite plugin is supported via a [third-party package](https://www.npmjs.com/package/vite-plugin-oxlint)
+
+---
+
+---
+url: /docs/guide/usage/formatter/ci.md
+description: Run Oxfmt in CI or as a git hook.
+---
+
+# Setup CI and other integrations
+
+You can - and should - setup your CI pipeline to run Oxfmt and fail the build on format errors.
+
+This page also covers other integrations you may want to include, like git pre-commit hooks.
+
+## CI
+
+### GitHub Actions
+
+Add a formatting check to your GitHub Actions workflow:
+
+```yaml [.github/workflows/ci.yml]
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  format:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm run fmt:check
+```
+
+## Pre-commit hook
+
+To auto-format staged files, use `oxfmt --no-error-on-unmatched-pattern`. This formats all supported files and avoids errors when no files match (e.g., only Ruby files staged).
+
+Use `--check` to verify formatting without writing files.
+
+For husky/lint-staged, add to `package.json`:
+
+```json [package.json]
+{
+  "lint-staged": {
+    "*": "oxfmt --no-error-on-unmatched-pattern"
+  }
+}
+```
 
 ---
 
@@ -50454,7 +51853,7 @@ Allowed values are:
 
 ### allowWithName
 
-type: `string | null`
+type: `string`
 
 A stringified regular expression to allow interfaces and object type aliases with the configured name.
 
@@ -54902,6 +56301,10 @@ url: /docs/guide/usage/linter/rules/typescript/prefer-optional-chain.md
 Enforce using concise optional chain expressions instead of chained logical AND
 operators, negated logical OR operators, or empty objects.
 
+Note that this rule is in the nursery category while we ensure it is working
+correctly in as many edge-case scenarios as possible. The logic for this is
+complex and the autofix may cause logic changes in some edge-cases.
+
 ### Why is this bad?
 
 TypeScript 3.7 introduced optional chaining (`?.`) which provides a more concise
@@ -55363,7 +56766,7 @@ const str: string = 1;
 const multiLine: number = "value";
 ```
 
-Examples of **incorrect** code for this rule:
+Examples of **correct** code for this rule:
 
 ```ts
 /**
@@ -56601,7 +58004,7 @@ even if not all union members are handled explicitly.
 
 ### defaultCaseCommentPattern
 
-type: `string | null`
+type: `string`
 
 Regular expression pattern that when matched in a default case comment,
 will suppress the exhaustiveness check.
@@ -57472,8 +58875,9 @@ makes the code easier to understand and maintain.
 Examples of **incorrect** code for this rule:
 
 ```javascript
-const a = {};
-class A {}
+const a = {  };
+class A {
+}
 ```
 
 Examples of **correct** code for this rule:
@@ -57760,12 +59164,14 @@ The case style to enforce for filenames.
 You can set the `case` option like this:
 
 ```json
-"unicorn/filename-case": [
-"error",
 {
-"case": "kebabCase"
+  "unicorn/filename-case": [
+    "error",
+    {
+      "case": "kebabCase"
+    }
+  ]
 }
-]
 ```
 
 ### cases
@@ -57779,15 +59185,17 @@ The case style(s) to allow/enforce for filenames. `true` means the case style is
 You can set the `cases` option like this:
 
 ```json
-"unicorn/filename-case": [
-"error",
 {
-"cases": {
-"camelCase": true,
-"pascalCase": true
+  "unicorn/filename-case": [
+    "error",
+    {
+      "cases": {
+        "camelCase": true,
+        "pascalCase": true
+      }
+    }
+  ]
 }
-}
-]
 ```
 
 #### cases.camelCase
@@ -57824,19 +59232,21 @@ Whether snake case is allowed, e.g. `some_file_name.js`.
 
 ### ignore
 
-type: `string | null`
+type: `string`
 
 A regular expression pattern for filenames to ignore.
 
 You can set the `ignore` option like this:
 
 ```json
-"unicorn/filename-case": [
-"error",
 {
-"ignore": "^foo.*$"
+  "unicorn/filename-case": [
+    "error",
+    {
+      "ignore": "^foo.*$"
+    }
+  ]
 }
-]
 ```
 
 ### multipleFileExtensions
@@ -64731,67 +66141,6 @@ Not fully implemented. See:
 ---
 
 ---
-url: /docs/guide/usage/formatter/generated-cli.md
----
-
-## Usage
-
-**`oxfmt`** \[**`-c`**=*`PATH`*] \[*`PATH`*]...
-
-## Mode Options:
-
-* **`    --init`** —
-  Initialize `.oxfmtrc.json` with default values
-* **`    --migrate`**=*`SOURCE`* —
-  Migrate configuration to `.oxfmtrc.json` from specified source Available sources: prettier
-* **`    --lsp`** —
-  Start language server protocol (LSP) server
-* **`    --stdin-filepath`**=*`PATH`* —
-  Specify the file name to use to infer which parser to use
-
-## Output Options:
-
-* **`    --write`** —
-  Format and write files in place (default)
-* **`    --check`** —
-  Check if files are formatted, also show statistics
-* **`    --list-different`** —
-  List files that would be changed
-
-## Config Options
-
-* **`-c`**, **`--config`**=*`PATH`* —
-  Path to the configuration file
-
-## Ignore Options
-
-* **`    --ignore-path`**=*`PATH`* —
-  Path to ignore file(s). Can be specified multiple times. If not specified, .gitignore and .prettierignore in the current directory are used.
-* **`    --with-node-modules`** —
-  Format code in node\_modules directory (skipped by default)
-
-## Runtime Options
-
-* **`    --no-error-on-unmatched-pattern`** —
-  Do not exit with error when pattern is unmatched
-* **`    --threads`**=*`INT`* —
-  Number of threads to use. Set to 1 for using only 1 CPU core.
-
-## Available positional items:
-
-* *`PATH`* —
-  Single file, single path or list of paths. If not provided, current working directory is used. Glob is supported only for exclude patterns like `'!**/fixtures/*.js'`.
-
-## Available options:
-
-* **`-h`**, **`--help`** —
-  Prints help information
-* **`-V`**, **`--version`** —
-  Prints version information
-
----
-
----
 url: /docs/guide/usage/linter/generated-cli.md
 ---
 
@@ -64948,6 +66297,67 @@ Arguments:
 ---
 
 ---
+url: /docs/guide/usage/formatter/generated-cli.md
+---
+
+## Usage
+
+**`oxfmt`** \[**`-c`**=*`PATH`*] \[*`PATH`*]...
+
+## Mode Options:
+
+* **`    --init`** —
+  Initialize `.oxfmtrc.json` with default values
+* **`    --migrate`**=*`SOURCE`* —
+  Migrate configuration to `.oxfmtrc.json` from specified source Available sources: prettier
+* **`    --lsp`** —
+  Start language server protocol (LSP) server
+* **`    --stdin-filepath`**=*`PATH`* —
+  Specify the file name to use to infer which parser to use
+
+## Output Options:
+
+* **`    --write`** —
+  Format and write files in place (default)
+* **`    --check`** —
+  Check if files are formatted, also show statistics
+* **`    --list-different`** —
+  List files that would be changed
+
+## Config Options
+
+* **`-c`**, **`--config`**=*`PATH`* —
+  Path to the configuration file
+
+## Ignore Options
+
+* **`    --ignore-path`**=*`PATH`* —
+  Path to ignore file(s). Can be specified multiple times. If not specified, .gitignore and .prettierignore in the current directory are used.
+* **`    --with-node-modules`** —
+  Format code in node\_modules directory (skipped by default)
+
+## Runtime Options
+
+* **`    --no-error-on-unmatched-pattern`** —
+  Do not exit with error when pattern is unmatched
+* **`    --threads`**=*`INT`* —
+  Number of threads to use. Set to 1 for using only 1 CPU core.
+
+## Available positional items:
+
+* *`PATH`* —
+  Single file, single path or list of paths. If not provided, current working directory is used. Glob is supported only for exclude patterns like `'!**/fixtures/*.js'`.
+
+## Available options:
+
+* **`-h`**, **`--help`** —
+  Prints help information
+* **`-V`**, **`--version`** —
+  Prints version information
+
+---
+
+---
 url: /docs/guide/usage/linter/versioning.md
 ---
 
@@ -65078,19 +66488,19 @@ This rule accepts a configuration object with the following properties:
 
 ### describe
 
-type: `"for" | "each" | null`
+type: `"for" | "each"`
 
 ### it
 
-type: `"for" | "each" | null`
+type: `"for" | "each"`
 
 ### suite
 
-type: `"for" | "each" | null`
+type: `"for" | "each"`
 
 ### test
 
-type: `"for" | "each" | null`
+type: `"for" | "each"`
 
 ## How to use
 

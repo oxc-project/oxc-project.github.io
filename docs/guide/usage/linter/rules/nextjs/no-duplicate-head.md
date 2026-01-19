@@ -4,7 +4,7 @@ url: /docs/guide/usage/linter/rules/nextjs/no-duplicate-head.md
 
 ### What it does
 
-Prevent duplicate usage of `<Head>` in \`pages/\_document.js\`\`.
+Prevent duplicate usage of `<Head>` in `pages/_document.js`.
 
 ### Why is this bad?
 

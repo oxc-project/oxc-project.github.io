@@ -121,7 +121,7 @@ even if not all union members are handled explicitly.
 
 ### defaultCaseCommentPattern
 
-type: `string | null`
+type: `string`
 
 Regular expression pattern that when matched in a default case comment,
 will suppress the exhaustiveness check.

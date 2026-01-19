@@ -48,19 +48,19 @@ This rule accepts a configuration object with the following properties:
 
 ### describe
 
-type: `"for" | "each" | null`
+type: `"for" | "each"`
 
 ### it
 
-type: `"for" | "each" | null`
+type: `"for" | "each"`
 
 ### suite
 
-type: `"for" | "each" | null`
+type: `"for" | "each"`
 
 ### test
 
-type: `"for" | "each" | null`
+type: `"for" | "each"`
 
 ## How to use
 

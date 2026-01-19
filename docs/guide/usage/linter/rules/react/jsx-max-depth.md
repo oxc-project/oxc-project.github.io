@@ -48,6 +48,8 @@ type: `integer`
 
 default: `2`
 
+The maximum allowed depth of nested JSX elements and fragments.
+
 ## How to use
 
 To **enable** this rule using the config file or in the CLI, you can use:
