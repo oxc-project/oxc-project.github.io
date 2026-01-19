@@ -75,8 +75,6 @@ You also need to ensure `oxlint-tsgolint` is installed in your project. See [the
 
 - [oxc-project/oxc-zed](https://github.com/oxc-project/oxc-zed)
 
----
-
 ## JetBrains
 
 IntelliJ IDEA and WebStorm.
