@@ -9,6 +9,8 @@ interface BlogPost {
   date: Date | null;
 }
 
+
+
 const { lang } = useData();
 const posts = ref<BlogPost[]>([]);
 
