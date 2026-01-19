@@ -30,7 +30,7 @@ It's a good practice to be consistent in your test suite, so that all tests are 
 ### Examples
 
 ```javascript
-/*eslint jest/consistent-test-it: ["error", {"fn": "test"}]*/
+/* jest/consistent-test-it: ["error", {"fn": "test"}] */
 test("foo"); // valid
 test.only("foo"); // valid
 
@@ -39,7 +39,7 @@ it.only("foo"); // invalid
 ```
 
 ```javascript
-/*eslint jest/consistent-test-it: ["error", {"fn": "it"}]*/
+/* jest/consistent-test-it: ["error", {"fn": "it"}] */
 it("foo"); // valid
 it.only("foo"); // valid
 test("foo"); // invalid
@@ -47,7 +47,7 @@ test.only("foo"); // invalid
 ```
 
 ```javascript
-/*eslint jest/consistent-test-it: ["error", {"fn": "it", "withinDescribe": "test"}]*/
+/* jest/consistent-test-it: ["error", {"fn": "it", "withinDescribe": "test"}] */
 it("foo"); // valid
 describe("foo", function () {
   test("bar"); // valid

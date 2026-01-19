@@ -31,7 +31,7 @@ maintainable. To prevent this, one may enforce a minimum and/or maximum identifi
 Examples of **incorrect** code for this rule:
 
 ```js
-/*eslint id-length: "error"*/ // default is minimum 2-chars ({ "min": 2 })
+/* id-length: "error" */ // default is minimum 2-chars ({ "min": 2 })
 
 const x = 5;
 obj.e = document.body;
@@ -73,7 +73,7 @@ const { prop: a } = {};
 Examples of **correct** code for this rule:
 
 ```js
-/*eslint id-length: "error"*/ // default is minimum 2-chars ({ "min": 2 })
+/* id-length: "error" */ // default is minimum 2-chars ({ "min": 2 })
 
 const num = 5;
 function _f() {

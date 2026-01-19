@@ -72,12 +72,14 @@ The case style to enforce for filenames.
 You can set the `case` option like this:
 
 ```json
-"unicorn/filename-case": [
-"error",
 {
-"case": "kebabCase"
+  "unicorn/filename-case": [
+    "error",
+    {
+      "case": "kebabCase"
+    }
+  ]
 }
-]
 ```
 
 ### cases
@@ -91,15 +93,17 @@ The case style(s) to allow/enforce for filenames. `true` means the case style is
 You can set the `cases` option like this:
 
 ```json
-"unicorn/filename-case": [
-"error",
 {
-"cases": {
-"camelCase": true,
-"pascalCase": true
+  "unicorn/filename-case": [
+    "error",
+    {
+      "cases": {
+        "camelCase": true,
+        "pascalCase": true
+      }
+    }
+  ]
 }
-}
-]
 ```
 
 #### cases.camelCase
@@ -136,19 +140,21 @@ Whether snake case is allowed, e.g. `some_file_name.js`.
 
 ### ignore
 
-type: `string | null`
+type: `string`
 
 A regular expression pattern for filenames to ignore.
 
 You can set the `ignore` option like this:
 
 ```json
-"unicorn/filename-case": [
-"error",
 {
-"ignore": "^foo.*$"
+  "unicorn/filename-case": [
+    "error",
+    {
+      "ignore": "^foo.*$"
+    }
+  ]
 }
-]
 ```
 
 ### multipleFileExtensions

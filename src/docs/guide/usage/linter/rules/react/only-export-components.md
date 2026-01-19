@@ -95,7 +95,7 @@ This rule accepts a configuration object with the following properties:
 
 ### allowConstantExport
 
-type: `boolean | null`
+type: `boolean`
 
 default: `null`
 
@@ -122,7 +122,7 @@ certain exports). For example, in Remix:
 
 ### checkJS
 
-type: `boolean | null`
+type: `boolean`
 
 default: `null`
 

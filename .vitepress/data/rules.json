@@ -1237,7 +1237,7 @@
     "value": "no-useless-rename",
     "category": "correctness",
     "type_aware": false,
-    "fix": "pending",
+    "fix": "fixable_fix",
     "default": true,
     "docs_url": "https://oxc.rs/docs/guide/usage/linter/rules/eslint/no-useless-rename.html"
   },
@@ -4412,7 +4412,7 @@
   {
     "scope": "typescript",
     "value": "prefer-optional-chain",
-    "category": "style",
+    "category": "nursery",
     "type_aware": true,
     "fix": "fixable_fix",
     "default": false,

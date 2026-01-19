@@ -77,7 +77,7 @@ chain does not warn if it does an assignment to a global variable. Default is
 `["globalThis"]`.
 
 ```javascript
-/* eslint promise/always-return: ["error", { ignoreAssignmentVariable: ["globalThis"] }] */
+/* promise/always-return: ["error", { ignoreAssignmentVariable: ["globalThis"] }] */
 
 // OK
 promise.then((x) => {

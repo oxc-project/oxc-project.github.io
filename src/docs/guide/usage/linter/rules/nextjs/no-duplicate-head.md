@@ -17,7 +17,7 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 ### What it does
 
-Prevent duplicate usage of `<Head>` in `pages/\_document.js``.
+Prevent duplicate usage of `<Head>` in `pages/_document.js`.
 
 ### Why is this bad?
 
