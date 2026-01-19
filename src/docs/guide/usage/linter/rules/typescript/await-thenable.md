@@ -39,25 +39,23 @@ await { then() {} };
 // this is not a Promise - it's a function that returns a Promise
 declare const getPromise: () => Promise<string>;
 await getPromise;
-await getPromise;
 ```
 
 Examples of **correct** code for this rule:
 
 ```
-await Promise.resolve("value");
+await Promise.resolve('value');
 await Promise.reject(new Error());
 
 // Promise-like values
 await {
   then(onfulfilled, onrejected) {
-    onfulfilled("value");
+    onfulfilled('value');
   },
 };
 
 // this is a Promise - produced by calling a function
 declare const getPromise: () => Promise<string>;
-await getPromise();
 await getPromise();
 ```
 
