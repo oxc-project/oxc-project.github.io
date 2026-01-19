@@ -1,6 +1,6 @@
 ---
 title: "typescript/prefer-optional-chain"
-category: "Style"
+category: "Nursery"
 default: false
 type_aware: true
 fix: "fixable_fix"
@@ -20,6 +20,10 @@ const tsgolintSource = `https://github.com/oxc-project/tsgolint/blob/main/intern
 
 Enforce using concise optional chain expressions instead of chained logical AND
 operators, negated logical OR operators, or empty objects.
+
+Note that this rule is in the nursery category while we ensure it is working
+correctly in as many edge-case scenarios as possible. The logic for this is
+complex and the autofix may cause logic changes in some edge-cases.
 
 ### Why is this bad?
 

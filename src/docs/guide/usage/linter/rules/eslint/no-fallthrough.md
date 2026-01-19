@@ -200,7 +200,7 @@ Whether to allow empty case clauses to fall through.
 
 ### commentPattern
 
-type: `string | null`
+type: `string`
 
 Custom regex pattern to match fallthrough comments.
 

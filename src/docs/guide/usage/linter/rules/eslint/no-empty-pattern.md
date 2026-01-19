@@ -17,7 +17,7 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 ### What it does
 
-Disallow empty destructuring patterns
+Disallow empty destructuring patterns.
 
 ### Why is this bad?
 
@@ -49,7 +49,7 @@ var {a = {}} = foo;
 The difference between these two patterns is subtle,
 especially because the problematic empty pattern looks just like an object literal.
 
-### Examples of incorrect code for this rule:
+### Examples of **incorrect** code for this rule:
 
 ```JavaScript
 var {} = foo;
@@ -62,7 +62,7 @@ function foo({a: {}}) {}
 function foo({a: []}) {}
 ```
 
-### Examples of correct code for this rule:
+### Examples of **correct** code for this rule:
 
 ```JavaScript
 var {a = {}} = foo;

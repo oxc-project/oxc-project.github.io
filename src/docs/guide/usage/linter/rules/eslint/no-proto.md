@@ -33,8 +33,6 @@ For more information, see
 Examples of **incorrect** code for this rule:
 
 ```javascript
-/*eslint no-proto: "error"*/
-
 var a = obj.__proto__;
 
 var a = obj["__proto__"];

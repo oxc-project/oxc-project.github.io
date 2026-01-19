@@ -52,7 +52,7 @@ Example
 
 ## $schema
 
-type: `string | null`
+type: `string`
 
 Schema URI for editor tooling.
 
@@ -149,7 +149,7 @@ Globs to ignore during linting. These are resolved from the configuration file p
 
 ## jsPlugins
 
-type: `array | null`
+type: `array`
 
 JS plugins, allows usage of ESLint plugins with Oxlint.
 
@@ -205,7 +205,7 @@ type: `object`
 
 #### overrides[n].env
 
-type: `object | null`
+type: `object`
 
 Environments enable and disable collections of global variables.
 
@@ -217,13 +217,13 @@ A set of glob patterns.
 
 #### overrides[n].globals
 
-type: `object | null`
+type: `object`
 
 Enabled or disabled specific global variables.
 
 #### overrides[n].jsPlugins
 
-type: `array | null`
+type: `array`
 
 JS plugins for this override, allows usage of ESLint plugins with Oxlint.
 
@@ -271,7 +271,7 @@ Path or package name of the plugin
 
 #### overrides[n].plugins
 
-type: `array | null`
+type: `array`
 
 default: `null`
 
@@ -290,7 +290,7 @@ See [Oxlint Rules](https://oxc.rs/docs/guide/usage/linter/rules.html)
 
 ## plugins
 
-type: `array | null`
+type: `array`
 
 default: `null`
 
@@ -468,7 +468,7 @@ Example:
 
 #### settings.jsx-a11y.polymorphicPropName
 
-type: `string | null`
+type: `string`
 
 An optional setting that define the prop your code uses to create polymorphic components.
 This setting will be used to determine the element type in rules that
@@ -584,7 +584,7 @@ type: `string`
 
 #### settings.react.version
 
-type: `string | null`
+type: `string`
 
 default: `null`
 
