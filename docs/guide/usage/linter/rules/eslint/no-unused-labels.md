@@ -4,7 +4,7 @@ url: /docs/guide/usage/linter/rules/eslint/no-unused-labels.md
 
 ### What it does
 
-Disallow unused labels
+Disallow unused labels.
 
 ### Why is this bad?
 
