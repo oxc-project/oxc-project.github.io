@@ -32,20 +32,19 @@ $ bun add -D oxfmt@latest && bunx oxfmt --migrate=prettier && bunx oxfmt
 
 ## Before you migrate
 
-Oxfmt is compatible with Prettier v3.7 for basic configurations.
+Oxfmt is compatible with Prettier v3.8 for many configurations.
 
 Key differences:
 
 - Default `printWidth` is 100 (Prettier uses 80)
 - Prettier plugins are not supported
 - Some options are not supported (see [config reference](/docs/guide/usage/formatter/config-file-reference.html))
-- Editor integration via `--lsp` is still in development
 
 See [Unsupported features](/docs/guide/usage/formatter/unsupported-features) for details.
 
-## Step 1: Upgrade Prettier to v3.7 (optional)
+## Step 1: Upgrade Prettier to v3.8 (optional)
 
-Oxfmt's output is closest to Prettier v3.7. Upgrading first minimizes formatting differences.
+Oxfmt's output is closest to Prettier v3.8. Upgrading first minimizes formatting differences.
 
 ## Step 2: Install Oxfmt
 
@@ -75,12 +74,12 @@ $ deno add -D npm:oxfmt@latest
 
 ## Step 3: Migrate configuration
 
-Oxfmt uses `.oxfmtrc.json` (JSON only). Basic example:
+Oxfmt uses `.oxfmtrc.json` or `.oxfmtrc.jsonc`. Basic example:
 
-```json [.oxfmtrc.json]
+```jsonc [.oxfmtrc.jsonc]
 {
   "$schema": "./node_modules/oxfmt/configuration_schema.json",
-  "printWidth": 80
+  "printWidth": 80,
 }
 ```
 
@@ -97,14 +96,14 @@ module.exports = {
 };
 ```
 
-After (`.oxfmtrc.json`):
+After (`.oxfmtrc.jsonc`):
 
-```json [.oxfmtrc.json]
+```jsonc [.oxfmtrc.jsonc]
 {
   "$schema": "./node_modules/oxfmt/configuration_schema.json",
   "singleQuote": true,
   "jsxSingleQuote": true,
-  "printWidth": 80
+  "printWidth": 80,
 }
 ```
 
@@ -119,16 +118,16 @@ semi: false
 singleQuote: true
 ```
 
-After (`.oxfmtrc.json`):
+After (`.oxfmtrc.jsonc`):
 
-```json [.oxfmtrc.json]
+```jsonc [.oxfmtrc.jsonc]
 {
   "$schema": "./node_modules/oxfmt/configuration_schema.json",
   "trailingComma": "es5",
   "tabWidth": 4,
   "semi": false,
   "singleQuote": true,
-  "printWidth": 80
+  "printWidth": 80,
 }
 ```
 
@@ -170,7 +169,7 @@ After (`.oxfmtrc.json`):
 npm run format
 ```
 
-Uninstall Prettier if no longer needed.
+Uninstall Prettier if it is no longer needed.
 
 ## Optional steps
 
