@@ -49,8 +49,6 @@ A configuration file is a JSON object. The most common top-level fields are:
 
 For a complete list of fields, see the [Config file reference](./config-file-reference).
 
-Most options are compatible with Prettier. See the [Prettier documentation](https://prettier.io/docs/options) for shared options.
-
 ## JSON schema
 
 Add a `$schema` field for editor validation and autocomplete:
@@ -71,7 +69,15 @@ Oxfmt reads these `.editorconfig` properties:
 - `max_line_length` → `printWidth`
 - `insert_final_newline` → `insertFinalNewline`
 
-Glob-based overrides are supported.
+Both root section and glob-based overrides are supported.
+
+```
+[*]
+indent_size = 4
+
+[*.{js,ts}]
+indent_size = 2
+```
 
 Oxfmt uses only the nearest `.editorconfig` from the current directory:
 
@@ -83,8 +89,9 @@ Oxfmt uses only the nearest `.editorconfig` from the current directory:
 Options are applied in order (lowest to highest priority):
 
 1. Defaults
-2. `.editorconfig`
-3. `.oxfmtrc.json` / `.oxfmtrc.jsonc`
+2. `.oxfmtrc.json(c)` root options
+3. `.oxfmtrc.json(c)` `overrides` options
+4. fallback to options supported by `.editorconfig` for unset fields
 
 ## Oxfmt-specific options
 
