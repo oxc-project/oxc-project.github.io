@@ -75,6 +75,10 @@ export const enConfig = defineLocaleConfig("root", {
                   text: "Multi-file analysis",
                   link: "/docs/guide/usage/linter/multi-file-analysis",
                 },
+                {
+                  text: "Output formats",
+                  link: "/docs/guide/usage/linter/output-formats",
+                },
                 { text: "Type-aware linting", link: "/docs/guide/usage/linter/type-aware" },
                 { text: "JS plugins", link: "/docs/guide/usage/linter/js-plugins" },
               ],
