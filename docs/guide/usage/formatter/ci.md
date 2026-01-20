@@ -13,7 +13,17 @@ This page also covers other integrations you may want to include, like git pre-c
 
 ### GitHub Actions
 
-Add a formatting check to your GitHub Actions workflow:
+First, add a `fmt:check` script to your `package.json` if you don't have one already:
+
+```json [package.json]
+{
+  "scripts": {
+    "fmt:check": "oxfmt --check"
+  }
+}
+```
+
+And then add a job to your GitHub Actions workflow:
 
 ```yaml [.github/workflows/ci.yml]
 name: CI
@@ -27,11 +37,11 @@ jobs:
   format:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - uses: pnpm/action-setup@v4
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
           node-version: lts/*
           cache: pnpm

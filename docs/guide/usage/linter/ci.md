@@ -15,7 +15,17 @@ These instructions assume you have already set up Oxlint in your project by addi
 
 ### GitHub Actions
 
-Create `.github/workflows/oxlint.yml`:
+First, add a `lint` script to your `package.json` if you don't have one already:
+
+```json [package.json]
+{
+  "scripts": {
+    "lint": "oxlint"
+  }
+}
+```
+
+Then create `.github/workflows/oxlint.yml`:
 
 ```yaml [.github/workflows/oxlint.yml]
 name: Lint
@@ -29,17 +39,28 @@ jobs:
   oxlint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - uses: pnpm/action-setup@v4
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
           node-version: lts/*
           cache: pnpm
 
+      # alternatively use npm install / yarn install here
       - run: pnpm install --frozen-lockfile
-      - run: pnpm run lint --deny-warnings
+      - run: pnpm run lint
+```
+
+You can, alternatively, output using the github format option, for [better warning/error annotations](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-commands#setting-an-error-message):
+
+```json [package.json]
+{
+  "scripts": {
+    "lint:github": "oxlint --format=github"
+  }
+}
 ```
 
 ### GitLab CI

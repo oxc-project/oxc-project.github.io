@@ -79,8 +79,6 @@ To set per language:
 
 * [oxc-project/oxc-zed](https://github.com/oxc-project/oxc-zed)
 
-***
-
 ## JetBrains
 
 IntelliJ IDEA and WebStorm.
