@@ -1498,69 +1498,6 @@ import styled from "styled-components/primitives";
 ---
 
 ---
-url: /docs/guide/usage/formatter/cli.md
----
-
-# Command-line Interface
-
-## Usage
-
-**`oxfmt`** \[**`-c`**=*`PATH`*] \[*`PATH`*]...
-
-## Mode Options:
-
-* **`    --init`** —
-  Initialize `.oxfmtrc.json` with default values
-* **`    --migrate`**=*`SOURCE`* —
-  Migrate configuration to `.oxfmtrc.json` from specified source Available sources: prettier
-* **`    --lsp`** —
-  Start language server protocol (LSP) server
-* **`    --stdin-filepath`**=*`PATH`* —
-  Specify the file name to use to infer which parser to use
-
-## Output Options:
-
-* **`    --write`** —
-  Format and write files in place (default)
-* **`    --check`** —
-  Check if files are formatted, also show statistics
-* **`    --list-different`** —
-  List files that would be changed
-
-## Config Options
-
-* **`-c`**, **`--config`**=*`PATH`* —
-  Path to the configuration file
-
-## Ignore Options
-
-* **`    --ignore-path`**=*`PATH`* —
-  Path to ignore file(s). Can be specified multiple times. If not specified, .gitignore and .prettierignore in the current directory are used.
-* **`    --with-node-modules`** —
-  Format code in node\_modules directory (skipped by default)
-
-## Runtime Options
-
-* **`    --no-error-on-unmatched-pattern`** —
-  Do not exit with error when pattern is unmatched
-* **`    --threads`**=*`INT`* —
-  Number of threads to use. Set to 1 for using only 1 CPU core.
-
-## Available positional items:
-
-* *`PATH`* —
-  Single file, single path or list of paths. If not provided, current working directory is used. Glob is supported only for exclude patterns like `'!**/fixtures/*.js'`.
-
-## Available options:
-
-* **`-h`**, **`--help`** —
-  Prints help information
-* **`-V`**, **`--version`** —
-  Prints version information
-
----
-
----
 url: /docs/guide/usage/linter/cli.md
 ---
 
@@ -1719,131 +1656,65 @@ Arguments:
 ---
 
 ---
-url: /docs/guide/usage/formatter/config.md
-description: Configure Oxfmt using a .oxfmtrc.json file.
+url: /docs/guide/usage/formatter/cli.md
 ---
 
-# Configuration
+# Command-line Interface
 
-Oxfmt works out of the box, but most teams commit a configuration file to keep formatting consistent across local runs, editors, and CI.
+## Usage
 
-This page focuses on project configuration: formatting options, ignore patterns, and experimental features.
+**`oxfmt`** \[**`-c`**=*`PATH`*] \[*`PATH`*]...
 
-## Create a config file
+## Mode Options:
 
-To generate a starter config in the current directory:
+* **`    --init`** —
+  Initialize `.oxfmtrc.json` with default values
+* **`    --migrate`**=*`SOURCE`* —
+  Migrate configuration to `.oxfmtrc.json` from specified source Available sources: prettier
+* **`    --lsp`** —
+  Start language server protocol (LSP) server
+* **`    --stdin-filepath`**=*`PATH`* —
+  Specify the file name to use to infer which parser to use
 
-```sh
-oxfmt --init
-```
+## Output Options:
 
-Oxfmt automatically looks for `.oxfmtrc.json` or `.oxfmtrc.jsonc` starting from the current directory and walking up the tree. You can also pass a config explicitly:
+* **`    --write`** —
+  Format and write files in place (default)
+* **`    --check`** —
+  Check if files are formatted, also show statistics
+* **`    --list-different`** —
+  List files that would be changed
 
-```sh
-oxfmt -c path/to/yourconfig.json
-```
+## Config Options
 
-A minimal configuration looks like this:
+* **`-c`**, **`--config`**=*`PATH`* —
+  Path to the configuration file
 
-```json [.oxfmtrc.json]
-{
-  "$schema": "./node_modules/oxfmt/configuration_schema.json",
-  "printWidth": 80
-}
-```
+## Ignore Options
 
-## Configuration file format
+* **`    --ignore-path`**=*`PATH`* —
+  Path to ignore file(s). Can be specified multiple times. If not specified, .gitignore and .prettierignore in the current directory are used.
+* **`    --with-node-modules`** —
+  Format code in node\_modules directory (skipped by default)
 
-A configuration file is a JSON object. The most common top-level fields are:
+## Runtime Options
 
-* `printWidth`: Line width limit (default: 100)
-* `tabWidth`: Spaces per indentation level (default: 2)
-* `useTabs`: Use tabs instead of spaces (default: false)
-* `semi`: Add semicolons (default: true)
-* `singleQuote`: Use single quotes (default: false)
-* `trailingComma`: Trailing commas in multi-line structures (default: "all")
-* `ignorePatterns`: Glob patterns to exclude from formatting
-* `experimentalSortImports`: Configure import sorting (disabled by default)
-* `experimentalSortPackageJson`: Configure package.json sorting (enabled by default)
-* `experimentalTailwindcss`: Configure Tailwind class sorting (disabled by default)
+* **`    --no-error-on-unmatched-pattern`** —
+  Do not exit with error when pattern is unmatched
+* **`    --threads`**=*`INT`* —
+  Number of threads to use. Set to 1 for using only 1 CPU core.
 
-For a complete list of fields, see the [Config file reference](./config-file-reference).
+## Available positional items:
 
-## JSON schema
+* *`PATH`* —
+  Single file, single path or list of paths. If not provided, current working directory is used. Glob is supported only for exclude patterns like `'!**/fixtures/*.js'`.
 
-Add a `$schema` field for editor validation and autocomplete:
+## Available options:
 
-```json [.oxfmtrc.json]
-{
-  "$schema": "./node_modules/oxfmt/configuration_schema.json"
-}
-```
-
-## `.editorconfig`
-
-Oxfmt reads these `.editorconfig` properties:
-
-* `end_of_line` → `endOfLine`
-* `indent_style` → `useTabs`
-* `indent_size` → `tabWidth`
-* `max_line_length` → `printWidth`
-* `insert_final_newline` → `insertFinalNewline`
-
-Both root section and glob-based overrides are supported.
-
-```
-[*]
-indent_size = 4
-
-[*.{js,ts}]
-indent_size = 2
-```
-
-Oxfmt uses only the nearest `.editorconfig` from the current directory:
-
-* `root = true` is not respected
-* Nested `.editorconfig` files are not merged
-
-## Precedence
-
-Options are applied in order (lowest to highest priority):
-
-1. Defaults
-2. `.oxfmtrc.json(c)` root options
-3. `.oxfmtrc.json(c)` `overrides` options
-4. fallback to options supported by `.editorconfig` for unset fields
-
-## Oxfmt-specific options
-
-### `insertFinalNewline`
-
-Controls whether a final newline is added to formatted files. Defaults to `true`.
-
-This is a [frequently requested Prettier feature](https://github.com/prettier/prettier/issues/6360), as some environments (e.g., Salesforce) strip trailing newlines.
-
-### `printWidth`
-
-Oxfmt defaults to `printWidth: 100` (Prettier uses 80). Reasons:
-
-* TypeScript code is longer due to type annotations
-* Import statements often have many specifiers
-* Modern screens are wider
-* Fewer line breaks mean fewer LLM tokens
-
-To match Prettier's default:
-
-```json [.oxfmtrc.json]
-{
-  "printWidth": 80
-}
-```
-
-## Next steps
-
-* [Ignore files](./ignore-files): Ignore files and patterns, `.gitignore` and `.prettierignore` workflows.
-* [Inline ignore comments](./ignore-comments): Inline suppressions for specific code.
-* [Config file reference](./config-file-reference): Full schema and field documentation.
-* [CLI reference](./cli): Complete list of flags.
+* **`-h`**, **`--help`** —
+  Prints help information
+* **`-V`**, **`--version`** —
+  Prints version information
 
 ---
 
@@ -2164,6 +2035,135 @@ Example (monorepo + React + jsx-a11y):
 * [Nested configs](/docs/guide/usage/linter/nested-config): Monorepos and per-package configuration.
 * [Config file reference](/docs/guide/usage/linter/config-file-reference.html): Full schema and field documentation.
 * [CLI reference](/docs/guide/usage/linter/cli.html): Complete list of flags and output formats.
+
+---
+
+---
+url: /docs/guide/usage/formatter/config.md
+description: Configure Oxfmt using a .oxfmtrc.json file.
+---
+
+# Configuration
+
+Oxfmt works out of the box, but most teams commit a configuration file to keep formatting consistent across local runs, editors, and CI.
+
+This page focuses on project configuration: formatting options, ignore patterns, and experimental features.
+
+## Create a config file
+
+To generate a starter config in the current directory:
+
+```sh
+oxfmt --init
+```
+
+Oxfmt automatically looks for `.oxfmtrc.json` or `.oxfmtrc.jsonc` starting from the current directory and walking up the tree. You can also pass a config explicitly:
+
+```sh
+oxfmt -c path/to/yourconfig.json
+```
+
+A minimal configuration looks like this:
+
+```json [.oxfmtrc.json]
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "printWidth": 80
+}
+```
+
+## Configuration file format
+
+A configuration file is a JSON object. The most common top-level fields are:
+
+* `printWidth`: Line width limit (default: 100)
+* `tabWidth`: Spaces per indentation level (default: 2)
+* `useTabs`: Use tabs instead of spaces (default: false)
+* `semi`: Add semicolons (default: true)
+* `singleQuote`: Use single quotes (default: false)
+* `trailingComma`: Trailing commas in multi-line structures (default: "all")
+* `ignorePatterns`: Glob patterns to exclude from formatting
+* `experimentalSortImports`: Configure import sorting (disabled by default)
+* `experimentalSortPackageJson`: Configure package.json sorting (enabled by default)
+* `experimentalTailwindcss`: Configure Tailwind class sorting (disabled by default)
+
+For a complete list of fields, see the [Config file reference](./config-file-reference).
+
+## JSON schema
+
+Add a `$schema` field for editor validation and autocomplete:
+
+```json [.oxfmtrc.json]
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json"
+}
+```
+
+## `.editorconfig`
+
+Oxfmt reads these `.editorconfig` properties:
+
+* `end_of_line` → `endOfLine`
+* `indent_style` → `useTabs`
+* `indent_size` → `tabWidth`
+* `max_line_length` → `printWidth`
+* `insert_final_newline` → `insertFinalNewline`
+
+Both root section and glob-based overrides are supported.
+
+```
+[*]
+indent_size = 4
+
+[*.{js,ts}]
+indent_size = 2
+```
+
+Oxfmt uses only the nearest `.editorconfig` from the current directory:
+
+* `root = true` is not respected
+* Nested `.editorconfig` files are not merged
+
+## Precedence
+
+Options are applied in order (lowest to highest priority):
+
+1. Defaults
+2. `.oxfmtrc.json(c)` root options
+3. `.oxfmtrc.json(c)` `overrides` options
+4. fallback to options supported by `.editorconfig` for unset fields
+
+## Oxfmt-specific options
+
+### `insertFinalNewline`
+
+Controls whether a final newline is added to formatted files. Defaults to `true`.
+
+This is a [frequently requested Prettier feature](https://github.com/prettier/prettier/issues/6360), as some environments (e.g., Salesforce) strip trailing newlines.
+
+### `printWidth`
+
+Oxfmt defaults to `printWidth: 100` (Prettier uses 80). Reasons:
+
+* TypeScript code is longer due to type annotations
+* Import statements often have many specifiers
+* Modern screens are wider
+* Fewer line breaks mean fewer LLM tokens
+
+To match Prettier's default:
+
+```json [.oxfmtrc.json]
+{
+  "printWidth": 80
+}
+```
+
+## Next steps
+
+* [Ignore files](./ignore-files): Ignore files and patterns, `.gitignore` and `.prettierignore` workflows.
+* [Inline ignore comments](./ignore-comments): Inline suppressions for specific code.
+* [Config file reference](./config-file-reference): Full schema and field documentation.
+* [CLI reference](./cli): Complete list of flags.
 
 ---
 
@@ -24272,37 +24272,6 @@ oxlint --deny import/unambiguous --import-plugin
 ---
 
 ---
-url: /docs/guide/usage/formatter/ignore-comments.md
----
-# Inline ignore comments
-
-For JS/TS files, use `oxfmt-ignore` to skip formatting the next statement:
-
-```js
-// oxfmt-ignore
-const a    = 42;
-
-/* oxfmt-ignore */
-const x = () => { return 2; };
-
-<>
-  {/* oxfmt-ignore */}
-  <span   ugly   format=""   />
-</>;
-```
-
-For non-JS files, use `prettier-ignore` comment. See also Prettier's [ignore documentation](https://prettier.io/docs/ignore#html).
-
-Currently, TOML files do not support ignore comments.
-
-## Prettier compatibility
-
-* `prettier-ignore` comment is also supported
-* Trailing ignore comments in JS/TS files are not supported for performance reasons
-
----
-
----
 url: /docs/guide/usage/linter/ignore-comments.md
 description: Disable specific rules inline using Oxlint ignore comments
 ---
@@ -24388,6 +24357,37 @@ oxlint --report-unused-disable-directives-severity error
 ```
 
 Only one of these options can be used at a time.
+
+---
+
+---
+url: /docs/guide/usage/formatter/ignore-comments.md
+---
+# Inline ignore comments
+
+For JS/TS files, use `oxfmt-ignore` to skip formatting the next statement:
+
+```js
+// oxfmt-ignore
+const a    = 42;
+
+/* oxfmt-ignore */
+const x = () => { return 2; };
+
+<>
+  {/* oxfmt-ignore */}
+  <span   ugly   format=""   />
+</>;
+```
+
+For non-JS files, use `prettier-ignore` comment. See also Prettier's [ignore documentation](https://prettier.io/docs/ignore#html).
+
+Currently, TOML files do not support ignore comments.
+
+## Prettier compatibility
+
+* `prettier-ignore` comment is also supported
+* Trailing ignore comments in JS/TS files are not supported for performance reasons
 
 ---
 
@@ -36739,6 +36739,153 @@ url: /docs/guide/media.md
 ---
 
 ---
+url: /docs/guide/usage/linter/output-formats.md
+description: Output linting results in various formats for CI or human consumption
+---
+
+# Output formats
+
+Oxlint supports multiple output formats for emitting lint results. These can be used to integrate with various CI systems or other tools.
+
+You can specify the desired format using the `--format` (or `-f`) option when running Oxlint from the CLI.
+
+## Available formats
+
+### `--format=default`
+
+This is the default output format if none is specified.
+
+```
+  x eslint(no-debugger): `debugger` statement is not allowed
+    ╭─[test.js:5:1]
+  4 │
+  5 │ debugger;
+    · ─────────
+  6 │
+    ╰────
+  help: Remove the debugger statement
+
+Found 0 warnings and 1 error.
+Finished in 6ms on 1 file with 2 rules using 1 threads.
+```
+
+### `--format=checkstyle`
+
+Outputs Checkstyle XML format, which can be ingested by some CI tools.
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<checkstyle version="4.3">
+  <file name="test.js">
+    <error line="5" column="1" severity="error" message="`debugger` statement is not allowed" source="eslint(no-debugger)" />
+  </file>
+</checkstyle>
+```
+
+### `--format=github`
+
+This format is intended for use with GitHub Actions and GitHub's [annotations feature](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-commands#setting-an-error-message).
+
+```
+::error file=test.js,line=5,endLine=5,col=1,endColumn=10,title=eslint(no-debugger)::`debugger` statement is not allowed
+```
+
+### `--format=gitlab`
+
+This format is intended for use with GitLab CI and [GitLab's Code Quality feature](https://docs.gitlab.com/ci/testing/code_quality/#code-quality-report-format).
+
+```json
+[
+  {
+    "description": "`debugger` statement is not allowed",
+    "check_name": "eslint(no-debugger)",
+    "fingerprint": "9333a3278325994",
+    "severity": "critical",
+    "location": {
+      "path": "test.js",
+      "lines": {
+        "begin": 5,
+        "end": 5
+      }
+    }
+  }
+]
+```
+
+### `--format=json`
+
+A general JSON output format, can also be used with `--rules` to get a list of all Oxlint rules in JSON format.
+
+```json
+{
+  "diagnostics": [
+    {
+      "message": "`debugger` statement is not allowed",
+      "code": "eslint(no-debugger)",
+      "severity": "error",
+      "causes": [],
+      "url": "https://oxc.rs/docs/guide/usage/linter/rules/eslint/no-debugger.html",
+      "help": "Remove the debugger statement",
+      "filename": "test.js",
+      "labels": [
+        {
+          "span": {
+            "offset": 38,
+            "length": 9,
+            "line": 5,
+            "column": 1
+          }
+        }
+      ],
+      "related": []
+    }
+  ],
+  "number_of_files": 1,
+  "number_of_rules": 2,
+  "threads_count": 1,
+  "start_time": 0.018611917
+}
+```
+
+### `--format=junit`
+
+Outputs JUnit XML format, useful for CI systems that support JUnit reports, such as [GitLab CI](https://docs.gitlab.com/ci/testing/unit_test_reports/#junit-xml-format-specification) or [Bitbucket Pipelines](https://support.atlassian.com/bitbucket-cloud/docs/test-reporting-in-pipelines/).
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Oxlint" tests="1" failures="0" errors="1">
+  <testsuite name="test.js" tests="1" disabled="0" errors="1" failures="0">
+    <testcase name="eslint(no-debugger)">
+      <error message="`debugger` statement is not allowed">line 5, column 1, `debugger` statement is not allowed</error>
+    </testcase>
+  </testsuite>
+</testsuites>
+```
+
+### `--format=stylish`
+
+Stylish is the default output format of ESLint, and is good for compact human-readable output.
+
+```
+test.js
+5:1   error `debugger` statement is not allowed  eslint(no-debugger)
+
+✖ 1 problem (1 error, 0 warnings)
+```
+
+### `--format=unix`
+
+A basic, single-line format.
+
+```
+test.js:5:1: `debugger` statement is not allowed [Error/eslint(no-debugger)]
+
+1 problem
+```
+
+---
+
+---
 url: /docs/guide/usage/linter/rules/oxc/approx-constant.md
 ---
 
@@ -43134,146 +43281,6 @@ oxlint --deny promise/valid-params --promise-plugin
 ---
 
 ---
-url: /docs/guide/usage/formatter/quickstart.md
-description: Install Oxfmt and learn the common workflows.
----
-
-# Quickstart
-
-Recommended setup and common workflows.
-
-## Install
-
-Install `oxfmt` as a dev dependency:
-
-::: code-group
-
-```sh [npm]
-$ npm add -D oxfmt
-```
-
-```sh [pnpm]
-$ pnpm add -D oxfmt
-```
-
-```sh [yarn]
-$ yarn add -D oxfmt
-```
-
-```sh [bun]
-$ bun add -D oxfmt
-```
-
-:::
-
-Add scripts to `package.json`:
-
-```json [package.json]
-{
-  "scripts": {
-    "fmt": "oxfmt",
-    "fmt:check": "oxfmt --check"
-  }
-}
-```
-
-Format files:
-
-```sh
-pnpm run fmt
-```
-
-Check formatting without writing files:
-
-```sh
-pnpm run fmt:check
-```
-
-## Usage
-
-```sh
-oxfmt [OPTIONS] [PATH]...
-```
-
-Running `oxfmt` without arguments formats the current directory (equivalent to `prettier --write .`).
-
-CLI options like `--no-semi` are not supported. Use the configuration file instead to ensure consistent settings across CLI and editor integrations.
-
-Globs in positional paths are not expanded (rely on your shell). However, `!`-prefixed exclude paths support glob expansion.
-
-For the complete list of options, see the [CLI reference](/docs/guide/usage/formatter/cli.html).
-
-## Common workflows
-
-### Pre-commit with lint-staged
-
-```json [package.json]
-{
-  "lint-staged": {
-    "*": "oxfmt --no-error-on-unmatched-pattern"
-  }
-}
-```
-
-`--no-error-on-unmatched-pattern` prevents errors when no files match the pattern.
-
-### Create a config file
-
-Initialize `.oxfmtrc.json` with defaults:
-
-```sh
-oxfmt --init
-```
-
-### Migrate from Prettier
-
-```sh
-oxfmt --migrate prettier
-```
-
-See [migrate from prettier](./migrate-from-prettier) for details.
-
-### List files that differ
-
-```sh
-oxfmt --list-different
-```
-
-This is useful for configuring [files to ignore](./ignore-files).
-
-### Piping file contents
-
-```sh
-echo 'const   x   =   1' | oxfmt --stdin-filepath test.ts
-```
-
-Prints `const x = 1;`
-
-### Node.js API
-
-```ts
-import { format, type FormatOptions } from "oxfmt";
-
-const input = `let a=42;`;
-const options: FormatOptions = {
-  semi: false,
-};
-
-const { code } = await format("a.js", input, options);
-console.log(code); // "let a = 42"
-```
-
-## Next steps
-
-* [Change configuration](./config)
-* [Setup editors](./editors)
-* [Setup CI](./ci)
-* Learn advanced features: [sorting](./sorting), [embedded formatting](./embedded-formatting)
-* Check [CLI reference](./cli)
-
----
-
----
 url: /docs/guide/usage/linter/quickstart.md
 description: Install Oxlint and learn the common workflows.
 ---
@@ -43471,6 +43478,146 @@ The full list is in the [Rules reference](/docs/guide/usage/linter/rules).
 * Learn advanced features: [Multi-file analysis](/docs/guide/usage/linter/multi-file-analysis), [Type-aware linting](/docs/guide/usage/linter/type-aware), [JS plugins](/docs/guide/usage/linter/js-plugins)
 * Migrate: [From ESLint](/docs/guide/usage/linter/migrate-from-eslint)&#x20;
 * [CLI reference](/docs/guide/usage/linter/cli)
+
+---
+
+---
+url: /docs/guide/usage/formatter/quickstart.md
+description: Install Oxfmt and learn the common workflows.
+---
+
+# Quickstart
+
+Recommended setup and common workflows.
+
+## Install
+
+Install `oxfmt` as a dev dependency:
+
+::: code-group
+
+```sh [npm]
+$ npm add -D oxfmt
+```
+
+```sh [pnpm]
+$ pnpm add -D oxfmt
+```
+
+```sh [yarn]
+$ yarn add -D oxfmt
+```
+
+```sh [bun]
+$ bun add -D oxfmt
+```
+
+:::
+
+Add scripts to `package.json`:
+
+```json [package.json]
+{
+  "scripts": {
+    "fmt": "oxfmt",
+    "fmt:check": "oxfmt --check"
+  }
+}
+```
+
+Format files:
+
+```sh
+pnpm run fmt
+```
+
+Check formatting without writing files:
+
+```sh
+pnpm run fmt:check
+```
+
+## Usage
+
+```sh
+oxfmt [OPTIONS] [PATH]...
+```
+
+Running `oxfmt` without arguments formats the current directory (equivalent to `prettier --write .`).
+
+CLI options like `--no-semi` are not supported. Use the configuration file instead to ensure consistent settings across CLI and editor integrations.
+
+Globs in positional paths are not expanded (rely on your shell). However, `!`-prefixed exclude paths support glob expansion.
+
+For the complete list of options, see the [CLI reference](/docs/guide/usage/formatter/cli.html).
+
+## Common workflows
+
+### Pre-commit with lint-staged
+
+```json [package.json]
+{
+  "lint-staged": {
+    "*": "oxfmt --no-error-on-unmatched-pattern"
+  }
+}
+```
+
+`--no-error-on-unmatched-pattern` prevents errors when no files match the pattern.
+
+### Create a config file
+
+Initialize `.oxfmtrc.json` with defaults:
+
+```sh
+oxfmt --init
+```
+
+### Migrate from Prettier
+
+```sh
+oxfmt --migrate prettier
+```
+
+See [migrate from prettier](./migrate-from-prettier) for details.
+
+### List files that differ
+
+```sh
+oxfmt --list-different
+```
+
+This is useful for configuring [files to ignore](./ignore-files).
+
+### Piping file contents
+
+```sh
+echo 'const   x   =   1' | oxfmt --stdin-filepath test.ts
+```
+
+Prints `const x = 1;`
+
+### Node.js API
+
+```ts
+import { format, type FormatOptions } from "oxfmt";
+
+const input = `let a=42;`;
+const options: FormatOptions = {
+  semi: false,
+};
+
+const { code } = await format("a.js", input, options);
+console.log(code); // "let a = 42"
+```
+
+## Next steps
+
+* [Change configuration](./config)
+* [Setup editors](./editors)
+* [Setup CI](./ci)
+* Learn advanced features: [sorting](./sorting), [embedded formatting](./embedded-formatting)
+* Check [CLI reference](./cli)
 
 ---
 
@@ -48253,66 +48400,6 @@ Upon visit, we can call `enter_scope` and `leave_scope` accordingly to build the
 ---
 
 ---
-url: /docs/guide/usage/formatter/ci.md
-description: Run Oxfmt in CI or as a git hook.
----
-
-# Setup CI and other integrations
-
-You can - and should - setup your CI pipeline to run Oxfmt and fail the build on format errors.
-
-This page also covers other integrations you may want to include, like git pre-commit hooks.
-
-## CI
-
-### GitHub Actions
-
-Add a formatting check to your GitHub Actions workflow:
-
-```yaml [.github/workflows/ci.yml]
-name: CI
-
-on:
-  pull_request:
-  push:
-    branches: [main]
-
-jobs:
-  format:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: pnpm/action-setup@v4
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: lts/*
-          cache: pnpm
-
-      - run: pnpm install --frozen-lockfile
-      - run: pnpm run fmt:check
-```
-
-## Pre-commit hook
-
-To auto-format staged files, use `oxfmt --no-error-on-unmatched-pattern`. This formats all supported files and avoids errors when no files match (e.g., only Ruby files staged).
-
-Use `--check` to verify formatting without writing files.
-
-For husky/lint-staged, add to `package.json`:
-
-```json [package.json]
-{
-  "lint-staged": {
-    "*": "oxfmt --no-error-on-unmatched-pattern"
-  }
-}
-```
-
----
-
----
 url: /docs/guide/usage/linter/ci.md
 description: Run Oxlint in CI or as a git hook.
 ---
@@ -48430,6 +48517,182 @@ Unplugin is supported via a [third-party package](https://www.npmjs.com/package/
 ### Vite plugin
 
 A Vite plugin is supported via a [third-party package](https://www.npmjs.com/package/vite-plugin-oxlint)
+
+---
+
+---
+url: /docs/guide/usage/formatter/ci.md
+description: Run Oxfmt in CI or as a git hook.
+---
+
+# Setup CI and other integrations
+
+You can - and should - setup your CI pipeline to run Oxfmt and fail the build on format errors.
+
+This page also covers other integrations you may want to include, like git pre-commit hooks.
+
+## CI
+
+### GitHub Actions
+
+Add a formatting check to your GitHub Actions workflow:
+
+```yaml [.github/workflows/ci.yml]
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  format:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm run fmt:check
+```
+
+## Pre-commit hook
+
+To auto-format staged files, use `oxfmt --no-error-on-unmatched-pattern`. This formats all supported files and avoids errors when no files match (e.g., only Ruby files staged).
+
+Use `--check` to verify formatting without writing files.
+
+For husky/lint-staged, add to `package.json`:
+
+```json [package.json]
+{
+  "lint-staged": {
+    "*": "oxfmt --no-error-on-unmatched-pattern"
+  }
+}
+```
+
+---
+
+---
+url: /docs/guide/usage/linter/editors.md
+description: 'Configure Oxlint in VS Code, Zed, JetBrains, and other editors.'
+---
+
+# Setup editors
+
+Editor extensions use `oxlint --lsp` from your project, so `oxlint` must be installed locally.
+
+See [Quickstart](./quickstart) to install Oxlint.
+
+## Supported editors
+
+* [VS Code](#vs-code) (and Cursor, etc.)
+* [Zed](#zed)
+* [JetBrains](#jetbrains)
+* [coc.nvim](#cocnvim)
+* [Other editors](#other-editors)
+
+## VS Code
+
+### Install
+
+Download the official Oxc VS Code extension from:
+
+* [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=oxc.oxc-vscode)
+* [Open VSX Registry](https://open-vsx.org/extension/oxc/oxc-vscode)
+
+**The extension is compatible with other VS Code-based editors**, including Cursor.
+
+### Team setup
+
+1. Recommend the extension for contributors:
+
+`.vscode/extensions.json`:
+
+```json [.vscode/extensions.json]
+{
+  "recommendations": ["oxc.oxc-vscode"]
+}
+```
+
+2. Enable fix-on-save in `.vscode/settings.json`:
+
+```json [.vscode/settings.json]
+{
+  "editor.codeActionsOnSave": {
+    "source.fixAll.oxc": "always"
+  }
+}
+```
+
+3. Enable type-aware linting in `.vscode/settings.json`:
+
+```json [.vscode/settings.json]
+{
+  "oxc.typeAware": true
+}
+```
+
+You also need to ensure `oxlint-tsgolint` is installed in your project. See [the type-aware linting docs](/docs/guide/usage/linter/type-aware) for more details.
+
+### Reference
+
+* [oxc-project/oxc/editors/vscode](https://github.com/oxc-project/oxc/tree/main/editors/vscode)
+
+## Zed
+
+### Install
+
+* [Oxc Zed Extension](https://zed.dev/extensions/oxc)
+
+### Reference
+
+* [oxc-project/oxc-zed](https://github.com/oxc-project/oxc-zed)
+
+***
+
+## JetBrains
+
+IntelliJ IDEA and WebStorm.
+
+### Install
+
+* [Oxc in JetBrains Marketplace](https://plugins.jetbrains.com/plugin/27061-oxc)
+
+### Reference
+
+* [oxc-project/oxc-intellij-plugin](https://github.com/oxc-project/oxc-intellij-plugin)
+
+## coc.nvim
+
+### Install
+
+```vim
+:CocInstall coc-oxc
+```
+
+### Reference
+
+* [oxc-project/coc-oxc](https://github.com/oxc-project/coc-oxc)
+
+## Other editors
+
+For editors with LSP support (Neovim, Emacs, Helix, Sublime), configure:
+
+```bash
+oxlint --lsp
+```
+
+## Reference
+
+* [oxc\_language\_server](https://github.com/oxc-project/oxc/tree/main/crates/oxc_language_server)
 
 ---
 
@@ -48554,122 +48817,6 @@ For editors without LSP support:
 
 ```sh
 cat foo/bar.js | oxfmt --stdin-filepath f.js --config ./path/to/config.json
-```
-
-## Reference
-
-* [oxc\_language\_server](https://github.com/oxc-project/oxc/tree/main/crates/oxc_language_server)
-
----
-
----
-url: /docs/guide/usage/linter/editors.md
-description: 'Configure Oxlint in VS Code, Zed, JetBrains, and other editors.'
----
-
-# Setup editors
-
-Editor extensions use `oxlint --lsp` from your project, so `oxlint` must be installed locally.
-
-See [Quickstart](./quickstart) to install Oxlint.
-
-## Supported editors
-
-* [VS Code](#vs-code) (and Cursor, etc.)
-* [Zed](#zed)
-* [JetBrains](#jetbrains)
-* [coc.nvim](#cocnvim)
-* [Other editors](#other-editors)
-
-## VS Code
-
-### Install
-
-Download the official Oxc VS Code extension from:
-
-* [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=oxc.oxc-vscode)
-* [Open VSX Registry](https://open-vsx.org/extension/oxc/oxc-vscode)
-
-**The extension is compatible with other VS Code-based editors**, including Cursor.
-
-### Team setup
-
-1. Recommend the extension for contributors:
-
-`.vscode/extensions.json`:
-
-```json [.vscode/extensions.json]
-{
-  "recommendations": ["oxc.oxc-vscode"]
-}
-```
-
-2. Enable fix-on-save in `.vscode/settings.json`:
-
-```json [.vscode/settings.json]
-{
-  "editor.codeActionsOnSave": {
-    "source.fixAll.oxc": "always"
-  }
-}
-```
-
-3. Enable type-aware linting in `.vscode/settings.json`:
-
-```json [.vscode/settings.json]
-{
-  "oxc.typeAware": true
-}
-```
-
-You also need to ensure `oxlint-tsgolint` is installed in your project. See [the type-aware linting docs](/docs/guide/usage/linter/type-aware) for more details.
-
-### Reference
-
-* [oxc-project/oxc/editors/vscode](https://github.com/oxc-project/oxc/tree/main/editors/vscode)
-
-## Zed
-
-### Install
-
-* [Oxc Zed Extension](https://zed.dev/extensions/oxc)
-
-### Reference
-
-* [oxc-project/oxc-zed](https://github.com/oxc-project/oxc-zed)
-
-***
-
-## JetBrains
-
-IntelliJ IDEA and WebStorm.
-
-### Install
-
-* [Oxc in JetBrains Marketplace](https://plugins.jetbrains.com/plugin/27061-oxc)
-
-### Reference
-
-* [oxc-project/oxc-intellij-plugin](https://github.com/oxc-project/oxc-intellij-plugin)
-
-## coc.nvim
-
-### Install
-
-```vim
-:CocInstall coc-oxc
-```
-
-### Reference
-
-* [oxc-project/coc-oxc](https://github.com/oxc-project/coc-oxc)
-
-## Other editors
-
-For editors with LSP support (Neovim, Emacs, Helix, Sublime), configure:
-
-```bash
-oxlint --lsp
 ```
 
 ## Reference
@@ -66154,6 +66301,67 @@ See [Configuration file reference](./config-file-reference) for details.
 ---
 
 ---
+url: /docs/guide/usage/formatter/generated-cli.md
+---
+
+## Usage
+
+**`oxfmt`** \[**`-c`**=*`PATH`*] \[*`PATH`*]...
+
+## Mode Options:
+
+* **`    --init`** —
+  Initialize `.oxfmtrc.json` with default values
+* **`    --migrate`**=*`SOURCE`* —
+  Migrate configuration to `.oxfmtrc.json` from specified source Available sources: prettier
+* **`    --lsp`** —
+  Start language server protocol (LSP) server
+* **`    --stdin-filepath`**=*`PATH`* —
+  Specify the file name to use to infer which parser to use
+
+## Output Options:
+
+* **`    --write`** —
+  Format and write files in place (default)
+* **`    --check`** —
+  Check if files are formatted, also show statistics
+* **`    --list-different`** —
+  List files that would be changed
+
+## Config Options
+
+* **`-c`**, **`--config`**=*`PATH`* —
+  Path to the configuration file
+
+## Ignore Options
+
+* **`    --ignore-path`**=*`PATH`* —
+  Path to ignore file(s). Can be specified multiple times. If not specified, .gitignore and .prettierignore in the current directory are used.
+* **`    --with-node-modules`** —
+  Format code in node\_modules directory (skipped by default)
+
+## Runtime Options
+
+* **`    --no-error-on-unmatched-pattern`** —
+  Do not exit with error when pattern is unmatched
+* **`    --threads`**=*`INT`* —
+  Number of threads to use. Set to 1 for using only 1 CPU core.
+
+## Available positional items:
+
+* *`PATH`* —
+  Single file, single path or list of paths. If not provided, current working directory is used. Glob is supported only for exclude patterns like `'!**/fixtures/*.js'`.
+
+## Available options:
+
+* **`-h`**, **`--help`** —
+  Prints help information
+* **`-V`**, **`--version`** —
+  Prints version information
+
+---
+
+---
 url: /docs/guide/usage/linter/generated-cli.md
 ---
 
@@ -66302,67 +66510,6 @@ Arguments:
   Enable rules that require type information
 * **`    --type-check`** —
   Enable experimental type checking (includes TypeScript compiler diagnostics)
-* **`-h`**, **`--help`** —
-  Prints help information
-* **`-V`**, **`--version`** —
-  Prints version information
-
----
-
----
-url: /docs/guide/usage/formatter/generated-cli.md
----
-
-## Usage
-
-**`oxfmt`** \[**`-c`**=*`PATH`*] \[*`PATH`*]...
-
-## Mode Options:
-
-* **`    --init`** —
-  Initialize `.oxfmtrc.json` with default values
-* **`    --migrate`**=*`SOURCE`* —
-  Migrate configuration to `.oxfmtrc.json` from specified source Available sources: prettier
-* **`    --lsp`** —
-  Start language server protocol (LSP) server
-* **`    --stdin-filepath`**=*`PATH`* —
-  Specify the file name to use to infer which parser to use
-
-## Output Options:
-
-* **`    --write`** —
-  Format and write files in place (default)
-* **`    --check`** —
-  Check if files are formatted, also show statistics
-* **`    --list-different`** —
-  List files that would be changed
-
-## Config Options
-
-* **`-c`**, **`--config`**=*`PATH`* —
-  Path to the configuration file
-
-## Ignore Options
-
-* **`    --ignore-path`**=*`PATH`* —
-  Path to ignore file(s). Can be specified multiple times. If not specified, .gitignore and .prettierignore in the current directory are used.
-* **`    --with-node-modules`** —
-  Format code in node\_modules directory (skipped by default)
-
-## Runtime Options
-
-* **`    --no-error-on-unmatched-pattern`** —
-  Do not exit with error when pattern is unmatched
-* **`    --threads`**=*`INT`* —
-  Number of threads to use. Set to 1 for using only 1 CPU core.
-
-## Available positional items:
-
-* *`PATH`* —
-  Single file, single path or list of paths. If not provided, current working directory is used. Glob is supported only for exclude patterns like `'!**/fixtures/*.js'`.
-
-## Available options:
-
 * **`-h`**, **`--help`** —
   Prints help information
 * **`-V`**, **`--version`** —
