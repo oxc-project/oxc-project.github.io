@@ -3,7 +3,7 @@ title: Output formats
 description: Output linting results in various formats for CI or human consumption
 ---
 
-# Output Formats
+# Output formats
 
 Oxlint supports multiple output formats for emitting lint results. These can be used to integrate with various CI systems or other tools.
 
