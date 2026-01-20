@@ -34,10 +34,3 @@ Not supported. However, Oxfmt provides built-in alternatives:
   * Disabled by default
 
 See [Configuration file reference](./config-file-reference) for details.
-
-## Embedded template literals
-
-Not fully implemented. See:
-
-> oxfmt: embedded formatting full support (aka xxx-in-js) · Issue #15180 · oxc-project/oxc\
-> https://github.com/oxc-project/oxc/issues/15180
