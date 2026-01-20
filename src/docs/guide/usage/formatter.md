@@ -21,7 +21,7 @@ Oxfmt is currently in alpha. Please join the discussion!
 
 ## Supported languages
 
-JavaScript, JSX, TypeScript, TSX, JSON, JSONC, JSON5, YAML, TOML, HTML, Angular, Vue, CSS, SCSS, Less, Markdown, MDX, GraphQL, Ember, Handlebars
+JavaScript, JSX, TypeScript, TSX, JSON, JSONC, JSON5, YAML, TOML, HTML, Angular, Astro, Vue, CSS, SCSS, Less, Markdown, MDX, GraphQL, Ember, Handlebars
 
 ## Built for scale
 
