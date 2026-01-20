@@ -129,7 +129,7 @@ Stylish is the default output format of ESLint, and is good for compact human-re
 test.js
 5:1   error `debugger` statement is not allowed  eslint(no-debugger)
 
-✖ 3 problems (1 error, 0 warnings)
+✖ 1 problem (1 error, 0 warnings)
 ```
 
 ### `--format=unix`
@@ -139,5 +139,5 @@ A basic, single-line format.
 ```
 test.js:5:1: `debugger` statement is not allowed [Error/eslint(no-debugger)]
 
-3 problems
+1 problem
 ```
