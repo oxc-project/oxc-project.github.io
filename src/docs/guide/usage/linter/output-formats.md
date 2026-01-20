@@ -113,11 +113,11 @@ Outputs JUnit XML format, useful for CI systems that support JUnit reports, such
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites name="Oxlint" tests="1" failures="0" errors="1">
-    <testsuite name="test.js" tests="1" disabled="0" errors="1" failures="0">
-        <testcase name="eslint(no-debugger)">
-            <error message="`debugger` statement is not allowed">line 5, column 1, `debugger` statement is not allowed</error>
-        </testcase>
-    </testsuite>
+  <testsuite name="test.js" tests="1" disabled="0" errors="1" failures="0">
+    <testcase name="eslint(no-debugger)">
+      <error message="`debugger` statement is not allowed">line 5, column 1, `debugger` statement is not allowed</error>
+    </testcase>
+  </testsuite>
 </testsuites>
 ```
 
