@@ -53,6 +53,8 @@ Add the snippet below to your Renovate config to let it keep Oxlint automaticall
 }
 ```
 
+If you use [eslint-plugin-oxlint](https://github.com/oxc-project/eslint-plugin-oxlint), ensure that it is also updated alongside Oxlint to avoid compatibility issues.
+
 ## With Dependabot
 
 Add the snippet below to your Dependabot config to let it keep Oxlint automatically up to date.
@@ -76,3 +78,5 @@ updates:
         update-types: ["version-update:semver-major"]
     open-pull-requests-limit: 1 # one PR at a time
 ```
+
+If you use [eslint-plugin-oxlint](https://github.com/oxc-project/eslint-plugin-oxlint), ensure that it is also updated alongside Oxlint to avoid compatibility issues.
