@@ -17,11 +17,12 @@ This is the default output format if none is specified.
 
 ```
   x eslint(no-debugger): `debugger` statement is not allowed
-   ,-[test.js:5:1]
- 4 |
- 5 | debugger;
-   : ^^^^^^^^^
-   `----
+    ╭─[test.js:5:1]
+  4 │
+  5 │ debugger;
+    · ─────────
+  6 │
+    ╰────
   help: Remove the debugger statement
 
 Found 0 warnings and 1 error.
