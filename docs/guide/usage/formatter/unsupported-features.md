@@ -13,7 +13,6 @@ Not currently supported:
 
 * `prettier` field in `package.json`
 * Config file format other than `.json` and `.jsonc`
-* `overrides` field
 * Nested configs in sub directories
 * Nested `.editorconfig` in sub directories
 * `experimentalTernaries` and `experimentalOperatorPosition` options
