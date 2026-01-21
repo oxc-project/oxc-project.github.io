@@ -318,7 +318,7 @@ will want to get familiar with the data stored in
 which is where all data extracted during semantic analysis is stored. You will
 also want to familiarize yourself with the AST structure. The two most important
 data structures here are
-[`AstNode`](https://github.com/oxc-project/oxc/blob/main/crates/oxc_semantic/src/node.rs)
+[`AstNode`](https://github.com/oxc-project/oxc/blob/main/crates/oxc_semantic/src/node/mod.rs)
 and
 [`AstKind`](https://github.com/oxc-project/oxc/blob/main/crates/oxc_ast/src/generated/ast_kind.rs)
 :::
