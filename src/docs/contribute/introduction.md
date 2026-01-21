@@ -79,7 +79,7 @@ Oxc is organized into several crates:
 
 ### Code of Conduct
 
-We are committed to providing a welcoming and inclusive experience for everyone. Please read our [Code of Conduct](https://github.com/oxc-project/oxc/blob/main/CODE_OF_CONDUCT.md) before participating.
+We are committed to providing a welcoming and inclusive experience for everyone. Please read our [Code of Conduct](https://github.com/oxc-project/oxc?tab=coc-ov-file#readme) before participating.
 
 ### AI Usage Policy
 
