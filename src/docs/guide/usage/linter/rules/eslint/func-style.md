@@ -170,7 +170,7 @@ When true, functions with type annotations are allowed regardless of the style s
 
 type: `"ignore" | "expression" | "declaration"`
 
-default: `null`
+default: `"ignore"`
 
 Override the style specifically for named exports. Can be "expression", "declaration", or "ignore" (default).
 
