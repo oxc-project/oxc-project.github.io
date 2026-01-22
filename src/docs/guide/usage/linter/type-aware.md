@@ -194,6 +194,45 @@ Finished in 16.4s on 259 files with 161 rules using 12 threads.
   - Look for programs with an unusually high number of source files (e.g., `Program created with 26140 source files`). This may indicate misconfigured tsconfig `includes`/`excludes` pulling in unnecessary files like `node_modules`.
   - Each file path logged indicates when that file is being linted. Large time gaps between files may indicate expensive type resolution for certain files.
 
+### Common performance issues
+
+#### Root tsconfig includes too many files
+
+A root `tsconfig.json` with overly broad `include` patterns can inadvertently include all files in the repository, causing significant slowdowns:
+
+```json [tsconfig.json]
+{
+  "include": ["**/*"] // ❌ Catches everything
+}
+```
+
+This configuration pulls in `node_modules`, build outputs, and other files that shouldn't be type-checked.
+
+**Fix:** Explicitly scope the `include` patterns and add appropriate `exclude` entries:
+
+```json [tsconfig.json]
+{
+  "include": ["src/**/*"], // ✅ Only source files
+  "exclude": ["node_modules", "dist", "build", "coverage"]
+}
+```
+
+For monorepos, ensure the root `tsconfig.json` does not include source files directly:
+
+```json [tsconfig.json]
+{
+  "files": []
+}
+```
+
+**Diagnosing the issue:** Enable debug logging and look for programs with an unusually high number of source files:
+
+```
+2026/01/01 12:00:02.500000 Program created with 26140 source files
+```
+
+If you see thousands of files in a single program, check that tsconfig's `include`/`exclude` settings.
+
 ## Next steps
 
 - Check [implemented rules](https://github.com/oxc-project/tsgolint/tree/main?tab=readme-ov-file#implemented-rules)
