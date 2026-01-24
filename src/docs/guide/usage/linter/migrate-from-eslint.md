@@ -122,11 +122,11 @@ Long-term - once remaining important rules have been added in Oxlint - we strong
 
 ## Migrating from legacy ESLint (v8.x) configs
 
-If your project uses legacy ESLint config files (such as `.eslintrc.js` or `.eslintrc.json`), they must be migrated manually.
+If your project uses ESLint v8.x with legacy config files (such as `.eslintrc.js` or `.eslintrc.json`), they cannot be migrated automatically by `@oxlint/migrate`.
 
-The "legacy" ESLint v8.x configuration file shape maps closely to Oxlint’s config format, so most rules and options can be translated directly.
+In some cases, you can [migrate them automatically to an ESLint flat config with `@eslint/migrate-config`](https://www.npmjs.com/package/@eslint/migrate-config) first, and _then_ to Oxlint using `@oxlint/migrate`.
 
-For simpler legacy configuration files, you may also [migrate them to an ESLint flat config](https://www.npmjs.com/package/@eslint/migrate-config) first, and _then_ to Oxlint using `@oxlint/migrate`.
+The "legacy" ESLint v8.x configuration file shape maps closely to Oxlint’s config format, so for simple setups most rules and options can be translated directly.
 
 ## Rule/plugin support
 
