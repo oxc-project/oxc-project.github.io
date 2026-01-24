@@ -5,7 +5,7 @@ description: Run Oxfmt in CI or as a git hook.
 
 # Setup CI and other integrations
 
-You can - and should - setup your CI pipeline to run Oxfmt and fail the build on format errors.
+You can - and should - set up your CI pipeline to run Oxfmt and fail the build on formatting differences.
 
 This page also covers other integrations you may want to include, like git pre-commit hooks.
 
@@ -59,7 +59,7 @@ If you find that you often forget to run Oxfmt before opening PRs, and don't or 
 
 See [https://autofix.ci/setup](https://autofix.ci/setup) for more details, you will need to install the relevant GitHub App as well.
 
-Here's an example GitHub Actions workflow you can use:
+Below is an example GitHub Actions workflow you can use:
 
 ```yaml [.github/workflows/autofix.yml]
 name: autofix.ci # needs to use this name
@@ -95,6 +95,35 @@ jobs:
       # NOTE: It is strongly recommended to use the latest SHA hash for this action instead of the version number. (See https://autofix.ci/setup for more details.)
       - uses: autofix-ci/action@1.3.2
 ```
+
+### GitLab CI
+
+If you use GitLab CI, you can set up Oxfmt to enforce code formatting as part of your CI pipeline.
+
+First, add a `fmt:check` script to your `package.json` if you don't have one already:
+
+```json [package.json]
+{
+  "scripts": {
+    "fmt:check": "oxfmt --check"
+  }
+}
+```
+
+And then add a job to your `.gitlab-ci.yml`, to check that all code is formatted correctly:
+
+```yml [.gitlab-ci.yml]
+oxfmt:
+  image: node:lts
+  stage: test
+  before_script:
+    # Or pnpm, yarn, etc.
+    - npm install
+  script:
+    - npm run fmt:check
+```
+
+You may also want to add caching for your package manager to speed up installs.
 
 ## Pre-commit hook
 
