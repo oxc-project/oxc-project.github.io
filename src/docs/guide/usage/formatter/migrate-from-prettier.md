@@ -89,7 +89,7 @@ Run `oxfmt --migrate prettier` to convert your Prettier config automatically.
 
 Before:
 
-```js
+```js [prettierrc.js]
 module.exports = {
   singleQuote: true,
   jsxSingleQuote: true,
@@ -111,7 +111,7 @@ After (`.oxfmtrc.jsonc`):
 
 Before:
 
-```yaml
+```yaml [prettierrc.yaml]
 trailingComma: "es5"
 tabWidth: 4
 semi: false
@@ -190,3 +190,7 @@ Note that if you intend to continue using ESLint, you _should_ keep or add [`esl
 ### Update `.git-blame-ignore-revs`
 
 Add the reformatting commit SHA to `.git-blame-ignore-revs` to hide it from `git blame`.
+
+### Replace `.prettierignore` with `"ignorePatterns"`
+
+If you no longer use Prettier, you can optionally move ignored file configuration from `.prettierignore` to `"ignorePatterns"` in your Oxfmt config. See [Ignore files](/docs/guide/usage/formatter/ignore-files) for more information.
