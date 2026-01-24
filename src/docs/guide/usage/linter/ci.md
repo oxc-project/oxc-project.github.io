@@ -35,6 +35,8 @@ on:
   push:
     branches: [main]
 
+permissions: {}
+
 jobs:
   oxlint:
     runs-on: ubuntu-latest
