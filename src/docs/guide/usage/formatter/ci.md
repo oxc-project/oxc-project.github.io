@@ -48,6 +48,7 @@ jobs:
           node-version: lts/*
           cache: pnpm
 
+      # Or yarn, npm, etc.
       - run: pnpm install --frozen-lockfile
       - run: pnpm run fmt:check
 ```
