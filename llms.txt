@@ -13,10 +13,10 @@
 - [Automatic fixes](/docs/guide/usage/linter/automatic-fixes.md): Apply safe, suggested, and dangerous fixes with Oxlint.
 - [Built-in Plugins](/docs/guide/usage/linter/plugins.md): Enable built in plugin rule sets and extend Oxlint with ESLint compatible JavaScript plugins.
 - [Built-in Plugins](/docs/guide/usage/transformer/plugins.md)
-- [Command-line Interface](/docs/guide/usage/linter/cli.md)
 - [Command-line Interface](/docs/guide/usage/formatter/cli.md)
-- [Configuration](/docs/guide/usage/formatter/config.md): Configure Oxfmt using a .oxfmtrc.json file.
+- [Command-line Interface](/docs/guide/usage/linter/cli.md)
 - [Configuration](/docs/guide/usage/linter/config.md): Configure Oxlint using a .oxlintrc.json file.
+- [Configuration](/docs/guide/usage/formatter/config.md): Configure Oxfmt using a .oxfmtrc.json file.
 - [Configuration options for the Oxfmt.](/docs/guide/usage/formatter/config-file-reference.md)
 - [Configuration options for the Oxfmt.](/docs/guide/usage/formatter/generated-config.md)
 - [Dead Code Elimination](/docs/guide/usage/minifier/dead-code-elimination.md)
@@ -229,8 +229,8 @@
 - [import/no-webpack-loader-syntax](/docs/guide/usage/linter/rules/import/no-webpack-loader-syntax.md)
 - [import/prefer-default-export](/docs/guide/usage/linter/rules/import/prefer-default-export.md)
 - [import/unambiguous](/docs/guide/usage/linter/rules/import/unambiguous.md)
-- [Inline ignore comments](/docs/guide/usage/linter/ignore-comments.md): Disable specific rules inline using Oxlint ignore comments
 - [Inline ignore comments](/docs/guide/usage/formatter/ignore-comments.md)
+- [Inline ignore comments](/docs/guide/usage/linter/ignore-comments.md): Disable specific rules inline using Oxlint ignore comments
 - [Introduction](/docs/contribute/introduction.md)
 - [Introduction](/docs/learn/parser_in_rust/intro.md)
 - [Isolated Declarations Emit](/docs/guide/usage/transformer/isolated-declarations.md)
@@ -717,8 +717,8 @@
 - [unicorn/text-encoding-identifier-case](/docs/guide/usage/linter/rules/unicorn/text-encoding-identifier-case.md)
 - [unicorn/throw-new-error](/docs/guide/usage/linter/rules/unicorn/throw-new-error.md)
 - [Unsupported features](/docs/guide/usage/formatter/unsupported-features.md)
-- [Untitled](/docs/guide/usage/formatter/generated-cli.md)
 - [Untitled](/docs/guide/usage/linter/generated-cli.md)
+- [Untitled](/docs/guide/usage/formatter/generated-cli.md)
 - [Versioning policy](/docs/guide/usage/linter/versioning.md)
 - [vitest/consistent-each-for](/docs/guide/usage/linter/rules/vitest/consistent-each-for.md)
 - [vitest/consistent-test-filename](/docs/guide/usage/linter/rules/vitest/consistent-test-filename.md)
