@@ -185,6 +185,8 @@ Update references to Prettier in `CONTRIBUTING.md`, `AGENTS.md`, or `CLAUDE.md`.
 
 Remove `eslint-plugin-prettier` if present. Consider migrating to [oxlint](../linter.md).
 
+Note that if you intend to continue using ESLint, you _should_ keep or add [`eslint-config-prettier`](https://github.com/prettier/eslint-config-prettier) to disable styling-related ESLint rules that might conflict with Oxfmt. `eslint-config-prettier` is different from `eslint-plugin-prettier`, as it has no new lint rules. It is only a config.
+
 ### Update `.git-blame-ignore-revs`
 
 Add the reformatting commit SHA to `.git-blame-ignore-revs` to hide it from `git blame`.
