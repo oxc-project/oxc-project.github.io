@@ -59,7 +59,7 @@ npx @oxlint/migrate --type-aware
 
 This ensures the generated Oxlint config includes type-aware rules.
 
-Note that type-aware linting is based on the TypeScript native rewrite (aka TypeScript 7), but should be possible to adopt in most TypeScript projects without too much upgrade work.
+Note that type-aware linting requires [oxlint-tsgolint](https://github.com/oxc-project/tsgolint), and is based on the TypeScript native rewrite (aka TypeScript 7), but should be possible to adopt in most TypeScript projects without too much upgrade work.
 
 For further information on Oxlint's type-aware support, see [the Type-Aware Linting page](/docs/guide/usage/linter/type-aware).
 
@@ -110,7 +110,7 @@ oxlint && eslint
 
 ### Disabling overlapping rules in ESLint
 
-You can use [`eslint-plugin-oxlint`](https://www.npmjs.com/package/eslint-plugin-oxlint) to disable ESLint rules that are already handled by Oxlint:
+You can use [`eslint-plugin-oxlint`](https://github.com/oxc-project/eslint-plugin-oxlint) to disable ESLint rules that are already handled by Oxlint:
 
 ```bash
 npm install --save-dev eslint-plugin-oxlint
@@ -118,7 +118,7 @@ npm install --save-dev eslint-plugin-oxlint
 
 This reduces duplicate diagnostics, can help cut down your linting time considerably, and allows ESLint to focus only on rules that Oxlint does not yet support.
 
-Long-term - once remaining important rules been added in Oxlint - we strongly recommend moving fully to Oxlint to simplify your setup and reduce the number of npm dependencies for your project.
+Long-term - once remaining important rules have been added in Oxlint - we strongly recommend moving fully to Oxlint to simplify your setup and reduce the number of dependencies for your project.
 
 ## Migrating from legacy ESLint (v8.x) configs
 
@@ -136,4 +136,4 @@ Almost all rules from our supported plugins will be ported - and a majority alre
 
 You can check the [meta issue](https://github.com/oxc-project/oxc/issues/481) for rule/plugin implementation status to see if the rules you rely on are planned for implementation, or if they have already been implemented by other, equivalent rules.
 
-For plugins that are not implemented natively in Oxlint, it is recommended to use JS Plugins.
+For plugins that are not implemented natively in Oxlint, it is recommended to use [JS Plugins](/docs/guide/usage/linter/js-plugins).
