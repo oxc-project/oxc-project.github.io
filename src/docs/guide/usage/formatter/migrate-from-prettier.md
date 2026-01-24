@@ -197,4 +197,4 @@ Add the reformatting commit SHA to `.git-blame-ignore-revs` to hide it from `git
 
 ### Replace `.prettierignore` with `"ignorePatterns"`
 
-If you no longer use Prettier, you can optionally move ignored file configuration from `.prettierignore` to `"ignorePatterns"` in your Oxfmt config. See [Ignore files](/docs/guide/usage/formatter/ignore-files) for more information.
+If you no longer use Prettier, you can optionally move its contents from `.prettierignore` to `"ignorePatterns"` in your Oxfmt config. See [Ignore files](/docs/guide/usage/formatter/ignore-files) for more information.
