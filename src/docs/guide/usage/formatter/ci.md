@@ -127,11 +127,11 @@ You may also want to add caching for your package manager to speed up installs.
 
 ## Pre-commit hook
 
-To auto-format staged files, use `oxfmt --no-error-on-unmatched-pattern`. This formats all supported files and avoids errors when no files match (e.g., only Ruby files staged).
+To auto-format staged files, use `oxfmt --no-error-on-unmatched-pattern`. This formats all supported files and avoids errors when no files match (e.g., only Ruby files are staged).
 
 Use `--check` to verify formatting without writing files.
 
-For husky/lint-staged, add to `package.json`:
+For [lint-staged](https://github.com/lint-staged/lint-staged), add to `package.json`:
 
 ```json [package.json]
 {
@@ -140,3 +140,5 @@ For husky/lint-staged, add to `package.json`:
   }
 }
 ```
+
+To automatically install the git hook when installing dependencies, considering also using [husky](https://typicode.github.io/husky/get-started.html).
