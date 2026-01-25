@@ -35,6 +35,8 @@ on:
   push:
     branches: [main]
 
+permissions: {}
+
 jobs:
   oxlint:
     runs-on: ubuntu-latest
@@ -103,7 +105,7 @@ You should ensure type-aware rules are enabled if you want to use them, and cons
 
 ### lint-staged
 
-For JS/TS projects using [lint-staged](https://github.com/lint-staged/lint-staged), you can set up oxlint to run pre-commit as follows:
+For JS/TS projects using [lint-staged](https://github.com/lint-staged/lint-staged), you can set up oxlint to run as a pre-commit hook as follows:
 
 ```json [package.json]
 {
@@ -112,6 +114,8 @@ For JS/TS projects using [lint-staged](https://github.com/lint-staged/lint-stage
   }
 }
 ```
+
+To automatically install the git hook when installing dependencies, considering also using [husky](https://typicode.github.io/husky/get-started.html).
 
 ### pre-commit
 
