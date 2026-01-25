@@ -37,7 +37,7 @@ Oxfmt is compatible with Prettier v3.8 for many configurations.
 Key differences:
 
 - Default `printWidth` is 100 (Prettier uses 80)
-- Prettier plugins are not supported
+- Prettier plugins are not supported (though some popular plugins have been implemented natively)
 - Some options are not supported (see [config reference](/docs/guide/usage/formatter/config-file-reference.html))
 
 See [Unsupported features](/docs/guide/usage/formatter/unsupported-features) for details.
@@ -89,7 +89,7 @@ Run `oxfmt --migrate prettier` to convert your Prettier config automatically.
 
 Before:
 
-```js
+```js [prettierrc.js]
 module.exports = {
   singleQuote: true,
   jsxSingleQuote: true,
@@ -111,7 +111,7 @@ After (`.oxfmtrc.jsonc`):
 
 Before:
 
-```yaml
+```yaml [prettierrc.yaml]
 trailingComma: "es5"
 tabWidth: 4
 semi: false
@@ -156,6 +156,8 @@ After (`.oxfmtrc.jsonc`):
 
 ### Git hooks (husky, lint-staged)
 
+In `package.json`:
+
 ```diff
 "lint-staged": {
 - "*": "prettier --write --no-error-on-unmatched-pattern"
@@ -179,12 +181,20 @@ See [Setup editors](./editors).
 
 ### Update documentation
 
-Update references to Prettier in `CONTRIBUTING.md`, `AGENTS.md`, or `CLAUDE.md`.
+Update references to Prettier in `CONTRIBUTING.md`, `AGENTS.md`, and `CLAUDE.md` if applicable.
 
 ### Update lint rules
 
-Remove `eslint-plugin-prettier` if present. Consider migrating to [oxlint](../linter.md).
+Remove `eslint-plugin-prettier` if present. If needed, it can be replaced by a `oxfmt --check` job in your CI pipelines.
+
+Note that if you intend to continue using ESLint, you _should_ keep or add [`eslint-config-prettier`](https://github.com/prettier/eslint-config-prettier) to disable styling-related ESLint rules that might conflict with Oxfmt. `eslint-config-prettier` is different from `eslint-plugin-prettier`, as it has no new lint rules. It is only a config.
+
+Also, consider migrating to [Oxlint](../linter.md).
 
 ### Update `.git-blame-ignore-revs`
 
 Add the reformatting commit SHA to `.git-blame-ignore-revs` to hide it from `git blame`.
+
+### Replace `.prettierignore` with `"ignorePatterns"`
+
+If you no longer use Prettier, you can optionally move its contents from `.prettierignore` to `"ignorePatterns"` in your Oxfmt config. See [Ignore files](/docs/guide/usage/formatter/ignore-files) for more information.
