@@ -20,6 +20,7 @@ What's considered a **non-breaking** change:
 - Improving rule descriptions or diagnostic messages.
 - Adding new config options to existing rules.
 - Fixes that change rule behavior to better align with the original ESLint rule's behavior.
+- Adding new fields to the configuration file.
 
 ## Features Not Subject to Semver
 
