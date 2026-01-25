@@ -17,7 +17,7 @@
   },
   "devDependencies": {
     "@types/markdown-it": "^14.1.2",
-    "@types/markdown-it-container": "2.0.11",
+    "@types/markdown-it-container": "4.0.0",
     "@types/node": "^25.0.3",
     "@voidzero-dev/vitepress-theme": "^4.3.0",
     "degit": "^2.8.4",
