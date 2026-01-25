@@ -206,14 +206,14 @@ A root `tsconfig.json` with overly broad `include` patterns can inadvertently in
 }
 ```
 
-This configuration pulls in `node_modules`, build outputs, and other files that shouldn't be type-checked.
+This configuration pulls in build outputs and other files that shouldn't be type-checked.
 
 **Fix:** Explicitly scope the `include` patterns and add appropriate `exclude` entries:
 
 ```json [tsconfig.json]
 {
   "include": ["src/**/*"], // ✅ Only source files
-  "exclude": ["node_modules", "dist", "build", "coverage"]
+  "exclude": ["dist", "build", "coverage"] // node_modules are excluded by default
 }
 ```
 
