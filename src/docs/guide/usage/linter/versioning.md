@@ -10,7 +10,7 @@ Oxlint follows semantic versioning, with the goal of providing clarity and predi
 What's considered a **breaking** change:
 
 - Changes to the CLI interface that would break existing workflows.
-- Changes to the configuration file (`.oxlintrc.json`).
+- Changes to the configuration file (`.oxlintrc.json`) that would break existing setups.
 - Renaming or removing a rule.
 
 What's considered a **non-breaking** change:
@@ -18,6 +18,8 @@ What's considered a **non-breaking** change:
 - Adding new lint rules.
 - Changing the default configuration for a rule.
 - Improving rule descriptions or diagnostic messages.
+- Adding new config options to existing rules.
+- Fixes that change rule behavior to better align with the original ESLint rule's behavior.
 
 ## Features Not Subject to Semver
 
