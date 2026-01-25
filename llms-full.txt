@@ -1498,6 +1498,69 @@ import styled from "styled-components/primitives";
 ---
 
 ---
+url: /docs/guide/usage/formatter/cli.md
+---
+
+# Command-line Interface
+
+## Usage
+
+**`oxfmt`** \[**`-c`**=*`PATH`*] \[*`PATH`*]...
+
+## Mode Options:
+
+* **`    --init`** —
+  Initialize `.oxfmtrc.json` with default values
+* **`    --migrate`**=*`SOURCE`* —
+  Migrate configuration to `.oxfmtrc.json` from specified source Available sources: prettier
+* **`    --lsp`** —
+  Start language server protocol (LSP) server
+* **`    --stdin-filepath`**=*`PATH`* —
+  Specify the file name to use to infer which parser to use
+
+## Output Options:
+
+* **`    --write`** —
+  Format and write files in place (default)
+* **`    --check`** —
+  Check if files are formatted, also show statistics
+* **`    --list-different`** —
+  List files that would be changed
+
+## Config Options
+
+* **`-c`**, **`--config`**=*`PATH`* —
+  Path to the configuration file
+
+## Ignore Options
+
+* **`    --ignore-path`**=*`PATH`* —
+  Path to ignore file(s). Can be specified multiple times. If not specified, .gitignore and .prettierignore in the current directory are used.
+* **`    --with-node-modules`** —
+  Format code in node\_modules directory (skipped by default)
+
+## Runtime Options
+
+* **`    --no-error-on-unmatched-pattern`** —
+  Do not exit with error when pattern is unmatched
+* **`    --threads`**=*`INT`* —
+  Number of threads to use. Set to 1 for using only 1 CPU core.
+
+## Available positional items:
+
+* *`PATH`* —
+  Single file, single path or list of paths. If not provided, current working directory is used. Glob is supported only for exclude patterns like `'!**/fixtures/*.js'`.
+
+## Available options:
+
+* **`-h`**, **`--help`** —
+  Prints help information
+* **`-V`**, **`--version`** —
+  Prints version information
+
+---
+
+---
 url: /docs/guide/usage/linter/cli.md
 ---
 
@@ -1648,69 +1711,6 @@ Arguments:
   Enable rules that require type information
 * **`    --type-check`** —
   Enable experimental type checking (includes TypeScript compiler diagnostics)
-* **`-h`**, **`--help`** —
-  Prints help information
-* **`-V`**, **`--version`** —
-  Prints version information
-
----
-
----
-url: /docs/guide/usage/formatter/cli.md
----
-
-# Command-line Interface
-
-## Usage
-
-**`oxfmt`** \[**`-c`**=*`PATH`*] \[*`PATH`*]...
-
-## Mode Options:
-
-* **`    --init`** —
-  Initialize `.oxfmtrc.json` with default values
-* **`    --migrate`**=*`SOURCE`* —
-  Migrate configuration to `.oxfmtrc.json` from specified source Available sources: prettier
-* **`    --lsp`** —
-  Start language server protocol (LSP) server
-* **`    --stdin-filepath`**=*`PATH`* —
-  Specify the file name to use to infer which parser to use
-
-## Output Options:
-
-* **`    --write`** —
-  Format and write files in place (default)
-* **`    --check`** —
-  Check if files are formatted, also show statistics
-* **`    --list-different`** —
-  List files that would be changed
-
-## Config Options
-
-* **`-c`**, **`--config`**=*`PATH`* —
-  Path to the configuration file
-
-## Ignore Options
-
-* **`    --ignore-path`**=*`PATH`* —
-  Path to ignore file(s). Can be specified multiple times. If not specified, .gitignore and .prettierignore in the current directory are used.
-* **`    --with-node-modules`** —
-  Format code in node\_modules directory (skipped by default)
-
-## Runtime Options
-
-* **`    --no-error-on-unmatched-pattern`** —
-  Do not exit with error when pattern is unmatched
-* **`    --threads`**=*`INT`* —
-  Number of threads to use. Set to 1 for using only 1 CPU core.
-
-## Available positional items:
-
-* *`PATH`* —
-  Single file, single path or list of paths. If not provided, current working directory is used. Glob is supported only for exclude patterns like `'!**/fixtures/*.js'`.
-
-## Available options:
-
 * **`-h`**, **`--help`** —
   Prints help information
 * **`-V`**, **`--version`** —
@@ -24272,37 +24272,6 @@ oxlint --deny import/unambiguous --import-plugin
 ---
 
 ---
-url: /docs/guide/usage/formatter/ignore-comments.md
----
-# Inline ignore comments
-
-For JS/TS files, use `oxfmt-ignore` to skip formatting the next statement:
-
-```js
-// oxfmt-ignore
-const a    = 42;
-
-/* oxfmt-ignore */
-const x = () => { return 2; };
-
-<>
-  {/* oxfmt-ignore */}
-  <span   ugly   format=""   />
-</>;
-```
-
-For non-JS files, use `prettier-ignore` comment. See also Prettier's [ignore documentation](https://prettier.io/docs/ignore#html).
-
-Currently, TOML files do not support ignore comments.
-
-## Prettier compatibility
-
-* `prettier-ignore` comment is also supported
-* Trailing ignore comments in JS/TS files are not supported for performance reasons
-
----
-
----
 url: /docs/guide/usage/linter/ignore-comments.md
 description: Disable specific rules inline using Oxlint ignore comments
 ---
@@ -24388,6 +24357,37 @@ oxlint --report-unused-disable-directives-severity error
 ```
 
 Only one of these options can be used at a time.
+
+---
+
+---
+url: /docs/guide/usage/formatter/ignore-comments.md
+---
+# Inline ignore comments
+
+For JS/TS files, use `oxfmt-ignore` to skip formatting the next statement:
+
+```js
+// oxfmt-ignore
+const a    = 42;
+
+/* oxfmt-ignore */
+const x = () => { return 2; };
+
+<>
+  {/* oxfmt-ignore */}
+  <span   ugly   format=""   />
+</>;
+```
+
+For non-JS files, use `prettier-ignore` comment. See also Prettier's [ignore documentation](https://prettier.io/docs/ignore#html).
+
+Currently, TOML files do not support ignore comments.
+
+## Prettier compatibility
+
+* `prettier-ignore` comment is also supported
+* Trailing ignore comments in JS/TS files are not supported for performance reasons
 
 ---
 
@@ -39032,7 +39032,7 @@ Oxlint is used in production by popular projects such as:
 ---
 
 ---
-url: /docs/guide/usage/linter/config-file-reference.md
+url: /docs/guide/usage/linter/generated-config.md
 ---
 
 # Oxlint Configuration File
@@ -39659,7 +39659,7 @@ to accommodate TypeScript type checking scenarios.
 ---
 
 ---
-url: /docs/guide/usage/linter/generated-config.md
+url: /docs/guide/usage/linter/config-file-reference.md
 ---
 
 # Oxlint Configuration File
@@ -48612,6 +48612,120 @@ A Vite plugin is supported via a [third-party package](https://www.npmjs.com/pac
 ---
 
 ---
+url: /docs/guide/usage/linter/editors.md
+description: 'Configure Oxlint in VS Code, Zed, JetBrains, and other editors.'
+---
+
+# Setup editors
+
+Editor extensions use `oxlint --lsp` from your project, so `oxlint` must be installed locally.
+
+See [Quickstart](./quickstart) to install Oxlint.
+
+## Supported editors
+
+* [VS Code](#vs-code) (and Cursor, etc.)
+* [Zed](#zed)
+* [JetBrains](#jetbrains)
+* [coc.nvim](#cocnvim)
+* [Other editors](#other-editors)
+
+## VS Code
+
+### Install
+
+Download the official Oxc VS Code extension from:
+
+* [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=oxc.oxc-vscode)
+* [Open VSX Registry](https://open-vsx.org/extension/oxc/oxc-vscode)
+
+**The extension is compatible with other VS Code-based editors**, including Cursor.
+
+### Team setup
+
+1. Recommend the extension for contributors:
+
+`.vscode/extensions.json`:
+
+```json [.vscode/extensions.json]
+{
+  "recommendations": ["oxc.oxc-vscode"]
+}
+```
+
+2. Enable fix-on-save in `.vscode/settings.json`:
+
+```json [.vscode/settings.json]
+{
+  "editor.codeActionsOnSave": {
+    "source.fixAll.oxc": "always"
+  }
+}
+```
+
+3. Enable type-aware linting in `.vscode/settings.json`:
+
+```json [.vscode/settings.json]
+{
+  "oxc.typeAware": true
+}
+```
+
+You also need to ensure `oxlint-tsgolint` is installed in your project. See [the type-aware linting docs](/docs/guide/usage/linter/type-aware) for more details.
+
+### Reference
+
+* [oxc-project/oxc/editors/vscode](https://github.com/oxc-project/oxc/tree/main/editors/vscode)
+
+## Zed
+
+### Install
+
+* [Oxc Zed Extension](https://zed.dev/extensions/oxc)
+
+### Reference
+
+* [oxc-project/oxc-zed](https://github.com/oxc-project/oxc-zed)
+
+## JetBrains
+
+IntelliJ IDEA and WebStorm.
+
+### Install
+
+* [Oxc in JetBrains Marketplace](https://plugins.jetbrains.com/plugin/27061-oxc)
+
+### Reference
+
+* [oxc-project/oxc-intellij-plugin](https://github.com/oxc-project/oxc-intellij-plugin)
+
+## coc.nvim
+
+### Install
+
+```vim
+:CocInstall coc-oxc
+```
+
+### Reference
+
+* [oxc-project/coc-oxc](https://github.com/oxc-project/coc-oxc)
+
+## Other editors
+
+For editors with LSP support (Neovim, Emacs, Helix, Sublime), configure:
+
+```bash
+oxlint --lsp
+```
+
+## Reference
+
+* [oxc\_language\_server](https://github.com/oxc-project/oxc/tree/main/crates/oxc_language_server)
+
+---
+
+---
 url: /docs/guide/usage/formatter/editors.md
 description: 'Configure Oxfmt in VS Code, Zed, JetBrains, and other editors.'
 ---
@@ -48730,120 +48844,6 @@ For editors without LSP support:
 
 ```sh
 cat foo/bar.js | oxfmt --stdin-filepath f.js --config ./path/to/config.json
-```
-
-## Reference
-
-* [oxc\_language\_server](https://github.com/oxc-project/oxc/tree/main/crates/oxc_language_server)
-
----
-
----
-url: /docs/guide/usage/linter/editors.md
-description: 'Configure Oxlint in VS Code, Zed, JetBrains, and other editors.'
----
-
-# Setup editors
-
-Editor extensions use `oxlint --lsp` from your project, so `oxlint` must be installed locally.
-
-See [Quickstart](./quickstart) to install Oxlint.
-
-## Supported editors
-
-* [VS Code](#vs-code) (and Cursor, etc.)
-* [Zed](#zed)
-* [JetBrains](#jetbrains)
-* [coc.nvim](#cocnvim)
-* [Other editors](#other-editors)
-
-## VS Code
-
-### Install
-
-Download the official Oxc VS Code extension from:
-
-* [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=oxc.oxc-vscode)
-* [Open VSX Registry](https://open-vsx.org/extension/oxc/oxc-vscode)
-
-**The extension is compatible with other VS Code-based editors**, including Cursor.
-
-### Team setup
-
-1. Recommend the extension for contributors:
-
-`.vscode/extensions.json`:
-
-```json [.vscode/extensions.json]
-{
-  "recommendations": ["oxc.oxc-vscode"]
-}
-```
-
-2. Enable fix-on-save in `.vscode/settings.json`:
-
-```json [.vscode/settings.json]
-{
-  "editor.codeActionsOnSave": {
-    "source.fixAll.oxc": "always"
-  }
-}
-```
-
-3. Enable type-aware linting in `.vscode/settings.json`:
-
-```json [.vscode/settings.json]
-{
-  "oxc.typeAware": true
-}
-```
-
-You also need to ensure `oxlint-tsgolint` is installed in your project. See [the type-aware linting docs](/docs/guide/usage/linter/type-aware) for more details.
-
-### Reference
-
-* [oxc-project/oxc/editors/vscode](https://github.com/oxc-project/oxc/tree/main/editors/vscode)
-
-## Zed
-
-### Install
-
-* [Oxc Zed Extension](https://zed.dev/extensions/oxc)
-
-### Reference
-
-* [oxc-project/oxc-zed](https://github.com/oxc-project/oxc-zed)
-
-## JetBrains
-
-IntelliJ IDEA and WebStorm.
-
-### Install
-
-* [Oxc in JetBrains Marketplace](https://plugins.jetbrains.com/plugin/27061-oxc)
-
-### Reference
-
-* [oxc-project/oxc-intellij-plugin](https://github.com/oxc-project/oxc-intellij-plugin)
-
-## coc.nvim
-
-### Install
-
-```vim
-:CocInstall coc-oxc
-```
-
-### Reference
-
-* [oxc-project/coc-oxc](https://github.com/oxc-project/coc-oxc)
-
-## Other editors
-
-For editors with LSP support (Neovim, Emacs, Helix, Sublime), configure:
-
-```bash
-oxlint --lsp
 ```
 
 ## Reference
@@ -66594,7 +66594,7 @@ Oxlint follows semantic versioning, with the goal of providing clarity and predi
 What's considered a **breaking** change:
 
 * Changes to the CLI interface that would break existing workflows.
-* Changes to the configuration file (`.oxlintrc.json`).
+* Changes to the configuration file (`.oxlintrc.json`) that would break existing setups.
 * Renaming or removing a rule.
 
 What's considered a **non-breaking** change:
@@ -66602,6 +66602,9 @@ What's considered a **non-breaking** change:
 * Adding new lint rules.
 * Changing the default configuration for a rule.
 * Improving rule descriptions or diagnostic messages.
+* Adding new config options to existing rules.
+* Fixes that change rule behavior to better align with the original ESLint rule's behavior.
+* Adding new fields to the configuration file.
 
 ## Features Not Subject to Semver
 
