@@ -226,15 +226,6 @@
   },
   {
     "scope": "import",
-    "value": "no-relative-parent-imports",
-    "category": "restriction",
-    "type_aware": false,
-    "fix": "none",
-    "default": false,
-    "docs_url": "https://oxc.rs/docs/guide/usage/linter/rules/import/no-relative-parent-imports.html"
-  },
-  {
-    "scope": "import",
     "value": "no-self-import",
     "category": "suspicious",
     "type_aware": false,
@@ -1588,7 +1579,7 @@
     "value": "prefer-exponentiation-operator",
     "category": "style",
     "type_aware": false,
-    "fix": "fixable_fix",
+    "fix": "pending",
     "default": false,
     "docs_url": "https://oxc.rs/docs/guide/usage/linter/rules/eslint/prefer-exponentiation-operator.html"
   },
