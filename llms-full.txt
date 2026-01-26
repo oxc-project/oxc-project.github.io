@@ -1498,6 +1498,69 @@ import styled from "styled-components/primitives";
 ---
 
 ---
+url: /docs/guide/usage/formatter/cli.md
+---
+
+# Command-line Interface
+
+## Usage
+
+**`oxfmt`** \[**`-c`**=*`PATH`*] \[*`PATH`*]...
+
+## Mode Options:
+
+* **`    --init`** —
+  Initialize `.oxfmtrc.json` with default values
+* **`    --migrate`**=*`SOURCE`* —
+  Migrate configuration to `.oxfmtrc.json` from specified source Available sources: prettier
+* **`    --lsp`** —
+  Start language server protocol (LSP) server
+* **`    --stdin-filepath`**=*`PATH`* —
+  Specify the file name to use to infer which parser to use
+
+## Output Options:
+
+* **`    --write`** —
+  Format and write files in place (default)
+* **`    --check`** —
+  Check if files are formatted, also show statistics
+* **`    --list-different`** —
+  List files that would be changed
+
+## Config Options
+
+* **`-c`**, **`--config`**=*`PATH`* —
+  Path to the configuration file
+
+## Ignore Options
+
+* **`    --ignore-path`**=*`PATH`* —
+  Path to ignore file(s). Can be specified multiple times. If not specified, .gitignore and .prettierignore in the current directory are used.
+* **`    --with-node-modules`** —
+  Format code in node\_modules directory (skipped by default)
+
+## Runtime Options
+
+* **`    --no-error-on-unmatched-pattern`** —
+  Do not exit with error when pattern is unmatched
+* **`    --threads`**=*`INT`* —
+  Number of threads to use. Set to 1 for using only 1 CPU core.
+
+## Available positional items:
+
+* *`PATH`* —
+  Single file, single path or list of paths. If not provided, current working directory is used. Glob is supported only for exclude patterns like `'!**/fixtures/*.js'`.
+
+## Available options:
+
+* **`-h`**, **`--help`** —
+  Prints help information
+* **`-V`**, **`--version`** —
+  Prints version information
+
+---
+
+---
 url: /docs/guide/usage/linter/cli.md
 ---
 
@@ -1648,69 +1711,6 @@ Arguments:
   Enable rules that require type information
 * **`    --type-check`** —
   Enable experimental type checking (includes TypeScript compiler diagnostics)
-* **`-h`**, **`--help`** —
-  Prints help information
-* **`-V`**, **`--version`** —
-  Prints version information
-
----
-
----
-url: /docs/guide/usage/formatter/cli.md
----
-
-# Command-line Interface
-
-## Usage
-
-**`oxfmt`** \[**`-c`**=*`PATH`*] \[*`PATH`*]...
-
-## Mode Options:
-
-* **`    --init`** —
-  Initialize `.oxfmtrc.json` with default values
-* **`    --migrate`**=*`SOURCE`* —
-  Migrate configuration to `.oxfmtrc.json` from specified source Available sources: prettier
-* **`    --lsp`** —
-  Start language server protocol (LSP) server
-* **`    --stdin-filepath`**=*`PATH`* —
-  Specify the file name to use to infer which parser to use
-
-## Output Options:
-
-* **`    --write`** —
-  Format and write files in place (default)
-* **`    --check`** —
-  Check if files are formatted, also show statistics
-* **`    --list-different`** —
-  List files that would be changed
-
-## Config Options
-
-* **`-c`**, **`--config`**=*`PATH`* —
-  Path to the configuration file
-
-## Ignore Options
-
-* **`    --ignore-path`**=*`PATH`* —
-  Path to ignore file(s). Can be specified multiple times. If not specified, .gitignore and .prettierignore in the current directory are used.
-* **`    --with-node-modules`** —
-  Format code in node\_modules directory (skipped by default)
-
-## Runtime Options
-
-* **`    --no-error-on-unmatched-pattern`** —
-  Do not exit with error when pattern is unmatched
-* **`    --threads`**=*`INT`* —
-  Number of threads to use. Set to 1 for using only 1 CPU core.
-
-## Available positional items:
-
-* *`PATH`* —
-  Single file, single path or list of paths. If not provided, current working directory is used. Glob is supported only for exclude patterns like `'!**/fixtures/*.js'`.
-
-## Available options:
-
 * **`-h`**, **`--help`** —
   Prints help information
 * **`-V`**, **`--version`** —
@@ -2168,7 +2168,7 @@ Example (monorepo + React + jsx-a11y):
 ---
 
 ---
-url: /docs/guide/usage/formatter/config-file-reference.md
+url: /docs/guide/usage/formatter/generated-config.md
 ---
 
 # Configuration options for the Oxfmt.
@@ -3138,7 +3138,7 @@ Whether or not to indent the code inside `<script>` and `<style>` tags in Vue fi
 ---
 
 ---
-url: /docs/guide/usage/formatter/generated-config.md
+url: /docs/guide/usage/formatter/config-file-reference.md
 ---
 
 # Configuration options for the Oxfmt.
@@ -20535,6 +20535,44 @@ The Oxc formatter is built around the same core concepts as Prettier but with si
 ---
 
 ---
+url: /docs/guide/introduction.md
+---
+
+# Getting Started
+
+[What is Oxc?](/docs/guide/what-is-oxc)
+
+## Lint or format a codebase
+
+* Lint: [Oxlint](/docs/guide/usage/linter)
+* Format: [Oxfmt](/docs/guide/usage/formatter)
+
+## Build tooling on top of Oxc
+
+* Parse JavaScript and TypeScript: [Parser](/docs/guide/usage/parser)
+* Transform TypeScript, JSX, and modern JavaScript: [Transformer](/docs/guide/usage/transformer)
+* Minify JavaScript for production builds: [Minifier](/docs/guide/usage/minifier)
+* Resolve modules for JavaScript and TypeScript: [Resolver](/docs/guide/usage/resolver)
+
+## Contribute or learn
+
+* [Contribute](/docs/contribute/introduction)
+* [Learn](/docs/learn/parser_in_rust/intro.html)
+
+## Other resources
+
+* [Troubleshooting](/docs/guide/troubleshooting)
+* [Benchmarks](/docs/guide/benchmarks)
+* [Projects using Oxc](/docs/guide/projects)
+* [Talks and media](/docs/guide/media)
+* [Team](/team)
+* [Endorsements](/endorsements)
+* [Release Blog](/blog/)
+* [Releases](https://github.com/oxc-project/oxc/releases)
+
+---
+
+---
 url: /docs/contribute/development.md
 ---
 
@@ -20615,44 +20653,6 @@ macOS has an antivirus feature called XProtect that scans executables for malwar
 **Note:** This disables an OS security feature. Only do this if you're comfortable with the trade-off.
 
 More details: https://nnethercote.github.io/2025/09/04/faster-rust-builds-on-mac.html
-
----
-
----
-url: /docs/guide/introduction.md
----
-
-# Getting Started
-
-[What is Oxc?](/docs/guide/what-is-oxc)
-
-## Lint or format a codebase
-
-* Lint: [Oxlint](/docs/guide/usage/linter)
-* Format: [Oxfmt](/docs/guide/usage/formatter)
-
-## Build tooling on top of Oxc
-
-* Parse JavaScript and TypeScript: [Parser](/docs/guide/usage/parser)
-* Transform TypeScript, JSX, and modern JavaScript: [Transformer](/docs/guide/usage/transformer)
-* Minify JavaScript for production builds: [Minifier](/docs/guide/usage/minifier)
-* Resolve modules for JavaScript and TypeScript: [Resolver](/docs/guide/usage/resolver)
-
-## Contribute or learn
-
-* [Contribute](/docs/contribute/introduction)
-* [Learn](/docs/learn/parser_in_rust/intro.html)
-
-## Other resources
-
-* [Troubleshooting](/docs/guide/troubleshooting)
-* [Benchmarks](/docs/guide/benchmarks)
-* [Projects using Oxc](/docs/guide/projects)
-* [Talks and media](/docs/guide/media)
-* [Team](/team)
-* [Endorsements](/endorsements)
-* [Release Blog](/blog/)
-* [Releases](https://github.com/oxc-project/oxc/releases)
 
 ---
 
@@ -24272,6 +24272,37 @@ oxlint --deny import/unambiguous --import-plugin
 ---
 
 ---
+url: /docs/guide/usage/formatter/ignore-comments.md
+---
+# Inline ignore comments
+
+For JS/TS files, use `oxfmt-ignore` to skip formatting the next statement:
+
+```js
+// oxfmt-ignore
+const a    = 42;
+
+/* oxfmt-ignore */
+const x = () => { return 2; };
+
+<>
+  {/* oxfmt-ignore */}
+  <span   ugly   format=""   />
+</>;
+```
+
+For non-JS files, use `prettier-ignore` comment. See also Prettier's [ignore documentation](https://prettier.io/docs/ignore#html).
+
+Currently, TOML files do not support ignore comments.
+
+## Prettier compatibility
+
+* `prettier-ignore` comment is also supported
+* Trailing ignore comments in JS/TS files are not supported for performance reasons
+
+---
+
+---
 url: /docs/guide/usage/linter/ignore-comments.md
 description: Disable specific rules inline using Oxlint ignore comments
 ---
@@ -24357,37 +24388,6 @@ oxlint --report-unused-disable-directives-severity error
 ```
 
 Only one of these options can be used at a time.
-
----
-
----
-url: /docs/guide/usage/formatter/ignore-comments.md
----
-# Inline ignore comments
-
-For JS/TS files, use `oxfmt-ignore` to skip formatting the next statement:
-
-```js
-// oxfmt-ignore
-const a    = 42;
-
-/* oxfmt-ignore */
-const x = () => { return 2; };
-
-<>
-  {/* oxfmt-ignore */}
-  <span   ugly   format=""   />
-</>;
-```
-
-For non-JS files, use `prettier-ignore` comment. See also Prettier's [ignore documentation](https://prettier.io/docs/ignore#html).
-
-Currently, TOML files do not support ignore comments.
-
-## Prettier compatibility
-
-* `prettier-ignore` comment is also supported
-* Trailing ignore comments in JS/TS files are not supported for performance reasons
 
 ---
 
@@ -39042,7 +39042,7 @@ Oxlint is used in production by popular projects such as:
 ---
 
 ---
-url: /docs/guide/usage/linter/config-file-reference.md
+url: /docs/guide/usage/linter/generated-config.md
 ---
 
 # Oxlint Configuration File
@@ -39669,7 +39669,7 @@ to accommodate TypeScript type checking scenarios.
 ---
 
 ---
-url: /docs/guide/usage/linter/generated-config.md
+url: /docs/guide/usage/linter/config-file-reference.md
 ---
 
 # Oxlint Configuration File
@@ -40469,6 +40469,184 @@ Today, comments are not printed. *It will be supported thanks to [oxc-parser #13
 ---
 
 ---
+url: /docs/learn/architecture/parser.md
+---
+
+# Parser Architecture
+
+Oxc maintains its own AST and parser, which is by far the fastest and most conformant JavaScript and TypeScript (including JSX and TSX) parser written in Rust.
+
+As the parser often represents a key performance bottleneck in JavaScript tooling,
+any minor improvements can have a cascading effect on our downstream tools.
+By developing our parser, we have the opportunity to explore and implement well-researched performance techniques.
+
+## AST Design Philosophy
+
+While many existing JavaScript tools rely on [estree] as their AST specification,
+a notable drawback is its abundance of ambiguous nodes.
+This ambiguity often leads to confusion during development with [estree].
+
+The Oxc AST differs from the [estree] AST by removing ambiguous nodes and introducing distinct types.
+For example, instead of using a generic [estree] `Identifier`,
+the Oxc AST provides specific types such as `BindingIdentifier`, `IdentifierReference`, and `IdentifierName`.
+
+This clear distinction greatly enhances the development experience by aligning more closely with the ECMAScript specification.
+
+### AST Node Types
+
+```rust
+// Instead of generic Identifier
+pub struct BindingIdentifier<'a> {
+    pub span: Span,
+    pub name: Atom<'a>,
+}
+
+pub struct IdentifierReference<'a> {
+    pub span: Span,
+    pub name: Atom<'a>,
+    pub reference_id: Cell<Option<ReferenceId>>,
+}
+
+pub struct IdentifierName<'a> {
+    pub span: Span,
+    pub name: Atom<'a>,
+}
+```
+
+### Semantic Clarity
+
+This approach provides semantic clarity:
+
+* **`BindingIdentifier`**: Variable declarations (`let x = 1`)
+* **`IdentifierReference`**: Variable usage (`console.log(x)`)
+* **`IdentifierName`**: Property names (`obj.property`)
+
+## Performance Architecture
+
+### How is it so fast
+
+* **Memory Arena**: AST is allocated in a [memory arena](https://crates.io/crates/bumpalo) for fast allocation and deallocation
+* **String Optimization**: Short strings are inlined by [CompactString](https://crates.io/crates/compact_str)
+* **Minimal Heap Usage**: No other heap allocations are done except the above two
+* **Separation of Concerns**: Scope binding, symbol resolution and some syntax errors are delegated to the semantic analyzer
+
+### Memory Management Details
+
+#### Arena Allocation
+
+```rust
+use oxc_allocator::Allocator;
+
+// All AST nodes are allocated in this arena
+let allocator = Allocator::default();
+let ast_node = allocator.alloc(Expression::NumericLiteral(
+    allocator.alloc(NumericLiteral { value: 42.0, span: SPAN })
+));
+```
+
+Benefits:
+
+* **O(1) allocation**: Simple pointer bump
+* **O(1) deallocation**: Drop entire arena at once
+* **Cache-friendly**: Linear memory layout
+* **No fragmentation**: Continuous memory usage
+
+#### String Interning with CompactString
+
+```rust
+// Strings ≤ 24 bytes are stored inline (no heap allocation)
+let short_name = CompactString::from("variableName");  // Stack allocated
+let long_name = CompactString::from("a_very_long_variable_name_that_exceeds_limit");  // Heap allocated
+```
+
+This reduces memory allocations for the majority of JavaScript identifiers and string literals.
+
+## Parser Architecture
+
+### Two-Phase Design
+
+The Oxc parser follows a two-phase approach:
+
+1. **Parsing Phase**: Build AST structure with minimal semantic analysis
+2. **Semantic Phase**: Perform scope analysis, symbol resolution, and advanced error checking
+
+```rust
+// Phase 1: Parse to AST
+let parser_result = Parser::new(&allocator, source_text, source_type).parse();
+
+// Phase 2: Semantic analysis
+let semantic_result = SemanticBuilder::new(source_text, source_type)
+    .with_trivias(parser_result.trivias)
+    .build(&parser_result.program);
+```
+
+### Parser Components
+
+#### Lexer
+
+* **Token generation**: Converts source text to structured tokens
+* **SIMD optimization**: Uses SIMD instructions for whitespace skipping
+* **Context-aware**: Handles regex vs division operator disambiguation
+
+#### Recursive Descent Parser
+
+* **Hand-written**: Custom implementation for maximum performance
+* **Error recovery**: Advanced error handling with meaningful messages
+* **Grammar compliance**: Follows ECMAScript specification precisely
+
+#### AST Builder
+
+* **Type safety**: Leverages Rust's type system for correctness
+* **Memory efficiency**: Direct arena allocation
+* **Builder pattern**: Convenient node construction methods
+
+## Conformance Strategy
+
+### Test Suite Coverage
+
+* **Test262**: 100% pass rate on ECMAScript conformance tests
+* **Babel**: 99.62% compatibility with Babel parser tests
+* **TypeScript**: 99.86% compatibility with TypeScript compiler tests
+
+### Error Handling Philosophy
+
+```rust
+// Meaningful error messages with source location
+pub struct OxcDiagnostic {
+    pub message: String,
+    pub span: Span,
+    pub severity: Severity,
+    pub help: Option<String>,
+}
+```
+
+The parser provides:
+
+* **Precise error locations**: Exact source positions
+* **Recovery strategies**: Continue parsing after errors
+* **Helpful suggestions**: Actionable error messages
+
+## Advanced Features
+
+### TypeScript Support
+
+* **Type stripping**: Removes TypeScript-specific syntax
+* **Decorator parsing**: Handles experimental decorators
+* **Namespace support**: Full module and namespace parsing
+* **JSX integration**: TypeScript + JSX (TSX) support
+
+### Research Areas
+
+* **SIMD text processing**: Vectorized string operations
+* **Cache optimization**: Minimize memory access patterns
+* **Branch prediction**: Optimize hot parsing paths
+* **Zero-copy parsing**: Eliminate unnecessary string copies
+
+[estree]: https://github.com/estree/estree
+
+---
+
+---
 url: /docs/learn/parser_in_rust/parser.md
 ---
 
@@ -40875,184 +41053,6 @@ function isParenthesizedArrowFunctionExpression(): Tristate {
 ```
 
 In summary, the TypeScript parser uses a combination of lookahead (fast path) and backtracking to parse arrow functions.
-
----
-
----
-url: /docs/learn/architecture/parser.md
----
-
-# Parser Architecture
-
-Oxc maintains its own AST and parser, which is by far the fastest and most conformant JavaScript and TypeScript (including JSX and TSX) parser written in Rust.
-
-As the parser often represents a key performance bottleneck in JavaScript tooling,
-any minor improvements can have a cascading effect on our downstream tools.
-By developing our parser, we have the opportunity to explore and implement well-researched performance techniques.
-
-## AST Design Philosophy
-
-While many existing JavaScript tools rely on [estree] as their AST specification,
-a notable drawback is its abundance of ambiguous nodes.
-This ambiguity often leads to confusion during development with [estree].
-
-The Oxc AST differs from the [estree] AST by removing ambiguous nodes and introducing distinct types.
-For example, instead of using a generic [estree] `Identifier`,
-the Oxc AST provides specific types such as `BindingIdentifier`, `IdentifierReference`, and `IdentifierName`.
-
-This clear distinction greatly enhances the development experience by aligning more closely with the ECMAScript specification.
-
-### AST Node Types
-
-```rust
-// Instead of generic Identifier
-pub struct BindingIdentifier<'a> {
-    pub span: Span,
-    pub name: Atom<'a>,
-}
-
-pub struct IdentifierReference<'a> {
-    pub span: Span,
-    pub name: Atom<'a>,
-    pub reference_id: Cell<Option<ReferenceId>>,
-}
-
-pub struct IdentifierName<'a> {
-    pub span: Span,
-    pub name: Atom<'a>,
-}
-```
-
-### Semantic Clarity
-
-This approach provides semantic clarity:
-
-* **`BindingIdentifier`**: Variable declarations (`let x = 1`)
-* **`IdentifierReference`**: Variable usage (`console.log(x)`)
-* **`IdentifierName`**: Property names (`obj.property`)
-
-## Performance Architecture
-
-### How is it so fast
-
-* **Memory Arena**: AST is allocated in a [memory arena](https://crates.io/crates/bumpalo) for fast allocation and deallocation
-* **String Optimization**: Short strings are inlined by [CompactString](https://crates.io/crates/compact_str)
-* **Minimal Heap Usage**: No other heap allocations are done except the above two
-* **Separation of Concerns**: Scope binding, symbol resolution and some syntax errors are delegated to the semantic analyzer
-
-### Memory Management Details
-
-#### Arena Allocation
-
-```rust
-use oxc_allocator::Allocator;
-
-// All AST nodes are allocated in this arena
-let allocator = Allocator::default();
-let ast_node = allocator.alloc(Expression::NumericLiteral(
-    allocator.alloc(NumericLiteral { value: 42.0, span: SPAN })
-));
-```
-
-Benefits:
-
-* **O(1) allocation**: Simple pointer bump
-* **O(1) deallocation**: Drop entire arena at once
-* **Cache-friendly**: Linear memory layout
-* **No fragmentation**: Continuous memory usage
-
-#### String Interning with CompactString
-
-```rust
-// Strings ≤ 24 bytes are stored inline (no heap allocation)
-let short_name = CompactString::from("variableName");  // Stack allocated
-let long_name = CompactString::from("a_very_long_variable_name_that_exceeds_limit");  // Heap allocated
-```
-
-This reduces memory allocations for the majority of JavaScript identifiers and string literals.
-
-## Parser Architecture
-
-### Two-Phase Design
-
-The Oxc parser follows a two-phase approach:
-
-1. **Parsing Phase**: Build AST structure with minimal semantic analysis
-2. **Semantic Phase**: Perform scope analysis, symbol resolution, and advanced error checking
-
-```rust
-// Phase 1: Parse to AST
-let parser_result = Parser::new(&allocator, source_text, source_type).parse();
-
-// Phase 2: Semantic analysis
-let semantic_result = SemanticBuilder::new(source_text, source_type)
-    .with_trivias(parser_result.trivias)
-    .build(&parser_result.program);
-```
-
-### Parser Components
-
-#### Lexer
-
-* **Token generation**: Converts source text to structured tokens
-* **SIMD optimization**: Uses SIMD instructions for whitespace skipping
-* **Context-aware**: Handles regex vs division operator disambiguation
-
-#### Recursive Descent Parser
-
-* **Hand-written**: Custom implementation for maximum performance
-* **Error recovery**: Advanced error handling with meaningful messages
-* **Grammar compliance**: Follows ECMAScript specification precisely
-
-#### AST Builder
-
-* **Type safety**: Leverages Rust's type system for correctness
-* **Memory efficiency**: Direct arena allocation
-* **Builder pattern**: Convenient node construction methods
-
-## Conformance Strategy
-
-### Test Suite Coverage
-
-* **Test262**: 100% pass rate on ECMAScript conformance tests
-* **Babel**: 99.62% compatibility with Babel parser tests
-* **TypeScript**: 99.86% compatibility with TypeScript compiler tests
-
-### Error Handling Philosophy
-
-```rust
-// Meaningful error messages with source location
-pub struct OxcDiagnostic {
-    pub message: String,
-    pub span: Span,
-    pub severity: Severity,
-    pub help: Option<String>,
-}
-```
-
-The parser provides:
-
-* **Precise error locations**: Exact source positions
-* **Recovery strategies**: Continue parsing after errors
-* **Helpful suggestions**: Actionable error messages
-
-## Advanced Features
-
-### TypeScript Support
-
-* **Type stripping**: Removes TypeScript-specific syntax
-* **Decorator parsing**: Handles experimental decorators
-* **Namespace support**: Full module and namespace parsing
-* **JSX integration**: TypeScript + JSX (TSX) support
-
-### Research Areas
-
-* **SIMD text processing**: Vectorized string operations
-* **Cache optimization**: Minimize memory access patterns
-* **Branch prediction**: Optimize hot parsing paths
-* **Zero-copy parsing**: Eliminate unnecessary string copies
-
-[estree]: https://github.com/estree/estree
 
 ---
 
@@ -43291,146 +43291,6 @@ oxlint --deny promise/valid-params --promise-plugin
 ---
 
 ---
-url: /docs/guide/usage/formatter/quickstart.md
-description: Install Oxfmt and learn the common workflows.
----
-
-# Quickstart
-
-Recommended setup and common workflows.
-
-## Install
-
-Install `oxfmt` as a dev dependency:
-
-::: code-group
-
-```sh [npm]
-$ npm add -D oxfmt
-```
-
-```sh [pnpm]
-$ pnpm add -D oxfmt
-```
-
-```sh [yarn]
-$ yarn add -D oxfmt
-```
-
-```sh [bun]
-$ bun add -D oxfmt
-```
-
-:::
-
-Add scripts to `package.json`:
-
-```json [package.json]
-{
-  "scripts": {
-    "fmt": "oxfmt",
-    "fmt:check": "oxfmt --check"
-  }
-}
-```
-
-Format files:
-
-```sh
-pnpm run fmt
-```
-
-Check formatting without writing files:
-
-```sh
-pnpm run fmt:check
-```
-
-## Usage
-
-```sh
-oxfmt [OPTIONS] [PATH]...
-```
-
-Running `oxfmt` without arguments formats the current directory (equivalent to `prettier --write .`).
-
-CLI options like `--no-semi` are not supported. Use the configuration file instead to ensure consistent settings across CLI and editor integrations.
-
-Globs in positional paths are not expanded (rely on your shell). However, `!`-prefixed exclude paths support glob expansion.
-
-For the complete list of options, see the [CLI reference](/docs/guide/usage/formatter/cli.html).
-
-## Common workflows
-
-### Pre-commit with lint-staged
-
-```json [package.json]
-{
-  "lint-staged": {
-    "*": "oxfmt --no-error-on-unmatched-pattern"
-  }
-}
-```
-
-`--no-error-on-unmatched-pattern` prevents errors when no files match the pattern.
-
-### Create a config file
-
-Initialize `.oxfmtrc.json` with defaults:
-
-```sh
-oxfmt --init
-```
-
-### Migrate from Prettier
-
-```sh
-oxfmt --migrate prettier
-```
-
-See [migrate from prettier](./migrate-from-prettier) for details.
-
-### List files that differ
-
-```sh
-oxfmt --list-different
-```
-
-This is useful for configuring [files to ignore](./ignore-files).
-
-### Piping file contents
-
-```sh
-echo 'const   x   =   1' | oxfmt --stdin-filepath test.ts
-```
-
-Prints `const x = 1;`
-
-### Node.js API
-
-```ts
-import { format, type FormatOptions } from "oxfmt";
-
-const input = `let a=42;`;
-const options: FormatOptions = {
-  semi: false,
-};
-
-const { code } = await format("a.js", input, options);
-console.log(code); // "let a = 42"
-```
-
-## Next steps
-
-* [Change configuration](./config)
-* [Setup editors](./editors)
-* [Setup CI](./ci)
-* Learn advanced features: [sorting](./sorting), [embedded formatting](./embedded-formatting)
-* Check [CLI reference](./cli)
-
----
-
----
 url: /docs/guide/usage/linter/quickstart.md
 description: Install Oxlint and learn the common workflows.
 ---
@@ -43628,6 +43488,146 @@ The full list is in the [Rules reference](/docs/guide/usage/linter/rules).
 * Learn advanced features: [Multi-file analysis](/docs/guide/usage/linter/multi-file-analysis), [Type-aware linting](/docs/guide/usage/linter/type-aware), [JS plugins](/docs/guide/usage/linter/js-plugins)
 * Migrate: [From ESLint](/docs/guide/usage/linter/migrate-from-eslint)&#x20;
 * [CLI reference](/docs/guide/usage/linter/cli)
+
+---
+
+---
+url: /docs/guide/usage/formatter/quickstart.md
+description: Install Oxfmt and learn the common workflows.
+---
+
+# Quickstart
+
+Recommended setup and common workflows.
+
+## Install
+
+Install `oxfmt` as a dev dependency:
+
+::: code-group
+
+```sh [npm]
+$ npm add -D oxfmt
+```
+
+```sh [pnpm]
+$ pnpm add -D oxfmt
+```
+
+```sh [yarn]
+$ yarn add -D oxfmt
+```
+
+```sh [bun]
+$ bun add -D oxfmt
+```
+
+:::
+
+Add scripts to `package.json`:
+
+```json [package.json]
+{
+  "scripts": {
+    "fmt": "oxfmt",
+    "fmt:check": "oxfmt --check"
+  }
+}
+```
+
+Format files:
+
+```sh
+pnpm run fmt
+```
+
+Check formatting without writing files:
+
+```sh
+pnpm run fmt:check
+```
+
+## Usage
+
+```sh
+oxfmt [OPTIONS] [PATH]...
+```
+
+Running `oxfmt` without arguments formats the current directory (equivalent to `prettier --write .`).
+
+CLI options like `--no-semi` are not supported. Use the configuration file instead to ensure consistent settings across CLI and editor integrations.
+
+Globs in positional paths are not expanded (rely on your shell). However, `!`-prefixed exclude paths support glob expansion.
+
+For the complete list of options, see the [CLI reference](/docs/guide/usage/formatter/cli.html).
+
+## Common workflows
+
+### Pre-commit with lint-staged
+
+```json [package.json]
+{
+  "lint-staged": {
+    "*": "oxfmt --no-error-on-unmatched-pattern"
+  }
+}
+```
+
+`--no-error-on-unmatched-pattern` prevents errors when no files match the pattern.
+
+### Create a config file
+
+Initialize `.oxfmtrc.json` with defaults:
+
+```sh
+oxfmt --init
+```
+
+### Migrate from Prettier
+
+```sh
+oxfmt --migrate prettier
+```
+
+See [migrate from prettier](./migrate-from-prettier) for details.
+
+### List files that differ
+
+```sh
+oxfmt --list-different
+```
+
+This is useful for configuring [files to ignore](./ignore-files).
+
+### Piping file contents
+
+```sh
+echo 'const   x   =   1' | oxfmt --stdin-filepath test.ts
+```
+
+Prints `const x = 1;`
+
+### Node.js API
+
+```ts
+import { format, type FormatOptions } from "oxfmt";
+
+const input = `let a=42;`;
+const options: FormatOptions = {
+  semi: false,
+};
+
+const { code } = await format("a.js", input, options);
+console.log(code); // "let a = 42"
+```
+
+## Next steps
+
+* [Change configuration](./config)
+* [Setup editors](./editors)
+* [Setup CI](./ci)
+* Learn advanced features: [sorting](./sorting), [embedded formatting](./embedded-formatting)
+* Check [CLI reference](./cli)
 
 ---
 
@@ -48410,152 +48410,6 @@ Upon visit, we can call `enter_scope` and `leave_scope` accordingly to build the
 ---
 
 ---
-url: /docs/guide/usage/linter/ci.md
-description: Run Oxlint in CI or as a git hook.
----
-
-# Setup CI and other integrations
-
-You can - and should - setup your CI pipeline to run Oxlint and fail the build on lint errors.
-
-This page also covers other integrations you may want to include, like git pre-commit hooks.
-
-## CI
-
-These instructions assume you have already set up Oxlint in your project by adding `oxlint` to your devDependencies in your `package.json`, and already have an oxlint configuration file in the repo.
-
-### GitHub Actions
-
-First, add a `lint` script to your `package.json` if you don't have one already:
-
-```json [package.json]
-{
-  "scripts": {
-    "lint": "oxlint"
-  }
-}
-```
-
-Then create `.github/workflows/oxlint.yml`:
-
-```yaml [.github/workflows/oxlint.yml]
-name: Lint
-
-on:
-  pull_request:
-  push:
-    branches: [main]
-
-permissions: {}
-
-jobs:
-  oxlint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v6
-
-      - uses: pnpm/action-setup@v4
-
-      - uses: actions/setup-node@v6
-        with:
-          node-version: lts/*
-          cache: pnpm
-
-      # alternatively use npm install / yarn install here
-      - run: pnpm install --frozen-lockfile
-      - run: pnpm run lint
-```
-
-You can, alternatively, output using the github format option, for [better warning/error annotations](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-commands#setting-an-error-message):
-
-```json [package.json]
-{
-  "scripts": {
-    "lint:github": "oxlint --format=github"
-  }
-}
-```
-
-### GitLab CI
-
-If you use GitLab CI, you can set up Oxlint with `--format=gitlab` and [GitLab's Code Quality feature](https://docs.gitlab.com/ci/testing/code_quality/#code-quality-report-format) to get inline annotations for lint violations in merge requests.
-
-To set this up, you can add a script to your `package.json` to output the gitlab format and save it to a file, like so:
-
-```json [package.json]
-{
-  "scripts": {
-    "lint:gitlab": "oxlint --format=gitlab > gitlab-oxlint-report.json"
-  }
-}
-```
-
-And then add a job to your `.gitlab-ci.yml`, to run the script and upload the report as a Code Quality artifact:
-
-```yml [.gitlab-ci.yml]
-oxlint:
-  image: node:lts
-  stage: test
-  before_script:
-    # alternatively use pnpm install / yarn install here
-    - npm install
-  script:
-    - npm run lint:gitlab
-  artifacts:
-    reports:
-      codequality:
-        # This is relative to your repository root, so adjust if your repo has a different structure or you put the report in a different location
-        - gitlab-oxlint-report.json
-```
-
-If you do not want to use the Code Quality feature, you can simply run oxlint without `--format=gitlab` in the CI job instead.
-
-You should ensure type-aware rules are enabled if you want to use them, and consider caching `node_modules` to speed up the installation of dependencies.
-
-## Git hooks
-
-### lint-staged
-
-For JS/TS projects using [lint-staged](https://github.com/lint-staged/lint-staged), you can set up oxlint to run as a pre-commit hook as follows:
-
-```json [package.json]
-{
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx,mjs,cjs}": "pnpm run lint"
-  }
-}
-```
-
-To automatically install the git hook when installing dependencies, considering also using [husky](https://typicode.github.io/husky/get-started.html).
-
-### pre-commit
-
-If you use [pre-commit](https://pre-commit.com/) to manage git hooks, you can set up Oxlint as follows:
-
-```yaml [.pre-commit-config.yaml]
-repos:
-  - repo: https://github.com/oxc-project/mirrors-oxlint
-    rev: v0.0.0
-    hooks:
-      - id: oxlint
-        verbose: true
-```
-
-Replace `v0.0.0` with the latest version.
-
-## Other integrations
-
-### Unplugin
-
-Unplugin is supported via a [third-party package](https://www.npmjs.com/package/unplugin-oxlint)
-
-### Vite plugin
-
-A Vite plugin is supported via a [third-party package](https://www.npmjs.com/package/vite-plugin-oxlint)
-
----
-
----
 url: /docs/guide/usage/formatter/ci.md
 description: Run Oxfmt in CI or as a git hook.
 ---
@@ -48699,6 +48553,152 @@ For [lint-staged](https://github.com/lint-staged/lint-staged), add to `package.j
 ```
 
 To automatically install the git hook when installing dependencies, considering also using [husky](https://typicode.github.io/husky/get-started.html).
+
+---
+
+---
+url: /docs/guide/usage/linter/ci.md
+description: Run Oxlint in CI or as a git hook.
+---
+
+# Setup CI and other integrations
+
+You can - and should - setup your CI pipeline to run Oxlint and fail the build on lint errors.
+
+This page also covers other integrations you may want to include, like git pre-commit hooks.
+
+## CI
+
+These instructions assume you have already set up Oxlint in your project by adding `oxlint` to your devDependencies in your `package.json`, and already have an oxlint configuration file in the repo.
+
+### GitHub Actions
+
+First, add a `lint` script to your `package.json` if you don't have one already:
+
+```json [package.json]
+{
+  "scripts": {
+    "lint": "oxlint"
+  }
+}
+```
+
+Then create `.github/workflows/oxlint.yml`:
+
+```yaml [.github/workflows/oxlint.yml]
+name: Lint
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions: {}
+
+jobs:
+  oxlint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: lts/*
+          cache: pnpm
+
+      # alternatively use npm install / yarn install here
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm run lint
+```
+
+You can, alternatively, output using the github format option, for [better warning/error annotations](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-commands#setting-an-error-message):
+
+```json [package.json]
+{
+  "scripts": {
+    "lint:github": "oxlint --format=github"
+  }
+}
+```
+
+### GitLab CI
+
+If you use GitLab CI, you can set up Oxlint with `--format=gitlab` and [GitLab's Code Quality feature](https://docs.gitlab.com/ci/testing/code_quality/#code-quality-report-format) to get inline annotations for lint violations in merge requests.
+
+To set this up, you can add a script to your `package.json` to output the gitlab format and save it to a file, like so:
+
+```json [package.json]
+{
+  "scripts": {
+    "lint:gitlab": "oxlint --format=gitlab > gitlab-oxlint-report.json"
+  }
+}
+```
+
+And then add a job to your `.gitlab-ci.yml`, to run the script and upload the report as a Code Quality artifact:
+
+```yml [.gitlab-ci.yml]
+oxlint:
+  image: node:lts
+  stage: test
+  before_script:
+    # alternatively use pnpm install / yarn install here
+    - npm install
+  script:
+    - npm run lint:gitlab
+  artifacts:
+    reports:
+      codequality:
+        # This is relative to your repository root, so adjust if your repo has a different structure or you put the report in a different location
+        - gitlab-oxlint-report.json
+```
+
+If you do not want to use the Code Quality feature, you can simply run oxlint without `--format=gitlab` in the CI job instead.
+
+You should ensure type-aware rules are enabled if you want to use them, and consider caching `node_modules` to speed up the installation of dependencies.
+
+## Git hooks
+
+### lint-staged
+
+For JS/TS projects using [lint-staged](https://github.com/lint-staged/lint-staged), you can set up oxlint to run as a pre-commit hook as follows:
+
+```json [package.json]
+{
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,mjs,cjs}": "pnpm run lint"
+  }
+}
+```
+
+To automatically install the git hook when installing dependencies, considering also using [husky](https://typicode.github.io/husky/get-started.html).
+
+### pre-commit
+
+If you use [pre-commit](https://pre-commit.com/) to manage git hooks, you can set up Oxlint as follows:
+
+```yaml [.pre-commit-config.yaml]
+repos:
+  - repo: https://github.com/oxc-project/mirrors-oxlint
+    rev: v0.0.0
+    hooks:
+      - id: oxlint
+        verbose: true
+```
+
+Replace `v0.0.0` with the latest version.
+
+## Other integrations
+
+### Unplugin
+
+Unplugin is supported via a [third-party package](https://www.npmjs.com/package/unplugin-oxlint)
+
+### Vite plugin
+
+A Vite plugin is supported via a [third-party package](https://www.npmjs.com/package/vite-plugin-oxlint)
 
 ---
 
