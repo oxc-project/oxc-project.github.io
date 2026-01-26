@@ -81,7 +81,7 @@ type: `array`
 default: `["none", "all", "multiple", "single"]`
 
 Specifies the sort order of different import syntaxes.
-Must include all 4 kinds or else this will fall back to default.
+Must include all 4 kinds!
 
 #### memberSyntaxSortOrder[n]
 

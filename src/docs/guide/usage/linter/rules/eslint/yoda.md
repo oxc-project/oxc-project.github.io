@@ -41,16 +41,7 @@ This typically reads, "if the color equals red", which is arguably a more natura
 Proponents of Yoda conditions highlight that it is impossible to mistakenly use `=` instead of `==` because you cannot assign to a literal value. Doing so will cause a syntax error and you will be informed of the mistake early on. This practice was therefore very common in early programming where tools were not yet available.
 Opponents of Yoda conditions point out that tooling has made us better programmers because tools will catch the mistaken use of `=` instead of `==` (ESLint will catch this for you). Therefore, they argue, the utility of the pattern doesn't outweigh the readability hit the code takes while using Yoda conditions.
 
-### Options
-
-This rule can take a string option:
-
-- If it is the default `"never"`, then comparisons must never be Yoda conditions.
-- If it is `"always"`, then the literal value must always come first.
-  The default `"never"` option can have exception options in an object literal:
-- If the `"exceptRange"` property is `true`, the rule _allows_ yoda conditions in range comparisons which are wrapped directly in parentheses, including the parentheses of an `if` or `while` condition. The default value is `false`. A _range_ comparison tests whether a variable is inside or outside the range between two literal values.
-- If the `"onlyEquality"` property is `true`, the rule reports yoda conditions _only_ for the equality operators `==` and `===`. The default value is `false`.
-  The `onlyEquality` option allows a superset of the exceptions which `exceptRange` allows, thus both options are not useful together.
+### Examples
 
 #### never
 
@@ -169,6 +160,47 @@ if (-1 < str.indexOf(substr)) {
   // ...
 }
 ```
+
+## Configuration
+
+### The 1st option
+
+type: `"never" | "always"`
+
+#### `"never"`
+
+The default `"never"` option can have exception options in an object literal, via `exceptRange` and `onlyEquality`.
+
+#### `"always"`
+
+The `"always"` option requires that literal values must always come first in comparisons.
+
+### The 2nd option
+
+This option is an object with the following properties:
+
+#### exceptRange
+
+type: `boolean`
+
+default: `false`
+
+If the `"exceptRange"` property is `true`, the rule _allows_ yoda conditions
+in range comparisons which are wrapped directly in parentheses, including the
+parentheses of an `if` or `while` condition.
+A _range_ comparison tests whether a variable is inside or outside the range
+between two literal values.
+
+#### onlyEquality
+
+type: `boolean`
+
+default: `false`
+
+If the `"onlyEquality"` property is `true`, the rule reports yoda
+conditions _only_ for the equality operators `==` and `===`. The `onlyEquality`
+option allows a superset of the exceptions which `exceptRange` allows, thus
+both options are not useful together.
 
 ## How to use
 

@@ -26,26 +26,6 @@ stack traces of errors thrown in it or any function called within it.
 This makes it more difficult to find where an error is thrown.
 Providing an explicit name also improves readability and consistency.
 
-### Options
-
-First option:
-
-- Type: `string`
-- Default: `"always"`
-- Possible values:
-  - `"always"` - requires all function expressions to have a name.
-  - `"as-needed"` - requires a name only if one is not automatically inferred.
-  - `"never"` - disallows names for function expressions.
-
-Second option:
-
-- Type: `object`
-- Properties:
-  - `generators`: `("always" | "as-needed" | "never")` (default: falls back to first option)
-    - `"always"` - require named generator function expressions.
-    - `"as-needed"` - require a name only when not inferred.
-    - `"never"` - disallow names for generator function expressions.
-
 Example configuration:
 
 ```json
@@ -204,6 +184,44 @@ Examples of **correct** code for this rule with the `"never", { "generators": "a
 /* func-names: ["error", "never", { "generators": "always" }] */
 
 const foo = bar(function* baz() {});
+```
+
+## Configuration
+
+### The 1st option
+
+type: `"always" | "as-needed" | "never"`
+
+#### `"always"`
+
+Requires all function expressions to have a name.
+
+#### `"as-needed"`
+
+Requires a name only if one is not automatically inferred.
+
+#### `"never"`
+
+Disallows names for function expressions.
+
+### The 2nd option
+
+This option is an object with the following properties:
+
+#### generators
+
+Configuration for generator function expressions. If not specified, uses the
+primary configuration.
+
+Accepts `always`, `as-needed`, or `never`.
+
+Generator functions are those defined using the `function*` syntax.
+
+```js
+function* foobar(i) {
+  yield i;
+  yield i + 10;
+}
 ```
 
 ## How to use
