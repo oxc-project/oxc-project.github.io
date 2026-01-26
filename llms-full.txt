@@ -20535,6 +20535,44 @@ The Oxc formatter is built around the same core concepts as Prettier but with si
 ---
 
 ---
+url: /docs/guide/introduction.md
+---
+
+# Getting Started
+
+[What is Oxc?](/docs/guide/what-is-oxc)
+
+## Lint or format a codebase
+
+* Lint: [Oxlint](/docs/guide/usage/linter)
+* Format: [Oxfmt](/docs/guide/usage/formatter)
+
+## Build tooling on top of Oxc
+
+* Parse JavaScript and TypeScript: [Parser](/docs/guide/usage/parser)
+* Transform TypeScript, JSX, and modern JavaScript: [Transformer](/docs/guide/usage/transformer)
+* Minify JavaScript for production builds: [Minifier](/docs/guide/usage/minifier)
+* Resolve modules for JavaScript and TypeScript: [Resolver](/docs/guide/usage/resolver)
+
+## Contribute or learn
+
+* [Contribute](/docs/contribute/introduction)
+* [Learn](/docs/learn/parser_in_rust/intro.html)
+
+## Other resources
+
+* [Troubleshooting](/docs/guide/troubleshooting)
+* [Benchmarks](/docs/guide/benchmarks)
+* [Projects using Oxc](/docs/guide/projects)
+* [Talks and media](/docs/guide/media)
+* [Team](/team)
+* [Endorsements](/endorsements)
+* [Release Blog](/blog/)
+* [Releases](https://github.com/oxc-project/oxc/releases)
+
+---
+
+---
 url: /docs/contribute/development.md
 ---
 
@@ -20615,44 +20653,6 @@ macOS has an antivirus feature called XProtect that scans executables for malwar
 **Note:** This disables an OS security feature. Only do this if you're comfortable with the trade-off.
 
 More details: https://nnethercote.github.io/2025/09/04/faster-rust-builds-on-mac.html
-
----
-
----
-url: /docs/guide/introduction.md
----
-
-# Getting Started
-
-[What is Oxc?](/docs/guide/what-is-oxc)
-
-## Lint or format a codebase
-
-* Lint: [Oxlint](/docs/guide/usage/linter)
-* Format: [Oxfmt](/docs/guide/usage/formatter)
-
-## Build tooling on top of Oxc
-
-* Parse JavaScript and TypeScript: [Parser](/docs/guide/usage/parser)
-* Transform TypeScript, JSX, and modern JavaScript: [Transformer](/docs/guide/usage/transformer)
-* Minify JavaScript for production builds: [Minifier](/docs/guide/usage/minifier)
-* Resolve modules for JavaScript and TypeScript: [Resolver](/docs/guide/usage/resolver)
-
-## Contribute or learn
-
-* [Contribute](/docs/contribute/introduction)
-* [Learn](/docs/learn/parser_in_rust/intro.html)
-
-## Other resources
-
-* [Troubleshooting](/docs/guide/troubleshooting)
-* [Benchmarks](/docs/guide/benchmarks)
-* [Projects using Oxc](/docs/guide/projects)
-* [Talks and media](/docs/guide/media)
-* [Team](/team)
-* [Endorsements](/endorsements)
-* [Release Blog](/blog/)
-* [Releases](https://github.com/oxc-project/oxc/releases)
 
 ---
 
@@ -40469,6 +40469,184 @@ Today, comments are not printed. *It will be supported thanks to [oxc-parser #13
 ---
 
 ---
+url: /docs/learn/architecture/parser.md
+---
+
+# Parser Architecture
+
+Oxc maintains its own AST and parser, which is by far the fastest and most conformant JavaScript and TypeScript (including JSX and TSX) parser written in Rust.
+
+As the parser often represents a key performance bottleneck in JavaScript tooling,
+any minor improvements can have a cascading effect on our downstream tools.
+By developing our parser, we have the opportunity to explore and implement well-researched performance techniques.
+
+## AST Design Philosophy
+
+While many existing JavaScript tools rely on [estree] as their AST specification,
+a notable drawback is its abundance of ambiguous nodes.
+This ambiguity often leads to confusion during development with [estree].
+
+The Oxc AST differs from the [estree] AST by removing ambiguous nodes and introducing distinct types.
+For example, instead of using a generic [estree] `Identifier`,
+the Oxc AST provides specific types such as `BindingIdentifier`, `IdentifierReference`, and `IdentifierName`.
+
+This clear distinction greatly enhances the development experience by aligning more closely with the ECMAScript specification.
+
+### AST Node Types
+
+```rust
+// Instead of generic Identifier
+pub struct BindingIdentifier<'a> {
+    pub span: Span,
+    pub name: Atom<'a>,
+}
+
+pub struct IdentifierReference<'a> {
+    pub span: Span,
+    pub name: Atom<'a>,
+    pub reference_id: Cell<Option<ReferenceId>>,
+}
+
+pub struct IdentifierName<'a> {
+    pub span: Span,
+    pub name: Atom<'a>,
+}
+```
+
+### Semantic Clarity
+
+This approach provides semantic clarity:
+
+* **`BindingIdentifier`**: Variable declarations (`let x = 1`)
+* **`IdentifierReference`**: Variable usage (`console.log(x)`)
+* **`IdentifierName`**: Property names (`obj.property`)
+
+## Performance Architecture
+
+### How is it so fast
+
+* **Memory Arena**: AST is allocated in a [memory arena](https://crates.io/crates/bumpalo) for fast allocation and deallocation
+* **String Optimization**: Short strings are inlined by [CompactString](https://crates.io/crates/compact_str)
+* **Minimal Heap Usage**: No other heap allocations are done except the above two
+* **Separation of Concerns**: Scope binding, symbol resolution and some syntax errors are delegated to the semantic analyzer
+
+### Memory Management Details
+
+#### Arena Allocation
+
+```rust
+use oxc_allocator::Allocator;
+
+// All AST nodes are allocated in this arena
+let allocator = Allocator::default();
+let ast_node = allocator.alloc(Expression::NumericLiteral(
+    allocator.alloc(NumericLiteral { value: 42.0, span: SPAN })
+));
+```
+
+Benefits:
+
+* **O(1) allocation**: Simple pointer bump
+* **O(1) deallocation**: Drop entire arena at once
+* **Cache-friendly**: Linear memory layout
+* **No fragmentation**: Continuous memory usage
+
+#### String Interning with CompactString
+
+```rust
+// Strings ≤ 24 bytes are stored inline (no heap allocation)
+let short_name = CompactString::from("variableName");  // Stack allocated
+let long_name = CompactString::from("a_very_long_variable_name_that_exceeds_limit");  // Heap allocated
+```
+
+This reduces memory allocations for the majority of JavaScript identifiers and string literals.
+
+## Parser Architecture
+
+### Two-Phase Design
+
+The Oxc parser follows a two-phase approach:
+
+1. **Parsing Phase**: Build AST structure with minimal semantic analysis
+2. **Semantic Phase**: Perform scope analysis, symbol resolution, and advanced error checking
+
+```rust
+// Phase 1: Parse to AST
+let parser_result = Parser::new(&allocator, source_text, source_type).parse();
+
+// Phase 2: Semantic analysis
+let semantic_result = SemanticBuilder::new(source_text, source_type)
+    .with_trivias(parser_result.trivias)
+    .build(&parser_result.program);
+```
+
+### Parser Components
+
+#### Lexer
+
+* **Token generation**: Converts source text to structured tokens
+* **SIMD optimization**: Uses SIMD instructions for whitespace skipping
+* **Context-aware**: Handles regex vs division operator disambiguation
+
+#### Recursive Descent Parser
+
+* **Hand-written**: Custom implementation for maximum performance
+* **Error recovery**: Advanced error handling with meaningful messages
+* **Grammar compliance**: Follows ECMAScript specification precisely
+
+#### AST Builder
+
+* **Type safety**: Leverages Rust's type system for correctness
+* **Memory efficiency**: Direct arena allocation
+* **Builder pattern**: Convenient node construction methods
+
+## Conformance Strategy
+
+### Test Suite Coverage
+
+* **Test262**: 100% pass rate on ECMAScript conformance tests
+* **Babel**: 99.62% compatibility with Babel parser tests
+* **TypeScript**: 99.86% compatibility with TypeScript compiler tests
+
+### Error Handling Philosophy
+
+```rust
+// Meaningful error messages with source location
+pub struct OxcDiagnostic {
+    pub message: String,
+    pub span: Span,
+    pub severity: Severity,
+    pub help: Option<String>,
+}
+```
+
+The parser provides:
+
+* **Precise error locations**: Exact source positions
+* **Recovery strategies**: Continue parsing after errors
+* **Helpful suggestions**: Actionable error messages
+
+## Advanced Features
+
+### TypeScript Support
+
+* **Type stripping**: Removes TypeScript-specific syntax
+* **Decorator parsing**: Handles experimental decorators
+* **Namespace support**: Full module and namespace parsing
+* **JSX integration**: TypeScript + JSX (TSX) support
+
+### Research Areas
+
+* **SIMD text processing**: Vectorized string operations
+* **Cache optimization**: Minimize memory access patterns
+* **Branch prediction**: Optimize hot parsing paths
+* **Zero-copy parsing**: Eliminate unnecessary string copies
+
+[estree]: https://github.com/estree/estree
+
+---
+
+---
 url: /docs/learn/parser_in_rust/parser.md
 ---
 
@@ -40875,184 +41053,6 @@ function isParenthesizedArrowFunctionExpression(): Tristate {
 ```
 
 In summary, the TypeScript parser uses a combination of lookahead (fast path) and backtracking to parse arrow functions.
-
----
-
----
-url: /docs/learn/architecture/parser.md
----
-
-# Parser Architecture
-
-Oxc maintains its own AST and parser, which is by far the fastest and most conformant JavaScript and TypeScript (including JSX and TSX) parser written in Rust.
-
-As the parser often represents a key performance bottleneck in JavaScript tooling,
-any minor improvements can have a cascading effect on our downstream tools.
-By developing our parser, we have the opportunity to explore and implement well-researched performance techniques.
-
-## AST Design Philosophy
-
-While many existing JavaScript tools rely on [estree] as their AST specification,
-a notable drawback is its abundance of ambiguous nodes.
-This ambiguity often leads to confusion during development with [estree].
-
-The Oxc AST differs from the [estree] AST by removing ambiguous nodes and introducing distinct types.
-For example, instead of using a generic [estree] `Identifier`,
-the Oxc AST provides specific types such as `BindingIdentifier`, `IdentifierReference`, and `IdentifierName`.
-
-This clear distinction greatly enhances the development experience by aligning more closely with the ECMAScript specification.
-
-### AST Node Types
-
-```rust
-// Instead of generic Identifier
-pub struct BindingIdentifier<'a> {
-    pub span: Span,
-    pub name: Atom<'a>,
-}
-
-pub struct IdentifierReference<'a> {
-    pub span: Span,
-    pub name: Atom<'a>,
-    pub reference_id: Cell<Option<ReferenceId>>,
-}
-
-pub struct IdentifierName<'a> {
-    pub span: Span,
-    pub name: Atom<'a>,
-}
-```
-
-### Semantic Clarity
-
-This approach provides semantic clarity:
-
-* **`BindingIdentifier`**: Variable declarations (`let x = 1`)
-* **`IdentifierReference`**: Variable usage (`console.log(x)`)
-* **`IdentifierName`**: Property names (`obj.property`)
-
-## Performance Architecture
-
-### How is it so fast
-
-* **Memory Arena**: AST is allocated in a [memory arena](https://crates.io/crates/bumpalo) for fast allocation and deallocation
-* **String Optimization**: Short strings are inlined by [CompactString](https://crates.io/crates/compact_str)
-* **Minimal Heap Usage**: No other heap allocations are done except the above two
-* **Separation of Concerns**: Scope binding, symbol resolution and some syntax errors are delegated to the semantic analyzer
-
-### Memory Management Details
-
-#### Arena Allocation
-
-```rust
-use oxc_allocator::Allocator;
-
-// All AST nodes are allocated in this arena
-let allocator = Allocator::default();
-let ast_node = allocator.alloc(Expression::NumericLiteral(
-    allocator.alloc(NumericLiteral { value: 42.0, span: SPAN })
-));
-```
-
-Benefits:
-
-* **O(1) allocation**: Simple pointer bump
-* **O(1) deallocation**: Drop entire arena at once
-* **Cache-friendly**: Linear memory layout
-* **No fragmentation**: Continuous memory usage
-
-#### String Interning with CompactString
-
-```rust
-// Strings ≤ 24 bytes are stored inline (no heap allocation)
-let short_name = CompactString::from("variableName");  // Stack allocated
-let long_name = CompactString::from("a_very_long_variable_name_that_exceeds_limit");  // Heap allocated
-```
-
-This reduces memory allocations for the majority of JavaScript identifiers and string literals.
-
-## Parser Architecture
-
-### Two-Phase Design
-
-The Oxc parser follows a two-phase approach:
-
-1. **Parsing Phase**: Build AST structure with minimal semantic analysis
-2. **Semantic Phase**: Perform scope analysis, symbol resolution, and advanced error checking
-
-```rust
-// Phase 1: Parse to AST
-let parser_result = Parser::new(&allocator, source_text, source_type).parse();
-
-// Phase 2: Semantic analysis
-let semantic_result = SemanticBuilder::new(source_text, source_type)
-    .with_trivias(parser_result.trivias)
-    .build(&parser_result.program);
-```
-
-### Parser Components
-
-#### Lexer
-
-* **Token generation**: Converts source text to structured tokens
-* **SIMD optimization**: Uses SIMD instructions for whitespace skipping
-* **Context-aware**: Handles regex vs division operator disambiguation
-
-#### Recursive Descent Parser
-
-* **Hand-written**: Custom implementation for maximum performance
-* **Error recovery**: Advanced error handling with meaningful messages
-* **Grammar compliance**: Follows ECMAScript specification precisely
-
-#### AST Builder
-
-* **Type safety**: Leverages Rust's type system for correctness
-* **Memory efficiency**: Direct arena allocation
-* **Builder pattern**: Convenient node construction methods
-
-## Conformance Strategy
-
-### Test Suite Coverage
-
-* **Test262**: 100% pass rate on ECMAScript conformance tests
-* **Babel**: 99.62% compatibility with Babel parser tests
-* **TypeScript**: 99.86% compatibility with TypeScript compiler tests
-
-### Error Handling Philosophy
-
-```rust
-// Meaningful error messages with source location
-pub struct OxcDiagnostic {
-    pub message: String,
-    pub span: Span,
-    pub severity: Severity,
-    pub help: Option<String>,
-}
-```
-
-The parser provides:
-
-* **Precise error locations**: Exact source positions
-* **Recovery strategies**: Continue parsing after errors
-* **Helpful suggestions**: Actionable error messages
-
-## Advanced Features
-
-### TypeScript Support
-
-* **Type stripping**: Removes TypeScript-specific syntax
-* **Decorator parsing**: Handles experimental decorators
-* **Namespace support**: Full module and namespace parsing
-* **JSX integration**: TypeScript + JSX (TSX) support
-
-### Research Areas
-
-* **SIMD text processing**: Vectorized string operations
-* **Cache optimization**: Minimize memory access patterns
-* **Branch prediction**: Optimize hot parsing paths
-* **Zero-copy parsing**: Eliminate unnecessary string copies
-
-[estree]: https://github.com/estree/estree
 
 ---
 
@@ -48703,120 +48703,6 @@ To automatically install the git hook when installing dependencies, considering 
 ---
 
 ---
-url: /docs/guide/usage/linter/editors.md
-description: 'Configure Oxlint in VS Code, Zed, JetBrains, and other editors.'
----
-
-# Setup editors
-
-Editor extensions use `oxlint --lsp` from your project, so `oxlint` must be installed locally.
-
-See [Quickstart](./quickstart) to install Oxlint.
-
-## Supported editors
-
-* [VS Code](#vs-code) (and Cursor, etc.)
-* [Zed](#zed)
-* [JetBrains](#jetbrains)
-* [coc.nvim](#cocnvim)
-* [Other editors](#other-editors)
-
-## VS Code
-
-### Install
-
-Download the official Oxc VS Code extension from:
-
-* [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=oxc.oxc-vscode)
-* [Open VSX Registry](https://open-vsx.org/extension/oxc/oxc-vscode)
-
-**The extension is compatible with other VS Code-based editors**, including Cursor.
-
-### Team setup
-
-1. Recommend the extension for contributors:
-
-`.vscode/extensions.json`:
-
-```json [.vscode/extensions.json]
-{
-  "recommendations": ["oxc.oxc-vscode"]
-}
-```
-
-2. Enable fix-on-save in `.vscode/settings.json`:
-
-```json [.vscode/settings.json]
-{
-  "editor.codeActionsOnSave": {
-    "source.fixAll.oxc": "always"
-  }
-}
-```
-
-3. Enable type-aware linting in `.vscode/settings.json`:
-
-```json [.vscode/settings.json]
-{
-  "oxc.typeAware": true
-}
-```
-
-You also need to ensure `oxlint-tsgolint` is installed in your project. See [the type-aware linting docs](/docs/guide/usage/linter/type-aware) for more details.
-
-### Reference
-
-* [oxc-project/oxc/editors/vscode](https://github.com/oxc-project/oxc/tree/main/editors/vscode)
-
-## Zed
-
-### Install
-
-* [Oxc Zed Extension](https://zed.dev/extensions/oxc)
-
-### Reference
-
-* [oxc-project/oxc-zed](https://github.com/oxc-project/oxc-zed)
-
-## JetBrains
-
-IntelliJ IDEA and WebStorm.
-
-### Install
-
-* [Oxc in JetBrains Marketplace](https://plugins.jetbrains.com/plugin/27061-oxc)
-
-### Reference
-
-* [oxc-project/oxc-intellij-plugin](https://github.com/oxc-project/oxc-intellij-plugin)
-
-## coc.nvim
-
-### Install
-
-```vim
-:CocInstall coc-oxc
-```
-
-### Reference
-
-* [oxc-project/coc-oxc](https://github.com/oxc-project/coc-oxc)
-
-## Other editors
-
-For editors with LSP support (Neovim, Emacs, Helix, Sublime), configure:
-
-```bash
-oxlint --lsp
-```
-
-## Reference
-
-* [oxc\_language\_server](https://github.com/oxc-project/oxc/tree/main/crates/oxc_language_server)
-
----
-
----
 url: /docs/guide/usage/formatter/editors.md
 description: 'Configure Oxfmt in VS Code, Zed, JetBrains, and other editors.'
 ---
@@ -48935,6 +48821,120 @@ For editors without LSP support:
 
 ```sh
 cat foo/bar.js | oxfmt --stdin-filepath f.js --config ./path/to/config.json
+```
+
+## Reference
+
+* [oxc\_language\_server](https://github.com/oxc-project/oxc/tree/main/crates/oxc_language_server)
+
+---
+
+---
+url: /docs/guide/usage/linter/editors.md
+description: 'Configure Oxlint in VS Code, Zed, JetBrains, and other editors.'
+---
+
+# Setup editors
+
+Editor extensions use `oxlint --lsp` from your project, so `oxlint` must be installed locally.
+
+See [Quickstart](./quickstart) to install Oxlint.
+
+## Supported editors
+
+* [VS Code](#vs-code) (and Cursor, etc.)
+* [Zed](#zed)
+* [JetBrains](#jetbrains)
+* [coc.nvim](#cocnvim)
+* [Other editors](#other-editors)
+
+## VS Code
+
+### Install
+
+Download the official Oxc VS Code extension from:
+
+* [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=oxc.oxc-vscode)
+* [Open VSX Registry](https://open-vsx.org/extension/oxc/oxc-vscode)
+
+**The extension is compatible with other VS Code-based editors**, including Cursor.
+
+### Team setup
+
+1. Recommend the extension for contributors:
+
+`.vscode/extensions.json`:
+
+```json [.vscode/extensions.json]
+{
+  "recommendations": ["oxc.oxc-vscode"]
+}
+```
+
+2. Enable fix-on-save in `.vscode/settings.json`:
+
+```json [.vscode/settings.json]
+{
+  "editor.codeActionsOnSave": {
+    "source.fixAll.oxc": "always"
+  }
+}
+```
+
+3. Enable type-aware linting in `.vscode/settings.json`:
+
+```json [.vscode/settings.json]
+{
+  "oxc.typeAware": true
+}
+```
+
+You also need to ensure `oxlint-tsgolint` is installed in your project. See [the type-aware linting docs](/docs/guide/usage/linter/type-aware) for more details.
+
+### Reference
+
+* [oxc-project/oxc/editors/vscode](https://github.com/oxc-project/oxc/tree/main/editors/vscode)
+
+## Zed
+
+### Install
+
+* [Oxc Zed Extension](https://zed.dev/extensions/oxc)
+
+### Reference
+
+* [oxc-project/oxc-zed](https://github.com/oxc-project/oxc-zed)
+
+## JetBrains
+
+IntelliJ IDEA and WebStorm.
+
+### Install
+
+* [Oxc in JetBrains Marketplace](https://plugins.jetbrains.com/plugin/27061-oxc)
+
+### Reference
+
+* [oxc-project/oxc-intellij-plugin](https://github.com/oxc-project/oxc-intellij-plugin)
+
+## coc.nvim
+
+### Install
+
+```vim
+:CocInstall coc-oxc
+```
+
+### Reference
+
+* [oxc-project/coc-oxc](https://github.com/oxc-project/coc-oxc)
+
+## Other editors
+
+For editors with LSP support (Neovim, Emacs, Helix, Sublime), configure:
+
+```bash
+oxlint --lsp
 ```
 
 ## Reference

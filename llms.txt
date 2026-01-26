@@ -192,8 +192,8 @@
 - [eslint/yoda](/docs/guide/usage/linter/rules/eslint/yoda.md)
 - [FAQ](/docs/guide/usage/minifier/faq.md)
 - [Formatter](/docs/contribute/formatter.md)
-- [Getting Started](/docs/contribute/development.md)
 - [Getting Started](/docs/guide/introduction.md)
+- [Getting Started](/docs/contribute/development.md)
 - [Global Variable Replacement](/docs/guide/usage/transformer/global-variable-replacement.md)
 - [Grammar](/docs/learn/ecmascript/grammar.md)
 - [Ignore files](/docs/guide/usage/formatter/ignore-files.md)
@@ -407,8 +407,8 @@
 - [Oxlint Configuration File](/docs/guide/usage/linter/config-file-reference.md)
 - [Parser](/docs/contribute/parser.md)
 - [Parser](/docs/guide/usage/parser.md)
-- [Parser](/docs/learn/parser_in_rust/parser.md)
 - [Parser](/docs/learn/architecture/parser.md)
+- [Parser](/docs/learn/parser_in_rust/parser.md)
 - [Performance](/docs/learn/performance.md)
 - [Profiling](/docs/contribute/profiling.md)
 - [Projects using Oxc](/docs/guide/projects.md)
@@ -493,8 +493,8 @@
 - [Semantic Analysis](/docs/learn/parser_in_rust/semantic_analysis.md)
 - [Setup CI and other integrations](/docs/guide/usage/linter/ci.md): Run Oxlint in CI or as a git hook.
 - [Setup CI and other integrations](/docs/guide/usage/formatter/ci.md): Run Oxfmt in CI or as a git hook.
-- [Setup editors](/docs/guide/usage/linter/editors.md): Configure Oxlint in VS Code, Zed, JetBrains, and other editors.
 - [Setup editors](/docs/guide/usage/formatter/editors.md): Configure Oxfmt in VS Code, Zed, JetBrains, and other editors.
+- [Setup editors](/docs/guide/usage/linter/editors.md): Configure Oxlint in VS Code, Zed, JetBrains, and other editors.
 - [Sorting](/docs/guide/usage/formatter/sorting.md)
 - [Specification](/docs/learn/ecmascript/spec.md)
 - [Syntax Lowering](/docs/guide/usage/transformer/lowering.md)
