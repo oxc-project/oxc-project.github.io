@@ -4,8 +4,15 @@ url: /docs/guide/usage/linter/rules/react/checked-requires-onchange-or-readonly.
 
 ### What it does
 
-This rule enforces onChange or readonly attribute for checked property of input elements.
-It also warns when checked and defaultChecked properties are used together.
+This rule enforces `onChange` or `readOnly` attribute for checked property of input elements.
+It also warns when `checked` and `defaultChecked` properties are used together.
+
+### Why is this bad?
+
+`checked` should generally always be used with one of `onChange` or `readOnly`.
+
+And using `checked` and `defaultChecked` together is likely an error as they are mutually
+exclusive ways to control the checked state of an input element.
 
 ### Examples
 

@@ -95,15 +95,34 @@ const foo = {
 
 ## Configuration
 
-This rule accepts a configuration object with the following properties:
+### The 1st option
 
-### enforceForTSTypes
+type: `"anyOrder" | "getBeforeSet" | "setBeforeGet"`
+
+#### `"anyOrder"`
+
+Accessors can be in any order. This is the default.
+
+#### `"getBeforeSet"`
+
+Getters must come before setters.
+
+#### `"setBeforeGet"`
+
+Setters must come before getters.
+
+### The 2nd option
+
+This option is an object with the following properties:
+
+#### enforceForTSTypes
 
 type: `boolean`
 
 default: `false`
 
-When `enforceForTSTypes` is enabled, this rule also applies to TypeScript interfaces and type aliases:
+When `enforceForTSTypes` is enabled, this rule also applies to TypeScript interfaces
+and type aliases.
 
 Examples of **incorrect** TypeScript code:
 
@@ -136,18 +155,6 @@ type Bar = {
   someProperty: string;
 };
 ```
-
-### pairOrder
-
-type: `"anyOrder" | "getBeforeSet" | "setBeforeGet"`
-
-default: `"anyOrder"`
-
-A string value to control the order of the getter/setter pairs:
-
-* `"anyOrder"`: Accessors can be in any order
-* `"getBeforeSet"`: Getters must come before setters
-* `"setBeforeGet"`: Setters must come before getters
 
 ## How to use
 

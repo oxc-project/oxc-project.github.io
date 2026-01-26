@@ -4,7 +4,14 @@ url: /docs/guide/usage/linter/rules/jsx_a11y/role-supports-aria-props.md
 
 ### What it does
 
-Enforce that elements with explicit or implicit roles defined contain only `aria-*` properties supported by that `role`. Many ARIA attributes (states and properties) can only be used on elements with particular roles. Some elements have implicit roles, such as `<a href="#" />`, which will resolve to `role="link"`.
+Enforce that elements with explicit or implicit roles defined contain only `aria-*` properties supported by that `role`.
+Many ARIA attributes (states and properties) can only be used on elements with particular roles.
+Some elements have implicit roles, such as `<a href="#" />`, which will resolve to `role="link"`.
+
+### Why is this bad?
+
+Using ARIA attributes that are inconsistent with the element's role can cause problems for assistive
+technologies and their ability to understand or engage with the content of a page.
 
 ### Examples
 

@@ -6,21 +6,21 @@ url: /docs/guide/usage/linter/rules/oxc/only-used-in-recursion.md
 
 Checks for arguments that are only used in recursion with no side-effects.
 
-Inspired by https://rust-lang.github.io/rust-clippy/master/#/only\_used\_in\_recursion
+Inspired by [the `only_used_in_recursion` rule in Clippy](https://rust-lang.github.io/rust-clippy/master/#only_used_in_recursion).
 
 ### Why is this bad?
 
 Supplying an argument that is only used in recursive calls is likely a mistake.
 
-It increase cognitive complexity and may impact performance.
+It increases cognitive complexity and may impact performance.
 
 ### Examples
 
 Examples of **incorrect** code for this rule:
 
 ```ts
-function test(only_used_in_recursion) {
-  return test(only_used_in_recursion);
+function test(onlyUsedInRecursion) {
+  return test(onlyUsedInRecursion);
 }
 ```
 

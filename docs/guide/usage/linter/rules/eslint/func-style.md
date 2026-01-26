@@ -135,9 +135,15 @@ export function baz() {
 
 ## Configuration
 
-This rule accepts a configuration object with the following properties:
+### The 1st option
 
-### allowArrowFunctions
+type: `"expression" | "declaration"`
+
+### The 2nd option
+
+This option is an object with the following properties:
+
+#### allowArrowFunctions
 
 type: `boolean`
 
@@ -145,7 +151,7 @@ default: `false`
 
 When true, arrow functions are allowed regardless of the style setting.
 
-### allowTypeAnnotation
+#### allowTypeAnnotation
 
 type: `boolean`
 
@@ -153,21 +159,15 @@ default: `false`
 
 When true, functions with type annotations are allowed regardless of the style setting.
 
-### namedExports
+#### overrides
+
+type: `object`
+
+##### overrides.namedExports
 
 type: `"ignore" | "expression" | "declaration"`
 
 default: `null`
-
-Override the style specifically for named exports. Can be "expression", "declaration", or "ignore" (default).
-
-### style
-
-type: `"expression" | "declaration"`
-
-default: `"expression"`
-
-The style to enforce. Either "expression" (default) or "declaration".
 
 ## How to use
 

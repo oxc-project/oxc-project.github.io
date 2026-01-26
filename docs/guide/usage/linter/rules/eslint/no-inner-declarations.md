@@ -4,7 +4,7 @@ url: /docs/guide/usage/linter/rules/eslint/no-inner-declarations.md
 
 ### What it does
 
-Disallow variable or function declarations in nested blocks
+Disallow variable or function declarations in nested blocks.
 
 ### Why is this bad?
 
@@ -33,29 +33,9 @@ if (test) {
 
 ## Configuration
 
-This rule accepts a configuration object with the following properties:
-
-### blockScopedFunctions
-
-type: `"allow" | "disallow"`
-
-default: `null`
-
-Controls whether function declarations in nested blocks are allowed in strict mode (ES6+ behavior).
-
-#### `"allow"`
-
-Allow function declarations in nested blocks in strict mode (ES6+ behavior).
-
-#### `"disallow"`
-
-Disallow function declarations in nested blocks regardless of strict mode.
-
-### config
+### The 1st option
 
 type: `"functions" | "both"`
-
-default: `"functions"`
 
 Determines what type of declarations to check.
 
@@ -66,6 +46,22 @@ Disallows function declarations in nested blocks.
 #### `"both"`
 
 Disallows function and var declarations in nested blocks.
+
+### The 2nd option
+
+This option is an object with the following properties:
+
+#### blockScopedFunctions
+
+type: `"allow" | "disallow"`
+
+##### `"allow"`
+
+Allow function declarations in nested blocks in strict mode (ES6+ behavior).
+
+##### `"disallow"`
+
+Disallow function declarations in nested blocks regardless of strict mode.
 
 ## How to use
 

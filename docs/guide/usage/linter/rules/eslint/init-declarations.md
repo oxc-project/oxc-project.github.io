@@ -4,7 +4,7 @@ url: /docs/guide/usage/linter/rules/eslint/init-declarations.md
 
 ### What it does
 
-Require or disallow initialization in variable declarations
+Require or disallow initialization in variable declarations.
 
 ### Why is this bad?
 
@@ -77,9 +77,23 @@ for (var i = 0; i < 1; i++) {}
 
 ## Configuration
 
-This rule accepts a configuration object with the following properties:
+### The 1st option
 
-### ignoreForLoopInit
+type: `"always" | "never"`
+
+#### `"always"`
+
+Requires that variables be initialized on declaration. This is the default behavior.
+
+#### `"never"`
+
+Disallows initialization during declaration.
+
+### The 2nd option
+
+This option is an object with the following properties:
+
+#### ignoreForLoopInit
 
 type: `boolean`
 
@@ -87,13 +101,6 @@ default: `false`
 
 When set to `true`, allows uninitialized variables in the init expression of `for`, `for-in`, and `for-of` loops.
 Only applies when mode is set to `"never"`.
-
-### mode
-
-type: `"always" | "never"`
-
-When set to `"always"` (default), requires that variables be initialized on declaration.
-When set to `"never"`, disallows initialization during declaration.
 
 ## How to use
 

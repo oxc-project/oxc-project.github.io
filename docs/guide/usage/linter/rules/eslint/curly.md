@@ -123,12 +123,12 @@ while (foo) {
 }
 ```
 
-#### `{ "consistent": true }`
+#### `"consistent"`
 
-When enabled, `consistent: true` enforces consistent use of braces within an `if-else` chain.
+When enabled, `"consistent"` enforces consistent use of braces within an `if-else` chain.
 If one branch of the chain uses braces, then all branches must use braces, even if not strictly required by the first option.
 
-Examples of **incorrect** code with `"multi"` and `consistent: true`:
+Examples of **incorrect** code with `"multi"` and `"consistent"`:
 
 ```js
 /* curly: ["error", "multi", "consistent"] */
@@ -145,7 +145,7 @@ else {
 }
 ```
 
-Examples of **correct** code with `"multi"` and `consistent: true`:
+Examples of **correct** code with `"multi"` and `"consistent"`:
 
 ```js
 /* curly: ["error", "multi", "consistent"] */
@@ -165,7 +165,7 @@ if (foo) {
 }
 ```
 
-Examples of **incorrect** code with `"multi-line"` and `consistent: true`:
+Examples of **incorrect** code with `"multi-line"` and `"consistent"`:
 
 ```js
 /* curly: ["error", "multi-line", "consistent"] */
@@ -175,7 +175,7 @@ if (foo) {
 } else baz();
 ```
 
-Examples of **correct** code with `"multi-line"` and `consistent: true`:
+Examples of **correct** code with `"multi-line"` and `"consistent"`:
 
 ```js
 /* curly: ["error", "multi-line", "consistent"] */
@@ -187,7 +187,7 @@ if (foo) {
 }
 ```
 
-Examples of **incorrect** code with `"multi-or-nest"` and `consistent: true`:
+Examples of **incorrect** code with `"multi-or-nest"` and `"consistent"`:
 
 ```js
 /* curly: ["error", "multi-or-nest", "consistent"] */
@@ -197,7 +197,7 @@ if (foo) {
 } else qux();
 ```
 
-Examples of **correct** code with `"multi-or-nest"` and `consistent: true`:
+Examples of **correct** code with `"multi-or-nest"` and `"consistent"`:
 
 ```js
 /* curly: ["error", "multi-or-nest", "consistent"] */

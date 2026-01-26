@@ -13,7 +13,7 @@ feature is often helpful while debugging or to create placeholders for future
 tests. Before committing changes we may want to check that all tests are
 running.
 
-### Example
+### Examples
 
 ```js
 describe.skip("foo", () => {});

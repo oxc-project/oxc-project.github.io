@@ -24,11 +24,11 @@ Example configuration:
 }
 ```
 
+### Examples
+
 Examples of **incorrect** code for this rule:
 
 ```js
-/* default-case: ["error"] */
-
 switch (foo) {
   case 1:
     break;
@@ -38,8 +38,6 @@ switch (foo) {
 Examples of **correct** code for this rule:
 
 ```js
-/* default-case: ["error"] */
-
 switch (a) {
   case 1:
     break;
@@ -70,8 +68,6 @@ Default value: `no default`.
 Examples of **incorrect** code for this rule with the `{ "commentPattern": "^skip\\sdefault" }` option:
 
 ```js
-/* default-case: ["error", { "commentPattern": "^skip\sdefault" }] */
-
 switch (a) {
   case 1:
     break;
@@ -82,8 +78,6 @@ switch (a) {
 Examples of **correct** code for this rule with the `{ "commentPattern": "^skip\\sdefault" }` option:
 
 ```js
-/* default-case: ["error", { "commentPattern": "^skip\\sdefault" }] */
-
 switch (a) {
   case 1:
     break;

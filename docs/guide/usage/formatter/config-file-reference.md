@@ -284,11 +284,11 @@ For details, see each field's documentation.
 
 type: `string[]`
 
-List of attribute prefixes that contain Tailwind CSS classes.
+List of additional attributes to sort beyond `class` and `className` (exact match).
 
 NOTE: Regex patterns are not yet supported.
 
-* Default: `["class", "className"]`
+* Default: `[]`
 * Example: `["myClassProp", ":class"]`
 
 ### experimentalTailwindcss.config
@@ -305,7 +305,7 @@ NOTE: Paths are resolved relative to the Oxfmt configuration file.
 
 type: `string[]`
 
-List of custom function name prefixes that contain Tailwind CSS classes.
+List of custom function names whose arguments should be sorted (exact match).
 
 NOTE: Regex patterns are not yet supported.
 
@@ -690,11 +690,11 @@ For details, see each field's documentation.
 
 type: `string[]`
 
-List of attribute prefixes that contain Tailwind CSS classes.
+List of additional attributes to sort beyond `class` and `className` (exact match).
 
 NOTE: Regex patterns are not yet supported.
 
-* Default: `["class", "className"]`
+* Default: `[]`
 * Example: `["myClassProp", ":class"]`
 
 ###### overrides\[n].options.experimentalTailwindcss.config
@@ -711,7 +711,7 @@ NOTE: Paths are resolved relative to the Oxfmt configuration file.
 
 type: `string[]`
 
-List of custom function name prefixes that contain Tailwind CSS classes.
+List of custom function names whose arguments should be sorted (exact match).
 
 NOTE: Regex patterns are not yet supported.
 

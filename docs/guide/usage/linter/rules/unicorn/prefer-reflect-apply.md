@@ -4,6 +4,8 @@ url: /docs/guide/usage/linter/rules/unicorn/prefer-reflect-apply.md
 
 ### What it does
 
+Disallows the use of `Function.prototype.apply()` and suggests using `Reflect.apply()` instead.
+
 ### Why is this bad?
 
 `Reflect.apply()` is arguably less verbose and easier to understand.

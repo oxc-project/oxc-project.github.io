@@ -8,7 +8,9 @@ Ensures that modules only **export React components (and related HMR-safe items)
 that Fast Refresh (a.k.a. hot reloading) can safely preserve component state.
 Concretely, it validates the shape of your module’s exports and common entrypoints
 (e.g. `createRoot(...).render(<App />)`) to match what integrations like
-`react-refresh` expect. The rule name is `react-refresh/only-export-components`.
+`react-refresh` expect.
+
+This rule is based on the rule from `eslint-plugin-react-refresh`.
 
 ### Why is this bad?
 
@@ -84,7 +86,7 @@ This rule accepts a configuration object with the following properties:
 
 type: `boolean`
 
-default: `null`
+default: `false`
 
 Allow exporting primitive constants (string/number/boolean/template literal)
 alongside component exports without triggering a violation. Recommended when your
@@ -101,7 +103,7 @@ export const Foo = () => null;
 
 type: `string[]`
 
-default: `null`
+default: `[]`
 
 Treat specific named exports as HMR-safe (useful for frameworks that hot-replace
 certain exports). For example, in Remix:
@@ -111,7 +113,7 @@ certain exports). For example, in Remix:
 
 type: `boolean`
 
-default: `null`
+default: `false`
 
 Check `.js` files that contain JSX (in addition to `.tsx`/`.jsx`). To reduce
 false positives, only files that import React are checked when this is enabled.
@@ -120,7 +122,7 @@ false positives, only files that import React are checked when this is enabled.
 
 type: `string[]`
 
-default: `null`
+default: `[]`
 
 If you export components wrapped in custom higher-order components, list their
 identifiers here to avoid false positives.

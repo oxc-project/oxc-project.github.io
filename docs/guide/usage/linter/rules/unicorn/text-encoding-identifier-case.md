@@ -6,7 +6,7 @@ url: /docs/guide/usage/linter/rules/unicorn/text-encoding-identifier-case.md
 
 This rule enforces consistent casing for text encoding identifiers, specifically:
 
-* `'utf8'` instead of `'UTF-8'` or `'utf-8'`
+* `'utf8'` instead of `'UTF-8'` or `'utf-8'` (or `'utf-8'` if `withDash` is enabled)
 * `'ascii'` instead of `'ASCII'`
 
 ### Why is this bad?
@@ -39,6 +39,29 @@ async function good() {
   const string = buffer.toString("utf8");
 }
 ```
+
+Examples of **correct** code for this rule with `{ "withDash": true }`:
+
+```javascript
+import fs from "node:fs/promises";
+async function good() {
+  await fs.readFile(file, "utf-8");
+  await fs.readFile(file, "ascii");
+  const string = buffer.toString("utf-8");
+}
+```
+
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### withDash
+
+type: `boolean`
+
+default: `false`
+
+If `true`, prefer `utf-8` over `utf8`.
 
 ## How to use
 
