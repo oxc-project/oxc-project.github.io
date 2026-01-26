@@ -18,7 +18,12 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 ### What it does
 
 This rule enforces `defineProps` typing style which you should use `type-based` or `runtime` declaration.
-This rule only works in setup script and `lang="ts"`.
+This rule only works in `<script setup>` with `lang="ts"`.
+
+### Why is this bad?
+
+Inconsistent code style can be confusing and make code harder to
+read through.
 
 ### Examples
 

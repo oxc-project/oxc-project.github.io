@@ -17,11 +17,12 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 ### What it does
 
-Warn if a `module` could be mistakenly parsed as a `script` and not pure ESM module
+Warn if a `module` could be mistakenly parsed as a `script` instead of
+as a pure [ES module](https://nodejs.org/api/esm.html#modules-ecmascript-modules).
 
 ### Why is this bad?
 
-For ESM-only environments helps to determine files that not pure ESM modules
+For ESM-only environments, ambiguous files may lead to unexpected results and problems.
 
 ### Examples
 

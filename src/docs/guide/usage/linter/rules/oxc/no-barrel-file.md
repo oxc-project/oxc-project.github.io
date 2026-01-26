@@ -35,7 +35,7 @@ References:
 - <https://github.com/thepassle/eslint-plugin-barrel-files>
 - <https://marvinh.dev/blog/speeding-up-javascript-ecosystem-part-7>
 
-### Example
+### Examples
 
 Invalid:
 

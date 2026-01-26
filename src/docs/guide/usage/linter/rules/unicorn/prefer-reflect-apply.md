@@ -17,6 +17,8 @@ const source = `https://github.com/oxc-project/oxc/blob/${ data }/crates/oxc_lin
 
 ### What it does
 
+Disallows the use of `Function.prototype.apply()` and suggests using `Reflect.apply()` instead.
+
 ### Why is this bad?
 
 `Reflect.apply()` is arguably less verbose and easier to understand.

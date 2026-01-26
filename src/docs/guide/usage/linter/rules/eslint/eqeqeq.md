@@ -23,29 +23,7 @@ Requires the use of the `===` and `!==` operators, disallowing the use of `==` a
 
 Using non-strict equality operators leads to unexpected behavior due to type coercion, which can cause hard-to-find bugs.
 
-### Options
-
-First option:
-
-- Type: `string`
-- Default: `"always"`
-
-Possible values:
-
-- `"always"` - always require `===`/`!==`
-- `"smart"` - allow safe comparisons (`typeof`, literals, nullish)
-
-Second option (only used with `"always"`):
-
-- Type: `object`
-- Properties:
-  - `null`: `string` (default: `"always"`) - `"ignore"` allows `== null` and `!= null`.
-
-Possible values for `null`:
-
-- `"always"` - always require `=== null`/`!== null`
-- `"never"` - always require `== null`/`!= null`
-- `"ignore"` - allow both `== null`/`!= null` and `=== null`/`!== null`
+### Examples
 
 Example JSON configuration:
 
@@ -54,8 +32,6 @@ Example JSON configuration:
   "eqeqeq": ["error", "always", { "null": "ignore" }]
 }
 ```
-
-### Examples
 
 #### `"always"` (default)
 
@@ -191,15 +167,39 @@ if (foo != null) {
 
 ## Configuration
 
-This rule accepts a configuration object with the following properties:
-
-### compareType
+### The 1st option
 
 type: `"always" | "smart"`
 
-### nullType
+#### `"always"`
+
+Always require triple-equal comparisons, `===`/`!==`.
+This is the default.
+
+#### `"smart"`
+
+Allow certain safe comparisons to use `==`/`!=` (`typeof`, literals, nullish).
+
+### The 2nd option
+
+This option is an object with the following properties:
+
+#### null
 
 type: `"always" | "never" | "ignore"`
+
+##### `"always"`
+
+Always require triple-equals when comparing with null, `=== null`/`!== null`.
+This is the default.
+
+##### `"never"`
+
+Never require triple-equals when comparing with null, always use `== null`/`!= null`.
+
+##### `"ignore"`
+
+Ignore null comparisons, allow either `== null`/`!= null` or `=== null`/`!== null`.
 
 ## How to use
 

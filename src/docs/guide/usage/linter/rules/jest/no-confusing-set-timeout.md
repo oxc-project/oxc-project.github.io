@@ -25,7 +25,7 @@ Disallow confusing usages of jest.setTimeout
 - being called multiple times
 - being called after other Jest functions like hooks, `describe`, `test`, or `it`
 
-### Example
+### Examples
 
 All of these are invalid case:
 
