@@ -102,11 +102,12 @@ The Oxc parser follows a two-phase approach:
 
 ```rust
 // Phase 1: Parse to AST
-let parser_result = Parser::new(&allocator, source_text, source_type).parse();
+let parser_result = Parser::new(&allocator, &source_text, source_type).parse();
 
 // Phase 2: Semantic analysis
-let semantic_result = SemanticBuilder::new(source_text, source_type)
-    .with_trivias(parser_result.trivias)
+let semantic_result = SemanticBuilder::new()
+    // Enable additional syntax checks not performed by the parser
+    .with_check_syntax_error(true)
     .build(&parser_result.program);
 ```
 
