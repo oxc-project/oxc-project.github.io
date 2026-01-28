@@ -25,7 +25,7 @@ Each target environment is an environment name followed by a version number. The
 * `samsung`
 * `es`
 
-The values that are supported by [esbuild's target option](https://esbuild.github.io/api/#target) are supported.
+The values that are supported by [esbuild's target option](https://esbuild.github.io/api/#target) are supported, excluding ES5.
 
 ```js
 import { transform } from "oxc-transform";
