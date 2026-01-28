@@ -29,11 +29,11 @@ Sort imports by distance (furthest to closest):
     "groups": [
       ["side-effect"],
       ["builtin"],
-      ["external", "external-type"],
-      ["internal", "internal-type"],
-      ["parent", "parent-type"],
-      ["sibling", "sibling-type"],
-      ["index", "index-type"]
+      ["external", "type-external"],
+      ["internal", "type-internal"],
+      ["parent", "type-parent"],
+      ["sibling", "type-sibling"],
+      ["index", "type-index"]
     ]
   }
 }
